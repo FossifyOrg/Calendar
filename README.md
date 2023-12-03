@@ -48,20 +48,8 @@ Simple Calendar 2023 Features
 
 DOWNLOAD SIMPLE CALENDAR PLANNER – OFFLINE SCHEDULE AND AGENDA PLANNER WITH NO ADS! PLAN YOUR 2023 TIMETABLE!
 
-Check out the full suite of Simple Tools here:  
-https://www.simplemobiletools.com
-
-Facebook:  
-https://www.facebook.com/simplemobiletools
-
-Reddit:  
-https://www.reddit.com/r/SimpleMobileTools
-
-Telegram:  
-https://t.me/SimpleMobileTools
-
-<a href='https://play.google.com/store/apps/details?id=com.simplemobiletools.calendar.pro'><img src='https://simplemobiletools.com/images/button-google-play.svg' alt='Get it on Google Play' height='45' /></a>
-<a href='https://f-droid.org/packages/com.simplemobiletools.calendar.pro'><img src='https://simplemobiletools.com/images/button-fdroid.svg' alt='Get it on F-Droid' height='45' /></a>
+Check out the full suite of apps here:  
+https://github.com/FossifyX
 
 <div style="display:flex;">
 <img alt="App image" src="fastlane/metadata/android/en-US/images/phoneScreenshots/1_en-US.jpeg" width="30%">
