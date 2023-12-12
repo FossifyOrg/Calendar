@@ -49,7 +49,7 @@ Simple Calendar 2023 Features
 DOWNLOAD SIMPLE CALENDAR PLANNER – OFFLINE SCHEDULE AND AGENDA PLANNER WITH NO ADS! PLAN YOUR 2023 TIMETABLE!
 
 Check out the full suite of apps here:  
-https://github.com/FossifyX
+https://github.com/FossifyOrg
 
 <div style="display:flex;">
 <img alt="App image" src="fastlane/metadata/android/en-US/images/phoneScreenshots/1_en-US.jpeg" width="30%">
