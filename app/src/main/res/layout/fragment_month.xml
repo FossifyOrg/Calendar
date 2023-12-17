@@ -6,7 +6,7 @@
 
     <include layout="@layout/top_navigation" />
 
-    <com.simplemobiletools.calendar.pro.views.MonthViewWrapper
+    <org.fossify.calendar.views.MonthViewWrapper
         android:id="@+id/month_view_wrapper"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

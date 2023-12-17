@@ -32,7 +32,7 @@
             android:layout_weight="2"
             android:orientation="horizontal">
 
-            <com.simplemobiletools.commons.views.MyTextView
+            <org.fossify.commons.views.MyTextView
                 android:id="@+id/week_num_0"
                 style="@style/WeekNumberStyle"
                 android:layout_width="0dp"
@@ -112,7 +112,7 @@
             android:layout_weight="2"
             android:orientation="horizontal">
 
-            <com.simplemobiletools.commons.views.MyTextView
+            <org.fossify.commons.views.MyTextView
                 android:id="@+id/week_num_1"
                 style="@style/WeekNumberStyle"
                 android:layout_width="0dp"
@@ -193,7 +193,7 @@
             android:layout_weight="2"
             android:orientation="horizontal">
 
-            <com.simplemobiletools.commons.views.MyTextView
+            <org.fossify.commons.views.MyTextView
                 android:id="@+id/week_num_2"
                 style="@style/WeekNumberStyle"
                 android:layout_width="0dp"
@@ -273,7 +273,7 @@
             android:layout_weight="2"
             android:orientation="horizontal">
 
-            <com.simplemobiletools.commons.views.MyTextView
+            <org.fossify.commons.views.MyTextView
                 android:id="@+id/week_num_3"
                 style="@style/WeekNumberStyle"
                 android:layout_width="0dp"
@@ -354,7 +354,7 @@
             android:layout_weight="2"
             android:orientation="horizontal">
 
-            <com.simplemobiletools.commons.views.MyTextView
+            <org.fossify.commons.views.MyTextView
                 android:id="@+id/week_num_4"
                 style="@style/WeekNumberStyle"
                 android:layout_width="0dp"
@@ -435,7 +435,7 @@
             android:layout_weight="2"
             android:orientation="horizontal">
 
-            <com.simplemobiletools.commons.views.MyTextView
+            <org.fossify.commons.views.MyTextView
                 android:id="@+id/week_num_5"
                 style="@style/WeekNumberStyle"
                 android:layout_width="0dp"

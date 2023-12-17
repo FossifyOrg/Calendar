@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.simplemobiletools.commons.views.MySearchMenu
+    <org.fossify.commons.views.MySearchMenu
         android:id="@+id/main_menu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
@@ -44,7 +44,7 @@
                 android:alpha="0"
                 android:visibility="gone" />
 
-            <com.simplemobiletools.commons.views.MyTextView
+            <org.fossify.commons.views.MyTextView
                 android:id="@+id/fab_event_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -72,7 +72,7 @@
                 app:layout_constraintEnd_toEndOf="@+id/calendar_fab"
                 app:layout_constraintStart_toStartOf="@+id/calendar_fab" />
 
-            <com.simplemobiletools.commons.views.MyTextView
+            <org.fossify.commons.views.MyTextView
                 android:id="@+id/fab_task_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -86,7 +86,7 @@
                 app:layout_constraintEnd_toStartOf="@+id/calendar_fab"
                 app:layout_constraintTop_toTopOf="@+id/fab_task_icon" />
 
-            <com.simplemobiletools.commons.views.MyFloatingActionButton
+            <org.fossify.commons.views.MyFloatingActionButton
                 android:id="@+id/calendar_fab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -100,14 +100,14 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:rippleColor="@color/pressed_item_foreground" />
 
-            <com.simplemobiletools.commons.views.MyRecyclerView
+            <org.fossify.commons.views.MyRecyclerView
                 android:id="@+id/quick_event_type_filter"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clipToPadding="false"
                 android:orientation="horizontal"
                 android:overScrollMode="never"
-                app:layoutManager="com.simplemobiletools.commons.views.MyLinearLayoutManager"
+                app:layoutManager="org.fossify.commons.views.MyLinearLayoutManager"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -124,7 +124,7 @@
             android:focusable="true"
             android:visibility="gone">
 
-            <com.simplemobiletools.commons.views.MyTextView
+            <org.fossify.commons.views.MyTextView
                 android:id="@+id/search_placeholder"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -138,7 +138,7 @@
                 android:textSize="@dimen/bigger_text_size"
                 android:textStyle="italic" />
 
-            <com.simplemobiletools.commons.views.MyTextView
+            <org.fossify.commons.views.MyTextView
                 android:id="@+id/search_placeholder_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -154,14 +154,14 @@
                 android:textSize="@dimen/bigger_text_size"
                 android:textStyle="italic" />
 
-            <com.simplemobiletools.commons.views.MyRecyclerView
+            <org.fossify.commons.views.MyRecyclerView
                 android:id="@+id/search_results_list"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:clipToPadding="false"
                 android:overScrollMode="never"
                 android:scrollbars="vertical"
-                app:layoutManager="com.simplemobiletools.commons.views.MyLinearLayoutManager" />
+                app:layoutManager="org.fossify.commons.views.MyLinearLayoutManager" />
 
         </RelativeLayout>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>

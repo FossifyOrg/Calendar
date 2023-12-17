@@ -15,7 +15,7 @@
         android:paddingRight="@dimen/activity_margin"
         android:src="@drawable/ic_chevron_left_vector" />
 
-    <com.simplemobiletools.commons.views.MyTextView
+    <org.fossify.commons.views.MyTextView
         android:id="@+id/top_value"
         style="@style/MonthStyle"
         android:layout_width="match_parent"

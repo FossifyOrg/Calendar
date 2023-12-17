@@ -9,7 +9,7 @@
     android:paddingEnd="@dimen/normal_margin"
     android:paddingBottom="@dimen/small_margin">
 
-    <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+    <org.fossify.commons.views.MyAppCompatCheckbox
         android:id="@+id/filter_event_type_checkbox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

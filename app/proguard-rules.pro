@@ -1,1 +1,1 @@
--keep class com.simplemobiletools.calendar.models.** { *; }
+-keep class org.fossify.calendar.models.** { *; }

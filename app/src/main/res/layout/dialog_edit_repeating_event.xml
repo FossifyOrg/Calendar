@@ -8,7 +8,7 @@
     android:paddingTop="@dimen/big_margin"
     android:paddingEnd="@dimen/big_margin">
 
-    <com.simplemobiletools.commons.views.MyTextView
+    <org.fossify.commons.views.MyTextView
         android:id="@+id/edit_repeating_event_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,7 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/activity_margin">
 
-        <com.simplemobiletools.commons.views.MyCompatRadioButton
+        <org.fossify.commons.views.MyCompatRadioButton
             android:id="@+id/edit_repeating_event_one_only"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -29,7 +29,7 @@
             android:paddingBottom="@dimen/activity_margin"
             android:text="@string/update_one_only" />
 
-        <com.simplemobiletools.commons.views.MyCompatRadioButton
+        <org.fossify.commons.views.MyCompatRadioButton
             android:id="@+id/edit_repeating_event_this_and_future_occurences"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -37,7 +37,7 @@
             android:paddingBottom="@dimen/activity_margin"
             android:text="@string/update_this_and_future_occurrences" />
 
-        <com.simplemobiletools.commons.views.MyCompatRadioButton
+        <org.fossify.commons.views.MyCompatRadioButton
             android:id="@+id/edit_repeating_event_all_occurrences"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

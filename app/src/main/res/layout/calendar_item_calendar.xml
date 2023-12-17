@@ -7,7 +7,7 @@
     android:background="?attr/selectableItemBackground"
     android:paddingStart="@dimen/activity_margin">
 
-    <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+    <org.fossify.commons.views.MyAppCompatCheckbox
         android:id="@+id/calendar_item_calendar_switch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

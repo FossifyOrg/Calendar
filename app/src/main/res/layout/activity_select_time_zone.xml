@@ -21,12 +21,12 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <com.simplemobiletools.commons.views.MyRecyclerView
+    <org.fossify.commons.views.MyRecyclerView
         android:id="@+id/select_time_zone_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
-        app:layoutManager="com.simplemobiletools.commons.views.MyLinearLayoutManager"
+        app:layoutManager="org.fossify.commons.views.MyLinearLayoutManager"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

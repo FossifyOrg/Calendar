@@ -10,13 +10,13 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/activity_margin">
 
-        <com.simplemobiletools.commons.views.MyCompatRadioButton
+        <org.fossify.commons.views.MyCompatRadioButton
             android:id="@+id/repeat_type_till_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/repeat_till_date" />
 
-        <com.simplemobiletools.commons.views.MyTextInputLayout
+        <org.fossify.commons.views.MyTextInputLayout
             android:id="@+id/repeat_type_date_hint"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
@@ -29,16 +29,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-        </com.simplemobiletools.commons.views.MyTextInputLayout>
+        </org.fossify.commons.views.MyTextInputLayout>
 
-        <com.simplemobiletools.commons.views.MyCompatRadioButton
+        <org.fossify.commons.views.MyCompatRadioButton
             android:id="@+id/repeat_type_x_times"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/small_margin"
             android:text="@string/stop_repeating_after_x" />
 
-        <com.simplemobiletools.commons.views.MyTextInputLayout
+        <org.fossify.commons.views.MyTextInputLayout
             android:id="@+id/repeat_type_count_hint"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
@@ -55,9 +55,9 @@
                 android:textCursorDrawable="@null"
                 android:textSize="@dimen/bigger_text_size" />
 
-        </com.simplemobiletools.commons.views.MyTextInputLayout>
+        </org.fossify.commons.views.MyTextInputLayout>
 
-        <com.simplemobiletools.commons.views.MyCompatRadioButton
+        <org.fossify.commons.views.MyCompatRadioButton
             android:id="@+id/repeat_type_forever"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

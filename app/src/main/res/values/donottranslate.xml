@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="package_name">com.simplemobiletools.calendar.pro</string>
+    <string name="package_name">org.fossify.calendar</string>
 
     <!-- Release notes -->
     <string name="release_167">Added time zone support (customization has to be enabled in the app settings)</string>

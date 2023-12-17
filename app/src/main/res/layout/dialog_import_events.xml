@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:paddingTop="@dimen/activity_margin">
 
-    <com.simplemobiletools.commons.views.MyTextInputLayout
+    <org.fossify.commons.views.MyTextInputLayout
         android:id="@+id/import_event_type_hint"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-    </com.simplemobiletools.commons.views.MyTextInputLayout>
+    </org.fossify.commons.views.MyTextInputLayout>
 
     <ImageView
         android:id="@+id/import_event_type_color"
@@ -48,7 +48,7 @@
         android:paddingBottom="@dimen/normal_margin"
         app:layout_constraintTop_toBottomOf="@+id/import_event_type_hint">
 
-        <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+        <org.fossify.commons.views.MyAppCompatCheckbox
             android:id="@+id/import_events_checkbox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
