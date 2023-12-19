@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.simplemobiletools.commons.views.MyRecyclerView
+    <org.fossify.commons.views.MyRecyclerView
         android:id="@+id/calendar_events_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,9 +15,9 @@
         android:paddingTop="@dimen/medium_margin"
         android:scrollbars="vertical"
         android:visibility="gone"
-        app:layoutManager="com.simplemobiletools.commons.views.MyLinearLayoutManager" />
+        app:layoutManager="org.fossify.commons.views.MyLinearLayoutManager" />
 
-    <com.simplemobiletools.commons.views.MyTextView
+    <org.fossify.commons.views.MyTextView
         android:id="@+id/calendar_empty_list_placeholder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

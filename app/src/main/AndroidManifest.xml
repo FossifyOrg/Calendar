@@ -25,13 +25,13 @@
         tools:node="remove" />
 
     <queries>
-        <package android:name="com.simplemobiletools.contacts.pro.debug" />
-        <package android:name="com.simplemobiletools.contacts.pro" />
+        <package android:name="org.fossify.contacts.debug" />
+        <package android:name="org.fossify.contacts" />
     </queries>
 
     <queries>
-        <package android:name="com.simplemobiletools.calendar.debug" />
-        <package android:name="com.simplemobiletools.calendar" />
+        <package android:name="org.fossify.calendar.debug" />
+        <package android:name="org.fossify.calendar" />
     </queries>
 
     <uses-feature
@@ -39,7 +39,7 @@
         android:required="false" />
 
     <application
-        android:name=".App"
+        android:name="org.fossify.calendar.App"
         android:allowBackup="true"
         android:appCategory="productivity"
         android:icon="@mipmap/ic_launcher"
@@ -119,21 +119,21 @@
         </activity>
 
         <activity
-            android:name="com.simplemobiletools.commons.activities.AboutActivity"
+            android:name="org.fossify.commons.activities.AboutActivity"
             android:configChanges="orientation"
             android:exported="false"
             android:label="@string/about"
             android:parentActivityName=".activities.MainActivity" />
 
         <activity
-            android:name="com.simplemobiletools.commons.activities.CustomizationActivity"
+            android:name="org.fossify.commons.activities.CustomizationActivity"
             android:configChanges="orientation"
             android:exported="false"
             android:label="@string/customize_colors"
             android:parentActivityName=".activities.SettingsActivity" />
 
         <activity
-            android:name=".activities.EventActivity"
+            android:name="org.fossify.calendar.activities.EventActivity"
             android:exported="true"
             android:label="@string/new_event"
             android:launchMode="singleTask"
@@ -169,7 +169,7 @@
             android:name=".activities.SelectTimeZoneActivity"
             android:configChanges="orientation"
             android:exported="false"
-            android:parentActivityName=".activities.EventActivity">
+            android:parentActivityName="org.fossify.calendar.activities.EventActivity">
             <meta-data
                 android:name="android.app.default_searchable"
                 android:resource="@xml/searchable" />

@@ -12,7 +12,7 @@
         android:orientation="vertical"
         android:paddingTop="@dimen/activity_margin">
 
-        <com.simplemobiletools.commons.views.MyTextInputLayout
+        <org.fossify.commons.views.MyTextInputLayout
             android:id="@+id/export_events_folder_hint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -27,9 +27,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
-        </com.simplemobiletools.commons.views.MyTextInputLayout>
+        </org.fossify.commons.views.MyTextInputLayout>
 
-        <com.simplemobiletools.commons.views.MyTextInputLayout
+        <org.fossify.commons.views.MyTextInputLayout
             android:id="@+id/export_events_filename_hint"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -46,7 +46,7 @@
                 android:textCursorDrawable="@null"
                 android:textSize="@dimen/bigger_text_size" />
 
-        </com.simplemobiletools.commons.views.MyTextInputLayout>
+        </org.fossify.commons.views.MyTextInputLayout>
 
         <RelativeLayout
             android:id="@+id/export_events_checkbox_holder"
@@ -58,7 +58,7 @@
             android:paddingStart="@dimen/normal_margin"
             android:paddingEnd="@dimen/activity_margin">
 
-            <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+            <org.fossify.commons.views.MyAppCompatCheckbox
                 android:id="@+id/export_events_checkbox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -80,7 +80,7 @@
             android:paddingStart="@dimen/normal_margin"
             android:paddingEnd="@dimen/activity_margin">
 
-            <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+            <org.fossify.commons.views.MyAppCompatCheckbox
                 android:id="@+id/export_tasks_checkbox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -110,7 +110,7 @@
             android:paddingStart="@dimen/normal_margin"
             android:paddingEnd="@dimen/activity_margin">
 
-            <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+            <org.fossify.commons.views.MyAppCompatCheckbox
                 android:id="@+id/export_past_events_checkbox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -138,7 +138,7 @@
                 android:background="@color/divider_grey"
                 android:importantForAccessibility="no" />
 
-            <com.simplemobiletools.commons.views.MyTextView
+            <org.fossify.commons.views.MyTextView
                 android:id="@+id/export_events_pick_types_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -146,14 +146,14 @@
                 android:text="@string/include_event_types"
                 android:textSize="@dimen/smaller_text_size" />
 
-            <com.simplemobiletools.commons.views.MyRecyclerView
+            <org.fossify.commons.views.MyRecyclerView
                 android:id="@+id/export_events_types_list"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:clipToPadding="false"
                 android:overScrollMode="never"
                 android:paddingTop="@dimen/medium_margin"
-                app:layoutManager="com.simplemobiletools.commons.views.MyLinearLayoutManager" />
+                app:layoutManager="org.fossify.commons.views.MyLinearLayoutManager" />
 
         </LinearLayout>
     </LinearLayout>

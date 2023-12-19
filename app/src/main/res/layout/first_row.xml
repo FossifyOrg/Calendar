@@ -7,7 +7,7 @@
     android:paddingTop="@dimen/small_margin"
     android:paddingBottom="@dimen/small_margin">
 
-    <com.simplemobiletools.commons.views.MyTextView
+    <org.fossify.commons.views.MyTextView
         android:id="@+id/week_num"
         style="@style/MetaView"
         android:layout_width="0dp"
@@ -17,7 +17,7 @@
         android:visibility="gone"
         tools:ignore="HardcodedText" />
 
-    <com.simplemobiletools.commons.views.MyTextView
+    <org.fossify.commons.views.MyTextView
         android:id="@+id/label_0"
         style="@style/MetaView"
         android:layout_width="0dp"
@@ -25,7 +25,7 @@
         android:layout_weight="1"
         android:text="@string/monday_letter" />
 
-    <com.simplemobiletools.commons.views.MyTextView
+    <org.fossify.commons.views.MyTextView
         android:id="@+id/label_1"
         style="@style/MetaView"
         android:layout_width="0dp"
@@ -33,7 +33,7 @@
         android:layout_weight="1"
         android:text="@string/tuesday_letter" />
 
-    <com.simplemobiletools.commons.views.MyTextView
+    <org.fossify.commons.views.MyTextView
         android:id="@+id/label_2"
         style="@style/MetaView"
         android:layout_width="0dp"
@@ -41,7 +41,7 @@
         android:layout_weight="1"
         android:text="@string/wednesday_letter" />
 
-    <com.simplemobiletools.commons.views.MyTextView
+    <org.fossify.commons.views.MyTextView
         android:id="@+id/label_3"
         style="@style/MetaView"
         android:layout_width="0dp"
@@ -49,7 +49,7 @@
         android:layout_weight="1"
         android:text="@string/thursday_letter" />
 
-    <com.simplemobiletools.commons.views.MyTextView
+    <org.fossify.commons.views.MyTextView
         android:id="@+id/label_4"
         style="@style/MetaView"
         android:layout_width="0dp"
@@ -57,7 +57,7 @@
         android:layout_weight="1"
         android:text="@string/friday_letter" />
 
-    <com.simplemobiletools.commons.views.MyTextView
+    <org.fossify.commons.views.MyTextView
         android:id="@+id/label_5"
         style="@style/MetaView"
         android:layout_width="0dp"
@@ -65,7 +65,7 @@
         android:layout_weight="1"
         android:text="@string/saturday_letter" />
 
-    <com.simplemobiletools.commons.views.MyTextView
+    <org.fossify.commons.views.MyTextView
         android:id="@+id/label_6"
         style="@style/MetaView"
         android:layout_width="0dp"

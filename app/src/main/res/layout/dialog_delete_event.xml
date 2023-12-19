@@ -8,14 +8,14 @@
     android:paddingTop="@dimen/big_margin"
     android:paddingEnd="@dimen/big_margin">
 
-    <com.simplemobiletools.commons.views.MyTextView
+    <org.fossify.commons.views.MyTextView
         android:id="@+id/delete_event_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/proceed_with_deletion"
         android:textSize="@dimen/bigger_text_size" />
 
-    <com.simplemobiletools.commons.views.MyTextView
+    <org.fossify.commons.views.MyTextView
         android:id="@+id/delete_event_repeat_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,7 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.simplemobiletools.commons.views.MyCompatRadioButton
+        <org.fossify.commons.views.MyCompatRadioButton
             android:id="@+id/delete_event_one_only"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
             android:paddingBottom="@dimen/normal_margin"
             android:text="@string/delete_one_only" />
 
-        <com.simplemobiletools.commons.views.MyCompatRadioButton
+        <org.fossify.commons.views.MyCompatRadioButton
             android:id="@+id/delete_event_future"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -46,7 +46,7 @@
             android:paddingBottom="@dimen/normal_margin"
             android:text="@string/delete_future_occurrences" />
 
-        <com.simplemobiletools.commons.views.MyCompatRadioButton
+        <org.fossify.commons.views.MyCompatRadioButton
             android:id="@+id/delete_event_all"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

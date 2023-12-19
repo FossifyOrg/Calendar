@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:paddingTop="@dimen/medium_margin">
 
-    <com.simplemobiletools.calendar.pro.views.MonthViewWrapper
+    <org.fossify.calendar.views.MonthViewWrapper
         android:id="@+id/month_day_view_wrapper"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -32,7 +32,7 @@
         app:layout_constraintHeight_percent="0.7"
         app:layout_constraintTop_toBottomOf="@+id/month_day_view_divider">
 
-        <com.simplemobiletools.commons.views.MyTextView
+        <org.fossify.commons.views.MyTextView
             android:id="@+id/month_day_selected_day_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
             android:textSize="22sp"
             tools:text="November 19" />
 
-        <com.simplemobiletools.commons.views.MyTextView
+        <org.fossify.commons.views.MyTextView
             android:id="@+id/month_day_no_events_placeholder"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -58,7 +58,7 @@
             android:textStyle="italic"
             android:visibility="gone" />
 
-        <com.simplemobiletools.commons.views.MyRecyclerView
+        <org.fossify.commons.views.MyRecyclerView
             android:id="@+id/month_day_events_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -66,7 +66,7 @@
             android:clipToPadding="false"
             android:layoutAnimation="@anim/layout_animation"
             android:scrollbars="vertical"
-            app:layoutManager="com.simplemobiletools.commons.views.MyLinearLayoutManager" />
+            app:layoutManager="org.fossify.commons.views.MyLinearLayoutManager" />
 
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

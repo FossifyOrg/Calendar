@@ -7,7 +7,7 @@
     android:paddingTop="@dimen/medium_margin"
     android:paddingBottom="@dimen/medium_margin">
 
-    <com.simplemobiletools.commons.views.MyAutoCompleteTextView
+    <org.fossify.commons.views.MyAutoCompleteTextView
         android:id="@+id/event_attendee"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -49,7 +49,7 @@
             android:src="@drawable/ic_question_yellow"
             android:visibility="gone" />
 
-        <com.simplemobiletools.commons.views.MyTextView
+        <org.fossify.commons.views.MyTextView
             android:id="@+id/event_contact_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -59,8 +59,7 @@
             android:layout_toEndOf="@+id/event_contact_image"
             android:ellipsize="end"
             android:lines="1"
-            android:textSize="@dimen/bigger_text_size"
-            tools:text="Simple Mobile Tools" />
+            android:textSize="@dimen/bigger_text_size" />
 
         <ImageView
             android:id="@+id/event_contact_dismiss"
@@ -74,7 +73,7 @@
             android:padding="@dimen/small_margin"
             android:src="@drawable/ic_cross_vector" />
 
-        <com.simplemobiletools.commons.views.MyTextView
+        <org.fossify.commons.views.MyTextView
             android:id="@+id/event_contact_me_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

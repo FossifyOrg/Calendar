@@ -36,7 +36,7 @@
             android:layout_toEndOf="@+id/config_bg_color"
             android:background="@drawable/widget_config_seekbar_background">
 
-            <com.simplemobiletools.commons.views.MySeekBar
+            <org.fossify.commons.views.MySeekBar
                 android:id="@+id/config_bg_seekbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

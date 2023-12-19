@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <com.simplemobiletools.commons.views.MyEditText
+            <org.fossify.commons.views.MyEditText
                 android:id="@+id/task_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -43,7 +43,7 @@
                 android:textCursorDrawable="@null"
                 android:textSize="@dimen/day_text_size" />
 
-            <com.simplemobiletools.commons.views.MyEditText
+            <org.fossify.commons.views.MyEditText
                 android:id="@+id/task_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -95,7 +95,7 @@
                 android:paddingEnd="@dimen/activity_margin"
                 android:paddingBottom="@dimen/medium_margin">
 
-                <com.simplemobiletools.commons.views.MyAppCompatCheckbox
+                <org.fossify.commons.views.MyAppCompatCheckbox
                     android:id="@+id/task_all_day"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -107,7 +107,7 @@
 
             </RelativeLayout>
 
-            <com.simplemobiletools.commons.views.MyTextView
+            <org.fossify.commons.views.MyTextView
                 android:id="@+id/task_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -120,7 +120,7 @@
                 android:textSize="@dimen/day_text_size"
                 tools:text="January 1 1970" />
 
-            <com.simplemobiletools.commons.views.MyTextView
+            <org.fossify.commons.views.MyTextView
                 android:id="@+id/task_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -153,7 +153,7 @@
                 android:padding="@dimen/medium_margin"
                 android:src="@drawable/ic_bell_vector" />
 
-            <com.simplemobiletools.commons.views.MyTextView
+            <org.fossify.commons.views.MyTextView
                 android:id="@+id/task_reminder_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -170,7 +170,7 @@
                 android:textSize="@dimen/day_text_size"
                 tools:text="@string/add_another_reminder" />
 
-            <com.simplemobiletools.commons.views.MyTextView
+            <org.fossify.commons.views.MyTextView
                 android:id="@+id/task_reminder_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -189,7 +189,7 @@
                 android:visibility="gone"
                 tools:text="@string/add_another_reminder" />
 
-            <com.simplemobiletools.commons.views.MyTextView
+            <org.fossify.commons.views.MyTextView
                 android:id="@+id/task_reminder_3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -229,7 +229,7 @@
                 android:padding="@dimen/medium_margin"
                 android:src="@drawable/ic_repeat_vector" />
 
-            <com.simplemobiletools.commons.views.MyTextView
+            <org.fossify.commons.views.MyTextView
                 android:id="@+id/task_repetition"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -252,7 +252,7 @@
                 android:background="?attr/selectableItemBackground"
                 android:visibility="gone">
 
-                <com.simplemobiletools.commons.views.MyTextView
+                <org.fossify.commons.views.MyTextView
                     android:id="@+id/task_repetition_rule_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -262,7 +262,7 @@
                     android:text="@string/repeat_on"
                     android:textSize="@dimen/day_text_size" />
 
-                <com.simplemobiletools.commons.views.MyTextView
+                <org.fossify.commons.views.MyTextView
                     android:id="@+id/task_repetition_rule"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -284,7 +284,7 @@
                 android:background="?attr/selectableItemBackground"
                 android:visibility="gone">
 
-                <com.simplemobiletools.commons.views.MyTextView
+                <org.fossify.commons.views.MyTextView
                     android:id="@+id/task_repetition_limit_label"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -295,7 +295,7 @@
                     android:text="@string/repeat_till"
                     android:textSize="@dimen/day_text_size" />
 
-                <com.simplemobiletools.commons.views.MyTextView
+                <org.fossify.commons.views.MyTextView
                     android:id="@+id/task_repetition_limit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -336,7 +336,7 @@
                 android:layout_toEndOf="@+id/task_type_image"
                 android:background="?attr/selectableItemBackground">
 
-                <com.simplemobiletools.commons.views.MyTextView
+                <org.fossify.commons.views.MyTextView
                     android:id="@+id/task_type"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -377,7 +377,7 @@
                 android:layout_toEndOf="@+id/task_color_image"
                 android:background="?attr/selectableItemBackground">
 
-                <com.simplemobiletools.commons.views.MyTextView
+                <org.fossify.commons.views.MyTextView
                     android:id="@+id/task_color_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

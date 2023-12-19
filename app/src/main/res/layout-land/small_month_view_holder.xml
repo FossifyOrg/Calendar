@@ -14,7 +14,7 @@
         android:textAllCaps="true"
         android:textSize="@dimen/normal_text_size" />
 
-    <com.simplemobiletools.calendar.pro.views.SmallMonthView
+    <org.fossify.calendar.views.SmallMonthView
         android:id="@+id/small_month_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

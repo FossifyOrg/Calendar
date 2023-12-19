@@ -14,13 +14,13 @@
         app:title="@string/manage_event_types"
         app:titleTextAppearance="@style/AppTheme.ActionBar.TitleTextStyle" />
 
-    <com.simplemobiletools.commons.views.MyRecyclerView
+    <org.fossify.commons.views.MyRecyclerView
         android:id="@+id/manage_event_types_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="?attr/actionBarSize"
         android:clipToPadding="false"
-        app:layoutManager="com.simplemobiletools.commons.views.MyLinearLayoutManager"
+        app:layoutManager="org.fossify.commons.views.MyLinearLayoutManager"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
