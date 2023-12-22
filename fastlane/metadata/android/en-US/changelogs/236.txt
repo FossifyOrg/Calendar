@@ -1,2 +1,0 @@
- * Fixed some repetition issues
- * Added some translation, stability and UX improvements

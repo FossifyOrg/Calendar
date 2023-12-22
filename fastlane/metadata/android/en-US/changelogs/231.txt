@@ -1,2 +1,0 @@
- * Fixed an app crash at using Search
- * Added some translation, stability and UX improvements

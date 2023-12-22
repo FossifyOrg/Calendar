@@ -1,3 +1,0 @@
- * Flipped type and color fields at event and task creation screens
- * Fixed some repetition issues
- * Added some translation, stability and UX improvements

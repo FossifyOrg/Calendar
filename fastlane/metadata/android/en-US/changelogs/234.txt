@@ -1,3 +1,0 @@
- * Allow customizing individual event colors stored locally
- * Fix a glitch with scheduled backups
- * Added some translation, stability and UX improvements
