@@ -1,5 +1,5 @@
 # Simple Calendar
-<img alt="Logo" src="graphics/icon.png" width="120" />
+<img alt="Logo" src="graphics/icon.webp" width="120" />
 
 Simple Calendar 2023 is a highly customizable, offline monthly calendar app for Android. Have an agenda planner in your pocket, designed to do exactly what a personal tiny schedule planner should do in 2023. No complicated features, unnecessary permissions, or ads!  
 ***Supports syncing events via Google Calendar
