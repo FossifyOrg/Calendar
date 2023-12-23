@@ -283,6 +283,6 @@
     <string name="faq_6_text">Você pode modificar ou excluir um tipo de evento através das Configurações - Gerenciar tipos de evento. Clique no evento desejado para editar o texto ou cor, ou toque e segure o evento desejado e arraste-o até a lixeira para excluí-lo.</string>
     <!--
         Não encontrou todas as cadeias a traduzir? Existem mais algumas em:
-        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
     -->
 </resources>

@@ -285,6 +285,6 @@
     <string name="faq_6_text">Oboje lahko storite v aplikaciji Nastavitve - Upravljanje vrst dogodkov. Za spremembo oznake in barve kliknite želeni dogodek ali pa ga izberite z dolgim pritiskom in za brisanje uporabite koš za smeti v zgornjem meniju.</string>
     <!--
         Haven't found some strings? There's more at
-        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
     -->
 </resources>

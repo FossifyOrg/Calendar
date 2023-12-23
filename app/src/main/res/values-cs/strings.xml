@@ -282,6 +282,6 @@
     <string name="faq_6_text">Obojí lze udělat v Nastavení aplikace – Správa typů událostí. Po klepnutí na zvolený typ události můžete upravit název a barvu. Dlouhým podržením a poté použitím odpadkového koše v horním menu typ události odstraníte.</string>
     <!--
         Haven't found some strings? There's more at
-        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
     -->
 </resources>

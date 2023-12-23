@@ -282,6 +282,6 @@
     <string name="faq_6_text">Pode fazer ambas em Definições - Gerir tipos de eventos. Basta tocar no desejado para alterar o texto ou a cor e pode também eliminar qualquer um com um toque longo no tipo de evento e utilizando a reciclagem no menu superior.</string>
     <!--
         Não encontrou todas as cadeias a traduzir? Existem mais algumas em:
-        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
     -->
 </resources>

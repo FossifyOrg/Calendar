@@ -285,6 +285,6 @@
     <string name="faq_6_text">Вы можете сделать и то, и другое в настройках приложения разделе \"Управление типами событий\". Просто нажмите на нужный тип, чтобы изменить его название и цвет, или выберите долгим нажатием и используйте значок корзины в верхнем меню для удаления.</string>
     <!--
         Haven't found some strings? There's more at
-        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
     -->
 </resources>

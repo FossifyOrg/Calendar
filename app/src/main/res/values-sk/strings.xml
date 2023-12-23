@@ -282,6 +282,6 @@
     <string name="faq_6_text">Oboje viete spraviť v nastaveniach apky - Spravovať typy udalostí. Kliknutím viete upraviť názov a farbu, odstrániť ich viete dlhým podržaním a použitím odpadkového koša na hornom menu.</string>
     <!--
         Haven't found some strings? There's more at
-        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
     -->
 </resources>

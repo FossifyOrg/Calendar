@@ -300,6 +300,6 @@
     <string name="faq_6_text">你可以在「設定」-「管理活動類型」裡面進行以上兩種操作。點擊你想要的活動類型，就可以改變標籤與顏色；如果你想刪除，可以長按該活動類型，然後點選上方選單的垃圾桶圖示即可。</string>
     <!--
         Haven't found some strings? There's more at
-        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
     -->
 </resources>

@@ -279,6 +279,6 @@
     <string name="faq_6_text">Du kannst beides in der App unter „Einstellungen – Termintypen verwalten“ einstellen. Klicke einfach auf den gewünschte Termin, um Beschriftung und Farbe zu ändern, oder wähle den gewünschten Termin durch langes Drücken aus und verwende den Mülleimer im oberen Menü.</string>
     <!--
         Haven't found some strings? There's more at
-        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
     -->
 </resources>

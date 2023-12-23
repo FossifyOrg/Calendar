@@ -279,6 +279,6 @@
     <string name="faq_6_text">Voit muokata tai poistaa tapahtumatyyppejä sovelluksen asetuksissa kohdasta Hallitse taphtumatyyppejä. Klikkaa haluamaasi tyyppiä vaihtaaksesi otsikkoa tai väriä. Tapahtumatyypin voit poistaa painamalla sitä listssa pitkään ja klikkamaalla yläpalkkiin ilmestyvää roskakorikuvaketta.</string>
     <!--
         Haven't found some strings? There's more at
-        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
     -->
 </resources>

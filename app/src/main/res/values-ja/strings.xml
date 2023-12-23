@@ -277,6 +277,6 @@
     <string name="faq_6_text">アプリの設定の「予定の種類の管理」でどちらも行えます。予定の名前や色を変更する場合は目的のものをタップします。削除する場合は目的のものを長押しして選択し、上部のごみ箱から削除します。</string>
     <!--
         Haven't found some strings? There's more at
-        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
     -->
 </resources>

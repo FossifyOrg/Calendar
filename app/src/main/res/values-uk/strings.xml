@@ -285,6 +285,6 @@
     <string name="faq_6_text">Ви можете зробити й те, й інше в \"Налаштування\" - \"Керування типами подій\". Просто натисніть на бажаний, щоб змінити мітку та колір. Для видалення виберіть бажаний тип довгим його утриманням і використайте кошик у верхньому меню.</string>
     <!--
         Haven't found some strings? There's more at
-        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
     -->
 </resources>

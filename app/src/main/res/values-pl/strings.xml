@@ -285,6 +285,6 @@
     <string name="faq_6_text">Obie te czynności możesz wykonać w Ustawienia -&gt; Zarządzaj typami wydarzeń. Po prostu naciśnij wybrany typ wydarzeń, aby zmienić jego nazwę lub kolor, albo wybierz go przez długie naciśnięcie i użyj ikony kosza, aby usunąć.</string>
     <!--
         Haven't found some strings? There's more at
-        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
     -->
 </resources>

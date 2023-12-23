@@ -282,6 +282,6 @@
     <string name="faq_6_text">Puede hacer ambas cosas en la aplicación Configuración - Administrar tipos de eventos. Simplemente haga clic en el elemento deseado para cambiar la etiqueta y el color, o seleccione el elemento deseado presionándolo prolongadamente y use la papelera en el menú superior para eliminarlo.</string>
     <!--
         Haven't found some strings? There's more at
-        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
     -->
 </resources>

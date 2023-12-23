@@ -279,6 +279,6 @@
     <string name="faq_6_text">Du kan göra båda i appens Inställningar - Hantera evenemangstyper. Klicka bara på den önskade händelsen för att ändra etikett och färg, eller välj den önskade händelsen genom att trycka länge på den och använd papperskorgen i toppmenyn för att ta bort den.</string>
     <!--
         Haven't found some strings? There's more at
-        https://github.com/SimpleMobileTools/Simple-Commons/tree/master/commons/src/main/res
+        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
     -->
 </resources>
