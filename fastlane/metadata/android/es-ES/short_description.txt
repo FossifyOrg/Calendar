@@ -1,1 +1,0 @@
-Widget de Calendario 2023 en Android. Programe citas, recordatorios y eventos
