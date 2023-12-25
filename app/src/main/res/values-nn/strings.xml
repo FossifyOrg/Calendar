@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Enkel kalender</string>
     <string name="app_launcher_name">Kalender</string>
     <string name="change_view">Byt vising</string>
     <string name="daily_view">Dagvising</string>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Jednoduchý kalendář</string>
     <string name="app_launcher_name">Kalendář</string>
     <string name="change_view">Změnit zobrazení</string>
     <string name="daily_view">Denní</string>

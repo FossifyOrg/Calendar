@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Vienkāršais kalendārs</string>
     <string name="app_launcher_name">Kalendārs</string>
     <string name="change_view">Mainīt skatu</string>
     <string name="daily_view">Dienas skats</string>

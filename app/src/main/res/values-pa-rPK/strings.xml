@@ -35,7 +35,6 @@
         <item quantity="one">Within the next %d month</item>
         <item quantity="other">Within the next %d months</item>
     </plurals>
-    <string name="app_name">سادہ کیلینڈر</string>
     <string name="app_launcher_name">کیلینڈر</string>
     <string name="change_view">Change view</string>
     <string name="daily_view">دن دا</string>
