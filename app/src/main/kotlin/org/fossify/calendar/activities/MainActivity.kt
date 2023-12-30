@@ -29,7 +29,6 @@ import org.fossify.calendar.models.Event
 import org.fossify.calendar.models.ListEvent
 import org.fossify.calendar.models.ListItem
 import org.fossify.calendar.models.ListSectionDay
-import org.fossify.commons.dialogs.ConfirmationDialog
 import org.fossify.commons.dialogs.RadioGroupDialog
 import org.fossify.commons.extensions.*
 import org.fossify.commons.helpers.*
@@ -142,17 +141,6 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
         }
 
         addBirthdaysAnniversariesAtStart()
-
-        if (isPackageInstalled("org.fossify.calendar")) {
-            ConfirmationDialog(
-                activity = this,
-                message = "",
-                messageId = org.fossify.commons.R.string.upgraded_from_free_calendar,
-                positive = org.fossify.commons.R.string.ok,
-                negative = 0,
-                cancelOnTouchOutside = false
-            ) {}
-        }
 
         addImportIdsToTasks {
             refreshViewPager()
