@@ -9,7 +9,7 @@ print = "1.0.0"
 constraintlayout = "2.1.4"
 swiperefreshlayout = "1.1.0"
 #Room
-room = "2.5.2"
+room = "2.6.1"
 #Fossify
 commons = "2a246dc086"
 #Gradle
