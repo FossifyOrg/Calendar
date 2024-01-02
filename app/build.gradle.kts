@@ -1,3 +1,4 @@
+import org.jetbrains.kotlin.gradle.plugin.mpp.pm20.util.archivesName
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.jetbrains.kotlin.konan.properties.Properties
 import java.io.FileInputStream
@@ -6,11 +7,6 @@ plugins {
     alias(libs.plugins.android)
     alias(libs.plugins.kotlinAndroid)
     alias(libs.plugins.ksp)
-    base
-}
-
-base {
-    archivesName.set("calendar")
 }
 
 val keystorePropertiesFile: File = rootProject.file("keystore.properties")
@@ -28,6 +24,7 @@ android {
         targetSdk = project.libs.versions.app.build.targetSDK.get().toInt()
         versionCode = project.libs.versions.app.version.versionCode.get().toInt()
         versionName = project.libs.versions.app.version.versionName.get()
+        archivesName.set("calendar-$versionCode")
         multiDexEnabled = true
         vectorDrawables.useSupportLibrary = true
         ksp {
@@ -70,7 +67,7 @@ android {
     flavorDimensions.add("variants")
     productFlavors {
         register("core")
-        register("fdroid")
+        register("foss")
         register("prepaid")
     }
 
