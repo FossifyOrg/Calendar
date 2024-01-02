@@ -1,6 +1,12 @@
 Changelog
 ==========
 
+Version 1.0.2 *(2024-01-02)*
+----------------------------
+
+* Fixed import compatibility with Simple Calendar.
+* Fixed foss flavor configuration.
+
 Version 1.0.1 *(2024-01-02)*
 ----------------------------
 
