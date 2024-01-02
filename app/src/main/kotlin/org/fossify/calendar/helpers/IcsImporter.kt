@@ -151,8 +151,17 @@ class IcsImporter(val activity: SimpleActivity) {
                         if (color.trimStart('-').areDigitsOnly()) {
                             curCategoryColor = Integer.parseInt(color)
                         }
+                    } else if (line.startsWith(SMT_CATEGORY_COLOR)) {
+                        val color = line.substring(SMT_CATEGORY_COLOR.length)
+                        if (color.trimStart('-').areDigitsOnly()) {
+                            curCategoryColor = Integer.parseInt(color)
+                        }
                     } else if (line.startsWith(MISSING_YEAR)) {
                         if (line.substring(MISSING_YEAR.length) == "1") {
+                            curFlags = curFlags or FLAG_MISSING_YEAR
+                        }
+                    } else if (line.startsWith(SMT_MISSING_YEAR)) {
+                        if (line.substring(SMT_MISSING_YEAR.length) == "1") {
                             curFlags = curFlags or FLAG_MISSING_YEAR
                         }
                     } else if (line.startsWith(STATUS)) {

@@ -196,8 +196,10 @@ const val RECURRENCE_ID = "RECURRENCE-ID"
 const val SEQUENCE = "SEQUENCE"
 
 // this tag isn't a standard ICS tag, but there's no official way of adding a category color in an ics file
+const val SMT_CATEGORY_COLOR = "X-SMT-CATEGORY-COLOR:"
 const val CATEGORY_COLOR = "X-FOSSIFY-CATEGORY-COLOR:"
 const val CATEGORY_COLOR_LEGACY = "CATEGORY_COLOR:"
+const val SMT_MISSING_YEAR = "X-SMT-MISSING-YEAR:"
 const val MISSING_YEAR = "X-FOSSIFY-MISSING-YEAR:"
 
 const val DISPLAY = "DISPLAY"
