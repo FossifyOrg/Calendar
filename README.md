@@ -34,11 +34,15 @@ Plus, Fossify Calendar is open-source! Join the vibrant community on GitHub, con
 Download Fossify Calendar now and experience the power of a private and customizable schedule.
 
 Explore more Fossify apps: https://www.fossify.org
+
 Open-Source Code: https://www.github.com/FossifyOrg
+
 Join the community on Reddit: https://www.reddit.com/r/Fossify
+
 Connect on Telegram: https://t.me/Fossify
+
 Check out the full suite of apps here:  
-https://github.com/FossifyOrg
+https://fossify.org
 
 <div style="display:flex;">
 <img alt="App image" src="fastlane/metadata/android/en-US/images/phoneScreenshots/1_en-US.png" width="30%">
