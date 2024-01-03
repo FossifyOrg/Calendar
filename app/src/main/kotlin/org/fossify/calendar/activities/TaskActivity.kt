@@ -32,6 +32,7 @@ class TaskActivity : SimpleActivity() {
     private lateinit var mTaskDateTime: DateTime
     private lateinit var mTask: Event
 
+    private var mIsAllDayTask = false
     private var mReminder1Minutes = REMINDER_OFF
     private var mReminder2Minutes = REMINDER_OFF
     private var mReminder3Minutes = REMINDER_OFF
@@ -630,6 +631,7 @@ class TaskActivity : SimpleActivity() {
 
     private fun toggleAllDay(isChecked: Boolean) {
         hideKeyboard()
+        mIsAllDayTask = isChecked
         binding.taskTime.beGoneIf(isChecked)
     }
 
@@ -707,21 +709,21 @@ class TaskActivity : SimpleActivity() {
     }
 
     private fun showReminder1Dialog() {
-        showPickSecondsDialogHelper(mReminder1Minutes) {
+        showPickSecondsDialogHelper(mReminder1Minutes, showDuringDayOption = mIsAllDayTask) {
             mReminder1Minutes = if (it == -1 || it == 0) it else it / 60
             updateReminderTexts()
         }
     }
 
     private fun showReminder2Dialog() {
-        showPickSecondsDialogHelper(mReminder2Minutes) {
+        showPickSecondsDialogHelper(mReminder2Minutes, showDuringDayOption = mIsAllDayTask) {
             mReminder2Minutes = if (it == -1 || it == 0) it else it / 60
             updateReminderTexts()
         }
     }
 
     private fun showReminder3Dialog() {
-        showPickSecondsDialogHelper(mReminder3Minutes) {
+        showPickSecondsDialogHelper(mReminder3Minutes, showDuringDayOption = mIsAllDayTask) {
             mReminder3Minutes = if (it == -1 || it == 0) it else it / 60
             updateReminderTexts()
         }
