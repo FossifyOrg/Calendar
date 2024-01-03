@@ -49,7 +49,9 @@ Switch between daily, weekly, monthly, yearly, and event views effortlessly.
 
 Enjoy an intuitive and user-friendly interface with dynamic themes.
 
-Plus, Fossify Calendar is open-source! Join the vibrant community on GitHub, contribute to the project, and make it uniquely yours.
+**Plus, Fossify Calendar is open-source!**
+
+Join the vibrant community on GitHub, contribute to the project, and make it uniquely yours.
 
 Download Fossify Calendar now and experience the power of a private and customizable schedule.
 
