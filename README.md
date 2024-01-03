@@ -9,31 +9,31 @@ Fossify Calendar is here to change that. Your open-source powerhouse for managin
 
 Here's what makes Fossify Calendar different:
 
-**🚫 Ad-free AND PRIVATE:**
+**🚫 AD-FREE AND PRIVATE:**
 
 Your events remain yours. No ads, no tracking, no intrusive permissions.
 
-**⏰ Flexible and customizable:**
+**⏰ FLEXIBLE AND CUSTOMIZABLE:**
 
 Craft events precisely with times, durations, reminders, and advanced repetition rules.
 
-**🔄 Seamless syncing:**
+**🔄 SEAMLESS SYNCING:**
 
 Sync effortlessly with Google Calendar, Outlook, Nextcloud, Exchange, and more.
 
-**🎨 Personalize your planner:**
+**🎨 PERSONALIZE YOUR PLANNER:**
 
 Set custom sounds, looping audio streams, vibrations, and themes to match your preferences.
 
-**🌈 Vibrant widgets:**
+**🌈 VIBRANT WIDGETS:**
 
 Brighten your day with beautiful calendar widgets and themes for your home screen.
 
-**📅 Effortless day management:**
+**📅 EFFORTlESS DAY MANAGMENT:**
 
 Plan your day with ease, whether you're a busy professional or a family organizer.
 
-**🎉 IMPORT celebrations:**
+**🎉 IMPORT CELEBRATIONS:**
 
 Never miss a birthday or anniversary! Easily import holidays and special dates.
 
@@ -41,11 +41,11 @@ Never miss a birthday or anniversary! Easily import holidays and special dates.
 
 Quickly find what you're looking for with event filters and location maps.
 
-**📆 Multiple views:**
+**📆 MULTIPLE VIEWS:**
 
 Switch between daily, weekly, monthly, yearly, and event views effortlessly.
 
-**✨ Material Design elegance:**
+**✨ MATERIAL DESIGN ELEGANCE:**
 
 Enjoy an intuitive and user-friendly interface with dynamic themes.
 
