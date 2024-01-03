@@ -1,7 +1,7 @@
 # Fossify Calendar
 <img alt="Logo" src="graphics/icon.webp" width="120" />
 
-Fossify Calendar: Your Private & Powerful Schedule Planner
+Your Private & Powerful Schedule Planner
 
 Tired of cluttered calendars and privacy concerns?
 
