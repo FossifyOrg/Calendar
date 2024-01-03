@@ -63,9 +63,6 @@ Join the community on Reddit: https://www.reddit.com/r/Fossify
 
 Connect on Telegram: https://t.me/Fossify
 
-Check out the full suite of apps here:  
-https://fossify.org
-
 <div style="display:flex;">
 <img alt="App image" src="fastlane/metadata/android/en-US/images/phoneScreenshots/1_en-US.png" width="30%">
 <img alt="App image" src="fastlane/metadata/android/en-US/images/phoneScreenshots/2_en-US.png" width="30%">
