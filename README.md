@@ -9,25 +9,45 @@ Fossify Calendar is here to change that. Your open-source powerhouse for managin
 
 Here's what makes Fossify Calendar different:
 
-🚫 Ad-free and private: Your events remain yours. No ads, no tracking, no intrusive permissions.
+**🚫 Ad-free AND PRIVATE:**
 
-⏰ Flexible and customizable: Craft events precisely with times, durations, reminders, and advanced repetition rules.
+Your events remain yours. No ads, no tracking, no intrusive permissions.
 
-🔄 Seamless syncing: Sync effortlessly with Google Calendar, Outlook, Nextcloud, Exchange, and more.
+**⏰ Flexible and customizable:**
 
-🎨 Personalize your planner: Set custom sounds, looping audio streams, vibrations, and themes to match your preferences.
+Craft events precisely with times, durations, reminders, and advanced repetition rules.
 
-🌈 Vibrant widgets: Brighten your day with beautiful calendar widgets and themes for your home screen.
+**🔄 Seamless syncing:**
 
-📅 Effortless day management: Plan your day with ease, whether you're a busy professional or a family organizer.
+Sync effortlessly with Google Calendar, Outlook, Nextcloud, Exchange, and more.
 
-🎉 Import celebrations: Never miss a birthday or anniversary! Easily import holidays and special dates.
+**🎨 Personalize your planner:**
 
-🔍 Filter and map views: Quickly find what you're looking for with event filters and location maps.
+Set custom sounds, looping audio streams, vibrations, and themes to match your preferences.
 
-📆 Multiple views: Switch between daily, weekly, monthly, yearly, and event views effortlessly.
+**🌈 Vibrant widgets:**
 
-✨ Material Design elegance: Enjoy an intuitive and user-friendly interface with dynamic themes.
+Brighten your day with beautiful calendar widgets and themes for your home screen.
+
+**📅 Effortless day management:**
+
+Plan your day with ease, whether you're a busy professional or a family organizer.
+
+**🎉 IMPORT celebrations:**
+
+Never miss a birthday or anniversary! Easily import holidays and special dates.
+
+**🔍 FILTER AND MAP VIEWS:**
+
+Quickly find what you're looking for with event filters and location maps.
+
+**📆 Multiple views:**
+
+Switch between daily, weekly, monthly, yearly, and event views effortlessly.
+
+**✨ Material Design elegance:**
+
+Enjoy an intuitive and user-friendly interface with dynamic themes.
 
 Plus, Fossify Calendar is open-source! Join the vibrant community on GitHub, contribute to the project, and make it uniquely yours.
 
