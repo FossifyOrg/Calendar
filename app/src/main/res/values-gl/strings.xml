@@ -262,6 +262,11 @@
         <item quantity="one">No próximo %d mes</item>
         <item quantity="other">Nos próximos %d meses</item>
     </plurals>
+    <!-- Accessibility label -->
+    <string name="accessibility_previous_month">Go to previous month</string>
+    <string name="accessibility_next_month">Go to next month</string>
+    <string name="accessibility_previous_day">Go to previous day</string>
+    <string name="accessibility_next_day">Go to next day</string>
     <!-- FAQ -->
     <string name="faq_1_title">Como podo eliminar os días festivos engadidos mediante o botón \"Engadir días festivos\"\?</string>
     <string name="faq_1_text">Os días festivos creados dese xeito insírense nun tipo de evento chamado \"Festivo\". Podes ir a Axustes -&gt; Xestionar tipos de eventos, manter preso o tipo de evento desexado e eliminalo escollendo a Papeleira do lixo.</string>

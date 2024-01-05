@@ -262,6 +262,11 @@
         <item quantity="one">Innen neste %d veke</item>
         <item quantity="other">Innen dei neste %d vekene</item>
     </plurals>
+    <!-- Accessibility label -->
+    <string name="accessibility_previous_month">Go to previous month</string>
+    <string name="accessibility_next_month">Go to next month</string>
+    <string name="accessibility_previous_day">Go to previous day</string>
+    <string name="accessibility_next_day">Go to next day</string>
     <!-- FAQ -->
     <string name="faq_1_title">Korleis kan eg ta bort dei off. fridagane førte inn med «Legg til off. fridagar» i menyen\?</string>
     <string name="faq_1_text">Off. fridagar laga på det viset vert satt inn i eit nytt hendingsslag kalt «Off. fridagar». Gå til «Innstillingar → Handsam hendingsslag», hald inne på hendingsslaget for å velja det, og trykk på søppeldunken for å slette det.</string>

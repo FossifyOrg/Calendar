@@ -262,6 +262,11 @@
         <item quantity="one">Järgmise %d kuu jooksul</item>
         <item quantity="other">Järgmise %d kuu jooksul</item>
     </plurals>
+    <!-- Accessibility label -->
+    <string name="accessibility_previous_month">Go to previous month</string>
+    <string name="accessibility_next_month">Go to next month</string>
+    <string name="accessibility_previous_day">Go to previous day</string>
+    <string name="accessibility_next_day">Go to next day</string>
     <!-- FAQ -->
     <string name="faq_1_title">Kuidas ma saan eemaldada nupu „Lisa pühad“ kaudu imporditud pühad\?</string>
     <string name="faq_1_text">Sel viisil loodud pühad lisatakse uude sündmuse tüüpi nimega „Pühad“. Ava menüüs Seaded -&gt; Halda sündmuste tüüp, vajuta pikalt antud sündmuse tüübile ja valides prügikasti kustuta see kirje.</string>

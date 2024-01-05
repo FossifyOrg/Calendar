@@ -262,6 +262,11 @@
         <item quantity="one">Εντός στον επόμενο %d μήνα</item>
         <item quantity="other">Εντός στις επόμενες %d μήνες</item>
     </plurals>
+    <!-- Accessibility label -->
+    <string name="accessibility_previous_month">Go to previous month</string>
+    <string name="accessibility_next_month">Go to next month</string>
+    <string name="accessibility_previous_day">Go to previous day</string>
+    <string name="accessibility_next_day">Go to next day</string>
     <!-- FAQ -->
     <string name="faq_1_title">Πώς μπορώ να αφαιρέσω τις αργίες που εισήχθησαν μέσω του κουμπιού \"Προσθήκη αργιών\" ;</string>
     <string name="faq_1_text">Οι αργίες που δημιουργήθηκαν με τον τρόπο αυτό εισάγονται σε ένα νέο τύπο εκδήλωσης που ονομάζεται \"Αργίες \". Μπορείτε να μεταβείτε στις Ρυθμίσεις -&gt; Διαχείριση τύπων εκδηλώσεων, πατώντας παρατεταμένα τον συγκεκριμένο τύπο εκδήλωσης και διαγράψτε το επιλέγοντας τον Κάδο.</string>

@@ -265,6 +265,11 @@
         <item quantity="few">În următoarele %d luni</item>
         <item quantity="other">În următoarele %d de luni</item>
     </plurals>
+    <!-- Accessibility label -->
+    <string name="accessibility_previous_month">Go to previous month</string>
+    <string name="accessibility_next_month">Go to next month</string>
+    <string name="accessibility_previous_day">Go to previous day</string>
+    <string name="accessibility_next_day">Go to next day</string>
     <!-- FAQ -->
     <string name="faq_1_title">Cum pot elimina sărbătorile importate prin intermediul butonului \"Adaugă sărbători\"\?</string>
     <string name="faq_1_text">Sărbătorile create îm felul acela sunt introduse într-un tip de event nou numit \"Sărbători\". Puteți să vă duceți în Setări -&gt; Gestionează tipurile de evenimente, apăsați lung tipul de eveniment dat și ștergeți-l selectând coșul de gunoi.</string>

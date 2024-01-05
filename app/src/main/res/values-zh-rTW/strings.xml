@@ -283,6 +283,12 @@
         <item quantity="other">在接下來的 %d 個月內</item>
     </plurals>
 
+    <!-- Accessibility label -->
+    <string name="accessibility_previous_month">Go to previous month</string>
+    <string name="accessibility_next_month">Go to next month</string>
+    <string name="accessibility_previous_day">Go to previous day</string>
+    <string name="accessibility_next_day">Go to next day</string>
+
     <!-- FAQ -->
     <string name="faq_1_title">如何移除透過「新增節日」按鈕匯入的節日呢？</string>
     <string name="faq_1_text">以這方式建立的節日，會被新增到一個名為「節日」的新活動類型裡。你可以在「設定」-&gt;「管理活動類型」中，長按該活動類型，然後選擇垃圾桶圖示進行刪除。</string>

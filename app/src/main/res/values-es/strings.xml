@@ -265,6 +265,11 @@
         <item quantity="many">En los próximos meses %d</item>
         <item quantity="other">En los próximos meses %d</item>
     </plurals>
+    <!-- Accessibility label -->
+    <string name="accessibility_previous_month">Go to previous month</string>
+    <string name="accessibility_next_month">Go to next month</string>
+    <string name="accessibility_previous_day">Go to previous day</string>
+    <string name="accessibility_next_day">Go to next day</string>
     <!-- FAQ -->
     <string name="faq_1_title">¿Cómo puedo eliminar los festivos importados a través del botón \"Añadir festivos\"\?</string>
     <string name="faq_1_text">A los eventos creados de esta forma se les asigna el tipo de evento \"Festivos\". En Ajustes -&gt; Gestionar tipos de evento, mantén pulsado el tipo de evento para seleccionarlo y elimínalo pulsando en la papelera.</string>

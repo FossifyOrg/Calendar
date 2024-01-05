@@ -265,6 +265,11 @@
         <item quantity="few">У наредна %d месеца</item>
         <item quantity="other">У наредних %d месеци</item>
     </plurals>
+    <!-- Accessibility label -->
+    <string name="accessibility_previous_month">Go to previous month</string>
+    <string name="accessibility_next_month">Go to next month</string>
+    <string name="accessibility_previous_day">Go to previous day</string>
+    <string name="accessibility_next_day">Go to next day</string>
     <!-- FAQ -->
     <string name="faq_1_title">Како могу да уклоним празнике увезене преко дугмета „Додај празнике“\?</string>
     <string name="faq_1_text">Празници направљени на тај начин умећу се у нови тип догађаја под називом „Празници“. Можете да одете у Подешавања -&gt; Управљање типовима догађаја, дуго притисните дати тип догађаја и избришите га тако што ћете изабрати канту за смеће.</string>

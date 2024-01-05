@@ -262,6 +262,11 @@
         <item quantity="one">A következő %d hónapban</item>
         <item quantity="other">A következő %d hónapban</item>
     </plurals>
+    <!-- Accessibility label -->
+    <string name="accessibility_previous_month">Go to previous month</string>
+    <string name="accessibility_next_month">Go to next month</string>
+    <string name="accessibility_previous_day">Go to previous day</string>
+    <string name="accessibility_next_day">Go to next day</string>
     <!-- FAQ -->
     <string name="faq_1_title">Hogyan távolíthatom el az „Ünnepnapok hozzáadása” gombbal importált ünnepnapokat\?</string>
     <string name="faq_1_text">Az így létrehozott ünnepnapok az új „Ünnepnapok” eseménytípusba kerül beszúrásra. Menjen a Beállítások -&gt; Eseménytípusok kezelése lehetőséghez, nyomja meg hosszan az eseménytípust, majd törölje a kuka ikon választásával.</string>

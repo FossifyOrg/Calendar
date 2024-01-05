@@ -265,6 +265,11 @@
         <item quantity="many">Nos próximos %d meses</item>
         <item quantity="other">Nos próximos %d meses</item>
     </plurals>
+    <!-- Accessibility label -->
+    <string name="accessibility_previous_month">Go to previous month</string>
+    <string name="accessibility_next_month">Go to next month</string>
+    <string name="accessibility_previous_day">Go to previous day</string>
+    <string name="accessibility_next_day">Go to next day</string>
     <!-- FAQ -->
     <string name="faq_1_title">Como posso remover os feriados que importei através do botão \"Adicionar feriados\"\?</string>
     <string name="faq_1_text">Os feriados criados assim são inseridos no novo tipo de evento chamado \"Feriados \". Em Definições -&gt; Gerir tipos de eventos, selecione o tipo de evento com um toque longo e enviando-o para o lixo.</string>

@@ -268,6 +268,11 @@
         <item quantity="many">В течение следующих %d месяцев</item>
         <item quantity="other">В течение следующих %d месяцев</item>
     </plurals>
+    <!-- Accessibility label -->
+    <string name="accessibility_previous_month">Go to previous month</string>
+    <string name="accessibility_next_month">Go to next month</string>
+    <string name="accessibility_previous_day">Go to previous day</string>
+    <string name="accessibility_next_day">Go to next day</string>
     <!-- FAQ -->
     <string name="faq_1_title">Как удалить праздники, импортированные с помощью кнопки \"Добавить праздники\"\?</string>
     <string name="faq_1_text">Праздники, созданные таким образом, вставляются в новый тип события, называемый \"Праздники\". Можно перейти в \"Настройки\" -&gt; \"Управление типами событий\", затем длительное нажатие на данном типе события и его удаление нажатием на \"корзину\".</string>

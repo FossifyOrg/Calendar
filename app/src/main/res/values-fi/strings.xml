@@ -262,6 +262,11 @@
         <item quantity="one">Tulevan kuukauden aikana</item>
         <item quantity="other">Tulevien %d kuukauden aikana</item>
     </plurals>
+    <!-- Accessibility label -->
+    <string name="accessibility_previous_month">Go to previous month</string>
+    <string name="accessibility_next_month">Go to next month</string>
+    <string name="accessibility_previous_day">Go to previous day</string>
+    <string name="accessibility_next_day">Go to next day</string>
     <!-- FAQ -->
     <string name="faq_1_title">Kuinka voin poistaa \"Lisää juhlapäivät\"-painikkeella tuotuja juhlapäiviä\?</string>
     <string name="faq_1_text">Näin luodut juhlapäivät lisätään uuteen tapahtumatyyppiin nimeltä \"Juhlapäivät\". Siirry kohtaan Asetukset -&gt; Hallitse tapahtumatyyppejä, paina pitkään annettua tapahtuman tyyppiä ja poista se valitsemalla roskakorin kuvaa.</string>

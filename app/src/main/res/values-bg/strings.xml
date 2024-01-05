@@ -262,6 +262,11 @@
         <item quantity="one">В следващата %d седмица</item>
         <item quantity="other">В следващите %d седмици</item>
     </plurals>
+    <!-- Accessibility label -->
+    <string name="accessibility_previous_month">Go to previous month</string>
+    <string name="accessibility_next_month">Go to next month</string>
+    <string name="accessibility_previous_day">Go to previous day</string>
+    <string name="accessibility_next_day">Go to next day</string>
     <!-- FAQ -->
     <string name="faq_1_title">Как мога да премахна празниците, импортирани чрез бутона \"Добавяне на празници\"\?</string>
     <string name="faq_1_text">Създадените по този начин празници се вмъкват в нов тип събитие, наречен \"Празници\". Можете да отидете в Настройки -&gt; Управление на типове събития, да натиснете продължително дадения тип събитие и да го изтриете, като изберете кошчето за боклук.</string>
