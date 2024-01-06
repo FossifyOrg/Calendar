@@ -262,6 +262,11 @@
         <item quantity="one">Binnen de komende %d maand</item>
         <item quantity="other">Binnen de komende %d maanden</item>
     </plurals>
+    <!-- Accessibility label -->
+    <string name="accessibility_previous_month">Go to previous month</string>
+    <string name="accessibility_next_month">Go to next month</string>
+    <string name="accessibility_previous_day">Go to previous day</string>
+    <string name="accessibility_next_day">Go to next day</string>
     <!-- FAQ -->
     <string name="faq_1_title">Hoe kan ik de feestdagen die zijn geïmporteerd via \"Feestdagen toevoegen\" weer verwijderen\?</string>
     <string name="faq_1_text">Deze feestdagen hebben het afspraaktype \"Feestdagen\". Om de feestdagen te verwijderen, ga naar Instellingen -&gt; Afspraaktypes beheren, druk lang op \"Feestdagen\" en druk vervolgens op de prullenbak.</string>

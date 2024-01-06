@@ -265,6 +265,11 @@
         <item quantity="few">%d mėnesių bėgyje</item>
         <item quantity="other">%d mėnesių bėgyje</item>
     </plurals>
+    <!-- Accessibility label -->
+    <string name="accessibility_previous_month">Go to previous month</string>
+    <string name="accessibility_next_month">Go to next month</string>
+    <string name="accessibility_previous_day">Go to previous day</string>
+    <string name="accessibility_next_day">Go to next day</string>
     <!-- FAQ -->
     <string name="faq_1_title">Kaip galiu pašalinti šventines dienas, importuotas naudojant mygtuką „Pridėti šventines dienas“\?</string>
     <string name="faq_1_text">Tuo būdu sukurtos šventinės dienos yra įterpiamos į naują įvykių tipą, pavadinimu „Šventinės dienos“. Pereikite į „Nustatymai“ -&gt; „Tvarkyti įvykių tipus“, paspauskite ir ilgiau palaikykite ant nurodyto įvykio tipo ir ištrinkite jį baksteldami ant šiukšlinės.</string>

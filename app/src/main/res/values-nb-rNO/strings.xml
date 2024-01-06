@@ -262,6 +262,11 @@
         <item quantity="one">Innen neste %d måned</item>
         <item quantity="other">Innen de neste %d månedene</item>
     </plurals>
+    <!-- Accessibility label -->
+    <string name="accessibility_previous_month">Go to previous month</string>
+    <string name="accessibility_next_month">Go to next month</string>
+    <string name="accessibility_previous_day">Go to previous day</string>
+    <string name="accessibility_next_day">Go to next day</string>
     <!-- FAQ -->
     <string name="faq_1_title">Hvordan kan jeg fjerne off. fridager importert via meny - \"Legg til off. fridager\"\?</string>
     <string name="faq_1_text">Off. fridager opprettet på denne måten settes inn i en ny hendelsestype kalt \"Off. fridager\". Gå til Innstillinger -&gt; Behandle hendelsestyper, lang-trykk hendelsestypen og slett den ved å velge søppelbøtten.</string>

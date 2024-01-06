@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import org.fossify.calendar.R
 import org.fossify.calendar.activities.MainActivity
 import org.fossify.calendar.databinding.FragmentMonthBinding
 import org.fossify.calendar.databinding.TopNavigationBinding
@@ -120,6 +121,7 @@ class MonthFragment : Fragment(), MonthlyCalendar {
             val pointerLeft = requireContext().getDrawable(org.fossify.commons.R.drawable.ic_chevron_left_vector)
             pointerLeft?.isAutoMirrored = true
             setImageDrawable(pointerLeft)
+            contentDescription = getString(R.string.accessibility_previous_month)
         }
 
         topNavigationBinding.topRightArrow.apply {
@@ -132,6 +134,7 @@ class MonthFragment : Fragment(), MonthlyCalendar {
             val pointerRight = requireContext().getDrawable(org.fossify.commons.R.drawable.ic_chevron_right_vector)
             pointerRight?.isAutoMirrored = true
             setImageDrawable(pointerRight)
+            contentDescription = getString(R.string.accessibility_next_month)
         }
 
         topNavigationBinding.topValue.apply {

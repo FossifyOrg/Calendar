@@ -265,6 +265,11 @@
         <item quantity="few">Najbližších %d mesiacov</item>
         <item quantity="other">Najbližších %d mesiacov</item>
     </plurals>
+    <!-- Accessibility label -->
+    <string name="accessibility_previous_month">Go to previous month</string>
+    <string name="accessibility_next_month">Go to next month</string>
+    <string name="accessibility_previous_day">Go to previous day</string>
+    <string name="accessibility_next_day">Go to next day</string>
     <!-- FAQ -->
     <string name="faq_1_title">Ako môžem odstrániť sviatky pridané pomocou tlačidla \"Pridať sviatky\"\?</string>
     <string name="faq_1_text">Sviatky vytvorené daným spôsobom sú pridané do typu udalosti \"Sviatky\". Môžete teda ísť do Nastavenia -&gt; Spravovať typy udalostí, podržať daný typ a vymazať ho pomocou smetného koša.</string>

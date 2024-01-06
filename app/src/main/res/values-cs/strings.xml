@@ -265,6 +265,11 @@
         <item quantity="few">v průběhu %d měsíců</item>
         <item quantity="other">v průběhu %d měsíců</item>
     </plurals>
+    <!-- Accessibility label -->
+    <string name="accessibility_previous_month">Go to previous month</string>
+    <string name="accessibility_next_month">Go to next month</string>
+    <string name="accessibility_previous_day">Go to previous day</string>
+    <string name="accessibility_next_day">Go to next day</string>
     <!-- FAQ -->
     <string name="faq_1_title">Jak mohu odstranit svátky importované pomocí tlačítka „Přidat svátky“\?</string>
     <string name="faq_1_text">Svátky vytvořené touto cestou jsou vloženy pod novým typem události „Svátky“. Odstranit je můžete přes: Nastavení -&gt; Správa typů událostí -&gt; dlouze podržte daný typ události a stiskněte tlačítko s ikonou koše pro odstranění.</string>

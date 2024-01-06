@@ -268,6 +268,11 @@
         <item quantity="many">Протягом наступних %d місяців</item>
         <item quantity="other">Протягом наступних %d місяців</item>
     </plurals>
+    <!-- Accessibility label -->
+    <string name="accessibility_previous_month">Go to previous month</string>
+    <string name="accessibility_next_month">Go to next month</string>
+    <string name="accessibility_previous_day">Go to previous day</string>
+    <string name="accessibility_next_day">Go to next day</string>
     <!-- FAQ -->
     <string name="faq_1_title">Як видалити свята, імпортовані з допомогою кнопки \"Додати свята\"\?</string>
     <string name="faq_1_text">Свята, створені таким чином, групуються в новий тип подій, що називається \"Свята\". Можна перейти в \"Налаштування\" -&gt; \"Керувати типами подій\", потім тривале натиснення на даному типу подій активує процедуру видалення, нарешті натиснути \"Кошик\".</string>

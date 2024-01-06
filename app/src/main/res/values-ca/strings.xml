@@ -262,6 +262,11 @@
         <item quantity="one">En el %d mes següent</item>
         <item quantity="other">En els %d mesos següents</item>
     </plurals>
+    <!-- Accessibility label -->
+    <string name="accessibility_previous_month">Go to previous month</string>
+    <string name="accessibility_next_month">Go to next month</string>
+    <string name="accessibility_previous_day">Go to previous day</string>
+    <string name="accessibility_next_day">Go to next day</string>
     <!-- FAQ -->
     <string name="faq_1_title">Com puc eliminar els dies festius importats mitjançant el botó «Afegeix festius»\?</string>
     <string name="faq_1_text">Els dies festius creats d\'aquesta manera s\'insereixen en un tipus d\'esdeveniment nou anomenat «Festius». Podeu anar a Configuració -&gt; Gestiona els tipus d\'esdeveniments, prémer prolongadament el tipus d\'esdeveniment indicat i suprimir-lo seleccionant la paperera.</string>

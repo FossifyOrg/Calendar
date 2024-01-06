@@ -262,6 +262,11 @@
         <item quantity="one">Inom den kommande %d månaden</item>
         <item quantity="other">Inom de kommande %d månaderna</item>
     </plurals>
+    <!-- Accessibility label -->
+    <string name="accessibility_previous_month">Go to previous month</string>
+    <string name="accessibility_next_month">Go to next month</string>
+    <string name="accessibility_previous_day">Go to previous day</string>
+    <string name="accessibility_next_day">Go to next day</string>
     <!-- FAQ -->
     <string name="faq_1_title">Hur kan jag ta bort helgdagar som importerats via knappen \"Lägg till helgdagar\"\?</string>
     <string name="faq_1_text">Helgdagar som skapas på detta sätt läggs in i en ny händelsetyp som kallas \"Helgdagar\". Du kan gå till Inställningar -&gt; Hantera händelsetyper, trycka länge på den aktuella händelsetypen och ta bort den genom att välja papperskorgen.</string>

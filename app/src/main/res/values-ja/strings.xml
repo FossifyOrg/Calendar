@@ -260,6 +260,11 @@
     <plurals name="within_the_next_months">
         <item quantity="other">今後 %d ヶ月分</item>
     </plurals>
+    <!-- Accessibility label -->
+    <string name="accessibility_previous_month">Go to previous month</string>
+    <string name="accessibility_next_month">Go to next month</string>
+    <string name="accessibility_previous_day">Go to previous day</string>
+    <string name="accessibility_next_day">Go to next day</string>
     <!-- FAQ -->
     <string name="faq_1_title">「祝日を追加」ボタンでインポートした祝日を削除するにはどうすればいいですか？</string>
     <string name="faq_1_text">この方法で作成された祝日は、「祝日」という新しい予定の種類に追加されます。この「祝日」という予定の種類を削除するには、設定の「予定の種類を管理」で対象の予定の種類を長押してごみ箱を選択する必要があります。</string>

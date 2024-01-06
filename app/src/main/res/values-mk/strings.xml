@@ -263,6 +263,11 @@
         <item quantity="one">Во текот на следниот %d месец</item>
         <item quantity="other">Во следните %d месеци</item>
     </plurals>
+    <!-- Accessibility label -->
+    <string name="accessibility_previous_month">Go to previous month</string>
+    <string name="accessibility_next_month">Go to next month</string>
+    <string name="accessibility_previous_day">Go to previous day</string>
+    <string name="accessibility_next_day">Go to next day</string>
     <!-- FAQ -->
     <string name="faq_1_title">Како можам да ги отстранам празниците увезени преку копчето \"Додади празници\"\?</string>
     <string name="faq_1_text">Празниците создадени така се внесуваат во нов тип на настани наречен \"Празници\". Можете да одите на Settings -&gt; Manage Event Types, долго да го притиснете дадениот тип на настан и да го избришете со избирање на ѓубрето.</string>

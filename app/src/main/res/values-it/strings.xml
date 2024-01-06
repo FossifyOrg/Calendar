@@ -265,6 +265,13 @@
         <item quantity="many">Durante i prossimi %d mesi</item>
         <item quantity="other">Durante i prossimi %d mesi</item>
     </plurals>
+
+    <!-- Accessibility label -->
+    <string name="accessibility_previous_month">Vai al mese precedente</string>
+    <string name="accessibility_next_month">Vai al mese successivo</string>
+    <string name="accessibility_previous_day">Vai al giorno precedente</string>
+    <string name="accessibility_next_day">Vai al giorno successivo</string>
+
     <!-- FAQ -->
     <string name="faq_1_title">Come posso rimuovere le festività importate tramite il pulsante «Aggiungi festività»\?</string>
     <string name="faq_1_text">Le festività create in questo modo sono inseriti in eventi di tipo «Festività». Andare in Impostazioni → Gestisci tipi di eventi, tenere premuto sul tipo desiderato ed eliminarlo selezionando il cestino.</string>

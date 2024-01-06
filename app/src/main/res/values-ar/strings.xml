@@ -274,6 +274,11 @@
         <item quantity="many">خلال الاشهر التالية %d</item>
         <item quantity="other">خلال الشهر التالي %d</item>
     </plurals>
+    <!-- Accessibility label -->
+    <string name="accessibility_previous_month">Go to previous month</string>
+    <string name="accessibility_next_month">Go to next month</string>
+    <string name="accessibility_previous_day">Go to previous day</string>
+    <string name="accessibility_next_day">Go to next day</string>
     <!-- FAQ -->
     <string name="faq_1_title">كيف يمكنني حذف العطلات المنقولة عن طريق زر \"أضف عطلات\"؟</string>
     <string name="faq_1_text">العطلات المضافة بهذه الطريقة تدخل تحت نوع جديد يسمى \"العطلات\". يمكنك الذهاب الى الإعدادات -&gt; إدارة أنواع الأحداث، ثم اضغط مطولا على نوع الحدث واحذفه عن طريق اختيار سلة المهملات.</string>

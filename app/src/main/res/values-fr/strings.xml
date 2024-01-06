@@ -265,6 +265,11 @@
         <item quantity="many">Au cours des %d prochains mois</item>
         <item quantity="other">Au cours des %d prochains mois</item>
     </plurals>
+    <!-- Accessibility label -->
+    <string name="accessibility_previous_month">Go to previous month</string>
+    <string name="accessibility_next_month">Go to next month</string>
+    <string name="accessibility_previous_day">Go to previous day</string>
+    <string name="accessibility_next_day">Go to next day</string>
     <!-- FAQ -->
     <string name="faq_1_title">Comment puis-je supprimer les jours fériés importés avec le bouton « Ajouter des jours fériés » \?</string>
     <string name="faq_1_text">Les jours fériés ainsi créés sont insérés dans un nouveau type d\'évènement appelé « Jours fériés ». Vous pouvez aller dans « Paramètres » -&gt; « Gérer les types d\'événements », et appuyer longuement sur le type d\'évènement concerné et le supprimer en sélectionnant la corbeille.</string>

@@ -262,6 +262,11 @@
         <item quantity="one">Hurrengo %d hilabetean</item>
         <item quantity="other">Hurrengo %d hilabetetan</item>
     </plurals>
+    <!-- Accessibility label -->
+    <string name="accessibility_previous_month">Go to previous month</string>
+    <string name="accessibility_next_month">Go to next month</string>
+    <string name="accessibility_previous_day">Go to previous day</string>
+    <string name="accessibility_next_day">Go to next day</string>
     <!-- FAQ -->
     <string name="faq_1_title">Nola kendu ditzaket \"Gehitu jaiegunak\" botoiarekin inportatutako jaiegunak\?</string>
     <string name="faq_1_text">Modu horretan sortutako jaiegunak \"Jaiegunak\" deituriko gertaera mota berrian sartzen dira. Joan Ezarpenak -&gt; Kudeatu gertaera motak atalera, sakatu luze gertaera mota hori eta ezabatu zakarrontzia hautatuz.</string>
