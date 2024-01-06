@@ -269,10 +269,10 @@
         <item quantity="other">W ciągu najbliższych %d miesięcy</item>
     </plurals>
     <!-- Accessibility label -->
-    <string name="accessibility_previous_month">Go to previous month</string>
-    <string name="accessibility_next_month">Go to next month</string>
-    <string name="accessibility_previous_day">Go to previous day</string>
-    <string name="accessibility_next_day">Go to next day</string>
+    <string name="accessibility_previous_month">Przejdź do poprzedniego miesiąca</string>
+    <string name="accessibility_next_month">Przejdź do następnego miesiąca</string>
+    <string name="accessibility_previous_day">Przejdź do poprzedniego dnia</string>
+    <string name="accessibility_next_day">Przejdź do następnego dnia</string>
     <!-- FAQ -->
     <string name="faq_1_title">Jak mogę usunąć święta zaimportowane przez przycisk „Dodaj święta”\?</string>
     <string name="faq_1_text">Święta dodane w ten sposób są wprowadzane do nowego typu wydarzeń — „Święta”. Możesz wejść w Ustawienia -&gt; Zarządzaj typami wydarzeń, a następnie przyciśnij długo dany typ wydarzeń i usuń go, wybierając ikonę kosza.</string>
