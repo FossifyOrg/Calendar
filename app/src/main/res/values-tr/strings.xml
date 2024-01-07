@@ -29,8 +29,8 @@
     <string name="please_fill_location">Lütfen haritada gösterilecek bir yeri doldurun</string>
     <string name="public_event_notification_text">Bir etkinlik yaklaşıyor</string>
     <string name="everything_filtered_out">Tüm etkinlik türlerini filtrelediniz</string>
-    <string name="event_color">Event color</string>
-    <string name="default_calendar_color">Default calendar color</string>
+    <string name="event_color">Etkinlik rengi</string>
+    <string name="default_calendar_color">Öntanımlı takvim rengi</string>
     <!-- Tasks -->
     <string name="task">Görev</string>
     <string name="tasks">Görevler</string>
@@ -263,10 +263,10 @@
         <item quantity="other">Sonraki %d ay içinde</item>
     </plurals>
     <!-- Accessibility label -->
-    <string name="accessibility_previous_month">Go to previous month</string>
-    <string name="accessibility_next_month">Go to next month</string>
-    <string name="accessibility_previous_day">Go to previous day</string>
-    <string name="accessibility_next_day">Go to next day</string>
+    <string name="accessibility_previous_month">Önceki aya git</string>
+    <string name="accessibility_next_month">Sonraki aya git</string>
+    <string name="accessibility_previous_day">Önceki güne git</string>
+    <string name="accessibility_next_day">Sonraki güne git</string>
     <!-- FAQ -->
     <string name="faq_1_title">\"Tatil ekle\" düğmesiyle içe aktarılan tatilleri nasıl kaldırabilirim\?</string>
     <string name="faq_1_text">Tatiller, \"Tatiller\" olarak adlandırılan yeni bir etkinlik türüne eklenir. Ayarlar -&gt; Etkinlik Türlerini Yönet\'e gidip, belirlenen etkinlik türüne uzun basıp çöp kutusunu seçerek silebilirsiniz.</string>
