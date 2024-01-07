@@ -260,9 +260,9 @@
         <item quantity="other">在未来 %d 个月内</item>
     </plurals>
     <!-- Accessibility label -->
-    <string name="accessibility_previous_month">Go to previous month</string>
-    <string name="accessibility_next_month">Go to next month</string>
-    <string name="accessibility_previous_day">Go to previous day</string>
+    <string name="accessibility_previous_month">转到上一个月</string>
+    <string name="accessibility_next_month">转到下一个月</string>
+    <string name="accessibility_previous_day">转到前一天</string>
     <string name="accessibility_next_day">Go to next day</string>
     <!-- FAQ -->
     <string name="faq_1_title">我如何移除用[添加节日]按钮所导入的节日\?</string>
