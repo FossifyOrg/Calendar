@@ -263,10 +263,10 @@
         <item quantity="other">Innerhalb der nächsten %d Monate</item>
     </plurals>
     <!-- Accessibility label -->
-    <string name="accessibility_previous_month">Go to previous month</string>
-    <string name="accessibility_next_month">Go to next month</string>
-    <string name="accessibility_previous_day">Go to previous day</string>
-    <string name="accessibility_next_day">Go to next day</string>
+    <string name="accessibility_previous_month">Gehe zum vorherigem Monat</string>
+    <string name="accessibility_next_month">Gehe zum nächsten Monat</string>
+    <string name="accessibility_previous_day">Gehe zum vorherigem Tag</string>
+    <string name="accessibility_next_day">Gehe zum nächsten Tag</string>
     <!-- FAQ -->
     <string name="faq_1_title">Wie kann ich Feiertage löschen, die über „Feiertage hinzufügen“ importiert wurden\?</string>
     <string name="faq_1_text">Die über diesen Weg erstellten Feiertage sind als Termintyp „Feiertage“ deklariert. Du kannst in den Einstellungen -&gt; Termintypen verwalten auf den Termintyp gedrückt halten und über das Papierkorbsymbol löschen.</string>
