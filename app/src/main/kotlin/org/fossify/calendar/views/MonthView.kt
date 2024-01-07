@@ -32,6 +32,7 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
     private var eventTitlePaint: TextPaint
     private var gridPaint: Paint
     private var circleStrokePaint: Paint
+    private var plusSymbolTextPaint: Paint
     private var config = context.config
     private var dayWidth = 0f
     private var dayHeight = 0f
@@ -75,6 +76,13 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
 
         textPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
             color = textColor
+            textSize = normalTextSize.toFloat()
+            textAlign = Paint.Align.CENTER
+        }
+
+        plusSymbolTextPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            color = textColor
+            alpha = 175
             textSize = normalTextSize.toFloat()
             textAlign = Paint.Align.CENTER
         }
@@ -190,16 +198,37 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
                         canvas.drawCircle(xPosCenter, yPos + textPaint.textSize * 0.7f, textPaint.textSize * 0.8f, getCirclePaint(day))
                     }
 
-                    // mark days with events with a dot
+                    // mark days with a dot for each event
                     if (isMonthDayView && day.dayEvents.isNotEmpty()) {
                         getCirclePaint(day).getTextBounds(dayNumber, 0, dayNumber.length, dayTextRect)
                         val height = dayTextRect.height() * 1.25f
-                        canvas.drawCircle(
-                            xPosCenter,
-                            yPos + height + textPaint.textSize / 2,
-                            textPaint.textSize * 0.2f,
-                            getDayEventColor(day.dayEvents.first())
-                        )
+                        val eventCount = day.dayEvents.count()
+                        val radiusDot = textPaint.textSize * 0.2f
+                        val stepSize = radiusDot * 2.5f
+                        val dotsPerRow = 4
+                        var xDot = xPosCenter
+                        var yDot = yPos + height + textPaint.textSize / 2
+                        val dayEventsSorted = day.dayEvents.asSequence().sortedWith(
+                            compareBy({ it.startTS }, { it.endTS }, { it.title })
+                        ).toMutableList() as ArrayList<Event>
+                        var indexInRow = 0
+                        for ((index, event) in dayEventsSorted.withIndex()) {
+                            indexInRow = index % dotsPerRow
+                            xDot = xPosCenter + stepSize * (indexInRow - (min(eventCount, dotsPerRow)) / 2)
+                            if (eventCount % 2 == 0) { // center even number of dots
+                                xDot += stepSize / 2
+                            }
+                            if (index > 0 && indexInRow == 0) { // next row of dots
+                                yDot += stepSize
+                            }
+                            if (index >= dotsPerRow * 2 - 1) { // draw + if too many events
+                                plusSymbolTextPaint.textSize = stepSize * 1.5f
+                                canvas.drawText("+", xDot, yDot + radiusDot * 1.2f, plusSymbolTextPaint)
+                                break
+                            } else {
+                                canvas.drawCircle(xDot, yDot, radiusDot, getDayEventColor(event))
+                            }
+                        }
                     }
 
                     canvas.drawText(dayNumber, xPosCenter, yPos + textPaint.textSize, textPaint)
