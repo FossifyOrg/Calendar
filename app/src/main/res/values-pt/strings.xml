@@ -253,8 +253,4 @@
     <string name="faq_5_text">Analise as definições de bateria e de notificações do dispositivo. Pode ser que exista algo a bloquear os lembretes ou a terminar a aplicação em segundo plano. Consulte &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt; para ver algumas dicas.</string>
     <string name="faq_6_title">É possível modificar ou eliminar um tipo de evento existente\?</string>
     <string name="faq_6_text">Pode fazer ambas em Definições - Gerir tipos de eventos. Basta tocar no desejado para alterar o texto ou a cor e pode também eliminar qualquer um com um toque longo no tipo de evento e utilizando a reciclagem no menu superior.</string>
-    <!--
-        Não encontrou todas as cadeias a traduzir? Existem mais algumas em:
-        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
-    -->
 </resources>

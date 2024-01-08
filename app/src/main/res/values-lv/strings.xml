@@ -211,8 +211,4 @@
     <string name="faq_3_text">Gan atgādinājuma parādīšana, gan skaņu atskaņošana ir visai atkarīga no sistēmas. Ja nav dzirdama skaņa, atveriet lietotnes iestatījumus, nospiediet \"Atgādinājumiem izmantotā audio straume\" un nomainiet tās vērtību. Ja skaņas nav joprojām, pārbaudiet skaņas iestatījumos, vai šī straume nav izslēgta.</string>
     <string name="faq_4_title">Vai lietotne atbalsta laika joslas\?</string>
     <string name="faq_4_text">Jā, atbalsta. Pēc noklusējuma visi notikumi tiek izveidoti tābrīža iesatītajā laika joslā. Ja vēlaties mainīt notikuma laika joslu, vispirms jāiespējo laika joslu izvēlnis lietotnes iestatījumos, pēc tam to var mainīt Notikuma informācijas skatā. Pēc noklusējuma funkcija ir atspējota, jo vairumam tā nav noderīga.</string>
-    <!--
-        Nav izdevies uziet kādus tulkojumus? Tie atrodami
-        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
-    -->
 </resources>

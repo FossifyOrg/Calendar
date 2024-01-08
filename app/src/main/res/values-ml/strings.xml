@@ -1,5 +1,3 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="faq_1_text">Holidays created that way are inserted in a new event type called \"Holidays\". You can go in Settings -&gt; Manage Event Types,
-        long press the given event type and delete it by selecting the trashbin.</string>
-</resources>
+    </resources>
