@@ -11,11 +11,9 @@
     <string name="no_upcoming_events">Tidak ada acara mendatang.</string>
     <string name="go_to_today">Buka hari ini</string>
     <string name="go_to_date">Buka tanggal</string>
-    <!-- Widget titles -->
     <string name="widget_monthly">Bulan</string>
     <string name="widget_list">Daftar acara</string>
     <string name="widget_todays_date">Tanggal kalender hari ini</string>
-    <!-- Event -->
     <string name="event">Acara</string>
     <string name="edit_event">Sunting Acara</string>
     <string name="new_event">Acara Baru</string>
@@ -29,9 +27,6 @@
     <string name="please_fill_location">Silakan isi lokasi untuk ditampilkan pada peta</string>
     <string name="public_event_notification_text">Acara yang akan datang</string>
     <string name="everything_filtered_out">Anda telah menyaring semua jenis peristiwa</string>
-    <string name="event_color">Event color</string>
-    <string name="default_calendar_color">Default calendar color</string>
-    <!-- Tasks -->
     <string name="task">Tugas</string>
     <string name="tasks">Tugas</string>
     <string name="edit_task">Sunting Tugas</string>
@@ -41,7 +36,6 @@
     <string name="mark_completed">Tandai sebagai selesai</string>
     <string name="mark_incomplete">Tandai sebagai belum selesai</string>
     <string name="task_color">Warna tugas</string>
-    <!-- Event Repetition -->
     <string name="repetition">Perulangan</string>
     <string name="no_repetition">Tidak ada perulangan</string>
     <string name="daily">Harian</string>
@@ -82,8 +76,6 @@
     <string name="fourth_m">keempat</string>
     <string name="fifth_m">kelima</string>
     <string name="last_m">terakhir</string>
-    <!-- alternative versions for some languages, use the same translations if you are not sure what this means -->
-    <!-- used in repetition, like "Every first Sunday" -->
     <string name="repeat_every_f">Ulangi setiap</string>
     <string name="every_f">Setiap</string>
     <string name="first_f">pertama</string>
@@ -92,36 +84,30 @@
     <string name="fourth_f">keempat</string>
     <string name="fifth_f">kelima</string>
     <string name="last_f">terakhir</string>
-    <!-- Birthdays -->
     <string name="birthdays">Ulang Tahun</string>
     <string name="add_birthdays">Tambahkan ulang tahun kontak</string>
     <string name="no_birthdays">Tidak ada ulang tahun yang ditemukan</string>
     <string name="no_new_birthdays">Tidak ada ulang tahun baru yang ditemukan</string>
     <string name="birthdays_added">Ulang tahun berhasil ditambahkan</string>
     <string name="add_birthdays_automatically">Tambahkan hari ulang tahun baru secara otomatis</string>
-    <!-- Anniversaries -->
     <string name="anniversaries">Hari Jadi</string>
     <string name="add_anniversaries">Tambahkan hari jadi kontak</string>
     <string name="no_anniversaries">Tidak ada hari jadi yang ditemukan</string>
     <string name="no_new_anniversaries">Tidak ada hari jadi baru yang ditemukan</string>
     <string name="anniversaries_added">Hari jadi berhasil ditambahkan</string>
     <string name="add_anniversaries_automatically">Tambahkan hari jadi baru secara otomatis</string>
-    <!-- Event Reminders -->
     <string name="reminder">Pengingat</string>
     <string name="before">sebelum</string>
     <string name="add_another_reminder">Tambah pengingat lainnya</string>
     <string name="event_reminders">Pengingat acara</string>
     <string name="reminders">Pengingat</string>
-    <!-- Event attendees -->
     <string name="add_another_attendee">Tambah tamu lainnya</string>
     <string name="my_status">Status saya:</string>
     <string name="going">Hadir</string>
     <string name="not_going">Tidak hadir</string>
     <string name="maybe_going">Mungkin hadir</string>
     <string name="invited">Diundang</string>
-    <!-- Time zones -->
     <string name="enter_a_country">Masukkan nama negara atau zona waktu</string>
-    <!-- Export / Import -->
     <string name="import_events">Impor acara</string>
     <string name="export_events">Ekspor acara</string>
     <string name="import_events_from_ics">Impor acara dari berkas .ics</string>
@@ -134,14 +120,11 @@
     <string name="include_event_types">Sertakan kategori acara</string>
     <string name="filename_without_ics">Nama berkas (tanpa .ics)</string>
     <string name="ignore_event_types">Abaikan jenis peristiwa dalam berkas, selalu gunakan yang bawaan</string>
-    <!-- Event details -->
     <string name="location">Lokasi</string>
     <string name="description">Deskripsi</string>
     <string name="all_day">Sepanjang hari</string>
-    <!-- Weekly view -->
     <string name="week">Minggu</string>
     <string name="start_week_with_current_day">Mulai minggu dengan hari saat ini</string>
-    <!-- Event types -->
     <string name="event_types">Kategori acara</string>
     <string name="add_new_type">Tambah kategori acara baru</string>
     <string name="edit_type">Sunting kategori</string>
@@ -153,7 +136,6 @@
     <string name="move_events_into_default">Pindah acara yang terdampak ke dalam kategori acara default</string>
     <string name="remove_affected_events">Secara permanen hapus acara yang terdampak</string>
     <string name="unsync_caldav_calendar">Untuk menghapus kalender CalDAV anda perlu menonaktifkan sinkronisasinya</string>
-    <!-- Holidays -->
     <string name="holidays">Hari Libur</string>
     <string name="add_holidays">Tambahkan hari libur</string>
     <string name="national_holidays">Libur nasional</string>
@@ -161,7 +143,6 @@
     <string name="holidays_imported_successfully">Hari libur berhasil diimpor ke dalam kategori acara \"Hari Libur\"</string>
     <string name="importing_some_holidays_failed">Gagal mengimpor beberapa hari libur</string>
     <string name="importing_holidays_failed">Gagal mengimpor hari libur</string>
-    <!-- Settings -->
     <string name="manage_event_types">Kelola kategori acara</string>
     <string name="start_day_at">Hari dimulai pada jam</string>
     <string name="end_day_at">Hari berakhir pada jam</string>
@@ -188,7 +169,6 @@
     <string name="events">Acara</string>
     <string name="reminder_stream">Audio yang digunakan pengingat</string>
     <string name="system_stream">Sistem</string>
-    <string name="alarm_stream">Alarm</string>
     <string name="notification_stream">Notifikasi</string>
     <string name="ring_stream">Dering</string>
     <string name="use_last_event_reminders">Gunakan pengingat acara sebelumnya sebagai pengingat acara baru</string>
@@ -209,8 +189,6 @@
     <string name="allow_changing_time_zones">Izinkan mengubah zona waktu acara</string>
     <string name="manage_quick_filter_event_types">Kelola penyaringan cepat jenis peristiwa</string>
     <string name="allow_creating_tasks">Perbolehkan membuat tugas</string>
-    <!-- CalDAV sync -->
-    <string name="caldav">CalDAV</string>
     <string name="select_caldav_calendars">Pilih kalender untuk sinkronisasi</string>
     <string name="manage_synced_calendars">Kelola kalender yang disinkronkan</string>
     <string name="store_locally_only">Hanya simpan secara lokal</string>
@@ -224,11 +202,8 @@
     <string name="insufficient_permissions">Anda tidak diizinkan untuk membuat/mengubah acara pada kalender yang dipilih</string>
     <string name="caldav_event_not_found">Acara tidak ditemukan. Silakan aktifkan sinkronisasi CalDAV untuk kalender terkait di dalam pengaturan aplikasi.</string>
     <string name="no_synchronized_calendars">Tidak ada kalender yang dapat ditemukan</string>
-    <string name="status_free">Free</string>
     <string name="status_busy">Sibuk</string>
     <string name="fetching_event_failed">Gagal mendapatkan acara %s</string>
-    <!-- alternative versions for some languages, use the same translations if you are not sure what this means -->
-    <!-- used in repetition, like "Every last Sunday" -->
     <string name="monday_alt">Senin</string>
     <string name="tuesday_alt">Selasa</string>
     <string name="wednesday_alt">Rabu</string>
@@ -236,7 +211,6 @@
     <string name="friday_alt">Jumat</string>
     <string name="saturday_alt">Sabtu</string>
     <string name="sunday_alt">Minggu</string>
-    <!-- List widget config example events -->
     <string name="sample_title_1">Olah Raga</string>
     <string name="sample_description_1">Jalan santai</string>
     <string name="sample_title_2">Rapat dengan Budi</string>
@@ -245,29 +219,10 @@
     <string name="sample_title_4">Makan siang dengan Wati</string>
     <string name="sample_description_4">Di Mall</string>
     <string name="sample_title_5">Waktunya Ngopi</string>
-    <!-- List widget config -->
     <string name="show_events_happening">Tampilkan acara yang terjadi:</string>
     <string name="within_the_next_one_year">Dalam 1 tahun berikut</string>
     <string name="today_only">Hanya hari ini</string>
     <string name="within_the_next">Dalam…</string>
-    <plurals name="within_the_next_days">
-        <item quantity="one">Within the next %d day</item>
-        <item quantity="other">Within the next %d days</item>
-    </plurals>
-    <plurals name="within_the_next_weeks">
-        <item quantity="one">Within the next %d week</item>
-        <item quantity="other">Within the next %d weeks</item>
-    </plurals>
-    <plurals name="within_the_next_months">
-        <item quantity="one">Within the next %d month</item>
-        <item quantity="other">Within the next %d months</item>
-    </plurals>
-    <!-- Accessibility label -->
-    <string name="accessibility_previous_month">Go to previous month</string>
-    <string name="accessibility_next_month">Go to next month</string>
-    <string name="accessibility_previous_day">Go to previous day</string>
-    <string name="accessibility_next_day">Go to next day</string>
-    <!-- FAQ -->
     <string name="faq_1_title">Bagaimana cara menghapus hari libur yang diimpor via tombol \"Tambah hari libur\"\?</string>
     <string name="faq_1_text">Hari libur yang dibuat dengan cara tersebut disimpan di dalam kategori acara baru dengan nama \"Hari Libur\". Anda bisa mengunjungi Pengaturan -&gt; Kelola Kategori Acara, tekan lama kategori acara tersebut dan hapus dengan cara menekan tombol keranjang sampah.</string>
     <string name="faq_2_title">Bisakah saya menyinkronkan acara saya dengan Google Calendar, atau layanan lain yang mendukung CalDAV\?</string>
@@ -281,8 +236,4 @@
     <string name="faq_5_text">Periksa baterai perangkat dan pengaturan notifikasi Anda, jika tidak ada yang memblokir pengingat, atau menghentikan aplikasi di latar belakang. Anda mungkin juga ingin melihat &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;, itu memiliki beberapa kiat yang berguna.</string>
     <string name="faq_6_title">Bagaimana saya dapat mengubah atau menghapus jenis acara yang sudah ada\?</string>
     <string name="faq_6_text">Anda dapat melakukan kedua-duanya dalam Pengaturan - Kelola jenis acara. Klik saja yang diinginkan untuk mengubah label atau warna, atau pilih yang tidak diinginkan dengan menekannya dengan lama dan gunakan tong sampah di atas menu untuk dihapus.</string>
-    <!--
-        Haven't found some strings? There's more at
-        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
-    -->
 </resources>

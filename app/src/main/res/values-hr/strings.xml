@@ -11,11 +11,9 @@
     <string name="no_upcoming_events">Nema nadolazećih događaja.</string>
     <string name="go_to_today">Idi na danas</string>
     <string name="go_to_date">Idi na datum</string>
-    <!-- Widget titles -->
     <string name="widget_monthly">Mjesečni kalendar</string>
     <string name="widget_list">Popis događaja kalendara</string>
     <string name="widget_todays_date">Današnji datum kalendara</string>
-    <!-- Event -->
     <string name="event">Događaj</string>
     <string name="edit_event">Uredi događaj</string>
     <string name="new_event">Novi događaj</string>
@@ -29,9 +27,6 @@
     <string name="please_fill_location">Upiši lokaciju za prikazivanje na karti</string>
     <string name="public_event_notification_text">Jedan događaj nadolazi</string>
     <string name="everything_filtered_out">Izdvojene su sve vrste događaja</string>
-    <string name="event_color">Event color</string>
-    <string name="default_calendar_color">Default calendar color</string>
-    <!-- Tasks -->
     <string name="task">Zadatak</string>
     <string name="tasks">Zadaci</string>
     <string name="edit_task">Uredi zadatak</string>
@@ -41,7 +36,6 @@
     <string name="mark_completed">Označi kao završeno</string>
     <string name="mark_incomplete">Označi kao nezavršeno</string>
     <string name="task_color">Boja zadatka</string>
-    <!-- Event Repetition -->
     <string name="repetition">Ponavljanje</string>
     <string name="no_repetition">Bez ponavljanja</string>
     <string name="daily">Dnevno</string>
@@ -82,8 +76,6 @@
     <string name="fourth_m">četvrti</string>
     <string name="fifth_m">peti</string>
     <string name="last_m">peti</string>
-    <!-- alternative versions for some languages, use the same translations if you are not sure what this means -->
-    <!-- used in repetition, like "Every first Sunday" -->
     <string name="repeat_every_f">Ponovi svaki</string>
     <string name="every_f">Svaki</string>
     <string name="first_f">prvi</string>
@@ -92,36 +84,30 @@
     <string name="fourth_f">četvrti</string>
     <string name="fifth_f">peti</string>
     <string name="last_f">peti</string>
-    <!-- Birthdays -->
     <string name="birthdays">Rođendani</string>
     <string name="add_birthdays">Dodaj rođendane kontakata</string>
     <string name="no_birthdays">Rođendani nisu pronađeni</string>
     <string name="no_new_birthdays">Nijedan novi rođendan nije pronađen</string>
     <string name="birthdays_added">Rođendani su uspješno dodani</string>
     <string name="add_birthdays_automatically">Dodaj nove rođendane automatski</string>
-    <!-- Anniversaries -->
     <string name="anniversaries">Obljetnice</string>
     <string name="add_anniversaries">Dodaj obljetnice kontakata</string>
     <string name="no_anniversaries">Obljetnice nisu pronađene</string>
     <string name="no_new_anniversaries">Nijedne nove obljetnice nisu pronađene</string>
     <string name="anniversaries_added">Obljetnice su uspješno dodane</string>
     <string name="add_anniversaries_automatically">Dodaj nove obljetnice automatski</string>
-    <!-- Event Reminders -->
     <string name="reminder">Podsjetnik</string>
     <string name="before">prije</string>
     <string name="add_another_reminder">Dodaj jedan drugi podsjetnik</string>
     <string name="event_reminders">Podsjetnici događaja</string>
     <string name="reminders">Podsjetnici</string>
-    <!-- Event attendees -->
     <string name="add_another_attendee">Dodaj jednog drugog sudionika</string>
     <string name="my_status">Moje stanje:</string>
     <string name="going">Prisustvovat ću</string>
     <string name="not_going">Neću prisustvovati</string>
     <string name="maybe_going">Možda ću prisustvovati</string>
     <string name="invited">Pozvan</string>
-    <!-- Time zones -->
     <string name="enter_a_country">Upiši zemlju ili vremensku zonu</string>
-    <!-- Export / Import -->
     <string name="import_events">Uvezi događaje</string>
     <string name="export_events">Izvezi događaje</string>
     <string name="import_events_from_ics">Uvezi događaje iz .ics datoteke</string>
@@ -134,14 +120,11 @@
     <string name="include_event_types">Uključi vrste događaja</string>
     <string name="filename_without_ics">Ime datoteke (bez .ics)</string>
     <string name="ignore_event_types">Zanemari vrste događaja u datoteci, uvijek koristi standardnu</string>
-    <!-- Event details -->
     <string name="location">Lokacija</string>
     <string name="description">Opis</string>
     <string name="all_day">Cijeli dan</string>
-    <!-- Weekly view -->
     <string name="week">Tjedan</string>
     <string name="start_week_with_current_day">Započni tjedan s aktualnim danom</string>
-    <!-- Event types -->
     <string name="event_types">Vrste događaja</string>
     <string name="add_new_type">Dodaj novu vrstu</string>
     <string name="edit_type">Uredi vrstu</string>
@@ -153,7 +136,6 @@
     <string name="move_events_into_default">Premjesti zahvaćene događaje u zadanu vrstu događaja</string>
     <string name="remove_affected_events">Trajno ukloni zahvaćene događaje</string>
     <string name="unsync_caldav_calendar">Za uklanjanje CalDAV kalendara, moraš ga desinkronizirati</string>
-    <!-- Holidays -->
     <string name="holidays">Praznici</string>
     <string name="add_holidays">Dodaj praznike</string>
     <string name="national_holidays">Nacionalni praznici</string>
@@ -161,7 +143,6 @@
     <string name="holidays_imported_successfully">Praznici su uspješno uvezeni u tip događaja \"Praznici\"</string>
     <string name="importing_some_holidays_failed">Uvoz nekih događaja nije uspio</string>
     <string name="importing_holidays_failed">Uvoz praznika nije uspio</string>
-    <!-- Settings -->
     <string name="manage_event_types">Upravljanje vrstama događaja</string>
     <string name="start_day_at">Započni dan u</string>
     <string name="end_day_at">Završi dan u</string>
@@ -188,7 +169,6 @@
     <string name="events">Događaji</string>
     <string name="reminder_stream">Audio prijenos za podsjetnike</string>
     <string name="system_stream">Sustav</string>
-    <string name="alarm_stream">Alarm</string>
     <string name="notification_stream">Obavijest</string>
     <string name="ring_stream">Zvono</string>
     <string name="use_last_event_reminders">Koristi podsjetnike zadnjeg događaja kao standard za nove događaje</string>
@@ -209,8 +189,6 @@
     <string name="allow_changing_time_zones">Dozvoli mijenanje vremenske zone događaja</string>
     <string name="manage_quick_filter_event_types">Upravljaj brzom filtru vrsta događaja</string>
     <string name="allow_creating_tasks">Dozvoli stvaranje zadataka</string>
-    <!-- CalDAV sync -->
-    <string name="caldav">CalDAV</string>
     <string name="select_caldav_calendars">Odaberi kalendare za sinkronizaciju</string>
     <string name="manage_synced_calendars">Upravljanje sinkroniziranim kalendarima</string>
     <string name="store_locally_only">Spremi samo lokalno</string>
@@ -227,8 +205,6 @@
     <string name="status_free">Slobodan/Slobodna</string>
     <string name="status_busy">Zauzet/Zauzeta</string>
     <string name="fetching_event_failed">Dohvaćanje događaja %s neuspjelo</string>
-    <!-- alternative versions for some languages, use the same translations if you are not sure what this means -->
-    <!-- used in repetition, like "Every last Sunday" -->
     <string name="monday_alt">Ponedjeljak</string>
     <string name="tuesday_alt">Utorak</string>
     <string name="wednesday_alt">Srijeda</string>
@@ -236,7 +212,6 @@
     <string name="friday_alt">Petak</string>
     <string name="saturday_alt">Subota</string>
     <string name="sunday_alt">Nedjelja</string>
-    <!-- List widget config example events -->
     <string name="sample_title_1">Trening</string>
     <string name="sample_description_1">Vježbanje nogu</string>
     <string name="sample_title_2">Sastanak s Ivanom</string>
@@ -245,7 +220,6 @@
     <string name="sample_title_4">Ručak s Marijom</string>
     <string name="sample_description_4">U trgovačkom centru</string>
     <string name="sample_title_5">Vrijeme za kavu</string>
-    <!-- List widget config -->
     <string name="show_events_happening">Prikaži događaje koji se događaju:</string>
     <string name="within_the_next_one_year">U idućih godinu dana</string>
     <string name="today_only">Samo danas</string>
@@ -265,12 +239,6 @@
         <item quantity="few">U iduća %d mjeseca</item>
         <item quantity="other">U idućih %d mjeseci</item>
     </plurals>
-    <!-- Accessibility label -->
-    <string name="accessibility_previous_month">Go to previous month</string>
-    <string name="accessibility_next_month">Go to next month</string>
-    <string name="accessibility_previous_day">Go to previous day</string>
-    <string name="accessibility_next_day">Go to next day</string>
-    <!-- FAQ -->
     <string name="faq_1_title">Kako mogu ukloniti praznike uvezene putem gumba „Dodaj praznik”\?</string>
     <string name="faq_1_text">Praznik koji je stvoren na taj način umetnut je u novu vrstu događaja pod nazivom „Praznici”. Idi u Postavke -&gt; Upravljanje vrstama događaja, dugo pritisni zadanu vrstu događaja i izbriši ga odabirom koša za smeće.</string>
     <string name="faq_2_title">Mogu li sinkronizirati događaje putem Google Kalendara ili druge usluge koje podržavaju CalDAV\?</string>
@@ -284,8 +252,4 @@
     <string name="faq_5_text">Provjeri bateriju uređaja i postavke obavijesti ako ništa ne blokira podsjetnike ili ne zaustavlja aplikaciju u pozadini. Također pogledaj &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;. SStranica sadrži korisne savjete.</string>
     <string name="faq_6_title">Kako mogu promijeniti ili izbrisati postojeću vrstu događaja\?</string>
     <string name="faq_6_text">Oboje možeš učiniti u postavkama aplikacije – Upravljaj vrstama događaja. Pritisni željenu vrstu za mijenjanje oznake i boje ili odaberi željenu vrstu dugim pritiskom i koristi koš za smeće u gornjem izborniku za brisanje.</string>
-    <!--
-        Haven't found some strings? There's more at
-        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
-    -->
 </resources>

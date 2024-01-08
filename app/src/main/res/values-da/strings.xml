@@ -11,11 +11,9 @@
     <string name="no_upcoming_events">Ingen kommende begivenheder.</string>
     <string name="go_to_today">Gå til i dag</string>
     <string name="go_to_date">Gå til dato</string>
-    <!-- Widget titles -->
     <string name="widget_monthly">Månedlig kalender</string>
     <string name="widget_list">Begivenhedsliste</string>
     <string name="widget_todays_date">Dags dato-kalender</string>
-    <!-- Event -->
     <string name="event">Begivenhed</string>
     <string name="edit_event">Rediger begivenhed</string>
     <string name="new_event">Ny begivenhed</string>
@@ -31,7 +29,6 @@
     <string name="everything_filtered_out">Du har filtreret alle typer begivenheder fra</string>
     <string name="event_color">Farve på begivenhed</string>
     <string name="default_calendar_color">Kalenderens standardfarve</string>
-    <!-- Tasks -->
     <string name="task">Opgave</string>
     <string name="tasks">Opgaver</string>
     <string name="edit_task">Rediger opgave</string>
@@ -40,8 +37,6 @@
     <string name="duplicate_task">Kopier opgave</string>
     <string name="mark_completed">Marker som afsluttet</string>
     <string name="mark_incomplete">Marker som uafsluttet</string>
-    <string name="task_color">Task color</string>
-    <!-- Event Repetition -->
     <string name="repetition">Gentagelse</string>
     <string name="no_repetition">Gentages ikke</string>
     <string name="daily">Daglig</string>
@@ -54,7 +49,6 @@
     <string name="repeat_till">Gentag indtil</string>
     <string name="forever">Ingen slutdato</string>
     <string name="event_is_repeatable">Begivenheden kan gentages</string>
-    <string name="task_is_repeatable">The task is repeatable</string>
     <string name="selection_contains_repetition">Valget indeholder gentagne begivenheder</string>
     <string name="delete_one_only">Slet kun denne forekomst</string>
     <string name="delete_future_occurrences">Slet denne og alle fremtidige forekomster</string>
@@ -82,8 +76,6 @@
     <string name="fourth_m">fjerde</string>
     <string name="fifth_m">femte</string>
     <string name="last_m">sidste</string>
-    <!-- alternative versions for some languages, use the same translations if you are not sure what this means -->
-    <!-- used in repetition, like "Every first Sunday" -->
     <string name="repeat_every_f">Gentag hver</string>
     <string name="every_f">Hver</string>
     <string name="first_f">første</string>
@@ -92,36 +84,30 @@
     <string name="fourth_f">fjerde</string>
     <string name="fifth_f">femte</string>
     <string name="last_f">sidste</string>
-    <!-- Birthdays -->
     <string name="birthdays">Fødselsdage</string>
     <string name="add_birthdays">Tilføj dine kontakters fødselsdage</string>
     <string name="no_birthdays">Der blev ikke fundet nogen fødselsdage</string>
     <string name="no_new_birthdays">Der blev ikke fundet nogen nye fødselsdage</string>
     <string name="birthdays_added">Fødselsdage tilføjet</string>
     <string name="add_birthdays_automatically">Tilføj automatisk nye fødselsdage</string>
-    <!-- Anniversaries -->
     <string name="anniversaries">Mærkedage</string>
     <string name="add_anniversaries">Tilføj dine kontakters mærkedage</string>
     <string name="no_anniversaries">Der blev ikke fundet nogen mærkedage</string>
     <string name="no_new_anniversaries">Der blev ikke fundet nogen nye mærkedage</string>
     <string name="anniversaries_added">Mærkedage tilføjet</string>
     <string name="add_anniversaries_automatically">Tilføj automatisk nye jubilæer</string>
-    <!-- Event Reminders -->
     <string name="reminder">Påmindelse</string>
     <string name="before">før</string>
     <string name="add_another_reminder">Tilføj en påmindelse mere</string>
     <string name="event_reminders">Påmindelser</string>
     <string name="reminders">Påmindelser</string>
-    <!-- Event attendees -->
     <string name="add_another_attendee">Tilføj deltager</string>
     <string name="my_status">Min status:</string>
     <string name="going">Kommer</string>
     <string name="not_going">Kommer ikke</string>
     <string name="maybe_going">Kommer måske</string>
     <string name="invited">Inviteret</string>
-    <!-- Time zones -->
     <string name="enter_a_country">Indtast et land eller en tidzone</string>
-    <!-- Export / Import -->
     <string name="import_events">Importer begivenheder</string>
     <string name="export_events">Eksporter begivenheder</string>
     <string name="import_events_from_ics">Importer begivenheder fra en ics-fil</string>
@@ -134,14 +120,11 @@
     <string name="include_event_types">Inkluder begivenhedstyper</string>
     <string name="filename_without_ics">Filnavn (uden .ics)</string>
     <string name="ignore_event_types">Ignorer begivenhedstyper i filen, brug altid standardtypen</string>
-    <!-- Event details -->
     <string name="location">Sted</string>
     <string name="description">Beskrivelse</string>
     <string name="all_day">Hele dagen</string>
-    <!-- Weekly view -->
     <string name="week">Uge</string>
     <string name="start_week_with_current_day">Start ugen med den aktuelle dag</string>
-    <!-- Event types -->
     <string name="event_types">Begivenhedstyper</string>
     <string name="add_new_type">Tilføj en ny type</string>
     <string name="edit_type">Rediger type</string>
@@ -153,7 +136,6 @@
     <string name="move_events_into_default">Flyt de berørte begivenheder til typen \'Standard\'</string>
     <string name="remove_affected_events">Flyt de berørte begivenheder permanent</string>
     <string name="unsync_caldav_calendar">Vil du fjerne en CalDAV-kalender skal du \'afsynkronisere\' den</string>
-    <!-- Holidays -->
     <string name="holidays">Helligdage</string>
     <string name="add_holidays">Tilføj helligdage</string>
     <string name="national_holidays">Nationale helligdage</string>
@@ -161,7 +143,6 @@
     <string name="holidays_imported_successfully">Helligdage er importeret til typen \"Helligdage\"</string>
     <string name="importing_some_holidays_failed">Nogle helligdages blev ikke importeret</string>
     <string name="importing_holidays_failed">Import af helligdage mislykkedes</string>
-    <!-- Settings -->
     <string name="manage_event_types">Håndter begivenhedstyper</string>
     <string name="start_day_at">Start dagen kl.</string>
     <string name="end_day_at">Slut dagen kl.</string>
@@ -187,10 +168,7 @@
     <string name="dim_completed_tasks">Nedton afsluttede opgaver</string>
     <string name="events">Begivenheder</string>
     <string name="reminder_stream">Audio stream anvendt af påmindelser</string>
-    <string name="system_stream">System</string>
-    <string name="alarm_stream">Alarm</string>
     <string name="notification_stream">Notifikation</string>
-    <string name="ring_stream">Ring</string>
     <string name="use_last_event_reminders">Brug den sidst opsatte påmindelse som standard for påmindelser</string>
     <string name="default_reminder_1">Påmindelse 1</string>
     <string name="default_reminder_2">Påmindelse 2</string>
@@ -209,8 +187,6 @@
     <string name="allow_changing_time_zones">Tillad ændring af en begivenheds tidszone</string>
     <string name="manage_quick_filter_event_types">Håndter begivenhedstyper med hurtigt filter</string>
     <string name="allow_creating_tasks">Tillad oprettelse af opgaver</string>
-    <!-- CalDAV sync -->
-    <string name="caldav">CalDAV</string>
     <string name="select_caldav_calendars">Vælg kalendere til synk</string>
     <string name="manage_synced_calendars">Håndter synkronisering af kalendere</string>
     <string name="store_locally_only">Gem kun lokalt</string>
@@ -226,9 +202,6 @@
     <string name="no_synchronized_calendars">Der er ikke fundet nogen kalendere der kan synkroniseres</string>
     <string name="status_free">Ledig</string>
     <string name="status_busy">Optaget</string>
-    <string name="fetching_event_failed">Fetching event %s failed</string>
-    <!-- alternative versions for some languages, use the same translations if you are not sure what this means -->
-    <!-- used in repetition, like "Every last Sunday" -->
     <string name="monday_alt">Mandag</string>
     <string name="tuesday_alt">Tirsdag</string>
     <string name="wednesday_alt">Onsdag</string>
@@ -236,8 +209,6 @@
     <string name="friday_alt">Fredag</string>
     <string name="saturday_alt">Lørdag</string>
     <string name="sunday_alt">Søndag</string>
-    <!-- List widget config example events -->
-    <string name="sample_title_1">Workout</string>
     <string name="sample_description_1">Ekskursion</string>
     <string name="sample_title_2">Møde med John</string>
     <string name="sample_description_2">Botanisk have</string>
@@ -245,7 +216,6 @@
     <string name="sample_title_4">Frokost med Marie</string>
     <string name="sample_description_4">I byen</string>
     <string name="sample_title_5">Kaffetid!</string>
-    <!-- List widget config -->
     <string name="show_events_happening">Vis begivenheder, der finder sted:</string>
     <string name="within_the_next_one_year">I løbet af det næste år</string>
     <string name="today_only">Kun i dag</string>
@@ -262,12 +232,6 @@
         <item quantity="one">I løbet af %d måned</item>
         <item quantity="other">I løbet af de næste %d måneder</item>
     </plurals>
-    <!-- Accessibility label -->
-    <string name="accessibility_previous_month">Go to previous month</string>
-    <string name="accessibility_next_month">Go to next month</string>
-    <string name="accessibility_previous_day">Go to previous day</string>
-    <string name="accessibility_next_day">Go to next day</string>
-    <!-- FAQ -->
     <string name="faq_1_title">Hvordan kan jeg fjerne helligdage der er importeret med funktionen \"Tilføj helligdage\"\?</string>
     <string name="faq_1_text">Helligdage oprettet på den måde er indsat under begivenhedstypen \"Helligdage\". Gå til Indstillinger -&gt; Håndter begivenhedstyper. Efter et par sekunders pres på en type kan du slette den ved at klikke på papirkurven.</string>
     <string name="faq_2_title">Kan jeg synkronisere mine begivenheder med Googles kalender eller en anden kalender der understøtter CalDAV\?</string>
@@ -281,8 +245,4 @@
     <string name="faq_5_text">Tjek batteriet på din enhed og indstillingerne for meddelelser, om der er noget, der blokerer påmindelserne, eller om appen er slået fra i baggrunden. Du kan også tage et kig på &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;, den har nogle gode tips.</string>
     <string name="faq_6_title">Hvordan kan jeg ændre eller slette en eksisterende begivenhedstype\?</string>
     <string name="faq_6_text">Du kan gøre begge dele i Indstillinger - Administrer begivenhedstyper. Du skal blot klikke på den ønskede begivenhed for at ændre etiketten og farven, eller du kan vælge den ønskede begivenhed ved at trykke længe på den og bruge papirkurven i topmenuen til at slette den.</string>
-    <!--
-        Haven't found some strings? There's more at
-        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
-    -->
 </resources>

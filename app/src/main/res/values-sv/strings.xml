@@ -11,11 +11,9 @@
     <string name="no_upcoming_events">Inga kommande händelser.</string>
     <string name="go_to_today">Gå till idag</string>
     <string name="go_to_date">Gå till datum</string>
-    <!-- Widget titles -->
     <string name="widget_monthly">Kalender månadsvis</string>
     <string name="widget_list">Kalender händelselista</string>
     <string name="widget_todays_date">Kalender dagens datum</string>
-    <!-- Event -->
     <string name="event">Händelse</string>
     <string name="edit_event">Redigera händelse</string>
     <string name="new_event">Ny händelse</string>
@@ -31,7 +29,6 @@
     <string name="everything_filtered_out">Du har filtrerat bort alla händelsetyper</string>
     <string name="event_color">Händelsens färg</string>
     <string name="default_calendar_color">Kalenderns standardfärg</string>
-    <!-- Tasks -->
     <string name="task">Uppgift</string>
     <string name="tasks">Uppgifter</string>
     <string name="edit_task">Redigera uppgift</string>
@@ -41,7 +38,6 @@
     <string name="mark_completed">Markera avklarad</string>
     <string name="mark_incomplete">Markera ofullständig</string>
     <string name="task_color">Uppgiftens färg</string>
-    <!-- Event Repetition -->
     <string name="repetition">Upprepning</string>
     <string name="no_repetition">Ingen upprepning</string>
     <string name="daily">Dagligen</string>
@@ -82,8 +78,6 @@
     <string name="fourth_m">fjärde</string>
     <string name="fifth_m">femte</string>
     <string name="last_m">sista</string>
-    <!-- alternative versions for some languages, use the same translations if you are not sure what this means -->
-    <!-- used in repetition, like "Every first Sunday" -->
     <string name="repeat_every_f">Upprepa varje</string>
     <string name="every_f">Varje</string>
     <string name="first_f">första</string>
@@ -92,36 +86,30 @@
     <string name="fourth_f">fjärde</string>
     <string name="fifth_f">femte</string>
     <string name="last_f">sista</string>
-    <!-- Birthdays -->
     <string name="birthdays">Födelsedagar</string>
     <string name="add_birthdays">Lägg till kontakters födelsedagar</string>
     <string name="no_birthdays">Inga födelsedagar hittades</string>
     <string name="no_new_birthdays">Inga nya födelsedagar hittades</string>
     <string name="birthdays_added">Födelsedagarna har lagts till</string>
     <string name="add_birthdays_automatically">Lägg till nya födelsedagar automatiskt</string>
-    <!-- Anniversaries -->
     <string name="anniversaries">Årsdagar</string>
     <string name="add_anniversaries">Lägg till kontakters årsdagar</string>
     <string name="no_anniversaries">Inga årsdagar hittades</string>
     <string name="no_new_anniversaries">Inga nya årsdagar hittades</string>
     <string name="anniversaries_added">Årsdagarna har lagts till</string>
     <string name="add_anniversaries_automatically">Lägg till nya årsdagar automatiskt</string>
-    <!-- Event Reminders -->
     <string name="reminder">Påminnelse</string>
     <string name="before">innan</string>
     <string name="add_another_reminder">Lägg till en annan påminnelse</string>
     <string name="event_reminders">Händelsepåminnelser</string>
     <string name="reminders">Påminnelser</string>
-    <!-- Event attendees -->
     <string name="add_another_attendee">Lägg till en annan deltagare</string>
     <string name="my_status">Min status:</string>
     <string name="going">Kommer</string>
     <string name="not_going">Kommer inte</string>
     <string name="maybe_going">Kommer kanske</string>
     <string name="invited">Inbjuden</string>
-    <!-- Time zones -->
     <string name="enter_a_country">Lägg till ett land eller en tidszon</string>
-    <!-- Export / Import -->
     <string name="import_events">Importera händelser</string>
     <string name="export_events">Exportera händelser</string>
     <string name="import_events_from_ics">Importera händelser från en .ics-fil</string>
@@ -134,14 +122,11 @@
     <string name="include_event_types">Inkludera händelsetyper</string>
     <string name="filename_without_ics">Filnamn (utan .ics)</string>
     <string name="ignore_event_types">Ignorera händelsetyper i filen, använd alltid standardtypen</string>
-    <!-- Event details -->
     <string name="location">Plats</string>
     <string name="description">Beskrivning</string>
     <string name="all_day">Heldag</string>
-    <!-- Weekly view -->
     <string name="week">Vecka</string>
     <string name="start_week_with_current_day">Börja veckan med den aktuella dagen</string>
-    <!-- Event types -->
     <string name="event_types">Händelsetyper</string>
     <string name="add_new_type">Lägg till en ny typ</string>
     <string name="edit_type">Redigera typ</string>
@@ -153,7 +138,6 @@
     <string name="move_events_into_default">Flytta berörda händelser till standardhändelsetypen</string>
     <string name="remove_affected_events">Ta bort berörda händelser permanent</string>
     <string name="unsync_caldav_calendar">Du måste sluta synkronisera CalDAV-kalendern innan du kan ta bort den</string>
-    <!-- Holidays -->
     <string name="holidays">Helgdagar</string>
     <string name="add_holidays">Lägg till helgdagar</string>
     <string name="national_holidays">Nationella helgdagar</string>
@@ -161,7 +145,6 @@
     <string name="holidays_imported_successfully">Helgdagarna har importerats till händelsetypen \"Helgdagar\"</string>
     <string name="importing_some_holidays_failed">Importen av vissa händelser misslyckades</string>
     <string name="importing_holidays_failed">Importen av helgdagarna misslyckades</string>
-    <!-- Settings -->
     <string name="manage_event_types">Hantera händelsetyper</string>
     <string name="start_day_at">Dagen börjar</string>
     <string name="end_day_at">Dagen slutar</string>
@@ -187,10 +170,7 @@
     <string name="dim_completed_tasks">Tona ned slutförda uppgifter</string>
     <string name="events">Händelser</string>
     <string name="reminder_stream">Ljudström för påminnelser</string>
-    <string name="system_stream">System</string>
-    <string name="alarm_stream">Alarm</string>
     <string name="notification_stream">Avisering</string>
-    <string name="ring_stream">Ring</string>
     <string name="use_last_event_reminders">Använd den senaste händelsens påminnelser som standard för nya händelser</string>
     <string name="default_reminder_1">Standardpåminnelse 1</string>
     <string name="default_reminder_2">Standardpåminnelse 2</string>
@@ -209,8 +189,6 @@
     <string name="allow_changing_time_zones">Tillåt ändring av tidszoner för händelser</string>
     <string name="manage_quick_filter_event_types">Hantera typer av händelser med snabbfilter</string>
     <string name="allow_creating_tasks">Tillåt att skapa uppgifter</string>
-    <!-- CalDAV sync -->
-    <string name="caldav">CalDAV</string>
     <string name="select_caldav_calendars">Välj de kalendrar som du vill synkronisera</string>
     <string name="manage_synced_calendars">Hantera synkroniserade kalendrar</string>
     <string name="store_locally_only">Spara bara lokalt</string>
@@ -227,8 +205,6 @@
     <string name="status_free">Ledig</string>
     <string name="status_busy">Upptagen</string>
     <string name="fetching_event_failed">Det gick inte att hämta händelsen %s</string>
-    <!-- alternative versions for some languages, use the same translations if you are not sure what this means -->
-    <!-- used in repetition, like "Every last Sunday" -->
     <string name="monday_alt">Måndag</string>
     <string name="tuesday_alt">Tisdag</string>
     <string name="wednesday_alt">Onsdag</string>
@@ -236,7 +212,6 @@
     <string name="friday_alt">Fredag</string>
     <string name="saturday_alt">Lördag</string>
     <string name="sunday_alt">Söndag</string>
-    <!-- List widget config example events -->
     <string name="sample_title_1">Träning</string>
     <string name="sample_description_1">Bendag</string>
     <string name="sample_title_2">Möte med Johan</string>
@@ -245,7 +220,6 @@
     <string name="sample_title_4">Lunch med Maria</string>
     <string name="sample_description_4">På stranden</string>
     <string name="sample_title_5">Kaffedags</string>
-    <!-- List widget config -->
     <string name="show_events_happening">Visa händelser som äger rum:</string>
     <string name="within_the_next_one_year">Inom det närmaste året</string>
     <string name="today_only">Bara idag</string>
@@ -262,12 +236,6 @@
         <item quantity="one">Inom den kommande %d månaden</item>
         <item quantity="other">Inom de kommande %d månaderna</item>
     </plurals>
-    <!-- Accessibility label -->
-    <string name="accessibility_previous_month">Go to previous month</string>
-    <string name="accessibility_next_month">Go to next month</string>
-    <string name="accessibility_previous_day">Go to previous day</string>
-    <string name="accessibility_next_day">Go to next day</string>
-    <!-- FAQ -->
     <string name="faq_1_title">Hur kan jag ta bort helgdagar som importerats via knappen \"Lägg till helgdagar\"\?</string>
     <string name="faq_1_text">Helgdagar som skapas på detta sätt läggs in i en ny händelsetyp som kallas \"Helgdagar\". Du kan gå till Inställningar -&gt; Hantera händelsetyper, trycka länge på den aktuella händelsetypen och ta bort den genom att välja papperskorgen.</string>
     <string name="faq_2_title">Kan jag synkronisera mina händelser via Google Kalender eller en annan tjänst som stöder CalDAV\?</string>
@@ -281,8 +249,4 @@
     <string name="faq_5_text">Kontrollera enhetens batteri och inställningar för meddelanden, om det inte finns något som blockerar påminnelserna eller om appen inte är dödad i bakgrunden. Du kanske också vill ta en titt på &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;, där finns en del användbara tips.</string>
     <string name="faq_6_title">Hur kan jag ändra eller ta bort en befintlig händelsetyp\?</string>
     <string name="faq_6_text">Du kan göra båda i appens Inställningar - Hantera evenemangstyper. Klicka bara på den önskade händelsen för att ändra etikett och färg, eller välj den önskade händelsen genom att trycka länge på den och använd papperskorgen i toppmenyn för att ta bort den.</string>
-    <!--
-        Haven't found some strings? There's more at
-        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
-    -->
 </resources>

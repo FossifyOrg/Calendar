@@ -11,11 +11,9 @@
     <string name="no_upcoming_events">Ingen kommende hendelser.</string>
     <string name="go_to_today">Gå til idag</string>
     <string name="go_to_date">Gå til dato</string>
-    <!-- Widget titles -->
     <string name="widget_monthly">Månedskalender</string>
     <string name="widget_list">Hendelsesliste</string>
     <string name="widget_todays_date">Kalender dagens dato</string>
-    <!-- Event -->
     <string name="event">Hendelse</string>
     <string name="edit_event">Rediger hendelse</string>
     <string name="new_event">Ny hendelse</string>
@@ -31,7 +29,6 @@
     <string name="everything_filtered_out">Du har filtrert bort alle hendelsestyper</string>
     <string name="event_color">Hendelsesfarge</string>
     <string name="default_calendar_color">Standard kalenderfarge</string>
-    <!-- Tasks -->
     <string name="task">Oppgave</string>
     <string name="tasks">Oppgaver</string>
     <string name="edit_task">Rediger oppgave</string>
@@ -41,7 +38,6 @@
     <string name="mark_completed">Marker som fullført</string>
     <string name="mark_incomplete">Marker som ufullstendig</string>
     <string name="task_color">Oppgavefarge</string>
-    <!-- Event Repetition -->
     <string name="repetition">Gjentagelse</string>
     <string name="no_repetition">Ingen gjentagelse</string>
     <string name="daily">Daglig</string>
@@ -82,8 +78,6 @@
     <string name="fourth_m">fjerde</string>
     <string name="fifth_m">femte</string>
     <string name="last_m">siste</string>
-    <!-- alternative versions for some languages, use the same translations if you are not sure what this means -->
-    <!-- used in repetition, like "Every first Sunday" -->
     <string name="repeat_every_f">Gjenta hver</string>
     <string name="every_f">Hver</string>
     <string name="first_f">første</string>
@@ -92,36 +86,27 @@
     <string name="fourth_f">fjerde</string>
     <string name="fifth_f">femte</string>
     <string name="last_f">siste</string>
-    <!-- Birthdays -->
     <string name="birthdays">Bursdager</string>
     <string name="add_birthdays">Legg til kontaktbursdager</string>
     <string name="no_birthdays">Ingen bursdager er funnet</string>
     <string name="no_new_birthdays">Ingen nye bursdager er funnet</string>
     <string name="birthdays_added">Bursdager vellykket lagt til</string>
     <string name="add_birthdays_automatically">Legg til nye bursdager automatisk</string>
-    <!-- Anniversaries -->
     <string name="anniversaries">Jubileer</string>
     <string name="add_anniversaries">Legg til kontaktjubileer</string>
     <string name="no_anniversaries">Ingen jubileer er funnet</string>
     <string name="no_new_anniversaries">Ingen nye jubileer er funnet</string>
     <string name="anniversaries_added">Jubileer vellykket lagt til</string>
     <string name="add_anniversaries_automatically">Legg til nye jubileer automatisk</string>
-    <!-- Event Reminders -->
     <string name="reminder">Påminnelse</string>
     <string name="before">før</string>
     <string name="add_another_reminder">Legg til en annen påminnelse</string>
     <string name="event_reminders">Hendelsespåminnelser</string>
     <string name="reminders">Påminnelser</string>
-    <!-- Event attendees -->
     <string name="add_another_attendee">Legg til en annen deltager</string>
     <string name="my_status">Min status:</string>
-    <string name="going">Going</string>
-    <string name="not_going">Not going</string>
-    <string name="maybe_going">Maybe going</string>
     <string name="invited">Invitert</string>
-    <!-- Time zones -->
     <string name="enter_a_country">Angi et land eller tidssone</string>
-    <!-- Export / Import -->
     <string name="import_events">Importer hendelser</string>
     <string name="export_events">Eksporter hendelser</string>
     <string name="import_events_from_ics">Importer hendelser fra en .ics-fil</string>
@@ -134,14 +119,11 @@
     <string name="include_event_types">Inkluder hendelsestyper</string>
     <string name="filename_without_ics">Filnavn (uten .ics)</string>
     <string name="ignore_event_types">Ignorer hendelsestyper i filen, bruk alltid standardtypen</string>
-    <!-- Event details -->
     <string name="location">Sted</string>
     <string name="description">Beskrivelse</string>
     <string name="all_day">Hele dagen</string>
-    <!-- Weekly view -->
     <string name="week">Uke</string>
     <string name="start_week_with_current_day">Start uke med gjeldende dag</string>
-    <!-- Event types -->
     <string name="event_types">Hendelsestyper</string>
     <string name="add_new_type">Legg til en ny type</string>
     <string name="edit_type">Rediger type</string>
@@ -153,7 +135,6 @@
     <string name="move_events_into_default">Flytt berørte hendelser til standardhendelsestypen</string>
     <string name="remove_affected_events">Fjern berørte hendelser permanent</string>
     <string name="unsync_caldav_calendar">For å fjerne en CalDAV-kalender må du desynkronisere den</string>
-    <!-- Holidays -->
     <string name="holidays">Off. fridager</string>
     <string name="add_holidays">Legg til off. fridager</string>
     <string name="national_holidays">Nasjonale off. fridager</string>
@@ -161,7 +142,6 @@
     <string name="holidays_imported_successfully">Off. fridager er vellykket importert til hendelsestypen \"Off. fridager\"</string>
     <string name="importing_some_holidays_failed">Importering av noen hendelser feilet</string>
     <string name="importing_holidays_failed">Importering av off. fridager feilet</string>
-    <!-- Settings -->
     <string name="manage_event_types">Behandle hendelsestyper</string>
     <string name="start_day_at">Start dag kl.</string>
     <string name="end_day_at">Avslutt dag kl.</string>
@@ -187,8 +167,6 @@
     <string name="dim_completed_tasks">Dim fullførte oppgaver</string>
     <string name="events">Hendelser</string>
     <string name="reminder_stream">Lydtype brukt for påminnelser</string>
-    <string name="system_stream">System</string>
-    <string name="alarm_stream">Alarm</string>
     <string name="notification_stream">Varsel</string>
     <string name="ring_stream">Ringetone</string>
     <string name="use_last_event_reminders">Bruk den siste hendelsens påminnelser som standard for ny hendelse</string>
@@ -209,8 +187,6 @@
     <string name="allow_changing_time_zones">Tillat å endre tidssoner for hendelser</string>
     <string name="manage_quick_filter_event_types">Håndter hurtigfilterhendelsestyper</string>
     <string name="allow_creating_tasks">Tillat å lage oppgaver</string>
-    <!-- CalDAV sync -->
-    <string name="caldav">CalDAV</string>
     <string name="select_caldav_calendars">Velg kalendere å synkronisere</string>
     <string name="manage_synced_calendars">Behandle synkroniserte kalendere</string>
     <string name="store_locally_only">Lagre bare lokalt</string>
@@ -222,13 +198,7 @@
     <string name="synchronization_completed">Synkronisering fullført</string>
     <string name="select_a_different_caldav_color">Velg en annen farge (vil muligens bare bli brukt lokalt)</string>
     <string name="insufficient_permissions">Du har ikke tillatelse til å skrive i den valgte kalenderen</string>
-    <string name="caldav_event_not_found">Event not found. Please enable CalDAV sync for the appropriate calendar in the app settings.</string>
-    <string name="no_synchronized_calendars">No synchronizable calendars have been found</string>
-    <string name="status_free">Free</string>
     <string name="status_busy">Opptatt</string>
-    <string name="fetching_event_failed">Fetching event %s failed</string>
-    <!-- alternative versions for some languages, use the same translations if you are not sure what this means -->
-    <!-- used in repetition, like "Every last Sunday" -->
     <string name="monday_alt">Mandag</string>
     <string name="tuesday_alt">Tirsdag</string>
     <string name="wednesday_alt">Onsdag</string>
@@ -236,7 +206,6 @@
     <string name="friday_alt">Fredag</string>
     <string name="saturday_alt">Lørdag</string>
     <string name="sunday_alt">Søndag</string>
-    <!-- List widget config example events -->
     <string name="sample_title_1">Treningsøkt</string>
     <string name="sample_description_1">Beintrening</string>
     <string name="sample_title_2">Møte med John</string>
@@ -245,7 +214,6 @@
     <string name="sample_title_4">Lunsj med Mari</string>
     <string name="sample_description_4">På torget</string>
     <string name="sample_title_5">Kaffepause</string>
-    <!-- List widget config -->
     <string name="show_events_happening">Vis hendelser som skjer:</string>
     <string name="within_the_next_one_year">Innen det neste året</string>
     <string name="today_only">Bare i dag</string>
@@ -262,27 +230,8 @@
         <item quantity="one">Innen neste %d måned</item>
         <item quantity="other">Innen de neste %d månedene</item>
     </plurals>
-    <!-- Accessibility label -->
-    <string name="accessibility_previous_month">Go to previous month</string>
-    <string name="accessibility_next_month">Go to next month</string>
-    <string name="accessibility_previous_day">Go to previous day</string>
-    <string name="accessibility_next_day">Go to next day</string>
-    <!-- FAQ -->
     <string name="faq_1_title">Hvordan kan jeg fjerne off. fridager importert via meny - \"Legg til off. fridager\"\?</string>
     <string name="faq_1_text">Off. fridager opprettet på denne måten settes inn i en ny hendelsestype kalt \"Off. fridager\". Gå til Innstillinger -&gt; Behandle hendelsestyper, lang-trykk hendelsestypen og slett den ved å velge søppelbøtten.</string>
     <string name="faq_2_title">Kan jeg synkronisere hendelsene mine via Google Kalender eller annen tjeneste som støtter CalDAV\?</string>
-    <string name="faq_2_title_extra">Maybe even share calendars with other people?</string>
     <string name="faq_2_text">Ja, bare aktiver \"CalDAV-synkronisering\" i innstillingene og velg kalenderne du vil synkronisere. Du trenger imidlertid program som håndterer synkroniseringen mellom enheten og serverne. Hvis du vil synkronisere en Google-kalender, vil deres offisielle kalenderapp gjøre jobben. For andre kalendere trenger du en annen synkroniseringsapp, for eksempel DAVx5.</string>
-    <string name="faq_3_title">I see the visual reminders, but hear no audio. What can I do\?</string>
-    <string name="faq_3_text">Not just displaying the actual reminder, but playing the audio is hugely affected by the system too. If you can\'t hear any sound, try going in the app settings, pressing the \"Audio stream used by reminders\" option and changing it to a different value. If it still won\'t work, check your sound settings, if the particular stream isn\'t muted.</string>
-    <string name="faq_4_title">Does the app support time zones\?</string>
-    <string name="faq_4_text">Yes, it does. By default all events are created in your current time zone. If you want to change an events\' time zone, you will first have to enable the time zone picker at the app settings, then change it at the Event Details screen. It is disabled by default as most people won\'t need it.</string>
-    <string name="faq_5_title">The app shows no notifications, why is that\?</string>
-    <string name="faq_5_text">Check your device battery and notification settings, if there is nothing blocking the reminders, or killing the app in the background. You might also want to take a look at &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;, it has some useful tips.</string>
-    <string name="faq_6_title">How can I modify or delete an existing event type\?</string>
-    <string name="faq_6_text">You can do both of those in the app Settings - Manage event types. Just click on the wanted one for changing the label and color, or select the wanted one by long pressing it and use the trashbin at the top menu for deleting.</string>
-    <!--
-        Haven't found some strings? There's more at
-        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
-    -->
 </resources>
