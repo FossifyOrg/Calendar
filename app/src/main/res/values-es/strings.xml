@@ -254,10 +254,8 @@
     <string name="faq_6_text">Puede hacer ambas cosas en la aplicación Configuración - Administrar tipos de eventos. Simplemente haga clic en el elemento deseado para cambiar la etiqueta y el color, o seleccione el elemento deseado presionándolo prolongadamente y use la papelera en el menú superior para eliminarlo.</string>
     <string name="event_color">Color del evento</string>
     <string name="default_calendar_color">Color por defecto del calendario</string>
-    <string name="caldav">CalDAV</string>
     <string name="accessibility_previous_month">Ir al mes anterior</string>
     <string name="accessibility_next_month">Ir al mes siguiente</string>
     <string name="accessibility_previous_day">Ir al día anterior</string>
     <string name="accessibility_next_day">Ir al día siguiente</string>
-    <string name="color">Color</string>
-</resources>
+    </resources>

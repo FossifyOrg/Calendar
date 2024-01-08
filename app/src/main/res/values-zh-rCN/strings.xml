@@ -239,7 +239,6 @@
     <string name="accessibility_previous_month">转到上一个月</string>
     <string name="accessibility_next_month">转到下一个月</string>
     <string name="accessibility_previous_day">转到前一天</string>
-    <string name="accessibility_next_day">Go to next day</string>
     <string name="faq_1_title">我如何移除用[添加节日]按钮所导入的节日\?</string>
     <string name="faq_1_text">以这方式建立的节日，会被加进一个叫做「节日」的新活动类型。 您可以到[设定] -&gt; [管理活动类型]，长按特定的活动类型，然后选择垃圾桶来删除。</string>
     <string name="faq_2_title">我可以透过 Google 日历或其它支援 CalDAV 的服务来同步我的活动吗\?</string>
