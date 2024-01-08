@@ -258,4 +258,6 @@
     <string name="accessibility_next_month">Ir al mes siguiente</string>
     <string name="accessibility_previous_day">Ir al día anterior</string>
     <string name="accessibility_next_day">Ir al día siguiente</string>
-    </resources>
+    <string name="caldav">CalDAV</string>
+    <string name="color">Color</string>
+</resources>

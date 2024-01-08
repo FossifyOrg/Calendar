@@ -1,8 +1,8 @@
 ¿Cansado de calendarios desordenados y preocupaciones de privacidad?
 
-Calendario de Fossify está aquí para cambiar eso. Su potencia de código abierto para gestionar la vida, diseñada con la privacidad como su núcleo y repleta de potentes funciones para mantenerlo organizado.
+Fossify Calendar está aquí para cambiar eso. Su potencia de código abierto para gestionar la vida, diseñada con la privacidad como su núcleo y repleta de potentes funciones para mantenerlo organizado.
 
-Esto es lo que hace diferente a Calendario de Fossify
+Esto es lo que hace diferente a Fossify Calendar
 
 🚫 Sin anuncios y privados: Tus eventos siguen siendo tuyos. Sin anuncios, sin seguimiento, sin permisos de intrusión.
 ⏰ Flexible y personalizable: Crea eventos con precisión con tiempos, duraciones, recordatorios y reglas de repetición avanzadas.
@@ -15,7 +15,7 @@ Esto es lo que hace diferente a Calendario de Fossify
 📆 Múltiples vistas: Cambia entre vistas diarias, semanales, mensuales, anuales y de eventos sin esfuerzo.
 ✨ Material Design Elegancia: Disfruta de una interfaz intuitiva y fácil de usar con temas dinámicos.
 
-¡Además, Calendario de Fossify es de código abierto! Únase a la vibrante comunidad de GitHub, contribuya al proyecto y hágalo único suyo.
+¡Además, Fossify Calendar es de código abierto! Únase a la vibrante comunidad de GitHub, contribuya al proyecto y hágalo único suyo.
 
 Descargue Calendario de Fossify ahora y experimente el poder de un horario privado y personalizable.
 
