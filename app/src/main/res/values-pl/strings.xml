@@ -260,4 +260,7 @@
     <string name="faq_5_text">Sprawdź ustawienia baterii i powiadomień w swoim urządzeniu, czy nic nie blokuje przypomnień lub nie wyłącza aplikacji w tle. Możesz również rzucić okiem na &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;, gdzie znajdują się przydatne wskazówki.</string>
     <string name="faq_6_title">Jak mogę zmodyfikować lub usunąć istniejący typ wydarzeń\?</string>
     <string name="faq_6_text">Obie te czynności możesz wykonać w Ustawienia -&gt; Zarządzaj typami wydarzeń. Po prostu naciśnij wybrany typ wydarzeń, aby zmienić jego nazwę lub kolor, albo wybierz go przez długie naciśnięcie i użyj ikony kosza, aby usunąć.</string>
-    </resources>
+    <string name="system_stream">System</string>
+    <string name="alarm_stream">Alarm</string>
+    <string name="caldav">CalDAV</string>
+</resources>
