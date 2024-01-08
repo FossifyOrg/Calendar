@@ -239,6 +239,10 @@
         <item quantity="one">Innerhalb des nächsten Monats</item>
         <item quantity="other">Innerhalb der nächsten %d Monate</item>
     </plurals>
+    <string name="accessibility_previous_month">Gehe zum vorherigen Monat</string>
+    <string name="accessibility_next_month">Gehe zum nächsten Monat</string>
+    <string name="accessibility_previous_day">Gehe zum vorherigen Tag</string>
+    <string name="accessibility_next_day">Gehe zum nächsten Tag</string>
     <string name="faq_1_title">Wie kann ich Feiertage löschen, die über „Feiertage hinzufügen“ importiert wurden\?</string>
     <string name="faq_1_text">Die über diesen Weg erstellten Feiertage sind als Termintyp „Feiertage“ deklariert. Du kannst in den Einstellungen -&gt; Termintypen verwalten auf den Termintyp gedrückt halten und über das Papierkorbsymbol löschen.</string>
     <string name="faq_2_title">Kann ich meine Termine über Google Kalender oder andere CalDAV-unterstützende Dienste synchronisieren\?</string>
