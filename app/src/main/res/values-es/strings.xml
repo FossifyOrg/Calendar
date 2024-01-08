@@ -252,4 +252,12 @@
     <string name="faq_5_text">Comprueba la batería y las opciones de notificación, asegúrate de que los recordatorios no estén bloqueados y de que se permita la ejecución de la aplicación en segundo plano. En esta página web &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt; encontrarás consejos útiles.</string>
     <string name="faq_6_title">¿Cómo puedo modificar o eliminar un tipo de evento\?</string>
     <string name="faq_6_text">Puede hacer ambas cosas en la aplicación Configuración - Administrar tipos de eventos. Simplemente haga clic en el elemento deseado para cambiar la etiqueta y el color, o seleccione el elemento deseado presionándolo prolongadamente y use la papelera en el menú superior para eliminarlo.</string>
+    <string name="event_color">Color del evento</string>
+    <string name="default_calendar_color">Color por defecto del calendario</string>
+    <string name="caldav">CalDAV</string>
+    <string name="accessibility_previous_month">Ir al mes anterior</string>
+    <string name="accessibility_next_month">Ir al mes siguiente</string>
+    <string name="accessibility_previous_day">Ir al día anterior</string>
+    <string name="accessibility_next_day">Ir al día siguiente</string>
+    <string name="color">Color</string>
 </resources>
