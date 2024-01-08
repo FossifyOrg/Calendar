@@ -255,4 +255,6 @@
     <string name="faq_5_text">Hatırlatıcıları engelleyen veya arka planda uygulamayı kapatan bir şey yoksa aygıtınızın pilini ve bildirim ayarlarını denetleyin. Ayrıca yararlı ipuçları bulabileceğiniz &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt; adresine de göz atmak isteyebilirsiniz.</string>
     <string name="faq_6_title">Mevcut bir etkinlik türünü nasıl değiştirebilir veya silebilirim\?</string>
     <string name="faq_6_text">Bunların ikisini de uygulamanın Ayarlar - Etkinlik türlerini yönet kısmında yapabilirsiniz. Etiket ve rengi değiştirmek için istediğinizin üzerine tıklayın veya uzun basarak istediğinizi seçin ve silmek için üst menüdeki çöp kutusunu kullanın.</string>
+    <string name="alarm_stream">Alarm</string>
+    <string name="caldav">CalDAV</string>
 </resources>
