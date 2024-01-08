@@ -263,9 +263,9 @@
         <item quantity="other">Innerhalb der nächsten %d Monate</item>
     </plurals>
     <!-- Accessibility label -->
-    <string name="accessibility_previous_month">Gehe zum vorherigem Monat</string>
+    <string name="accessibility_previous_month">Gehe zum vorherigen Monat</string>
     <string name="accessibility_next_month">Gehe zum nächsten Monat</string>
-    <string name="accessibility_previous_day">Gehe zum vorherigem Tag</string>
+    <string name="accessibility_previous_day">Gehe zum vorherigen Tag</string>
     <string name="accessibility_next_day">Gehe zum nächsten Tag</string>
     <!-- FAQ -->
     <string name="faq_1_title">Wie kann ich Feiertage löschen, die über „Feiertage hinzufügen“ importiert wurden\?</string>
