@@ -11,11 +11,9 @@
     <string name="no_upcoming_events">今後の予定はありません。</string>
     <string name="go_to_today">今日へ移動</string>
     <string name="go_to_date">日付に移動</string>
-    <!-- Widget titles -->
     <string name="widget_monthly">カレンダー 月</string>
     <string name="widget_list">カレンダー 予定 リスト</string>
     <string name="widget_todays_date">カレンダー 今日の日付</string>
-    <!-- Event -->
     <string name="event">予定</string>
     <string name="edit_event">予定を編集</string>
     <string name="new_event">新しい予定</string>
@@ -30,9 +28,6 @@
     <string name="public_event_notification_text">近日中の予定</string>
     v
     <string name="everything_filtered_out">すべての予定の種類を除外しました</string>
-    <string name="event_color">Event color</string>
-    <string name="default_calendar_color">Default calendar color</string>
-    <!-- Tasks -->
     <string name="task">タスク</string>
     <string name="tasks">タスク</string>
     <string name="edit_task">タスクの編集</string>
@@ -41,8 +36,6 @@
     <string name="duplicate_task">タスクのコピー</string>
     <string name="mark_completed">完了にする</string>
     <string name="mark_incomplete">未完了にする</string>
-    <string name="task_color">Task color</string>
-    <!-- Event Repetition -->
     <string name="repetition">繰り返し</string>
     <string name="no_repetition">繰り返さない</string>
     <string name="daily">毎日</string>
@@ -83,8 +76,6 @@
     <string name="fourth_m">第4</string>
     <string name="fifth_m">第5</string>
     <string name="last_m">最後</string>
-    <!-- alternative versions for some languages, use the same translations if you are not sure what this means -->
-    <!-- used in repetition, like "Every first Sunday" -->
     <string name="repeat_every_f">繰り返し 毎</string>
     <string name="every_f">毎</string>
     <string name="first_f">第1</string>
@@ -93,36 +84,26 @@
     <string name="fourth_f">第4</string>
     <string name="fifth_f">第5</string>
     <string name="last_f">最後</string>
-    <!-- Birthdays -->
     <string name="birthdays">誕生日</string>
     <string name="add_birthdays">連絡先の誕生日を追加</string>
     <string name="no_birthdays">誕生日は見つかりませんでした</string>
     <string name="no_new_birthdays">新しい誕生日は見つかりませんでした</string>
     <string name="birthdays_added">誕生日が正常に追加されました</string>
     <string name="add_birthdays_automatically">新しい誕生日を自動的に追加</string>
-    <!-- Anniversaries -->
     <string name="anniversaries">記念日</string>
     <string name="add_anniversaries">連絡先の記念日を追加</string>
     <string name="no_anniversaries">記念日は見つかりませんでした</string>
     <string name="no_new_anniversaries">新しい記念日は見つかりませんでした</string>
     <string name="anniversaries_added">記念日が正常に追加されました</string>
     <string name="add_anniversaries_automatically">新しい記念日を自動的に追加</string>
-    <!-- Event Reminders -->
     <string name="reminder">リマインダー</string>
     <string name="before">前</string>
     <string name="add_another_reminder">別のリマインダーを追加</string>
     <string name="event_reminders">予定のリマインダー</string>
     <string name="reminders">リマインダー</string>
-    <!-- Event attendees -->
     <string name="add_another_attendee">別の出席者を追加する</string>
     <string name="my_status">自分のステータス:</string>
-    <string name="going">Going</string>
-    <string name="not_going">Not going</string>
-    <string name="maybe_going">Maybe going</string>
-    <string name="invited">Invited</string>
-    <!-- Time zones -->
     <string name="enter_a_country">国またはタイムゾーンを入力</string>
-    <!-- Export / Import -->
     <string name="import_events">予定をインポート</string>
     <string name="export_events">予定をエクスポート</string>
     <string name="import_events_from_ics">.ics ファイルから予定をインポート</string>
@@ -135,14 +116,11 @@
     <string name="include_event_types">予定の種類を含める</string>
     <string name="filename_without_ics">ファイル名 (.ics を除く)</string>
     <string name="ignore_event_types">ファイル内の予定の種類を無視し、常に既定のものを使用する</string>
-    <!-- Event details -->
     <string name="location">場所</string>
     <string name="description">説明</string>
     <string name="all_day">終日</string>
-    <!-- Weekly view -->
     <string name="week">週</string>
     <string name="start_week_with_current_day">現在の日付で週を始める</string>
-    <!-- Event types -->
     <string name="event_types">予定の種類</string>
     <string name="add_new_type">新しい種類を追加</string>
     <string name="edit_type">種類を編集</string>
@@ -154,7 +132,6 @@
     <string name="move_events_into_default">影響を受ける予定を既定の予定の種類に移す</string>
     <string name="remove_affected_events">影響を受ける予定を完全に削除する</string>
     <string name="unsync_caldav_calendar">CalDAVカレンダーを削除するには、同期を解除する必要があります</string>
-    <!-- Holidays -->
     <string name="holidays">祝日</string>
     <string name="add_holidays">祝日を追加</string>
     <string name="national_holidays">国民の祝日</string>
@@ -162,7 +139,6 @@
     <string name="holidays_imported_successfully">\"祝日\" という予定の種類にインポートされました</string>
     <string name="importing_some_holidays_failed">一部の予定のインポートに失敗しました</string>
     <string name="importing_holidays_failed">祝日のインポートに失敗しました</string>
-    <!-- Settings -->
     <string name="manage_event_types">予定の種類を管理</string>
     <string name="start_day_at">日の始まり</string>
     <string name="end_day_at">日の終わり</string>
@@ -180,7 +156,6 @@
     <string name="replace_description_with_location">予定の説明を場所に置き換える</string>
     <string name="display_description_or_location">説明や場所を表示する</string>
     <string name="delete_all_events">すべての予定を削除</string>
-    <string name="delete_all_events_and_tasks">Delete all events and tasks</string>
     <string name="delete_all_events_confirmation">予定をすべて削除してもよろしいですか？（ただし、予定の種類やその他の設定はそのまま残ります）</string>
     <string name="show_a_grid">グリッドを表示</string>
     <string name="loop_reminders">リマインダーを閉じるまで繰り返す</string>
@@ -210,8 +185,6 @@
     <string name="allow_changing_time_zones">予定のタイムゾーンの変更を許可する</string>
     <string name="manage_quick_filter_event_types">予定の種類をクイックフィルターで管理</string>
     <string name="allow_creating_tasks">タスクの作成を許可する</string>
-    <!-- CalDAV sync -->
-    <string name="caldav">CalDAV</string>
     <string name="select_caldav_calendars">同期するカレンダーを選択</string>
     <string name="manage_synced_calendars">同期したカレンダーの管理</string>
     <string name="store_locally_only">端末内にのみ保存</string>
@@ -228,8 +201,6 @@
     <string name="status_free">予定なし</string>
     <string name="status_busy">予定あり</string>
     <string name="fetching_event_failed">予定 %s の取得に失敗しました</string>
-    <!-- alternative versions for some languages, use the same translations if you are not sure what this means -->
-    <!-- used in repetition, like "Every last Sunday" -->
     <string name="monday_alt">月曜日</string>
     <string name="tuesday_alt">火曜日</string>
     <string name="wednesday_alt">水曜日</string>
@@ -237,7 +208,6 @@
     <string name="friday_alt">金曜日</string>
     <string name="saturday_alt">土曜日</string>
     <string name="sunday_alt">日曜日</string>
-    <!-- List widget config example events -->
     <string name="sample_title_1">ワークアウト</string>
     <string name="sample_description_1">脚部の日</string>
     <string name="sample_title_2">ジョンとミーティング</string>
@@ -246,7 +216,6 @@
     <string name="sample_title_4">メアリーとランチ</string>
     <string name="sample_description_4">広場にて</string>
     <string name="sample_title_5">コーヒータイム</string>
-    <!-- List widget config -->
     <string name="show_events_happening">表示する予定：</string>
     <string name="within_the_next_one_year">今後 1 年分</string>
     <string name="today_only">今日だけ</string>
@@ -260,12 +229,6 @@
     <plurals name="within_the_next_months">
         <item quantity="other">今後 %d ヶ月分</item>
     </plurals>
-    <!-- Accessibility label -->
-    <string name="accessibility_previous_month">Go to previous month</string>
-    <string name="accessibility_next_month">Go to next month</string>
-    <string name="accessibility_previous_day">Go to previous day</string>
-    <string name="accessibility_next_day">Go to next day</string>
-    <!-- FAQ -->
     <string name="faq_1_title">「祝日を追加」ボタンでインポートした祝日を削除するにはどうすればいいですか？</string>
     <string name="faq_1_text">この方法で作成された祝日は、「祝日」という新しい予定の種類に追加されます。この「祝日」という予定の種類を削除するには、設定の「予定の種類を管理」で対象の予定の種類を長押してごみ箱を選択する必要があります。</string>
     <string name="faq_2_title">Googleカレンダーまたは他のサービスのCalDAVを介して予定を同期できますか？</string>
@@ -279,8 +242,4 @@
     <string name="faq_5_text">端末の通知設定と電池設定を開き、リマインダーを妨げたり、バックグラウンド状態でアプリを落としたりする原因がないか確認してください。こちらの情報も参考にしてみてください。 &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt; 役に立つヒントがいくつかあります。</string>
     <string name="faq_6_title">既存の予定の種類を修正したり削除したりするにはどうすればよいですか？</string>
     <string name="faq_6_text">アプリの設定の「予定の種類の管理」でどちらも行えます。予定の名前や色を変更する場合は目的のものをタップします。削除する場合は目的のものを長押しして選択し、上部のごみ箱から削除します。</string>
-    <!--
-        Haven't found some strings? There's more at
-        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
-    -->
 </resources>

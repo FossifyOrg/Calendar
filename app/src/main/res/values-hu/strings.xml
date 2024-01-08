@@ -11,11 +11,9 @@
     <string name="no_upcoming_events">Nincsenek közelgő események.</string>
     <string name="go_to_today">Ugrás a mához</string>
     <string name="go_to_date">Ugrás a dátumhoz</string>
-    <!-- Widget titles -->
     <string name="widget_monthly">Havi naptár</string>
     <string name="widget_list">Eseménynaptár</string>
     <string name="widget_todays_date">Naptár mai napja</string>
-    <!-- Event -->
     <string name="event">Esemény</string>
     <string name="edit_event">Esemény szerkesztése</string>
     <string name="new_event">Új esemény</string>
@@ -29,9 +27,6 @@
     <string name="please_fill_location">Töltse ki a helyet, hogy megjelenjen a térképen</string>
     <string name="public_event_notification_text">Egy esemény következik</string>
     <string name="everything_filtered_out">Kiszűrte az összes eseménytípust</string>
-    <string name="event_color">Event color</string>
-    <string name="default_calendar_color">Default calendar color</string>
-    <!-- Tasks -->
     <string name="task">Feladat</string>
     <string name="tasks">Feladatok</string>
     <string name="edit_task">Feladat szerkesztése</string>
@@ -41,7 +36,6 @@
     <string name="mark_completed">Megjelölés befejezettként</string>
     <string name="mark_incomplete">Megjelölés nem befejezettként</string>
     <string name="task_color">Tevékenység színe</string>
-    <!-- Event Repetition -->
     <string name="repetition">Ismétlés</string>
     <string name="no_repetition">Nincs ismétlés</string>
     <string name="daily">Naponta</string>
@@ -82,8 +76,6 @@
     <string name="fourth_m">negyedik</string>
     <string name="fifth_m">ötödik</string>
     <string name="last_m">utolsó</string>
-    <!-- alternative versions for some languages, use the same translations if you are not sure what this means -->
-    <!-- used in repetition, like "Every first Sunday" -->
     <string name="repeat_every_f">Ismétlés minden</string>
     <string name="every_f">Minden</string>
     <string name="first_f">első</string>
@@ -92,36 +84,30 @@
     <string name="fourth_f">negyedik</string>
     <string name="fifth_f">ötödik</string>
     <string name="last_f">utolsó</string>
-    <!-- Birthdays -->
     <string name="birthdays">Születésnapok</string>
     <string name="add_birthdays">Névjegyek születésnapjainak hozzáadása</string>
     <string name="no_birthdays">Nem találhatók születésnapok</string>
     <string name="no_new_birthdays">Nem találhatók új születésnapok</string>
     <string name="birthdays_added">Születésnapok sikeresen hozzáadva</string>
     <string name="add_birthdays_automatically">Új születésnapok automatikus hozzáadása</string>
-    <!-- Anniversaries -->
     <string name="anniversaries">Évfordulók</string>
     <string name="add_anniversaries">Névjegyek évfordulóinak hozzáadása</string>
     <string name="no_anniversaries">Nem találhatók évfordulók</string>
     <string name="no_new_anniversaries">Nem találhatók új évfordulók</string>
     <string name="anniversaries_added">Évfordulók sikeresen hozzáadva</string>
     <string name="add_anniversaries_automatically">Új évfordulók automatikus hozzáadása</string>
-    <!-- Event Reminders -->
     <string name="reminder">Emlékeztető</string>
     <string name="before">korábban</string>
     <string name="add_another_reminder">További emlékeztető hozzáadása</string>
     <string name="event_reminders">Eseményemlékeztetők</string>
     <string name="reminders">Emlékeztetők</string>
-    <!-- Event attendees -->
     <string name="add_another_attendee">További résztvevő hozzáadása</string>
     <string name="my_status">Saját állapot:</string>
     <string name="going">Ott lesz</string>
     <string name="not_going">Nem lesz ott</string>
     <string name="maybe_going">Talán ott lesz</string>
     <string name="invited">Meghívva</string>
-    <!-- Time zones -->
     <string name="enter_a_country">Adja meg az országot vagy az időzónát</string>
-    <!-- Export / Import -->
     <string name="import_events">Események importálása</string>
     <string name="export_events">Események exportálása</string>
     <string name="import_events_from_ics">Események importálás .ics fájlból</string>
@@ -134,14 +120,11 @@
     <string name="include_event_types">Eseménytípusok belevétele</string>
     <string name="filename_without_ics">Fájlnév (.ics nélkül)</string>
     <string name="ignore_event_types">A fájlban lévő eseménytípusok mellőzése, az alapértelmezett használata</string>
-    <!-- Event details -->
     <string name="location">Hely</string>
     <string name="description">Leírás</string>
     <string name="all_day">Egész napos</string>
-    <!-- Weekly view -->
     <string name="week">Hét</string>
     <string name="start_week_with_current_day">Hét kezdése a mai nappal</string>
-    <!-- Event types -->
     <string name="event_types">Eseménytípusok</string>
     <string name="add_new_type">Új típus hozzáadása</string>
     <string name="edit_type">Típus szerkesztése</string>
@@ -153,7 +136,6 @@
     <string name="move_events_into_default">Az érintett események áthelyezése az alapértelmezett eseménytípusba</string>
     <string name="remove_affected_events">Érintett események végleges áthelyezése</string>
     <string name="unsync_caldav_calendar">A CalDAV naptár eltávolításához le kell állítania a szinkronizálást</string>
-    <!-- Holidays -->
     <string name="holidays">Ünnepnapok</string>
     <string name="add_holidays">Ünnepnapok hozzáadása</string>
     <string name="national_holidays">Nemzeti ünnepek</string>
@@ -161,7 +143,6 @@
     <string name="holidays_imported_successfully">Az ünnepnapok importálása az „Ünnepnapok” eseménytípusba sikeres</string>
     <string name="importing_some_holidays_failed">Egyes események importálása sikertelen</string>
     <string name="importing_holidays_failed">Ünnepnapok importálása sikertelen</string>
-    <!-- Settings -->
     <string name="manage_event_types">Eseménytípusok kezelése</string>
     <string name="start_day_at">Nap kezdése ekkor:</string>
     <string name="end_day_at">Nap befejezése ekkor:</string>
@@ -209,8 +190,6 @@
     <string name="allow_changing_time_zones">Esemény időzónájának megváltoztatásának engedélyezése</string>
     <string name="manage_quick_filter_event_types">Gyorsszűrő eseménytípusok kezelése</string>
     <string name="allow_creating_tasks">Feladatok létrehozásának engedélyezése</string>
-    <!-- CalDAV sync -->
-    <string name="caldav">CalDAV</string>
     <string name="select_caldav_calendars">Válassza ki a szinkronizálandó naptárakat</string>
     <string name="manage_synced_calendars">Szinkronizált naptárak kezelése</string>
     <string name="store_locally_only">Csak helyi tárolás</string>
@@ -227,8 +206,6 @@
     <string name="status_free">Szabad</string>
     <string name="status_busy">Elfoglalt</string>
     <string name="fetching_event_failed">A(z) %s esemény lekérése sikertelen</string>
-    <!-- alternative versions for some languages, use the same translations if you are not sure what this means -->
-    <!-- used in repetition, like "Every last Sunday" -->
     <string name="monday_alt">hétfőn</string>
     <string name="tuesday_alt">keden</string>
     <string name="wednesday_alt">szerdán</string>
@@ -236,7 +213,6 @@
     <string name="friday_alt">pénteken</string>
     <string name="saturday_alt">szombaton</string>
     <string name="sunday_alt">vasárnapon</string>
-    <!-- List widget config example events -->
     <string name="sample_title_1">Edzés</string>
     <string name="sample_description_1">Lábnap</string>
     <string name="sample_title_2">Találkozó Jánossal</string>
@@ -245,7 +221,6 @@
     <string name="sample_title_4">Ebéd Máriával</string>
     <string name="sample_description_4">A plázában</string>
     <string name="sample_title_5">Kávészünet</string>
-    <!-- List widget config -->
     <string name="show_events_happening">Mutasd a következő eseményeket:</string>
     <string name="within_the_next_one_year">A következő egy évben</string>
     <string name="today_only">Csak ma</string>
@@ -262,12 +237,6 @@
         <item quantity="one">A következő %d hónapban</item>
         <item quantity="other">A következő %d hónapban</item>
     </plurals>
-    <!-- Accessibility label -->
-    <string name="accessibility_previous_month">Go to previous month</string>
-    <string name="accessibility_next_month">Go to next month</string>
-    <string name="accessibility_previous_day">Go to previous day</string>
-    <string name="accessibility_next_day">Go to next day</string>
-    <!-- FAQ -->
     <string name="faq_1_title">Hogyan távolíthatom el az „Ünnepnapok hozzáadása” gombbal importált ünnepnapokat\?</string>
     <string name="faq_1_text">Az így létrehozott ünnepnapok az új „Ünnepnapok” eseménytípusba kerül beszúrásra. Menjen a Beállítások -&gt; Eseménytípusok kezelése lehetőséghez, nyomja meg hosszan az eseménytípust, majd törölje a kuka ikon választásával.</string>
     <string name="faq_2_title">Szinkronizálhatom az eseményeimet a Google Naptárral, vagy más CalDAV-ot támogató szolgáltatással\?</string>
@@ -281,8 +250,4 @@
     <string name="faq_5_text">Nézze meg az eszköz akkumulátor- és értesítési beállításait, hogy semmi sem blokkolja az emlékeztetőket vagy lövi ki az alkalmazást a háttérben. Érdemes lehet megnéznie a &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt; weboldalt, van rajta néhány hasznos tipp.</string>
     <string name="faq_6_title">Hogyan módosíthatom vagy törölhetem egy meglévő esemény típusát\?</string>
     <string name="faq_6_text">Mindkettőt a Beállítások – Eseménytípusok kezelése alatt teheti meg. Csak kattintson a kívánt elemre a címkéje vagy a színe a módosításához, vagy válassza ki a kívántat hosszú érintéssel, és a törléshez használja a felső menüben lévő kukát.</string>
-    <!--
-        Haven't found some strings? There's more at
-        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
-    -->
 </resources>
