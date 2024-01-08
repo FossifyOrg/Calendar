@@ -1,2 +1,2 @@
-* Corregida la compatibilidad de importación con Calendario simple.
+* Corregida la compatibilidad de importación con Simple Calendar.
 * Corregida la configuración de foss flavor.
