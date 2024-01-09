@@ -55,13 +55,10 @@ Join the vibrant community on GitHub, contribute to the project, and make it uni
 
 Download Fossify Calendar now and experience the power of a private and customizable schedule.
 
-Explore more Fossify apps: https://www.fossify.org
-
-Open-Source Code: https://www.github.com/FossifyOrg
-
-Join the community on Reddit: https://www.reddit.com/r/Fossify
-
-Connect on Telegram: https://t.me/Fossify
+➡️ Explore more Fossify apps: https://www.fossify.org<br>
+➡️ Open-Source Code: https://www.github.com/FossifyOrg<br>
+➡️ Join the community on Reddit: https://www.reddit.com/r/Fossify<br>
+➡️ Connect on Telegram: https://t.me/Fossify
 
 <div align="center">
 <img alt="App image" src="fastlane/metadata/android/en-US/images/phoneScreenshots/1_en-US.png" width="30%">
