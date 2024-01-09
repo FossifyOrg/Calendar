@@ -29,7 +29,7 @@ Set custom sounds, looping audio streams, vibrations, and themes to match your p
 
 Brighten your day with beautiful calendar widgets and themes for your home screen.
 
-**📅 EFFORTlESS DAY MANAGMENT:**
+**📅 EFFORTLESS DAY MANAGEMENT:**
 
 Plan your day with ease, whether you're a busy professional or a family organizer.
 
