@@ -37,9 +37,9 @@ Plan your day with ease, whether you're a busy professional or a family organize
 
 Never miss a birthday or anniversary! Easily import holidays and special dates.
 
-**🔍 FILTER AND MAP VIEWS:**
+**🔍 FILTER VIEWS:**
 
-Quickly find what you're looking for with event filters and location maps.
+Quickly find what you're looking for with event filters.
 
 **📆 MULTIPLE VIEWS:**
 
