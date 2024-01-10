@@ -1,0 +1,44 @@
+Hast du genug von unübersichtlichen Kalendern und Datenschutzproblemen?
+
+Fossify Kalender ist hier, um das zu ändern. Dein Open-Source-Kraftpaket zur Verwaltung deines Lebens, dessen Kernstück der Datenschutz ist und das mit leistungsstarken Funktionen ausgestattet ist, um dich zu organisieren.
+
+Hier ist, was Fossify Kalender anders macht:
+
+🚫 WERBEFREI UND PRIVAT: 
+Deine Termine bleiben deine. Keine Werbung, kein Tracking, keine aufdringlichen Berechtigungen.
+
+⏰ FLEXIBEL UND ANPASSBAR: 
+Gestalte Ereignisse präzise mit Zeiten, Dauer, Erinnerungen und erweiterten Wiederholungsregeln.
+
+🔄 NAHTLOSE SYNCHRONISIERUNG: 
+Synchronisiere mühelos mit Google Kalender, Outlook, Nextcloud, Exchange und mehr.
+
+🎨 PERSONALISIERE DEINEN PLANER: 
+Stelle benutzerdefinierte Sounds, Audio-Loops, Vibrationen und Designs ein, die deinen Vorlieben entsprechen.
+
+🌈 LEBENDIGE WIDGETS: 
+Verschönere deinen Tag mit schönen Kalender-Widgets und -Designs für deinen Startbildschirm.
+
+📅 MÜHELOSES TAGESMANAGEMENT:
+Plane deinen Tag mit Leichtigkeit, egal ob du ein vielbeschäftigter Berufstätiger oder ein Familienorganisator bist.
+
+🎉 FEIERN IMPORTIEREN: 
+Verpasse nie wieder einen Geburtstag oder ein Jubiläum! Importiere ganz einfach Feiertage und besondere Daten.
+
+🔍 ANSICHTEN FILTERN: 
+Mit den Ereignisfiltern findest du schnell, wonach du suchst.
+
+📆 MEHRERE ANSICHTEN: 
+Wechsle mühelos zwischen Tages-, Wochen-, Monats-, Jahres- und Ereignisansichten.
+
+✨ ELEGANZ IM MATERIAL DESIGN: 
+Genieße eine intuitive und benutzerfreundliche Oberfläche mit dynamischen Farbschemas.
+
+Außerdem ist Fossify Kalender Open Source! Werde Teil der lebendigen Community auf GitHub, trage zum Projekt bei und mach es zu deinem eigenen.
+
+Lade Fossify Kalender jetzt herunter und erlebe die Macht eines privaten und anpassbaren Kalenders.
+
+Entdecke weitere Apps von Fossify: https://www.fossify.org
+Open-Source-Code: https://www.github.com/FossifyOrg
+Tritt der Community auf Reddit bei: https://www.reddit.com/r/Fossify
+Verbinde dich auf Telegram: https://t.me/Fossify
