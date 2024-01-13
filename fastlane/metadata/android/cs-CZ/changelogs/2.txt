@@ -1,0 +1,1 @@
+* Opravena kompatibilita importu s Jednoduchým kalendářem
