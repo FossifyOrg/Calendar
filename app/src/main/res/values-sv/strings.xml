@@ -162,7 +162,7 @@
     <string name="replace_description_with_location">Ersätt händelsebeskrivning med plats</string>
     <string name="display_description_or_location">Visa beskrivning eller plats</string>
     <string name="delete_all_events">Ta bort alla händelser</string>
-    <string name="delete_all_events_and_tasks">Radera alla händelser och uppgifter</string>
+    <string name="delete_all_events_and_tasks">Ta bort alla händelser och uppgifter</string>
     <string name="delete_all_events_confirmation">Är du säker på att du vill ta bort alla händelser och uppgifter\? Dina händelsetyper och andra inställningar påverkas inte av borttagningen.</string>
     <string name="show_a_grid">Visa ett rutnät</string>
     <string name="loop_reminders">Upprepa påminnelser tills de tas bort</string>
@@ -248,5 +248,9 @@
     <string name="faq_5_title">Appen visar inga meddelanden, varför är det så\?</string>
     <string name="faq_5_text">Kontrollera enhetens batteri och inställningar för meddelanden, om det inte finns något som blockerar påminnelserna eller om appen inte är dödad i bakgrunden. Du kanske också vill ta en titt på &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;, där finns en del användbara tips.</string>
     <string name="faq_6_title">Hur kan jag ändra eller ta bort en befintlig händelsetyp\?</string>
-    <string name="faq_6_text">Du kan göra båda i appens Inställningar - Hantera evenemangstyper. Klicka bara på den önskade händelsen för att ändra etikett och färg, eller välj den önskade händelsen genom att trycka länge på den och använd papperskorgen i toppmenyn för att ta bort den.</string>
+    <string name="faq_6_text">Du kan göra båda i appens Inställningar - Hantera händelsetyper. Tryck bara på den önskade händelsen för att ändra etiketten och färgen, eller välj den önskade händelsen genom att trycka länge på den och använd papperskorgen i toppmenyn för att ta bort den.</string>
+    <string name="accessibility_previous_month">Gå till föregående månad</string>
+    <string name="accessibility_next_month">Gå till nästa månad</string>
+    <string name="accessibility_previous_day">Gå till föregående dag</string>
+    <string name="accessibility_next_day">Gå till nästa dag</string>
 </resources>
