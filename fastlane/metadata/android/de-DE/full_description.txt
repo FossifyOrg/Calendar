@@ -1,8 +1,8 @@
 Hast du genug von unübersichtlichen Kalendern und Datenschutzproblemen?
 
-Fossify Kalender ist hier, um das zu ändern. Dein Open-Source-Kraftpaket zur Verwaltung deines Lebens, dessen Kernstück der Datenschutz ist und das mit leistungsstarken Funktionen ausgestattet ist, um dich zu organisieren.
+Fossify Calendar ist hier, um das zu ändern. Dein Open-Source-Kraftpaket zur Verwaltung deines Lebens, dessen Kernstück der Datenschutz ist und das mit leistungsstarken Funktionen ausgestattet ist, um dich zu organisieren.
 
-Hier ist, was Fossify Kalender anders macht:
+Hier ist, was Fossify Calendar anders macht:
 
 🚫 WERBEFREI UND PRIVAT: 
 Deine Termine bleiben deine. Keine Werbung, kein Tracking, keine aufdringlichen Berechtigungen.
@@ -34,9 +34,9 @@ Wechsle mühelos zwischen Tages-, Wochen-, Monats-, Jahres- und Ereignisansichte
 ✨ ELEGANZ IM MATERIAL DESIGN: 
 Genieße eine intuitive und benutzerfreundliche Oberfläche mit dynamischen Farbschemas.
 
-Außerdem ist Fossify Kalender Open Source! Werde Teil der lebendigen Community auf GitHub, trage zum Projekt bei und mach es zu deinem eigenen.
+Außerdem ist Fossify Calendar Open Source! Werde Teil der lebendigen Community auf GitHub, trage zum Projekt bei und mach es zu deinem eigenen.
 
-Lade Fossify Kalender jetzt herunter und erlebe die Macht eines privaten und anpassbaren Kalenders.
+Lade Fossify Calendar jetzt herunter und erlebe die Macht eines privaten und anpassbaren Kalenders.
 
 Entdecke weitere Apps von Fossify: https://www.fossify.org
 Open-Source-Code: https://www.github.com/FossifyOrg
