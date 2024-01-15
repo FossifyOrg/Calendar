@@ -8,6 +8,7 @@ import org.fossify.calendar.databinding.MonthViewBackgroundBinding
 import org.fossify.calendar.databinding.MonthViewBinding
 import org.fossify.calendar.extensions.config
 import org.fossify.calendar.helpers.COLUMN_COUNT
+import org.fossify.calendar.helpers.Formatter
 import org.fossify.calendar.helpers.ROW_COUNT
 import org.fossify.calendar.models.DayMonthly
 import org.fossify.commons.extensions.onGlobalLayout
@@ -134,6 +135,8 @@ class MonthViewWrapper(context: Context, attrs: AttributeSet, defStyle: Int) : F
             if (isMonthDayView) {
                 background = null
             }
+            //Accessible label composed by day and month
+            contentDescription = "${day.value} ${Formatter.getMonthName(context,  Formatter.getDateTimeFromCode(day.code).monthOfYear)}"
 
             layoutParams.width = dayWidth.toInt()
             layoutParams.height = dayHeight.toInt()
