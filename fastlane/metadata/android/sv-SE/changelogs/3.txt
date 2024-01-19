@@ -1,2 +1,2 @@
-* Löste importkompatibilitet med Simple Calendar.
-* Löste FOSS-konfiguration.
+* Åtgärdade importkompatibilitet med Simple Calendar.
+* Åtgärdade FOSS-konfiguration.

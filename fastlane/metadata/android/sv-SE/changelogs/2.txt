@@ -1,1 +1,1 @@
-* Löste importkompatibilitet med Simple Calendar.
+* Åtgärdade importkompatibilitet med Simple Calendar.
