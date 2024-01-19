@@ -253,4 +253,11 @@
     <string name="faq_5_text">Vérifiez dans les paramètres « Batterie » et « Notifications » de votre appareil que rien ne bloque l\'affichage des rappels ou n\'arrête l\'exécution de l\'application en arrière-plan. Vous pouvez aussi trouver des informations utiles à l\'adresse web suivante  : &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;.</string>
     <string name="faq_6_title">Comment puis-je modifier ou supprimer un type d\'évènement existant \?</string>
     <string name="faq_6_text">Vous pouvez réaliser ces deux opérations depuis les paramètres de l\'application -&gt; puis « Gérer les types d\'évènements ». Cliquez simplement sur l\'évènement concerné pour modifier son titre ou sa couleur, ou sélectionnez celui que vous souhaitez en appuyant longuement dessus et utilisez la corbeille dans le menu supérieur pour le supprimer.</string>
+    <string name="notification_stream">Notification</string>
+    <string name="accessibility_next_day">Aller au jour suivant</string>
+    <string name="caldav">CalDAV</string>
+    <string name="accessibility_previous_month">Aller au mois précédent</string>
+    <string name="accessibility_next_month">Aller au mois suivant</string>
+    <string name="accessibility_previous_day">Aller au jour précédent</string>
+    <string name="description">Description</string>
 </resources>
