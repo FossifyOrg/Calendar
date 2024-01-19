@@ -253,4 +253,7 @@
     <string name="accessibility_next_month">Gå till nästa månad</string>
     <string name="accessibility_previous_day">Gå till föregående dag</string>
     <string name="accessibility_next_day">Gå till nästa dag</string>
+    <string name="alarm_stream">Alarm</string>
+    <string name="system_stream">System</string>
+    <string name="caldav">CalDAV</string>
 </resources>
