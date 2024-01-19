@@ -250,4 +250,11 @@
     <string name="faq_5_text">Kontrolli seadme akut ja märguannete seadeid ja vaata, et miski ei blokeeriks meeldetuletusi ega sulgeks rakendust taustal. Samuti vaata siia: &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;, seal leidub kasulikke näpunäiteid.</string>
     <string name="faq_6_title">Kuidas saan olemasolevat sündmuse tüüpi muuta või kustutada\?</string>
     <string name="faq_6_text">Mõlemat saad teha valikust „Seaded - Halda sündmuse tüüpe“. Nime ja värvi muutmiseks lihtsalt klõpsa soovitud tüübil sildi või pika vajutuse järel kasuta kustutamiseks ülemises menüüs olevat prügikasti.</string>
+    <string name="event_color">Sündmuse värv</string>
+    <string name="default_calendar_color">Kalendri vaikimisi värv</string>
+    <string name="caldav">CalDAV</string>
+    <string name="accessibility_previous_month">Vaata eelmist kuud</string>
+    <string name="accessibility_next_month">Vaata järgmist kuud</string>
+    <string name="accessibility_previous_day">Vaata eelmist päeva</string>
+    <string name="accessibility_next_day">Vaata järgmist päeva</string>
 </resources>
