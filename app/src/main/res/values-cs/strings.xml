@@ -253,4 +253,11 @@
     <string name="faq_5_text">Zkontrolujte nastavení oznámení a baterie na vašem zařízení, zda tam není nic blokujícího připomenutí, nebo zabíjení aplikace běžící na pozadí. Možná se také budete chtít podívat na &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com &lt;/a&gt;, kde je několik užitečných tipů.</string>
     <string name="faq_6_title">Jak mohu upravit nebo odstranit existující typ události\?</string>
     <string name="faq_6_text">Obojí lze udělat v Nastavení aplikace – Správa typů událostí. Po klepnutí na zvolený typ události můžete upravit název a barvu. Dlouhým podržením a poté použitím odpadkového koše v horním menu typ události odstraníte.</string>
+    <string name="event_color">Barva události</string>
+    <string name="caldav">CalDAV</string>
+    <string name="accessibility_previous_month">Přejít na předchozí měsíc</string>
+    <string name="accessibility_next_month">Přejít na další měsíc</string>
+    <string name="accessibility_previous_day">Přejít na předchozí den</string>
+    <string name="accessibility_next_day">Přejít na další den</string>
+    <string name="default_calendar_color">Výchozí barva kalendáře</string>
 </resources>

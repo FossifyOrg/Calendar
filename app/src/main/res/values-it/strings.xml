@@ -259,4 +259,5 @@
     <string name="faq_5_text">Controlla la batteria del tuo dispositivo e le impostazioni di notifica, se non c\'è nulla che blocchi i promemoria, o che uccida l\'app in sfondo. Si potrebbe anche dare un\'occhiata a &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;, ha alcuni suggerimenti utili.</string>
     <string name="faq_6_title">Come posso modificare o eliminare un tipo di evento esistente\?</string>
     <string name="faq_6_text">Puoi fare entrambe le cose in Impostazioni dell\'app – Gestisci tipi di eventi. Basta cliccare su quello desiderato per cambiare l\'etichetta e il colore, o selezionare quello desiderato premendolo a lungo e usare il cestino nel menù in alto per eliminarlo.</string>
+    <string name="caldav">CalDAV</string>
 </resources>

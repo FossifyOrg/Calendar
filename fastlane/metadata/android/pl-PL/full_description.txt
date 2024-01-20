@@ -4,16 +4,35 @@ Fossify Calendar jest tutaj, aby to zmienić. Twoje otwartoźródłowe narzędzi
 
 Oto co wyróżnia Fossify Calendar:
 
-🚫 Wolny od reklam i prywatny: Twoje wydarzenia pozostają Twoje. Żadnych reklam, żadnego śledzenia, żadnych natrętnych uprawnień.
-⏰ Elastyczny i konfigurowalny: Twórz wydarzenia precyzyjnie, podając daty, czasy trwania, przypomnienia i wykorzystując zaawansowane zasady powtarzania.
-🔄 Bezproblemowa synchronizacja: Synchronizuj bez wysiłku z Kalendarzem Google, Outlookiem, Nextcloudem, Exchange i innymi.
-🎨 Spersonalizuj swój planer: Ustaw niestandardowe dźwięki, zapętlone strumienie audio, wibrację i motywy, aby dopasować je do swoich preferencji.
-🌈 Żywe widżety: Rozjaśnij swój dzień pięknymi widżetami kalendarza i motywami na ekranie głównym.
-📅 Łatwe zarządzanie dniem: Z łatwością zaplanuj swój dzień niezależnie od tego, czy jesteś zapracowanym profesjonalistą, czy planujesz czas rodzinie.
-🎉 Importuj uroczystości: Nigdy nie przegap urodzin ani rocznicy! Z łatwością zaimportuj święta i szczególne daty.
-🔍 Filtrowanie widoków i wyszukiwanie: Szybko znajdź to, czego szukasz, dzięki filtrom wydarzeń i wyszukiwarce.
-📆 Wiele widoków: Przełączaj się bez wysiłku między widokami — dziennym, tygodniowym, miesięcznym, rocznym i listą wydarzeń.
-✨ Piękno Material Design: Ciesz się intuicyjnym i przyjaznym dla użytkownika interfejsem z dynamicznymi motywami.
+🚫 WOLNY OD REKLAM I PRYWATNY:
+Twoje wydarzenia pozostają Twoje. Żadnych reklam, żadnego śledzenia, żadnych natrętnych uprawnień.
+
+⏰ ELASTYCZNY I KONFIGUROWALNY:
+Twórz wydarzenia precyzyjnie, podając daty, czasy trwania, przypomnienia i wykorzystując zaawansowane zasady powtarzania.
+
+🔄 BEZPROBLEMOWA SYNCHRONIZACJA:
+Synchronizuj bez wysiłku z Kalendarzem Google, Outlookiem, Nextcloudem, Exchange i innymi.
+
+🎨 SPERSONALIZUJ SWÓJ PLANER:
+Ustaw niestandardowe dźwięki, zapętlone strumienie audio, wibrację i motywy, aby dopasować je do swoich preferencji.
+
+🌈 ŻYWE WIDŻETY:
+Rozjaśnij swój dzień pięknymi widżetami kalendarza i motywami na ekranie głównym.
+
+📅 ŁATWE ZARZĄDZANIE DNIEM:
+Z łatwością zaplanuj swój dzień niezależnie od tego, czy jesteś zapracowanym profesjonalistą, czy planujesz czas rodzinie.
+
+🎉 IMPORTUJ UROCZYSTOŚCI:
+Nigdy nie przegap urodzin ani rocznicy! Z łatwością zaimportuj święta i szczególne daty.
+
+🔍 FILTROWANIE WIDOKÓW:
+Szybko znajdź to, czego szukasz, dzięki filtrom wydarzeń.
+
+📆 WIELE WIDOKÓW:
+Przełączaj się bez wysiłku między widokami — dziennym, tygodniowym, miesięcznym, rocznym i listą wydarzeń.
+
+✨ PIĘKNO MATERIAL DESIGN:
+Ciesz się intuicyjnym i przyjaznym dla użytkownika interfejsem z dynamicznymi motywami.
 
 Ponadto Fossify Calendar jestar otwtoźródłowy! Dołącz do tętniącej życiem społeczności na GitHubie, udziel się w projekcie i uczyń go wyjątkowym.
 

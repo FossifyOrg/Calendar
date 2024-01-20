@@ -1,0 +1,2 @@
+* Opravena kompatibilita importu s Jednoduchým kalendářem
+* Opravena konfigurace aplikace.

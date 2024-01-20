@@ -1,0 +1,44 @@
+Jste unaveni z nepřehledných kalendářů, které zajímají jen vaše data?
+
+Kalendář Fossify je tu, aby to změnil. Je vaším open-source domovem pro správu života, navržený s ohledem na ochranu soukromí a plný skvělých funkcí, které vám pomohou zorganizovat svůj život.
+
+Proč je Kalendář Fossify jiný?
+
+🚫 BEZ REKLAM A SOUKROMÝ: 
+Vaše události zůstanou vaše. Žádné reklamy, žádné sledování, žádná nebezpečná oprávnění.
+
+⏰ FLEXIBILNÍ A PŘIZPŮSOBITELNÝ: 
+Vytvářejte události precizněji s časy, trváními, upomínkami a pokročilými možnostmi opakování.
+
+🔄 BEZPROBLÉMOVÁ SYNCHRONIZACE: 
+Jednoduchá synchronizace se službami Kalendář Google, Outlook, Nextcloud, Exchange a spoustami dalších.
+
+🎨 PŘIZPŮSOBTE SVŮJ PLÁNOVAČ: 
+Nastavte si vlastní zvuky, opakující streamy hudby, vibrace a motivy přesně podle svých představ.
+
+🌈 NÁDHERNÉ WIDGETY: 
+Oživte svůj den nádhernými widgety a motivy pro vaší domovskou obrazovku.
+
+📅 JEDNODUCHÁ SPRÁVA DNE:
+Jednoduše naplánujte svůj den, ať už jste zaneprázdněný profesionál nebo rodinný organizátor.
+
+🎉 IMPORTUJTE OSLAVY: 
+Nikdy nezmeškejte narozeniny nebo výročí! Jednoduše importujte svátky a speciální data.
+
+🔍 ZOBRAZENÍ S FILTRY: 
+Rychle najděte vše, co potřebujete, pomocí filtrů událostí.
+
+📆 RŮZNÁ ZOBRAZENÍ: 
+Jednoduše přepínejte mezi denním, týdenním, měsíčním, ročním a seznamovým zobrazením.
+
+✨ ELEGANTNÍ MATERIAL DESIGN: 
+Užijte si intuitivní a přátelské rozhraní s dynamickými motivy.
+
+Kalendář Fossify je navíc open-source! Připojte se k živé komunitě na GitHubu, přispějte do projektu a přizpůsobte si ho přesně podle sebe.
+
+Stáhněte si Kalendář Fossify a zažijte, jaké to je používat soukromý a přizpůsobitelný rozvrh.
+
+Prozkoumejte další aplikace Fossify: https://www.fossify.org
+Otevřený zdrojový kód: https://www.github.com/FossifyOrg
+Připojte se ke komunitě na Redditu: https://www.reddit.com/r/Fossify
+Připojte se k Telegramu: https://t.me/Fossify
