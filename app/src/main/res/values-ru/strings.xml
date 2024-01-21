@@ -258,4 +258,9 @@
     <string name="faq_5_text">Проверьте настройки электропитания и уведомлений своего устройства и убедитесь, что ничто не блокирует отображение напоминаний или не останавливает работу приложения в фоновом режиме. Также можно посмотреть &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;, там есть несколько полезных советов.</string>
     <string name="faq_6_title">Как можно изменить или удалить существующий тип события\?</string>
     <string name="faq_6_text">Вы можете сделать и то, и другое в настройках приложения разделе \"Управление типами событий\". Просто нажмите на нужный тип, чтобы изменить его название и цвет, или выберите долгим нажатием и используйте значок корзины в верхнем меню для удаления.</string>
+    <string name="caldav">CalDAV</string>
+    <string name="accessibility_previous_month">Переход к предыдущему месяцу</string>
+    <string name="accessibility_next_month">Переход к следующему месяцу</string>
+    <string name="accessibility_previous_day">Переход к предыдущему дню</string>
+    <string name="accessibility_next_day">Переход к следующему дню</string>
 </resources>
