@@ -249,4 +249,18 @@
     <string name="faq_5_text">Check your device battery and notification settings, if there is nothing blocking the reminders, or killing the app in the background. Morda boste želeli pogledati tudi na &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;, ima nekaj koristnih nasvetov.</string>
     <string name="faq_6_title">Kako lahko spremenim ali izbrišem obstoječo vrsto dogodka\?</string>
     <string name="faq_6_text">Oboje lahko storite v aplikaciji Nastavitve - Upravljanje vrst dogodkov. Za spremembo oznake in barve kliknite želeni dogodek ali pa ga izberite z dolgim pritiskom in za brisanje uporabite koš za smeti v zgornjem meniju.</string>
+    <string name="event_color">Barva dogodka</string>
+    <string name="default_calendar_color">Privzeta barva koledarja</string>
+    <string name="export_tasks">Izvozi opravila</string>
+    <string name="alarm_stream">Alarm</string>
+    <string name="accessibility_previous_month">Pojdi na prejšnji mesec</string>
+    <string name="accessibility_next_month">Pojdi na prihodnji mesec</string>
+    <string name="accessibility_previous_day">Pojdi na prejšnji dan</string>
+    <string name="accessibility_next_day">Pojdi na prihodnji dan</string>
+    <string name="export_past_entries">Izvozi tudi pretekle vnose</string>
+    <string name="delete_all_events_and_tasks">Izbriši vse dogodke in opravila</string>
+    <string name="no_upcoming_events">Ni prihajajočih dogodkov.</string>
+    <string name="everything_filtered_out">Filtrirali ste vse vrste dogodkov</string>
+    <string name="task_color">Barva opravila</string>
+    <string name="caldav">CalDAV</string>
 </resources>
