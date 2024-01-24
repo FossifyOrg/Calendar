@@ -620,7 +620,7 @@ class EventActivity : SimpleActivity() {
         checkRepeatTexts(interval)
 
         when {
-            mRepeatInterval.isXWeeklyRepetition() -> setRepeatRule(Math.pow(2.0, (mEventStartDateTime.dayOfWeek - 1).toDouble()).toInt())
+            mRepeatInterval.isXWeeklyRepetition() -> setRepeatRule(1 shl (mEventStartDateTime.dayOfWeek - 1))
             mRepeatInterval.isXMonthlyRepetition() -> setRepeatRule(REPEAT_SAME_DAY)
             mRepeatInterval.isXYearlyRepetition() -> setRepeatRule(REPEAT_SAME_DAY)
         }
@@ -1603,7 +1603,7 @@ class EventActivity : SimpleActivity() {
         if (mRepeatInterval.isXWeeklyRepetition()) {
             val day = mRepeatRule
             if (day == MONDAY_BIT || day == TUESDAY_BIT || day == WEDNESDAY_BIT || day == THURSDAY_BIT || day == FRIDAY_BIT || day == SATURDAY_BIT || day == SUNDAY_BIT) {
-                setRepeatRule(Math.pow(2.0, (mEventStartDateTime.dayOfWeek - 1).toDouble()).toInt())
+                setRepeatRule(1 shl (mEventStartDateTime.dayOfWeek - 1))
             }
         } else if (mRepeatInterval.isXMonthlyRepetition() || mRepeatInterval.isXYearlyRepetition()) {
             if (mRepeatRule == REPEAT_LAST_DAY && !isLastDayOfTheMonth()) {

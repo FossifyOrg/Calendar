@@ -25,7 +25,6 @@ import org.fossify.commons.extensions.*
 import org.fossify.commons.helpers.*
 import org.fossify.commons.models.RadioItem
 import org.joda.time.DateTime
-import kotlin.math.pow
 
 class TaskActivity : SimpleActivity() {
     private var mEventTypeId = REGULAR_EVENT_TYPE_ID
@@ -610,7 +609,7 @@ class TaskActivity : SimpleActivity() {
         if (mRepeatInterval.isXWeeklyRepetition()) {
             val day = mRepeatRule
             if (day == MONDAY_BIT || day == TUESDAY_BIT || day == WEDNESDAY_BIT || day == THURSDAY_BIT || day == FRIDAY_BIT || day == SATURDAY_BIT || day == SUNDAY_BIT) {
-                setRepeatRule(2.0.pow((mTaskDateTime.dayOfWeek - 1).toDouble()).toInt())
+                setRepeatRule(1 shl (mTaskDateTime.dayOfWeek - 1))
             }
         } else if (mRepeatInterval.isXMonthlyRepetition() || mRepeatInterval.isXYearlyRepetition()) {
             if (mRepeatRule == REPEAT_LAST_DAY && !isLastDayOfTheMonth()) {
@@ -825,7 +824,7 @@ class TaskActivity : SimpleActivity() {
         checkRepeatTexts(interval)
 
         when {
-            mRepeatInterval.isXWeeklyRepetition() -> setRepeatRule(2.0.pow((mTaskDateTime.dayOfWeek - 1).toDouble()).toInt())
+            mRepeatInterval.isXWeeklyRepetition() -> setRepeatRule(1 shl (mTaskDateTime.dayOfWeek - 1))
             mRepeatInterval.isXMonthlyRepetition() -> setRepeatRule(REPEAT_SAME_DAY)
             mRepeatInterval.isXYearlyRepetition() -> setRepeatRule(REPEAT_SAME_DAY)
         }
