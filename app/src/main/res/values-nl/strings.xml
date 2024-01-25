@@ -248,4 +248,12 @@
     <string name="faq_5_text">Controleer bij Meldingen via App-info of er geen notificaties geblokkeerd worden. Probeer anders bij de geavanceerde instellingen in App-info de batterijoptimalisatie voor deze app uit te schakelen. Kijk op &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt; voor verdere tips.</string>
     <string name="faq_6_title">Hoe kan ik een bestaand afspraaktype aanpassen of verwijderen\?</string>
     <string name="faq_6_text">Dit kan via Instellingen -&gt; Afspraaktypes beheren. Klik op het item om de naam en kleur te veranderen, of druk lang op een item om het te verwijderen met de knop bovenin.</string>
+    <string name="alarm_stream">Alarm</string>
+    <string name="accessibility_next_day">Volgende dag</string>
+    <string name="accessibility_previous_day">Vorige dag</string>
+    <string name="accessibility_next_month">Volgende maand</string>
+    <string name="accessibility_previous_month">Vorige maand</string>
+    <string name="week">Week</string>
+    <string name="export_tasks">Taken exporteren</string>
+    <string name="caldav">CalDAV</string>
 </resources>
