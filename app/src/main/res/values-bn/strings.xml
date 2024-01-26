@@ -5,7 +5,7 @@
     <string name="daily_view">প্রাত্যহিক ভিউ</string>
     <string name="weekly_view">সাপ্তাহিক ভিউ</string>
     <string name="monthly_view">মাসিক ভিউ</string>
-    <string name="monthly_daily_view">Monthly + daily view</string>
+    <string name="monthly_daily_view">মাসিক + প্রত্যহ দৃশ্য</string>
     <string name="yearly_view">বাৎসরিক ভিউ</string>
     <string name="simple_event_list">ইভেন্টগুলির সহজ তালিকা</string>
     <string name="go_to_today">আজকের দিনে যাও</string>
@@ -20,7 +20,7 @@
     <string name="title_empty">শিরোনাম খালি হতে পারবে না</string>
     <string name="end_before_start">ইভেন্টটি শুরুর আগে শেষ হতে পারবে না</string>
     <string name="event_added">ইভেন্ট সফলভাবে যোগ হয়েছে</string>
-    <string name="event_updated">ইভেন্ট সফলভাবে আপডেট হয়েছে</string>
+    <string name="event_updated">ইভেন্ট টি সফলভাবে আপডেট করা হয়েছে</string>
     <string name="filter_events_by_type">টাইপের মত করে ইভেন্টগুলো ফিল্টার করুন</string>
     <string name="please_fill_location">ম্যাপে দেখানোর জন্য লোকেশন পূরণ করুন</string>
     <string name="public_event_notification_text">একটি ইভেন্ট আসছে</string>
