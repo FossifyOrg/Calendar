@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_launcher_name">Calendário</string>
-    <string name="change_view">Mudar vista</string>
-    <string name="daily_view">Vista diária</string>
-    <string name="weekly_view">Vista semanal</string>
-    <string name="monthly_view">Vista mensal</string>
-    <string name="monthly_daily_view">Vista mensal + diária</string>
-    <string name="yearly_view">Vista anual</string>
+    <string name="app_launcher_name">Calendário Fossify</string>
+    <string name="change_view">Alterar visualização</string>
+    <string name="daily_view">Visualização diária</string>
+    <string name="weekly_view">Visualização semanal</string>
+    <string name="monthly_view">Visualização mensal</string>
+    <string name="monthly_daily_view">Visualização mensal + diária</string>
+    <string name="yearly_view">Visualização anual</string>
     <string name="simple_event_list">Lista de eventos</string>
     <string name="no_upcoming_events">Não há eventos futuros.</string>
     <string name="go_to_today">Ir para hoje</string>
