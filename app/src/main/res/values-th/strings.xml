@@ -1,3 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_launcher_name">ปฏิทิน</string>
+    <string name="monthly_view">รายเดือน</string>
+    <string name="weekly_view">รายสัปดาห์</string>
+    <string name="tuesday_alt">วันอังคาร</string>
+    <string name="event_color">สีเหตุการณ์</string>
+    <string name="change_view">เปลี่ยนมุมมอง</string>
+    <string name="daily_view">รายวัน</string>
+    <string name="monthly_daily_view">รายเดือนและรายวัน</string>
+    <string name="yearly_view">รายปี</string>
+    <string name="simple_event_list">รายการเหตุการณ์อย่างย่อ</string>
+    <string name="no_upcoming_events">ไม่มีเหตุการณ์ที่กำลังมาถึง</string>
+    <string name="go_to_today">ไปที่วันนี้</string>
+    <string name="go_to_date">ไปวันที่ที่กำหนด</string>
 </resources>
