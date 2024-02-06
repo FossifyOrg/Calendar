@@ -3,7 +3,7 @@
     <string name="app_launcher_name">कैलेंडर</string>
     <string name="change_view">दृश्य बदले</string>
     <string name="monthly_view">मासिक दृश्य</string>
-    <string name="monthly_daily_view">Monthly + daily view</string>
+    <string name="monthly_daily_view">मासिक और दैनिक दृश्य</string>
     <string name="yearly_view">वार्षिक दृश्य</string>
     <string name="simple_event_list">सरल आयोजन सूची</string>
     <string name="event">आयोजन</string>
@@ -46,7 +46,7 @@
     <string name="manage_quick_filter_event_types">त्वरित फ़िल्टर आयोजन प्रकार प्रबंधित करें</string>
     <string name="faq_1_text">इस तरह से बनाई गई छुट्टियों को \"छुट्टियाँ\" नामक एक नए आयोजन प्रकार में डाला जाता है। आप सेटिंग्स में जा सकते हैं -&gt; आयोजन प्रकार प्रबंधित करें, दिए गए आयोजन प्रकार को देर तक दबाएं और ट्रैशबिन का चयन करके इसे हटा दें।</string>
     <string name="fetching_event_failed">आयोजन %s प्राप्त करना विफल रहा</string>
-    <string name="faq_2_title">क्या मैं अपने आयोजन को गूगल कैलेंडर, या CalDAV का समर्थन करने वाली अन्य सेवा के माध्यम से सिंक कर सकता हूँ?</string>
+    <string name="faq_2_title">क्या मैं अपने आयोजन को Google कैलेंडर, या CalDAV का समर्थन करने वाली अन्य सेवा के माध्यम से सिंक कर सकता हूँ?</string>
     <string name="faq_4_text">हाँ ऐसा होता है। डिफ़ॉल्ट रूप से सभी आयोजन आपके वर्तमान समय क्षेत्र में बनाए जाते हैं। यदि आप किसी आयोजन का समय क्षेत्र बदलना चाहते हैं, तो आपको पहले ऐप सेटिंग में समय क्षेत्र पिकर को सक्षम करना होगा, फिर इसे आयोजन विवरण स्क्रीन पर बदलना होगा। यह डिफ़ॉल्ट रूप से अक्षम है क्योंकि अधिकांश लोगों को इसकी आवश्यकता नहीं होगी।</string>
     <string name="faq_6_text">आप ऐप सेटिंग्स में ये दोनों काम कर सकते हैं - आयोजन प्रकार प्रबंधित करें। लेबल और रंग बदलने के लिए बस वांछित पर क्लिक करें, या लंबे समय तक दबाकर वांछित का चयन करें और हटाने के लिए शीर्ष मेनू पर ट्रैशबिन का उपयोग करें।</string>
     <string name="start_day_at">दिन की शुरुआत</string>
@@ -113,7 +113,7 @@
     <string name="add_another_reminder">एक और अनुस्मारक जोड़ें</string>
     <string name="reminders">रिमाइंडर</string>
     <string name="add_another_attendee">किसी अन्य सहभागी को जोड़ें</string>
-    <string name="event_reminders">आयोजन अनुस्मारक</string>
+    <string name="event_reminders">आयोजन रिमाइंडर</string>
     <string name="export_events">निर्यात आयोजन</string>
     <string name="import_events_from_ics">किसी .ics फ़ाइल से आयोजन आयात करें</string>
     <string name="import_events_from_ics_pro">.ics फ़ाइल से आयोजन आयात करें (प्रो)</string>
