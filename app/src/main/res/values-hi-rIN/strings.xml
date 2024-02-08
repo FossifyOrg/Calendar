@@ -116,7 +116,7 @@
     <string name="event_reminders">आयोजन रिमाइंडर</string>
     <string name="export_events">निर्यात आयोजन</string>
     <string name="import_events_from_ics">किसी .ics फ़ाइल से आयोजन आयात करें</string>
-    <string name="import_events_from_ics_pro">.ics फ़ाइल से आयोजन आयात करें (प्रो)</string>
+    <string name="import_events_from_ics_pro">.ics फ़ाइल से आयोजन आयात करें (Pro)</string>
     <string name="export_events_to_ics">आयोजन को .ics फ़ाइल में निर्यात करें</string>
     <string name="default_event_type">डिफ़ॉल्ट आयोजन प्रकार</string>
     <string name="export_past_events_too">पिछली आयोजन को भी निर्यात करें</string>
