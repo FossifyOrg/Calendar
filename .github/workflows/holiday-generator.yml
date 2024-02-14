@@ -2,8 +2,9 @@ name: Generate holiday ICS files
 
 on:
     schedule:
-      # Run every year on 1st December, midnight
-      - cron: '0 0 1 12 *'
+        # Run every year on 1st December, midnight
+        - cron: '0 0 1 12 *'
+    workflow_dispatch:
 
 jobs:
     generate:
