@@ -15,7 +15,7 @@ jobs:
             - name: Install NodeJS
               uses: actions/setup-node@v4
               with:
-                node-version: lts
+                node-version: 20
             - name: Run script
               env:
                 SHOULD_LOG: true
