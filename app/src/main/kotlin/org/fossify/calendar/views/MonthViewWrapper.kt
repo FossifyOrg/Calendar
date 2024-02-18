@@ -74,7 +74,7 @@ class MonthViewWrapper(context: Context, attrs: AttributeSet, defStyle: Int) : F
 
             child.layout(childLeft.toInt(), childTop.toInt(), childRight.toInt(), childBottom.toInt())
 
-            if (curLeft + childWidth < end) {
+            if (curLeft + childWidth <= end) {
                 curLeft += childWidth
                 x++
             } else {
@@ -107,41 +107,29 @@ class MonthViewWrapper(context: Context, attrs: AttributeSet, defStyle: Int) : F
     }
 
     private fun measureSizes() {
-        dayWidth = (width - horizontalOffset) / 7f
-        dayHeight = (height - weekDaysLetterHeight) / 6f
+        dayWidth = (width - horizontalOffset) / COLUMN_COUNT.toFloat()
+        dayHeight = (height - weekDaysLetterHeight) / ROW_COUNT.toFloat()
     }
 
     private fun addClickableBackgrounds() {
         removeAllViews()
         binding = MonthViewBinding.inflate(inflater, this, true)
         wereViewsAdded = true
-        var curId = 0
-        for (y in 0 until ROW_COUNT) {
-            for (x in 0 until COLUMN_COUNT) {
-                val day = days.getOrNull(curId)
-                if (day != null) {
-                    addViewBackground(x, y, day)
-                }
-                curId++
-            }
+        days.forEachIndexed { index, day ->
+            addViewBackground(index % COLUMN_COUNT, index / COLUMN_COUNT, day)
         }
+
     }
 
     private fun addViewBackground(viewX: Int, viewY: Int, day: DayMonthly) {
-        val xPos = viewX * dayWidth + horizontalOffset
-        val yPos = viewY * dayHeight + weekDaysLetterHeight
 
         MonthViewBackgroundBinding.inflate(inflater, this, false).root.apply {
             if (isMonthDayView) {
                 background = null
             }
             //Accessible label composed by day and month
-            contentDescription = "${day.value} ${Formatter.getMonthName(context,  Formatter.getDateTimeFromCode(day.code).monthOfYear)}"
+            contentDescription = "${day.value} ${Formatter.getMonthName(context, Formatter.getDateTimeFromCode(day.code).monthOfYear)}"
 
-            layoutParams.width = dayWidth.toInt()
-            layoutParams.height = dayHeight.toInt()
-            x = xPos
-            y = yPos
             setOnClickListener {
                 dayClickCallback?.invoke(day)
 
