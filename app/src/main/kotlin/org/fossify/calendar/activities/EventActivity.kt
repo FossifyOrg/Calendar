@@ -1375,6 +1375,7 @@ class EventActivity : SimpleActivity() {
                     eventsHelper.editSelectedOccurrence(mEvent, true) {
                         finish()
                     }
+                    eventsHelper.deleteRepeatingEventOccurrence(mEvent.id!!, mEventOccurrenceTS, true)
                 }
 
                 EDIT_FUTURE_OCCURRENCES -> {
