@@ -256,4 +256,5 @@
     <string name="week">Week</string>
     <string name="export_tasks">Taken exporteren</string>
     <string name="caldav">CalDAV</string>
+    <string name="weekly_view">Week</string>
 </resources>
