@@ -212,4 +212,7 @@
     <string name="sample_title_5">הפסקת קפה</string>
     <string name="show_events_happening">הצג אירועים שקורים:</string>
     <string name="within_the_next_one_year">Within the next 1 year‬</string>
+    <string name="no_upcoming_events">אין פגישות קרובות.</string>
+    <string name="everything_filtered_out">סיננת את כל סוגי הפגישות</string>
+    <string name="event_color">צבע האירוע</string>
 </resources>
