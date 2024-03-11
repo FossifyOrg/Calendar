@@ -216,6 +216,7 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
                             .sortedWith(
                                 comparator = compareBy({ it.startTS }, { it.endTS }, { it.title })
                             )
+                            .distinctBy { it.color }
 
                         var xDot: Float
                         var yDot = yPos + height + textPaint.textSize / 2
@@ -232,7 +233,7 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
                                 yDot += stepSize
                             }
 
-                            if (index >= columnCount * EVENT_DOT_ROW_COUNT - 1) { // draw + if too many events
+                            if (eventCount - 1 != index && index >= columnCount * EVENT_DOT_ROW_COUNT - 1) { // draw + if too many events
                                 plusSymbolTextPaint.textSize = stepSize * 1.5f
                                 canvas.drawText("+", xDot, yDot + dotRadius * 1.2f, plusSymbolTextPaint)
                                 break
