@@ -11,11 +11,9 @@
     <string name="no_upcoming_events">Tulevasi sündmusi pole.</string>
     <string name="go_to_today">Vaata tänast päeva</string>
     <string name="go_to_date">Vaata kuupäeva</string>
-    <!-- Widget titles -->
     <string name="widget_monthly">Kalender kuude kaupa</string>
     <string name="widget_list">Kalendri sündmuste nimekiri</string>
     <string name="widget_todays_date">Tänane kuupäev kalendris</string>
-    <!-- Event -->
     <string name="event">Sündmus</string>
     <string name="edit_event">Muuda sündmust</string>
     <string name="new_event">Uus sündmus</string>
@@ -29,9 +27,6 @@
     <string name="please_fill_location">Palun kirjelda kaardil näidatav asukoht</string>
     <string name="public_event_notification_text">Sündmus on algamas</string>
     <string name="everything_filtered_out">Sa oled kõik sündmuste tüübid välistanud</string>
-    <string name="event_color">Event color</string>
-    <string name="default_calendar_color">Default calendar color</string>
-    <!-- Tasks -->
     <string name="task">Ülesanne</string>
     <string name="tasks">Ülesanded</string>
     <string name="edit_task">Muuda ülesannet</string>
@@ -41,7 +36,6 @@
     <string name="mark_completed">Märgi tehtuks</string>
     <string name="mark_incomplete">Märgi poolikuks</string>
     <string name="task_color">Ülesande värv</string>
-    <!-- Event Repetition -->
     <string name="repetition">Kordus</string>
     <string name="no_repetition">Ära korda</string>
     <string name="daily">Iga päev</string>
@@ -82,8 +76,6 @@
     <string name="fourth_m">neljas</string>
     <string name="fifth_m">viies</string>
     <string name="last_m">viimane</string>
-    <!-- alternative versions for some languages, use the same translations if you are not sure what this means -->
-    <!-- used in repetition, like "Every first Sunday" -->
     <string name="repeat_every_f">Korda iga</string>
     <string name="every_f">Iga</string>
     <string name="first_f">esimene</string>
@@ -92,36 +84,30 @@
     <string name="fourth_f">neljas</string>
     <string name="fifth_f">viies</string>
     <string name="last_f">viimane</string>
-    <!-- Birthdays -->
     <string name="birthdays">Sünnipäevad</string>
     <string name="add_birthdays">Lisa kontaktide sünnipäevi</string>
     <string name="no_birthdays">Sünnipäevi ei leidu</string>
     <string name="no_new_birthdays">Uusi sünnipäevi ei leidu</string>
     <string name="birthdays_added">Sünnipäevad edukalt lisatud</string>
     <string name="add_birthdays_automatically">Lisa uued sünnipäevad automaatselt</string>
-    <!-- Anniversaries -->
     <string name="anniversaries">Aastapäevad</string>
     <string name="add_anniversaries">Lisa kontakti aastapäevi</string>
     <string name="no_anniversaries">Aastapäevi ei leidu</string>
     <string name="no_new_anniversaries">Uusi aastapäevi ei leidu</string>
     <string name="anniversaries_added">Aastapäevad lisatud edukalt</string>
     <string name="add_anniversaries_automatically">Lisa uued aastapäevad automaatselt</string>
-    <!-- Event Reminders -->
     <string name="reminder">Meeldetuletus</string>
     <string name="before">enne</string>
     <string name="add_another_reminder">Lisa veel üks meeldetuletus</string>
     <string name="event_reminders">Sündmuse meeldetuletused</string>
     <string name="reminders">Meeldetuletused</string>
-    <!-- Event attendees -->
     <string name="add_another_attendee">Lisa veel üks osaleja</string>
     <string name="my_status">Minu staatus:</string>
     <string name="going">Läheb</string>
     <string name="not_going">Ei lähe</string>
     <string name="maybe_going">Võib-olla läheb</string>
     <string name="invited">Kutsutud</string>
-    <!-- Time zones -->
     <string name="enter_a_country">Sisestariik või ajavöönd</string>
-    <!-- Export / Import -->
     <string name="import_events">Impordi sündmusi</string>
     <string name="export_events">Ekspordi sündmusi</string>
     <string name="import_events_from_ics">Impordi sündmusi .ics failist</string>
@@ -134,14 +120,11 @@
     <string name="include_event_types">Kaasa arvatud sündmuse tüübid</string>
     <string name="filename_without_ics">Failinimi (ilma .ics-ta)</string>
     <string name="ignore_event_types">Eira failis sündmuse tüüpe ja kasuta alati vaikimisi väärtust</string>
-    <!-- Event details -->
     <string name="location">Asukoht</string>
     <string name="description">Kirjeldus</string>
     <string name="all_day">Terve päev</string>
-    <!-- Weekly view -->
     <string name="week">Nädal</string>
     <string name="start_week_with_current_day">Alusta nädalat selle päevaga</string>
-    <!-- Event types -->
     <string name="event_types">Sündmuste tüübid</string>
     <string name="add_new_type">Lisa uus tüüp</string>
     <string name="edit_type">Muuda tüüpi</string>
@@ -153,7 +136,6 @@
     <string name="move_events_into_default">Määra nimetatud sündmustele vaikimisi sündmusetüüp</string>
     <string name="remove_affected_events">Eemalda vastavad sündmused püsivalt</string>
     <string name="unsync_caldav_calendar">CalDAV-põhise kalendri eemaldamiseks pead tema sünkroniseerimise lõpetama</string>
-    <!-- Holidays -->
     <string name="holidays">Pühad</string>
     <string name="add_holidays">Lisa püha</string>
     <string name="national_holidays">Riigipühad</string>
@@ -161,7 +143,6 @@
     <string name="holidays_imported_successfully">Pühad on edukalt imporditud sündmuse tüüpi „Pühad“</string>
     <string name="importing_some_holidays_failed">Mõne sündmuse importimine ei õnnestunud</string>
     <string name="importing_holidays_failed">Pühade importimine ei õnnestunud</string>
-    <!-- Settings -->
     <string name="manage_event_types">Halda sündmuste tüüpe</string>
     <string name="start_day_at">Alusta päeva kell</string>
     <string name="end_day_at">Lõpeta päev kell</string>
@@ -209,8 +190,6 @@
     <string name="allow_changing_time_zones">Võimalda sündmuste ajavööndite muutmist</string>
     <string name="manage_quick_filter_event_types">Halda sündmuste tüüpide kiirfiltrit</string>
     <string name="allow_creating_tasks">Luba ülesannete loomist</string>
-    <!-- CalDAV sync -->
-    <string name="caldav">CalDAV</string>
     <string name="select_caldav_calendars">Vali sünkroniseeritavad kalendrid</string>
     <string name="manage_synced_calendars">Halda sünkroniseeritud kalendreid</string>
     <string name="store_locally_only">Salvesta ainult selles seadmes</string>
@@ -227,8 +206,6 @@
     <string name="status_free">Vaba</string>
     <string name="status_busy">Hõivatud</string>
     <string name="fetching_event_failed">„%s“ sündmuse laadimine ei õnnestunud</string>
-    <!-- alternative versions for some languages, use the same translations if you are not sure what this means -->
-    <!-- used in repetition, like "Every last Sunday" -->
     <string name="monday_alt">Esmaspäev</string>
     <string name="tuesday_alt">Teisipäev</string>
     <string name="wednesday_alt">Kolmapäev</string>
@@ -236,7 +213,6 @@
     <string name="friday_alt">Reede</string>
     <string name="saturday_alt">Laupäeval</string>
     <string name="sunday_alt">Pühapäev</string>
-    <!-- List widget config example events -->
     <string name="sample_title_1">Treening</string>
     <string name="sample_description_1">Jalgade päev</string>
     <string name="sample_title_2">Kohtumine Johniga</string>
@@ -245,7 +221,6 @@
     <string name="sample_title_4">Lõunasöök Maryga</string>
     <string name="sample_description_4">Plazas</string>
     <string name="sample_title_5">Kohvipaus</string>
-    <!-- List widget config -->
     <string name="show_events_happening">Näita sündmusi, mis toimuvad:</string>
     <string name="within_the_next_one_year">Järgmise 1 aasta jooksul</string>
     <string name="today_only">Ainult täna</string>
@@ -262,12 +237,6 @@
         <item quantity="one">Järgmise %d kuu jooksul</item>
         <item quantity="other">Järgmise %d kuu jooksul</item>
     </plurals>
-    <!-- Accessibility label -->
-    <string name="accessibility_previous_month">Go to previous month</string>
-    <string name="accessibility_next_month">Go to next month</string>
-    <string name="accessibility_previous_day">Go to previous day</string>
-    <string name="accessibility_next_day">Go to next day</string>
-    <!-- FAQ -->
     <string name="faq_1_title">Kuidas ma saan eemaldada nupu „Lisa pühad“ kaudu imporditud pühad\?</string>
     <string name="faq_1_text">Sel viisil loodud pühad lisatakse uude sündmuse tüüpi nimega „Pühad“. Ava menüüs Seaded -&gt; Halda sündmuste tüüp, vajuta pikalt antud sündmuse tüübile ja valides prügikasti kustuta see kirje.</string>
     <string name="faq_2_title">Kas ma saan oma sündmusi sünkroonida Google\'i kalendri või mõne muu CalDAVi toetava teenuse kaudu\?</string>
@@ -281,8 +250,11 @@
     <string name="faq_5_text">Kontrolli seadme akut ja märguannete seadeid ja vaata, et miski ei blokeeriks meeldetuletusi ega sulgeks rakendust taustal. Samuti vaata siia: &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;, seal leidub kasulikke näpunäiteid.</string>
     <string name="faq_6_title">Kuidas saan olemasolevat sündmuse tüüpi muuta või kustutada\?</string>
     <string name="faq_6_text">Mõlemat saad teha valikust „Seaded - Halda sündmuse tüüpe“. Nime ja värvi muutmiseks lihtsalt klõpsa soovitud tüübil sildi või pika vajutuse järel kasuta kustutamiseks ülemises menüüs olevat prügikasti.</string>
-    <!--
-        Haven't found some strings? There's more at
-        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
-    -->
+    <string name="event_color">Sündmuse värv</string>
+    <string name="default_calendar_color">Kalendri vaikimisi värv</string>
+    <string name="caldav">CalDAV</string>
+    <string name="accessibility_previous_month">Vaata eelmist kuud</string>
+    <string name="accessibility_next_month">Vaata järgmist kuud</string>
+    <string name="accessibility_previous_day">Vaata eelmist päeva</string>
+    <string name="accessibility_next_day">Vaata järgmist päeva</string>
 </resources>

@@ -11,11 +11,9 @@
     <string name="no_upcoming_events">Немає майбутніх подій.</string>
     <string name="go_to_today">Події сьогодні</string>
     <string name="go_to_date">Перегляд за датою</string>
-    <!-- Widget titles -->
     <string name="widget_monthly">Календар на місяць</string>
     <string name="widget_list">Календар списку подій</string>
     <string name="widget_todays_date">Календар подій на сьогодні</string>
-    <!-- Event -->
     <string name="event">Подія</string>
     <string name="edit_event">Редагувати подію</string>
     <string name="new_event">Нова подія</string>
@@ -31,7 +29,6 @@
     <string name="everything_filtered_out">Відфільтровано всі типи подій</string>
     <string name="event_color">Колір події</string>
     <string name="default_calendar_color">Колір календаря за умовчанням</string>
-    <!-- Tasks -->
     <string name="task">Завдання</string>
     <string name="tasks">Завдання</string>
     <string name="edit_task">Редагувати завдання</string>
@@ -41,7 +38,6 @@
     <string name="mark_completed">Позначити завершеним</string>
     <string name="mark_incomplete">Позначити незавершеним</string>
     <string name="task_color">Колір завдання</string>
-    <!-- Event Repetition -->
     <string name="repetition">Повторювати</string>
     <string name="no_repetition">Без повторень</string>
     <string name="daily">Щодня</string>
@@ -82,8 +78,6 @@
     <string name="fourth_m">четвертий</string>
     <string name="fifth_m">п\'ятий</string>
     <string name="last_m">останній</string>
-    <!-- alternative versions for some languages, use the same translations if you are not sure what this means -->
-    <!-- used in repetition, like "Every first Sunday" -->
     <string name="repeat_every_f">Повторити кожного</string>
     <string name="every_f">Кожен</string>
     <string name="first_f">перший</string>
@@ -92,36 +86,30 @@
     <string name="fourth_f">четвертий</string>
     <string name="fifth_f">п\'ятий</string>
     <string name="last_f">останній</string>
-    <!-- Birthdays -->
     <string name="birthdays">Дні народжень</string>
     <string name="add_birthdays">Додати дні народжень контактів</string>
     <string name="no_birthdays">Дні народжень не знайдено</string>
     <string name="no_new_birthdays">Не знайдено нових днів народжень</string>
     <string name="birthdays_added">Дні народжень успішно додано</string>
     <string name="add_birthdays_automatically">Додавати нові дні народження автоматично</string>
-    <!-- Anniversaries -->
     <string name="anniversaries">Річниці</string>
     <string name="add_anniversaries">Додати річниці контактів</string>
     <string name="no_anniversaries">Річниці не знайдено</string>
     <string name="no_new_anniversaries">Нових річниць не знайдено</string>
     <string name="anniversaries_added">Річниці успішно додано</string>
     <string name="add_anniversaries_automatically">Додавати нові річниці автоматично</string>
-    <!-- Event Reminders -->
     <string name="reminder">Нагадування</string>
     <string name="before">до події</string>
     <string name="add_another_reminder">Додати інше нагадування</string>
     <string name="event_reminders">Нагадування про події</string>
     <string name="reminders">Нагадування</string>
-    <!-- Event attendees -->
     <string name="add_another_attendee">Додати іншого учасника</string>
     <string name="my_status">Мій статус:</string>
     <string name="going">Прийду</string>
     <string name="not_going">Не прийду</string>
     <string name="maybe_going">Можливо прийду</string>
     <string name="invited">Запрошений</string>
-    <!-- Time zones -->
     <string name="enter_a_country">Введіть країну або часовий пояс</string>
-    <!-- Export / Import -->
     <string name="import_events">Імпорт подій</string>
     <string name="export_events">Експорт подій</string>
     <string name="import_events_from_ics">Імпорт подій із .ics файлу</string>
@@ -134,14 +122,11 @@
     <string name="include_event_types">Приєднати тип подій</string>
     <string name="filename_without_ics">Назва файлу (без .ics)</string>
     <string name="ignore_event_types">Ігнорувати типи подій у файлі, завжди використовувати за замовчуванням</string>
-    <!-- Event details -->
     <string name="location">Місце</string>
     <string name="description">Описання</string>
     <string name="all_day">Цілий день</string>
-    <!-- Weekly view -->
     <string name="week">Тиждень</string>
     <string name="start_week_with_current_day">Починати тиждень з поточного дня</string>
-    <!-- Event types -->
     <string name="event_types">Типи подій</string>
     <string name="add_new_type">Додати новий тип подій</string>
     <string name="edit_type">Редагувати тип</string>
@@ -153,7 +138,6 @@
     <string name="move_events_into_default">Встановити обраним подіям стандартний тип</string>
     <string name="remove_affected_events">Назавжди видалити пов\'язані події</string>
     <string name="unsync_caldav_calendar">Щоб видалити календар CalDAV, необхідно відключити синхронізацію з ним</string>
-    <!-- Holidays -->
     <string name="holidays">Свята</string>
     <string name="add_holidays">Додати свято</string>
     <string name="national_holidays">Державні свята</string>
@@ -161,7 +145,6 @@
     <string name="holidays_imported_successfully">Свята успішно імпортовано в \"Свята\"</string>
     <string name="importing_some_holidays_failed">Деякі події не вдалось імпортувати</string>
     <string name="importing_holidays_failed">Свята не вдалось імпортувати</string>
-    <!-- Settings -->
     <string name="manage_event_types">Керувати типами подій</string>
     <string name="start_day_at">Огляд тижня починати</string>
     <string name="end_day_at">Огляд тижня завершувати</string>
@@ -170,7 +153,7 @@
     <string name="week_numbers">Нумерувати тижні</string>
     <string name="vibrate">Вібрувати при настанні події</string>
     <string name="reminder_sound">Мелодія нагадування</string>
-    <string name="no_ringtone_picker">Не знайдено додатка для вибору мелодії</string>
+    <string name="no_ringtone_picker">Не знайдено застосунку для вибору мелодії</string>
     <string name="no_ringtone_selected">Мелодію не обрано</string>
     <string name="day_end_before_start">День не може закінчуватися раніше його початку</string>
     <string name="caldav_sync">Синхронізація згідно CalDAV</string>
@@ -209,8 +192,6 @@
     <string name="allow_changing_time_zones">Дозволити змінювати часові пояси подій</string>
     <string name="manage_quick_filter_event_types">Керування типами подій швидкого фільтра</string>
     <string name="allow_creating_tasks">Дозволити створення завдань</string>
-    <!-- CalDAV sync -->
-    <string name="caldav">CalDAV</string>
     <string name="select_caldav_calendars">Оберіть календарі для синхронізації</string>
     <string name="manage_synced_calendars">Керувати синхронізованими календарями</string>
     <string name="store_locally_only">Зберігати лише локально</string>
@@ -222,13 +203,11 @@
     <string name="synchronization_completed">Синхронізацію завершено</string>
     <string name="select_a_different_caldav_color">Обрати інший колір (можна застосувати лише локально)</string>
     <string name="insufficient_permissions">Ви не можете редагувати обраний календар</string>
-    <string name="caldav_event_not_found">Подію не знайдено. Будь ласка, увімкніть синхронізацію згідно CalDAV для відповідного календаря у налаштуваннях додатка.</string>
+    <string name="caldav_event_not_found">Подію не знайдено. Будь ласка, увімкніть синхронізацію згідно CalDAV для відповідного календаря у налаштуваннях застосунку.</string>
     <string name="no_synchronized_calendars">Не знайдено календарів для синхронізації</string>
     <string name="status_free">Вільний</string>
     <string name="status_busy">Зайнятий</string>
     <string name="fetching_event_failed">Не вдалося отримати подію %s</string>
-    <!-- alternative versions for some languages, use the same translations if you are not sure what this means -->
-    <!-- used in repetition, like "Every last Sunday" -->
     <string name="monday_alt">понеділок</string>
     <string name="tuesday_alt">вівторок</string>
     <string name="wednesday_alt">середа</string>
@@ -236,7 +215,6 @@
     <string name="friday_alt">п\'ятниця</string>
     <string name="saturday_alt">субота</string>
     <string name="sunday_alt">неділя</string>
-    <!-- List widget config example events -->
     <string name="sample_title_1">Тренування</string>
     <string name="sample_description_1">День ніг</string>
     <string name="sample_title_2">Зустріч з Іваном</string>
@@ -245,7 +223,6 @@
     <string name="sample_title_4">Обід із Марією</string>
     <string name="sample_description_4">На Центральній площі</string>
     <string name="sample_title_5">Час на каву</string>
-    <!-- List widget config -->
     <string name="show_events_happening">Показати події, що відбуваються:</string>
     <string name="within_the_next_one_year">Протягом наступного року</string>
     <string name="today_only">Тільки сьогодні</string>
@@ -268,27 +245,22 @@
         <item quantity="many">Протягом наступних %d місяців</item>
         <item quantity="other">Протягом наступних %d місяців</item>
     </plurals>
-    <!-- Accessibility label -->
-    <string name="accessibility_previous_month">Go to previous month</string>
-    <string name="accessibility_next_month">Go to next month</string>
-    <string name="accessibility_previous_day">Go to previous day</string>
-    <string name="accessibility_next_day">Go to next day</string>
-    <!-- FAQ -->
-    <string name="faq_1_title">Як видалити свята, імпортовані з допомогою кнопки \"Додати свята\"\?</string>
+    <string name="faq_1_title">Як видалити свята, імпортовані з допомогою кнопки «Додати свята»?</string>
     <string name="faq_1_text">Свята, створені таким чином, групуються в новий тип подій, що називається \"Свята\". Можна перейти в \"Налаштування\" -&gt; \"Керувати типами подій\", потім тривале натиснення на даному типу подій активує процедуру видалення, нарешті натиснути \"Кошик\".</string>
     <string name="faq_2_title">Чи можна синхронізувати події з допомогою Календаря Google чи інших служб, що підтримують CalDAV\?</string>
     <string name="faq_2_title_extra">Можливо навіть поділитися календарями з іншими людьми\?</string>
-    <string name="faq_2_text">Так, достатньо увімкнути \"Синхронізувати з CalDAV\" у налаштуваннях додатка і вибрати календарі, які бажаєте синхронізувати. Однак вам знадобиться сторонній додаток, що здійснить синхронізацію між пристроєм і сервером. Якщо ви бажаєте синхронізувати Календар Google, то їх офіційний додаток може це виконати. Для інших календарів вам знадобиться сторонній додаток для синхронізації, наприклад DAVx5.</string>
+    <string name="faq_2_text">Так, достатньо увімкнути «Синхронізувати з CalDAV» у налаштуваннях застосунку і вибрати календарі, які бажаєте синхронізувати. Однак вам знадобиться сторонній застосунок, що здійснить синхронізацію між пристроєм і сервером. Якщо ви бажаєте синхронізувати Календар Google, то їх офіційний застосунок може це виконати. Для інших календарів вам знадобиться сторонній застосунок для синхронізації, наприклад DAVx5.</string>
     <string name="faq_3_title">Я бачу нагадування, але не чую звуку. Що можна зробити\?</string>
-    <string name="faq_3_text">Не лише відображення нагадування фактично, але і програвання звукової індикації в значній мірі залежить від системи. Якщо звукова індикація відсутня, відкрийте налаштування додатка, оберіть опцію \"Аудіопотік, що використовують нагадування\" і змініть її на інше значення. Якщо звук досі відсутній, переконайтеся, що даний потік увімкнено в налаштуваннях.</string>
-    <string name="faq_4_title">Чи підтримує додаток часові пояси\?</string>
-    <string name="faq_4_text">Так, підтримує. Типово всі події створюються у вашому часовому поясі. Якщо ви бажаєте змінити часовий пояс події, вам спершу доведеться увімкнути перемикач часових поясів у налаштуваннях додатка, потім змінити налаштування у вікні Деталі Події. Типово ця опція не активована, оскільки більшість користувачів нею не користуються.</string>
-    <string name="faq_5_title">Додаток не показує жодних сповіщень, чому так\?</string>
+    <string name="faq_3_text">Не лише відображення нагадування фактично, але і програвання звукової індикації в значній мірі залежить від системи. Якщо звукова індикація відсутня, відкрийте налаштування застосунку, оберіть опцію «Аудіопотік, що використовують нагадування» і змініть її на інше значення. Якщо звук досі відсутній, переконайтеся, що даний потік увімкнено в налаштуваннях.</string>
+    <string name="faq_4_title">Чи підтримує застосунок часові пояси?</string>
+    <string name="faq_4_text">Так, підтримує. Типово всі події створюються у вашому часовому поясі. Якщо ви бажаєте змінити часовий пояс події, вам спершу доведеться увімкнути перемикач часових поясів у налаштуваннях застосунку, потім змінити налаштування у вікні «Деталі події». Типово ця опція не активована, оскільки більшість користувачів нею не користуються.</string>
+    <string name="faq_5_title">Застосунок не показує жодних сповіщень, чому так?</string>
     <string name="faq_5_text">Перевірте акумулятор вашого пристрою та налаштування сповіщень і переконайтесь, що ніщо не блокує нагадування чи не вимикає програму у фоновому режимі. Ви також можете поглянути на &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;, там є кілька корисних порад.</string>
     <string name="faq_6_title">Як змінити або видалити наявний тип події\?</string>
     <string name="faq_6_text">Ви можете зробити й те, й інше в \"Налаштування\" - \"Керування типами подій\". Просто натисніть на бажаний, щоб змінити мітку та колір. Для видалення виберіть бажаний тип довгим його утриманням і використайте кошик у верхньому меню.</string>
-    <!--
-        Haven't found some strings? There's more at
-        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
-    -->
+    <string name="accessibility_next_month">До наступного місяця</string>
+    <string name="accessibility_next_day">До наступного дня</string>
+    <string name="caldav">CalDAV</string>
+    <string name="accessibility_previous_month">До попереднього місяця</string>
+    <string name="accessibility_previous_day">До попереднього дня</string>
 </resources>

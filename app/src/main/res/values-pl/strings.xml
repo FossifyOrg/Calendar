@@ -11,11 +11,9 @@
     <string name="no_upcoming_events">Brak nadchodzących wydarzeń.</string>
     <string name="go_to_today">Przejdź do dzisiaj</string>
     <string name="go_to_date">Przejdź do daty</string>
-    <!-- Widget titles -->
     <string name="widget_monthly">Kalendarz miesięczny</string>
     <string name="widget_list">Kalendarz z listą wydarzeń</string>
     <string name="widget_todays_date">Kalendarz z dzisiejszą datą</string>
-    <!-- Event -->
     <string name="event">Wydarzenie</string>
     <string name="edit_event">Edytuj wydarzenie</string>
     <string name="new_event">Nowe wydarzenie</string>
@@ -31,7 +29,6 @@
     <string name="everything_filtered_out">Odfiltrowałeś(-aś) wszystkie typy wydarzeń.</string>
     <string name="event_color">Kolor wydarzenia</string>
     <string name="default_calendar_color">Domyślny kolor kalendarza</string>
-    <!-- Tasks -->
     <string name="task">Zadanie</string>
     <string name="tasks">Zadania</string>
     <string name="edit_task">Edytuj zadanie</string>
@@ -41,7 +38,6 @@
     <string name="mark_completed">Oznacz jako ukończone</string>
     <string name="mark_incomplete">Oznacz jako nieukończone</string>
     <string name="task_color">Kolor zadania</string>
-    <!-- Event Repetition -->
     <string name="repetition">Powtarzanie</string>
     <string name="no_repetition">Brak powtarzania</string>
     <string name="daily">Codziennie</string>
@@ -82,8 +78,6 @@
     <string name="fourth_m">czwarty</string>
     <string name="fifth_m">piąty</string>
     <string name="last_m">ostatni</string>
-    <!-- alternative versions for some languages, use the same translations if you are not sure what this means -->
-    <!-- used in repetition, like "Every first Sunday" -->
     <string name="repeat_every_f">Powtarzaj w każdą</string>
     <string name="every_f">W każdą</string>
     <string name="first_f">pierwszą</string>
@@ -92,36 +86,30 @@
     <string name="fourth_f">czwartą</string>
     <string name="fifth_f">piątą</string>
     <string name="last_f">ostatnią</string>
-    <!-- Birthdays -->
     <string name="birthdays">Urodziny</string>
     <string name="add_birthdays">Dodaj urodziny kontaktów</string>
     <string name="no_birthdays">Nie znaleziono żadnych urodzin</string>
     <string name="no_new_birthdays">Nie znaleziono nowych urodzin</string>
     <string name="birthdays_added">Urodziny zostały dodane</string>
     <string name="add_birthdays_automatically">Automatycznie dodawaj nowe urodziny</string>
-    <!-- Anniversaries -->
     <string name="anniversaries">Rocznice</string>
     <string name="add_anniversaries">Dodaj rocznice kontaktów</string>
     <string name="no_anniversaries">Nie znaleziono żadnych rocznic</string>
     <string name="no_new_anniversaries">Nie znaleziono nowych rocznic</string>
     <string name="anniversaries_added">Rocznice zostały dodane</string>
     <string name="add_anniversaries_automatically">Automatycznie dodawaj nowe rocznice</string>
-    <!-- Event Reminders -->
     <string name="reminder">Przypomnienie</string>
     <string name="before">przed</string>
     <string name="add_another_reminder">Dodaj kolejne przypomnienie</string>
     <string name="event_reminders">Przypomnienia o wydarzeniach</string>
     <string name="reminders">Przypomnienia</string>
-    <!-- Event attendees -->
     <string name="add_another_attendee">Dodaj kolejnego uczestnika</string>
     <string name="my_status">Mój status:</string>
     <string name="going">Będę</string>
     <string name="not_going">Nie będę</string>
     <string name="maybe_going">Może będę</string>
     <string name="invited">Zaproszony(-a)</string>
-    <!-- Time zones -->
     <string name="enter_a_country">Wprowadź kraj lub strefę czasową</string>
-    <!-- Export / Import -->
     <string name="import_events">Importuj wydarzenia</string>
     <string name="export_events">Eksportuj wydarzenia</string>
     <string name="import_events_from_ics">Importuj wydarzenia z pliku .ics</string>
@@ -134,14 +122,11 @@
     <string name="include_event_types">Dołącz typy wydarzeń</string>
     <string name="filename_without_ics">Nazwa pliku (bez .ics)</string>
     <string name="ignore_event_types">Zignoruj typy wydarzeń w pliku, zawsze używaj domyślnego</string>
-    <!-- Event details -->
     <string name="location">Lokalizacja</string>
     <string name="description">Opis</string>
     <string name="all_day">Całodniowe</string>
-    <!-- Weekly view -->
     <string name="week">Tydzień</string>
     <string name="start_week_with_current_day">Rozpoczynaj tydzień od bieżącego dnia</string>
-    <!-- Event types -->
     <string name="event_types">Typy wydarzeń</string>
     <string name="add_new_type">Dodaj nowy typ</string>
     <string name="edit_type">Edytuj typ</string>
@@ -153,7 +138,6 @@
     <string name="move_events_into_default">Przenieś powiązane wydarzenia do domyślnego typu wydarzeń</string>
     <string name="remove_affected_events">Usuń trwale powiązane wydarzenia</string>
     <string name="unsync_caldav_calendar">Aby usunąć kalendarz CalDAV, musisz wyłączyć jego synchronizację</string>
-    <!-- Holidays -->
     <string name="holidays">Święta</string>
     <string name="add_holidays">Dodaj święta</string>
     <string name="national_holidays">Święta państwowe</string>
@@ -161,7 +145,6 @@
     <string name="holidays_imported_successfully">Święta zostały zaimportowane do typu wydarzeń „Święta”</string>
     <string name="importing_some_holidays_failed">Importowanie niektórych świąt nie powiodło się</string>
     <string name="importing_holidays_failed">Importowanie świąt nie powiodło się</string>
-    <!-- Settings -->
     <string name="manage_event_types">Zarządzaj typami wydarzeń</string>
     <string name="start_day_at">Początek dnia o</string>
     <string name="end_day_at">Koniec dnia o</string>
@@ -187,8 +170,6 @@
     <string name="dim_completed_tasks">Przyciemniaj ukończone zadania</string>
     <string name="events">Wydarzenia</string>
     <string name="reminder_stream">Strumień audio używany przez przypomnienia</string>
-    <string name="system_stream">System</string>
-    <string name="alarm_stream">Alarm</string>
     <string name="notification_stream">Powiadomienie</string>
     <string name="ring_stream">Dzwonek</string>
     <string name="use_last_event_reminders">Używaj przypomnień ostatniego wydarzenia jako domyślnych dla nowych wydarzeń</string>
@@ -209,8 +190,6 @@
     <string name="allow_changing_time_zones">Zezwalaj na zmienianie stref czasowych wydarzeń</string>
     <string name="manage_quick_filter_event_types">Zarządzaj szybkim filtrowaniem typów wydarzeń</string>
     <string name="allow_creating_tasks">Zezwalaj na tworzenie zadań</string>
-    <!-- CalDAV sync -->
-    <string name="caldav">CalDAV</string>
     <string name="select_caldav_calendars">Wybierz kalendarze do synchronizacji</string>
     <string name="manage_synced_calendars">Zarządzaj zsynchronizowanymi kalendarzami</string>
     <string name="store_locally_only">Przechowuj tylko lokalnie</string>
@@ -227,8 +206,6 @@
     <string name="status_free">Wolny</string>
     <string name="status_busy">Zajęty</string>
     <string name="fetching_event_failed">Pobieranie wydarzenia %s nie powiodło się</string>
-    <!-- alternative versions for some languages, use the same translations if you are not sure what this means -->
-    <!-- used in repetition, like "Every last Sunday" -->
     <string name="monday_alt">poniedziałek</string>
     <string name="tuesday_alt">wtorek</string>
     <string name="wednesday_alt">środę</string>
@@ -236,7 +213,6 @@
     <string name="friday_alt">piątek</string>
     <string name="saturday_alt">sobotę</string>
     <string name="sunday_alt">niedzielę</string>
-    <!-- List widget config example events -->
     <string name="sample_title_1">Trening</string>
     <string name="sample_description_1">Dziś robimy nogi</string>
     <string name="sample_title_2">Spotkanie z Januszem</string>
@@ -245,7 +221,6 @@
     <string name="sample_title_4">Kolacja z ukochaną</string>
     <string name="sample_description_4">Przy blasku zachodzącego słońca</string>
     <string name="sample_title_5">Czas na kawę</string>
-    <!-- List widget config -->
     <string name="show_events_happening">Pokazuj wydarzenia odbywające się:</string>
     <string name="within_the_next_one_year">W ciągu najbliższego roku</string>
     <string name="today_only">Tylko dzisiaj</string>
@@ -268,12 +243,10 @@
         <item quantity="many">W ciągu najbliższych %d miesięcy</item>
         <item quantity="other">W ciągu najbliższych %d miesięcy</item>
     </plurals>
-    <!-- Accessibility label -->
     <string name="accessibility_previous_month">Przejdź do poprzedniego miesiąca</string>
     <string name="accessibility_next_month">Przejdź do następnego miesiąca</string>
     <string name="accessibility_previous_day">Przejdź do poprzedniego dnia</string>
     <string name="accessibility_next_day">Przejdź do następnego dnia</string>
-    <!-- FAQ -->
     <string name="faq_1_title">Jak mogę usunąć święta zaimportowane przez przycisk „Dodaj święta”\?</string>
     <string name="faq_1_text">Święta dodane w ten sposób są wprowadzane do nowego typu wydarzeń — „Święta”. Możesz wejść w Ustawienia -&gt; Zarządzaj typami wydarzeń, a następnie przyciśnij długo dany typ wydarzeń i usuń go, wybierając ikonę kosza.</string>
     <string name="faq_2_title">Czy mogę synchronizować swoje wydarzenia z Kalendarzem Google lub inną usługą obsługującą CalDAV\?</string>
@@ -287,8 +260,7 @@
     <string name="faq_5_text">Sprawdź ustawienia baterii i powiadomień w swoim urządzeniu, czy nic nie blokuje przypomnień lub nie wyłącza aplikacji w tle. Możesz również rzucić okiem na &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;, gdzie znajdują się przydatne wskazówki.</string>
     <string name="faq_6_title">Jak mogę zmodyfikować lub usunąć istniejący typ wydarzeń\?</string>
     <string name="faq_6_text">Obie te czynności możesz wykonać w Ustawienia -&gt; Zarządzaj typami wydarzeń. Po prostu naciśnij wybrany typ wydarzeń, aby zmienić jego nazwę lub kolor, albo wybierz go przez długie naciśnięcie i użyj ikony kosza, aby usunąć.</string>
-    <!--
-        Haven't found some strings? There's more at
-        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
-    -->
+    <string name="system_stream">System</string>
+    <string name="alarm_stream">Alarm</string>
+    <string name="caldav">CalDAV</string>
 </resources>

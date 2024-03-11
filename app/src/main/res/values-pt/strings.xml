@@ -11,11 +11,9 @@
     <string name="no_upcoming_events">Não existem eventos próximos.</string>
     <string name="go_to_today">Ir para hoje</string>
     <string name="go_to_date">Ir para data</string>
-    <!-- Widget titles -->
     <string name="widget_monthly">Calendário mensal</string>
     <string name="widget_list">Lista de eventos</string>
     <string name="widget_todays_date">Dia atual</string>
-    <!-- Event -->
     <string name="event">Evento</string>
     <string name="edit_event">Editar evento</string>
     <string name="new_event">Novo evento</string>
@@ -29,9 +27,6 @@
     <string name="please_fill_location">Introduza a localização a mostrar no mapa</string>
     <string name="public_event_notification_text">Está para breve um evento</string>
     <string name="everything_filtered_out">Você filtrou todos os tipos de eventos</string>
-    <string name="event_color">Event color</string>
-    <string name="default_calendar_color">Default calendar color</string>
-    <!-- Tasks -->
     <string name="task">Tarefa</string>
     <string name="tasks">Tarefas</string>
     <string name="edit_task">Editar tarefa</string>
@@ -41,7 +36,6 @@
     <string name="mark_completed">Marcar como terminado</string>
     <string name="mark_incomplete">Marcar como não terminado</string>
     <string name="task_color">Cor da tarefa</string>
-    <!-- Event Repetition -->
     <string name="repetition">Repetição</string>
     <string name="no_repetition">Sem repetição</string>
     <string name="daily">Diária</string>
@@ -82,8 +76,6 @@
     <string name="fourth_m">quarta</string>
     <string name="fifth_m">quinta</string>
     <string name="last_m">última</string>
-    <!-- alternative versions for some languages, use the same translations if you are not sure what this means -->
-    <!-- used in repetition, like "Every first Sunday" -->
     <string name="repeat_every_f">Repetir</string>
     <string name="every_f">A cada</string>
     <string name="first_f">primeiro</string>
@@ -92,36 +84,30 @@
     <string name="fourth_f">quarto</string>
     <string name="fifth_f">quinto</string>
     <string name="last_f">último</string>
-    <!-- Birthdays -->
     <string name="birthdays">Data de nascimento</string>
     <string name="add_birthdays">Adicionar data de nascimento dos contactos</string>
     <string name="no_birthdays">Não foram encontradas datas de nascimento</string>
     <string name="no_new_birthdays">Não foram encontradas novas datas de nascimento</string>
     <string name="birthdays_added">Datas de nascimento adicionadas com sucesso</string>
     <string name="add_birthdays_automatically">Adicionar novas datas de nascimento automaticamente</string>
-    <!-- Anniversaries -->
     <string name="anniversaries">Aniversários</string>
     <string name="add_anniversaries">Adicionar aniversários dos contactos</string>
     <string name="no_anniversaries">Não foram encontrados aniversários</string>
     <string name="no_new_anniversaries">Não foram encontrados novos aniversários</string>
     <string name="anniversaries_added">Aniversários adicionados com sucesso</string>
     <string name="add_anniversaries_automatically">Adicionar novos aniversários automaticamente</string>
-    <!-- Event Reminders -->
     <string name="reminder">Lembrete</string>
     <string name="before">antes</string>
     <string name="add_another_reminder">Adicionar outro lembrete</string>
     <string name="event_reminders">Lembretes de eventos</string>
     <string name="reminders">Lembretes</string>
-    <!-- Event attendees -->
     <string name="add_another_attendee">Adicionar participante</string>
     <string name="my_status">Meu estado:</string>
     <string name="going">Vou</string>
     <string name="not_going">Não vou</string>
     <string name="maybe_going">Talvez vá</string>
     <string name="invited">Convidado</string>
-    <!-- Time zones -->
     <string name="enter_a_country">Introduza um país ou fuso horário</string>
-    <!-- Export / Import -->
     <string name="import_events">Importar eventos</string>
     <string name="export_events">Exportar eventos</string>
     <string name="import_events_from_ics">Importar de um ficheiro .ics</string>
@@ -134,14 +120,11 @@
     <string name="include_event_types">Incluir tipos de eventos</string>
     <string name="filename_without_ics">Nome do ficheiro (sem .ics)</string>
     <string name="ignore_event_types">Ignorar tipos de evento do ficheiro e utilizar sempre o evento padrão</string>
-    <!-- Event details -->
     <string name="location">Localização</string>
     <string name="description">Descrição</string>
     <string name="all_day">Todo o dia</string>
-    <!-- Weekly view -->
     <string name="week">Semana</string>
     <string name="start_week_with_current_day">Iniciar semana com o dia atual</string>
-    <!-- Event types -->
     <string name="event_types">Tipos de eventos</string>
     <string name="add_new_type">Adicionar um tipo</string>
     <string name="edit_type">Editar tipo</string>
@@ -153,7 +136,6 @@
     <string name="move_events_into_default">Mover eventos afetados para o tipo de evento padrão</string>
     <string name="remove_affected_events">Remover permanentemente os eventos afetados</string>
     <string name="unsync_caldav_calendar">Para remover um calendário CalDAV, tem que cancelar a sincronização</string>
-    <!-- Holidays -->
     <string name="holidays">Feriados</string>
     <string name="add_holidays">Adicionar feriados</string>
     <string name="national_holidays">Feriados nacionais</string>
@@ -161,7 +143,6 @@
     <string name="holidays_imported_successfully">Os feriados foram adicionados com sucesso para o tipo de evento \"Feriados\"</string>
     <string name="importing_some_holidays_failed">Alguns eventos não foram importados</string>
     <string name="importing_holidays_failed">Falha ao importar os feriados</string>
-    <!-- Settings -->
     <string name="manage_event_types">Gerir tipos de eventos</string>
     <string name="start_day_at">Iniciar dia às</string>
     <string name="end_day_at">Terminar dia às</string>
@@ -191,7 +172,7 @@
     <string name="alarm_stream">Alarme</string>
     <string name="notification_stream">Notificação</string>
     <string name="ring_stream">Toque</string>
-    <string name="use_last_event_reminders">Utilizar lembretes dos últimos eventos como definição para os novos eventos</string>
+    <string name="use_last_event_reminders">Utilizar lembretes do último evento como definição para os novos eventos</string>
     <string name="default_reminder_1">Lembrete 1</string>
     <string name="default_reminder_2">Lembrete 2</string>
     <string name="default_reminder_3">Lembrete 3</string>
@@ -209,8 +190,6 @@
     <string name="allow_changing_time_zones">Permitir alteração do fuso horário dos eventos</string>
     <string name="manage_quick_filter_event_types">Gerir tipos de evento no filtro rápido</string>
     <string name="allow_creating_tasks">Permitir criação de tarefas</string>
-    <!-- CalDAV sync -->
-    <string name="caldav">CalDAV</string>
     <string name="select_caldav_calendars">Selecione os calendários a sincronizar</string>
     <string name="manage_synced_calendars">Gerir calendários sincronizados</string>
     <string name="store_locally_only">Guardar apenas localmente</string>
@@ -227,8 +206,6 @@
     <string name="status_free">Livre</string>
     <string name="status_busy">Ocupado</string>
     <string name="fetching_event_failed">Falha ao obter o evento %s</string>
-    <!-- alternative versions for some languages, use the same translations if you are not sure what this means -->
-    <!-- used in repetition, like "Every last Sunday" -->
     <string name="monday_alt">segunda</string>
     <string name="tuesday_alt">terça</string>
     <string name="wednesday_alt">quarta</string>
@@ -236,7 +213,6 @@
     <string name="friday_alt">sexta</string>
     <string name="saturday_alt">sábado</string>
     <string name="sunday_alt">domingo</string>
-    <!-- List widget config example events -->
     <string name="sample_title_1">Ir ao ginásio</string>
     <string name="sample_description_1">Ir às compras</string>
     <string name="sample_title_2">Reunião com o João</string>
@@ -245,7 +221,6 @@
     <string name="sample_title_4">Almoçar com a Maria</string>
     <string name="sample_description_4">Ir ao mercado</string>
     <string name="sample_title_5">Beber um café</string>
-    <!-- List widget config -->
     <string name="show_events_happening">Mostrar eventos a decorrer:</string>
     <string name="within_the_next_one_year">Dentro de um ano</string>
     <string name="today_only">Apenas hoje</string>
@@ -265,12 +240,6 @@
         <item quantity="many">Nos próximos %d meses</item>
         <item quantity="other">Nos próximos %d meses</item>
     </plurals>
-    <!-- Accessibility label -->
-    <string name="accessibility_previous_month">Go to previous month</string>
-    <string name="accessibility_next_month">Go to next month</string>
-    <string name="accessibility_previous_day">Go to previous day</string>
-    <string name="accessibility_next_day">Go to next day</string>
-    <!-- FAQ -->
     <string name="faq_1_title">Como posso remover os feriados que importei através do botão \"Adicionar feriados\"\?</string>
     <string name="faq_1_text">Os feriados criados assim são inseridos no novo tipo de evento chamado \"Feriados \". Em Definições -&gt; Gerir tipos de eventos, selecione o tipo de evento com um toque longo e enviando-o para o lixo.</string>
     <string name="faq_2_title">Posso sincronizar os meus eventos via Google Calendar ou por outro serviço que suporte CalDAV\?</string>
@@ -279,13 +248,16 @@
     <string name="faq_3_title">Vejo os lembretes mas não ouço som. O que posso fazer\?</string>
     <string name="faq_3_text">A afixação do lembrete e o áudio são fortemente influenciados pelas definições do sistema. Se não consegue ouvir o som, verifique as definições da aplicação, selecione a opção \"Fluxo de áudio usado pelos lembretes\" e modifique-a. Se não funcionar, verifique nas definições de áudio do sistema se este tipo multimédia está no modo Silêncio.</string>
     <string name="faq_4_title">A aplicação suporta diferentes fusos horários\?</string>
-    <string name="faq_4_text">Sim. Por padrão, todos os eventos são criados com o seu fuso horário atual. Se pretende alterar o fuso horário de um evento, terá de ativar a escolha de fuso horário nas definições da aplicação e alterá-lo nos Detalhes do evento. Este opção está desativada por padrão, pois não é necessário para a maioria das pessoas.</string>
+    <string name="faq_4_text">Sim. Por definição, todos os eventos são criados com o seu fuso horário atual. Se pretende alterar o fuso horário de um evento, terá de ativar a escolha de fuso horário nas definições da aplicação e alterá-lo nos Detalhes do evento. Por omissão, esta opção está desativada, pois não é necessário para a maioria das pessoas.</string>
     <string name="faq_5_title">A aplicação não mostra notificações. Porque será\?</string>
     <string name="faq_5_text">Analise as definições de bateria e de notificações do dispositivo. Pode ser que exista algo a bloquear os lembretes ou a terminar a aplicação em segundo plano. Consulte &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt; para ver algumas dicas.</string>
     <string name="faq_6_title">É possível modificar ou eliminar um tipo de evento existente\?</string>
     <string name="faq_6_text">Pode fazer ambas em Definições - Gerir tipos de eventos. Basta tocar no desejado para alterar o texto ou a cor e pode também eliminar qualquer um com um toque longo no tipo de evento e utilizando a reciclagem no menu superior.</string>
-    <!--
-        Não encontrou todas as cadeias a traduzir? Existem mais algumas em:
-        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
-    -->
+    <string name="accessibility_previous_month">Ir para o mês anterior</string>
+    <string name="event_color">Cor do evento</string>
+    <string name="accessibility_next_month">Ir para o mês seguinte</string>
+    <string name="accessibility_previous_day">Ir para o dia anterior</string>
+    <string name="accessibility_next_day">Ir para o dia seguinte</string>
+    <string name="default_calendar_color">Cor do calendário padrão</string>
+    <string name="caldav">CalDAV</string>
 </resources>

@@ -11,13 +11,9 @@
     <string name="no_upcoming_events">目前沒有即將發生的活動。</string>
     <string name="go_to_today">前往今天</string>
     <string name="go_to_date">前往日期</string>
-
-    <!-- Widget titles -->
     <string name="widget_monthly">月曆</string>
     <string name="widget_list">行事曆活動列表</string>
     <string name="widget_todays_date">行事曆今天日期</string>
-
-    <!-- Event -->
     <string name="event">活動</string>
     <string name="edit_event">編輯活動</string>
     <string name="new_event">新活動</string>
@@ -33,8 +29,6 @@
     <string name="everything_filtered_out">您已篩選掉所有活動類型</string>
     <string name="event_color">活動顏色</string>
     <string name="default_calendar_color">預設行事曆顏色</string>
-
-    <!-- Tasks -->
     <string name="task">任務</string>
     <string name="tasks">任務</string>
     <string name="edit_task">編輯任務</string>
@@ -44,8 +38,6 @@
     <string name="mark_completed">標記為已完成</string>
     <string name="mark_incomplete">標記為未完成</string>
     <string name="task_color">任務顏色</string>
-
-    <!-- Event Repetition -->
     <string name="repetition">重複</string>
     <string name="no_repetition">不重複</string>
     <string name="daily">每日</string>
@@ -86,9 +78,6 @@
     <string name="fourth_m">第四個</string>
     <string name="fifth_m">第五個</string>
     <string name="last_m">最後一個</string>
-
-    <!-- alternative versions for some languages, use the same translations if you are not sure what this means -->
-    <!-- used in repetition, like "Every first Sunday" -->
     <string name="repeat_every_f">每個重複</string>
     <string name="every_f">每個</string>
     <string name="first_f">第一個</string>
@@ -97,42 +86,30 @@
     <string name="fourth_f">第四個</string>
     <string name="fifth_f">第五個</string>
     <string name="last_f">最後一個</string>
-
-    <!-- Birthdays -->
     <string name="birthdays">生日</string>
     <string name="add_birthdays">新增聯絡人生日</string>
     <string name="no_birthdays">未找到生日</string>
     <string name="no_new_birthdays">未找到新的生日</string>
     <string name="birthdays_added">生日新增成功</string>
     <string name="add_birthdays_automatically">自動新增生日</string>
-
-    <!-- Anniversaries -->
     <string name="anniversaries">週年紀念日</string>
     <string name="add_anniversaries">新增聯絡人週年紀念日</string>
     <string name="no_anniversaries">未找到週年紀念日</string>
     <string name="no_new_anniversaries">未找到新的週年紀念日</string>
     <string name="anniversaries_added">週年紀念日新增成功</string>
     <string name="add_anniversaries_automatically">自動新增週年紀念日</string>
-
-    <!-- Event Reminders -->
     <string name="reminder">提醒</string>
     <string name="before">前</string>
     <string name="add_another_reminder">新增另一個提醒</string>
     <string name="event_reminders">活動提醒</string>
     <string name="reminders">提醒</string>
-
-    <!-- Event attendees -->
     <string name="add_another_attendee">新增另一位參與者</string>
     <string name="my_status">我的狀態：</string>
     <string name="going">參加</string>
     <string name="not_going">不參加</string>
     <string name="maybe_going">可能參加</string>
     <string name="invited">被邀請</string>
-
-    <!-- Time zones -->
     <string name="enter_a_country">輸入國家或時區</string>
-
-    <!-- Export / Import -->
     <string name="import_events">匯入活動</string>
     <string name="export_events">匯出活動</string>
     <string name="import_events_from_ics">從 .ics 檔案匯入活動</string>
@@ -145,17 +122,11 @@
     <string name="include_event_types">包含活動類型</string>
     <string name="filename_without_ics">檔案名稱（不含 .ics）</string>
     <string name="ignore_event_types">忽略檔案中的活動類型，始終使用預設的活動類型</string>
-
-    <!-- Event details -->
     <string name="location">地點</string>
     <string name="description">描述</string>
     <string name="all_day">全天</string>
-
-    <!-- Weekly view -->
     <string name="week">週數</string>
     <string name="start_week_with_current_day">以當天開始週期</string>
-
-    <!-- Event types -->
     <string name="event_types">活動類型</string>
     <string name="add_new_type">新增新類型</string>
     <string name="edit_type">編輯類型</string>
@@ -167,8 +138,6 @@
     <string name="move_events_into_default">將受影響的活動移至預設活動類型</string>
     <string name="remove_affected_events">永久移除受影響的活動</string>
     <string name="unsync_caldav_calendar">要移除 CalDAV 行事曆，您必須取消同步</string>
-
-    <!-- Holidays -->
     <string name="holidays">節日</string>
     <string name="add_holidays">新增節日</string>
     <string name="national_holidays">國定節日</string>
@@ -176,8 +145,6 @@
     <string name="holidays_imported_successfully">節日已成功匯入至「節日」活動類型</string>
     <string name="importing_some_holidays_failed">部份活動匯入失敗</string>
     <string name="importing_holidays_failed">匯入節日失敗</string>
-
-    <!-- Settings -->
     <string name="manage_event_types">管理活動類型</string>
     <string name="start_day_at">每日開始於</string>
     <string name="end_day_at">每日結束於</string>
@@ -225,9 +192,6 @@
     <string name="allow_changing_time_zones">允許更改活動時區</string>
     <string name="manage_quick_filter_event_types">管理快速篩選活動類型</string>
     <string name="allow_creating_tasks">允許建立任務</string>
-
-    <!-- CalDAV sync -->
-    <string name="caldav">CalDAV</string>
     <string name="select_caldav_calendars">選擇要同步的行事曆</string>
     <string name="manage_synced_calendars">管理已同步的行事曆</string>
     <string name="store_locally_only">只在本機儲存</string>
@@ -244,9 +208,6 @@
     <string name="status_free">空閒</string>
     <string name="status_busy">忙碌</string>
     <string name="fetching_event_failed">無法取得活動 %s</string>
-
-    <!-- alternative versions for some languages, use the same translations if you are not sure what this means -->
-    <!-- used in repetition, like "Every last Sunday" -->
     <string name="monday_alt">星期一</string>
     <string name="tuesday_alt">星期二</string>
     <string name="wednesday_alt">星期三</string>
@@ -254,8 +215,6 @@
     <string name="friday_alt">星期五</string>
     <string name="saturday_alt">星期六</string>
     <string name="sunday_alt">星期日</string>
-
-    <!-- List widget config example events -->
     <string name="sample_title_1">運動</string>
     <string name="sample_description_1">腿部訓練日</string>
     <string name="sample_title_2">跟約翰碰面</string>
@@ -264,8 +223,6 @@
     <string name="sample_title_4">與瑪麗共進午餐</string>
     <string name="sample_description_4">在廣場</string>
     <string name="sample_title_5">咖啡時間</string>
-
-    <!-- List widget config -->
     <string name="show_events_happening">顯示正在發生的活動：</string>
     <string name="within_the_next_one_year">在接下來的 1 年內</string>
     <string name="today_only">僅今天</string>
@@ -282,14 +239,6 @@
         <item quantity="one">在接下來的 %d 個月內</item>
         <item quantity="other">在接下來的 %d 個月內</item>
     </plurals>
-
-    <!-- Accessibility label -->
-    <string name="accessibility_previous_month">Go to previous month</string>
-    <string name="accessibility_next_month">Go to next month</string>
-    <string name="accessibility_previous_day">Go to previous day</string>
-    <string name="accessibility_next_day">Go to next day</string>
-
-    <!-- FAQ -->
     <string name="faq_1_title">如何移除透過「新增節日」按鈕匯入的節日呢？</string>
     <string name="faq_1_text">以這方式建立的節日，會被新增到一個名為「節日」的新活動類型裡。你可以在「設定」-&gt;「管理活動類型」中，長按該活動類型，然後選擇垃圾桶圖示進行刪除。</string>
     <string name="faq_2_title">我可以透過 Google 日曆或是其他支援 CalDAV 的服務來同步我的活動嗎？</string>
@@ -303,8 +252,4 @@
     <string name="faq_5_text">請檢查你裝置的電池與通知設定，確保沒有設定阻止提醒或是在背景關閉 app。你也可以參考這個網站：&lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;，這裡面有些實用的小技巧。</string>
     <string name="faq_6_title">我該如何修改或刪除現有的活動類型？</string>
     <string name="faq_6_text">你可以在「設定」-「管理活動類型」裡面進行以上兩種操作。點擊你想要的活動類型，就可以改變標籤與顏色；如果你想刪除，可以長按該活動類型，然後點選上方選單的垃圾桶圖示即可。</string>
-    <!--
-        Haven't found some strings? There's more at
-        https://github.com/FossifyOrg/Commons/tree/master/commons/src/main/res
-    -->
 </resources>
