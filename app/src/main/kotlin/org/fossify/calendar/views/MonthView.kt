@@ -193,7 +193,8 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
                     val dayNumber = day.value.toString()
 
                     val textPaint = getTextPaint(day)
-                    if (selectedDayCoords.x != -1 && x == selectedDayCoords.x && y == selectedDayCoords.y) {
+                    val isDaySelected = selectedDayCoords.x != -1 && x == selectedDayCoords.x && y == selectedDayCoords.y
+                    if (isDaySelected) {
                         canvas.drawCircle(xPosCenter, yPos + textPaint.textSize * 0.7f, textPaint.textSize * 0.8f, circleStrokePaint)
                         if (day.isToday) {
                             textPaint.color = textColor
@@ -203,10 +204,10 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
                     }
 
                     // mark days with a dot for each event
-                    if (isMonthDayView && day.dayEvents.isNotEmpty()) {
+                    if (isMonthDayView && !isDaySelected && !day.isToday && day.dayEvents.isNotEmpty()) {
                         getCirclePaint(day).getTextBounds(dayNumber, 0, dayNumber.length, dayTextRect)
                         val height = dayTextRect.height() * 1.25f
-                        val eventCount = day.dayEvents.count()
+                        val eventCount = day.dayEvents.size
                         val dotRadius = textPaint.textSize * 0.2f
                         val stepSize = dotRadius * 2.5f
                         val columnCount = EVENT_DOT_COLUMN_COUNT
