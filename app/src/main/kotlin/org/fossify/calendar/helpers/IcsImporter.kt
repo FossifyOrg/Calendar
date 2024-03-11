@@ -348,6 +348,16 @@ class IcsImporter(val activity: SimpleActivity) {
         return try {
             when {
                 fullString.startsWith(';') -> {
+                    // Ideally, we should parse BEGIN:VTIMEZONE and derive the timezone from there, but to get things working, let's assume TZID refers to one
+                    // of the known timezones
+                    var timeZone = DateTimeZone.getDefault()
+                    if (fullString.contains(':')) {
+                        val timeZoneId = fullString.substringAfter("%s=".format(TZID)).substringBefore(':')
+                        if (DateTimeZone.getAvailableIDs().contains(timeZoneId)) {
+                            timeZone = DateTimeZone.forID(timeZoneId)
+                        }
+                    }
+
                     val value = fullString.substring(fullString.lastIndexOf(':') + 1).replace(" ", "")
                     if (value.isEmpty()) {
                         return 0
@@ -355,7 +365,7 @@ class IcsImporter(val activity: SimpleActivity) {
                         curFlags = curFlags or FLAG_ALL_DAY
                     }
 
-                    Parser().parseDateTimeValue(value)
+                    Parser().parseDateTimeValue(value, timeZone)
                 }
 
                 fullString.startsWith(":") -> Parser().parseDateTimeValue(fullString.substring(1).trim())

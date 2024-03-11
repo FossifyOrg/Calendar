@@ -97,20 +97,20 @@ class Parser {
         return newRepeatRule
     }
 
-    fun parseDateTimeValue(value: String): Long {
+    fun parseDateTimeValue(value: String, timeZone: DateTimeZone = DateTimeZone.UTC): Long {
         val edited = value.replace("T", "").replace("Z", "").replace("-", "")
         return if (edited.length == 14) {
-            parseLongFormat(edited, value.endsWith("Z"))
+            val dateTimeZone = if (value.endsWith("Z")) DateTimeZone.UTC else timeZone
+            parseLongFormat(edited, dateTimeZone)
         } else {
-            val dateTimeFormat = DateTimeFormat.forPattern("yyyyMMdd").withZoneUTC()
+            val dateTimeFormat = DateTimeFormat.forPattern("yyyyMMdd").withZone(timeZone)
             val dateTime = dateTimeFormat.parseDateTime(edited)
             Formatter.getShiftedTS(dateTime = dateTime, toZone = DateTimeZone.getDefault())
         }
     }
 
-    private fun parseLongFormat(digitString: String, useUTC: Boolean): Long {
+    private fun parseLongFormat(digitString: String, dateTimeZone: DateTimeZone): Long {
         val dateTimeFormat = DateTimeFormat.forPattern("yyyyMMddHHmmss")
-        val dateTimeZone = if (useUTC) DateTimeZone.UTC else DateTimeZone.getDefault()
         return dateTimeFormat.parseDateTime(digitString).withZoneRetainFields(dateTimeZone).seconds()
     }
 
