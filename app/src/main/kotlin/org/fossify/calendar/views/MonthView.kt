@@ -227,7 +227,6 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
                         for ((index, event) in dayEventsSorted.withIndex()) {
                             indexInRow = index % columnCount
                             xDot = xPosCenter + stepSize * (indexInRow - (min(eventCount, columnCount)) / 2)
-
                             if (eventCount % 2 == 0) { // center even number of dots
                                 xDot += stepSize / 2
                             }
