@@ -1,0 +1,6 @@
+* Fixed month view issue on Google Pixel 8 Pro.
+* Fixed event color dots on monthly and daily view.
+* Fixed incorrect timezone when import ICS files.
+* Highlight weekends in print mode.
+* Updated holidays for some countries.
+* Added some translations.
