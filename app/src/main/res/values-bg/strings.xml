@@ -174,7 +174,7 @@
     <string name="alarm_stream">Аларма</string>
     <string name="notification_stream">Известие</string>
     <string name="ring_stream">Звън</string>
-    <string name="use_last_event_reminders">Използване на напомнянията за последните събития по подразбиране за новите събития</string>
+    <string name="use_last_event_reminders">Използване на напомнянията за последното събитие по подразбиране за новите събития</string>
     <string name="default_reminder_1">Основно напомняне 1</string>
     <string name="default_reminder_2">Основно напомняне 2</string>
     <string name="default_reminder_3">Основно напомняне 3</string>

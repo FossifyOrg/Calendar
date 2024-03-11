@@ -36,7 +36,7 @@
     <string name="no_anniversaries">कोई वर्षगाँठ नहीं मिली</string>
     <string name="add_anniversaries_automatically">नई वर्षगाँठ स्वचालित रूप से जोड़ें</string>
     <string name="before">पहले</string>
-    <string name="ignore_event_types">फ़ाइल में आयोजन प्रकारों पर ध्यान न दें, हमेशा डिफ़ॉल्ट का उपयोग करें</string>
+    <string name="ignore_event_types">फाइल में आयोजन प्रकारों पर ध्यान न दें, हमेशा डिफ़ॉल्ट का उपयोग करें</string>
     <string name="cannot_delete_default_type">डिफ़ॉल्ट आयोजन प्रकार को हटाया नहीं जा सकता</string>
     <string name="holidays_imported_successfully">छुट्टियों को \"छुट्टियाँ\" आयोजन प्रकार में सफलतापूर्वक आयात किया गया है</string>
     <string name="delete_all_events_confirmation">क्या आप वाकई सभी आयोजन और कार्यों को हटाना चाहते हैं? इससे आपके आयोजन प्रकार और अन्य सेटिंग्स बरकरार रहेंगी।</string>
@@ -115,9 +115,9 @@
     <string name="add_another_attendee">किसी अन्य सहभागी को जोड़ें</string>
     <string name="event_reminders">आयोजन रिमाइंडर</string>
     <string name="export_events">निर्यात आयोजन</string>
-    <string name="import_events_from_ics">किसी .ics फ़ाइल से आयोजन आयात करें</string>
-    <string name="import_events_from_ics_pro">.ics फ़ाइल से आयोजन आयात करें (Pro)</string>
-    <string name="export_events_to_ics">आयोजन को .ics फ़ाइल में निर्यात करें</string>
+    <string name="import_events_from_ics">किसी .ics फाइल से आयोजन आयात करें</string>
+    <string name="import_events_from_ics_pro">.ics फाइल से आयोजन आयात करें (Pro)</string>
+    <string name="export_events_to_ics">आयोजन को .ics फाइल में निर्यात करें</string>
     <string name="default_event_type">डिफ़ॉल्ट आयोजन प्रकार</string>
     <string name="export_past_events_too">पिछली आयोजन को भी निर्यात करें</string>
     <string name="export_tasks">निर्यात कार्य</string>
@@ -194,7 +194,7 @@
     <string name="maybe_going">शायद जा रहा हूँ</string>
     <string name="invited">आमंत्रित</string>
     <string name="enter_a_country">कोई देश या समय क्षेत्र दर्ज करें</string>
-    <string name="filename_without_ics">फ़ाइल नाम (.ics के बिना)</string>
+    <string name="filename_without_ics">फाइल नाम (.ics के बिना)</string>
     <string name="location">जगह</string>
     <string name="start_week_with_current_day">सप्ताह की शुरुआत वर्तमान दिन से करें</string>
     <string name="import_events">आयोजन आयात करें</string>

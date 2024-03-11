@@ -1,0 +1,1 @@
+* Simple Calendar-etik inportaziorako bateragarritasuna konpondu da.

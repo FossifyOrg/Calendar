@@ -171,7 +171,7 @@
     <string name="alarm_stream">Alarma</string>
     <string name="notification_stream">Notificación</string>
     <string name="ring_stream">Llamada</string>
-    <string name="use_last_event_reminders">Utilizar los recordatorios del último evento como predeterminados para los nuevos eventos</string>
+    <string name="use_last_event_reminders">Reusar el último recordatorio para nuevos eventos</string>
     <string name="default_reminder_1">Recordatorio 1</string>
     <string name="default_reminder_2">Recordatorio 2</string>
     <string name="default_reminder_3">Recordatorio 3</string>
@@ -247,7 +247,7 @@
     <string name="faq_3_title">Veo las notificaciones, pero no suenan. ¿Qué puedo hacer\?</string>
     <string name="faq_3_text">Tanto las notificaciones como el sonido de notificación dependen del sistema en gran parte. Si no suenan las notificaciones, entra en los ajustes de la aplicación, pulsa en la opción de \"Tipo de sonido usado en recordatorios\" y cámbialo a una opción diferente. Si continúa fallando, comprueba en las opciones de sonido que la opción seleccionada no esté silenciada.</string>
     <string name="faq_4_title">¿La aplicación admite zonas horarias\?</string>
-    <string name="faq_4_text">Sí, así es. Por defecto, todos los eventos se crean en tu zona horaria actual. Si quieres cambiar la zona horaria de un evento, primero tendrás que activar el selector de zona horaria en los ajustes de la aplicación, y luego cambiarlo en la pantalla Detalles del evento. Está desactivado por defecto, ya que la mayoría de la gente no lo necesita.</string>
+    <string name="faq_4_text">Sí, lo hace. De forma predeterminada, todos los eventos se crean en su zona horaria actual. Si desea cambiar la zona horaria de un evento, primero deberá habilitar el selector de zona horaria en la configuración de la aplicación y luego cambiarlo en la pantalla Detalles del evento. Está deshabilitado de forma predeterminada ya que la mayoría de las personas no lo necesitarán.</string>
     <string name="faq_5_title">¿Por qué no aparece ninguna notificación\?</string>
     <string name="faq_5_text">Comprueba la batería y las opciones de notificación, asegúrate de que los recordatorios no estén bloqueados y de que se permita la ejecución de la aplicación en segundo plano. En esta página web &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt; encontrarás consejos útiles.</string>
     <string name="faq_6_title">¿Cómo puedo modificar o eliminar un tipo de evento\?</string>
