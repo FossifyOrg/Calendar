@@ -172,7 +172,7 @@
     <string name="alarm_stream">Budík</string>
     <string name="notification_stream">Oznámení</string>
     <string name="ring_stream">Vyzvánění</string>
-    <string name="use_last_event_reminders">Použít připomenutí z poslední události jako výchozí pro nové události</string>
+    <string name="use_last_event_reminders">Použít připomenutí z poslední události jako výchozí pro nové události</string>
     <string name="default_reminder_1">Výchozí připomenutí 1</string>
     <string name="default_reminder_2">Výchozí připomenutí 2</string>
     <string name="default_reminder_3">Výchozí připomenutí 3</string>
@@ -248,7 +248,7 @@
     <string name="faq_3_title">Připomínku vidím, ale neslyším žádný zvuk. Co s tím\?</string>
     <string name="faq_3_text">Nejen zobrazování aktuální připomínky, ale i přehrávání zvuku je velmi ovlivněno operačním systémem. Pokud neslyšíte žádný zvuk, zkuste jít do nastavení aplikace, vyberte: „Zvukový kanál používaný připomínkami“ a změňte jej na něco jiného. Pokud zvuk stále nefunguje, zkontrolujte zda není zvuk zvoleného kanálu vypnut v nastavení vašeho systému.</string>
     <string name="faq_4_title">Podporuje aplikace časová pásma\?</string>
-    <string name="faq_4_text">Ano, podporuje. Ve výchozím stavu jsou všechny události vytvářeny ve vašem současném časovém pásmu. Pokud chcete změnit časové pásmo některé události, musíte nejdříve povolit úpravy časových pásem v nastavení aplikace, poté jej změníte na obrazovce s detaily události. Ve výchozím nastavení je úprava vypnuta, neboť většina lidí ji nebude potřebovat.</string>
+    <string name="faq_4_text">Ano, podporuje. Ve výchozím stavu jsou všechny události vytvářeny ve vašem současném časovém pásmu. Pokud chcete změnit časové pásmo některé události, musíte nejdříve povolit úpravy časových pásem v nastavení aplikace, poté jej změníte na obrazovce s detaily události. Ve výchozím nastavení je úprava vypnuta, neboť většina lidí ji nebude potřebovat.</string>
     <string name="faq_5_title">Aplikace nezobrazuje žádná oznámení. Proč tomu tak je\?</string>
     <string name="faq_5_text">Zkontrolujte nastavení oznámení a baterie na vašem zařízení, zda tam není nic blokujícího připomenutí, nebo zabíjení aplikace běžící na pozadí. Možná se také budete chtít podívat na &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com &lt;/a&gt;, kde je několik užitečných tipů.</string>
     <string name="faq_6_title">Jak mohu upravit nebo odstranit existující typ události\?</string>
