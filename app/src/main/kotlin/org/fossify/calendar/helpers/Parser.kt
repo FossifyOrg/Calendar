@@ -97,13 +97,13 @@ class Parser {
         return newRepeatRule
     }
 
-    fun parseDateTimeValue(value: String, useTimeZone: DateTimeZone = DateTimeZone.UTC): Long {
+    fun parseDateTimeValue(value: String, timeZone: DateTimeZone = DateTimeZone.UTC): Long {
         val edited = value.replace("T", "").replace("Z", "").replace("-", "")
         return if (edited.length == 14) {
-            val dateTimeZone = if (value.endsWith("Z")) DateTimeZone.UTC else useTimeZone
+            val dateTimeZone = if (value.endsWith("Z")) DateTimeZone.UTC else timeZone
             parseLongFormat(edited, dateTimeZone)
         } else {
-            val dateTimeFormat = DateTimeFormat.forPattern("yyyyMMdd").withZone(useTimeZone)
+            val dateTimeFormat = DateTimeFormat.forPattern("yyyyMMdd").withZone(timeZone)
             val dateTime = dateTimeFormat.parseDateTime(edited)
             Formatter.getShiftedTS(dateTime = dateTime, toZone = DateTimeZone.getDefault())
         }
