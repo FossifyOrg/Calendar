@@ -26,7 +26,11 @@ import kotlin.math.min
 
 // used in the Monthly view fragment, 1 view per screen
 class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(context, attrs, defStyle) {
-    private val BG_CORNER_RADIUS = 8f
+    companion object {
+        private const val BG_CORNER_RADIUS = 8f
+        private const val EVENT_DOT_COLUMN_COUNT = 3
+        private const val EVENT_DOT_ROW_COUNT = 1
+    }
 
     private var textPaint: Paint
     private var eventTitlePaint: TextPaint
@@ -203,30 +207,37 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
                         getCirclePaint(day).getTextBounds(dayNumber, 0, dayNumber.length, dayTextRect)
                         val height = dayTextRect.height() * 1.25f
                         val eventCount = day.dayEvents.count()
-                        val radiusDot = textPaint.textSize * 0.2f
-                        val stepSize = radiusDot * 2.5f
-                        val dotsPerRow = 4
-                        var xDot = xPosCenter
+                        val dotRadius = textPaint.textSize * 0.2f
+                        val stepSize = dotRadius * 2.5f
+                        val columnCount = EVENT_DOT_COLUMN_COUNT
+
+                        val dayEventsSorted = day.dayEvents
+                            .asSequence()
+                            .sortedWith(
+                                comparator = compareBy({ it.startTS }, { it.endTS }, { it.title })
+                            )
+
+                        var xDot: Float
                         var yDot = yPos + height + textPaint.textSize / 2
-                        val dayEventsSorted = day.dayEvents.asSequence().sortedWith(
-                            compareBy({ it.startTS }, { it.endTS }, { it.title })
-                        ).toMutableList() as ArrayList<Event>
-                        var indexInRow = 0
+                        var indexInRow: Int
                         for ((index, event) in dayEventsSorted.withIndex()) {
-                            indexInRow = index % dotsPerRow
-                            xDot = xPosCenter + stepSize * (indexInRow - (min(eventCount, dotsPerRow)) / 2)
+                            indexInRow = index % columnCount
+                            xDot = xPosCenter + stepSize * (indexInRow - (min(eventCount, columnCount)) / 2)
+
                             if (eventCount % 2 == 0) { // center even number of dots
                                 xDot += stepSize / 2
                             }
+
                             if (index > 0 && indexInRow == 0) { // next row of dots
                                 yDot += stepSize
                             }
-                            if (index >= dotsPerRow * 2 - 1) { // draw + if too many events
+
+                            if (index >= columnCount * EVENT_DOT_ROW_COUNT - 1) { // draw + if too many events
                                 plusSymbolTextPaint.textSize = stepSize * 1.5f
-                                canvas.drawText("+", xDot, yDot + radiusDot * 1.2f, plusSymbolTextPaint)
+                                canvas.drawText("+", xDot, yDot + dotRadius * 1.2f, plusSymbolTextPaint)
                                 break
                             } else {
-                                canvas.drawCircle(xDot, yDot, radiusDot, getDayEventColor(event))
+                                canvas.drawCircle(xDot, yDot, dotRadius, getDayEventColor(event))
                             }
                         }
                     }
