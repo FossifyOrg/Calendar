@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_launcher_name">Calendário</string>
+    <string name="no_upcoming_events">Não existem eventos futuros.</string>
+    <string name="simple_event_list">Lista simples de eventos</string>
+</resources>

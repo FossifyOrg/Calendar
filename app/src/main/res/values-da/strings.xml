@@ -37,6 +37,7 @@
     <string name="duplicate_task">Kopier opgave</string>
     <string name="mark_completed">Marker som afsluttet</string>
     <string name="mark_incomplete">Marker som uafsluttet</string>
+    <string name="task_color">Opgave farve</string>
     <string name="repetition">Gentagelse</string>
     <string name="no_repetition">Gentages ikke</string>
     <string name="daily">Daglig</string>
@@ -49,6 +50,7 @@
     <string name="repeat_till">Gentag indtil</string>
     <string name="forever">Ingen slutdato</string>
     <string name="event_is_repeatable">Begivenheden kan gentages</string>
+    <string name="task_is_repeatable">Opgaven kan gentages</string>
     <string name="selection_contains_repetition">Valget indeholder gentagne begivenheder</string>
     <string name="delete_one_only">Slet kun denne forekomst</string>
     <string name="delete_future_occurrences">Slet denne og alle fremtidige forekomster</string>
@@ -168,7 +170,10 @@
     <string name="dim_completed_tasks">Nedton afsluttede opgaver</string>
     <string name="events">Begivenheder</string>
     <string name="reminder_stream">Audio stream anvendt af påmindelser</string>
+    <string name="system_stream">System</string>
+    <string name="alarm_stream">Alarm</string>
     <string name="notification_stream">Notifikation</string>
+    <string name="ring_stream">Ringetone</string>
     <string name="use_last_event_reminders">Brug den sidst opsatte påmindelse som standard for påmindelser</string>
     <string name="default_reminder_1">Påmindelse 1</string>
     <string name="default_reminder_2">Påmindelse 2</string>
@@ -187,6 +192,7 @@
     <string name="allow_changing_time_zones">Tillad ændring af en begivenheds tidszone</string>
     <string name="manage_quick_filter_event_types">Håndter begivenhedstyper med hurtigt filter</string>
     <string name="allow_creating_tasks">Tillad oprettelse af opgaver</string>
+    <string name="caldav">CalDAV</string>
     <string name="select_caldav_calendars">Vælg kalendere til synk</string>
     <string name="manage_synced_calendars">Håndter synkronisering af kalendere</string>
     <string name="store_locally_only">Gem kun lokalt</string>
@@ -202,6 +208,7 @@
     <string name="no_synchronized_calendars">Der er ikke fundet nogen kalendere der kan synkroniseres</string>
     <string name="status_free">Ledig</string>
     <string name="status_busy">Optaget</string>
+    <string name="fetching_event_failed">Hentning af begivenhed %s mislykkedes</string>
     <string name="monday_alt">Mandag</string>
     <string name="tuesday_alt">Tirsdag</string>
     <string name="wednesday_alt">Onsdag</string>
@@ -209,7 +216,8 @@
     <string name="friday_alt">Fredag</string>
     <string name="saturday_alt">Lørdag</string>
     <string name="sunday_alt">Søndag</string>
-    <string name="sample_description_1">Ekskursion</string>
+    <string name="sample_title_1">Træning</string>
+    <string name="sample_description_1">Træne ben</string>
     <string name="sample_title_2">Møde med John</string>
     <string name="sample_description_2">Botanisk have</string>
     <string name="sample_title_3">Biblioteket</string>
@@ -232,6 +240,10 @@
         <item quantity="one">I løbet af %d måned</item>
         <item quantity="other">I løbet af de næste %d måneder</item>
     </plurals>
+    <string name="accessibility_previous_month">Gå til forrige måned</string>
+    <string name="accessibility_next_month">Gå til næste måned</string>
+    <string name="accessibility_previous_day">Gå til forrige dag</string>
+    <string name="accessibility_next_day">Gå til næste dag</string>
     <string name="faq_1_title">Hvordan kan jeg fjerne helligdage der er importeret med funktionen \"Tilføj helligdage\"\?</string>
     <string name="faq_1_text">Helligdage oprettet på den måde er indsat under begivenhedstypen \"Helligdage\". Gå til Indstillinger -&gt; Håndter begivenhedstyper. Efter et par sekunders pres på en type kan du slette den ved at klikke på papirkurven.</string>
     <string name="faq_2_title">Kan jeg synkronisere mine begivenheder med Googles kalender eller en anden kalender der understøtter CalDAV\?</string>

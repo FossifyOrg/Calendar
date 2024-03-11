@@ -63,9 +63,9 @@ class EventListAdapter(
         }
     }
 
-    override fun getSelectableItemCount() = listItems.filter { it is ListEvent }.size
+    override fun getSelectableItemCount() = listItems.filterIsInstance<ListEvent>().size
 
-    override fun getIsItemSelectable(position: Int) = listItems[position] is ListEvent
+    override fun getIsItemSelectable(position: Int) = listItems.getOrNull(position) is ListEvent
 
     override fun getItemSelectionKey(position: Int) = (listItems.getOrNull(position) as? ListEvent)?.hashCode()
 
