@@ -224,10 +224,12 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
                         var xDot: Float
                         var yDot = yPos + height + textPaint.textSize / 2
                         var indexInRow: Int
+
+                        val dotCount = dayEventsSorted.count()
                         for ((index, event) in dayEventsSorted.withIndex()) {
                             indexInRow = index % columnCount
-                            xDot = xPosCenter + stepSize * (indexInRow - (min(eventCount, columnCount)) / 2)
-                            if (eventCount % 2 == 0) { // center even number of dots
+                            xDot = xPosCenter + stepSize * (indexInRow - (min(dotCount, columnCount)) / 2)
+                            if (dotCount % 2 == 0) { // center even number of dots
                                 xDot += stepSize / 2
                             }
 
@@ -235,7 +237,8 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
                                 yDot += stepSize
                             }
 
-                            if (eventCount - 1 != index && index >= columnCount * EVENT_DOT_ROW_COUNT - 1) { // draw + if too many events
+                            // Always show a + sign if the event count exceeds columnCount.
+                            if (eventCount - 1 != index && index >= columnCount * EVENT_DOT_ROW_COUNT - 1) {
                                 plusTextPaint.textSize = stepSize * 1.5f
                                 canvas.drawText("+", xDot, yDot + dotRadius * 1.2f, plusTextPaint)
                                 break
