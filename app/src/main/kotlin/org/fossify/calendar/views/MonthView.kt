@@ -36,7 +36,8 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
     private var eventTitlePaint: TextPaint
     private var gridPaint: Paint
     private var circleStrokePaint: Paint
-    private var plusSymbolTextPaint: Paint
+    private var plusTextPaint: Paint
+    private var eventDotPaint: Paint
     private var config = context.config
     private var dayWidth = 0f
     private var dayHeight = 0f
@@ -84,7 +85,8 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
             textAlign = Paint.Align.CENTER
         }
 
-        plusSymbolTextPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+        eventDotPaint = Paint(Paint.ANTI_ALIAS_FLAG)
+        plusTextPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
             color = textColor
             alpha = 175
             textSize = normalTextSize.toFloat()
@@ -235,11 +237,12 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
                             }
 
                             if (eventCount - 1 != index && index >= columnCount * EVENT_DOT_ROW_COUNT - 1) { // draw + if too many events
-                                plusSymbolTextPaint.textSize = stepSize * 1.5f
-                                canvas.drawText("+", xDot, yDot + dotRadius * 1.2f, plusSymbolTextPaint)
+                                plusTextPaint.textSize = stepSize * 1.5f
+                                canvas.drawText("+", xDot, yDot + dotRadius * 1.2f, plusTextPaint)
                                 break
                             } else {
-                                canvas.drawCircle(xDot, yDot, dotRadius, getDayEventColor(event))
+                                val paint = eventDotPaint.apply { color = event.color }
+                                canvas.drawCircle(xDot, yDot, dotRadius, paint)
                             }
                         }
                     }
@@ -434,12 +437,6 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
             paintColor = paintColor.adjustAlpha(MEDIUM_ALPHA)
         }
         curPaint.color = paintColor
-        return curPaint
-    }
-
-    private fun getDayEventColor(event: Event): Paint {
-        val curPaint = Paint(Paint.ANTI_ALIAS_FLAG)
-        curPaint.color = event.color
         return curPaint
     }
 
