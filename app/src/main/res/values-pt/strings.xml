@@ -172,7 +172,7 @@
     <string name="alarm_stream">Alarme</string>
     <string name="notification_stream">Notificação</string>
     <string name="ring_stream">Toque</string>
-    <string name="use_last_event_reminders">Utilizar lembretes dos últimos eventos como definição para os novos eventos</string>
+    <string name="use_last_event_reminders">Utilizar lembretes do último evento como definição para os novos eventos</string>
     <string name="default_reminder_1">Lembrete 1</string>
     <string name="default_reminder_2">Lembrete 2</string>
     <string name="default_reminder_3">Lembrete 3</string>
@@ -248,9 +248,16 @@
     <string name="faq_3_title">Vejo os lembretes mas não ouço som. O que posso fazer\?</string>
     <string name="faq_3_text">A afixação do lembrete e o áudio são fortemente influenciados pelas definições do sistema. Se não consegue ouvir o som, verifique as definições da aplicação, selecione a opção \"Fluxo de áudio usado pelos lembretes\" e modifique-a. Se não funcionar, verifique nas definições de áudio do sistema se este tipo multimédia está no modo Silêncio.</string>
     <string name="faq_4_title">A aplicação suporta diferentes fusos horários\?</string>
-    <string name="faq_4_text">Sim. Por padrão, todos os eventos são criados com o seu fuso horário atual. Se pretende alterar o fuso horário de um evento, terá de ativar a escolha de fuso horário nas definições da aplicação e alterá-lo nos Detalhes do evento. Este opção está desativada por padrão, pois não é necessário para a maioria das pessoas.</string>
+    <string name="faq_4_text">Sim. Por definição, todos os eventos são criados com o seu fuso horário atual. Se pretende alterar o fuso horário de um evento, terá de ativar a escolha de fuso horário nas definições da aplicação e alterá-lo nos Detalhes do evento. Por omissão, esta opção está desativada, pois não é necessário para a maioria das pessoas.</string>
     <string name="faq_5_title">A aplicação não mostra notificações. Porque será\?</string>
     <string name="faq_5_text">Analise as definições de bateria e de notificações do dispositivo. Pode ser que exista algo a bloquear os lembretes ou a terminar a aplicação em segundo plano. Consulte &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt; para ver algumas dicas.</string>
     <string name="faq_6_title">É possível modificar ou eliminar um tipo de evento existente\?</string>
     <string name="faq_6_text">Pode fazer ambas em Definições - Gerir tipos de eventos. Basta tocar no desejado para alterar o texto ou a cor e pode também eliminar qualquer um com um toque longo no tipo de evento e utilizando a reciclagem no menu superior.</string>
+    <string name="accessibility_previous_month">Ir para o mês anterior</string>
+    <string name="event_color">Cor do evento</string>
+    <string name="accessibility_next_month">Ir para o mês seguinte</string>
+    <string name="accessibility_previous_day">Ir para o dia anterior</string>
+    <string name="accessibility_next_day">Ir para o dia seguinte</string>
+    <string name="default_calendar_color">Cor do calendário padrão</string>
+    <string name="caldav">CalDAV</string>
 </resources>

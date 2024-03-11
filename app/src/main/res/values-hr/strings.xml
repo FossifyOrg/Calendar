@@ -216,7 +216,7 @@
     <string name="sample_description_1">Vježbanje nogu</string>
     <string name="sample_title_2">Sastanak s Ivanom</string>
     <string name="sample_description_2">U Rockstone vrtu</string>
-    <string name="sample_title_3">Knjižnica</string>
+    <string name="sample_title_3">Biblioteka</string>
     <string name="sample_title_4">Ručak s Marijom</string>
     <string name="sample_description_4">U trgovačkom centru</string>
     <string name="sample_title_5">Vrijeme za kavu</string>
@@ -245,11 +245,19 @@
     <string name="faq_2_title_extra">Možda čak i dijeliti kalendare s ljudima\?</string>
     <string name="faq_2_text">Da, jednostavno uključi opciju „CalDAV sinkronizacija” u postavkama aplikacije i odaberi kalendare koje želiš sinkronizirati. Međutim, trebat ćeš stranu aplikaciju koja će posredovati između uređaja i poslužitelja. U slučaju da želiš sinkronizirati Google kalendar, njihova službena aplikacija Kalendar će obaviti posao. Za ostale kalendare ćeš trebati strani adapter za sinkronizaciju, na primjer DAVx5.</string>
     <string name="faq_3_title">Vidim vizualne podsjetnike, ali ne čujem zvuk. Što mogu učiniti\?</string>
-    <string name="faq_3_text">Prikaz podsjetnika, ali i reprodukcija zvuka, jako ovise o Android sustavu. Ako ne čuješ zvuk, idi u postavke aplikacije, odaberi opciju „Audio prijenos za podsjetnike” te promjeni vrijednost. Ako i dalje ne radi, provjeri postavke zvuka, ako zvuk odabranog kanala nije ugašen.</string>
+    <string name="faq_3_text">Prikaz podsjetnika, ali i reprodukcija zvuka, jako ovise o Android sustavu. Ako ne čuješ zvuk, idi u postavke aplikacije, odaberi opciju „Audio prijenos za podsjetnike” te promjeni vrijednost. Ako i dalje ne radi, provjeri postavke zvuka ako određeni prijenos nije isljučen.</string>
     <string name="faq_4_title">Podržava li aplikacija vremenske zone\?</string>
     <string name="faq_4_text">Da, podržava ih. Prema standardnim postavkama svi se događaji stvaraju u tvojoj aktualnoj vremenskoj zoni. Ako želiš promijeniti vremensku zonu događaja, najprije moraš aktivirati birač vremenske zone u postavkama aplikacije, a zatim ga promijeni u ekranu detalja događaja. Standardno je deaktiviran, jer ga većina ljudi neće trebati.</string>
-    <string name="faq_5_title">Program ne prikazuje obavijesti. Zašto\?</string>
+    <string name="faq_5_title">Aplikacija ne prikazuje obavijesti. Zašto?</string>
     <string name="faq_5_text">Provjeri bateriju uređaja i postavke obavijesti ako ništa ne blokira podsjetnike ili ne zaustavlja aplikaciju u pozadini. Također pogledaj &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;. SStranica sadrži korisne savjete.</string>
     <string name="faq_6_title">Kako mogu promijeniti ili izbrisati postojeću vrstu događaja\?</string>
     <string name="faq_6_text">Oboje možeš učiniti u postavkama aplikacije – Upravljaj vrstama događaja. Pritisni željenu vrstu za mijenjanje oznake i boje ili odaberi željenu vrstu dugim pritiskom i koristi koš za smeće u gornjem izborniku za brisanje.</string>
+    <string name="alarm_stream">Alarm</string>
+    <string name="caldav">CalDAV</string>
+    <string name="accessibility_previous_month">Idi na prethodni mjesec</string>
+    <string name="accessibility_next_month">Idi na sljedeći mjesec</string>
+    <string name="accessibility_next_day">Idi na sljedeći dan</string>
+    <string name="accessibility_previous_day">Idi na prethodni dan</string>
+    <string name="event_color">Boja događaja</string>
+    <string name="default_calendar_color">Standardna boja kalendara</string>
 </resources>

@@ -252,4 +252,9 @@
     <string name="faq_5_text">Проверете настройките на батерията и известията на устройството си, ако няма нищо блокиращо напомнянията, или убиване на приложението във фонов режим. Бихте могли също да погледнете &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;, има някои полезни съвети.</string>
     <string name="faq_6_title">Как мога да променя или изтрия съществуващ тип събитие\?</string>
     <string name="faq_6_text">Можете да направите и двете неща в приложението Настройки - Управление на типове събития. Просто щракнете върху желаното събитие, за да промените етикета и цвета, или изберете желаното събитие, като го натиснете продължително, и използвайте кошчето в горното меню за изтриване.</string>
+    <string name="caldav">CalDAV</string>
+    <string name="accessibility_previous_month">Отиди в предишния месец</string>
+    <string name="accessibility_next_month">Отиди в следващия месец</string>
+    <string name="accessibility_next_day">Отиди в следващия ден</string>
+    <string name="accessibility_previous_day">Отиди в предишния ден</string>
 </resources>

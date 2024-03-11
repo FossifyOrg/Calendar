@@ -174,7 +174,7 @@
     <string name="alarm_stream">Allarme</string>
     <string name="notification_stream">Notifica</string>
     <string name="ring_stream">Squillo</string>
-    <string name="use_last_event_reminders">Utilizza l\'ultimo promemoria come predefinito per nuovi eventi</string>
+    <string name="use_last_event_reminders">Usa i promemoria dell\'ultimo evento come predefiniti per i nuovi eventi</string>
     <string name="default_reminder_1">Promemoria predefinito 1</string>
     <string name="default_reminder_2">Promemoria predefinito 2</string>
     <string name="default_reminder_3">Promemoria predefinito 3</string>
@@ -254,9 +254,10 @@
     <string name="faq_3_title">Visualizzo i promemoria, ma non sento l\'audio. Cosa posso fare\?</string>
     <string name="faq_3_text">Non solo visualizzare l\'attuale promemoria, ma anche riprodurre l\'audio è un lavoro prettamente del sistema. Se non si sente alcun suono, provare ad andare nelle impostazioni dell\'applicazione, premere l\'opzione «Canale audio utilizzato per il promemoria» e cambia il canale. Se ancora non funziona, controllare le impostazioni dell\'audio, in particolare se il canale è stato mutato.</string>
     <string name="faq_4_title">L\'app supporta diversi fusi orari\?</string>
-    <string name="faq_4_text">Sì. Solitamente tutti gli eventi vengono create nel tuo fuso orario. Se vuoi cambiare il fuso orario di un specifico evento, devi abilitare la funzionalitá nelle impostazioni dell\'app, successivamente potrai cambiare il fuso nella schermata di dettaglio dell\'evento. La funzionalitá é disabilitata inizialmente siccome la maggior parte degli utenti non ne hanno bisogno.</string>
+    <string name="faq_4_text">Sì. Solitamente tutti gli eventi vengono create nel tuo fuso orario. Se vuoi cambiare il fuso orario di un specifico evento, devi abilitare la funzionalità nelle impostazioni dell\'app, successivamente potrai cambiare il fuso nella schermata di dettaglio dell\'evento. La funzionalità è disabilitata inizialmente siccome la maggior parte degli utenti non ne hanno bisogno.</string>
     <string name="faq_5_title">L\'app non mostra notifiche, perché\?</string>
     <string name="faq_5_text">Controlla la batteria del tuo dispositivo e le impostazioni di notifica, se non c\'è nulla che blocchi i promemoria, o che uccida l\'app in sfondo. Si potrebbe anche dare un\'occhiata a &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;, ha alcuni suggerimenti utili.</string>
     <string name="faq_6_title">Come posso modificare o eliminare un tipo di evento esistente\?</string>
     <string name="faq_6_text">Puoi fare entrambe le cose in Impostazioni dell\'app – Gestisci tipi di eventi. Basta cliccare su quello desiderato per cambiare l\'etichetta e il colore, o selezionare quello desiderato premendolo a lungo e usare il cestino nel menù in alto per eliminarlo.</string>
+    <string name="caldav">CalDAV</string>
 </resources>

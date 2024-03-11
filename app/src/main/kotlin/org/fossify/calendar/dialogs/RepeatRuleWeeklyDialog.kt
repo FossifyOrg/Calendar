@@ -16,7 +16,7 @@ class RepeatRuleWeeklyDialog(val activity: Activity, val curRepeatRule: Int, val
         val days = activity.resources.getStringArray(org.fossify.commons.R.array.week_days)
         var checkboxes = ArrayList<MyAppCompatCheckbox>(7)
         for (i in 0..6) {
-            val pow = Math.pow(2.0, i.toDouble()).toInt()
+            val pow = 1 shl i
             MyCheckboxBinding.inflate(activity.layoutInflater).root.apply {
                 isChecked = curRepeatRule and pow != 0
                 text = days[i]

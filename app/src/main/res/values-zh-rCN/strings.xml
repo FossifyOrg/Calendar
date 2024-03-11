@@ -173,7 +173,7 @@
     <string name="alarm_stream">闹钟</string>
     <string name="notification_stream">通知</string>
     <string name="ring_stream">铃声</string>
-    <string name="use_last_event_reminders">使用最后活动的提醒作为新活动的预设</string>
+    <string name="use_last_event_reminders">使用上一活动的提醒作为新活动的默认值</string>
     <string name="default_reminder_1">预设提醒1</string>
     <string name="default_reminder_2">预设提醒2</string>
     <string name="default_reminder_3">预设提醒3</string>
@@ -252,4 +252,6 @@
     <string name="faq_5_text">检查设备的电池和通知设置，如果没有任何东西阻止提醒，或在后台关闭应用程序。你也许还想看看 &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;，当中有些有用的提示。</string>
     <string name="faq_6_title">如何修改或删除已存在的活动类型？</string>
     <string name="faq_6_text">要进行这两类操作，请转到设置 - 管理活动类型。单击想要操作的项目以更改标签和颜色，或者长按选中想要操作的项目，并使用顶部菜单的回收站进行删除。</string>
+    <string name="accessibility_next_day">转到下一天</string>
+    <string name="default_calendar_color">日历默认颜色</string>
 </resources>

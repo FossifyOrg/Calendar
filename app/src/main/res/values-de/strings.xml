@@ -132,7 +132,7 @@
     <string name="edit_type">Typ bearbeiten</string>
     <string name="type_already_exists">Typ mit diesem Namen existiert bereits</string>
     <string name="color">Farbe</string>
-    <string name="regular_event">Regulärer Termin</string>
+    <string name="regular_event">Regelmäßiger Termin</string>
     <string name="cannot_delete_default_type">Standardtermintyp kann nicht gelöscht werden</string>
     <string name="select_event_type">Einen Termintyp auswählen</string>
     <string name="move_events_into_default">Betroffene Termine in den Standardtermintyp ändern</string>
@@ -185,7 +185,7 @@
     <string name="next_full_hour">Nächste volle Stunde</string>
     <string name="current_time">Aktuelle Zeit</string>
     <string name="default_duration">Standarddauer</string>
-    <string name="last_used_one">Zuletzt verwendeter</string>
+    <string name="last_used_one">Zuletzt verwendet</string>
     <string name="other_time">Andere Zeit</string>
     <string name="highlight_weekends">Wochenenden in einigen Ansichten hervorheben</string>
     <string name="highlight_weekends_color">Farbe der hervorgehobenen Wochenenden</string>
