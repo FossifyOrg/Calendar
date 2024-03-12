@@ -1,0 +1,6 @@
+* Problem mit der Monatsansicht auf dem Google Pixel 8 Pro behoben.
+* Farbpunkte für Termine in der Monats- und Tagesansicht korrigiert.
+* Fehlerhafte Zeitzone beim Import von ICS-Dateien behoben.
+* Hervorheben der Wochenenden im Druckmodus.
+* Feiertage für einige Länder aktualisiert.
+* Einige Übersetzungen hinzugefügt.
