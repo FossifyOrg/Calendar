@@ -1,2 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="simple_event_list">فهرست رویدادهای ساده</string>
+    <string name="event">رویداد</string>
+    <string name="app_launcher_name">تقویم</string>
+    <string name="edit_event">ویرایش رویداد</string>
+    <string name="new_event">رویداد جدید</string>
+    <string name="create_new_event">ایجاد رویداد جدید</string>
+    <string name="duplicate_event">رویداد تکراری</string>
+    <string name="title_empty">عنوان نمی‌تواند خالی باشد</string>
+    <string name="end_before_start">رویداد نمی‌تواند زودتر از شروع به پایان برسد</string>
+    <string name="event_updated">رویداد با موفقیت به‌روز شد</string>
+    <string name="event_color">رنگ رویداد</string>
+    <string name="default_calendar_color">رنگ پیش‌فرض تقویم</string>
+    <string name="daily">روزانه</string>
+    <string name="weekly">هفتگی</string>
+    <string name="monthly">ماهانه</string>
+    <string name="yearly">سالانه</string>
+    <string name="event_added">رویداد با موفقیت اضافه شد</string>
+</resources>
