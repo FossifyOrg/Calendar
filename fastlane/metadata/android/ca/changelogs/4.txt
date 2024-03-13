@@ -1,0 +1,6 @@
+* S'ha corregit un problema de visualització mensual al Pixel 8 Pro de Google.
+* S'han corregit els punts de color d'esdeveniment a la vista mensual i diària.
+* S'ha corregit la zona horària incorrecta quan s'importen fitxers ICS.
+* Ressalta els caps de setmana en mode d'impressió.
+* Festius actualitzats per a certs països.
+* S'han afegit traduccions.
