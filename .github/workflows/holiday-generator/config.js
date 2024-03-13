@@ -79,6 +79,7 @@ export const COUNTRIES = [
 
 export const START_YEAR = new Date().getFullYear(); // start with current year
 export const END_YEAR = START_YEAR + 1;
+export const FIXED_DATE_START_YEAR = 1970; // start recurring events from start of Unix epoch
 
 // https://www.npmjs.com/package/date-holidays#types-of-holidays
 export const TYPE_WHITELIST = ["public", "bank"];

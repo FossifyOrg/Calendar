@@ -6,7 +6,7 @@ import { promisify } from "node:util";
 import Holidays from "date-holidays";
 import { createEvents as icsCreateEvents } from "ics";
 
-import { COUNTRIES, END_YEAR, ICS_PATH, SHOULD_LOG, START_YEAR, TYPE_WHITELIST } from "./config.js";
+import { COUNTRIES, END_YEAR, FIXED_DATE_START_YEAR, ICS_PATH, SHOULD_LOG, START_YEAR, TYPE_WHITELIST } from "./config.js";
 
 // converting createEvents from ics from function with callback to async function for easier usage
 const createEvents = promisify(icsCreateEvents);
@@ -39,11 +39,12 @@ function getEvents(countryCode) {
  * Generates reproducible ID for holiday
  * @param {string} countryCode
  * @param {string} date
+ * @param {string} rule
  * @returns
  */
-function generateUid(countryCode, date) {
+function generateUid(countryCode, date, rule) {
     const hashGen = createHash("sha256");
-    hashGen.update(`${countryCode},${date}`);
+    hashGen.update(`${countryCode},${date},${rule}`);
     return hashGen.digest("hex");
 }
 
@@ -57,22 +58,53 @@ function getDateArray(date) {
 }
 
 /**
+ * Checks if holiday is a fixed-date holiday.
+ * Regex based on https://github.com/commenthol/date-holidays/blob/master/docs/specification.md#fixed-date
+ * @param {string} rule
+ * @returns
+ */
+function isFixedDate(rule) {
+    return /^\d\d-\d\d$/.test(rule);
+}
+
+/**
  * Generate ical file from given set of events
  * @param {ReturnType<getEvents>} events
  * @param {string} countryCode
  * @returns {Promise<string>}
  */
 async function generateIcal(events, countryCode) {
-    const ical = await createEvents(
-        events.map((x) => ({
-            title: x.name,
-            uid: generateUid(countryCode, x.date),
-            start: getDateArray(x.start),
-            end: getDateArray(x.end),
-            productId: "Fossify Calendar Holiday Generator",
-            status: "CONFIRMED",
-        }))
-    );
+    const eventsMap = new Map();
+    events.forEach((x) => {
+        if (isFixedDate(x.rule)) {
+            const uid = generateUid(countryCode, "", x.rule);
+            if (!eventsMap.has(uid)) {
+                const yearDiff = x.end.getFullYear() - x.start.getFullYear();
+                x.start.setFullYear(FIXED_DATE_START_YEAR);
+                x.end.setFullYear(FIXED_DATE_START_YEAR + yearDiff);
+                eventsMap.set(uid, {
+                    title: x.name,
+                    uid,
+                    start: getDateArray(x.start),
+                    end: getDateArray(x.end),
+                    recurrenceRule: "FREQ=YEARLY",
+                    productId: "Fossify Calendar Holiday Generator",
+                    status: "CONFIRMED",
+                });
+            }
+        } else {
+            const uid = generateUid(countryCode, x.date, x.rule);
+            eventsMap.set(uid, {
+                title: x.name,
+                uid,
+                start: getDateArray(x.start),
+                end: getDateArray(x.end),
+                productId: "Fossify Calendar Holiday Generator",
+                status: "CONFIRMED",
+            });
+        }
+    });
+    const ical = await createEvents([...eventsMap.values()]);
     return ical;
 }
 
