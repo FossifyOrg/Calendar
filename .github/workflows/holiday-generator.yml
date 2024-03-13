@@ -18,7 +18,7 @@ jobs:
                 node-version: 20
             - name: Run script
               env:
-                SHOULD_LOG: true
+                LOG_ENABLED: true
               working-directory: ./.github/workflows/holiday-generator
               run: 'npm install && npm start'
             - name: Create PR
