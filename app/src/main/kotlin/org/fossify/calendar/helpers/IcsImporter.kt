@@ -26,6 +26,7 @@ class IcsImporter(val activity: SimpleActivity) {
 
     private var curStart = -1L
     private var curEnd = -1L
+    private var curDuration = 0
     private var curTitle = ""
     private var curLocation = ""
     private var curDescription = ""
@@ -105,11 +106,17 @@ class IcsImporter(val activity: SimpleActivity) {
                                 parseRepeatRule()
                             }
                         }
+
+                        // if duration is comes before DTSTART, DTEND must be re-calculated.
+                        if (curDuration != 0) {
+                            curEnd = curStart + curDuration
+                        }
                     } else if (line.startsWith(DTEND)) {
                         curEnd = getTimestamp(line.substring(DTEND.length))
                     } else if (line.startsWith(DURATION)) {
-                        val duration = line.substring(DURATION.length)
-                        curEnd = curStart + Parser().parseDurationSeconds(duration)
+                        val durationString = line.substring(DURATION.length)
+                        curDuration = Parser().parseDurationSeconds(durationString)
+                        curEnd = curStart + curDuration
                     } else if (line.startsWith(SUMMARY) && !isNotificationDescription) {
                         curTitle = line.substring(SUMMARY.length)
                         curTitle = getTitle(curTitle).replace("\\n", "\n").replace("\\,", ",")
@@ -348,6 +355,16 @@ class IcsImporter(val activity: SimpleActivity) {
         return try {
             when {
                 fullString.startsWith(';') -> {
+                    // Ideally, we should parse BEGIN:VTIMEZONE and derive the timezone from there, but to get things working, let's assume TZID refers to one
+                    // of the known timezones
+                    var timeZone = DateTimeZone.getDefault()
+                    if (fullString.contains(':')) {
+                        val timeZoneId = fullString.substringAfter("%s=".format(TZID)).substringBefore(':')
+                        if (DateTimeZone.getAvailableIDs().contains(timeZoneId)) {
+                            timeZone = DateTimeZone.forID(timeZoneId)
+                        }
+                    }
+
                     val value = fullString.substring(fullString.lastIndexOf(':') + 1).replace(" ", "")
                     if (value.isEmpty()) {
                         return 0
@@ -355,7 +372,7 @@ class IcsImporter(val activity: SimpleActivity) {
                         curFlags = curFlags or FLAG_ALL_DAY
                     }
 
-                    Parser().parseDateTimeValue(value)
+                    Parser().parseDateTimeValue(value, timeZone)
                 }
 
                 fullString.startsWith(":") -> Parser().parseDateTimeValue(fullString.substring(1).trim())

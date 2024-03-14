@@ -1,8 +1,8 @@
 [versions]
 #jetbrains
-kotlin = "1.9.10"
+kotlin = "1.9.21"
 #KSP
-ksp = "1.9.10-1.0.13"
+ksp = "1.9.21-1.0.16"
 #Androidx
 multidex = "2.0.1"
 print = "1.0.0"
@@ -11,9 +11,9 @@ swiperefreshlayout = "1.1.0"
 #Room
 room = "2.6.1"
 #Fossify
-commons = "1f54280ffd"
+commons = "e95fb4cf8f"
 #Gradle
-gradlePlugins-agp = "8.2.0"
+gradlePlugins-agp = "8.3.0"
 #build
 app-build-compileSDKVersion = "34"
 app-build-targetSDK = "34"
@@ -22,8 +22,8 @@ app-build-javaVersion = "VERSION_17"
 app-build-kotlinJVMTarget = "17"
 #versioning
 app-version-appId = "org.fossify.calendar"
-app-version-versionCode = "3"
-app-version-versionName = "1.0.2"
+app-version-versionCode = "4"
+app-version-versionName = "1.0.3"
 [libraries]
 #Android X
 androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }

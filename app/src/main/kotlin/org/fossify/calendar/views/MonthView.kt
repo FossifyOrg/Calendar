@@ -26,12 +26,18 @@ import kotlin.math.min
 
 // used in the Monthly view fragment, 1 view per screen
 class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(context, attrs, defStyle) {
-    private val BG_CORNER_RADIUS = 8f
+    companion object {
+        private const val BG_CORNER_RADIUS = 8f
+        private const val EVENT_DOT_COLUMN_COUNT = 3
+        private const val EVENT_DOT_ROW_COUNT = 1
+    }
 
     private var textPaint: Paint
     private var eventTitlePaint: TextPaint
     private var gridPaint: Paint
     private var circleStrokePaint: Paint
+    private var plusTextPaint: Paint
+    private var eventDotPaint: Paint
     private var config = context.config
     private var dayWidth = 0f
     private var dayHeight = 0f
@@ -75,6 +81,14 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
 
         textPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
             color = textColor
+            textSize = normalTextSize.toFloat()
+            textAlign = Paint.Align.CENTER
+        }
+
+        eventDotPaint = Paint(Paint.ANTI_ALIAS_FLAG)
+        plusTextPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            color = textColor
+            alpha = 175
             textSize = normalTextSize.toFloat()
             textAlign = Paint.Align.CENTER
         }
@@ -181,7 +195,8 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
                     val dayNumber = day.value.toString()
 
                     val textPaint = getTextPaint(day)
-                    if (selectedDayCoords.x != -1 && x == selectedDayCoords.x && y == selectedDayCoords.y) {
+                    val isDaySelected = selectedDayCoords.x != -1 && x == selectedDayCoords.x && y == selectedDayCoords.y
+                    if (isDaySelected) {
                         canvas.drawCircle(xPosCenter, yPos + textPaint.textSize * 0.7f, textPaint.textSize * 0.8f, circleStrokePaint)
                         if (day.isToday) {
                             textPaint.color = textColor
@@ -190,16 +205,48 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
                         canvas.drawCircle(xPosCenter, yPos + textPaint.textSize * 0.7f, textPaint.textSize * 0.8f, getCirclePaint(day))
                     }
 
-                    // mark days with events with a dot
-                    if (isMonthDayView && day.dayEvents.isNotEmpty()) {
+                    // mark days with a dot for each event
+                    if (isMonthDayView && !isDaySelected && !day.isToday && day.dayEvents.isNotEmpty()) {
                         getCirclePaint(day).getTextBounds(dayNumber, 0, dayNumber.length, dayTextRect)
                         val height = dayTextRect.height() * 1.25f
-                        canvas.drawCircle(
-                            xPosCenter,
-                            yPos + height + textPaint.textSize / 2,
-                            textPaint.textSize * 0.2f,
-                            getDayEventColor(day.dayEvents.first())
-                        )
+                        val eventCount = day.dayEvents.size
+                        val dotRadius = textPaint.textSize * 0.2f
+                        val stepSize = dotRadius * 2.5f
+                        val columnCount = EVENT_DOT_COLUMN_COUNT
+
+                        val dayEventsSorted = day.dayEvents
+                            .asSequence()
+                            .sortedWith(
+                                comparator = compareBy({ it.startTS }, { it.endTS }, { it.title })
+                            )
+                            .distinctBy { it.color }
+
+                        var xDot: Float
+                        var yDot = yPos + height + textPaint.textSize / 2
+                        var indexInRow: Int
+
+                        val dotCount = dayEventsSorted.count()
+                        for ((index, event) in dayEventsSorted.withIndex()) {
+                            indexInRow = index % columnCount
+                            xDot = xPosCenter + stepSize * (indexInRow - (min(dotCount, columnCount)) / 2)
+                            if (dotCount % 2 == 0) { // center even number of dots
+                                xDot += stepSize / 2
+                            }
+
+                            if (index > 0 && indexInRow == 0) { // next row of dots
+                                yDot += stepSize
+                            }
+
+                            // Always show a + sign if the event count exceeds columnCount.
+                            if (eventCount - 1 != index && index >= columnCount * EVENT_DOT_ROW_COUNT - 1) {
+                                plusTextPaint.textSize = stepSize * 1.5f
+                                canvas.drawText("+", xDot, yDot + dotRadius * 1.2f, plusTextPaint)
+                                break
+                            } else {
+                                val paint = eventDotPaint.apply { color = event.color }
+                                canvas.drawCircle(xDot, yDot, dotRadius, paint)
+                            }
+                        }
                     }
 
                     canvas.drawText(dayNumber, xPosCenter, yPos + textPaint.textSize, textPaint)
@@ -329,13 +376,10 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
     }
 
     private fun getTextPaint(startDay: DayMonthly): Paint {
-        var paintColor = textColor
-        if (!isPrintVersion) {
-            if (startDay.isToday) {
-                paintColor = primaryColor.getContrastColor()
-            } else if (highlightWeekends && startDay.isWeekend) {
-                paintColor = weekendsTextColor
-            }
+        var paintColor = when {
+            !isPrintVersion && startDay.isToday -> primaryColor.getContrastColor()
+            highlightWeekends && startDay.isWeekend -> weekendsTextColor
+            else -> textColor
         }
 
         if (!startDay.isThisMonth) {
@@ -392,12 +436,6 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
             paintColor = paintColor.adjustAlpha(MEDIUM_ALPHA)
         }
         curPaint.color = paintColor
-        return curPaint
-    }
-
-    private fun getDayEventColor(event: Event): Paint {
-        val curPaint = Paint(Paint.ANTI_ALIAS_FLAG)
-        curPaint.color = event.color
         return curPaint
     }
 
