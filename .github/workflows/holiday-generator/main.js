@@ -64,7 +64,7 @@ function getDateArray(date) {
  * @returns
  */
 function isFixedDate(rule) {
-    return /^\d\d-\d\d$/.test(rule);
+    return /^\d\d-\d\d( and .*)?$/.test(rule);
 }
 
 /**
