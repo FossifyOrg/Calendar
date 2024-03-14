@@ -1,0 +1,15 @@
+{
+  "name": "@fossify/holiday-generator",
+  "version": "1.0.0",
+  "description": "Holiday generator for Fossify Calendar",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "license": "GPL-3.0-only",
+  "dependencies": {
+    "date-holidays": "^3",
+    "ics": "^3.7.2"
+  }
+}
