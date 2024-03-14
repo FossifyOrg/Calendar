@@ -192,9 +192,9 @@
     <string name="editing_calendar_failed">Editarea calendarului a eșuat</string>
     <string name="syncing">Se sincronizează…</string>
     <string name="synchronization_completed">Sincronizare completă</string>
-    <string name="select_a_different_caldav_color">Selectați o culoare diferită (poate fi aplicată doar local)</string>
-    <string name="insufficient_permissions">Nu aveți voie să scrieți în calendarul selectat</string>
-    <string name="caldav_event_not_found">Evenimentul nu a fost găsit. Activați sincronizarea CalDAV pentru calendarul corespunzător în setările aplicației.</string>
+    <string name="select_a_different_caldav_color">Selectează o culoare diferită (poate fi aplicată doar local)</string>
+    <string name="insufficient_permissions">Nu ai voie să scrii în calendarul selectat</string>
+    <string name="caldav_event_not_found">Evenimentul nu a fost găsit. Activează sincronizarea CalDAV pentru calendarul corespunzător în setările aplicației.</string>
     <string name="no_synchronized_calendars">Nu au fost găsite calendare care pot fi sincronizate</string>
     <string name="status_free">Liber</string>
     <string name="status_busy">Ocupat</string>
@@ -207,14 +207,14 @@
     <string name="saturday_alt">Sâmbătă</string>
     <string name="sunday_alt">Duminică</string>
     <string name="sample_title_1">Antrenament</string>
-    <string name="sample_description_1">Zi antrenament pentru picioare</string>
+    <string name="sample_description_1">Zi de plimbare</string>
     <string name="sample_title_2">Întâlnire cu Ion</string>
     <string name="sample_description_2">În grădina Rockstone</string>
     <string name="sample_title_3">Bibliotecă</string>
     <string name="sample_title_4">Prânz cu Maria</string>
     <string name="sample_description_4">În Plaza</string>
     <string name="sample_title_5">Timp pentru cafea</string>
-    <string name="show_events_happening">Afișați evenimentele care au loc:</string>
+    <string name="show_events_happening">Afișează evenimentele care au loc:</string>
     <string name="within_the_next_one_year">În următorul an</string>
     <string name="today_only">Doar astăzi</string>
     <string name="within_the_next">În următoarea…</string>
@@ -234,15 +234,15 @@
         <item quantity="other">În următoarele %d de luni</item>
     </plurals>
     <string name="faq_1_title">Cum pot elimina sărbătorile importate prin intermediul butonului \"Adaugă sărbători\"\?</string>
-    <string name="faq_1_text">Sărbătorile create îm felul acela sunt introduse într-un tip de event nou numit \"Sărbători\". Puteți să vă duceți în Setări -&gt; Gestionează tipurile de evenimente, apăsați lung tipul de eveniment dat și ștergeți-l selectând coșul de gunoi.</string>
+    <string name="faq_1_text">Sărbătorile create în felul acela sunt introduse într-un tip de event nou numit \"Sărbători\". Poți să accesezi Setări -&gt; Gestionează tipurile de evenimente, apasă lung tipul de eveniment dat și șterge-l selectând coșul de gunoi.</string>
     <string name="faq_2_title">Pot sincroniza evenimentele mele prin Google Calendar sau alt serviciu care acceptă CalDAV\?</string>
-    <string name="faq_2_text">Da, trebuie doar să comutați \"sincronizarea CalDAV\" în setările aplicației și să selectați calendarele pe care doriți să le sincronizați. Cu toate acestea, veți avea nevoie de o aplicație terță care se ocupă de sincronizarea dintre dispozitiv și servere. În cazul în care doriți să sincronizați un calendar Google, aplicația lor oficială Calendar va face sincronizarea. Pentru alte calendare, veți avea nevoie de un adaptor de sincronizare de la terți, de exemplu DAVx5.</string>
+    <string name="faq_2_text">Da, trebuie doar să comutezi \"sincronizarea CalDAV\" în setările aplicației și să selectezi calendarele pe care dorești să le sincronizezi. Cu toate acestea, vei avea nevoie de o aplicație terță care se ocupă de sincronizarea dintre dispozitiv și servere. În cazul în care dorești să sincronizezi un calendar Google, aplicația lor oficială Calendar va face sincronizarea. Pentru alte calendare, vei avea nevoie de un adaptor de sincronizare de la terți, de exemplu DAVx5.</string>
     <string name="faq_3_title">Văd reamintirile vizuale, dar nu aud niciun audio. Ce pot sa fac\?</string>
-    <string name="faq_3_text">Nu doar afișarea reamintirilor propriu-zise, dar și redarea audio este extrem de afectată de sistem. Dacă nu auziți niciun sunet, încercați să accesați setările aplicației, apăsând opțiunea \"Flux audio folosit de reamintiri\" și schimbați-o la o altă valoare. Dacă tot nu funcționează, verificați setările de sunet, dacă fluxul special nu este dezactivat.</string>
+    <string name="faq_3_text">Nu doar afișarea reamintirilor propriu-zise, dar și redarea audio este extrem de afectată de sistem. Dacă nu auzi niciun sunet, încearcă să accesezi setările aplicației, apăsând opțiunea \"Flux audio folosit de reamintiri\" și schimbă la o altă valoare. Dacă tot nu funcționează, verifică setările de sunet, dacă fluxul special nu este dezactivat.</string>
     <string name="faq_4_title">Aplicația acceptă fusuri orare\?</string>
     <string name="faq_4_text">Da, acceptă. În mod implicit, toate evenimentele sunt create în fusul orar curent. Dacă dorești să schimbi fusul orar al evenimentelor, mai întâi va trebui să activezi selectorul de fus orar din setările aplicației, apoi să-l schimba în ecranul Detalii despre eveniment. Acesta opțiune este dezactivată implicit, deoarece majoritatea oamenilor nu au nevoie de ea.</string>
     <string name="faq_5_title">Aplicația nu afișează nicio notificare, de ce se întâmplă asta\?</string>
-    <string name="faq_5_text">Verificați bateria dispozitivului și setările pentru notificări, dacă nu există nimic care să blocheze memento-urile sau dacă aplicația este oprită în fundal. De asemenea, ați putea să aruncați o privire la &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt; pentru câteva sfaturi utile.</string>
+    <string name="faq_5_text">Verifică bateria dispozitivului și setările pentru notificări, dacă nu există nimic care să blocheze memento-urile sau dacă aplicația este oprită în fundal. De asemenea, ai putea să arunci o privire la &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt; pentru câteva sfaturi utile.</string>
     <string name="faq_6_title">Cum pot modifica sau șterge un tip de eveniment existent\?</string>
     <string name="faq_6_text">Poți face ambele lucruri în setările aplicației - Gestionează tipurile de evenimente. Trebuie doar să apeși pe cel dorit pentru a schimba eticheta și culoarea sau selectează-l prin apăsare lungă și folosește coșul de gunoi din meniul de sus pentru a-l șterge.</string>
     <string name="export_past_entries">Exportă și intrările trecute</string>
@@ -253,7 +253,7 @@
     <string name="export_tasks">Exportare treburi</string>
     <string name="delete_all_events_and_tasks">Șterge toate evenimentele și treburile</string>
     <string name="caldav">CalDAV</string>
-    <string name="faq_2_title_extra">Poate chiar să partajați calendarele cu alți oameni?</string>
+    <string name="faq_2_title_extra">Poate chiar să partajezi calendarele cu alți oameni?</string>
     <string name="accessibility_previous_month">Mergi la luna anterioară</string>
     <string name="accessibility_next_month">Mergi la luna următoare</string>
     <string name="accessibility_previous_day">Mergi la ziua anterioară</string>
