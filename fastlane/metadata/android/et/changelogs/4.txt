@@ -1,0 +1,6 @@
+* Parandasime Google Pixel 8 Pro's esinenud kuuvaate vead.
+* Parandasime kuu- ja päevavaates sündmuste värvitäppide vead.
+* Parandasime ICS-failide impordil tekkinud ajavööndi vead.
+* Nädalate rõhutamine trükivaates.
+* Uuendasime mõnede maade pühasid.
+* Lisasime mõned tõlked.
