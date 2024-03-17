@@ -8,7 +8,7 @@ Hier ist, was Fossify Calendar anders macht:
 Deine Termine bleiben deine. Keine Werbung, kein Tracking, keine aufdringlichen Berechtigungen.
 
 ⏰ FLEXIBEL UND ANPASSBAR: 
-Gestalte Ereignisse präzise mit Zeiten, Dauer, Erinnerungen und erweiterten Wiederholungsregeln.
+Gestalte Termine präzise mit Zeiten, Dauer, Erinnerungen und erweiterten Wiederholungsregeln.
 
 🔄 NAHTLOSE SYNCHRONISIERUNG: 
 Synchronisiere mühelos mit Google Kalender, Outlook, Nextcloud, Exchange und mehr.
@@ -26,10 +26,10 @@ Plane deinen Tag mit Leichtigkeit, egal ob du ein vielbeschäftigter Berufstäti
 Verpasse nie wieder einen Geburtstag oder ein Jubiläum! Importiere ganz einfach Feiertage und besondere Daten.
 
 🔍 ANSICHTEN FILTERN: 
-Mit den Ereignisfiltern findest du schnell, wonach du suchst.
+Mit den Terminfiltern findest du schnell, wonach du suchst.
 
 📆 MEHRERE ANSICHTEN: 
-Wechsle mühelos zwischen Tages-, Wochen-, Monats-, Jahres- und Ereignisansichten.
+Wechsle mühelos zwischen Tages-, Wochen-, Monats-, Jahres- und Terminansichten.
 
 ✨ ELEGANZ IM MATERIAL DESIGN: 
 Genieße eine intuitive und benutzerfreundliche Oberfläche mit dynamischen Farbschemas.

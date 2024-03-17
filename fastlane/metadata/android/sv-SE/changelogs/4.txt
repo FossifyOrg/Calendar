@@ -1,0 +1,6 @@
+* Åtgärdade månadsvy på Google Puixel Pro 8.
+* Åtgärdade händelsefärgpunker för månads och dagsvy.
+* Åtgärdade fel tidzon vid import av ICS-filer.
+* Markerar hveckoslut i utskriftsläge.
+* Updaterade helgdagar för några länder.
+* Lade till överstättningar.
