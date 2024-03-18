@@ -1,0 +1,6 @@
+* Opraven problém se zobrazením měsíce na zařízení Google Pixel 8 Pro.
+* Opraveny barevné body událostí v měsíčním a denním zobrazení.
+* Opraveno nesprávné časové pásmo při importu souborů ICS.
+* Zvýraznění víkendů v režimu tisku.
+* Aktualizovány svátky pro některé země.
+* Přidány některé překlady.
