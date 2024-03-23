@@ -4,14 +4,18 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
+import org.fossify.calendar.R
 import org.fossify.calendar.databinding.MonthViewBackgroundBinding
 import org.fossify.calendar.databinding.MonthViewBinding
 import org.fossify.calendar.extensions.config
-import org.fossify.calendar.helpers.COLUMN_COUNT
-import org.fossify.calendar.helpers.Formatter
-import org.fossify.calendar.helpers.ROW_COUNT
+import org.fossify.calendar.extensions.launchNewEventIntent
+import org.fossify.calendar.extensions.launchNewTaskIntent
+import org.fossify.calendar.helpers.*
 import org.fossify.calendar.models.DayMonthly
+import org.fossify.commons.compose.extensions.getActivity
+import org.fossify.commons.dialogs.RadioGroupDialog
 import org.fossify.commons.extensions.onGlobalLayout
+import org.fossify.commons.models.RadioItem
 
 // used in the Monthly view fragment, 1 view per screen
 class MonthViewWrapper(context: Context, attrs: AttributeSet, defStyle: Int) : FrameLayout(context, attrs, defStyle) {
@@ -136,6 +140,27 @@ class MonthViewWrapper(context: Context, attrs: AttributeSet, defStyle: Int) : F
                 if (isMonthDayView) {
                     binding.monthView.updateCurrentlySelectedDay(viewX, viewY)
                 }
+            }
+
+            setOnLongClickListener{
+                if (context.config.allowCreatingTasks) {
+                    val items = arrayListOf(
+                        RadioItem(TYPE_EVENT, context.getString(R.string.event)),
+                        RadioItem(TYPE_TASK, context.getString(R.string.task))
+                    )
+
+                    RadioGroupDialog(context.getActivity(), items) {
+                        if (it == TYPE_EVENT) {
+                            context.launchNewEventIntent(day.code)
+                        } else {
+                            context.launchNewTaskIntent(day.code)
+                        }
+                    }
+                }
+                else{
+                    context.launchNewEventIntent(day.code)
+                }
+                true
             }
 
             addView(this)
