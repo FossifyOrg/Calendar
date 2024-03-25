@@ -15,13 +15,20 @@ import org.fossify.calendar.extensions.getWidgetFontSize
 import org.fossify.calendar.extensions.launchNewEventOrTaskActivity
 import org.fossify.calendar.extensions.widgetsDB
 import org.fossify.calendar.services.WidgetService
-import org.fossify.calendar.services.WidgetServiceEmpty
 import org.fossify.commons.extensions.applyColorFilter
 import org.fossify.commons.extensions.getColoredBitmap
 import org.fossify.commons.extensions.getLaunchIntent
 import org.fossify.commons.extensions.setTextSize
 import org.fossify.commons.helpers.ensureBackgroundThread
 import org.joda.time.DateTime
+import kotlinx.coroutines.launch
+import org.fossify.calendar.models.Event as FossifyEvent
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+
+import org.fossify.calendar.databases.EventsDatabase
+import org.joda.time.LocalTime
 
 class MyWidgetListProvider : AppWidgetProvider() {
     private val NEW_EVENT = "new_event"
@@ -116,19 +123,57 @@ class MyWidgetListProvider : AppWidgetProvider() {
         }
     }
 
-    // hacky solution for reseting the events list
+    private val widgetUpdateScope = CoroutineScope(Dispatchers.Main)
+
+    private var cachedEvents: List<FossifyEvent>? = null
+
+    private fun getCachedEvents(context: Context): List<FossifyEvent> {
+        if (cachedEvents == null) {
+            cachedEvents = EventsDatabase.getInstance(context).EventsDao().getAllEvents()
+        }
+        return cachedEvents ?: emptyList()
+    }
+
+    private fun updateWidgetData(context: Context, appWidgetManager: AppWidgetManager, widgetId: Int) {
+        widgetUpdateScope.launch(Dispatchers.IO) {
+            val eventsList: List<FossifyEvent> = getCachedEvents(context)
+            withContext(Dispatchers.Main) {
+                val now = DateTime.now()
+                var yesterdayEventCount = 0
+
+                val limitedEvents = eventsList
+                    .filter { isEqualToYesterday(it.startTS) }
+                    .take(100)
+                    .sortedBy { it.startTS }
+
+                limitedEvents.forEach { event ->
+                    val eventDateTime = DateTime(event.startTS * 1000L).toLocalTime()
+                    val isAfterNowOrMidnight = eventDateTime.isAfter(now.toLocalTime()) || !event.getIsAllDay()
+                    if (isAfterNowOrMidnight) {
+                        yesterdayEventCount += 1
+                    }
+                }
+                if(yesterdayEventCount != 0) {
+                    yesterdayEventCount += 1
+                }
+                val views = RemoteViews(context.packageName, R.layout.widget_event_list)
+                views.setScrollPosition(R.id.widget_event_list, yesterdayEventCount)
+                appWidgetManager.updateAppWidget(widgetId, views)
+            }
+        }
+    }
+    private fun isEqualToYesterday(timestamp: Long): Boolean {
+        val now = DateTime.now().withTimeAtStartOfDay()
+        val eventDateTime = DateTime(timestamp * 1000L).withTimeAtStartOfDay()
+        val yesterday = now.minusDays(1)
+        return eventDateTime.isEqual(yesterday)
+    }
     private fun goToToday(context: Context) {
         val appWidgetManager = AppWidgetManager.getInstance(context) ?: return
-        appWidgetManager.getAppWidgetIds(getComponentName(context)).forEach {
-            val views = RemoteViews(context.packageName, R.layout.widget_event_list)
-            Intent(context, WidgetServiceEmpty::class.java).apply {
-                data = Uri.parse(this.toUri(Intent.URI_INTENT_SCHEME))
-                views.setRemoteAdapter(R.id.widget_event_list, this)
-            }
-
-            appWidgetManager.updateAppWidget(it, views)
+        val widgetIds = appWidgetManager.getAppWidgetIds(getComponentName(context))
+        widgetIds.forEach { widgetId ->
+            updateWidgetData(context, appWidgetManager, widgetId)
         }
-
         performUpdate(context)
     }
 }
