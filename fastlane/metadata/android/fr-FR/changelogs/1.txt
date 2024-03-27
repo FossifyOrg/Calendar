@@ -1,1 +1,1 @@
-* Version initiale.
+* Première version.
