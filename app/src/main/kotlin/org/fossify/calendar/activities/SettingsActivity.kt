@@ -638,6 +638,8 @@ class SettingsActivity : SimpleActivity() {
         binding.settingsDisplayPastEventsHolder.setOnClickListener {
             CustomIntervalPickerDialog(this, displayPastEvents * 60) {
                 val result = it / 60
+                val widget = MyWidgetListProvider()
+                widget.DisplayPastEvents(result)
                 displayPastEvents = result
                 config.displayPastEvents = result
                 updatePastEventsText(result)
