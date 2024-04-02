@@ -164,7 +164,7 @@ class MyWidgetListProvider : AppWidgetProvider() {
                     }
                 }
                 if (yesterdayEventCount != 0) {
-                    yesterdayEventCount += 1
+                    yesterdayEventCount += 3
                 }
                 val views = RemoteViews(context.packageName, R.layout.widget_event_list)
                 views.setScrollPosition(R.id.widget_event_list, yesterdayEventCount)
