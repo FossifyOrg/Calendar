@@ -178,13 +178,7 @@ class MyWidgetListProvider : AppWidgetProvider() {
     fun DisplayPastEvents(value: Int) {
         DisplayPastEvents.result = value;
     }
-    private fun isEqualToYesterday(timestamp: Long): Boolean {
-        val now = DateTime.now().withTimeAtStartOfDay()
-        val eventDateTime = DateTime(timestamp * 1000L).withTimeAtStartOfDay()
-        val yesterday = now.minusDays(1)
-        return eventDateTime.isEqual(yesterday)
-    }
-
+    
     private fun goToToday(context: Context) {
         val appWidgetManager = AppWidgetManager.getInstance(context) ?: return
         val widgetIds = appWidgetManager.getAppWidgetIds(getComponentName(context))
