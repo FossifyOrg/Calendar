@@ -98,7 +98,7 @@ class EventListWidgetAdapter(val context: Context, val intent: Intent) : RemoteV
                 setText(R.id.event_item_time, "$timeText\n$descriptionText")
             }
 
-            if (item.isTask && item.isTaskCompleted && dimCompletedTasks || dimPastEvents && item.isPastEvent) {
+            if (item.isTask && item.isTaskCompleted && dimCompletedTasks || dimPastEvents && item.isPastEvent && !item.isTask) {
                 curTextColor = weakTextColor
             }
 
