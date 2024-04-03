@@ -5,6 +5,7 @@ import android.content.ContentUris
 import android.content.ContentValues
 import android.content.Context
 import android.graphics.Color
+import android.provider.CalendarContract
 import android.provider.CalendarContract.*
 import android.widget.Toast
 import org.fossify.calendar.R
@@ -421,7 +422,7 @@ class CalDAVHelper(val context: Context) {
             put(Events.TITLE, event.title)
             put(Events.DESCRIPTION, event.description)
             put(Events.EVENT_LOCATION, event.location)
-            put(Events.STATUS, Events.STATUS_CONFIRMED)
+            put(Events.STATUS, event.status)
             put(Events.AVAILABILITY, event.availability)
 
             if (event.color == 0) {

@@ -149,7 +149,7 @@ class IcsExporter(private val context: Context) {
             writeLn("$MISSING_YEAR${if (event.hasMissingYear()) 1 else 0}")
 
             writeLn("$DTSTAMP$exportTime")
-            writeLn("$STATUS$CONFIRMED")
+            writeLn("$STATUS$CONFIRMED") // TODO real status
             Parser().getRepeatCode(event).let { if (it.isNotEmpty()) writeLn("$RRULE$it") }
 
             fillDescription(event.description.replace("\n", "\\n"), writer)

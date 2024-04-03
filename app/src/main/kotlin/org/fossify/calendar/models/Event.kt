@@ -1,5 +1,6 @@
 package org.fossify.calendar.models
 
+import android.provider.CalendarContract
 import android.provider.CalendarContract.Attendees
 import androidx.collection.LongSparseArray
 import androidx.room.ColumnInfo
@@ -41,7 +42,8 @@ data class Event(
     @ColumnInfo(name = "source") var source: String = SOURCE_SIMPLE_CALENDAR,
     @ColumnInfo(name = "availability") var availability: Int = 0,
     @ColumnInfo(name = "color") var color: Int = 0,
-    @ColumnInfo(name = "type") var type: Int = TYPE_EVENT
+    @ColumnInfo(name = "type") var type: Int = TYPE_EVENT,
+    @ColumnInfo(name = "status") var status: Int = CalendarContract.Events.STATUS_CONFIRMED,
 ) : Serializable {
 
     companion object {
