@@ -177,6 +177,12 @@ class IcsImporter(val activity: SimpleActivity) {
                     } else if (line.startsWith(STATUS)) {
                         if (isParsingTask && line.substring(STATUS.length) == COMPLETED) {
                             curFlags = curFlags or FLAG_TASK_COMPLETED
+                        } else {
+                            curStatus = when (line.substring(STATUS.length)) {
+                                Events.STATUS_CONFIRMED.toString() -> Events.STATUS_CONFIRMED
+                                Events.STATUS_CANCELED.toString() -> Events.STATUS_CANCELED
+                                else -> Events.STATUS_TENTATIVE
+                            }
                         }
                     } else if (line.startsWith(COMPLETED)) {
                         if (isParsingTask && line.substring(COMPLETED.length).trim().isNotEmpty()) {
@@ -212,14 +218,6 @@ class IcsImporter(val activity: SimpleActivity) {
                         isSequence = true
                     } else if (line.startsWith(TRANSP)) {
                         line.substring(TRANSP.length).let { curAvailability = if (it == TRANSPARENT) Events.AVAILABILITY_FREE else Events.AVAILABILITY_BUSY }
-                    } else if (line.startsWith(STATUS)) {
-                        line.substring(STATUS.length).let {
-                            curStatus = when (it) {
-                                Events.STATUS_CONFIRMED.toString() -> Events.STATUS_CONFIRMED
-                                Events.STATUS_CANCELED.toString() -> Events.STATUS_CANCELED
-                                else -> Events.STATUS_TENTATIVE
-                            }
-                        }
                     } else if (line.trim() == BEGIN_ALARM) {
                         isNotificationDescription = true
                     } else if (line.trim() == END_ALARM) {
