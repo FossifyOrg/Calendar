@@ -216,4 +216,8 @@ data class Event(
     fun isAttendeeInviteDeclined() = attendees.any {
         it.isMe && it.status == Attendees.ATTENDEE_STATUS_DECLINED
     }
+
+    fun isEventCanceled(): Boolean {
+        return status == CalendarContract.Events.STATUS_CANCELED
+    }
 }
