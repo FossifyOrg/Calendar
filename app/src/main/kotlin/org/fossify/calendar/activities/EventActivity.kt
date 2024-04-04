@@ -1031,11 +1031,11 @@ class EventActivity : SimpleActivity() {
 
     private fun updateStatusImage() {
         val drawable = when (mStatus) {
-            CalendarContract.Events.STATUS_CONFIRMED -> R.drawable.ic_check_green
-            CalendarContract.Events.STATUS_CANCELED -> R.drawable.ic_cross_red
-            else -> R.drawable.ic_question_yellow
+            CalendarContract.Events.STATUS_CONFIRMED -> R.drawable.ic_event_available_vector
+            CalendarContract.Events.STATUS_CANCELED -> R.drawable.ic_event_busy_vector
+            else -> R.drawable.ic_event_tentative_vector
         }
-        val icon = resources.getDrawable(drawable)
+        val icon = resources.getColoredDrawableWithColor(drawable, getProperTextColor())
         binding.eventStatusImage.setImageDrawable(icon)
     }
 
