@@ -179,8 +179,8 @@ class IcsImporter(val activity: SimpleActivity) {
                             curFlags = curFlags or FLAG_TASK_COMPLETED
                         } else {
                             curStatus = when (line.substring(STATUS.length)) {
-                                Events.STATUS_CONFIRMED.toString() -> Events.STATUS_CONFIRMED
-                                Events.STATUS_CANCELED.toString() -> Events.STATUS_CANCELED
+                                CONFIRMED -> Events.STATUS_CONFIRMED
+                                CANCELLED -> Events.STATUS_CANCELED
                                 else -> Events.STATUS_TENTATIVE
                             }
                         }

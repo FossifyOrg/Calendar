@@ -268,6 +268,10 @@ const val EVENT_CALENDAR_ID = "EVENT_CALENDAR_ID"
 const val IS_NEW_EVENT = "IS_NEW_EVENT"
 const val EVENT_COLOR = "EVENT_COLOR"
 
+// From Status attribute (RFC 5545 3.8.1.11)
+const val CANCELLED = "CANCELLED"
+const val TENTATIVE = "TENTATIVE"
+
 // actions
 const val ACTION_MARK_COMPLETED = "ACTION_MARK_COMPLETED"
 
