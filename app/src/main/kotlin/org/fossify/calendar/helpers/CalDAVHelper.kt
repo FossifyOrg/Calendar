@@ -243,7 +243,7 @@ class CalDAVHelper(val context: Context) {
                 reminder1?.type ?: REMINDER_NOTIFICATION, reminder2?.type ?: REMINDER_NOTIFICATION,
                 reminder3?.type ?: REMINDER_NOTIFICATION, repeatRule.repeatInterval, repeatRule.repeatRule,
                 repeatRule.repeatLimit, ArrayList(), attendees, importId, eventTimeZone, allDay, eventTypeId,
-                source = source, availability = availability, color = displayColor
+                source = source, availability = availability, color = displayColor, status = status
             )
 
             if (event.getIsAllDay()) {
