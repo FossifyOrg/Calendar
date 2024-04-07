@@ -172,7 +172,7 @@
     <string name="alarm_stream">Alarma</string>
     <string name="notification_stream">Jakinarazpena</string>
     <string name="ring_stream">Jo tonua</string>
-    <string name="use_last_event_reminders">Erabili aurreko gertaeren abisuak gertaera berrien lehenetsitako gisa</string>
+    <string name="use_last_event_reminders">Erabili azken gertaeraren abisuak gertaera berrien lehenetsitako gisa</string>
     <string name="default_reminder_1">Lehenetsitako abisua 1</string>
     <string name="default_reminder_2">Lehenetsitako abisua 2</string>
     <string name="default_reminder_3">Lehenetsitako abisua 3</string>
@@ -244,7 +244,7 @@
     <string name="faq_3_title">Abisu bisualak ikusten ditut, baina audiorik ez dut entzuten. Zer egin dezaket\?</string>
     <string name="faq_3_text">Abisua bistaratzeari eta audioa erreproduzitzeari sistemak eragiten dio. Soinurik ez baduzu entzuten, saiatu aplikazioaren ezarpenetara joaten, \"Abisuek erabilitako audio-transmisioa\" aukera sakatu eta balio ezberdina jarri. Oraindik ez badabil, egiaztatu soinu-ezarpenak, transmisio jakina mututua ez badago.</string>
     <string name="faq_4_title">Aplikazioak ordu-zonak onartzen ditu\?</string>
-    <string name="faq_4_text">Bai, onartzen ditu. Gertaera guztiak zure ordu-zonaren arabera sortzen dira modu lehenetsian. Gertaera baten ordu-zona aldatu nahi baduzu, lehenengo ordu-zonaren hautatzailea gaitu behar duzu aplikazioaren ezarpenetan eta, ondoren, Gartaeraren xehetasunen pantailan aldatu. Modu lehenetsian desgaituta dago, jende gehienak ez duelako behar.</string>
+    <string name="faq_4_text">Bai, onartzen ditu. Gertaera guztiak zure ordu-zonaren arabera sortzen dira modu lehenetsian. Gertaera baten ordu-zona aldatu nahi baduzu, lehenengo ordu-zonaren hautatzailea gaitu behar duzu aplikazioaren ezarpenetan eta, ondoren, gertaeraren xehetasunen pantailan aldatu. Modu lehenetsian desgaituta dago, jende gehienak ez duelako behar.</string>
     <string name="faq_5_title">Aplikazioak ez du jakinarazpenik erakusten, zergatik\?</string>
     <string name="faq_5_text">Egiaztatu gailuaren bateria eta jakinarazpenen ezarpenak, egiaztatu abisuak ez daudela blokeatuta edo aplikazioa bigarren planoan exekutatzea galarazten duen ezer ez dagoela. Baliteke &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt; helbidera ere begiratu nahi izatea, aholku erabilgarriak ditu.</string>
     <string name="faq_6_title">Nola aldatu edo ezabatu dezaket lehendik dagoen gertaera mota bat\?</string>
