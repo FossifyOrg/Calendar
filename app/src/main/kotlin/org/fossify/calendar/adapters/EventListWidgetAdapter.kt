@@ -237,7 +237,8 @@ class EventListWidgetAdapter(val context: Context, val intent: Intent) : RemoteV
                     isTask = event.isTask(),
                     isTaskCompleted = event.isTaskCompleted(),
                     isAttendeeInviteDeclined = event.isAttendeeInviteDeclined(),
-                    isEventCanceled = event.isEventCanceled()
+                    isEventCanceled = event.isEventCanceled(),
+                    isEventTentative = event.isEventTentative()
                 )
                 listItems.add(listEvent)
             }
