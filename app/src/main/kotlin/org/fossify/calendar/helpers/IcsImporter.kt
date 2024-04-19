@@ -1,6 +1,8 @@
 package org.fossify.calendar.helpers
 
+import android.provider.CalendarContract
 import android.provider.CalendarContract.Events
+import org.fossify.calendar.R
 import org.fossify.calendar.activities.SimpleActivity
 import org.fossify.calendar.extensions.eventsDB
 import org.fossify.calendar.extensions.eventsHelper
@@ -44,6 +46,7 @@ class IcsImporter(val activity: SimpleActivity) {
     private var curLastModified = 0L
     private var curCategoryColor = -2
     private var curAvailability = Events.AVAILABILITY_BUSY
+    private var curStatus = Events.STATUS_CONFIRMED
     private var isNotificationDescription = false
     private var isProperReminderAction = false
     private var isSequence = false
@@ -174,6 +177,12 @@ class IcsImporter(val activity: SimpleActivity) {
                     } else if (line.startsWith(STATUS)) {
                         if (isParsingTask && line.substring(STATUS.length) == COMPLETED) {
                             curFlags = curFlags or FLAG_TASK_COMPLETED
+                        } else {
+                            curStatus = when (line.substring(STATUS.length)) {
+                                CONFIRMED -> Events.STATUS_CONFIRMED
+                                CANCELLED -> Events.STATUS_CANCELED
+                                else -> Events.STATUS_TENTATIVE
+                            }
                         }
                     } else if (line.startsWith(COMPLETED)) {
                         if (isParsingTask && line.substring(COMPLETED.length).trim().isNotEmpty()) {
@@ -274,7 +283,8 @@ class IcsImporter(val activity: SimpleActivity) {
                             curLastModified,
                             source,
                             curAvailability,
-                            type = curType
+                            type = curType,
+                            status = curStatus
                         )
 
                         if (isAllDay && curEnd > curStart && !event.isTask()) {
