@@ -183,10 +183,10 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(USE_PREVIOUS_EVENT_REMINDERS, true)
         set(usePreviousEventReminders) = prefs.edit().putBoolean(USE_PREVIOUS_EVENT_REMINDERS, usePreviousEventReminders).apply()
 
-    fun getDefault(reminder: String): Int {
+    fun getDefault(reminder: String, defValue: Int): Int {
         val hasPermission = ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED
         if (hasPermission) {
-            return prefs.getInt(reminder, 10)
+            return prefs.getInt(reminder, defValue)
         } else {
             return REMINDER_OFF
         }
@@ -202,15 +202,15 @@ class Config(context: Context) : BaseConfig(context) {
         }
 
     var defaultReminder1: Int
-        get() = getDefault(DEFAULT_REMINDER_1)
+        get() = getDefault(DEFAULT_REMINDER_1, 10)
         set(defaultReminder1) = prefs.edit().putInt(DEFAULT_REMINDER_1, defaultReminder1).apply()
 
     var defaultReminder2: Int
-        get() = getDefault(DEFAULT_REMINDER_2)
+        get() = getDefault(DEFAULT_REMINDER_2, REMINDER_OFF)
         set(defaultReminder2) = prefs.edit().putInt(DEFAULT_REMINDER_2, defaultReminder2).apply()
 
     var defaultReminder3: Int
-        get() = getDefault(DEFAULT_REMINDER_3)
+        get() = getDefault(DEFAULT_REMINDER_3, REMINDER_OFF)
         set(defaultReminder3) = prefs.edit().putInt(DEFAULT_REMINDER_3, defaultReminder3).apply()
 
     var pullToRefresh: Boolean
