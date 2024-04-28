@@ -1,8 +1,11 @@
 package org.fossify.calendar.helpers
 
+import android.Manifest
 import android.content.Context
+import android.content.pm.PackageManager
 import android.media.AudioManager
 import android.media.RingtoneManager
+import androidx.core.content.ContextCompat
 import org.fossify.calendar.R
 import org.fossify.calendar.extensions.config
 import org.fossify.calendar.extensions.scheduleCalDAVSync
@@ -180,16 +183,25 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(USE_PREVIOUS_EVENT_REMINDERS, true)
         set(usePreviousEventReminders) = prefs.edit().putBoolean(USE_PREVIOUS_EVENT_REMINDERS, usePreviousEventReminders).apply()
 
+    fun getDefault(reminder: String): Int {
+        val hasPermission = ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED
+        if (hasPermission) {
+            return prefs.getInt(reminder, 10)
+        } else {
+            return REMINDER_OFF
+        }
+    }
+
     var defaultReminder1: Int
-        get() = prefs.getInt(DEFAULT_REMINDER_1, 10)
+        get() = getDefault(DEFAULT_REMINDER_1)
         set(defaultReminder1) = prefs.edit().putInt(DEFAULT_REMINDER_1, defaultReminder1).apply()
 
     var defaultReminder2: Int
-        get() = prefs.getInt(DEFAULT_REMINDER_2, REMINDER_OFF)
+        get() = getDefault(DEFAULT_REMINDER_2)
         set(defaultReminder2) = prefs.edit().putInt(DEFAULT_REMINDER_2, defaultReminder2).apply()
 
     var defaultReminder3: Int
-        get() = prefs.getInt(DEFAULT_REMINDER_3, REMINDER_OFF)
+        get() = getDefault(DEFAULT_REMINDER_3)
         set(defaultReminder3) = prefs.edit().putInt(DEFAULT_REMINDER_3, defaultReminder3).apply()
 
     var pullToRefresh: Boolean
