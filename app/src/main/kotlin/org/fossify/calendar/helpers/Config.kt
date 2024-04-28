@@ -192,6 +192,15 @@ class Config(context: Context) : BaseConfig(context) {
         }
     }
 
+    val defaultReminders: Triple<Int, Int, Int>
+        get() {
+            val hasPermission = ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED
+            val defaultRem1 = if (hasPermission && usePreviousEventReminders && lastEventReminderMinutes1 >= -1) lastEventReminderMinutes1 else defaultReminder1
+            val defaultRem2 = if (hasPermission && usePreviousEventReminders && lastEventReminderMinutes1 >= -1) lastEventReminderMinutes2 else defaultReminder2
+            val defaultRem3 = if (hasPermission && usePreviousEventReminders && lastEventReminderMinutes1 >= -1) lastEventReminderMinutes3 else defaultReminder3
+            return Triple(defaultRem1, defaultRem2, defaultRem3)
+        }
+
     var defaultReminder1: Int
         get() = getDefault(DEFAULT_REMINDER_1)
         set(defaultReminder1) = prefs.edit().putInt(DEFAULT_REMINDER_1, defaultReminder1).apply()

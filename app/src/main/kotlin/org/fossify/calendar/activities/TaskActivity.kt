@@ -241,14 +241,11 @@ class TaskActivity : SimpleActivity() {
             }
         } else {
             mTask = Event(null)
-            val hasPermission = checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED
             config.apply {
-                mReminder1Minutes =
-                    if (hasPermission && usePreviousEventReminders && lastEventReminderMinutes1 >= -1) lastEventReminderMinutes1 else defaultReminder1
-                mReminder2Minutes =
-                    if (hasPermission && usePreviousEventReminders && lastEventReminderMinutes2 >= -1) lastEventReminderMinutes2 else defaultReminder2
-                mReminder3Minutes =
-                    if (hasPermission && usePreviousEventReminders && lastEventReminderMinutes3 >= -1) lastEventReminderMinutes3 else defaultReminder3
+                val reminders = defaultReminders
+                mReminder1Minutes = reminders.first
+                mReminder2Minutes = reminders.second
+                mReminder3Minutes = reminders.third
             }
 
             if (savedInstanceState == null) {
