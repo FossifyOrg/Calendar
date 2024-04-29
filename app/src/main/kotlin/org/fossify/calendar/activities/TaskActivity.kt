@@ -1,8 +1,10 @@
 package org.fossify.calendar.activities
 
+import android.Manifest
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Color
 import android.os.Bundle
 import android.view.WindowManager
@@ -240,9 +242,10 @@ class TaskActivity : SimpleActivity() {
         } else {
             mTask = Event(null)
             config.apply {
-                mReminder1Minutes = if (usePreviousEventReminders && lastEventReminderMinutes1 >= -1) lastEventReminderMinutes1 else defaultReminder1
-                mReminder2Minutes = if (usePreviousEventReminders && lastEventReminderMinutes2 >= -1) lastEventReminderMinutes2 else defaultReminder2
-                mReminder3Minutes = if (usePreviousEventReminders && lastEventReminderMinutes3 >= -1) lastEventReminderMinutes3 else defaultReminder3
+                val reminders = defaultReminders
+                mReminder1Minutes = reminders.first
+                mReminder2Minutes = reminders.second
+                mReminder3Minutes = reminders.third
             }
 
             if (savedInstanceState == null) {
