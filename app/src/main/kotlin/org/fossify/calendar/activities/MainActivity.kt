@@ -145,6 +145,8 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
         addImportIdsToTasks {
             refreshViewPager()
         }
+
+        handlePermission(PERMISSION_POST_NOTIFICATIONS) {}
     }
 
     override fun onResume() {
