@@ -97,11 +97,11 @@ interface EventsDao {
     @Query("SELECT id FROM events WHERE import_id LIKE :importId AND type = $TYPE_EVENT")
     fun getEventIdWithLastImportId(importId: String): Long?
 
-    @Query("SELECT id FROM events WHERE event_type = :eventTypeId AND type = $TYPE_EVENT")
-    fun getEventIdsByEventType(eventTypeId: Long): List<Long>
+    @Query("SELECT id FROM events WHERE event_type = :eventTypeId")
+    fun getEventAndTasksIdsByEventType(eventTypeId: Long): List<Long>
 
-    @Query("SELECT id FROM events WHERE event_type IN (:eventTypeIds) AND type = $TYPE_EVENT")
-    fun getEventIdsByEventType(eventTypeIds: List<Long>): List<Long>
+    @Query("SELECT id FROM events WHERE event_type IN (:eventTypeIds)")
+    fun getEventAndTasksIdsByEventType(eventTypeIds: List<Long>): List<Long>
 
     @Query("SELECT id FROM events WHERE parent_id IN (:parentIds)")
     fun getEventIdsWithParentIds(parentIds: List<Long>): List<Long>
@@ -109,8 +109,8 @@ interface EventsDao {
     @Query("SELECT id FROM events WHERE source = :source AND import_id != \"\" AND type = $TYPE_EVENT")
     fun getCalDAVCalendarEvents(source: String): List<Long>
 
-    @Query("UPDATE events SET event_type = $REGULAR_EVENT_TYPE_ID WHERE event_type = :eventTypeId AND type = $TYPE_EVENT")
-    fun resetEventsWithType(eventTypeId: Long)
+    @Query("UPDATE events SET event_type = $REGULAR_EVENT_TYPE_ID WHERE event_type = :eventTypeId")
+    fun resetEventsAndTasksWithType(eventTypeId: Long)
 
     @Query("UPDATE events SET import_id = :importId, source = :source WHERE id = :id AND type = $TYPE_EVENT")
     fun updateEventImportIdAndSource(importId: String, source: String, id: Long)
