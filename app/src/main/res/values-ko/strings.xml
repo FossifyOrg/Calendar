@@ -47,7 +47,7 @@
     <string name="repeat_forever">영원히 반복</string>
     <string name="times">번</string>
     <string name="repeat">반복</string>
-    <string name="repeat_on">특정요일 반복</string>
+    <string name="repeat_on">특정 요일 반복</string>
     <string name="selected_days">선택한 요일에</string>
     <string name="the_same_day">같은 날</string>
     <string name="the_last_day">마지막 날</string>
@@ -158,7 +158,7 @@
     <string name="last_used_one">마지막으로 사용한 것</string>
     <string name="other_time">다른 시간</string>
     <string name="highlight_weekends">화면에서 주말 표시</string>
-    <string name="allow_changing_time_zones">이벤트 시간대 변경 허용</string>
+    <string name="allow_changing_time_zones">일정 시간대 변경 허용</string>
     <string name="select_caldav_calendars">동기화 할 캘린더 선택</string>
     <string name="manage_synced_calendars">동기화된 캘린더 관리</string>
     <string name="store_locally_only">로컬에만 저장</string>
@@ -221,7 +221,7 @@
     <string name="faq_6_title">일정 유형을 바꾸거나 없애려면 어떻게 해야하나요?</string>
     <string name="accessibility_next_day">다음 일로 이동</string>
     <string name="within_the_next">다음 안에…</string>
-    <string name="widget_todays_date">오늘 날짜 달력</string>
+    <string name="widget_todays_date">오늘 달력</string>
     <string name="add_anniversaries_automatically">새로운 기념일 자동 추가</string>
     <string name="accessibility_previous_month">이전 월로 이동</string>
     <string name="accessibility_next_month">다음 월로 이동</string>
@@ -231,7 +231,7 @@
     <string name="export_past_entries">과거 항목 포함 내보내기</string>
     <string name="accessibility_previous_day">이전 일로 이동</string>
     <string name="no_upcoming_events">예정된 일정이 없습니다.</string>
-    <string name="default_calendar_color">기본 달력 색상</string>
+    <string name="default_calendar_color">기본 캘린더 색상</string>
     <string name="new_task">새 할 일</string>
     <string name="create_new_task">새 할 일 생성</string>
     <string name="mark_completed">완료 표시</string>
@@ -246,4 +246,12 @@
     <string name="show_events_happening">현재 일정 표시:</string>
     <string name="within_the_next_one_year">다음 1년 안에</string>
     <string name="today_only">오늘만</string>
+    <string name="manage_quick_filter_event_types">일정 유형 빠른 필터 관리</string>
+    <string name="faq_2_title_extra">다른 사람들과 캘린더를 공유할 수 있나요?</string>
+    <string name="faq_4_title">엡에서 시간대를 지원하나요?</string>
+    <string name="faq_5_title">앱에 알림이 표시되지 않는데 왜 그런가요?</string>
+    <string name="midnight_spanning">자정에 걸쳐 진행되는 이벤트 상단 바에 표시하기</string>
+    <string name="faq_4_text">네, 그렇습니다. 기본적으로 모든 일정은 현재 시간대에 생성됩니다. 일정의 시간대를 변경하려면 먼저 앱 설정에서 일정 시간대 변경 허용를 활성화한 다음 일정 세부정보 화면에서 시간대를 변경해야 합니다. 대부분의 사람들은 이 기능이 필요하지 않으므로 기본적으로 비활성화되어 있습니다.</string>
+    <string name="faq_5_text">알림을 차단하거나 백그라운드에서 앱을 종료하는 것이 없는지 디바이스 배터리 및 알림 설정을 확인 해보세요. 추가적으로 &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;에서 유용한 팁을 확인할 수 있습니다.</string>
+    <string name="faq_6_text">두 기능 모두 앱 설정 - 일정 유형 관리에서 확인할 수 있습니다. 원하는 일정 유형을 클릭하여 라벨과 색상을 변경하거나, 길게 눌러 선택 후 상단 메뉴의 휴지통을 사용해 삭제할 수 있습니다.</string>
 </resources>
