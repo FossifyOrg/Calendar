@@ -1,0 +1,6 @@
+* Hilabete-ikustearen arazoa konpondu da Google Pixel 8 Pro-n.
+* Gertaeren koloreko puntuak konpondu dira hileroko eta eguneroko ikuspegian.
+* Ordu-zona okerra konpondu da ICS fitxategiak inportatzean.
+* Nabarmendu asteburuak inprimatzeko moduan.
+* Herrialde batzuetarako jai egunak eguneratuak.
+* Itzulpen batzuk gehitu dira.

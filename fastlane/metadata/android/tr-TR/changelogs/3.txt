@@ -1,0 +1,2 @@
+* Basit Takvim ile içe aktarma uyumluluğu düzeltildi.
+* Foss lezzet yapılandırması düzeltildi.

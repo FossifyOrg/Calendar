@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_launcher_name">Calendário Fossify</string>
+    <string name="app_launcher_name">Calendário</string>
     <string name="change_view">Alterar visualização</string>
     <string name="daily_view">Visualização diária</string>
     <string name="weekly_view">Visualização semanal</string>
@@ -259,4 +259,5 @@
     <string name="accessibility_previous_month">Ir para o mês anterior</string>
     <string name="accessibility_previous_day">Ir para o dia anterior</string>
     <string name="accessibility_next_day">Ir para o próximo dia</string>
+    <string name="caldav">CalDAV</string>
 </resources>
