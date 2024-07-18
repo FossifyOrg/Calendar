@@ -1,0 +1,2 @@
+* Memperbaiki kompatibilitas impor file dari Kalender Simpel.
+* Memperbaiki konfigurasi nuansa FOSS.
