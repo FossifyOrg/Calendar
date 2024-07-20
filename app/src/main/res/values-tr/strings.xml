@@ -47,7 +47,7 @@
     <string name="weeks_raw">hafta</string>
     <string name="months_raw">ay</string>
     <string name="years_raw">yıl</string>
-    <string name="repeat_till">Şu kadar tekrarla:</string>
+    <string name="repeat_till">Şu kadar tekrarla</string>
     <string name="forever">Sonsuza kadar</string>
     <string name="event_is_repeatable">Etkinlik tekrarlanabilir</string>
     <string name="task_is_repeatable">Görev tekrarlanabilir</string>
@@ -228,15 +228,15 @@
     <string name="within_the_next">Sonraki…</string>
     <plurals name="within_the_next_days">
         <item quantity="one">Sonraki %d gün içinde</item>
-        <item quantity="other">Sonraki %d gün içinde</item>
+        <item quantity="other">Sonraki %d gün içindeler</item>
     </plurals>
     <plurals name="within_the_next_weeks">
         <item quantity="one">Sonraki %d hafta içinde</item>
-        <item quantity="other">Sonraki %d hafta içinde</item>
+        <item quantity="other">Sonraki %d hafta içindeler</item>
     </plurals>
     <plurals name="within_the_next_months">
         <item quantity="one">Sonraki %d ay içinde</item>
-        <item quantity="other">Sonraki %d ay içinde</item>
+        <item quantity="other">Sonraki %d ay içindeler</item>
     </plurals>
     <string name="accessibility_previous_month">Önceki aya git</string>
     <string name="accessibility_next_month">Sonraki aya git</string>
