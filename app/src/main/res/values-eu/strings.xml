@@ -146,7 +146,7 @@
     <string name="manage_event_types">Kudeatu gertaera motak</string>
     <string name="start_day_at">Eguna noiz hasi</string>
     <string name="end_day_at">Eguna noiz bukatu</string>
-    <string name="midnight_spanning">Erakutsi gauerdi osoan zehar dirauten gertaerak goiko barran</string>
+    <string name="midnight_spanning">Erakutsi gau osoa irauten duten ekitaldiak goiko barran</string>
     <string name="allow_customizing_day_count">Baimendu egunen zenbaketaren pertsonalizazioa</string>
     <string name="week_numbers">Erakutsi asteen zenbakiak</string>
     <string name="vibrate">Egin dar-dar abisuen jakinarazpenetan</string>
