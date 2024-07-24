@@ -156,7 +156,9 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
                         isPastEvent = event.isPastEvent,
                         isTask = event.isTask(),
                         isTaskCompleted = event.isTaskCompleted(),
-                        isAttendeeInviteDeclined = event.isAttendeeInviteDeclined()
+                        isAttendeeInviteDeclined = event.isAttendeeInviteDeclined(),
+                        isEventCanceled = event.isEventCanceled(),
+                        isEventTentative = event.isEventTentative()
                     )
                     allEvents.add(monthViewEvent)
                 }
@@ -401,6 +403,7 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
         val adjustAlpha = when {
             event.isTask -> dimCompletedTasks && event.isTaskCompleted
             !startDay.isThisMonth && !endDay.isThisMonth -> true
+            event.isEventTentative -> true
             else -> dimPastEvents && event.isPastEvent && !isPrintVersion
         }
 
