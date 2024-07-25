@@ -11,6 +11,7 @@
         android:id="@+id/month_day_view_wrapper"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginLeft="@dimen/small_margin"
         app:layout_constraintBottom_toTopOf="@+id/month_day_list_holder"
         app:layout_constraintHeight_percent="0.3"
         app:layout_constraintStart_toStartOf="parent"
