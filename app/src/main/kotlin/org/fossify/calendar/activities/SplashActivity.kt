@@ -18,6 +18,7 @@ class SplashActivity : BaseSplashActivity() {
             intent.extras?.containsKey(EVENT_ID) == true -> Intent(this, MainActivity::class.java).apply {
                 putExtra(EVENT_ID, intent.getLongExtra(EVENT_ID, 0L))
                 putExtra(EVENT_OCCURRENCE_TS, intent.getLongExtra(EVENT_OCCURRENCE_TS, 0L))
+                putExtra(IS_TASK, intent.getBooleanExtra(IS_TASK, false))
                 startActivity(this)
             }
 
