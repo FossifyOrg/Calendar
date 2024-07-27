@@ -126,6 +126,7 @@ class EventListWidgetAdapter(val context: Context, val intent: Intent) : RemoteV
             Intent().apply {
                 putExtra(EVENT_ID, item.id)
                 putExtra(EVENT_OCCURRENCE_TS, item.startTS)
+                putExtra(IS_TASK, item.isTask)
                 setOnClickFillInIntent(R.id.event_item_holder, this)
             }
         }
