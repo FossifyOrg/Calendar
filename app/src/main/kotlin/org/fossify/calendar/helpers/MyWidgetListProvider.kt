@@ -7,21 +7,30 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.util.Log
 import android.widget.RemoteViews
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.fossify.calendar.R
 import org.fossify.calendar.activities.SplashActivity
+import org.fossify.calendar.databases.EventsDatabase
+import org.fossify.calendar.activities.SettingsActivity
 import org.fossify.calendar.extensions.config
 import org.fossify.calendar.extensions.getWidgetFontSize
 import org.fossify.calendar.extensions.launchNewEventOrTaskActivity
 import org.fossify.calendar.extensions.widgetsDB
 import org.fossify.calendar.services.WidgetService
-import org.fossify.calendar.services.WidgetServiceEmpty
 import org.fossify.commons.extensions.applyColorFilter
 import org.fossify.commons.extensions.getColoredBitmap
 import org.fossify.commons.extensions.getLaunchIntent
 import org.fossify.commons.extensions.setTextSize
 import org.fossify.commons.helpers.ensureBackgroundThread
 import org.joda.time.DateTime
+import kotlin.math.log
+import org.fossify.calendar.models.Event as FossifyEvent
+
 
 class MyWidgetListProvider : AppWidgetProvider() {
     private val NEW_EVENT = "new_event"
@@ -32,7 +41,7 @@ class MyWidgetListProvider : AppWidgetProvider() {
         performUpdate(context)
     }
 
-    private fun performUpdate(context: Context) {
+    fun performUpdate(context: Context) {
         val fontSize = context.getWidgetFontSize()
         val textColor = context.config.widgetTextColor
 
@@ -115,20 +124,67 @@ class MyWidgetListProvider : AppWidgetProvider() {
             context.startActivity(this)
         }
     }
+    private val widgetUpdateScope = CoroutineScope(Dispatchers.Main)
+    private var cachedEvents: List<FossifyEvent>? = null
+    class DisplayPastEvents {
+        companion object {
+            var result: Int? = 1440
+        }
+    }
 
-    // hacky solution for reseting the events list
+
+
+
+    private fun getCachedEvents(context: Context): List<FossifyEvent> {
+        if (cachedEvents == null) {
+            cachedEvents = EventsDatabase.getInstance(context).EventsDao().getAllEvents()
+        }
+        return cachedEvents ?: emptyList()
+    }
+
+    private fun updateWidgetData(context: Context, appWidgetManager: AppWidgetManager, widgetId: Int) {
+        val valueResult = DisplayPastEvents.result
+        widgetUpdateScope.launch(Dispatchers.IO) {
+            val eventsList: List<FossifyEvent> = getCachedEvents(context)
+            withContext(Dispatchers.Main) {
+                var yesterdayEventCount = 0
+                val now = DateTime.now()
+                val startOfToday = now.withTimeAtStartOfDay().millis / 1000
+                val startOfPeriod = valueResult?.let { now.minusMinutes(it).millis / 1000 }
+
+                val limitedEvents = eventsList
+                    .filter { it.startTS < startOfToday && it.startTS > startOfPeriod!! }
+                    .take(100)
+                    .sortedBy { it.startTS }
+                limitedEvents.forEach { event ->
+                    val eventDateTime = DateTime(event.startTS * 1000L).toLocalTime()
+                    val isAfterNowOrMidnight = eventDateTime.isAfter(now.toLocalTime()) || !event.getIsAllDay()
+                    if (isAfterNowOrMidnight) {
+                        yesterdayEventCount += 1
+                    }
+                }
+                if (yesterdayEventCount != 0) {
+                    yesterdayEventCount += 3
+                }
+                val views = RemoteViews(context.packageName, R.layout.widget_event_list)
+                views.setScrollPosition(R.id.widget_event_list, yesterdayEventCount)
+
+                appWidgetManager.updateAppWidget(widgetId, views)
+                appWidgetManager.notifyAppWidgetViewDataChanged(widgetId, R.id.widget_event_list)
+            }
+        }
+    }
+
+    fun DisplayPastEvents(value: Int) {
+        DisplayPastEvents.result = value;
+    }
+    
     private fun goToToday(context: Context) {
         val appWidgetManager = AppWidgetManager.getInstance(context) ?: return
-        appWidgetManager.getAppWidgetIds(getComponentName(context)).forEach {
-            val views = RemoteViews(context.packageName, R.layout.widget_event_list)
-            Intent(context, WidgetServiceEmpty::class.java).apply {
-                data = Uri.parse(this.toUri(Intent.URI_INTENT_SCHEME))
-                views.setRemoteAdapter(R.id.widget_event_list, this)
-            }
-
-            appWidgetManager.updateAppWidget(it, views)
+        val widgetIds = appWidgetManager.getAppWidgetIds(getComponentName(context))
+        widgetIds.forEach { widgetId ->
+            updateWidgetData(context, appWidgetManager, widgetId)
         }
-
         performUpdate(context)
     }
 }
