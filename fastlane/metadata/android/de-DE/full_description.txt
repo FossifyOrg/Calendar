@@ -32,7 +32,7 @@ Mit den Terminfiltern findest du schnell, wonach du suchst.
 Wechsle mühelos zwischen Tages-, Wochen-, Monats-, Jahres- und Terminansichten.
 
 ✨ ELEGANZ IM MATERIAL DESIGN: 
-Genieße eine intuitive und benutzerfreundliche Oberfläche mit dynamischen Farbschemas.
+Genieße eine intuitive und bedienfreundliche Oberfläche mit dynamischen Farbschemas.
 
 Außerdem ist Fossify Calendar Open Source! Werde Teil der lebendigen Community auf GitHub, trage zum Projekt bei und mach es zu deinem eigenen.
 
