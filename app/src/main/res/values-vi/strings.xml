@@ -69,8 +69,8 @@
     <string name="event_is_repeatable">Sự kiện này có thể lặp lại</string>
     <string name="task_is_repeatable">Công việc này có thể lặp lại</string>
     <string name="selection_contains_repetition">Lựa chọn bao gồm sự kiện lặp lại</string>
-    <string name="delete_one_only">Chỉ xóa sự xuất hiện đã chọn</string>
-    <string name="delete_future_occurrences">Xóa tất cả các sự xuất hiện này và trong tương lai</string>
+    <string name="delete_one_only">Chỉ xóa lần xuất hiện đã chọn</string>
+    <string name="delete_future_occurrences">Xóa lần này và tất cả các lần xuất hiện trong tương lai</string>
     <string name="delete_all_occurrences">Xóa tất cả các sự xuất hiện</string>
     <string name="repeat_forever">Lặp mãi mãi</string>
     <string name="times">lần</string>
@@ -143,4 +143,6 @@
     <string name="day_end_before_start">Ngày không thể kết thúc trước khi nó bắt đầu</string>
     <string name="current_time">Thời điểm hiện tại</string>
     <string name="default_duration">Thời lượng mặc định</string>
+    <string name="add_holidays">Thêm ngày lễ</string>
+    <string name="faq_1_title">Làm cách nào tôi có thể xóa ngày nghỉ đã nhập qua nút \"Thêm ngày lễ\"?</string>
 </resources>

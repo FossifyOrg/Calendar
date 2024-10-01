@@ -26,7 +26,7 @@
     <string name="filter_events_by_type">Filtrar eventos por tipo</string>
     <string name="please_fill_location">Introduce una ubicación para mostrar en el mapa</string>
     <string name="public_event_notification_text">Hay un evento próximo</string>
-    <string name="everything_filtered_out">Ha filtrado todos los tipos de cita</string>
+    <string name="everything_filtered_out">Ha filtrado todos los tipos de eventos</string>
     <string name="task">Tarea</string>
     <string name="tasks">Tareas</string>
     <string name="edit_task">Editar tarea</string>
@@ -138,7 +138,7 @@
     <string name="holidays">Festivos</string>
     <string name="add_holidays">Añadir festivos</string>
     <string name="national_holidays">Fiestas nacionales</string>
-    <string name="religious_holidays">Festividades religiosas</string>
+    <string name="religious_holidays">Festivos religiosos</string>
     <string name="holidays_imported_successfully">Los días festivos se han importado como eventos tipo \"Festivos\"</string>
     <string name="importing_some_holidays_failed">Se ha producido un error al importar eventos</string>
     <string name="importing_holidays_failed">Se ha producido un error al importar los días festivos</string>
