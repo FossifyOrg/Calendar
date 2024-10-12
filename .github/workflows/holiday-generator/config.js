@@ -9,7 +9,6 @@ export const ICS_PATH = join(cwd(), "../../../app/src/main/assets");
 export const COUNTRIES = [
     ["algeria.ics", "DZ"],
     ["argentina.ics", "AR"],
-    ["australia.ics", "AU"],
     ["austria.ics", "AT"],
     ["belgium.ics", "BE"],
     ["bolivia.ics", "BO"],
