@@ -232,6 +232,9 @@ class WeekFragment : Fragment(), WeeklyCalendar {
             if (todayCode == dayCode) {
                 todayColumnIndex = i
             }
+            label.setOnClickListener {
+                (activity as MainActivity).openDayFromWeekly(Formatter.getDateTimeFromCode(dayCode))
+            }
 
             binding.weekLettersHolder.addView(label)
             curDay = curDay.plusDays(1)
