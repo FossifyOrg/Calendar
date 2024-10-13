@@ -9,40 +9,56 @@
         android:id="@+id/widget_date_background"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/widget_date"
-        android:layout_alignTop="@+id/widget_date"
-        android:layout_alignEnd="@+id/widget_date"
-        android:layout_alignBottom="@+id/widget_month"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
         android:src="@drawable/widget_round_background"
         tools:ignore="ContentDescription" />
 
-    <TextClock
-        android:id="@+id/widget_date"
+    <LinearLayout
+        android:id="@+id/widget_date_time_holder"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:format12Hour="d"
-        android:format24Hour="d"
-        android:gravity="center"
-        android:includeFontPadding="false"
-        android:paddingTop="@dimen/medium_margin"
-        android:textColor="@color/md_grey_white"
-        android:textSize="26sp"
-        tools:text="1" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/small_margin"
+        android:paddingRight="@dimen/small_margin"
+        android:paddingBottom="@dimen/small_margin">
 
-    <TextClock
-        android:id="@+id/widget_month"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/widget_date"
-        android:layout_alignStart="@+id/widget_date"
-        android:layout_alignEnd="@+id/widget_date"
-        android:format12Hour="MMM"
-        android:format24Hour="MMM"
-        android:gravity="center"
-        android:includeFontPadding="false"
-        android:paddingBottom="@dimen/medium_margin"
-        android:textColor="@color/md_grey_white"
-        android:textSize="@dimen/bigger_text_size"
-        tools:text="Jan" />
+        <TextClock
+            android:id="@+id/widget_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:autoSizeMaxTextSize="300sp"
+            android:autoSizeMinTextSize="2sp"
+            android:autoSizeStepGranularity="1sp"
+            android:autoSizeTextType="uniform"
+            android:format12Hour="d"
+            android:format24Hour="d"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:paddingTop="@dimen/medium_margin"
+            android:textColor="@color/md_grey_white"
+            android:textSize="26sp"
+            tools:text="1" />
 
+        <TextClock
+            android:id="@+id/widget_month"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:autoSizeMinTextSize="1sp"
+            android:autoSizeStepGranularity="1sp"
+            android:autoSizeTextType="uniform"
+            android:format12Hour="MMM"
+            android:format24Hour="MMM"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:paddingBottom="@dimen/medium_margin"
+            android:textColor="@color/md_grey_white"
+            android:textSize="@dimen/bigger_text_size"
+            tools:text="Jan" />
+
+    </LinearLayout>
 </RelativeLayout>
