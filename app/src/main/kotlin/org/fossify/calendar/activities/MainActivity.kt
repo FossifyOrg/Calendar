@@ -1027,7 +1027,10 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
             refreshEvents()
         }
 
-        binding.calendarFab.beGoneIf(currentFragments.size == 1 && (config.storedView == YEARLY_VIEW || config.storedView == WEEKLY_VIEW))
+        binding.calendarFab.beGoneIf(
+            currentFragments.size == 1 &&
+            (config.storedView == YEARLY_VIEW || config.storedView == WEEKLY_VIEW)
+        )
         if (currentFragments.size > 1) {
             showBackNavigationArrow()
         } else {
