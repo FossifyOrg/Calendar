@@ -614,7 +614,7 @@ class WeekFragment : Fragment(), WeeklyCalendar {
                         val adjustAlpha = if (event.isTask()) {
                             dimCompletedTasks && event.isTaskCompleted()
                         } else {
-                            dimPastEvents && event.isPastEvent && !isPrintVersion
+                            ((dimPastEvents && event.isPastEvent) || event.isEventTentative()) && !isPrintVersion
                         }
 
                         if (adjustAlpha) {
@@ -769,7 +769,7 @@ class WeekFragment : Fragment(), WeeklyCalendar {
             val adjustAlpha = if (event.isTask()) {
                 dimCompletedTasks && event.isTaskCompleted()
             } else {
-                dimPastEvents && event.isPastEvent && !isPrintVersion
+                ((dimPastEvents && event.isPastEvent) || event.isEventTentative()) && !isPrintVersion
             }
 
             if (adjustAlpha) {

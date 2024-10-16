@@ -1,6 +1,8 @@
 package org.fossify.calendar.helpers
 
 import android.content.Context
+import android.provider.CalendarContract
+import org.fossify.calendar.R
 import org.fossify.calendar.extensions.config
 import org.fossify.calendar.extensions.seconds
 import org.joda.time.DateTime
@@ -138,4 +140,12 @@ object Formatter {
     fun getShiftedLocalTS(ts: Long) = getShiftedTS(dateTime = getUTCDateTimeFromTS(ts), toZone = DateTimeZone.getDefault())
 
     fun getShiftedUtcTS(ts: Long) = getShiftedTS(dateTime = getDateTimeFromTS(ts), toZone = DateTimeZone.UTC)
+
+    fun getStatusStringFromStatusCode(statusCode: Int): String {
+        return when (statusCode) {
+            CalendarContract.Events.STATUS_CONFIRMED -> CONFIRMED
+            CalendarContract.Events.STATUS_CANCELED -> CANCELLED
+            else -> TENTATIVE
+        }
+    }
 }
