@@ -252,4 +252,9 @@
     <string name="faq_5_text">請檢查你裝置的電池與通知設定，確保沒有設定阻止提醒或是在背景關閉 app。你也可以參考這個網站：&lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;，這裡面有些實用的小技巧。</string>
     <string name="faq_6_title">我該如何修改或刪除現有的活動類型？</string>
     <string name="faq_6_text">你可以在「設定」-「管理活動類型」裡面進行以上兩種操作。點擊你想要的活動類型，就可以改變標籤與顏色；如果你想刪除，可以長按該活動類型，然後點選上方選單的垃圾桶圖示即可。</string>
+    <string name="caldav">CalDAV 同步</string>
+    <string name="accessibility_previous_month">轉到上一個月</string>
+    <string name="accessibility_next_month">轉到下一個月</string>
+    <string name="accessibility_previous_day">轉到前一天</string>
+    <string name="accessibility_next_day">轉到下一天</string>
 </resources>

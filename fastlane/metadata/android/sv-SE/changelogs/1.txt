@@ -1,1 +1,1 @@
-* Inledande version.
+* Initial version.

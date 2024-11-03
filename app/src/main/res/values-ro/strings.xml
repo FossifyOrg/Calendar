@@ -81,7 +81,7 @@
     <string name="fifth_f">a cincea</string>
     <string name="last_f">ultima</string>
     <string name="birthdays">Zile de naștere</string>
-    <string name="add_birthdays">Adaugă Zile de naștere din contacte</string>
+    <string name="add_birthdays">Adaugă zile de naștere din contacte</string>
     <string name="no_birthdays">Nu s-au găsit zile de naștere</string>
     <string name="no_new_birthdays">Nu s-au găsit zile de naștere noi</string>
     <string name="birthdays_added">Zile de naștere adăugate cu succes</string>
@@ -94,11 +94,11 @@
     <string name="add_anniversaries_automatically">Adaugă zile de aniversare automat</string>
     <string name="reminder">Memento</string>
     <string name="before">înainte de</string>
-    <string name="add_another_reminder">Adaugă o alt memento</string>
+    <string name="add_another_reminder">Adaugă un alt memento</string>
     <string name="event_reminders">Memento-uri eveniment</string>
     <string name="reminders">Memento-uri</string>
     <string name="add_another_attendee">Adaugă o altă participare</string>
-    <string name="my_status">Starea meu:</string>
+    <string name="my_status">Starea mea:</string>
     <string name="going">Particip</string>
     <string name="not_going">Nu particip</string>
     <string name="maybe_going">Poate particip</string>
@@ -250,7 +250,7 @@
     <string name="no_upcoming_events">Niciun eveniment următor.</string>
     <string name="everything_filtered_out">Ai eliminat prin filtrare toate tipurile de evenimente</string>
     <string name="event_color">Culoare eveniment</string>
-    <string name="export_tasks">Exportare treburi</string>
+    <string name="export_tasks">Exportare sarcini</string>
     <string name="delete_all_events_and_tasks">Șterge toate evenimentele și treburile</string>
     <string name="caldav">CalDAV</string>
     <string name="faq_2_title_extra">Poate chiar să partajezi calendarele cu alți oameni?</string>
