@@ -3,6 +3,8 @@
 kotlin = "1.9.21"
 #KSP
 ksp = "1.9.21-1.0.16"
+#Detekt
+detekt = "1.23.3"
 #Androidx
 multidex = "2.0.1"
 print = "1.0.0"
@@ -45,4 +47,4 @@ room = [
 android = { id = "com.android.application", version.ref = "gradlePlugins-agp" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }

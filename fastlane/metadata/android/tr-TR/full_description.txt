@@ -1,0 +1,41 @@
+Dağınık takvimlerden ve gizlilik endişelerinden bıktınız mı?
+
+Fossify Takvim bunu değiştirmek için burada. Hayatı yönetmek için açık kaynaklı güç merkeziniz, özünde gizlilik ile tasarlanmış ve sizi düzenli tutmak için güçlü özelliklerle dolu.
+
+İşte Fossify Takvim'i farklı kılan özellikler:
+
+🚫 REKLAMSIZ VE ÖZEL: 
+Etkinlikleriniz size ait kalır. Reklam yok, izleme yok, müdahaleci izinler yok.
+
+⏰ ESNEK VE ÖZELLEŞTİRİLEBİLİR: 
+Zamanlar, süreler, hatırlatıcılar ve gelişmiş tekrarlama kuralları ile etkinlikleri hassas bir şekilde oluşturun.
+
+🔄 SORUNSUZ EŞLEŞME: 
+Google Takvim, Outlook, Nextcloud, Exchange ve daha fazlasıyla zahmetsizce senkronize edin.
+
+🎨 PLANLAYICINIZI KİŞİSELLEŞTİRİN: 
+Tercihlerinize uygun özel sesler, döngüsel ses akışları, titreşimler ve temalar ayarlayın.
+
+🌈 CANLI BİLEŞENLER: 
+Ana ekranınız için güzel takvim widget'ları ve temalarla gününüzü aydınlatın.
+
+📅 ZAHMETSİZ GÜN YÖNETİMİ:
+İster yoğun bir profesyonel ister bir aile organizatörü olun, gününüzü kolaylıkla planlayın.
+
+🎉 KUTLAMALARI İÇE AKTARIN: 
+Bir doğum gününü veya yıldönümünü asla kaçırmayın! Tatilleri ve özel tarihleri kolayca içe aktarın.
+
+🔍 GÖRÜNÜMLERİ SÜZGEÇLEYİN: 
+Etkinlik gözdeleri ile aradığınızı hızla bulun.
+
+✨ MATERYAL TASARIM ŞIKLIĞI: 
+Dinamik temalarla sezgisel ve kullanıcı dostu bir arayüzün keyfini çıkarın.
+
+Ayrıca, Fossify Takvim açık kaynaklıdır! GitHub'daki canlı topluluğa katılın, projeye katkıda bulunun ve onu benzersiz bir şekilde kendinize ait hale getirin.
+
+Fossify Takvim'i şimdi indirin ve özel ve özelleştirilebilir bir programın gücünü deneyimleyin.
+
+Daha fazla Fossify uygulaması keşfedin: https://www.fossify.org
+Açık Kaynak Kodu: https://www.github.com/FossifyOrg
+Reddit'teki topluluğa katılın: https://www.reddit.com/r/Fossify
+Telegram üzerinden bağlanın: https://t.me/Fossify

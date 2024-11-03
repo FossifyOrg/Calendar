@@ -1,0 +1,821 @@
+<?xml version="1.0" ?>
+<SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
+  <CurrentIssues>
+    <ID>ComplexCondition:EventActivity.kt$EventActivity$config.wasAlarmWarningShown || (mReminder1Minutes == REMINDER_OFF &amp;&amp; mReminder2Minutes == REMINDER_OFF &amp;&amp; mReminder3Minutes == REMINDER_OFF)</ID>
+    <ID>ComplexCondition:EventActivity.kt$EventActivity$day == MONDAY_BIT || day == TUESDAY_BIT || day == WEDNESDAY_BIT || day == THURSDAY_BIT || day == FRIDAY_BIT || day == SATURDAY_BIT || day == SUNDAY_BIT</ID>
+    <ID>ComplexCondition:EventListWidgetAdapter.kt$EventListWidgetAdapter$item.isTask &amp;&amp; item.isTaskCompleted &amp;&amp; dimCompletedTasks || dimPastEvents &amp;&amp; item.isPastEvent</ID>
+    <ID>ComplexCondition:EventsHelper.kt$EventsHelper$addToCalDAV &amp;&amp; config.caldavSync &amp;&amp; event.source != SOURCE_SIMPLE_CALENDAR &amp;&amp; event.source != SOURCE_IMPORTED_ICS</ID>
+    <ID>ComplexCondition:EventsHelper.kt$EventsHelper$addToCalDAV &amp;&amp; event.source != SOURCE_SIMPLE_CALENDAR &amp;&amp; event.source != SOURCE_IMPORTED_ICS &amp;&amp; config.caldavSync</ID>
+    <ID>ComplexCondition:EventsHelper.kt$EventsHelper$originalEvent != null &amp;&amp; (birthDayEventId != -1L &amp;&amp; it.eventType == birthDayEventId) or (anniversaryEventId != -1L &amp;&amp; it.eventType == anniversaryEventId)</ID>
+    <ID>ComplexCondition:MainActivity.kt$MainActivity$mStoredFirstDayOfWeek != config.firstDayOfWeek || mStoredUse24HourFormat != config.use24HourFormat || mStoredMidnightSpan != config.showMidnightSpanningEventsAtTop || mStoredStartWeekWithCurrentDay != config.startWeekWithCurrentDay</ID>
+    <ID>ComplexCondition:MainActivity.kt$MainActivity$mStoredTextColor != getProperTextColor() || mStoredBackgroundColor != getProperBackgroundColor() || mStoredPrimaryColor != getProperPrimaryColor() || mStoredDayCode != Formatter.getTodayCode() || mStoredDimPastEvents != config.dimPastEvents || mStoredDimCompletedTasks != config.dimCompletedTasks || mStoredHighlightWeekends != config.highlightWeekends || mStoredHighlightWeekendsColor != config.highlightWeekendsColor</ID>
+    <ID>ComplexCondition:MonthView.kt$MonthView$isMonthDayView &amp;&amp; !isDaySelected &amp;&amp; !day.isToday &amp;&amp; day.dayEvents.isNotEmpty()</ID>
+    <ID>ComplexCondition:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider$it.isTask() &amp;&amp; it.isTaskCompleted() &amp;&amp; dimCompletedTasks || !day.isThisMonth || (dimPastEvents &amp;&amp; it.isPastEvent)</ID>
+    <ID>ComplexCondition:SettingsActivity.kt$SettingsActivity$requestCode == PICK_EVENTS_EXPORT_FILE_INTENT &amp;&amp; resultCode == Activity.RESULT_OK &amp;&amp; resultData != null &amp;&amp; resultData.data != null</ID>
+    <ID>ComplexCondition:SettingsActivity.kt$SettingsActivity$requestCode == PICK_EVENTS_IMPORT_SOURCE_INTENT &amp;&amp; resultCode == Activity.RESULT_OK &amp;&amp; resultData != null &amp;&amp; resultData.data != null</ID>
+    <ID>ComplexCondition:SettingsActivity.kt$SettingsActivity$requestCode == PICK_SETTINGS_IMPORT_SOURCE_INTENT &amp;&amp; resultCode == Activity.RESULT_OK &amp;&amp; resultData != null &amp;&amp; resultData.data != null</ID>
+    <ID>ComplexCondition:TaskActivity.kt$TaskActivity$config.wasAlarmWarningShown || (mReminder1Minutes == REMINDER_OFF &amp;&amp; mReminder2Minutes == REMINDER_OFF &amp;&amp; mReminder3Minutes == REMINDER_OFF)</ID>
+    <ID>ComplexCondition:TaskActivity.kt$TaskActivity$day == MONDAY_BIT || day == TUESDAY_BIT || day == WEDNESDAY_BIT || day == THURSDAY_BIT || day == FRIDAY_BIT || day == SATURDAY_BIT || day == SUNDAY_BIT</ID>
+    <ID>ComplexCondition:WeekFragment.kt$WeekFragment$doesEventFit &amp;&amp; (!isRepeatingOverlappingEvent || isAllDayEvent || isRowValidForEvent)</ID>
+    <ID>ConstructorParameterNaming:Task.kt$Task$@ColumnInfo(name = "task_id") var task_id: Long</ID>
+    <ID>CyclomaticComplexMethod:CalDAVHelper.kt$CalDAVHelper$@SuppressLint("MissingPermission") private fun fetchCalDAVCalendarEvents(calendar: CalDAVCalendar, eventTypeId: Long, showToasts: Boolean)</ID>
+    <ID>CyclomaticComplexMethod:Context.kt$@SuppressLint("NewApi") fun Context.getNotification(pendingIntent: PendingIntent, event: Event, content: String, publicVersion: Boolean = false): Notification?</ID>
+    <ID>CyclomaticComplexMethod:Context.kt$fun Context.notifyEvent(originalEvent: Event)</ID>
+    <ID>CyclomaticComplexMethod:DayEventsAdapter.kt$DayEventsAdapter$private fun setupView(view: View, event: Event)</ID>
+    <ID>CyclomaticComplexMethod:EventActivity.kt$EventActivity$private fun getOrderString(repeatRule: Int): String</ID>
+    <ID>CyclomaticComplexMethod:EventActivity.kt$EventActivity$private fun gotEvent(savedInstanceState: Bundle?, localEventType: EventType?, event: Event?)</ID>
+    <ID>CyclomaticComplexMethod:EventActivity.kt$EventActivity$private fun isEventChanged(): Boolean</ID>
+    <ID>CyclomaticComplexMethod:EventActivity.kt$EventActivity$private fun saveEvent()</ID>
+    <ID>CyclomaticComplexMethod:EventListAdapter.kt$EventListAdapter$private fun setupListEvent(view: View, listEvent: ListEvent)</ID>
+    <ID>CyclomaticComplexMethod:EventListWidgetAdapter.kt$EventListWidgetAdapter$private fun setupListEvent(remoteView: RemoteViews, item: ListEvent)</ID>
+    <ID>CyclomaticComplexMethod:EventsHelper.kt$EventsHelper$fun getEventsSync( fromTS: Long, toTS: Long, eventId: Long = -1L, applyTypeFilter: Boolean, searchQuery: String = "", callback: (events: ArrayList&lt;Event&gt;) -&gt; Unit )</ID>
+    <ID>CyclomaticComplexMethod:EventsHelper.kt$EventsHelper$private fun getEventsRepeatingTillDateOrForever(fromTS: Long, toTS: Long, startTimes: LongSparseArray&lt;Long&gt;, event: Event): ArrayList&lt;Event&gt;</ID>
+    <ID>CyclomaticComplexMethod:IcsImporter.kt$IcsImporter$fun importEvents( path: String, defaultEventTypeId: Long, calDAVCalendarId: Int, overrideFileEventTypes: Boolean, eventReminders: ArrayList&lt;Int&gt;? = null, ): ImportResult</ID>
+    <ID>CyclomaticComplexMethod:MainActivity.kt$MainActivity$override fun onResume()</ID>
+    <ID>CyclomaticComplexMethod:MainActivity.kt$MainActivity$private fun addContactEvents(birthdays: Boolean, reminders: ArrayList&lt;Int&gt;, initEventsFound: Int, initEventsAdded: Int, callback: (Int) -&gt; Unit)</ID>
+    <ID>CyclomaticComplexMethod:MainActivity.kt$MainActivity$private fun addPrivateEvents( birthdays: Boolean, contacts: ArrayList&lt;SimpleContact&gt;, reminders: ArrayList&lt;Int&gt;, callback: (eventsFound: Int, eventsAdded: Int) -&gt; Unit )</ID>
+    <ID>CyclomaticComplexMethod:MainActivity.kt$MainActivity$private fun setupOptionsMenu()</ID>
+    <ID>CyclomaticComplexMethod:MonthView.kt$MonthView$override fun onDraw(canvas: Canvas)</ID>
+    <ID>CyclomaticComplexMethod:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider$private fun updateDays(context: Context, views: RemoteViews, days: List&lt;DayMonthly&gt;)</ID>
+    <ID>CyclomaticComplexMethod:Parser.kt$Parser$fun parseRepeatInterval(fullString: String, startTS: Long): EventRepetition</ID>
+    <ID>CyclomaticComplexMethod:SettingsActivity.kt$SettingsActivity$override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?)</ID>
+    <ID>CyclomaticComplexMethod:SettingsActivity.kt$SettingsActivity$private fun parseFile(inputStream: InputStream?)</ID>
+    <ID>CyclomaticComplexMethod:TaskActivity.kt$TaskActivity$private fun getOrderString(repeatRule: Int): String</ID>
+    <ID>CyclomaticComplexMethod:TaskActivity.kt$TaskActivity$private fun gotTask(savedInstanceState: Bundle?, localEventType: EventType?, task: Event?)</ID>
+    <ID>CyclomaticComplexMethod:TaskActivity.kt$TaskActivity$private fun saveTask()</ID>
+    <ID>CyclomaticComplexMethod:WeekFragment.kt$WeekFragment$@SuppressLint("NewApi") private fun addAllDayEvent(event: Event)</ID>
+    <ID>CyclomaticComplexMethod:WeekFragment.kt$WeekFragment$private fun addEvents(events: ArrayList&lt;Event&gt;)</ID>
+    <ID>EmptyCatchBlock:CalDAVHelper.kt$CalDAVHelper${ }</ID>
+    <ID>EmptyCatchBlock:EventsHelper.kt$EventsHelper${ }</ID>
+    <ID>EmptyCatchBlock:MainActivity.kt$MainActivity${ }</ID>
+    <ID>EmptyFunctionBlock:DayEventsAdapter.kt$DayEventsAdapter${}</ID>
+    <ID>EmptyFunctionBlock:DayFragmentsHolder.kt$DayFragmentsHolder.&lt;no name provided&gt;${ }</ID>
+    <ID>EmptyFunctionBlock:EventListAdapter.kt$EventListAdapter${}</ID>
+    <ID>EmptyFunctionBlock:EventListFragment.kt$EventListFragment${}</ID>
+    <ID>EmptyFunctionBlock:EventListWidgetAdapter.kt$EventListWidgetAdapter${}</ID>
+    <ID>EmptyFunctionBlock:EventListWidgetAdapterEmpty.kt$EventListWidgetAdapterEmpty${}</ID>
+    <ID>EmptyFunctionBlock:ManageEventTypesAdapter.kt$ManageEventTypesAdapter${}</ID>
+    <ID>EmptyFunctionBlock:MonthDayFragment.kt$MonthDayFragment${}</ID>
+    <ID>EmptyFunctionBlock:MonthDayFragmentsHolder.kt$MonthDayFragmentsHolder${}</ID>
+    <ID>EmptyFunctionBlock:MonthDayFragmentsHolder.kt$MonthDayFragmentsHolder.&lt;no name provided&gt;${}</ID>
+    <ID>EmptyFunctionBlock:MonthFragmentsHolder.kt$MonthFragmentsHolder.&lt;no name provided&gt;${ }</ID>
+    <ID>EmptyFunctionBlock:WeekFragmentsHolder.kt$WeekFragmentsHolder.&lt;no name provided&gt;${}</ID>
+    <ID>EmptyFunctionBlock:YearFragmentsHolder.kt$YearFragmentsHolder${}</ID>
+    <ID>EmptyFunctionBlock:YearFragmentsHolder.kt$YearFragmentsHolder.&lt;no name provided&gt;${}</ID>
+    <ID>ExplicitItLambdaParameter:DayEventsAdapter.kt$DayEventsAdapter${ it -&gt; events.removeAll(eventsToDelete) ensureBackgroundThread { val nonRepeatingEventIDs = eventsToDelete.asSequence().filter { it.repeatInterval == 0 }.mapNotNull { it.id }.toMutableList() activity.eventsHelper.deleteEvents(nonRepeatingEventIDs, true) val repeatingEventIDs = eventsToDelete.asSequence().filter { it.repeatInterval != 0 }.mapNotNull { it.id }.toList() activity.handleEventDeleting(repeatingEventIDs, timestamps, it) activity.runOnUiThread { removeSelectedItems(positions) } } }</ID>
+    <ID>ExplicitItLambdaParameter:YearFragment.kt$YearFragment${ index, it -&gt; it.monthLabel.text = getString(monthResIds[index]) }</ID>
+    <ID>ForEachOnRange:WeekFragment.kt$WeekFragment$0 until config.weeklyViewDays</ID>
+    <ID>ImplicitDefaultLocale:SettingsActivity.kt$SettingsActivity$String.format("%02d:00", hours)</ID>
+    <ID>LargeClass:EventActivity.kt$EventActivity : SimpleActivity</ID>
+    <ID>LargeClass:MainActivity.kt$MainActivity : SimpleActivityRefreshRecyclerViewListener</ID>
+    <ID>LargeClass:SettingsActivity.kt$SettingsActivity : SimpleActivity</ID>
+    <ID>LargeClass:TaskActivity.kt$TaskActivity : SimpleActivity</ID>
+    <ID>LargeClass:WeekFragment.kt$WeekFragment : FragmentWeeklyCalendar</ID>
+    <ID>LongMethod:CalDAVHelper.kt$CalDAVHelper$@SuppressLint("MissingPermission") private fun fetchCalDAVCalendarEvents(calendar: CalDAVCalendar, eventTypeId: Long, showToasts: Boolean)</ID>
+    <ID>LongMethod:Context.kt$@SuppressLint("NewApi") fun Context.getNotification(pendingIntent: PendingIntent, event: Event, content: String, publicVersion: Boolean = false): Notification?</ID>
+    <ID>LongMethod:Context.kt$fun Context.backupEventsAndTasks()</ID>
+    <ID>LongMethod:EventActivity.kt$EventActivity$private fun gotEvent(savedInstanceState: Bundle?, localEventType: EventType?, event: Event?)</ID>
+    <ID>LongMethod:EventActivity.kt$EventActivity$private fun saveEvent()</ID>
+    <ID>LongMethod:EventListWidgetAdapter.kt$EventListWidgetAdapter$override fun onDataSetChanged()</ID>
+    <ID>LongMethod:EventsHelper.kt$EventsHelper$fun getEventsSync( fromTS: Long, toTS: Long, eventId: Long = -1L, applyTypeFilter: Boolean, searchQuery: String = "", callback: (events: ArrayList&lt;Event&gt;) -&gt; Unit )</ID>
+    <ID>LongMethod:IcsImporter.kt$IcsImporter$fun importEvents( path: String, defaultEventTypeId: Long, calDAVCalendarId: Int, overrideFileEventTypes: Boolean, eventReminders: ArrayList&lt;Int&gt;? = null, ): ImportResult</ID>
+    <ID>LongMethod:MainActivity.kt$MainActivity$private fun addContactEvents(birthdays: Boolean, reminders: ArrayList&lt;Int&gt;, initEventsFound: Int, initEventsAdded: Int, callback: (Int) -&gt; Unit)</ID>
+    <ID>LongMethod:MainActivity.kt$MainActivity$private fun addPrivateEvents( birthdays: Boolean, contacts: ArrayList&lt;SimpleContact&gt;, reminders: ArrayList&lt;Int&gt;, callback: (eventsFound: Int, eventsAdded: Int) -&gt; Unit )</ID>
+    <ID>LongMethod:MainActivity.kt$MainActivity$private fun getHolidayRadioItems(): ArrayList&lt;RadioItem&gt;</ID>
+    <ID>LongMethod:MonthView.kt$MonthView$override fun onDraw(canvas: Canvas)</ID>
+    <ID>LongMethod:MyTimeZones.kt$fun getAllTimeZones()</ID>
+    <ID>LongMethod:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider$private fun updateDays(context: Context, views: RemoteViews, days: List&lt;DayMonthly&gt;)</ID>
+    <ID>LongMethod:SettingsActivity.kt$SettingsActivity$private fun parseFile(inputStream: InputStream?)</ID>
+    <ID>LongMethod:SettingsActivity.kt$SettingsActivity$private fun setupSettingItems()</ID>
+    <ID>LongMethod:TaskActivity.kt$TaskActivity$private fun gotTask(savedInstanceState: Bundle?, localEventType: EventType?, task: Event?)</ID>
+    <ID>LongMethod:TaskActivity.kt$TaskActivity$private fun saveTask()</ID>
+    <ID>LongMethod:WeekFragment.kt$WeekFragment$@SuppressLint("NewApi") private fun addAllDayEvent(event: Event)</ID>
+    <ID>LongMethod:WeekFragment.kt$WeekFragment$private fun addEvents(events: ArrayList&lt;Event&gt;)</ID>
+    <ID>LongMethod:WeekFragment.kt$WeekFragment$private fun initGrid()</ID>
+    <ID>LongMethod:WidgetListConfigureActivity.kt$WidgetListConfigureActivity$private fun getListItems(): ArrayList&lt;ListItem&gt;</ID>
+    <ID>LongParameterList:Context.kt$( uri: Uri, projection: Array&lt;String&gt;, selection: String? = null, selectionArgs: Array&lt;String&gt;? = null, sortOrder: String? = null, showErrors: Boolean = false, callback: (cursor: Cursor) -&gt; Unit )</ID>
+    <ID>LongParameterList:EventsHelper.kt$EventsHelper$( fromTS: Long, toTS: Long, eventId: Long = -1L, applyTypeFilter: Boolean = true, searchQuery: String = "", callback: (events: ArrayList&lt;Event&gt;) -&gt; Unit )</ID>
+    <ID>LongParameterList:EventsHelper.kt$EventsHelper$( fromTS: Long, toTS: Long, eventId: Long = -1L, applyTypeFilter: Boolean, searchQuery: String = "", callback: (events: ArrayList&lt;Event&gt;) -&gt; Unit )</ID>
+    <ID>LongParameterList:MonthView.kt$MonthView$(event: MonthViewEvent, canvas: Canvas, x: Float, y: Float, availableWidth: Float, paint: Paint)</ID>
+    <ID>LongParameterList:SelectEventTypeDialog.kt$SelectEventTypeDialog$( val activity: Activity, val currEventType: Long, val showCalDAVCalendars: Boolean, val showNewEventTypeOption: Boolean, val addLastUsedOneAsFirstOption: Boolean, val showOnlyWritable: Boolean, var showManageEventTypes: Boolean, val callback: (eventType: EventType) -&gt; Unit )</ID>
+    <ID>LoopWithTooManyJumpStatements:IcsImporter.kt$IcsImporter$while</ID>
+    <ID>LoopWithTooManyJumpStatements:ManageEventTypesAdapter.kt$ManageEventTypesAdapter$for</ID>
+    <ID>LoopWithTooManyJumpStatements:WeekFragment.kt$WeekFragment$do</ID>
+    <ID>MagicNumber:AutomaticBackupReceiver.kt$AutomaticBackupReceiver$3000</ID>
+    <ID>MagicNumber:CalDAVCalendar.kt$CalDAVCalendar$500</ID>
+    <ID>MagicNumber:CalDAVHelper.kt$CalDAVHelper$1000L</ID>
+    <ID>MagicNumber:CalDAVHelper.kt$CalDAVHelper$3</ID>
+    <ID>MagicNumber:CalDAVHelper.kt$CalDAVHelper$60L</ID>
+    <ID>MagicNumber:CalDAVHelper.kt$CalDAVHelper$8</ID>
+    <ID>MagicNumber:Config.kt$Config$10</ID>
+    <ID>MagicNumber:Config.kt$Config$7</ID>
+    <ID>MagicNumber:Constants.kt$1000L</ID>
+    <ID>MagicNumber:Constants.kt$6</ID>
+    <ID>MagicNumber:Context.kt$0.25f</ID>
+    <ID>MagicNumber:Context.kt$1000</ID>
+    <ID>MagicNumber:Context.kt$1000L</ID>
+    <ID>MagicNumber:Context.kt$3f</ID>
+    <ID>MagicNumber:Context.kt$500</ID>
+    <ID>MagicNumber:Context.kt$60</ID>
+    <ID>MagicNumber:Context.kt$60000</ID>
+    <ID>MagicNumber:Context.kt$64</ID>
+    <ID>MagicNumber:Context.kt$6f</ID>
+    <ID>MagicNumber:Context.kt$7</ID>
+    <ID>MagicNumber:DateTime.kt$1000L</ID>
+    <ID>MagicNumber:DayFragment.kt$DayFragment$1000</ID>
+    <ID>MagicNumber:DayFragmentsHolder.kt$DayFragmentsHolder$100000</ID>
+    <ID>MagicNumber:DayFragmentsHolder.kt$DayFragmentsHolder$251</ID>
+    <ID>MagicNumber:Event.kt$Event$1000f</ID>
+    <ID>MagicNumber:Event.kt$Event$24</ID>
+    <ID>MagicNumber:Event.kt$Event$3</ID>
+    <ID>MagicNumber:Event.kt$Event$4</ID>
+    <ID>MagicNumber:Event.kt$Event$60</ID>
+    <ID>MagicNumber:Event.kt$Event$7</ID>
+    <ID>MagicNumber:EventActivity.kt$EventActivity$0.4f</ID>
+    <ID>MagicNumber:EventActivity.kt$EventActivity$1000L</ID>
+    <ID>MagicNumber:EventActivity.kt$EventActivity$12</ID>
+    <ID>MagicNumber:EventActivity.kt$EventActivity$23</ID>
+    <ID>MagicNumber:EventActivity.kt$EventActivity$3</ID>
+    <ID>MagicNumber:EventActivity.kt$EventActivity$4</ID>
+    <ID>MagicNumber:EventActivity.kt$EventActivity$5</ID>
+    <ID>MagicNumber:EventActivity.kt$EventActivity$59</ID>
+    <ID>MagicNumber:EventActivity.kt$EventActivity$6</ID>
+    <ID>MagicNumber:EventActivity.kt$EventActivity$60</ID>
+    <ID>MagicNumber:EventActivity.kt$EventActivity$7</ID>
+    <ID>MagicNumber:EventListFragment.kt$EventListFragment$1000</ID>
+    <ID>MagicNumber:EventListFragment.kt$EventListFragment$100000</ID>
+    <ID>MagicNumber:EventListFragment.kt$EventListFragment$6</ID>
+    <ID>MagicNumber:EventListWidgetAdapter.kt$EventListWidgetAdapter$23</ID>
+    <ID>MagicNumber:EventListWidgetAdapter.kt$EventListWidgetAdapter$3f</ID>
+    <ID>MagicNumber:EventListWidgetAdapter.kt$EventListWidgetAdapter$59</ID>
+    <ID>MagicNumber:EventListWidgetAdapter.kt$EventListWidgetAdapter$60</ID>
+    <ID>MagicNumber:EventListWidgetAdapter.kt$EventListWidgetAdapter$999</ID>
+    <ID>MagicNumber:EventsDatabase.kt$EventsDatabase.Companion.&lt;no name provided&gt;$3</ID>
+    <ID>MagicNumber:EventsDatabase.kt$EventsDatabase.Companion.&lt;no name provided&gt;$4</ID>
+    <ID>MagicNumber:EventsDatabase.kt$EventsDatabase.Companion.&lt;no name provided&gt;$5</ID>
+    <ID>MagicNumber:EventsDatabase.kt$EventsDatabase.Companion.&lt;no name provided&gt;$6</ID>
+    <ID>MagicNumber:EventsDatabase.kt$EventsDatabase.Companion.&lt;no name provided&gt;$7</ID>
+    <ID>MagicNumber:EventsDatabase.kt$EventsDatabase.Companion.&lt;no name provided&gt;$8</ID>
+    <ID>MagicNumber:EventsHelper.kt$EventsHelper$23</ID>
+    <ID>MagicNumber:EventsHelper.kt$EventsHelper$59</ID>
+    <ID>MagicNumber:Formatter.kt$Formatter$1000L</ID>
+    <ID>MagicNumber:Formatter.kt$Formatter$3</ID>
+    <ID>MagicNumber:Formatter.kt$Formatter$4</ID>
+    <ID>MagicNumber:Formatter.kt$Formatter$6</ID>
+    <ID>MagicNumber:HsvColorComparator.kt$HsvColorComparator$3</ID>
+    <ID>MagicNumber:IcsExporter.kt$IcsExporter$1000L</ID>
+    <ID>MagicNumber:IcsExporter.kt$IcsExporter$75</ID>
+    <ID>MagicNumber:IcsImporter.kt$IcsImporter$1000L</ID>
+    <ID>MagicNumber:IcsImporter.kt$IcsImporter$180</ID>
+    <ID>MagicNumber:IcsImporter.kt$IcsImporter$2</ID>
+    <ID>MagicNumber:IcsImporter.kt$IcsImporter$60</ID>
+    <ID>MagicNumber:MainActivity.kt$MainActivity$0.8f</ID>
+    <ID>MagicNumber:MainActivity.kt$MainActivity$1000L</ID>
+    <ID>MagicNumber:MainActivity.kt$MainActivity$300</ID>
+    <ID>MagicNumber:MainActivity.kt$MainActivity$70</ID>
+    <ID>MagicNumber:MonthDayFragment.kt$MonthDayFragment$7</ID>
+    <ID>MagicNumber:MonthDayFragmentsHolder.kt$MonthDayFragmentsHolder$100000</ID>
+    <ID>MagicNumber:MonthDayFragmentsHolder.kt$MonthDayFragmentsHolder$251</ID>
+    <ID>MagicNumber:MonthFragmentsHolder.kt$MonthFragmentsHolder$100000</ID>
+    <ID>MagicNumber:MonthFragmentsHolder.kt$MonthFragmentsHolder$251</ID>
+    <ID>MagicNumber:MonthView.kt$MonthView$0.2f</ID>
+    <ID>MagicNumber:MonthView.kt$MonthView$0.7f</ID>
+    <ID>MagicNumber:MonthView.kt$MonthView$0.8f</ID>
+    <ID>MagicNumber:MonthView.kt$MonthView$0.9f</ID>
+    <ID>MagicNumber:MonthView.kt$MonthView$1.25f</ID>
+    <ID>MagicNumber:MonthView.kt$MonthView$1.2f</ID>
+    <ID>MagicNumber:MonthView.kt$MonthView$1.5f</ID>
+    <ID>MagicNumber:MonthView.kt$MonthView$175</ID>
+    <ID>MagicNumber:MonthView.kt$MonthView$2.5f</ID>
+    <ID>MagicNumber:MonthView.kt$MonthView$3</ID>
+    <ID>MagicNumber:MonthView.kt$MonthView$41</ID>
+    <ID>MagicNumber:MonthView.kt$MonthView$42</ID>
+    <ID>MagicNumber:MonthView.kt$MonthView$7</ID>
+    <ID>MagicNumber:MonthView.kt$MonthView$7f</ID>
+    <ID>MagicNumber:MonthlyCalendarImpl.kt$MonthlyCalendarImpl$42</ID>
+    <ID>MagicNumber:MonthlyCalendarImpl.kt$MonthlyCalendarImpl$43</ID>
+    <ID>MagicNumber:MonthlyCalendarImpl.kt$MonthlyCalendarImpl$7</ID>
+    <ID>MagicNumber:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider$3</ID>
+    <ID>MagicNumber:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider$3f</ID>
+    <ID>MagicNumber:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider$5</ID>
+    <ID>MagicNumber:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider$6</ID>
+    <ID>MagicNumber:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider$7</ID>
+    <ID>MagicNumber:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider.&lt;no name provided&gt;$3f</ID>
+    <ID>MagicNumber:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider.&lt;no name provided&gt;$6</ID>
+    <ID>MagicNumber:NotificationReceiver.kt$NotificationReceiver$3000</ID>
+    <ID>MagicNumber:Parser.kt$Parser$14</ID>
+    <ID>MagicNumber:Parser.kt$Parser$24</ID>
+    <ID>MagicNumber:Parser.kt$Parser$3</ID>
+    <ID>MagicNumber:Parser.kt$Parser$4</ID>
+    <ID>MagicNumber:Parser.kt$Parser$5</ID>
+    <ID>MagicNumber:Parser.kt$Parser$6</ID>
+    <ID>MagicNumber:Parser.kt$Parser$60</ID>
+    <ID>MagicNumber:Parser.kt$Parser$7</ID>
+    <ID>MagicNumber:QuickFilterEventTypeAdapter.kt$QuickFilterEventTypeAdapter.QuickFilterViewHolder$300</ID>
+    <ID>MagicNumber:RepeatLimitTypePickerDialog.kt$RepeatLimitTypePickerDialog$23</ID>
+    <ID>MagicNumber:RepeatLimitTypePickerDialog.kt$RepeatLimitTypePickerDialog$59</ID>
+    <ID>MagicNumber:RepeatRuleWeeklyDialog.kt$RepeatRuleWeeklyDialog$6</ID>
+    <ID>MagicNumber:RepeatRuleWeeklyDialog.kt$RepeatRuleWeeklyDialog$7</ID>
+    <ID>MagicNumber:SelectEventTypeDialog.kt$SelectEventTypeDialog$2L</ID>
+    <ID>MagicNumber:SetRemindersDialog.kt$SetRemindersDialog$60</ID>
+    <ID>MagicNumber:SettingsActivity.kt$SettingsActivity$16</ID>
+    <ID>MagicNumber:SettingsActivity.kt$SettingsActivity$3</ID>
+    <ID>MagicNumber:SettingsActivity.kt$SettingsActivity$4</ID>
+    <ID>MagicNumber:SettingsActivity.kt$SettingsActivity$60</ID>
+    <ID>MagicNumber:SimpleActivity.kt$SimpleActivity$3000L</ID>
+    <ID>MagicNumber:SmallMonthView.kt$SmallMonthView$0.41f</ID>
+    <ID>MagicNumber:SmallMonthView.kt$SmallMonthView$31</ID>
+    <ID>MagicNumber:SmallMonthView.kt$SmallMonthView$4</ID>
+    <ID>MagicNumber:SmallMonthView.kt$SmallMonthView$6</ID>
+    <ID>MagicNumber:SmallMonthView.kt$SmallMonthView$7</ID>
+    <ID>MagicNumber:SmallMonthView.kt$SmallMonthView$7f</ID>
+    <ID>MagicNumber:SmallMonthView.kt$SmallMonthView$9f</ID>
+    <ID>MagicNumber:SnoozeReminderActivity.kt$SnoozeReminderActivity$60</ID>
+    <ID>MagicNumber:String.kt$6</ID>
+    <ID>MagicNumber:String.kt$8</ID>
+    <ID>MagicNumber:TaskActivity.kt$TaskActivity$0.4f</ID>
+    <ID>MagicNumber:TaskActivity.kt$TaskActivity$3</ID>
+    <ID>MagicNumber:TaskActivity.kt$TaskActivity$4</ID>
+    <ID>MagicNumber:TaskActivity.kt$TaskActivity$5</ID>
+    <ID>MagicNumber:TaskActivity.kt$TaskActivity$6</ID>
+    <ID>MagicNumber:TaskActivity.kt$TaskActivity$60</ID>
+    <ID>MagicNumber:TaskActivity.kt$TaskActivity$7</ID>
+    <ID>MagicNumber:WeekFragment.kt$WeekFragment$0.02f</ID>
+    <ID>MagicNumber:WeekFragment.kt$WeekFragment$0.3f</ID>
+    <ID>MagicNumber:WeekFragment.kt$WeekFragment$1440</ID>
+    <ID>MagicNumber:WeekFragment.kt$WeekFragment$24</ID>
+    <ID>MagicNumber:WeekFragment.kt$WeekFragment$3</ID>
+    <ID>MagicNumber:WeekFragment.kt$WeekFragment$5000L</ID>
+    <ID>MagicNumber:WeekFragment.kt$WeekFragment$5f</ID>
+    <ID>MagicNumber:WeekFragment.kt$WeekFragment$60</ID>
+    <ID>MagicNumber:WeekFragment.kt$WeekFragment.&lt;no name provided&gt;$24</ID>
+    <ID>MagicNumber:WeekFragment.kt$WeekFragment.&lt;no name provided&gt;$24f</ID>
+    <ID>MagicNumber:WeekFragmentsHolder.kt$WeekFragmentsHolder$1000</ID>
+    <ID>MagicNumber:WeekFragmentsHolder.kt$WeekFragmentsHolder$100000</ID>
+    <ID>MagicNumber:WeekFragmentsHolder.kt$WeekFragmentsHolder$14</ID>
+    <ID>MagicNumber:WeekFragmentsHolder.kt$WeekFragmentsHolder$151</ID>
+    <ID>MagicNumber:WeekFragmentsHolder.kt$WeekFragmentsHolder$2000</ID>
+    <ID>MagicNumber:WeekFragmentsHolder.kt$WeekFragmentsHolder$23</ID>
+    <ID>MagicNumber:WeekFragmentsHolder.kt$WeekFragmentsHolder$3</ID>
+    <ID>MagicNumber:WeekFragmentsHolder.kt$WeekFragmentsHolder$7</ID>
+    <ID>MagicNumber:WeeklyViewGrid.kt$WeeklyViewGrid$24</ID>
+    <ID>MagicNumber:WidgetDateConfigureActivity.kt$WidgetDateConfigureActivity$100</ID>
+    <ID>MagicNumber:WidgetDateConfigureActivity.kt$WidgetDateConfigureActivity$100f</ID>
+    <ID>MagicNumber:WidgetDateConfigureActivity.kt$WidgetDateConfigureActivity$255f</ID>
+    <ID>MagicNumber:WidgetListConfigureActivity.kt$WidgetListConfigureActivity$10</ID>
+    <ID>MagicNumber:WidgetListConfigureActivity.kt$WidgetListConfigureActivity$100</ID>
+    <ID>MagicNumber:WidgetListConfigureActivity.kt$WidgetListConfigureActivity$100f</ID>
+    <ID>MagicNumber:WidgetListConfigureActivity.kt$WidgetListConfigureActivity$13</ID>
+    <ID>MagicNumber:WidgetListConfigureActivity.kt$WidgetListConfigureActivity$18</ID>
+    <ID>MagicNumber:WidgetListConfigureActivity.kt$WidgetListConfigureActivity$255f</ID>
+    <ID>MagicNumber:WidgetListConfigureActivity.kt$WidgetListConfigureActivity$30</ID>
+    <ID>MagicNumber:WidgetListConfigureActivity.kt$WidgetListConfigureActivity$7</ID>
+    <ID>MagicNumber:WidgetListConfigureActivity.kt$WidgetListConfigureActivity$8</ID>
+    <ID>MagicNumber:WidgetMonthlyConfigureActivity.kt$WidgetMonthlyConfigureActivity$100</ID>
+    <ID>MagicNumber:WidgetMonthlyConfigureActivity.kt$WidgetMonthlyConfigureActivity$100f</ID>
+    <ID>MagicNumber:WidgetMonthlyConfigureActivity.kt$WidgetMonthlyConfigureActivity$255f</ID>
+    <ID>MagicNumber:WidgetMonthlyConfigureActivity.kt$WidgetMonthlyConfigureActivity$3</ID>
+    <ID>MagicNumber:WidgetMonthlyConfigureActivity.kt$WidgetMonthlyConfigureActivity$7</ID>
+    <ID>MagicNumber:YearFragment.kt$YearFragment$12</ID>
+    <ID>MagicNumber:YearFragmentsHolder.kt$YearFragmentsHolder$100000</ID>
+    <ID>MagicNumber:YearFragmentsHolder.kt$YearFragmentsHolder$61</ID>
+    <ID>MagicNumber:YearlyCalendarImpl.kt$YearlyCalendarImpl$12</ID>
+    <ID>MagicNumber:YearlyCalendarImpl.kt$YearlyCalendarImpl$32</ID>
+    <ID>MaxLineLength:AutoCompleteTextViewAdapter.kt$AutoCompleteTextViewAdapter$class</ID>
+    <ID>MaxLineLength:AutoCompleteTextViewAdapter.kt$AutoCompleteTextViewAdapter$val placeholder = BitmapDrawable(activity.resources, SimpleContactsHelper(context).getContactLetterIcon(nameToUse))</ID>
+    <ID>MaxLineLength:AutomaticBackupReceiver.kt$AutomaticBackupReceiver$val wakelock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "simplecalendar:automaticbackupreceiver")</ID>
+    <ID>MaxLineLength:CalDAVHelper.kt$CalDAVHelper$// original instance time must be in UTC since the parent event is an all-day event thus everything is handled in UTC</ID>
+    <ID>MaxLineLength:CalDAVHelper.kt$CalDAVHelper$// some calendars add repeatable event exceptions with using the "exdate" field, not by creating a child event that is an exception</ID>
+    <ID>MaxLineLength:CalDAVHelper.kt$CalDAVHelper$// store the event in the local db only if it is an occurrence that has been modified and not deleted</ID>
+    <ID>MaxLineLength:CalDAVHelper.kt$CalDAVHelper$context.eventsDB.updateEventImportIdAndSource(event.importId, "$CALDAV-${event.getCalDAVCalendarId()}", event.id!!)</ID>
+    <ID>MaxLineLength:CalDAVHelper.kt$CalDAVHelper$eventsHelper.insertEvent(event, addToCalDAV = false, showToasts = false, enableEventType = false)</ID>
+    <ID>MaxLineLength:CalDAVHelper.kt$CalDAVHelper$eventsHelper.insertEvent(parentEvent, addToCalDAV = false, showToasts = false, enableEventType = false)</ID>
+    <ID>MaxLineLength:CalDAVHelper.kt$CalDAVHelper$fun</ID>
+    <ID>MaxLineLength:CalDAVHelper.kt$CalDAVHelper$private fun refreshCalDAVCalendar(event: Event)</ID>
+    <ID>MaxLineLength:CheckableColorAdapter.kt$CheckableColorAdapter$class</ID>
+    <ID>MaxLineLength:CheckableColorAdapter.kt$CheckableColorAdapter.CheckableColorViewHolder$inner</ID>
+    <ID>MaxLineLength:Config.kt$Config$caldavSyncedCalendarIds.split(",").filter { it.trim().isNotEmpty() }.map { Integer.parseInt(it) }.toMutableList() as ArrayList&lt;Int&gt;</ID>
+    <ID>MaxLineLength:Config.kt$Config$get() = prefs.getString(ANNIVERSARY_REMINDERS, REMINDER_DEFAULT_VALUE)!!.split(",").map { it.toInt() }.toMutableList() as ArrayList&lt;Int&gt;</ID>
+    <ID>MaxLineLength:Config.kt$Config$get() = prefs.getString(BIRTHDAY_REMINDERS, REMINDER_DEFAULT_VALUE)!!.split(",").map { it.toInt() }.toMutableList() as ArrayList&lt;Int&gt;</ID>
+    <ID>MaxLineLength:Config.kt$Config$get() = prefs.getString(REMINDER_SOUND_URI, RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION).toString())!!</ID>
+    <ID>MaxLineLength:Config.kt$Config$set(addAnniversariesAutomatically) = prefs.edit().putBoolean(ADD_ANNIVERSARIES_AUTOMATICALLY, addAnniversariesAutomatically).apply()</ID>
+    <ID>MaxLineLength:Config.kt$Config$set(addBirthdaysAutomatically) = prefs.edit().putBoolean(ADD_BIRTHDAYS_AUTOMATICALLY, addBirthdaysAutomatically).apply()</ID>
+    <ID>MaxLineLength:Config.kt$Config$set(anniversaryReminders) = prefs.edit().putString(ANNIVERSARY_REMINDERS, anniversaryReminders.joinToString(",")).apply()</ID>
+    <ID>MaxLineLength:Config.kt$Config$set(autoBackupEventTypes) = prefs.edit().remove(AUTO_BACKUP_EVENT_TYPES).putStringSet(AUTO_BACKUP_EVENT_TYPES, autoBackupEventTypes).apply()</ID>
+    <ID>MaxLineLength:Config.kt$Config$set(displayEventTypes) = prefs.edit().remove(DISPLAY_EVENT_TYPES).putStringSet(DISPLAY_EVENT_TYPES, displayEventTypes).apply()</ID>
+    <ID>MaxLineLength:Config.kt$Config$set(lastEventReminderMinutes) = prefs.edit().putInt(LAST_EVENT_REMINDER_MINUTES, lastEventReminderMinutes).apply()</ID>
+    <ID>MaxLineLength:Config.kt$Config$set(lastEventReminderMinutes2) = prefs.edit().putInt(LAST_EVENT_REMINDER_MINUTES_2, lastEventReminderMinutes2).apply()</ID>
+    <ID>MaxLineLength:Config.kt$Config$set(lastEventReminderMinutes3) = prefs.edit().putInt(LAST_EVENT_REMINDER_MINUTES_3, lastEventReminderMinutes3).apply()</ID>
+    <ID>MaxLineLength:Config.kt$Config$set(lastUsedIgnoreEventTypesState) = prefs.edit().putBoolean(LAST_USED_IGNORE_EVENT_TYPES_STATE, lastUsedIgnoreEventTypesState).apply()</ID>
+    <ID>MaxLineLength:Config.kt$Config$set(lastUsedLocalEventTypeId) = prefs.edit().putLong(LAST_USED_LOCAL_EVENT_TYPE_ID, lastUsedLocalEventTypeId).apply()</ID>
+    <ID>MaxLineLength:Config.kt$Config$set(quickFilterEventTypes) = prefs.edit().remove(QUICK_FILTER_EVENT_TYPES).putStringSet(QUICK_FILTER_EVENT_TYPES, quickFilterEventTypes).apply()</ID>
+    <ID>MaxLineLength:Config.kt$Config$set(startWeekWithCurrentDay) = prefs.edit().putBoolean(START_WEEK_WITH_CURRENT_DAY, startWeekWithCurrentDay).apply()</ID>
+    <ID>MaxLineLength:Config.kt$Config$set(usePreviousEventReminders) = prefs.edit().putBoolean(USE_PREVIOUS_EVENT_REMINDERS, usePreviousEventReminders).apply()</ID>
+    <ID>MaxLineLength:Config.kt$Config$set(wasFilteredOutWarningShown) = prefs.edit().putBoolean(WAS_FILTERED_OUT_WARNING_SHOWN, wasFilteredOutWarningShown).apply()</ID>
+    <ID>MaxLineLength:Config.kt$Config$set(weeklyViewItemHeightMultiplier) = prefs.edit().putFloat(WEEKLY_VIEW_ITEM_HEIGHT_MULTIPLIER, weeklyViewItemHeightMultiplier).apply()</ID>
+    <ID>MaxLineLength:Constants.kt$const val REPEAT_ORDER_WEEKDAY = 4 // i.e. every 4th sunday, even if a month has 4 sundays only (will stay 4th even at months with 5)</ID>
+    <ID>MaxLineLength:Constants.kt$const val REPEAT_ORDER_WEEKDAY_USE_LAST = 2 // i.e. every last sunday. 4th if a month has 4 sundays, 5th if 5 (or last sunday in june, if yearly)</ID>
+    <ID>MaxLineLength:Constants.kt$val DESCRIPTION_REGEX = Regex("""DESCRIPTION(?:(?:;[^:;]*="[^"]*")*;?(?:;LANGUAGE=[^:;]*)?(?:;[^:;]*="[^"]*")*)*:(.*(?:\r?\n\s+.*)*)""")</ID>
+    <ID>MaxLineLength:Context.kt$// Assume this is a manual synchronisation when we showToasts to the user (swipe refresh, MainMenu-&gt; refresh caldav calendars, ...)</ID>
+    <ID>MaxLineLength:Context.kt$// if the default event start time is set to "Next full hour" and the event is created before midnight, it could change the day</ID>
+    <ID>MaxLineLength:Context.kt$IcsExporter.ExportResult.EXPORT_PARTIAL -&gt; toast(org.fossify.commons.R.string.exporting_some_entries_failed)</ID>
+    <ID>MaxLineLength:Context.kt$PendingIntent.getActivity(context, event.id!!.toInt(), intent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)</ID>
+    <ID>MaxLineLength:Context.kt$PendingIntent.getBroadcast(this, id.toInt(), intent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE).cancel()</ID>
+    <ID>MaxLineLength:Context.kt$PendingIntent.getService(context, event.id!!.toInt(), intent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)</ID>
+    <ID>MaxLineLength:Context.kt$addAction(R.drawable.ic_task_vector, getString(R.string.mark_completed), getMarkCompletedPendingIntent(this@getNotification, event))</ID>
+    <ID>MaxLineLength:Context.kt$alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + syncCheckInterval, syncCheckInterval, pendingIntent)</ID>
+    <ID>MaxLineLength:Context.kt$arrayOf(currEvent.reminder3Minutes, currEvent.reminder2Minutes, currEvent.reminder1Minutes).filter { it != REMINDER_OFF }.max()</ID>
+    <ID>MaxLineLength:Context.kt$eventStartTS = if (currEvent.getIsAllDay()) Formatter.getDayStartTS(Formatter.getDayCodeFromTS(currEvent.startTS)) else currEvent.startTS</ID>
+    <ID>MaxLineLength:Context.kt$fun</ID>
+    <ID>MaxLineLength:Context.kt$private fun getFormattedEventTime(startTime: String, endTime: String)</ID>
+    <ID>MaxLineLength:Context.kt$return PendingIntent.getActivity(context, event.id!!.toInt(), intent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)</ID>
+    <ID>MaxLineLength:Context.kt$return PendingIntent.getBroadcast(this, AUTOMATIC_BACKUP_REQUEST_CODE, intent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)</ID>
+    <ID>MaxLineLength:Context.kt$return PendingIntent.getBroadcast(this, event.id!!.toInt(), intent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)</ID>
+    <ID>MaxLineLength:Context.kt$return PendingIntent.getService(context, task.id!!.toInt(), intent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)</ID>
+    <ID>MaxLineLength:Context.kt$seconds % MONTH == 0 -&gt; resources.getQuantityString(org.fossify.commons.R.plurals.months, seconds / MONTH, seconds / MONTH)</ID>
+    <ID>MaxLineLength:Context.kt$seconds % WEEK == 0 -&gt; resources.getQuantityString(org.fossify.commons.R.plurals.weeks, seconds / WEEK, seconds / WEEK)</ID>
+    <ID>MaxLineLength:Context.kt$seconds % YEAR == 0 -&gt; resources.getQuantityString(org.fossify.commons.R.plurals.years, seconds / YEAR, seconds / YEAR)</ID>
+    <ID>MaxLineLength:Context.kt$val</ID>
+    <ID>MaxLineLength:Context.kt$val dayBits = withFirstDayOfWeekToFront(listOf(MONDAY_BIT, TUESDAY_BIT, WEDNESDAY_BIT, THURSDAY_BIT, FRIDAY_BIT, SATURDAY_BIT, SUNDAY_BIT))</ID>
+    <ID>MaxLineLength:Context.kt$val eventLayoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)</ID>
+    <ID>MaxLineLength:Context.kt$val events = eventsHelper.getRepeatableEventsFor(currentSeconds - WEEK_SECONDS, currentSeconds + YEAR_SECONDS, event.id!!)</ID>
+    <ID>MaxLineLength:Context.kt$val msg = String.format(getString(org.fossify.commons.R.string.time_remaining), formatSecondsToTimeString(secondsTillNotification.toInt()))</ID>
+    <ID>MaxLineLength:Context.kt$val oldChannelId = "simple_calendar_${config.lastReminderChannel}_${config.reminderAudioStream}_${event.eventType}"</ID>
+    <ID>MaxLineLength:Context.kt$val snoozeClass = if (context.config.useSameSnooze) SnoozeService::class.java else SnoozeReminderActivity::class.java</ID>
+    <ID>MaxLineLength:Context.kt$val weekDays = withFirstDayOfWeekToFront(resources.getStringArray(org.fossify.commons.R.array.week_days_short).toList())</ID>
+    <ID>MaxLineLength:Context.kt$var eventStartTS = if (event.getIsAllDay()) Formatter.getDayStartTS(Formatter.getDayCodeFromTS(event.startTS)) else event.startTS</ID>
+    <ID>MaxLineLength:CustomPeriodPickerDialog.kt$CustomPeriodPickerDialog$private</ID>
+    <ID>MaxLineLength:DayEventsAdapter.kt$DayEventsAdapter$class</ID>
+    <ID>MaxLineLength:DayEventsAdapter.kt$DayEventsAdapter$eventItemDescription.text = if (replaceDescriptionWithLocation) event.location else event.description.replace("\n", " ")</ID>
+    <ID>MaxLineLength:DayEventsAdapter.kt$DayEventsAdapter$eventItemTime.text = if (event.getIsAllDay()) allDayString else Formatter.getTimeFromTS(activity, event.startTS)</ID>
+    <ID>MaxLineLength:DayEventsAdapter.kt$DayEventsAdapter$val nonRepeatingEventIDs = eventsToDelete.asSequence().filter { it.repeatInterval == 0 }.mapNotNull { it.id }.toMutableList()</ID>
+    <ID>MaxLineLength:DayEventsAdapter.kt$DayEventsAdapter$val repeatingEventIDs = eventsToDelete.asSequence().filter { it.repeatInterval != 0 }.mapNotNull { it.id }.toList()</ID>
+    <ID>MaxLineLength:DayFragment.kt$DayFragment$val</ID>
+    <ID>MaxLineLength:EditEventTypeDialog.kt$EditEventTypeDialog$activity</ID>
+    <ID>MaxLineLength:EditEventTypeDialog.kt$EditEventTypeDialog$class</ID>
+    <ID>MaxLineLength:EditRepeatingEventDialog.kt$EditRepeatingEventDialog$class</ID>
+    <ID>MaxLineLength:Event.kt$Event$// if an event should happen on 31st with Same Day monthly repetition, dont show it at all at months with 30 or less days</ID>
+    <ID>MaxLineLength:Event.kt$Event$fun getCalDAVCalendarId()</ID>
+    <ID>MaxLineLength:Event.kt$Event$val currentWeekNumber = Formatter.getDateTimeFromTS(startTS).withTimeAtStartOfDay().millis / (7 * 24 * 60 * 60 * 1000f)</ID>
+    <ID>MaxLineLength:Event.kt$Event$val initialWeekNumber = Formatter.getDateTimeFromTS(startTimes[id!!]!!).withTimeAtStartOfDay().millis / (7 * 24 * 60 * 60 * 1000f)</ID>
+    <ID>MaxLineLength:Event.kt$Event$wantedDay = properMonth.dayOfMonth + ((properMonth.dayOfMonth().maximumValue - properMonth.dayOfMonth) / 7) * 7</ID>
+    <ID>MaxLineLength:Event.kt$Event$while</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$(eventContactName.layoutParams as RelativeLayout.LayoutParams).addRule(RelativeLayout.START_OF, eventContactMeStatus.id)</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$// if an event is created at 23:00 on the weekly view, make it end on 23:59 by default to avoid spanning across multiple days</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$ColorPickerDialog</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$DELETE_SELECTED_OCCURRENCE -&gt; eventsHelper.deleteRepeatingEventOccurrence(mEvent.id!!, mEventOccurrenceTS, true)</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$PermissionRequiredDialog(this, org.fossify.commons.R.string.allow_notifications_reminders, { openNotificationSettings() })</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$attendees = attendees.filter { it.email != currentCalendar?.ownerName }.toMutableList() as ArrayList&lt;Attendee&gt;</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$binding.eventAvailability.text = if (mAvailability == Attendees.AVAILABILITY_FREE) getString(R.string.status_free) else getString(R.string.status_busy)</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$binding.eventRepetitionRuleHolder.beVisibleIf(mRepeatInterval.isXWeeklyRepetition() || mRepeatInterval.isXMonthlyRepetition() || mRepeatInterval.isXYearlyRepetition())</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$config.lastUsedCaldavCalendarId = mStoredEventTypes.firstOrNull { it.id == config.defaultEventTypeId }?.caldavCalendarId ?: 0</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$eventReminder1Type</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$eventTimeImage</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$if</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$items.add(RadioItem(REPEAT_ORDER_WEEKDAY_USE_LAST, getRepeatXthDayInMonthString(true, REPEAT_ORDER_WEEKDAY_USE_LAST)))</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$items.add(RadioItem(REPEAT_ORDER_WEEKDAY_USE_LAST, getRepeatXthDayString(true, REPEAT_ORDER_WEEKDAY_USE_LAST)))</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$mEventEndDateTime = Formatter.getDateTimeFromTS(realStart + duration).withZone(DateTimeZone.forID(mOriginalTimeZone))</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$mEventEndDateTime.withTime(mEventStartDateTime.hourOfDay, mEventStartDateTime.minuteOfHour, mEventStartDateTime.secondOfMinute, 0)</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$mEventStartDateTime = Formatter.getDateTimeFromTS(realStart).withZone(DateTimeZone.forID(mOriginalTimeZone))</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$mEventTypeId = if (config.defaultEventTypeId == -1L) config.lastUsedLocalEventTypeId else config.defaultEventTypeId</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$mReminder1Minutes = if (usePreviousEventReminders &amp;&amp; lastEventReminderMinutes1 &gt;= -1) lastEventReminderMinutes1 else defaultReminder1</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$mReminder2Minutes = if (usePreviousEventReminders &amp;&amp; lastEventReminderMinutes2 &gt;= -1) lastEventReminderMinutes2 else defaultReminder2</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$mReminder3Minutes = if (usePreviousEventReminders &amp;&amp; lastEventReminderMinutes3 &gt;= -1) lastEventReminderMinutes3 else defaultReminder3</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$mSelectedContacts = mSelectedContacts.filter { it.toString() != selectedAttendeeDismiss.tag }.toMutableList() as ArrayList&lt;Attendee&gt;</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$private</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$private fun getCalendarId()</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$private fun getCalendarWithId(calendars: List&lt;CalDAVCalendar&gt;, calendarId: Int)</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$private fun isLastDayOfTheMonth()</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$private val LAT_LON_PATTERN = "^[-+]?([1-8]?\\d(\\.\\d+)?|90(\\.0+)?)([,;])\\s*[-+]?(180(\\.0+)?|((1[0-7]\\d)|([1-9]?\\d))(\\.\\d+)?)\$"</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$private val endDateSetListener = DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth -&gt; dateSet(year, monthOfYear, dayOfMonth, false) }</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$private val endTimeSetListener = TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute -&gt; timeSet(hourOfDay, minute, false) }</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$reminders = reminders.filter { it.minutes != REMINDER_OFF }.sortedBy { it.minutes }.toMutableList() as ArrayList&lt;Reminder&gt;</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$setPadding(paddingLeft, paddingTop, paddingRight, resources.getDimension(org.fossify.commons.R.dimen.tiny_margin).toInt())</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$this</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$updateCurrentCalendarInfo(if (mEventCalendarId == STORED_LOCALLY_ONLY) null else getCalendarWithId(calendars, getCalendarId()))</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$updateMaterialActivityViews(binding.eventCoordinator, binding.eventHolder, useTransparentNavigation = true, useTopSearchMenu = false)</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$val</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$val contact = Attendee(id, "", email, Attendees.ATTENDEE_STATUS_NONE, "", false, Attendees.RELATIONSHIP_NONE)</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$val contact = Attendee(id, fullName, "", Attendees.ATTENDEE_STATUS_NONE, photoUri, false, Attendees.RELATIONSHIP_NONE)</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$val customEmails = mAttendeeAutoCompleteViews.filter { it.isVisible() }.map { it.value }.filter { it.isNotEmpty() }.toMutableList() as ArrayList&lt;String&gt;</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$val deviceContact = mAvailableContacts.firstOrNull { it.email.isNotEmpty() &amp;&amp; it.email == attendee.email &amp;&amp; it.photoUri.isNotEmpty() }</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$val drawable = if (mAvailability == Attendees.AVAILABILITY_FREE) R.drawable.ic_event_available_vector else R.drawable.ic_event_busy_vector</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$val everyString = getString(if (isMaleGender(mEventStartDateTime.dayOfWeek)) R.string.every_m else R.string.every_f)</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$val isLastCaldavCalendarOK = config.caldavSync &amp;&amp; config.getSyncedCalendarIdsAsList().contains(config.lastUsedCaldavCalendarId)</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$val monthString = resources.getStringArray(org.fossify.commons.R.array.in_months)[mEventStartDateTime.monthOfYear - 1]</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$val placeholder = BitmapDrawable(resources, SimpleContactsHelper(this@EventActivity).getContactLetterIcon(eventContactName.value))</ID>
+    <ID>MaxLineLength:EventActivity.kt$EventActivity$val textColor = if (mEventStartDateTime.isAfter(mEventEndDateTime)) resources.getColor(R.color.red_text) else getProperTextColor()</ID>
+    <ID>MaxLineLength:EventListAdapter.kt$EventListAdapter$activity: SimpleActivity</ID>
+    <ID>MaxLineLength:EventListAdapter.kt$EventListAdapter$eventItemDescription.text = if (replaceDescription) listEvent.location else listEvent.description.replace("\n", " ")</ID>
+    <ID>MaxLineLength:EventListAdapter.kt$EventListAdapter$eventItemTime.text = if (listEvent.isAllDay) allDayString else Formatter.getTimeFromTS(activity, listEvent.startTS)</ID>
+    <ID>MaxLineLength:EventListAdapter.kt$EventListAdapter$holder</ID>
+    <ID>MaxLineLength:EventListAdapter.kt$EventListAdapter$if</ID>
+    <ID>MaxLineLength:EventListAdapter.kt$EventListAdapter$listItems.filter { it is ListEvent &amp;&amp; selectedKeys.contains(it.hashCode()) }.map { (it as ListEvent).id }.toMutableList() as ArrayList&lt;Long&gt;</ID>
+    <ID>MaxLineLength:EventListAdapter.kt$EventListAdapter$val eventsToDelete = listItems.filter { selectedKeys.contains((it as? ListEvent)?.hashCode()) } as List&lt;ListEvent&gt;</ID>
+    <ID>MaxLineLength:EventListFragment.kt$EventListFragment$(binding.calendarEventsList.layoutManager as LinearLayoutManager).scrollToPositionWithOffset(firstNonPastSectionIndex, 0)</ID>
+    <ID>MaxLineLength:EventListFragment.kt$EventListFragment$binding.calendarEventsList.smoothScrollBy(0, requireContext().resources.getDimension(R.dimen.endless_scroll_move_height).toInt())</ID>
+    <ID>MaxLineLength:EventListFragment.kt$EventListFragment$val lastPosition = (binding.calendarEventsList.layoutManager as MyLinearLayoutManager).findLastVisibleItemPosition()</ID>
+    <ID>MaxLineLength:EventListWidgetAdapter.kt$EventListWidgetAdapter$}</ID>
+    <ID>MaxLineLength:EventWeeklyView.kt$EventWeeklyView</ID>
+    <ID>MaxLineLength:EventsDao.kt$EventsDao$//val selection = "$COL_REMINDER_MINUTES != -1 AND ($COL_START_TS &gt; ? OR $COL_REPEAT_INTERVAL != 0) AND $COL_START_TS != 0"</ID>
+    <ID>MaxLineLength:EventsDao.kt$EventsDao$@Query("SELECT * FROM events WHERE reminder_1_minutes != -1 AND (start_ts &gt; :currentTS OR repeat_interval != 0) AND start_ts != 0")</ID>
+    <ID>MaxLineLength:EventsDao.kt$EventsDao$@Query("SELECT * FROM events WHERE start_ts &lt;= :toTS AND end_ts &gt;= :fromTS AND start_ts != 0 AND repeat_interval = 0 AND event_type IN (:eventTypeIds) AND (title LIKE :searchQuery OR location LIKE :searchQuery OR description LIKE :searchQuery)")</ID>
+    <ID>MaxLineLength:EventsDao.kt$EventsDao$@Query("SELECT * FROM events WHERE start_ts &lt;= :toTS AND end_ts &gt;= :fromTS AND start_ts != 0 AND repeat_interval = 0 AND event_type IN (:eventTypeIds)")</ID>
+    <ID>MaxLineLength:EventsDao.kt$EventsDao$@Query("SELECT * FROM events WHERE start_ts &lt;= :toTS AND start_ts != 0 AND repeat_interval != 0 AND event_type IN (:eventTypeIds) AND (title LIKE :searchQuery OR location LIKE :searchQuery OR description LIKE :searchQuery)")</ID>
+    <ID>MaxLineLength:EventsDao.kt$EventsDao$@Query("SELECT * FROM events WHERE start_ts &lt;= :toTS AND start_ts != 0 AND repeat_interval != 0 AND event_type IN (:eventTypeIds)")</ID>
+    <ID>MaxLineLength:EventsDao.kt$EventsDao$@Query("SELECT * FROM events WHERE start_ts &lt;= :toTS AND start_ts &gt;= :fromTS AND event_type IN (:eventTypeIds) AND type = $TYPE_TASK")</ID>
+    <ID>MaxLineLength:EventsDao.kt$EventsDao$@Query("UPDATE events SET event_type = $REGULAR_EVENT_TYPE_ID WHERE event_type = :eventTypeId AND type = $TYPE_EVENT")</ID>
+    <ID>MaxLineLength:EventsDao.kt$EventsDao$fun</ID>
+    <ID>MaxLineLength:EventsDatabase.kt$EventsDatabase.Companion.&lt;no name provided&gt;$execSQL("CREATE TABLE IF NOT EXISTS `tasks` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `task_id` INTEGER NOT NULL, `start_ts` INTEGER NOT NULL, `flags` INTEGER NOT NULL)")</ID>
+    <ID>MaxLineLength:EventsDatabase.kt$EventsDatabase.Companion.&lt;no name provided&gt;$execSQL("CREATE TABLE IF NOT EXISTS `widgets` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `widget_id` INTEGER NOT NULL, `period` INTEGER NOT NULL)")</ID>
+    <ID>MaxLineLength:EventsHelper.kt$EventsHelper$eventTypeId = createPredefinedEventType(anniversaries, R.color.default_anniversaries_color, ANNIVERSARY_EVENT)</ID>
+    <ID>MaxLineLength:EventsHelper.kt$EventsHelper$events.addAll(eventsDB.getOneTimeEventsFromToWithTypes(toTS, fromTS, typesList).toMutableList() as ArrayList&lt;Event&gt;)</ID>
+    <ID>MaxLineLength:EventsHelper.kt$EventsHelper$eventsDB.getOneTimeEventsFromToWithTypesForSearch(toTS, fromTS, typesList, "%$searchQuery%").toMutableList() as ArrayList&lt;Event&gt;</ID>
+    <ID>MaxLineLength:EventsHelper.kt$EventsHelper$eventsDB.getRepeatableEventsOrTasksWithTypes(toTS, context.config.getDisplayEventTypessAsList()).toMutableList() as ArrayList&lt;Event&gt;</ID>
+    <ID>MaxLineLength:EventsHelper.kt$EventsHelper$eventsDB.getRepeatableEventsOrTasksWithTypesForSearch(toTS, context.config.getDisplayEventTypessAsList(), "%$searchQuery%")</ID>
+    <ID>MaxLineLength:EventsHelper.kt$EventsHelper$fun</ID>
+    <ID>MaxLineLength:EventsHelper.kt$EventsHelper$if</ID>
+    <ID>MaxLineLength:EventsHelper.kt$EventsHelper$it.caldavCalendarId == 0 || caldavCalendars.firstOrNull { it.id == eventType.caldavCalendarId }?.canWrite() == true</ID>
+    <ID>MaxLineLength:EventsHelper.kt$EventsHelper$private</ID>
+    <ID>MaxLineLength:EventsHelper.kt$EventsHelper$val previousOccurrenceTS = occurrenceTS - event.repeatInterval // always update repeat limit of the occurrence preceding the one being edited</ID>
+    <ID>MaxLineLength:EventsHelper.kt$EventsHelper$val typesToDelete = eventTypes.asSequence().filter { it.caldavCalendarId == 0 &amp;&amp; it.id != REGULAR_EVENT_TYPE_ID }.toMutableList()</ID>
+    <ID>MaxLineLength:ExportEventsDialog.kt$ExportEventsDialog$exportEventsFilename.setText("${activity.getString(R.string.events)}_${activity.getCurrentFormattedDateTime()}")</ID>
+    <ID>MaxLineLength:ExportEventsDialog.kt$ExportEventsDialog$val eventTypes = (binding.exportEventsTypesList.adapter as FilterEventTypeAdapter).getSelectedItemsList()</ID>
+    <ID>MaxLineLength:FilterEventTypeAdapter.kt$FilterEventTypeAdapter$class</ID>
+    <ID>MaxLineLength:FilterEventTypeAdapter.kt$FilterEventTypeAdapter$override fun onBindViewHolder(holder: EventTypeViewHolder, position: Int)</ID>
+    <ID>MaxLineLength:FilterEventTypeAdapter.kt$FilterEventTypeAdapter.EventTypeViewHolder$filterEventTypeCheckbox.setColors(activity.getProperTextColor(), activity.getProperPrimaryColor(), activity.getProperBackgroundColor())</ID>
+    <ID>MaxLineLength:Formatter.kt$Formatter$DateTimeFormat.forPattern(DAYCODE_PATTERN).withZone(DateTimeZone.getDefault()).parseLocalDate(dayCode).toDateTimeAtStartOfDay()</ID>
+    <ID>MaxLineLength:Formatter.kt$Formatter$fun</ID>
+    <ID>MaxLineLength:Formatter.kt$Formatter$fun getDate(context: Context, dateTime: DateTime, addDayOfWeek: Boolean = true)</ID>
+    <ID>MaxLineLength:Formatter.kt$Formatter$fun getDateTimeFromCode(dayCode: String)</ID>
+    <ID>MaxLineLength:Formatter.kt$Formatter$fun getShiftedLocalTS(ts: Long)</ID>
+    <ID>MaxLineLength:Formatter.kt$Formatter$fun getShiftedTS(dateTime: DateTime, toZone: DateTimeZone)</ID>
+    <ID>MaxLineLength:Formatter.kt$Formatter$fun getShortMonthName(context: Context, id: Int)</ID>
+    <ID>MaxLineLength:IcsExporter.kt$IcsExporter.&lt;no name provided&gt;$*</ID>
+    <ID>MaxLineLength:IcsImporter.kt$IcsImporter$// Ideally, we should parse BEGIN:VTIMEZONE and derive the timezone from there, but to get things working, let's assume TZID refers to one</ID>
+    <ID>MaxLineLength:IcsImporter.kt$IcsImporter$// if an event belongs to a sequence insert it immediately, to avoid some glitches with linked events</ID>
+    <ID>MaxLineLength:IcsImporter.kt$IcsImporter$// if an event contains the RECURRENCE-ID field, it is an exception to a recurring event, so update its parent too</ID>
+    <ID>MaxLineLength:IcsImporter.kt$IcsImporter$// repeating event exceptions can have the same import id as their parents, so pick the latest event to update</ID>
+    <ID>MaxLineLength:IcsImporter.kt$IcsImporter$// some RRULEs need to know the events start datetime. If it's yet unknown, postpone RRULE parsing</ID>
+    <ID>MaxLineLength:IcsImporter.kt$IcsImporter$Reminder(curReminderMinutes.getOrElse(0) { REMINDER_OFF }, curReminderActions.getOrElse(0) { REMINDER_NOTIFICATION })</ID>
+    <ID>MaxLineLength:IcsImporter.kt$IcsImporter$Reminder(curReminderMinutes.getOrElse(1) { REMINDER_OFF }, curReminderActions.getOrElse(1) { REMINDER_NOTIFICATION })</ID>
+    <ID>MaxLineLength:IcsImporter.kt$IcsImporter$Reminder(curReminderMinutes.getOrElse(2) { REMINDER_OFF }, curReminderActions.getOrElse(2) { REMINDER_NOTIFICATION })</ID>
+    <ID>MaxLineLength:IcsImporter.kt$IcsImporter$if</ID>
+    <ID>MaxLineLength:IcsImporter.kt$IcsImporter$line.substring(TRANSP.length).let { curAvailability = if (it == TRANSPARENT) Events.AVAILABILITY_FREE else Events.AVAILABILITY_BUSY }</ID>
+    <ID>MaxLineLength:IcsImporter.kt$IcsImporter$reminders = reminders.sortedBy { it.minutes }.sortedBy { it.minutes == REMINDER_OFF }.toMutableList() as ArrayList&lt;Reminder&gt;</ID>
+    <ID>MaxLineLength:IcsImporter.kt$IcsImporter$val eventToUpdate = existingEvents.filter { curImportId.isNotEmpty() &amp;&amp; curImportId == it.importId }.maxByOrNull { it.lastUpdated }</ID>
+    <ID>MaxLineLength:IcsImporter.kt$IcsImporter$val source = if (calDAVCalendarId == 0 || eventType?.isSyncedEventType() == false) SOURCE_IMPORTED_ICS else "$CALDAV-$calDAVCalendarId"</ID>
+    <ID>MaxLineLength:IcsImporter.kt$IcsImporter$var</ID>
+    <ID>MaxLineLength:ImportEventsDialog.kt$ImportEventsDialog$val isLastCaldavCalendarOK = config.caldavSync &amp;&amp; config.getSyncedCalendarIdsAsList().contains(config.lastUsedCaldavCalendarId)</ID>
+    <ID>MaxLineLength:ImportEventsDialog.kt$ImportEventsDialog$val lastUsedCalDAVCalendar = activity.eventsHelper.getEventTypeWithCalDAVCalendarId(config.lastUsedCaldavCalendarId)</ID>
+    <ID>MaxLineLength:ImportEventsDialog.kt$ImportEventsDialog$val result = IcsImporter(activity).importEvents(path, currEventTypeId, currEventTypeCalDAVCalendarId, overrideFileEventTypes)</ID>
+    <ID>MaxLineLength:ListSectionDay.kt$ListSectionDay : ListItem</ID>
+    <ID>MaxLineLength:MainActivity.kt$MainActivity$(newEventDrawable as LayerDrawable).findDrawableByLayerId(R.id.shortcut_event_background).applyColorFilter(appIconColor)</ID>
+    <ID>MaxLineLength:MainActivity.kt$MainActivity$(newTaskDrawable as LayerDrawable).findDrawableByLayerId(R.id.shortcut_task_background).applyColorFilter(appIconColor)</ID>
+    <ID>MaxLineLength:MainActivity.kt$MainActivity$// private contacts are created in Simple Contacts Pro, so we can guarantee that they exist only in these 2 formats</ID>
+    <ID>MaxLineLength:MainActivity.kt$MainActivity$binding.searchResultsList.smoothScrollBy(0, resources.getDimension(R.dimen.endless_scroll_move_height).toInt())</ID>
+    <ID>MaxLineLength:MainActivity.kt$MainActivity$binding.swipeRefreshLayout.isEnabled = config.caldavSync &amp;&amp; config.pullToRefresh &amp;&amp; config.storedView != WEEKLY_VIEW</ID>
+    <ID>MaxLineLength:MainActivity.kt$MainActivity$config.storedView == WEEKLY_VIEW &amp;&amp; (dayCode?.length == Formatter.DAYCODE_PATTERN.length) -&gt; getFirstDayOfWeek(Formatter.getDateTimeFromCode(dayCode))</ID>
+    <ID>MaxLineLength:MainActivity.kt$MainActivity$config.storedView == YEARLY_VIEW &amp;&amp; (dayCode?.length == Formatter.DAYCODE_PATTERN.length) -&gt; Formatter.getYearFromDayCode(dayCode)</ID>
+    <ID>MaxLineLength:MainActivity.kt$MainActivity$eventTypeId = eventsHelper.createPredefinedEventType(holidays, R.color.default_holidays_color, HOLIDAY_EVENT, true)</ID>
+    <ID>MaxLineLength:MainActivity.kt$MainActivity$faqItems.add(FAQItem(org.fossify.commons.R.string.faq_2_title_commons, org.fossify.commons.R.string.faq_2_text_commons))</ID>
+    <ID>MaxLineLength:MainActivity.kt$MainActivity$faqItems.add(FAQItem(org.fossify.commons.R.string.faq_6_title_commons, org.fossify.commons.R.string.faq_6_text_commons))</ID>
+    <ID>MaxLineLength:MainActivity.kt$MainActivity$faqItems.add(FAQItem(org.fossify.commons.R.string.faq_7_title_commons, org.fossify.commons.R.string.faq_7_text_commons))</ID>
+    <ID>MaxLineLength:MainActivity.kt$MainActivity$findItem(R.id.more_apps_from_us).isVisible = !resources.getBoolean(org.fossify.commons.R.bool.hide_google_relations)</ID>
+    <ID>MaxLineLength:MainActivity.kt$MainActivity$if</ID>
+    <ID>MaxLineLength:MainActivity.kt$MainActivity$it.title.contains(currentSearchQuery, true) || it.location.contains(currentSearchQuery, true)</ID>
+    <ID>MaxLineLength:MainActivity.kt$MainActivity$null</ID>
+    <ID>MaxLineLength:MainActivity.kt$MainActivity$private</ID>
+    <ID>MaxLineLength:MainActivity.kt$MainActivity$reminder3Minutes = reminders[2]</ID>
+    <ID>MaxLineLength:MainActivity.kt$MainActivity$repeatInterval = YEAR</ID>
+    <ID>MaxLineLength:MainActivity.kt$MainActivity$updateMaterialActivityViews(binding.mainCoordinator, binding.mainHolder, useTransparentNavigation = false, useTopSearchMenu = true)</ID>
+    <ID>MaxLineLength:MainActivity.kt$MainActivity$val eventTypeId = if (birthdays) eventsHelper.getLocalBirthdaysEventTypeId() else eventsHelper.getAnniversariesEventTypeId()</ID>
+    <ID>MaxLineLength:MainActivity.kt$MainActivity$val lastPosition = (binding.searchResultsList.layoutManager as MyLinearLayoutManager).findLastVisibleItemPosition()</ID>
+    <ID>MaxLineLength:MainActivity.kt$MainActivity$val result = IcsImporter(this).importEvents(selectedHoliday as String, eventTypeId, 0, false, reminders)</ID>
+    <ID>MaxLineLength:MainActivity.kt$MainActivity$||</ID>
+    <ID>MaxLineLength:ManageAutomaticBackupsDialog.kt$ManageAutomaticBackupsDialog$activity</ID>
+    <ID>MaxLineLength:ManageEventTypesAdapter.kt$ManageEventTypesAdapter$activity: SimpleActivity</ID>
+    <ID>MaxLineLength:MonthDayFragment.kt$MonthDayFragment$binding.monthDaySelectedDayLabel.text = Formatter.getDateFromCode(requireActivity(), mSelectedDayCode, false)</ID>
+    <ID>MaxLineLength:MonthDayFragment.kt$MonthDayFragment$override</ID>
+    <ID>MaxLineLength:MonthDayFragment.kt$MonthDayFragment$shownMonthDateTime.year == startDateTime.year &amp;&amp; shownMonthDateTime.monthOfYear == startDateTime.monthOfYear</ID>
+    <ID>MaxLineLength:MonthDayFragmentsHolder.kt$MonthDayFragmentsHolder$override</ID>
+    <ID>MaxLineLength:MonthFragment.kt$MonthFragment$override</ID>
+    <ID>MaxLineLength:MonthView.kt$MonthView$// handle overlapping repeating events e.g. an event that lasts 3 days, but repeats every 2 days has a one day overlap</ID>
+    <ID>MaxLineLength:MonthView.kt$MonthView$canvas.drawCircle(xPosCenter, yPos + textPaint.textSize * 0.7f, textPaint.textSize * 0.8f, circleStrokePaint)</ID>
+    <ID>MaxLineLength:MonthView.kt$MonthView$canvas.drawCircle(xPosCenter, yPos + textPaint.textSize * 0.7f, textPaint.textSize * 0.8f, getCirclePaint(day))</ID>
+    <ID>MaxLineLength:MonthView.kt$MonthView$canvas.drawLine(0f, i * dayHeight + weekDaysLetterHeight, canvas.width.toFloat(), i * dayHeight + weekDaysLetterHeight, gridPaint)</ID>
+    <ID>MaxLineLength:MonthView.kt$MonthView$canvas.drawRoundRect(bgRectF, BG_CORNER_RADIUS, BG_CORNER_RADIUS, getEventBackgroundColor(event, startDayIndex, endDayIndex))</ID>
+    <ID>MaxLineLength:MonthView.kt$MonthView$compareBy({ -it.daysCnt }, { !it.isAllDay }, { it.startTS }, { it.endTS }, { it.startDayIndex }, { it.title })</ID>
+    <ID>MaxLineLength:MonthView.kt$MonthView$dayLetters = context.withFirstDayOfWeekToFront(context.resources.getStringArray(org.fossify.commons.R.array.week_day_letters).toList())</ID>
+    <ID>MaxLineLength:MonthView.kt$MonthView$dayVerticalOffsets.put(day.indexOnMonthView, dayVerticalOffsets[day.indexOnMonthView] + weekDaysLetterHeight)</ID>
+    <ID>MaxLineLength:MonthView.kt$MonthView$drawEventTitle(event, canvas, xPos + taskIconWidth, yPos + verticalOffset, bgRight - bgLeft - smallPadding - taskIconWidth, specificEventTitlePaint)</ID>
+    <ID>MaxLineLength:MonthView.kt$MonthView$private</ID>
+    <ID>MaxLineLength:MonthView.kt$MonthView$return event.startTS != event.endTS &amp;&amp; Formatter.getDateTimeFromTS(event.endTS) == Formatter.getDateTimeFromTS(date.seconds()).withTimeAtStartOfDay()</ID>
+    <ID>MaxLineLength:MonthView.kt$MonthView$taskIcon.setBounds(xPos.toInt() + smallPadding * 2, taskIconY, xPos.toInt() + eventTitleHeight + smallPadding * 2, taskIconY + eventTitleHeight)</ID>
+    <ID>MaxLineLength:MonthView.kt$MonthView$val ellipsized = TextUtils.ellipsize(event.title, eventTitlePaint, availableWidth - smallPadding, TextUtils.TruncateAt.END)</ID>
+    <ID>MaxLineLength:MonthView.kt$MonthView$val isDaySelected = selectedDayCoords.x != -1 &amp;&amp; x == selectedDayCoords.x &amp;&amp; y == selectedDayCoords.y</ID>
+    <ID>MaxLineLength:MonthView.kt$MonthView$val isMidnight = Formatter.getDateTimeFromTS(endDateTime.seconds()) == Formatter.getDateTimeFromTS(endDateTime.seconds()).withTimeAtStartOfDay()</ID>
+    <ID>MaxLineLength:MonthView.kt$MonthView$val newEvent = event.copy(startDayIndex = newStartDayIndex, daysCnt = event.daysCnt - (newStartDayIndex - event.startDayIndex))</ID>
+    <ID>MaxLineLength:MonthView.kt$MonthView$val shouldAddEvent = notYetAddedOrIsRepeatingEvent || canOverlap &amp;&amp; (lastEvent!!.startTS &lt; event.startTS)</ID>
+    <ID>MaxLineLength:MonthView.kt$MonthView$val taskIcon = resources.getColoredDrawableWithColor(R.drawable.ic_task_vector, specificEventTitlePaint.color).mutate()</ID>
+    <ID>MaxLineLength:MonthViewWrapper.kt$MonthViewWrapper$contentDescription = "${day.value} ${Formatter.getMonthName(context, Formatter.getDateTimeFromCode(day.code).monthOfYear)}"</ID>
+    <ID>MaxLineLength:MonthlyCalendar.kt$MonthlyCalendar$fun updateMonthlyCalendar(context: Context, month: String, days: ArrayList&lt;DayMonthly&gt;, checkedEvents: Boolean, currTargetDate: DateTime)</ID>
+    <ID>MaxLineLength:MonthlyCalendarImpl.kt$MonthlyCalendarImpl$return targetDate.withDayOfMonth(min(curDayInMonth, targetMonthDays)).toString(Formatter.DAYCODE_PATTERN) == mToday</ID>
+    <ID>MaxLineLength:MonthlyCalendarImpl.kt$MonthlyCalendarImpl$val day = DayMonthly(value, isThisMonth, isToday, dayCode, newDay.weekOfWeekyear, ArrayList(), i, context.isWeekendIndex(i))</ID>
+    <ID>MaxLineLength:MyDayPagerAdapter.kt$MyDayPagerAdapter$class</ID>
+    <ID>MaxLineLength:MyMonthDayPagerAdapter.kt$MyMonthDayPagerAdapter$class</ID>
+    <ID>MaxLineLength:MyMonthPagerAdapter.kt$MyMonthPagerAdapter$class</ID>
+    <ID>MaxLineLength:MyWeekPagerAdapter.kt$MyWeekPagerAdapter$class</ID>
+    <ID>MaxLineLength:MyWidgetDateProvider.kt$MyWidgetDateProvider$val pendingIntent = PendingIntent.getActivity(context, OPEN_APP_INTENT_ID, this, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)</ID>
+    <ID>MaxLineLength:MyWidgetListProvider.kt$MyWidgetListProvider$PendingIntent.getActivity(context, 0, startActivityIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_MUTABLE)</ID>
+    <ID>MaxLineLength:MyWidgetListProvider.kt$MyWidgetListProvider$views.setImageViewBitmap(R.id.widget_event_go_to_today, context.resources.getColoredBitmap(R.drawable.ic_today_vector, textColor))</ID>
+    <ID>MaxLineLength:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider$day.dayEvents</ID>
+    <ID>MaxLineLength:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider$if</ID>
+    <ID>MaxLineLength:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider$setInt(R.id.day_monthly_event_id, "setPaintFlags", Paint.ANTI_ALIAS_FLAG or Paint.STRIKE_THRU_TEXT_FLAG)</ID>
+    <ID>MaxLineLength:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider$setText(id, "${days[i * 7 + 3].weekOfYear}:")</ID>
+    <ID>MaxLineLength:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider$val pendingIntent = PendingIntent.getActivity(context, Integer.parseInt(dayCode), this, PendingIntent.FLAG_IMMUTABLE)</ID>
+    <ID>MaxLineLength:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider$val pendingIntent = PendingIntent.getActivity(context, Integer.parseInt(dayCode.substring(0, 6)), this, PendingIntent.FLAG_IMMUTABLE)</ID>
+    <ID>MaxLineLength:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider.&lt;no name provided&gt;$override</ID>
+    <ID>MaxLineLength:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider.&lt;no name provided&gt;$val shouldGoToTodayBeVisible = currTargetDate.withTime(0, 0, 0, 0) != DateTime.now().withDayOfMonth(1).withTime(0, 0, 0, 0)</ID>
+    <ID>MaxLineLength:MyYearPagerAdapter.kt$MyYearPagerAdapter$class</ID>
+    <ID>MaxLineLength:NotificationReceiver.kt$NotificationReceiver$if</ID>
+    <ID>MaxLineLength:Parser.kt$Parser$// properly handle events repeating by 14 days or so, just add a repeat rule to specify a day of the week</ID>
+    <ID>MaxLineLength:Parser.kt$Parser$event.repeatInterval.isXMonthlyRepetition() || event.repeatInterval.isXYearlyRepetition()</ID>
+    <ID>MaxLineLength:Parser.kt$Parser$private fun getDurationValue(duration: String, char: String)</ID>
+    <ID>MaxLineLength:QuickFilterEventTypeAdapter.kt$QuickFilterEventTypeAdapter$val eventType = allEventTypes.firstOrNull { eventType -&gt; eventType.id.toString() == quickFilterEventType } ?: return@forEach</ID>
+    <ID>MaxLineLength:QuickFilterEventTypeAdapter.kt$QuickFilterEventTypeAdapter.QuickFilterViewHolder$inner</ID>
+    <ID>MaxLineLength:QuickFilterEventTypeAdapter.kt$QuickFilterEventTypeAdapter.QuickFilterViewHolder$val indicatorHeightRes = if (isSelected) R.dimen.quick_filter_active_line_size else R.dimen.quick_filter_inactive_line_size</ID>
+    <ID>MaxLineLength:Range.kt$fun Range&lt;Int&gt;.intersects(other: Range&lt;Int&gt;)</ID>
+    <ID>MaxLineLength:ReminderWarningDialog.kt$ReminderWarningDialog$activity</ID>
+    <ID>MaxLineLength:RepeatLimitTypePickerDialog.kt$RepeatLimitTypePickerDialog$class</ID>
+    <ID>MaxLineLength:RepeatLimitTypePickerDialog.kt$RepeatLimitTypePickerDialog$private</ID>
+    <ID>MaxLineLength:SelectCalendarsDialog.kt$SelectCalendarsDialog$CalendarItemAccountBinding.inflate(activity.layoutInflater, binding.dialogSelectCalendarsHolder, false)</ID>
+    <ID>MaxLineLength:SelectCalendarsDialog.kt$SelectCalendarsDialog$CalendarItemCalendarBinding.inflate(activity.layoutInflater, binding.dialogSelectCalendarsHolder, false)</ID>
+    <ID>MaxLineLength:SelectEventCalendarDialog.kt$SelectEventCalendarDialog$class</ID>
+    <ID>MaxLineLength:SelectEventCalendarDialog.kt$SelectEventCalendarDialog$radioGroup.addView(radioBinding.root, RadioGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))</ID>
+    <ID>MaxLineLength:SelectEventColorDialog.kt$SelectEventColorDialog$class</ID>
+    <ID>MaxLineLength:SelectEventTypeColorDialog.kt$SelectEventTypeColorDialog$class</ID>
+    <ID>MaxLineLength:SelectEventTypeDialog.kt$SelectEventTypeDialog$radioGroup.addView(radioBinding.root, RadioGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))</ID>
+    <ID>MaxLineLength:SelectEventTypeDialog.kt$SelectEventTypeDialog$val activity: Activity</ID>
+    <ID>MaxLineLength:SelectEventTypeDialog.kt$SelectEventTypeDialog$val addLastUsedOneAsFirstOption: Boolean</ID>
+    <ID>MaxLineLength:SelectEventTypeDialog.kt$SelectEventTypeDialog$val lastUsedEventType = EventType(LAST_USED_EVENT_TYPE_ID, activity.getString(R.string.last_used_one), Color.TRANSPARENT, 0)</ID>
+    <ID>MaxLineLength:SelectEventTypeDialog.kt$SelectEventTypeDialog$val newEventType = EventType(NEW_EVENT_TYPE_ID, activity.getString(R.string.add_new_type), Color.TRANSPARENT, 0)</ID>
+    <ID>MaxLineLength:SelectEventTypesDialog.kt$SelectEventTypesDialog$class</ID>
+    <ID>MaxLineLength:SelectTimeZoneAdapter.kt$SelectTimeZoneAdapter$class</ID>
+    <ID>MaxLineLength:SetRemindersDialog.kt$SetRemindersDialog$class</ID>
+    <ID>MaxLineLength:SetRemindersDialog.kt$SetRemindersDialog$val tempReminders = arrayListOf(mReminder1Minutes, mReminder2Minutes, mReminder3Minutes).filter { it != REMINDER_OFF }.sorted()</ID>
+    <ID>MaxLineLength:SettingsActivity.kt$SettingsActivity$IcsExporter.ExportResult.EXPORT_PARTIAL -&gt; org.fossify.commons.R.string.exporting_some_entries_failed</ID>
+    <ID>MaxLineLength:SettingsActivity.kt$SettingsActivity$PermissionRequiredDialog(this, org.fossify.commons.R.string.allow_notifications_reminders, { openNotificationSettings() })</ID>
+    <ID>MaxLineLength:SettingsActivity.kt$SettingsActivity$arrayOf(settingsDefaultReminder1Holder, settingsDefaultReminder2Holder, settingsDefaultReminder3Holder)</ID>
+    <ID>MaxLineLength:SettingsActivity.kt$SettingsActivity$settingsUseEnglishHolder.beVisibleIf((config.wasUseEnglishToggled || Locale.getDefault().language != "en") &amp;&amp; !isTiramisuPlus())</ID>
+    <ID>MaxLineLength:SettingsActivity.kt$SettingsActivity$updateMaterialActivityViews(binding.settingsCoordinator, binding.settingsHolder, useTransparentNavigation = true, useTopSearchMenu = false)</ID>
+    <ID>MaxLineLength:SettingsActivity.kt$SettingsActivity$val eventType = EventType(null, it.displayName, it.color, it.id, it.displayName, it.accountName)</ID>
+    <ID>MaxLineLength:SettingsActivity.kt$SettingsActivity$val events = eventsHelper.getEventsToExport(eventTypes, config.exportEvents, config.exportTasks, config.exportPastEntries)</ID>
+    <ID>MaxLineLength:SettingsActivity.kt$SettingsActivity$val reminders = sortedSetOf(config.defaultReminder1, config.defaultReminder2, config.defaultReminder3).filter { it != REMINDER_OFF }</ID>
+    <ID>MaxLineLength:SettingsActivity.kt$SettingsActivity$}</ID>
+    <ID>MaxLineLength:SimpleActivity.kt$SimpleActivity$// caldav refresh content observer triggers multiple times in a row at updating, so call the callback only a few seconds after the (hopefully) last one</ID>
+    <ID>MaxLineLength:SimpleActivity.kt$SimpleActivity$PermissionRequiredDialog(this, org.fossify.commons.R.string.allow_notifications_reminders, { openNotificationSettings() })</ID>
+    <ID>MaxLineLength:SmallMonthView.kt$SmallMonthView$canvas.drawCircle(x * dayWidth - dayWidth / 2, y * dayWidth - dayWidth / dividerConstant, dayWidth * 0.41f, todayCirclePaint)</ID>
+    <ID>MaxLineLength:TaskActivity.kt$TaskActivity$// the stored value might be incorrect so update it (e.g. user completed the task via notification action before editing)</ID>
+    <ID>MaxLineLength:TaskActivity.kt$TaskActivity$ColorPickerDialog</ID>
+    <ID>MaxLineLength:TaskActivity.kt$TaskActivity$DELETE_SELECTED_OCCURRENCE -&gt; eventsHelper.deleteRepeatingEventOccurrence(mTask.id!!, mTaskOccurrenceTS, false)</ID>
+    <ID>MaxLineLength:TaskActivity.kt$TaskActivity$PermissionRequiredDialog(this, org.fossify.commons.R.string.allow_notifications_reminders, { openNotificationSettings() })</ID>
+    <ID>MaxLineLength:TaskActivity.kt$TaskActivity$binding.taskRepetitionRuleHolder.beVisibleIf(mRepeatInterval.isXWeeklyRepetition() || mRepeatInterval.isXMonthlyRepetition() || mRepeatInterval.isXYearlyRepetition())</ID>
+    <ID>MaxLineLength:TaskActivity.kt$TaskActivity$binding.toggleMarkComplete.background = ContextCompat.getDrawable(this, org.fossify.commons.R.drawable.button_background_stroke)</ID>
+    <ID>MaxLineLength:TaskActivity.kt$TaskActivity$if</ID>
+    <ID>MaxLineLength:TaskActivity.kt$TaskActivity$items.add(RadioItem(REPEAT_ORDER_WEEKDAY_USE_LAST, getRepeatXthDayInMonthString(true, REPEAT_ORDER_WEEKDAY_USE_LAST)))</ID>
+    <ID>MaxLineLength:TaskActivity.kt$TaskActivity$items.add(RadioItem(REPEAT_ORDER_WEEKDAY_USE_LAST, getRepeatXthDayString(true, REPEAT_ORDER_WEEKDAY_USE_LAST)))</ID>
+    <ID>MaxLineLength:TaskActivity.kt$TaskActivity$mEventTypeId = if (config.defaultEventTypeId == -1L) config.lastUsedLocalEventTypeId else config.defaultEventTypeId</ID>
+    <ID>MaxLineLength:TaskActivity.kt$TaskActivity$mReminder1Minutes = if (usePreviousEventReminders &amp;&amp; lastEventReminderMinutes1 &gt;= -1) lastEventReminderMinutes1 else defaultReminder1</ID>
+    <ID>MaxLineLength:TaskActivity.kt$TaskActivity$mReminder2Minutes = if (usePreviousEventReminders &amp;&amp; lastEventReminderMinutes2 &gt;= -1) lastEventReminderMinutes2 else defaultReminder2</ID>
+    <ID>MaxLineLength:TaskActivity.kt$TaskActivity$mReminder3Minutes = if (usePreviousEventReminders &amp;&amp; lastEventReminderMinutes3 &gt;= -1) lastEventReminderMinutes3 else defaultReminder3</ID>
+    <ID>MaxLineLength:TaskActivity.kt$TaskActivity$private fun isLastDayOfTheMonth()</ID>
+    <ID>MaxLineLength:TaskActivity.kt$TaskActivity$reminders = reminders.filter { it.minutes != REMINDER_OFF }.sortedBy { it.minutes }.toMutableList() as ArrayList&lt;Reminder&gt;</ID>
+    <ID>MaxLineLength:TaskActivity.kt$TaskActivity$this</ID>
+    <ID>MaxLineLength:TaskActivity.kt$TaskActivity$updateMaterialActivityViews(binding.taskCoordinator, binding.taskHolder, useTransparentNavigation = true, useTopSearchMenu = false)</ID>
+    <ID>MaxLineLength:TaskActivity.kt$TaskActivity$val</ID>
+    <ID>MaxLineLength:TaskActivity.kt$TaskActivity$val everyString = getString(if (isMaleGender(mTaskDateTime.dayOfWeek)) R.string.every_m else R.string.every_f)</ID>
+    <ID>MaxLineLength:WeekFragment.kt$WeekFragment$((currentEventWeeklyView.range.upper - currentEventWeeklyView.range.lower) * minuteHeight).toInt() - 1</ID>
+    <ID>MaxLineLength:WeekFragment.kt$WeekFragment$// fix a visual glitch with all-day events or events lasting multiple days starting at midnight on monday, being shown the previous week too</ID>
+    <ID>MaxLineLength:WeekFragment.kt$WeekFragment$// we need to refresh all fragments because they can contain future occurrences</ID>
+    <ID>MaxLineLength:WeekFragment.kt$WeekFragment$DragEvent.ACTION_DRAG_STARTED -&gt; dragEvent.clipDescription.hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN)</ID>
+    <ID>MaxLineLength:WeekFragment.kt$WeekFragment$compareBy&lt;Event&gt; { it.startTS }.thenBy { it.endTS }.thenBy { it.title }.thenBy { if (replaceDescription) it.location else it.description }</ID>
+    <ID>MaxLineLength:WeekFragment.kt$WeekFragment$context?.eventsHelper</ID>
+    <ID>MaxLineLength:WeekFragment.kt$WeekFragment$eventWeeklyView.range.upper &gt; eventWeeklyViewToCheck.range.lower</ID>
+    <ID>MaxLineLength:WeekFragment.kt$WeekFragment$scrollView.layoutParams.height = fullHeight - res.getDimension(org.fossify.commons.R.dimen.one_dp).toInt()</ID>
+    <ID>MaxLineLength:WeekFragment.kt$WeekFragment$val (eventId, originalStartTS, originalEndTS) = dragEvent.clipData.getItemAt(0).text.toString().split(";").map { it.toLong() }</ID>
+    <ID>MaxLineLength:WeekFragment.kt$WeekFragment$val clipData = ClipData.newPlainText(WEEKLY_EVENT_ID_LABEL, "${event.id};${event.startTS};${event.endTS}")</ID>
+    <ID>MaxLineLength:WeekFragment.kt$WeekFragment$val collisionEventWeeklyViews = eventDayList.filter { eventWeeklyView.collisions.contains(it.key) }</ID>
+    <ID>MaxLineLength:WeekFragment.kt$WeekFragment$val dayOfWeek = dayColumns.indexOfFirst { it.tag.toInt() == dayCodeStart || it.tag.toInt() in (dayCodeStart + 1)..dayCodeEnd }</ID>
+    <ID>MaxLineLength:WeekFragment.kt$WeekFragment$val isRowValidForEvent = lastEvent == null || firstEventRowIdx!! + repeatingEventIndex == index &amp;&amp; lastEventRowIdx!! &lt; index</ID>
+    <ID>MaxLineLength:WeekFragment.kt$WeekFragment$val isStartTimeDay = Formatter.getDateTimeFromTS(maxTS) == Formatter.getDateTimeFromTS(maxTS).withTimeAtStartOfDay()</ID>
+    <ID>MaxLineLength:WeekFragment.kt$WeekFragment$val numDays = Days.daysBetween(Formatter.getDateTimeFromTS(minTS).toLocalDate(), Formatter.getDateTimeFromTS(maxTS).toLocalDate()).days</ID>
+    <ID>MaxLineLength:WeekFragmentsHolder.kt$WeekFragmentsHolder$binding.weekViewDaysCount.text = requireContext().resources.getQuantityString(org.fossify.commons.R.plurals.days, cnt, cnt)</ID>
+    <ID>MaxLineLength:WidgetDateConfigureActivity.kt$WidgetDateConfigureActivity$if</ID>
+    <ID>MaxLineLength:WidgetListConfigureActivity.kt$WidgetListConfigureActivity$else -&gt; resources.getQuantityString(R.plurals.within_the_next_days, seconds / DAY_SECONDS, seconds / DAY_SECONDS)</ID>
+    <ID>MaxLineLength:WidgetListConfigureActivity.kt$WidgetListConfigureActivity$if</ID>
+    <ID>MaxLineLength:WidgetListConfigureActivity.kt$WidgetListConfigureActivity$seconds % MONTH_SECONDS == 0 -&gt; resources.getQuantityString(R.plurals.within_the_next_months, seconds / MONTH_SECONDS, seconds / MONTH_SECONDS)</ID>
+    <ID>MaxLineLength:WidgetListConfigureActivity.kt$WidgetListConfigureActivity$seconds % WEEK_SECONDS == 0 -&gt; resources.getQuantityString(R.plurals.within_the_next_weeks, seconds / WEEK_SECONDS, seconds / WEEK_SECONDS)</ID>
+    <ID>MaxLineLength:WidgetMonthlyConfigureActivity.kt$WidgetMonthlyConfigureActivity$if</ID>
+    <ID>MaxLineLength:WidgetMonthlyConfigureActivity.kt$WidgetMonthlyConfigureActivity$override</ID>
+    <ID>MaxLineLength:WidgetMonthlyConfigureActivity.kt$WidgetMonthlyConfigureActivity$root.layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)</ID>
+    <ID>MaxLineLength:YearFragment.kt$YearFragment$binding.month1Holder</ID>
+    <ID>MaxLineLength:YearFragment.kt$YearFragment$binding.month7Holder</ID>
+    <ID>MaxLineLength:YearFragmentsHolder.kt$YearFragmentsHolder$currentYear = (if (dateTimeString != null) DateTime.parse(dateTimeString) else DateTime()).toString(Formatter.YEAR_PATTERN).toInt()</ID>
+    <ID>NestedBlockDepth:CalDAVHelper.kt$CalDAVHelper$fun refreshCalendars(showToasts: Boolean, scheduleNextSync: Boolean, callback: () -&gt; Unit)</ID>
+    <ID>NestedBlockDepth:Context.kt$inline fun Context.queryCursorInlined( uri: Uri, projection: Array&lt;String&gt;, selection: String? = null, selectionArgs: Array&lt;String&gt;? = null, sortOrder: String? = null, showErrors: Boolean = false, callback: (cursor: Cursor) -&gt; Unit )</ID>
+    <ID>NestedBlockDepth:DayEventsAdapter.kt$DayEventsAdapter$private fun setupView(view: View, event: Event)</ID>
+    <ID>NestedBlockDepth:EventActivity.kt$EventActivity$private fun gotEvent(savedInstanceState: Bundle?, localEventType: EventType?, event: Event?)</ID>
+    <ID>NestedBlockDepth:EventsHelper.kt$EventsHelper$fun getEventsSync( fromTS: Long, toTS: Long, eventId: Long = -1L, applyTypeFilter: Boolean, searchQuery: String = "", callback: (events: ArrayList&lt;Event&gt;) -&gt; Unit )</ID>
+    <ID>NestedBlockDepth:EventsHelper.kt$EventsHelper$fun insertOrUpdateEventTypeSync(eventType: EventType): Long</ID>
+    <ID>NestedBlockDepth:EventsHelper.kt$EventsHelper$private fun getEventsRepeatingTillDateOrForever(fromTS: Long, toTS: Long, startTimes: LongSparseArray&lt;Long&gt;, event: Event): ArrayList&lt;Event&gt;</ID>
+    <ID>NestedBlockDepth:EventsHelper.kt$EventsHelper$private fun getEventsRepeatingXTimes(fromTS: Long, toTS: Long, startTimes: LongSparseArray&lt;Long&gt;, event: Event): ArrayList&lt;Event&gt;</ID>
+    <ID>NestedBlockDepth:IcsExporter.kt$IcsExporter$private fun fillReminders(event: Event, out: BufferedWriter, reminderLabel: String)</ID>
+    <ID>NestedBlockDepth:IcsImporter.kt$IcsImporter$fun importEvents( path: String, defaultEventTypeId: Long, calDAVCalendarId: Int, overrideFileEventTypes: Boolean, eventReminders: ArrayList&lt;Int&gt;? = null, ): ImportResult</ID>
+    <ID>NestedBlockDepth:IcsImporter.kt$IcsImporter$private fun getTimestamp(fullString: String): Long</ID>
+    <ID>NestedBlockDepth:MainActivity.kt$MainActivity$private fun addPrivateEvents( birthdays: Boolean, contacts: ArrayList&lt;SimpleContact&gt;, reminders: ArrayList&lt;Int&gt;, callback: (eventsFound: Int, eventsAdded: Int) -&gt; Unit )</ID>
+    <ID>NestedBlockDepth:MainActivity.kt$MainActivity$private fun checkIsViewIntent()</ID>
+    <ID>NestedBlockDepth:MonthView.kt$MonthView$override fun onDraw(canvas: Canvas)</ID>
+    <ID>NestedBlockDepth:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider$private fun updateDays(context: Context, views: RemoteViews, days: List&lt;DayMonthly&gt;)</ID>
+    <ID>NestedBlockDepth:Parser.kt$Parser$fun parseRepeatInterval(fullString: String, startTS: Long): EventRepetition</ID>
+    <ID>NestedBlockDepth:SettingsActivity.kt$SettingsActivity$private fun parseFile(inputStream: InputStream?)</ID>
+    <ID>NestedBlockDepth:SmallMonthView.kt$SmallMonthView$override fun onDraw(canvas: Canvas)</ID>
+    <ID>NestedBlockDepth:WeekFragment.kt$WeekFragment$@SuppressLint("NewApi") private fun addAllDayEvent(event: Event)</ID>
+    <ID>NestedBlockDepth:WeekFragment.kt$WeekFragment$private fun addEvents(events: ArrayList&lt;Event&gt;)</ID>
+    <ID>ReturnCount:EventActivity.kt$EventActivity$private fun saveEvent()</ID>
+    <ID>ReturnCount:HsvColorComparator.kt$HsvColorComparator$override fun compare(lhs: Int?, rhs: Int?): Int</ID>
+    <ID>ReturnCount:SmallMonthView.kt$SmallMonthView$private fun getPaint(curId: Int, weekDay: Int, highlightWeekends: Boolean): Paint</ID>
+    <ID>SwallowedException:CalDAVHelper.kt$CalDAVHelper$e: Exception</ID>
+    <ID>SwallowedException:CalDAVHelper.kt$CalDAVHelper$e: IllegalArgumentException</ID>
+    <ID>SwallowedException:Converters.kt$Converters$e: Exception</ID>
+    <ID>SwallowedException:Event.kt$Event$e: Exception</ID>
+    <ID>SwallowedException:EventActivity.kt$EventActivity$e: Exception</ID>
+    <ID>SwallowedException:EventsHelper.kt$EventsHelper$e: Exception</ID>
+    <ID>SwallowedException:MainActivity.kt$MainActivity$e: ConcurrentModificationException</ID>
+    <ID>SwallowedException:MainActivity.kt$MainActivity$e: Exception</ID>
+    <ID>SwallowedException:SettingsActivity.kt$SettingsActivity$e: ActivityNotFoundException</ID>
+    <ID>TooGenericExceptionCaught:Activity.kt$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:CalDAVHelper.kt$CalDAVHelper$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:Context.kt$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:Converters.kt$Converters$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:Event.kt$Event$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:EventActivity.kt$EventActivity$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:EventsHelper.kt$EventsHelper$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:IcsImporter.kt$IcsImporter$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:MainActivity.kt$MainActivity$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:ReminderWarningDialog.kt$ReminderWarningDialog$e: Exception</ID>
+    <ID>TooGenericExceptionCaught:SettingsActivity.kt$SettingsActivity$e: Exception</ID>
+    <ID>TooManyFunctions:CalDAVHelper.kt$CalDAVHelper</ID>
+    <ID>TooManyFunctions:Context.kt$org.fossify.calendar.extensions.Context.kt</ID>
+    <ID>TooManyFunctions:DayEventsAdapter.kt$DayEventsAdapter : MyRecyclerViewAdapter</ID>
+    <ID>TooManyFunctions:DayFragmentsHolder.kt$DayFragmentsHolder : MyFragmentHolderNavigationListener</ID>
+    <ID>TooManyFunctions:Event.kt$Event : Serializable</ID>
+    <ID>TooManyFunctions:EventActivity.kt$EventActivity : SimpleActivity</ID>
+    <ID>TooManyFunctions:EventListAdapter.kt$EventListAdapter : MyRecyclerViewAdapter</ID>
+    <ID>TooManyFunctions:EventListFragment.kt$EventListFragment : MyFragmentHolderRefreshRecyclerViewListener</ID>
+    <ID>TooManyFunctions:EventListWidgetAdapter.kt$EventListWidgetAdapter : RemoteViewsFactory</ID>
+    <ID>TooManyFunctions:EventsDao.kt$EventsDao</ID>
+    <ID>TooManyFunctions:EventsHelper.kt$EventsHelper</ID>
+    <ID>TooManyFunctions:Formatter.kt$Formatter</ID>
+    <ID>TooManyFunctions:MainActivity.kt$MainActivity : SimpleActivityRefreshRecyclerViewListener</ID>
+    <ID>TooManyFunctions:ManageEventTypesAdapter.kt$ManageEventTypesAdapter : MyRecyclerViewAdapter</ID>
+    <ID>TooManyFunctions:MonthDayFragment.kt$MonthDayFragment : FragmentMonthlyCalendarRefreshRecyclerViewListener</ID>
+    <ID>TooManyFunctions:MonthDayFragmentsHolder.kt$MonthDayFragmentsHolder : MyFragmentHolderNavigationListener</ID>
+    <ID>TooManyFunctions:MonthFragmentsHolder.kt$MonthFragmentsHolder : MyFragmentHolderNavigationListener</ID>
+    <ID>TooManyFunctions:MonthView.kt$MonthView : View</ID>
+    <ID>TooManyFunctions:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider : AppWidgetProvider</ID>
+    <ID>TooManyFunctions:Parser.kt$Parser</ID>
+    <ID>TooManyFunctions:SettingsActivity.kt$SettingsActivity : SimpleActivity</ID>
+    <ID>TooManyFunctions:TaskActivity.kt$TaskActivity : SimpleActivity</ID>
+    <ID>TooManyFunctions:WeekFragment.kt$WeekFragment : FragmentWeeklyCalendar</ID>
+    <ID>TooManyFunctions:WeekFragmentsHolder.kt$WeekFragmentsHolder : MyFragmentHolderWeekFragmentListener</ID>
+    <ID>TooManyFunctions:WidgetListConfigureActivity.kt$WidgetListConfigureActivity : SimpleActivity</ID>
+    <ID>TooManyFunctions:WidgetMonthlyConfigureActivity.kt$WidgetMonthlyConfigureActivity : SimpleActivityMonthlyCalendar</ID>
+    <ID>TooManyFunctions:YearFragmentsHolder.kt$YearFragmentsHolder : MyFragmentHolderNavigationListener</ID>
+    <ID>UnusedPrivateProperty:YearlyCalendarImpl.kt$YearlyCalendarImpl$i</ID>
+    <ID>VariableNaming:DayFragmentsHolder.kt$DayFragmentsHolder$private val PREFILLED_DAYS = 251</ID>
+    <ID>VariableNaming:EventActivity.kt$EventActivity$private val LAT_LON_PATTERN = "^[-+]?([1-8]?\\d(\\.\\d+)?|90(\\.0+)?)([,;])\\s*[-+]?(180(\\.0+)?|((1[0-7]\\d)|([1-9]?\\d))(\\.\\d+)?)\$"</ID>
+    <ID>VariableNaming:EventActivity.kt$EventActivity$private val SELECT_TIME_ZONE_INTENT = 1</ID>
+    <ID>VariableNaming:EventListWidgetAdapter.kt$EventListWidgetAdapter$private val ITEM_EVENT = 0</ID>
+    <ID>VariableNaming:EventListWidgetAdapter.kt$EventListWidgetAdapter$private val ITEM_SECTION_DAY = 1</ID>
+    <ID>VariableNaming:EventListWidgetAdapter.kt$EventListWidgetAdapter$private val ITEM_SECTION_MONTH = 2</ID>
+    <ID>VariableNaming:EventTypePickerActivity.kt$EventTypePickerActivity$private val TYPE_EVENT = 0</ID>
+    <ID>VariableNaming:EventTypePickerActivity.kt$EventTypePickerActivity$private val TYPE_TASK = 1</ID>
+    <ID>VariableNaming:IcsExporter.kt$IcsExporter$private val MAX_LINE_LENGTH = 75</ID>
+    <ID>VariableNaming:ManageEventTypesAdapter.kt$ManageEventTypesAdapter$private val DELETE_EVENTS = 1</ID>
+    <ID>VariableNaming:ManageEventTypesAdapter.kt$ManageEventTypesAdapter$private val MOVE_EVENTS = 0</ID>
+    <ID>VariableNaming:MonthDayFragmentsHolder.kt$MonthDayFragmentsHolder$private val PREFILLED_MONTHS = 251</ID>
+    <ID>VariableNaming:MonthFragmentsHolder.kt$MonthFragmentsHolder$private val PREFILLED_MONTHS = 251</ID>
+    <ID>VariableNaming:MonthlyCalendarImpl.kt$MonthlyCalendarImpl$private val DAYS_CNT = 42</ID>
+    <ID>VariableNaming:MonthlyCalendarImpl.kt$MonthlyCalendarImpl$private val YEAR_PATTERN = "YYYY"</ID>
+    <ID>VariableNaming:MyWidgetDateProvider.kt$MyWidgetDateProvider$private val OPEN_APP_INTENT_ID = 1</ID>
+    <ID>VariableNaming:MyWidgetListProvider.kt$MyWidgetListProvider$private val GO_TO_TODAY = "go_to_today"</ID>
+    <ID>VariableNaming:MyWidgetListProvider.kt$MyWidgetListProvider$private val LAUNCH_CAL = "launch_cal"</ID>
+    <ID>VariableNaming:MyWidgetListProvider.kt$MyWidgetListProvider$private val NEW_EVENT = "new_event"</ID>
+    <ID>VariableNaming:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider$private val GO_TO_TODAY = "go_to_today"</ID>
+    <ID>VariableNaming:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider$private val NEW_EVENT = "new_event"</ID>
+    <ID>VariableNaming:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider$private val NEXT = "next"</ID>
+    <ID>VariableNaming:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider$private val PREV = "prev"</ID>
+    <ID>VariableNaming:SelectEventTypeDialog.kt$SelectEventTypeDialog$private val LAST_USED_EVENT_TYPE_ID = -1L</ID>
+    <ID>VariableNaming:SelectEventTypeDialog.kt$SelectEventTypeDialog$private val NEW_EVENT_TYPE_ID = -2L</ID>
+    <ID>VariableNaming:SettingsActivity.kt$SettingsActivity$private val GET_RINGTONE_URI = 1</ID>
+    <ID>VariableNaming:SettingsActivity.kt$SettingsActivity$private val PICK_EVENTS_EXPORT_FILE_INTENT = 4</ID>
+    <ID>VariableNaming:SettingsActivity.kt$SettingsActivity$private val PICK_EVENTS_IMPORT_SOURCE_INTENT = 3</ID>
+    <ID>VariableNaming:SettingsActivity.kt$SettingsActivity$private val PICK_SETTINGS_IMPORT_SOURCE_INTENT = 2</ID>
+    <ID>VariableNaming:SimpleActivity.kt$SimpleActivity$val CALDAV_REFRESH_DELAY = 3000L</ID>
+    <ID>VariableNaming:WeekFragment.kt$WeekFragment$private val MAX_SCALE_FACTOR = 5f</ID>
+    <ID>VariableNaming:WeekFragment.kt$WeekFragment$private val MIN_SCALE_DIFFERENCE = 0.02f</ID>
+    <ID>VariableNaming:WeekFragment.kt$WeekFragment$private val MIN_SCALE_FACTOR = 0.3f</ID>
+    <ID>VariableNaming:WeekFragment.kt$WeekFragment$private val PLUS_FADEOUT_DELAY = 5000L</ID>
+    <ID>VariableNaming:WeekFragment.kt$WeekFragment$private val SCALE_RANGE = MAX_SCALE_FACTOR - MIN_SCALE_FACTOR</ID>
+    <ID>VariableNaming:WeekFragment.kt$WeekFragment$private val WEEKLY_EVENT_ID_LABEL = "event_id_label"</ID>
+    <ID>VariableNaming:WeekFragmentsHolder.kt$WeekFragmentsHolder$private val MAX_SEEKBAR_VALUE = 14</ID>
+    <ID>VariableNaming:WeekFragmentsHolder.kt$WeekFragmentsHolder$private val PREFILLED_WEEKS = 151</ID>
+    <ID>VariableNaming:WeeklyViewGrid.kt$WeeklyViewGrid$private val ROWS_CNT = 24</ID>
+    <ID>VariableNaming:YearFragmentsHolder.kt$YearFragmentsHolder$private val PREFILLED_YEARS = 61</ID>
+    <ID>WildcardImport:Activity.kt$import org.fossify.calendar.helpers.*</ID>
+    <ID>WildcardImport:Activity.kt$import org.fossify.commons.extensions.*</ID>
+    <ID>WildcardImport:BootCompletedReceiver.kt$import org.fossify.calendar.extensions.*</ID>
+    <ID>WildcardImport:CalDAVHelper.kt$import android.provider.CalendarContract.*</ID>
+    <ID>WildcardImport:CalDAVHelper.kt$import org.fossify.calendar.extensions.*</ID>
+    <ID>WildcardImport:CalDAVHelper.kt$import org.fossify.calendar.models.*</ID>
+    <ID>WildcardImport:CalDAVHelper.kt$import org.fossify.commons.extensions.*</ID>
+    <ID>WildcardImport:Context.kt$import android.app.*</ID>
+    <ID>WildcardImport:Context.kt$import org.fossify.calendar.helpers.*</ID>
+    <ID>WildcardImport:Context.kt$import org.fossify.calendar.models.*</ID>
+    <ID>WildcardImport:Context.kt$import org.fossify.commons.extensions.*</ID>
+    <ID>WildcardImport:Context.kt$import org.fossify.commons.helpers.*</ID>
+    <ID>WildcardImport:CustomEventRepeatIntervalDialog.kt$import org.fossify.commons.extensions.*</ID>
+    <ID>WildcardImport:CustomPeriodPickerDialog.kt$import org.fossify.commons.extensions.*</ID>
+    <ID>WildcardImport:DayEventsAdapter.kt$import org.fossify.calendar.extensions.*</ID>
+    <ID>WildcardImport:DayFragment.kt$import org.fossify.calendar.helpers.*</ID>
+    <ID>WildcardImport:DayFragment.kt$import org.fossify.commons.extensions.*</ID>
+    <ID>WildcardImport:EditEventTypeDialog.kt$import org.fossify.commons.extensions.*</ID>
+    <ID>WildcardImport:Event.kt$import org.fossify.calendar.helpers.*</ID>
+    <ID>WildcardImport:EventActivity.kt$import org.fossify.calendar.dialogs.*</ID>
+    <ID>WildcardImport:EventActivity.kt$import org.fossify.calendar.extensions.*</ID>
+    <ID>WildcardImport:EventActivity.kt$import org.fossify.calendar.helpers.*</ID>
+    <ID>WildcardImport:EventActivity.kt$import org.fossify.calendar.models.*</ID>
+    <ID>WildcardImport:EventActivity.kt$import org.fossify.commons.extensions.*</ID>
+    <ID>WildcardImport:EventActivity.kt$import org.fossify.commons.helpers.*</ID>
+    <ID>WildcardImport:EventListAdapter.kt$import org.fossify.calendar.extensions.*</ID>
+    <ID>WildcardImport:EventListAdapter.kt$import org.fossify.calendar.helpers.*</ID>
+    <ID>WildcardImport:EventListFragment.kt$import org.fossify.calendar.extensions.*</ID>
+    <ID>WildcardImport:EventListFragment.kt$import org.fossify.calendar.helpers.*</ID>
+    <ID>WildcardImport:EventListFragment.kt$import org.fossify.commons.extensions.*</ID>
+    <ID>WildcardImport:EventListWidgetAdapter.kt$import org.fossify.calendar.extensions.*</ID>
+    <ID>WildcardImport:EventListWidgetAdapter.kt$import org.fossify.calendar.helpers.*</ID>
+    <ID>WildcardImport:EventListWidgetAdapter.kt$import org.fossify.calendar.models.*</ID>
+    <ID>WildcardImport:EventListWidgetAdapter.kt$import org.fossify.commons.extensions.*</ID>
+    <ID>WildcardImport:EventTypesDao.kt$import androidx.room.*</ID>
+    <ID>WildcardImport:EventsDao.kt$import org.fossify.calendar.helpers.*</ID>
+    <ID>WildcardImport:EventsHelper.kt$import org.fossify.calendar.extensions.*</ID>
+    <ID>WildcardImport:ExportEventsDialog.kt$import org.fossify.commons.extensions.*</ID>
+    <ID>WildcardImport:ImportEventsDialog.kt$import org.fossify.commons.extensions.*</ID>
+    <ID>WildcardImport:MainActivity.kt$import org.fossify.calendar.extensions.*</ID>
+    <ID>WildcardImport:MainActivity.kt$import org.fossify.calendar.fragments.*</ID>
+    <ID>WildcardImport:MainActivity.kt$import org.fossify.calendar.helpers.*</ID>
+    <ID>WildcardImport:MainActivity.kt$import org.fossify.commons.extensions.*</ID>
+    <ID>WildcardImport:MainActivity.kt$import org.fossify.commons.helpers.*</ID>
+    <ID>WildcardImport:ManageAutomaticBackupsDialog.kt$import org.fossify.commons.extensions.*</ID>
+    <ID>WildcardImport:ManageEventTypesAdapter.kt$import android.view.*</ID>
+    <ID>WildcardImport:ManageEventTypesAdapter.kt$import org.fossify.commons.extensions.*</ID>
+    <ID>WildcardImport:MonthDayFragment.kt$import org.fossify.calendar.extensions.*</ID>
+    <ID>WildcardImport:MonthView.kt$import android.graphics.*</ID>
+    <ID>WildcardImport:MonthView.kt$import org.fossify.calendar.extensions.*</ID>
+    <ID>WildcardImport:MonthView.kt$import org.fossify.commons.extensions.*</ID>
+    <ID>WildcardImport:MyWidgetMonthlyProvider.kt$import org.fossify.calendar.extensions.*</ID>
+    <ID>WildcardImport:MyWidgetMonthlyProvider.kt$import org.fossify.commons.extensions.*</ID>
+    <ID>WildcardImport:Parser.kt$import org.fossify.commons.helpers.*</ID>
+    <ID>WildcardImport:ReminderWarningDialog.kt$import org.fossify.commons.extensions.*</ID>
+    <ID>WildcardImport:RepeatLimitTypePickerDialog.kt$import org.fossify.commons.extensions.*</ID>
+    <ID>WildcardImport:SelectEventCalendarDialog.kt$import org.fossify.commons.extensions.*</ID>
+    <ID>WildcardImport:SelectEventTypeDialog.kt$import org.fossify.commons.extensions.*</ID>
+    <ID>WildcardImport:SetRemindersDialog.kt$import org.fossify.commons.extensions.*</ID>
+    <ID>WildcardImport:SettingsActivity.kt$import org.fossify.calendar.dialogs.*</ID>
+    <ID>WildcardImport:SettingsActivity.kt$import org.fossify.calendar.extensions.*</ID>
+    <ID>WildcardImport:SettingsActivity.kt$import org.fossify.calendar.helpers.*</ID>
+    <ID>WildcardImport:SettingsActivity.kt$import org.fossify.commons.dialogs.*</ID>
+    <ID>WildcardImport:SettingsActivity.kt$import org.fossify.commons.extensions.*</ID>
+    <ID>WildcardImport:SettingsActivity.kt$import org.fossify.commons.helpers.*</ID>
+    <ID>WildcardImport:SplashActivity.kt$import org.fossify.calendar.helpers.*</ID>
+    <ID>WildcardImport:TaskActivity.kt$import org.fossify.calendar.dialogs.*</ID>
+    <ID>WildcardImport:TaskActivity.kt$import org.fossify.calendar.extensions.*</ID>
+    <ID>WildcardImport:TaskActivity.kt$import org.fossify.calendar.helpers.*</ID>
+    <ID>WildcardImport:TaskActivity.kt$import org.fossify.commons.extensions.*</ID>
+    <ID>WildcardImport:TaskActivity.kt$import org.fossify.commons.helpers.*</ID>
+    <ID>WildcardImport:WeekFragment.kt$import android.view.*</ID>
+    <ID>WildcardImport:WeekFragment.kt$import org.fossify.calendar.databinding.*</ID>
+    <ID>WildcardImport:WeekFragment.kt$import org.fossify.calendar.extensions.*</ID>
+    <ID>WildcardImport:WeekFragment.kt$import org.fossify.calendar.helpers.*</ID>
+    <ID>WildcardImport:WeekFragment.kt$import org.fossify.commons.extensions.*</ID>
+    <ID>WildcardImport:WeekFragment.kt$import org.fossify.commons.helpers.*</ID>
+    <ID>WildcardImport:WeekFragmentsHolder.kt$import org.fossify.calendar.extensions.*</ID>
+    <ID>WildcardImport:WeekFragmentsHolder.kt$import org.fossify.commons.extensions.*</ID>
+    <ID>WildcardImport:WidgetDateConfigureActivity.kt$import org.fossify.commons.extensions.*</ID>
+    <ID>WildcardImport:WidgetListConfigureActivity.kt$import org.fossify.commons.extensions.*</ID>
+    <ID>WildcardImport:WidgetListConfigureActivity.kt$import org.fossify.commons.helpers.*</ID>
+    <ID>WildcardImport:WidgetMonthlyConfigureActivity.kt$import org.fossify.commons.extensions.*</ID>
+  </CurrentIssues>
+</SmellBaseline>

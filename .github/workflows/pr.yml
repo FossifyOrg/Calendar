@@ -1,0 +1,9 @@
+name: PR
+
+on:
+    pull_request:
+        branches: [ master ]
+
+jobs:
+    call-pr-workflow:
+        uses: FossifyOrg/.github/.github/workflows/pr.yml@main
