@@ -415,11 +415,13 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
 
         val eventIdToOpen = intent.getLongExtra(EVENT_ID, 0L)
         val eventOccurrenceToOpen = intent.getLongExtra(EVENT_OCCURRENCE_TS, 0L)
+        val isTask = intent.getBooleanExtra(IS_TASK, false)
         intent.removeExtra(EVENT_ID)
         intent.removeExtra(EVENT_OCCURRENCE_TS)
+        intent.removeExtra(IS_TASK)
         if (eventIdToOpen != 0L && eventOccurrenceToOpen != 0L) {
             hideKeyboard()
-            Intent(this, EventActivity::class.java).apply {
+            Intent(this, getActivityToOpen(isTask)).apply {
                 putExtra(EVENT_ID, eventIdToOpen)
                 putExtra(EVENT_OCCURRENCE_TS, eventOccurrenceToOpen)
                 startActivity(this)
