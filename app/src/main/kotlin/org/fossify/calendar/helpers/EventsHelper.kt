@@ -97,9 +97,9 @@ class EventsHelper(val context: Context) {
 
         for (eventTypeId in deleteIds) {
             if (deleteEvents) {
-                deleteEventsWithType(eventTypeId!!)
+                deleteEventsAndTasksWithType(eventTypeId!!)
             } else {
-                eventsDB.resetEventsWithType(eventTypeId!!)
+                eventsDB.resetEventsAndTasksWithType(eventTypeId!!)
             }
         }
 
@@ -291,8 +291,8 @@ class EventsHelper(val context: Context) {
         }
     }
 
-    private fun deleteEventsWithType(eventTypeId: Long) {
-        val eventIds = eventsDB.getEventIdsByEventType(eventTypeId).toMutableList()
+    private fun deleteEventsAndTasksWithType(eventTypeId: Long) {
+        val eventIds = eventsDB.getEventAndTasksIdsByEventType(eventTypeId).toMutableList()
         deleteEvents(eventIds, true)
     }
 
@@ -317,9 +317,9 @@ class EventsHelper(val context: Context) {
         }
     }
 
-    fun doEventTypesContainEvents(eventTypeIds: ArrayList<Long>, callback: (contain: Boolean) -> Unit) {
+    fun doEventTypesContainEventsOrTasks(eventTypeIds: ArrayList<Long>, callback: (contain: Boolean) -> Unit) {
         ensureBackgroundThread {
-            val eventIds = eventsDB.getEventIdsByEventType(eventTypeIds)
+            val eventIds = eventsDB.getEventAndTasksIdsByEventType(eventTypeIds)
             callback(eventIds.isNotEmpty())
         }
     }
