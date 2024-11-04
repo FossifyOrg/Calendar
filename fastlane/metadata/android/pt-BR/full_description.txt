@@ -1,0 +1,44 @@
+Cansado de calendários bagunçados e com problemas de privacidade?
+
+O Calendário do Fossify está aqui para mudar isso. É seu app de código aberto para gerenciar a vida, desenhado com privacidade em mente, e cheio de funções poderosas para te manter organizado.
+
+Isso que faz o Calendário do Fossify diferente:
+
+🚫 SEM ANÚNCIOS E PRIVADO: 
+Seus eventos sempre serão seus. Sem anúncios, rastreamentos, e sem permissões invasivas.
+
+⏰ FLEXÍVEL E CUSTOMIZÁVEL: 
+Crie eventos precisamente com tempos, durações, lembretes, e regras de repetição avançadas.
+
+🔄 SINCRONIZAÇÃO FÁCIL: 
+Sincronize sem dificuldades com Google, Outlook, Nextcloud, Exchange e muito mais.
+
+🎨 PERSONALIZE SEU PLANEJADOR: 
+Defina sons customizados, transmissões de áudio em loop, vibrações, e temas para combinar com suas preferências. 
+
+🌈 WIDGETS VIBRANTES: 
+Ilumine seu dia com widgets e temas de calendários lindos para sua tela inicial.
+
+📅 GESTÃO DO DIA COM FACILIDADE:
+Planeje seu dia com facilidade, sendo você um professional ocupado ou um organizador de família.
+
+🎉 IMPORTE CELEBRAÇÕES: 
+Nunca perca um dia de aniversário! Importe com facilidade feriados e datas especiais.
+
+🔍 FILTROS DE VISUALIZAÇÃO: 
+Encontre rapidamente o que você está procurando com filtros de eventos.
+
+📆 MÚLTIPLAS VISUALIZAÇÕES: 
+Mude entre diariamente, semanalmente, mensalmente, anualmente, e visualizações de eventos com facilidade.
+
+✨ ELEGÂNCIA DO MATERIAL DESIGN: 
+Aproveite uma interface intuitiva e amigável ao usuário com temas dinâmicos.
+
+Continuando, o Calendário do Fossify é código aberto! Se junte a esta comunidade no GitHub, contribua ao projeto, e faça dele unicamente seu.
+
+Agora, baixe o Calendário do Fossify, e experiencie o poder de uma agenda privada e customizada.
+
+Explore mais apps do Fossify: https://www.fossify.org
+Código fonte: https://www.github.com/FossifyOrg
+Se junte a comunidade no Reddit: https://www.reddit.com/r/Fossify
+Se conecte no Telegram: https://t.me/Fossify

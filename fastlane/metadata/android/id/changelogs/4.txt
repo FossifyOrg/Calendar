@@ -1,0 +1,6 @@
+* Memperbaiki masalah tampilan bulan pada Google Pixel 8 Pro.
+* Memperbaiki titik warna acara pada tampilan bulanan dan harian.
+* Memperbaiki zona waktu yang salah saat mengimpor file ICS.
+* Sorot akhir pekan dalam mode cetak.
+* Memperbarui hari libur untuk beberapa negara.
+* Menambahkan beberapa terjemahan.
