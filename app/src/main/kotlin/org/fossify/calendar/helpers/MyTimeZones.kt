@@ -367,7 +367,7 @@ fun getAllTimeZones() = arrayListOf(
     MyTimeZone("GMT+5:30", "Asia/Kolkata"),
     MyTimeZone("GMT+5:45", "Asia/Kathmandu"),
     MyTimeZone("GMT+6", "Antarctica/Vostok"),
-    MyTimeZone("GMT+6", "Asia/Almaty"),
+    MyTimeZone("GMT+5", "Asia/Almaty"),
     MyTimeZone("GMT+6", "Asia/Bishkek"),
     MyTimeZone("GMT+6", "Asia/Dhaka"),
     MyTimeZone("GMT+6", "Asia/Omsk"),

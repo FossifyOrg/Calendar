@@ -140,7 +140,7 @@ class MyWidgetMonthlyProvider : AppWidgetProvider() {
                 val backgroundColor = it.color
                 var eventTextColor = backgroundColor.getContrastColor()
 
-                if (it.isTask() && it.isTaskCompleted() && dimCompletedTasks || !day.isThisMonth || (dimPastEvents && it.isPastEvent)) {
+                if (it.isTask() && it.isTaskCompleted() && dimCompletedTasks || !day.isThisMonth || (dimPastEvents && it.isPastEvent && !it.isTask())) {
                     eventTextColor = eventTextColor.adjustAlpha(MEDIUM_ALPHA)
                 }
 
