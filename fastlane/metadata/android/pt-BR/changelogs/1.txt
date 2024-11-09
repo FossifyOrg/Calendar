@@ -1,1 +1,1 @@
-* Lançamento inicial.
+* Versão inicial.
