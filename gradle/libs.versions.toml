@@ -24,8 +24,8 @@ app-build-javaVersion = "VERSION_17"
 app-build-kotlinJVMTarget = "17"
 #versioning
 app-version-appId = "org.fossify.calendar"
-app-version-versionCode = "4"
-app-version-versionName = "1.0.3"
+app-version-versionCode = "5"
+app-version-versionName = "1.1.0"
 [libraries]
 #Android X
 androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
