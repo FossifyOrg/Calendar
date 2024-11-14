@@ -205,13 +205,13 @@
     <string name="status_free">Libre</string>
     <string name="status_busy">Ocupado</string>
     <string name="fetching_event_failed">Fallo en la obtención del evento %s</string>
-    <string name="monday_alt">lunes</string>
-    <string name="tuesday_alt">martes</string>
-    <string name="wednesday_alt">miércoles</string>
-    <string name="thursday_alt">jueves</string>
-    <string name="friday_alt">viernes</string>
-    <string name="saturday_alt">sábado</string>
-    <string name="sunday_alt">domingo</string>
+    <string name="monday_alt">Lunes</string>
+    <string name="tuesday_alt">Martes</string>
+    <string name="wednesday_alt">Miércoles</string>
+    <string name="thursday_alt">Jueves</string>
+    <string name="friday_alt">Viernes</string>
+    <string name="saturday_alt">Sábado</string>
+    <string name="sunday_alt">Domingo</string>
     <string name="sample_title_1">Ejercicio</string>
     <string name="sample_description_1">Día de ejercitar piernas</string>
     <string name="sample_title_2">Reunión con John</string>
@@ -260,4 +260,7 @@
     <string name="accessibility_next_day">Ir al día siguiente</string>
     <string name="caldav">CalDAV</string>
     <string name="color">Color</string>
+    <string name="status_tentative">Provisional</string>
+    <string name="status_canceled">Cancelado</string>
+    <string name="status_confirmed">Confirmado</string>
 </resources>
