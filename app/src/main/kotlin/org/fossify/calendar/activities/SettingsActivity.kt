@@ -202,7 +202,7 @@ class SettingsActivity : SimpleActivity() {
         settingsLanguageHolder.setOnClickListener {
             launchChangeAppLanguageIntent()
         }
-    }22
+    }
 
     private fun setupManageEventTypes() {
         binding.settingsManageEventTypesHolder.setOnClickListener {

@@ -1,19 +1,19 @@
 [versions]
 #jetbrains
-kotlin = "1.9.21"
+kotlin = "1.9.25"
 #KSP
-ksp = "1.9.21-1.0.16"
+ksp = "1.9.25-1.0.20"
 #Detekt
 detekt = "1.23.3"
 #Androidx
 multidex = "2.0.1"
 print = "1.0.0"
-constraintlayout = "2.1.4"
+constraintlayout = "2.2.0"
 swiperefreshlayout = "1.1.0"
 #Room
 room = "2.6.1"
 #Fossify
-commons = "c4110dc7c2"
+commons = "2de50c22d6"
 #Gradle
 gradlePlugins-agp = "8.7.2"
 #build
