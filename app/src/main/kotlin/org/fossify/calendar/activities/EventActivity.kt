@@ -9,9 +9,9 @@ import android.graphics.drawable.Drawable
 import android.graphics.drawable.LayerDrawable
 import android.net.Uri
 import android.os.Bundle
-import android.provider.CalendarContract
 import android.provider.CalendarContract.Attendees
 import android.provider.CalendarContract.Colors
+import android.provider.CalendarContract.Events
 import android.provider.ContactsContract.CommonDataKinds
 import android.provider.ContactsContract.CommonDataKinds.StructuredName
 import android.provider.ContactsContract.Data
@@ -73,7 +73,7 @@ class EventActivity : SimpleActivity() {
     private var mAvailableContacts = ArrayList<Attendee>()
     private var mSelectedContacts = ArrayList<Attendee>()
     private var mAvailability = Attendees.AVAILABILITY_BUSY
-    private var mStatus = CalendarContract.Events.STATUS_CONFIRMED
+    private var mStatus = Events.STATUS_CONFIRMED
     private var mStoredEventTypes = ArrayList<EventType>()
     private var mOriginalTimeZone = DateTimeZone.getDefault().id
     private var mOriginalStartTS = 0L
@@ -974,9 +974,9 @@ class EventActivity : SimpleActivity() {
 
     private fun showStatusPicker(currentValue: Int, callback: (Int) -> Unit) {
         val items = arrayListOf(
-            RadioItem(CalendarContract.Events.STATUS_TENTATIVE, getString(R.string.status_tentative)),
-            RadioItem(CalendarContract.Events.STATUS_CONFIRMED, getString(R.string.status_confirmed)),
-            RadioItem(CalendarContract.Events.STATUS_CANCELED, getString(R.string.status_canceled)),
+            RadioItem(Events.STATUS_TENTATIVE, getString(R.string.status_tentative)),
+            RadioItem(Events.STATUS_CONFIRMED, getString(R.string.status_confirmed)),
+            RadioItem(Events.STATUS_CANCELED, getString(R.string.status_canceled)),
         )
         RadioGroupDialog(this, items, currentValue) {
             callback(it as Int)
@@ -1023,16 +1023,16 @@ class EventActivity : SimpleActivity() {
 
     private fun updateStatusText() {
         when (mStatus) {
-            CalendarContract.Events.STATUS_CONFIRMED -> binding.eventStatus.text = getString(R.string.status_confirmed)
-            CalendarContract.Events.STATUS_TENTATIVE -> binding.eventStatus.text = getString(R.string.status_tentative)
-            CalendarContract.Events.STATUS_CANCELED -> binding.eventStatus.text = getString(R.string.status_canceled)
+            Events.STATUS_CONFIRMED -> binding.eventStatus.text = getString(R.string.status_confirmed)
+            Events.STATUS_TENTATIVE -> binding.eventStatus.text = getString(R.string.status_tentative)
+            Events.STATUS_CANCELED -> binding.eventStatus.text = getString(R.string.status_canceled)
         }
     }
 
     private fun updateStatusImage() {
         val drawable = when (mStatus) {
-            CalendarContract.Events.STATUS_CONFIRMED -> R.drawable.ic_event_available_vector
-            CalendarContract.Events.STATUS_CANCELED -> R.drawable.ic_event_busy_vector
+            Events.STATUS_CONFIRMED -> R.drawable.ic_event_available_vector
+            Events.STATUS_CANCELED -> R.drawable.ic_event_busy_vector
             else -> R.drawable.ic_event_tentative_vector
         }
         val icon = resources.getColoredDrawableWithColor(drawable, getProperTextColor())
