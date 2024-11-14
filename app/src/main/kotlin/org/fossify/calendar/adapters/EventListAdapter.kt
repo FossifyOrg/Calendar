@@ -163,7 +163,7 @@ class EventListAdapter(
                 val adjustAlpha = if (listEvent.isTask) {
                     dimCompletedTasks && listEvent.isTaskCompleted
                 } else {
-                    ((dimPastEvents && listEvent.isPastEvent) || listEvent.isEventTentative) && !isPrintVersion
+                    dimPastEvents && listEvent.isPastEvent && !isPrintVersion
                 }
                 if (adjustAlpha) {
                     newTextColor = newTextColor.adjustAlpha(MEDIUM_ALPHA)

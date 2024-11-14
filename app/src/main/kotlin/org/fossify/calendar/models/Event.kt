@@ -220,8 +220,4 @@ data class Event(
     fun isEventCanceled(): Boolean {
         return status == CalendarContract.Events.STATUS_CANCELED
     }
-
-    fun isEventTentative(): Boolean {
-        return status == CalendarContract.Events.STATUS_TENTATIVE
-    }
 }

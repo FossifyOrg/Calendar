@@ -117,7 +117,7 @@ class DayEventsAdapter(activity: SimpleActivity, val events: ArrayList<Event>, r
             val adjustAlpha = if (event.isTask()) {
                 dimCompletedTasks && event.isTaskCompleted()
             } else {
-                ((dimPastEvents && event.isPastEvent) || event.isEventTentative()) && !isPrintVersion
+                dimPastEvents && event.isPastEvent && !isPrintVersion
             }
 
             if (adjustAlpha) {
