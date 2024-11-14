@@ -1,5 +1,7 @@
 package org.fossify.calendar.helpers
 
+import android.provider.CalendarContract
+import android.provider.CalendarContract.Events
 import org.fossify.calendar.activities.EventActivity
 import org.fossify.calendar.activities.TaskActivity
 import org.fossify.commons.helpers.MONTH_SECONDS
@@ -14,7 +16,8 @@ const val COLUMN_COUNT = 7
 const val SCHEDULE_CALDAV_REQUEST_CODE = 10000
 const val AUTOMATIC_BACKUP_REQUEST_CODE = 10001
 const val FETCH_INTERVAL = 3 * MONTH_SECONDS
-const val MAX_SEARCH_YEAR = 2051218800L  // 2035, limit search results for events repeating indefinitely
+const val MAX_SEARCH_YEAR =
+    2051218800L  // 2035, limit search results for events repeating indefinitely
 
 // endless scrolling updating
 const val MIN_EVENTS_TRESHOLD = 30
@@ -71,7 +74,8 @@ const val TYPE_TASK = 1
 const val TWELVE_HOURS = 43200
 const val DAY = 86400
 const val WEEK = 604800
-const val MONTH = 2592001    // exact value not taken into account, Joda is used for adding months and years
+const val MONTH =
+    2592001    // exact value not taken into account, Joda is used for adding months and years
 const val YEAR = 31536000
 
 const val EVENT_PERIOD_TODAY = -1
@@ -148,10 +152,13 @@ const val AUTO_BACKUP_PAST_ENTRIES = "auto_backup_past_entries"
 const val LAST_AUTO_BACKUP_TIME = "last_auto_backup_time"
 
 // repeat_rule for monthly and yearly repetition
-const val REPEAT_SAME_DAY = 1                           // i.e. 25th every month, or 3rd june (if yearly repetition)
-const val REPEAT_ORDER_WEEKDAY_USE_LAST = 2             // i.e. every last sunday. 4th if a month has 4 sundays, 5th if 5 (or last sunday in june, if yearly)
+const val REPEAT_SAME_DAY =
+    1                           // i.e. 25th every month, or 3rd june (if yearly repetition)
+const val REPEAT_ORDER_WEEKDAY_USE_LAST =
+    2             // i.e. every last sunday. 4th if a month has 4 sundays, 5th if 5 (or last sunday in june, if yearly)
 const val REPEAT_LAST_DAY = 3                           // i.e. every last day of the month
-const val REPEAT_ORDER_WEEKDAY = 4                      // i.e. every 4th sunday, even if a month has 4 sundays only (will stay 4th even at months with 5)
+const val REPEAT_ORDER_WEEKDAY =
+    4                      // i.e. every 4th sunday, even if a month has 4 sundays only (will stay 4th even at months with 5)
 
 // special event and task flags
 const val FLAG_ALL_DAY = 1
@@ -178,7 +185,8 @@ const val DURATION = "DURATION:"
 const val SUMMARY = "SUMMARY"
 const val DESCRIPTION = "DESCRIPTION"
 const val DESCRIPTION_EXPORT = "DESCRIPTION:"
-val DESCRIPTION_REGEX = Regex("""DESCRIPTION(?:(?:;[^:;]*="[^"]*")*;?(?:;LANGUAGE=[^:;]*)?(?:;[^:;]*="[^"]*")*)*:(.*(?:\r?\n\s+.*)*)""")
+val DESCRIPTION_REGEX =
+    Regex("""DESCRIPTION(?:(?:;[^:;]*="[^"]*")*;?(?:;LANGUAGE=[^:;]*)?(?:;[^:;]*="[^"]*")*)*:(.*(?:\r?\n\s+.*)*)""")
 const val UID = "UID:"
 const val ACTION = "ACTION:"
 const val TRANSP = "TRANSP:"
@@ -332,5 +340,13 @@ fun getJavaDayOfWeekFromJoda(dayOfWeek: Int): Int {
         DateTimeConstants.FRIDAY -> Calendar.FRIDAY
         DateTimeConstants.SATURDAY -> Calendar.SATURDAY
         else -> throw IllegalArgumentException("Invalid day: $dayOfWeek")
+    }
+}
+
+fun getStatusStringFromEventStatus(statusCode: Int): String {
+    return when (statusCode) {
+        Events.STATUS_CONFIRMED -> CONFIRMED
+        Events.STATUS_CANCELED -> CANCELLED
+        else -> TENTATIVE
     }
 }
