@@ -1,6 +1,20 @@
 Changelog
 ==========
 
+Version 1.1.0 *(2024-11-15)*
+----------------------------
+
+* Resolved issue with multi-day all-day events not displaying on the top bar
+* Fixed task opening functionality from widgets
+* Fixed resizing issue in date widget
+* Fixed opacity for incomplete tasks in widgets
+* Fixed spanish translation for saturday.
+* Added support for event status
+* Replaced checkboxes with switches
+* Removed support for Android 7 and older versions
+* Other minor bug fixes and improvements
+* Added more translations
+
 Version 1.0.3 *(2024-03-12)*
 ----------------------------
 
