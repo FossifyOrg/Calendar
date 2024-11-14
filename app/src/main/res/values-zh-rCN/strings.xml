@@ -150,7 +150,7 @@
     <string name="midnight_spanning">在顶部栏显示跨越午夜的活动</string>
     <string name="allow_customizing_day_count">允许自定义天数</string>
     <string name="week_numbers">显示第几周</string>
-    <string name="vibrate">提醒通知时震动</string>
+    <string name="vibrate">提醒通知时振动</string>
     <string name="reminder_sound">提醒音效</string>
     <string name="no_ringtone_picker">未发现能够设置铃声的程序</string>
     <string name="no_ringtone_selected">无</string>
@@ -177,7 +177,7 @@
     <string name="default_reminder_1">预设提醒1</string>
     <string name="default_reminder_2">预设提醒2</string>
     <string name="default_reminder_3">预设提醒3</string>
-    <string name="view_to_open_from_widget">从活动列表小工具开启的视图</string>
+    <string name="view_to_open_from_widget">从活动列表微件打开的视图</string>
     <string name="last_view">最后的视图</string>
     <string name="new_events">新活动</string>
     <string name="default_start_time">预设开始时间</string>

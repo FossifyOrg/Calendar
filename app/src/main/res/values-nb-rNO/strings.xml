@@ -2,14 +2,14 @@
 <resources>
     <string name="app_launcher_name">Kalender</string>
     <string name="change_view">Endre visning</string>
-    <string name="daily_view">Dagvisning</string>
+    <string name="daily_view">Dagsvisning</string>
     <string name="weekly_view">Ukevisning</string>
     <string name="monthly_view">Månedsvisning</string>
-    <string name="monthly_daily_view">Måneds og dagvisning</string>
+    <string name="monthly_daily_view">Måneds- og dagsvisning</string>
     <string name="yearly_view">Årsvisning</string>
     <string name="simple_event_list">Enkel hendelsesliste</string>
     <string name="no_upcoming_events">Ingen kommende hendelser.</string>
-    <string name="go_to_today">Gå til idag</string>
+    <string name="go_to_today">Gå til i dag</string>
     <string name="go_to_date">Gå til dato</string>
     <string name="widget_monthly">Månedskalender</string>
     <string name="widget_list">Hendelsesliste</string>
@@ -53,7 +53,7 @@
     <string name="task_is_repeatable">Oppgaven kan gjentas</string>
     <string name="selection_contains_repetition">Markeringen inneholder gjentagende hendelser</string>
     <string name="delete_one_only">Slett bare den merkede forekomsten</string>
-    <string name="delete_future_occurrences">Slett denne og alle framtidige forekomster</string>
+    <string name="delete_future_occurrences">Slett denne og alle fremtidige forekomster</string>
     <string name="delete_all_occurrences">Slett alle forekomster</string>
     <string name="update_one_only">Oppdater bare den merkede forekomsten</string>
     <string name="update_this_and_future_occurrences">Oppdater denne og alle fremtidige forekomster</string>
