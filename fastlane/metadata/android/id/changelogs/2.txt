@@ -1,0 +1,1 @@
+* Memperbaiki kompatibilitas impor file dari Kalender Simpel.
