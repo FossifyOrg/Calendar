@@ -755,8 +755,7 @@ class WeekFragment : Fragment(), WeeklyCalendar {
 
     private fun shouldAddEventOnTopBar(isAllDay: Boolean, startDayCode: String, endDayCode: String): Boolean {
         val spansMultipleDays = startDayCode != endDayCode
-        val isSingleDayAllDayEvent = isAllDay && !spansMultipleDays
-        return isSingleDayAllDayEvent || (spansMultipleDays && config.showMidnightSpanningEventsAtTop)
+        return isAllDay || (spansMultipleDays && config.showMidnightSpanningEventsAtTop)
     }
 
     @SuppressLint("NewApi")

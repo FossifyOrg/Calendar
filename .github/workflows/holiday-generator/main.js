@@ -28,6 +28,7 @@ function log(toLog) {
  */
 function getEvents(countryCode) {
     const generator = new Holidays(countryCode);
+    generator.setTimezone("UTC");
     const events = [];
     for (let i = START_YEAR; i <= END_YEAR; i++) {
         events.push(...generator.getHolidays(i).filter((x) => TYPE_WHITELIST.includes(x.type)));
@@ -54,7 +55,7 @@ function generateUid(countryCode, date, rule) {
  * @returns
  */
 function getDateArray(date) {
-    return [date.getFullYear(), date.getMonth() + 1, date.getDate()];
+    return [date.getUTCFullYear(), date.getUTCMonth() + 1, date.getUTCDate()];
 }
 
 /**
@@ -79,9 +80,9 @@ async function generateIcal(events, countryCode) {
         if (isFixedDate(x.rule)) {
             const uid = generateUid(countryCode, "", x.rule);
             if (!eventsMap.has(uid)) {
-                const yearDiff = x.end.getFullYear() - x.start.getFullYear();
-                x.start.setFullYear(FIXED_DATE_START_YEAR);
-                x.end.setFullYear(FIXED_DATE_START_YEAR + yearDiff);
+                const yearDiff = x.end.getUTCFullYear() - x.start.getUTCFullYear();
+                x.start.setUTCFullYear(FIXED_DATE_START_YEAR);
+                x.end.setUTCFullYear(FIXED_DATE_START_YEAR + yearDiff);
                 eventsMap.set(uid, {
                     title: x.name,
                     uid,
