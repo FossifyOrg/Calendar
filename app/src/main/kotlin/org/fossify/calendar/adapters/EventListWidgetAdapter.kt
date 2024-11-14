@@ -3,6 +3,7 @@ package org.fossify.calendar.adapters
 import android.content.Context
 import android.content.Intent
 import android.graphics.Paint
+import android.provider.CalendarContract
 import android.widget.RemoteViews
 import android.widget.RemoteViewsService
 import org.fossify.calendar.R
@@ -236,7 +237,8 @@ class EventListWidgetAdapter(val context: Context, val intent: Intent) : RemoteV
                     isRepeatable = event.repeatInterval > 0,
                     isTask = event.isTask(),
                     isTaskCompleted = event.isTaskCompleted(),
-                    isAttendeeInviteDeclined = event.isAttendeeInviteDeclined()
+                    isAttendeeInviteDeclined = event.isAttendeeInviteDeclined(),
+                    isEventCanceled = event.isEventCanceled()
                 )
                 listItems.add(listEvent)
             }

@@ -473,6 +473,40 @@
                 android:importantForAccessibility="no" />
 
             <ImageView
+                android:id="@+id/event_status_image"
+                android:layout_width="@dimen/smaller_icon_size"
+                android:layout_height="@dimen/smaller_icon_size"
+                android:layout_alignTop="@+id/event_status"
+                android:layout_alignBottom="@+id/event_status"
+                android:layout_marginStart="@dimen/normal_margin"
+                android:padding="@dimen/medium_margin"
+                android:src="@drawable/ic_check_circle_outline_vector" />
+
+            <org.fossify.commons.views.MyTextView
+                android:id="@+id/event_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/event_attendees_divider"
+                android:layout_marginStart="@dimen/small_margin"
+                android:layout_marginTop="@dimen/medium_margin"
+                android:layout_toEndOf="@+id/event_status_image"
+                android:background="?attr/selectableItemBackground"
+                android:paddingTop="@dimen/normal_margin"
+                android:paddingEnd="@dimen/activity_margin"
+                android:paddingBottom="@dimen/normal_margin"
+                android:text="@string/status_confirmed"
+                android:textSize="@dimen/day_text_size" />
+
+            <ImageView
+                android:id="@+id/event_status_divider"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:layout_below="@+id/event_status"
+                android:layout_marginTop="@dimen/medium_margin"
+                android:background="@color/divider_grey"
+                android:importantForAccessibility="no" />
+
+            <ImageView
                 android:id="@+id/event_availability_image"
                 android:layout_width="@dimen/smaller_icon_size"
                 android:layout_height="@dimen/smaller_icon_size"
@@ -486,7 +520,7 @@
                 android:id="@+id/event_availability"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/event_attendees_divider"
+                android:layout_below="@+id/event_status_divider"
                 android:layout_marginStart="@dimen/small_margin"
                 android:layout_marginTop="@dimen/medium_margin"
                 android:layout_toEndOf="@+id/event_availability_image"
