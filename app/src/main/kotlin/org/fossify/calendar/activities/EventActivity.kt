@@ -1516,7 +1516,7 @@ class EventActivity : SimpleActivity() {
 
     private fun setupStartTime() {
         hideKeyboard()
-        if (config.isUsingSystemTheme) {
+        if (isDynamicTheme()) {
             val timeFormat = if (config.use24HourFormat) {
                 TimeFormat.CLOCK_24H
             } else {
@@ -1560,7 +1560,7 @@ class EventActivity : SimpleActivity() {
 
     private fun setupEndTime() {
         hideKeyboard()
-        if (config.isUsingSystemTheme) {
+        if (isDynamicTheme()) {
             val timeFormat = if (config.use24HourFormat) {
                 TimeFormat.CLOCK_24H
             } else {
