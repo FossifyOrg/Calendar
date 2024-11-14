@@ -1031,9 +1031,9 @@ class EventActivity : SimpleActivity() {
 
     private fun updateStatusImage() {
         val drawable = when (mStatus) {
-            Events.STATUS_CONFIRMED -> R.drawable.ic_event_available_vector
-            Events.STATUS_CANCELED -> R.drawable.ic_event_busy_vector
-            else -> R.drawable.ic_event_tentative_vector
+            Events.STATUS_CONFIRMED -> R.drawable.ic_check_circle_outline_vector
+            Events.STATUS_CANCELED -> R.drawable.ic_cancel_circle_outline_vector
+            else -> R.drawable.ic_question_circle_outline_vector
         }
         val icon = resources.getColoredDrawableWithColor(drawable, getProperTextColor())
         binding.eventStatusImage.setImageDrawable(icon)

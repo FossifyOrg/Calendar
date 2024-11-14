@@ -514,7 +514,7 @@
                 android:layout_alignBottom="@+id/event_status"
                 android:layout_marginStart="@dimen/normal_margin"
                 android:padding="@dimen/medium_margin"
-                android:src="@drawable/ic_event_busy_vector" /> <!-- TODO real icon -->
+                android:src="@drawable/ic_check_circle_outline_vector" />
 
             <org.fossify.commons.views.MyTextView
                 android:id="@+id/event_status"
