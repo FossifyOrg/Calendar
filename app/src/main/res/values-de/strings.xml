@@ -210,7 +210,7 @@
     <string name="fetching_event_failed">Der Abruf des Termins %s ist fehlgeschlagen</string>
     <string name="status_tentative">Vorläufig</string>
     <string name="status_confirmed">Bestätigt</string>
-    <string name="status_canceled">Abgelehnt</string>
+    <string name="status_canceled">Abgesagt</string>
     <string name="monday_alt">Montag</string>
     <string name="tuesday_alt">Dienstag</string>
     <string name="wednesday_alt">Mittwoch</string>
