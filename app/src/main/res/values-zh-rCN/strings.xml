@@ -256,5 +256,5 @@
     <string name="default_calendar_color">日历默认颜色</string>
     <string name="status_confirmed">已确认</string>
     <string name="status_canceled">已取消</string>
-    <string name="status_tentative">暂定的</string>
+    <string name="status_tentative">暂定</string>
 </resources>
