@@ -1315,6 +1315,7 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
             put("República Oriental del Uruguay", "uruguay.ics")
             put("République d'Haïti", "haiti.ics")
             put("România", "romania.ics")
+            put("節氣", "solarterm.ics")
             put("Schweiz", "switzerland.ics")
             put("Singapore", "singapore.ics")
             put("한국", "southkorea.ics")
