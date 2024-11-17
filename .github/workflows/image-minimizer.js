@@ -18,7 +18,7 @@ module.exports = async ({github, context}) => {
         initialBody = context.payload.comment.body;
     } else if (context.eventName == 'issues') {
         initialBody = context.payload.issue.body;
-    } else if (context.eventName == 'pull_request') {
+    } else if (context.eventName == 'pull_request_target') {
         initialBody = context.payload.pull_request.body;
     } else {
         console.log('Aborting: No body found');
