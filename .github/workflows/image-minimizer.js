@@ -77,7 +77,7 @@ module.exports = async ({github, context}) => {
             repo: context.repo.repo,
             body: newBody
         });
-    } else if (context.eventName == 'pull_request') {
+    } else if (context.eventName == 'pull_request_target') {
         console.log('Updating pull request', context.payload.pull_request.number);
         await github.rest.pulls.update({
             pull_number: context.payload.pull_request.number,
@@ -139,6 +139,7 @@ module.exports = async ({github, context}) => {
             if (shouldModify) {
                 wasMatchModified = true;
                 console.log(`Modifying match '${match}'`);
+                var newBody
                 return `<img alt="${g1}" src="${g2}" width=${Math.min(600, Math.floor(IMG_MAX_HEIGHT_PX * probeAspectRatio))} />`;
             }
 
