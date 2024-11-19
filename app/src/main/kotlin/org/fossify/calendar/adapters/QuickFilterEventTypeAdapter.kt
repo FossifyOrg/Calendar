@@ -28,6 +28,9 @@ class QuickFilterEventTypeAdapter(
     private val minItemWidth = activity.resources.getDimensionPixelSize(R.dimen.quick_filter_min_width)
     private var lastClickTS = 0L
 
+    private var lastLongClickedType: EventType? = null
+    private var lastActiveKeys = HashSet<Long>()
+
     init {
         quickFilterEventTypeIds.forEach { quickFilterEventType ->
             val eventType = allEventTypes.firstOrNull { eventType -> eventType.id.toString() == quickFilterEventType } ?: return@forEach
@@ -91,7 +94,23 @@ class QuickFilterEventTypeAdapter(
                         lastClickTS = System.currentTimeMillis()
                         viewClicked(!isSelected, eventType)
                         callback()
+                        lastLongClickedType = null
                     }
+                }
+
+                quickFilterEventType.setOnLongClickListener {
+                    if (lastLongClickedType != eventType) {
+                        lastActiveKeys.clear()
+                    }
+                    val activeKeysCopy = HashSet(activeKeys)
+                    allEventTypes.forEach { viewClicked(lastActiveKeys.contains(it.id!!), it) }
+                    val shouldSelectCurrent = if (lastLongClickedType != eventType) true else lastActiveKeys.contains(eventType.id!!)
+                    viewClicked(shouldSelectCurrent, eventType)
+                    notifyItemRangeChanged(0, itemCount)
+                    callback()
+                    lastLongClickedType = eventType
+                    lastActiveKeys = activeKeysCopy
+                    true
                 }
             }
         }
