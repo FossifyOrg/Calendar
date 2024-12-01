@@ -185,7 +185,7 @@
     <string name="next_full_hour">Началото на следващия час</string>
     <string name="current_time">Текущо време</string>
     <string name="default_duration">Основна продължителност</string>
-    <string name="last_used_one">Последно използван един</string>
+    <string name="last_used_one">Последно отворения</string>
     <string name="other_time">Друго време</string>
     <string name="highlight_weekends">Подчертаване на уикендите в някои изгледи</string>
     <string name="highlight_weekends_color">Цвят на подчертаване на уикендите</string>
