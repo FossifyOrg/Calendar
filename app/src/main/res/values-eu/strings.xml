@@ -245,7 +245,7 @@
     <string name="faq_3_text">Abisua bistaratzeari eta audioa erreproduzitzeari sistemak eragiten dio. Soinurik ez baduzu entzuten, saiatu aplikazioaren ezarpenetara joaten, \"Abisuek erabilitako audio-transmisioa\" aukera sakatu eta balio ezberdina jarri. Oraindik ez badabil, egiaztatu soinu-ezarpenak, transmisio jakina mututua ez badago.</string>
     <string name="faq_4_title">Aplikazioak ordu-zonak onartzen ditu\?</string>
     <string name="faq_4_text">Bai, onartzen ditu. Gertaera guztiak zure ordu-zonaren arabera sortzen dira modu lehenetsian. Gertaera baten ordu-zona aldatu nahi baduzu, lehenengo ordu-zonaren hautatzailea gaitu behar duzu aplikazioaren ezarpenetan eta, ondoren, gertaeraren xehetasunen pantailan aldatu. Modu lehenetsian desgaituta dago, jende gehienak ez duelako behar.</string>
-    <string name="faq_5_title">Aplikazioak ez du jakinarazpenik erakusten, zergatik\?</string>
+    <string name="faq_5_title">Zergatik ez du jakinarazpenik erakusten?</string>
     <string name="faq_5_text">Egiaztatu gailuaren bateria eta jakinarazpenen ezarpenak, egiaztatu abisuak ez daudela blokeatuta edo aplikazioa bigarren planoan exekutatzea galarazten duen ezer ez dagoela. Baliteke &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt; helbidera ere begiratu nahi izatea, aholku erabilgarriak ditu.</string>
     <string name="faq_6_title">Nola aldatu edo ezabatu dezaket lehendik dagoen gertaera mota bat\?</string>
     <string name="faq_6_text">Gauza biak egin ditzakezu Ezarpenak - Kudeatu gertaera motak aplikazioan. Egin klik nahi duzun elementuan etiketa eta kolorea aldatzeko, edo hautatu nahi duzuna luze sakatuz eta erabili goiko menuko zakarrontzia ezabatzeko.</string>
@@ -257,4 +257,7 @@
     <string name="accessibility_previous_day">Joan aurreko egunera</string>
     <string name="event_color">Gertaeraren kolorea</string>
     <string name="default_calendar_color">Egutegiaren kolore lehenetsia</string>
+    <string name="status_tentative">Behin-behinekoa</string>
+    <string name="status_confirmed">Baieztatuta</string>
+    <string name="status_canceled">Bertan behera utzita</string>
 </resources>
