@@ -260,4 +260,7 @@
     <string name="accessibility_previous_day">Přejít na předchozí den</string>
     <string name="accessibility_next_day">Přejít na další den</string>
     <string name="default_calendar_color">Výchozí barva kalendáře</string>
+    <string name="status_tentative">Předběžné</string>
+    <string name="status_confirmed">Potvrzeno</string>
+    <string name="status_canceled">Zrušeno</string>
 </resources>

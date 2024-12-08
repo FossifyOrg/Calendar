@@ -1,0 +1,9 @@
+* Problem behoben, dass mehrtägige, ganztägige Ereignisse nicht in der oberen Leiste angezeigt werden
+* Funktion zum Öffnen von Aufgaben aus Widgets behoben
+* Problem mit der Größenänderung im Datums-Widget behoben
+* Deckkraft für unvollständige Aufgaben in Widgets behoben
+* Spanische Übersetzung für Samstag behoben
+* Unterstützung für Ereignisstatus hinzugefügt
+* Checkboxen durch Schalter ersetzt
+* Unterstützung für Android 7 und ältere Versionen entfernt
+* Weitere kleinere Fehlerkorrekturen …

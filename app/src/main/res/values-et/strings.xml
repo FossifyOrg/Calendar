@@ -257,4 +257,7 @@
     <string name="accessibility_next_month">Vaata järgmist kuud</string>
     <string name="accessibility_previous_day">Vaata eelmist päeva</string>
     <string name="accessibility_next_day">Vaata järgmist päeva</string>
+    <string name="status_confirmed">Kinnitatud</string>
+    <string name="status_canceled">Tühistatud</string>
+    <string name="status_tentative">Esialgne</string>
 </resources>

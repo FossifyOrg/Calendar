@@ -165,7 +165,7 @@
     <string name="delete_all_events_and_tasks">Изтриване на всички събития и задачи</string>
     <string name="delete_all_events_confirmation">Сигурни ли сте, че искате да изтриете всички събития и задачи\? Това ще остави типовете събития и другите ви настройки непокътнати.</string>
     <string name="show_a_grid">Показване на решетка</string>
-    <string name="loop_reminders">Циклично напомняне до отхвърляне</string>
+    <string name="loop_reminders">Периодично напомняне до изключване</string>
     <string name="dim_past_events">Затъмняване на минали събития</string>
     <string name="dim_completed_tasks">Затъмняване на приключените задачи</string>
     <string name="events">Събития</string>
@@ -185,7 +185,7 @@
     <string name="next_full_hour">Началото на следващия час</string>
     <string name="current_time">Текущо време</string>
     <string name="default_duration">Основна продължителност</string>
-    <string name="last_used_one">Последно използван един</string>
+    <string name="last_used_one">Последно отворения</string>
     <string name="other_time">Друго време</string>
     <string name="highlight_weekends">Подчертаване на уикендите в някои изгледи</string>
     <string name="highlight_weekends_color">Цвят на подчертаване на уикендите</string>

@@ -260,4 +260,7 @@
     <string name="faq_6_title">Come posso modificare o eliminare un tipo di evento esistente\?</string>
     <string name="faq_6_text">Puoi fare entrambe le cose in Impostazioni dell\'app – Gestisci tipi di eventi. Basta cliccare su quello desiderato per cambiare l\'etichetta e il colore, o selezionare quello desiderato premendolo a lungo e usare il cestino nel menù in alto per eliminarlo.</string>
     <string name="caldav">CalDAV</string>
+    <string name="status_tentative">Incerto</string>
+    <string name="status_confirmed">Confermato</string>
+    <string name="status_canceled">Annullato</string>
 </resources>

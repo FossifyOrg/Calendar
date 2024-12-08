@@ -263,4 +263,7 @@
     <string name="accessibility_next_month">Переход к следующему месяцу</string>
     <string name="accessibility_previous_day">Переход к предыдущему дню</string>
     <string name="accessibility_next_day">Переход к следующему дню</string>
+    <string name="status_confirmed">Подтверждено</string>
+    <string name="status_canceled">Отклонено</string>
+    <string name="status_tentative">Предположительно</string>
 </resources>

@@ -148,7 +148,7 @@
     <string name="manage_event_types">Hantera händelsetyper</string>
     <string name="start_day_at">Dagen börjar</string>
     <string name="end_day_at">Dagen slutar</string>
-    <string name="midnight_spanning">Visa händelser som sträcker sig över midnatt i den övre topplinjen</string>
+    <string name="midnight_spanning">Visa händelser som sträcker sig över midnatt högst upp</string>
     <string name="allow_customizing_day_count">Tillåt anpassning av antalet dagar</string>
     <string name="week_numbers">Visa veckonummer</string>
     <string name="vibrate">Vibrera vid påminnelseaviseringar</string>
@@ -185,7 +185,7 @@
     <string name="last_used_one">Senast använda</string>
     <string name="other_time">Annan tid</string>
     <string name="highlight_weekends">Markera veckoslut i vissa vyer</string>
-    <string name="highlight_weekends_color">Färg på framhävda helger</string>
+    <string name="highlight_weekends_color">Markeringsfärg för helger</string>
     <string name="allow_changing_time_zones">Tillåt ändring av tidszoner för händelser</string>
     <string name="manage_quick_filter_event_types">Hantera typer av händelser med snabbfilter</string>
     <string name="allow_creating_tasks">Tillåt att skapa uppgifter</string>
@@ -257,4 +257,7 @@
     <string name="system_stream">System</string>
     <string name="caldav">CalDAV</string>
     <string name="ring_stream">Ring</string>
+    <string name="status_tentative">Preliminär</string>
+    <string name="status_confirmed">Bekräftad</string>
+    <string name="status_canceled">Inställd</string>
 </resources>

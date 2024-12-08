@@ -1,0 +1,10 @@
+* Vyřešen problém s vícedenními celodenními událostmi, které se nezobrazovaly na horním panelu.
+* Opravena funkce otevírání úkolů z widgetů
+* Opraven problém se změnou velikosti widgetu data
+* Opravena neprůhlednost nedokončených úkolů ve widgetech
+* Opraven španělský překlad pro sobotu.
+* Přidána podpora pro stav události
+* Nahrazení zaškrtávacích políček přepínači
+* Odstraněna podpora systému Android 7 a starších verzí.
+* Další drobné opravy a vylepšení
+* Přidány další překlady
