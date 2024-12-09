@@ -263,4 +263,7 @@
     <string name="caldav">CalDAV</string>
     <string name="accessibility_previous_month">До попереднього місяця</string>
     <string name="accessibility_previous_day">До попереднього дня</string>
+    <string name="status_tentative">Орієнтовно</string>
+    <string name="status_confirmed">Підтверджено</string>
+    <string name="status_canceled">Скасовано</string>
 </resources>

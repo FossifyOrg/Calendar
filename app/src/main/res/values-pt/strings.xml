@@ -260,4 +260,7 @@
     <string name="accessibility_next_day">Ir para o dia seguinte</string>
     <string name="default_calendar_color">Cor padrão do calendário</string>
     <string name="caldav">CalDAV</string>
+    <string name="status_tentative">Tentativa</string>
+    <string name="status_confirmed">Confirmado</string>
+    <string name="status_canceled">Cancelado</string>
 </resources>

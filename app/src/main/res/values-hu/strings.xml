@@ -257,4 +257,7 @@
     <string name="accessibility_previous_day">Visszalépés az előző napra</string>
     <string name="accessibility_next_day">Tovább a következő napra</string>
     <string name="default_calendar_color">Alapértelmezett naptár szín</string>
+    <string name="status_tentative">Bizonytalan</string>
+    <string name="status_confirmed">Megerősített</string>
+    <string name="status_canceled">Visszavont</string>
 </resources>

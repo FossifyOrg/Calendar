@@ -257,4 +257,7 @@
     <string name="accessibility_next_month">轉到下一個月</string>
     <string name="accessibility_previous_day">轉到前一天</string>
     <string name="accessibility_next_day">轉到下一天</string>
+    <string name="status_canceled">已取消</string>
+    <string name="status_confirmed">已確認</string>
+    <string name="status_tentative">暫定</string>
 </resources>
