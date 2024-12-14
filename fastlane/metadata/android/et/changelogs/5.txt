@@ -1,0 +1,10 @@
+* Parandasime vea, kus mitmepäevane üritus jäi ülaribal kuvamata
+* Parandasime ülesannete avamise vidinatest
+* Parandasime kuupäevavidina suuruse muutmise vea
+* Parandasime tegemata ülesannete läbipaistvuse vidinates
+* Parandasime hispaania keele tõlke laupäeva kontekstis
+* Lisasime sündmuste oleku toe
+* Asendasime märkeruudud liugurlülititega
+* Eemaldasime Androidi versiooni 7 ja vanemate toe
+* Muud veaparandused ja täiendused
+* Lisasime tõlkeid
