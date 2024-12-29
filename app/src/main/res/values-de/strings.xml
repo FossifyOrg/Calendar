@@ -130,7 +130,7 @@
     <string name="event_types">Termintypen</string>
     <string name="add_new_type">Neuen Typ hinzufügen</string>
     <string name="edit_type">Typ bearbeiten</string>
-    <string name="type_already_exists">Typ mit diesem Namen existiert bereits</string>
+    <string name="type_already_exists">Ein Typ mit diesem Namen existiert bereits</string>
     <string name="color">Farbe</string>
     <string name="regular_event">Regelmäßiger Termin</string>
     <string name="cannot_delete_default_type">Standardtermintyp kann nicht gelöscht werden</string>
