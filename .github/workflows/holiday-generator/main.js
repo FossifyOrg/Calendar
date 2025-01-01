@@ -24,10 +24,11 @@ function log(toLog) {
 /**
  * Get events for country given by code
  * @param {string} countryCode
+ * @param {string} [stateCode]
  * @returns
  */
-function getEvents(countryCode) {
-    const generator = new Holidays(countryCode);
+function getEvents(countryCode, stateCode) {
+    const generator = new Holidays(countryCode, stateCode);
     generator.setTimezone("UTC");
     const events = [];
     for (let i = START_YEAR; i <= END_YEAR; i++) {
@@ -113,10 +114,11 @@ async function generateIcal(events, countryCode) {
  * Function generating ical files
  */
 async function doWork() {
-    for (const {file, code} of COUNTRIES) {
-        log(`Generating events for ${code}, ${file}`);
-        const events = getEvents(code);
-        const ical = await generateIcal(events, code);
+    for (const {file, code, state} of COUNTRIES) {
+        const stateCode = state ?? ""
+        log(`Generating events for ${code} ${stateCode}, ${file}`);
+        const events = getEvents(code, stateCode);
+        const ical = await generateIcal(events, code + stateCode);
         const filePath = join(ICS_PATH, file);
         await writeFile(filePath, ical, { encoding: "utf-8" });
         log(`File saved to ${filePath}`);
