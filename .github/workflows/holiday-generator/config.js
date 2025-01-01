@@ -9,7 +9,7 @@ export const ICS_PATH = join(cwd(), "../../../app/src/main/assets");
 export const COUNTRIES = [
     { file: "algeria.ics", code: "DZ" },
     { file: "argentina.ics", code: "AR" },
-    { file: "australia.ics", code: "AU" },
+    { file: "australiancapitalterritory.ics", code: "AU", state: "ACT" },
     { file: "austria.ics", code: "AT" },
     { file: "belgium.ics", code: "BE" },
     { file: "bolivia.ics", code: "BO" },
@@ -48,13 +48,16 @@ export const COUNTRIES = [
     { file: "mexico.ics", code: "MX" },
     { file: "morocco.ics", code: "MA" },
     { file: "netherlands.ics", code: "NL" },
+    { file: "newsouthwales.ics", code: "AU", state: "NSW" },
     { file: "nicaragua.ics", code: "NI" },
     { file: "nigeria.ics", code: "NG" },
+    { file: "northernterritory.ics", code: "AU", state: "NT" },
     { file: "norway.ics", code: "NO" },
     // TODO add Pakistan: https://github.com/commenthol/date-holidays/pull/138
     // {file: "pakistan.ics", code: "PK"},
     { file: "poland.ics", code: "PL" },
     { file: "portugal.ics", code: "PT" },
+    { file: "queensland.ics", code: "AU", state: "QLD" },
     { file: "romania.ics", code: "RO" },
     { file: "russia.ics", code: "RU" },
     { file: "serbia.ics", code: "RS" },
@@ -62,6 +65,7 @@ export const COUNTRIES = [
     { file: "slovakia.ics", code: "SK" },
     { file: "slovenia.ics", code: "SI" },
     { file: "southafrica.ics", code: "ZA" },
+    { file: "southaustralia.ics", code: "AU", state: "SA" },
     { file: "southkorea.ics", code: "KR" },
     { file: "spain.ics", code: "ES" },
     // TODO add Sri Lanka: (no GH issue)
@@ -69,12 +73,15 @@ export const COUNTRIES = [
     { file: "sweden.ics", code: "SE" },
     { file: "switzerland.ics", code: "CH" },
     { file: "taiwan.ics", code: "TW" },
+    { file: "tasmania.ics", code: "AU", state: "TAS" },
     { file: "thailand.ics", code: "TH" },
     { file: "turkey.ics", code: "TR" },
     { file: "ukraine.ics", code: "UA" },
     { file: "unitedkingdom.ics", code: "GB" },
     { file: "unitedstates.ics", code: "US" },
     { file: "uruguay.ics", code: "UY" },
+    { file: "victoria.ics", code: "AU", state: "VIC" },
+    { file: "westernaustralia.ics", code: "AU", state: "WA" },
 ];
 
 export const START_YEAR = new Date().getFullYear(); // start with current year
