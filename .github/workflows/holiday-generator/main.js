@@ -113,7 +113,7 @@ async function generateIcal(events, countryCode) {
  * Function generating ical files
  */
 async function doWork() {
-    for (const [file, code] of COUNTRIES) {
+    for (const {file, code} of COUNTRIES) {
         log(`Generating events for ${code}, ${file}`);
         const events = getEvents(code);
         const ical = await generateIcal(events, code);
