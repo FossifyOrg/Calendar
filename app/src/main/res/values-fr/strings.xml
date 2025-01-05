@@ -260,4 +260,6 @@
     <string name="accessibility_next_month">Aller au mois suivant</string>
     <string name="accessibility_previous_day">Aller au jour précédent</string>
     <string name="description">Description</string>
+    <string name="status_canceled">Annulé</string>
+    <string name="status_confirmed">Confirmé</string>
 </resources>
