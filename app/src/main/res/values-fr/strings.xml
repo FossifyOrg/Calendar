@@ -240,7 +240,7 @@
         <item quantity="many">Au cours des %d prochains mois</item>
         <item quantity="other">Au cours des %d prochains mois</item>
     </plurals>
-    <string name="faq_1_title">Comment puis-je supprimer les jours fériés importés avec le bouton « Ajouter des jours fériés » ?</string>
+    <string name="faq_1_title">Comment puis-je supprimer les jours fériés importés avec le bouton \"Ajouter des jours fériés\" ?</string>
     <string name="faq_1_text">Les jours fériés ainsi créés sont insérés dans un nouveau type d\'évènement appelé « Jours fériés ». Vous pouvez aller dans « Paramètres » -&gt; « Gérer les types d\'événements », et appuyer longuement sur le type d\'évènement concerné et le supprimer en sélectionnant la corbeille.</string>
     <string name="faq_2_title">Puis-je synchroniser mes évènements avec Google Agenda ou tout autre service proposant la synchronisation CalDAV \?</string>
     <string name="faq_2_title_extra">Peut-être même partager des agendas avec d\'autres personnes \?</string>
