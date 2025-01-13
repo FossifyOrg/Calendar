@@ -260,4 +260,7 @@
     <string name="accessibility_previous_day">Idi na prethodni dan</string>
     <string name="event_color">Boja događaja</string>
     <string name="default_calendar_color">Standardna boja kalendara</string>
+    <string name="status_tentative">Privremeno</string>
+    <string name="status_confirmed">Potvrđeno</string>
+    <string name="status_canceled">Otkazano</string>
 </resources>
