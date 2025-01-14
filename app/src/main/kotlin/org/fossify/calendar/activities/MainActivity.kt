@@ -278,7 +278,7 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
         }
     }
 
-    override fun onNewIntent(intent: Intent?) {
+    override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         setIntent(intent)
         checkIsOpenIntent()
@@ -415,11 +415,13 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
 
         val eventIdToOpen = intent.getLongExtra(EVENT_ID, 0L)
         val eventOccurrenceToOpen = intent.getLongExtra(EVENT_OCCURRENCE_TS, 0L)
+        val isTask = intent.getBooleanExtra(IS_TASK, false)
         intent.removeExtra(EVENT_ID)
         intent.removeExtra(EVENT_OCCURRENCE_TS)
+        intent.removeExtra(IS_TASK)
         if (eventIdToOpen != 0L && eventOccurrenceToOpen != 0L) {
             hideKeyboard()
-            Intent(this, EventActivity::class.java).apply {
+            Intent(this, getActivityToOpen(isTask)).apply {
                 putExtra(EVENT_ID, eventIdToOpen)
                 putExtra(EVENT_OCCURRENCE_TS, eventOccurrenceToOpen)
                 startActivity(this)
@@ -994,6 +996,22 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
         }
     }
 
+    fun openDayFromWeekly(dateTime: DateTime) {
+        if (currentFragments.last() is DayFragmentsHolder) {
+            return
+        }
+
+        val fragment = DayFragmentsHolder()
+        currentFragments.add(fragment)
+        val bundle = Bundle()
+        bundle.putString(DAY_CODE, Formatter.getDayCodeFromDateTime(dateTime))
+        fragment.arguments = bundle
+        supportFragmentManager.beginTransaction().add(R.id.fragments_holder, fragment).commitNow()
+        resetActionBarTitle()
+        binding.calendarFab.beVisible()
+        showBackNavigationArrow()
+    }
+
     private fun getFragmentsHolder() = when (config.storedView) {
         DAILY_VIEW -> DayFragmentsHolder()
         MONTHLY_VIEW -> MonthFragmentsHolder()
@@ -1011,7 +1029,10 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
             refreshEvents()
         }
 
-        binding.calendarFab.beGoneIf(currentFragments.size == 1 && config.storedView == YEARLY_VIEW)
+        binding.calendarFab.beGoneIf(
+            currentFragments.size == 1 &&
+            (config.storedView == YEARLY_VIEW || config.storedView == WEEKLY_VIEW)
+        )
         if (currentFragments.size > 1) {
             showBackNavigationArrow()
         } else {

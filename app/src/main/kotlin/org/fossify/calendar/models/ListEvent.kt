@@ -13,7 +13,8 @@ data class ListEvent(
     var isRepeatable: Boolean,
     var isTask: Boolean,
     var isTaskCompleted: Boolean,
-    var isAttendeeInviteDeclined: Boolean
+    var isAttendeeInviteDeclined: Boolean,
+    var isEventCanceled: Boolean
 ) : ListItem() {
 
     companion object {
@@ -30,7 +31,8 @@ data class ListEvent(
             isRepeatable = false,
             isTask = false,
             isTaskCompleted = false,
-            isAttendeeInviteDeclined = false
+            isAttendeeInviteDeclined = false,
+            isEventCanceled = false
         )
     }
 }

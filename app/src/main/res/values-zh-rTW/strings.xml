@@ -2,27 +2,27 @@
 <resources>
     <string name="app_launcher_name">行事曆</string>
     <string name="change_view">變更檢視模式</string>
-    <string name="daily_view">日曆</string>
-    <string name="weekly_view">週曆</string>
+    <string name="daily_view">每日瀏覽</string>
+    <string name="weekly_view">日曆</string>
     <string name="monthly_view">月曆</string>
     <string name="monthly_daily_view">月曆 + 日曆模式</string>
     <string name="yearly_view">年曆</string>
     <string name="simple_event_list">簡易活動列表</string>
-    <string name="no_upcoming_events">目前沒有即將發生的活動。</string>
+    <string name="no_upcoming_events">沒有即將開始的活動。</string>
     <string name="go_to_today">前往今天</string>
     <string name="go_to_date">前往日期</string>
     <string name="widget_monthly">月曆</string>
     <string name="widget_list">行事曆活動列表</string>
-    <string name="widget_todays_date">行事曆今天日期</string>
+    <string name="widget_todays_date">今日日曆</string>
     <string name="event">活動</string>
     <string name="edit_event">編輯活動</string>
     <string name="new_event">新活動</string>
     <string name="create_new_event">建立新活動</string>
-    <string name="duplicate_event">重複的活動</string>
-    <string name="title_empty">標題不能為空白</string>
-    <string name="end_before_start">活動結束時間不能比開始早</string>
+    <string name="duplicate_event">重複活動</string>
+    <string name="title_empty">標題不能為空</string>
+    <string name="end_before_start">活動結束時間不能早於開始時間</string>
     <string name="event_added">活動新增成功</string>
-    <string name="event_updated">活動更新成功</string>
+    <string name="event_updated">成功新增活動</string>
     <string name="filter_events_by_type">依類型篩選活動</string>
     <string name="please_fill_location">請填入要在地圖上顯示的地點</string>
     <string name="public_event_notification_text">有活動即將到來</string>
@@ -257,4 +257,7 @@
     <string name="accessibility_next_month">轉到下一個月</string>
     <string name="accessibility_previous_day">轉到前一天</string>
     <string name="accessibility_next_day">轉到下一天</string>
+    <string name="status_canceled">已取消</string>
+    <string name="status_confirmed">已確認</string>
+    <string name="status_tentative">暫定</string>
 </resources>

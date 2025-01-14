@@ -11,6 +11,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.provider.CalendarContract.Attendees
 import android.provider.CalendarContract.Colors
+import android.provider.CalendarContract.Events
 import android.provider.ContactsContract.CommonDataKinds
 import android.provider.ContactsContract.CommonDataKinds.StructuredName
 import android.provider.ContactsContract.Data
@@ -72,6 +73,7 @@ class EventActivity : SimpleActivity() {
     private var mAvailableContacts = ArrayList<Attendee>()
     private var mSelectedContacts = ArrayList<Attendee>()
     private var mAvailability = Attendees.AVAILABILITY_BUSY
+    private var mStatus = Events.STATUS_CONFIRMED
     private var mStoredEventTypes = ArrayList<EventType>()
     private var mOriginalTimeZone = DateTimeZone.getDefault().id
     private var mOriginalStartTS = 0L
@@ -174,6 +176,7 @@ class EventActivity : SimpleActivity() {
             putString(ATTENDEES, Gson().toJson(getAllAttendees(false)))
 
             putInt(AVAILABILITY, mAvailability)
+            putInt(STATUS, mStatus)
             putInt(EVENT_COLOR, mEventColor)
 
             putLong(EVENT_TYPE_ID, mEventTypeId)
@@ -207,6 +210,7 @@ class EventActivity : SimpleActivity() {
             mReminder3Type = getInt(REMINDER_3_TYPE)
 
             mAvailability = getInt(AVAILABILITY)
+            mStatus = getInt(STATUS)
             mEventColor = getInt(EVENT_COLOR)
 
             mRepeatInterval = getInt(REPEAT_INTERVAL)
@@ -337,6 +341,14 @@ class EventActivity : SimpleActivity() {
             }
         }
 
+        eventStatus.setOnClickListener {
+            showStatusPicker(mStatus) {
+                mStatus = it
+                updateStatusText()
+                updateStatusImage()
+            }
+        }
+
         eventTypeHolder.setOnClickListener { showEventTypeDialog() }
         eventAllDay.apply {
             isChecked = mEvent.getIsAllDay()
@@ -458,6 +470,8 @@ class EventActivity : SimpleActivity() {
         updateCalDAVVisibility()
         updateAvailabilityText()
         updateAvailabilityImage()
+        updateStatusText()
+        updateStatusImage()
     }
 
     private fun setupEditEvent() {
@@ -500,6 +514,7 @@ class EventActivity : SimpleActivity() {
         mEventTypeId = mEvent.eventType
         mEventCalendarId = mEvent.getCalDAVCalendarId()
         mAvailability = mEvent.availability
+        mStatus = mEvent.status
         mEventColor = mEvent.color
 
         mAttendees = mEvent.attendees.toMutableList() as ArrayList<Attendee>
@@ -576,6 +591,7 @@ class EventActivity : SimpleActivity() {
             reminder2Type = mReminder2Type
             reminder3Minutes = mReminder3Minutes
             reminder3Type = mReminder3Type
+            status = mStatus
             eventType = mEventTypeId
         }
     }
@@ -956,6 +972,17 @@ class EventActivity : SimpleActivity() {
         }
     }
 
+    private fun showStatusPicker(currentValue: Int, callback: (Int) -> Unit) {
+        val items = arrayListOf(
+            RadioItem(Events.STATUS_TENTATIVE, getString(R.string.status_tentative)),
+            RadioItem(Events.STATUS_CONFIRMED, getString(R.string.status_confirmed)),
+            RadioItem(Events.STATUS_CANCELED, getString(R.string.status_canceled)),
+        )
+        RadioGroupDialog(this, items, currentValue) {
+            callback(it as Int)
+        }
+    }
+
     private fun updateReminderTypeImages() {
         updateReminderTypeImage(binding.eventReminder1Type, Reminder(mReminder1Minutes, mReminder1Type))
         updateReminderTypeImage(binding.eventReminder2Type, Reminder(mReminder2Minutes, mReminder2Type))
@@ -992,6 +1019,24 @@ class EventActivity : SimpleActivity() {
 
     private fun updateAvailabilityText() {
         binding.eventAvailability.text = if (mAvailability == Attendees.AVAILABILITY_FREE) getString(R.string.status_free) else getString(R.string.status_busy)
+    }
+
+    private fun updateStatusText() {
+        when (mStatus) {
+            Events.STATUS_CONFIRMED -> binding.eventStatus.text = getString(R.string.status_confirmed)
+            Events.STATUS_TENTATIVE -> binding.eventStatus.text = getString(R.string.status_tentative)
+            Events.STATUS_CANCELED -> binding.eventStatus.text = getString(R.string.status_canceled)
+        }
+    }
+
+    private fun updateStatusImage() {
+        val drawable = when (mStatus) {
+            Events.STATUS_CONFIRMED -> R.drawable.ic_check_circle_outline_vector
+            Events.STATUS_CANCELED -> R.drawable.ic_cancel_circle_outline_vector
+            else -> R.drawable.ic_question_circle_outline_vector
+        }
+        val icon = resources.getColoredDrawableWithColor(drawable, getProperTextColor())
+        binding.eventStatusImage.setImageDrawable(icon)
     }
 
     private fun updateRepetitionText() {
@@ -1036,6 +1081,8 @@ class EventActivity : SimpleActivity() {
                     updateCalDAVVisibility()
                     updateAvailabilityText()
                     updateAvailabilityImage()
+                    updateStatusText()
+                    updateStatusImage()
                 }
             }
         } else {
@@ -1310,6 +1357,7 @@ class EventActivity : SimpleActivity() {
             source = newSource
             location = binding.eventLocation.value
             availability = mAvailability
+            status = mStatus
             color = mEventColor
         }
 
@@ -1468,7 +1516,7 @@ class EventActivity : SimpleActivity() {
 
     private fun setupStartTime() {
         hideKeyboard()
-        if (config.isUsingSystemTheme) {
+        if (isDynamicTheme()) {
             val timeFormat = if (config.use24HourFormat) {
                 TimeFormat.CLOCK_24H
             } else {
@@ -1512,7 +1560,7 @@ class EventActivity : SimpleActivity() {
 
     private fun setupEndTime() {
         hideKeyboard()
-        if (config.isUsingSystemTheme) {
+        if (isDynamicTheme()) {
             val timeFormat = if (config.use24HourFormat) {
                 TimeFormat.CLOCK_24H
             } else {

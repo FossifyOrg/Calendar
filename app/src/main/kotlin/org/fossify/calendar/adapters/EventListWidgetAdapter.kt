@@ -3,6 +3,7 @@ package org.fossify.calendar.adapters
 import android.content.Context
 import android.content.Intent
 import android.graphics.Paint
+import android.provider.CalendarContract
 import android.widget.RemoteViews
 import android.widget.RemoteViewsService
 import org.fossify.calendar.R
@@ -98,7 +99,7 @@ class EventListWidgetAdapter(val context: Context, val intent: Intent) : RemoteV
                 setText(R.id.event_item_time, "$timeText\n$descriptionText")
             }
 
-            if (item.isTask && item.isTaskCompleted && dimCompletedTasks || dimPastEvents && item.isPastEvent) {
+            if (item.isTask && item.isTaskCompleted && dimCompletedTasks || dimPastEvents && item.isPastEvent && !item.isTask) {
                 curTextColor = weakTextColor
             }
 
@@ -126,6 +127,7 @@ class EventListWidgetAdapter(val context: Context, val intent: Intent) : RemoteV
             Intent().apply {
                 putExtra(EVENT_ID, item.id)
                 putExtra(EVENT_OCCURRENCE_TS, item.startTS)
+                putExtra(IS_TASK, item.isTask)
                 setOnClickFillInIntent(R.id.event_item_holder, this)
             }
         }
@@ -235,7 +237,8 @@ class EventListWidgetAdapter(val context: Context, val intent: Intent) : RemoteV
                     isRepeatable = event.repeatInterval > 0,
                     isTask = event.isTask(),
                     isTaskCompleted = event.isTaskCompleted(),
-                    isAttendeeInviteDeclined = event.isAttendeeInviteDeclined()
+                    isAttendeeInviteDeclined = event.isAttendeeInviteDeclined(),
+                    isEventCanceled = event.isEventCanceled()
                 )
                 listItems.add(listEvent)
             }

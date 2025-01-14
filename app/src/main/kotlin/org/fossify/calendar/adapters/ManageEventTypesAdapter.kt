@@ -138,7 +138,7 @@ class ManageEventTypesAdapter(
     private fun askConfirmDelete() {
         val eventTypes = eventTypes.filter { selectedKeys.contains(it.id?.toInt()) }.map { it.id } as ArrayList<Long>
 
-        activity.eventsHelper.doEventTypesContainEvents(eventTypes) {
+        activity.eventsHelper.doEventTypesContainEventsOrTasks(eventTypes) {
             activity.runOnUiThread {
                 if (it) {
                     val res = activity.resources

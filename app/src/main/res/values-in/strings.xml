@@ -254,4 +254,7 @@
     <string name="accessibility_next_month">Maju ke bulan berikutnya</string>
     <string name="accessibility_previous_day">Mundur ke hari sebelumnya</string>
     <string name="alarm_stream">Alarm</string>
+    <string name="status_tentative">Tentatif</string>
+    <string name="status_confirmed">Terkonfirmasi</string>
+    <string name="status_canceled">Dibatalkan</string>
 </resources>
