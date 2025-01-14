@@ -8,6 +8,7 @@ import org.fossify.calendar.R
 import org.fossify.calendar.databinding.MonthViewBackgroundBinding
 import org.fossify.calendar.databinding.MonthViewBinding
 import org.fossify.calendar.extensions.config
+import org.fossify.calendar.extensions.getWeekNumberWidth
 import org.fossify.calendar.extensions.launchNewEventIntent
 import org.fossify.calendar.extensions.launchNewTaskIntent
 import org.fossify.calendar.helpers.COLUMN_COUNT
@@ -121,11 +122,7 @@ class MonthViewWrapper(
     }
 
     private fun setupHorizontalOffset() {
-        horizontalOffset = if (context.config.showWeekNumbers) {
-            resources.getDimensionPixelSize(org.fossify.commons.R.dimen.smaller_text_size) * 2
-        } else {
-            0
-        }
+        horizontalOffset = context.getWeekNumberWidth()
     }
 
     private fun measureSizes() {
