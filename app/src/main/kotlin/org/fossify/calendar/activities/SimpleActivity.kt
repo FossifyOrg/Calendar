@@ -43,6 +43,8 @@ open class SimpleActivity : BaseSimpleActivity() {
 
     override fun getAppLauncherName() = getString(R.string.app_launcher_name)
 
+    override fun getRepositoryName() = "Calendar"
+
     fun Context.syncCalDAVCalendars(callback: () -> Unit) {
         calDAVRefreshCallback = callback
         ensureBackgroundThread {
@@ -90,7 +92,10 @@ open class SimpleActivity : BaseSimpleActivity() {
                     }
                 }
             } else {
-                PermissionRequiredDialog(this, org.fossify.commons.R.string.allow_notifications_reminders, { openNotificationSettings() })
+                PermissionRequiredDialog(
+                    this,
+                    org.fossify.commons.R.string.allow_notifications_reminders,
+                    { openNotificationSettings() })
             }
         }
     }

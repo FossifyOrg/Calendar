@@ -156,7 +156,8 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
                         isPastEvent = event.isPastEvent,
                         isTask = event.isTask(),
                         isTaskCompleted = event.isTaskCompleted(),
-                        isAttendeeInviteDeclined = event.isAttendeeInviteDeclined()
+                        isAttendeeInviteDeclined = event.isAttendeeInviteDeclined(),
+                        isEventCanceled = event.isEventCanceled()
                     )
                     allEvents.add(monthViewEvent)
                 }

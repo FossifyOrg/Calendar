@@ -18,7 +18,7 @@ module.exports = async ({github, context}) => {
         initialBody = context.payload.comment.body;
     } else if (context.eventName == 'issues') {
         initialBody = context.payload.issue.body;
-    } else if (context.eventName == 'pull_request') {
+    } else if (context.eventName == 'pull_request_target') {
         initialBody = context.payload.pull_request.body;
     } else {
         console.log('Aborting: No body found');
@@ -34,7 +34,7 @@ module.exports = async ({github, context}) => {
 
     // Regex for finding images (simple variant) ![ALT_TEXT](https://*.githubusercontent.com/<number>/<variousHexStringsAnd->.<fileExtension>)
     const REGEX_USER_CONTENT_IMAGE_LOOKUP = /\!\[(.*)\]\((https:\/\/[-a-z0-9]+\.githubusercontent\.com\/\d+\/[-0-9a-f]{32,512}\.(jpg|gif|png))\)/gm;
-    const REGEX_ASSETS_IMAGE_LOCKUP = /\!\[(.*)\]\((https:\/\/github\.com\/[-\w\d]+\/[-\w\d]+\/assets\/\d+\/[\-0-9a-f]{32,512})\)/gm;
+    const REGEX_ASSETS_IMAGE_LOCKUP = /\!\[(.*)\]\((https:\/\/github\.com\/user-attachments\/assets\/[\-0-9a-f]{36,})\)/gm;
 
     // Check if we found something
     let foundSimpleImages = REGEX_USER_CONTENT_IMAGE_LOOKUP.test(initialBody)
@@ -77,7 +77,7 @@ module.exports = async ({github, context}) => {
             repo: context.repo.repo,
             body: newBody
         });
-    } else if (context.eventName == 'pull_request') {
+    } else if (context.eventName == 'pull_request_target') {
         console.log('Updating pull request', context.payload.pull_request.number);
         await github.rest.pulls.update({
             pull_number: context.payload.pull_request.number,
