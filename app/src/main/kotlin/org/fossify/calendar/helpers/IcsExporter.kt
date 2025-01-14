@@ -28,6 +28,7 @@ class IcsExporter(private val context: Context) {
     private var calendars = ArrayList<CalDAVCalendar>()
     private val reminderLabel = context.getString(R.string.reminder)
     private val exportTime = Formatter.getExportedTime(System.currentTimeMillis())
+    private val status = 1
 
     fun exportEvents(
         outputStream: OutputStream?,
@@ -149,7 +150,7 @@ class IcsExporter(private val context: Context) {
             writeLn("$MISSING_YEAR${if (event.hasMissingYear()) 1 else 0}")
 
             writeLn("$DTSTAMP$exportTime")
-            writeLn("$STATUS$CONFIRMED")
+            writeLn("$STATUS${getStatusStringFromEventStatus(event.status)}")
             Parser().getRepeatCode(event).let { if (it.isNotEmpty()) writeLn("$RRULE$it") }
 
             fillDescription(event.description.replace("\n", "\\n"), writer)

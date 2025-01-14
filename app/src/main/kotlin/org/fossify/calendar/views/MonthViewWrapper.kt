@@ -4,17 +4,30 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
+import org.fossify.calendar.R
 import org.fossify.calendar.databinding.MonthViewBackgroundBinding
 import org.fossify.calendar.databinding.MonthViewBinding
 import org.fossify.calendar.extensions.config
+import org.fossify.calendar.extensions.getWeekNumberWidth
+import org.fossify.calendar.extensions.launchNewEventIntent
+import org.fossify.calendar.extensions.launchNewTaskIntent
 import org.fossify.calendar.helpers.COLUMN_COUNT
 import org.fossify.calendar.helpers.Formatter
 import org.fossify.calendar.helpers.ROW_COUNT
+import org.fossify.calendar.helpers.TYPE_EVENT
+import org.fossify.calendar.helpers.TYPE_TASK
 import org.fossify.calendar.models.DayMonthly
+import org.fossify.commons.compose.extensions.getActivity
+import org.fossify.commons.dialogs.RadioGroupDialog
 import org.fossify.commons.extensions.onGlobalLayout
+import org.fossify.commons.models.RadioItem
 
 // used in the Monthly view fragment, 1 view per screen
-class MonthViewWrapper(context: Context, attrs: AttributeSet, defStyle: Int) : FrameLayout(context, attrs, defStyle) {
+class MonthViewWrapper(
+    context: Context,
+    attrs: AttributeSet,
+    defStyle: Int
+) : FrameLayout(context, attrs, defStyle) {
     private var dayWidth = 0f
     private var dayHeight = 0f
     private var weekDaysLetterHeight = 0
@@ -29,7 +42,8 @@ class MonthViewWrapper(context: Context, attrs: AttributeSet, defStyle: Int) : F
     constructor(context: Context, attrs: AttributeSet) : this(context, attrs, 0)
 
     init {
-        val normalTextSize = resources.getDimensionPixelSize(org.fossify.commons.R.dimen.normal_text_size).toFloat()
+        val normalTextSize =
+            resources.getDimensionPixelSize(org.fossify.commons.R.dimen.normal_text_size).toFloat()
         weekDaysLetterHeight = 2 * normalTextSize.toInt()
 
         inflater = LayoutInflater.from(context)
@@ -72,7 +86,12 @@ class MonthViewWrapper(context: Context, attrs: AttributeSet, defStyle: Int) : F
             val childRight = childLeft + childWidth
             val childBottom = childTop + childHeight
 
-            child.layout(childLeft.toInt(), childTop.toInt(), childRight.toInt(), childBottom.toInt())
+            child.layout(
+                childLeft.toInt(),
+                childTop.toInt(),
+                childRight.toInt(),
+                childBottom.toInt()
+            )
 
             if (curLeft + childWidth <= end) {
                 curLeft += childWidth
@@ -85,7 +104,11 @@ class MonthViewWrapper(context: Context, attrs: AttributeSet, defStyle: Int) : F
         }
     }
 
-    fun updateDays(newDays: ArrayList<DayMonthly>, addEvents: Boolean, callback: ((DayMonthly) -> Unit)? = null) {
+    fun updateDays(
+        newDays: ArrayList<DayMonthly>,
+        addEvents: Boolean,
+        callback: ((DayMonthly) -> Unit)? = null
+    ) {
         setupHorizontalOffset()
         measureSizes()
         dayClickCallback = callback
@@ -99,11 +122,7 @@ class MonthViewWrapper(context: Context, attrs: AttributeSet, defStyle: Int) : F
     }
 
     private fun setupHorizontalOffset() {
-        horizontalOffset = if (context.config.showWeekNumbers) {
-            resources.getDimensionPixelSize(org.fossify.commons.R.dimen.smaller_text_size) * 2
-        } else {
-            0
-        }
+        horizontalOffset = context.getWeekNumberWidth()
     }
 
     private fun measureSizes() {
@@ -128,7 +147,12 @@ class MonthViewWrapper(context: Context, attrs: AttributeSet, defStyle: Int) : F
                 background = null
             }
             //Accessible label composed by day and month
-            contentDescription = "${day.value} ${Formatter.getMonthName(context, Formatter.getDateTimeFromCode(day.code).monthOfYear)}"
+            contentDescription = "${day.value} ${
+                Formatter.getMonthName(
+                    context,
+                    Formatter.getDateTimeFromCode(day.code).monthOfYear
+                )
+            }"
 
             setOnClickListener {
                 dayClickCallback?.invoke(day)
@@ -136,6 +160,26 @@ class MonthViewWrapper(context: Context, attrs: AttributeSet, defStyle: Int) : F
                 if (isMonthDayView) {
                     binding.monthView.updateCurrentlySelectedDay(viewX, viewY)
                 }
+            }
+
+            setOnLongClickListener {
+                if (context.config.allowCreatingTasks) {
+                    val items = arrayListOf(
+                        RadioItem(TYPE_EVENT, context.getString(R.string.event)),
+                        RadioItem(TYPE_TASK, context.getString(R.string.task))
+                    )
+
+                    RadioGroupDialog(context.getActivity(), items) {
+                        if (it == TYPE_EVENT) {
+                            context.launchNewEventIntent(day.code)
+                        } else {
+                            context.launchNewTaskIntent(day.code)
+                        }
+                    }
+                } else {
+                    context.launchNewEventIntent(day.code)
+                }
+                true
             }
 
             addView(this)

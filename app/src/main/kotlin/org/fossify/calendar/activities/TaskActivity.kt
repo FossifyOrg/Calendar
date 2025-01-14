@@ -549,7 +549,7 @@ class TaskActivity : SimpleActivity() {
 
     private fun setupTime() {
         hideKeyboard()
-        if (config.isUsingSystemTheme) {
+        if (isDynamicTheme()) {
             val timeFormat = if (config.use24HourFormat) {
                 TimeFormat.CLOCK_24H
             } else {

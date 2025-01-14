@@ -260,4 +260,7 @@
     <string name="accessibility_previous_day">Ves al dia anterior</string>
     <string name="accessibility_previous_month">Ves al mes anterior</string>
     <string name="accessibility_next_day">Ves al dia següent</string>
+    <string name="status_tentative">Temptatiu</string>
+    <string name="status_canceled">Cancel·lat</string>
+    <string name="status_confirmed">Confirmat</string>
 </resources>

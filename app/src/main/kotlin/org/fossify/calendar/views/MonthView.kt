@@ -119,7 +119,7 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
         this.isMonthDayView = isMonthDayView
         days = newDays
         showWeekNumbers = config.showWeekNumbers
-        horizontalOffset = if (showWeekNumbers) eventTitleHeight * 2 else 0
+        horizontalOffset = context.getWeekNumberWidth()
         initWeekDayLetters()
         setupCurrentDayOfWeekIndex()
         groupAllEvents()
@@ -156,7 +156,8 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
                         isPastEvent = event.isPastEvent,
                         isTask = event.isTask(),
                         isTaskCompleted = event.isTaskCompleted(),
-                        isAttendeeInviteDeclined = event.isAttendeeInviteDeclined()
+                        isAttendeeInviteDeclined = event.isAttendeeInviteDeclined(),
+                        isEventCanceled = event.isEventCanceled()
                     )
                     allEvents.add(monthViewEvent)
                 }
@@ -296,7 +297,6 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
 
     private fun addWeekNumbers(canvas: Canvas) {
         val weekNumberPaint = Paint(textPaint)
-        weekNumberPaint.textAlign = Paint.Align.RIGHT
 
         for (i in 0 until ROW_COUNT) {
             val weekDays = days.subList(i * 7, i * 7 + 7)
@@ -305,8 +305,10 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
             // fourth day of the week determines the week of the year number
             val weekOfYear = days.getOrNull(i * 7 + 3)?.weekOfYear ?: 1
             val id = "$weekOfYear:"
+            val horizontalMarginFactor = 0.5f
+            val xPos = horizontalOffset * horizontalMarginFactor
             val yPos = i * dayHeight + weekDaysLetterHeight
-            canvas.drawText(id, horizontalOffset.toFloat() * 0.9f, yPos + textPaint.textSize, weekNumberPaint)
+            canvas.drawText(id, xPos, yPos + textPaint.textSize, weekNumberPaint)
         }
     }
 

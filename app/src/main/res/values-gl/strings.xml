@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_launcher_name">Almanaque</string>
+    <string name="app_launcher_name">Calendario</string>
     <string name="change_view">Trocala visión</string>
     <string name="daily_view">Vista diaria</string>
     <string name="weekly_view">Vista semanal</string>
@@ -171,7 +171,7 @@
     <string name="alarm_stream">Alarma</string>
     <string name="notification_stream">Notificación</string>
     <string name="ring_stream">Ton</string>
-    <string name="use_last_event_reminders">Usar os recordatorios dos últimos eventos como recordatorio por defecto para os eventos novos</string>
+    <string name="use_last_event_reminders">Usar os recordatorios do último evento como recordatorio por defecto para os eventos novos</string>
     <string name="default_reminder_1">Recordatorio por defecto 1</string>
     <string name="default_reminder_2">Recordatorio por defecto 2</string>
     <string name="default_reminder_3">Recordatorio por defecto 3</string>
@@ -189,7 +189,7 @@
     <string name="allow_changing_time_zones">Permitir cambiar as zonas horarias do evento</string>
     <string name="manage_quick_filter_event_types">Xestionar tipos de eventos do filtro rápido</string>
     <string name="allow_creating_tasks">Permitir crear tarefas</string>
-    <string name="select_caldav_calendars">Escolle calendarios a sincronizar</string>
+    <string name="select_caldav_calendars">Escolle os calendarios a sincronizar</string>
     <string name="manage_synced_calendars">Xestionar calendarios sincronizados</string>
     <string name="store_locally_only">Gardar só localmente</string>
     <string name="refresh_caldav_calendars">Actualizar calendarios CalDAV</string>
@@ -244,9 +244,17 @@
     <string name="faq_3_title">Vexo os recordatorios visualmente, pero non escoito audio. Que podo facer\?</string>
     <string name="faq_3_text">Tanto o recordatorio propiamente dito como a reprodución do son dependen en gran medida do sistema. Se non podes escoitar ningún son, intenta ir aos axustes do app, premer en \"Canle de audio usado polos recordatorios\" e cambialo a un valor diferente. Se aínda así non funciona, comproba os axustes de son, que o fluxo en particular non estea acalado.</string>
     <string name="faq_4_title">O app soporta zonas horarias\?</string>
-    <string name="faq_4_text">Si. Por defecto todos os eventos créanse na túa zona horaria actual. Se desexas cambiar a zona horaria dos eventos, primeiro tes que activar o selector de zona horaria nos axustes do app, e despois cambialo na pantalla de Detalles do Evento. Está desactivado de inicio porque a maioría da xente non o necesita.</string>
+    <string name="faq_4_text">Si. Por defecto todos os eventos créanse na túa zona horaria actual. Se desexas cambiar a zona horaria do evento, primeiro tes que activar o selector de zona horaria nos axustes do app, e despois cambialo na pantalla de Detalles do Evento. Está desactivado de inicio porque a maioría da xente non o necesita.</string>
     <string name="faq_5_title">O app non mostra ningunha notificación. Que é o que pasa\?</string>
     <string name="faq_5_text">Comproba os axustes de batería e de notificacións do teu dispositivo e que non haxa nada que bloquee os recordatorios nin que deteña o app ao estar en segundo plano. Pódeslle botar un ollo tamén a &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;, xa que ten algúns consellos útiles.</string>
     <string name="faq_6_title">Como podo modificar ou borrar un tipo de evento\?</string>
     <string name="faq_6_text">Podes facer ámbalas cousas en Axustes, Xestionar tipos de eventos. Preme no que necesites para cambiar o nome e maila cor, ou selecciónao manténdoo premido e usa a papeleira do menú superior para borralo.</string>
+    <string name="task_color">Cor da tarefa</string>
+    <string name="accessibility_previous_month">Ir ao mes anterior</string>
+    <string name="accessibility_next_month">Ir ao mes seguinte</string>
+    <string name="accessibility_previous_day">Ir ao día anterior</string>
+    <string name="accessibility_next_day">Ir ao día seguinte</string>
+    <string name="default_calendar_color">Cor predeterminada do almanaque</string>
+    <string name="event_color">Cor do evento</string>
+    <string name="caldav">CalDAV</string>
 </resources>
