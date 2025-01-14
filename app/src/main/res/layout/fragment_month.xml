@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="@dimen/smaller_margin"
+        android:layout_marginRight="@dimen/smaller_margin"
         android:layout_below="@+id/top_left_arrow" />
 
 </RelativeLayout>
