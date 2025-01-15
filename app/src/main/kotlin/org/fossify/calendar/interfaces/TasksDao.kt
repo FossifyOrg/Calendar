@@ -18,5 +18,5 @@ interface TasksDao {
     fun deleteTaskWithIdAndTs(id: Long, startTs: Long)
 
     @Query("DELETE FROM tasks WHERE task_id = :id AND start_ts >= :startTs")
-    fun deleteTaskFutureOccurences(id: Long, startTs: Long)
+    fun deleteTaskFutureOccurrences(id: Long, startTs: Long)
 }

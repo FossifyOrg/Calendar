@@ -318,7 +318,7 @@ class EventsHelper(val context: Context) {
         }
 
         if (event.isTask()) {
-            completedTasksDB.deleteTaskFutureOccurences(eventId, occurrenceTS)
+            completedTasksDB.deleteTaskFutureOccurrences(eventId, occurrenceTS)
         }
     }
 
@@ -607,7 +607,7 @@ class EventsHelper(val context: Context) {
     }
 
     fun updateIsTaskCompleted(event: Event) {
-        val task = context.completedTasksDB.getTaskWithIdAndTs(event.id!!, startTs = event.startTS)
+        val task = completedTasksDB.getTaskWithIdAndTs(event.id!!, startTs = event.startTS)
         event.flags = task?.flags ?: event.flags
     }
 
