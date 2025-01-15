@@ -172,7 +172,7 @@
     <string name="alarm_stream">Herätys</string>
     <string name="notification_stream">Ilmoitus</string>
     <string name="ring_stream">Soittoääni</string>
-    <string name="use_last_event_reminders">Käytä viimeisten tapahtumien muistutuksia oletusarvoisina uusille tapahtumille</string>
+    <string name="use_last_event_reminders">Käytä viimeisimmän tapahtuman muistutuksia oletusarvoisina uusille tapahtumille</string>
     <string name="default_reminder_1">Oletus muistutus 1</string>
     <string name="default_reminder_2">Oletus muistutus 2</string>
     <string name="default_reminder_3">Oletus muistutus 3</string>
@@ -250,4 +250,13 @@
     <string name="faq_5_text">Tarkista laitteesi akku- ja ilmoitusasetukset siltä varalta että jokin asetus estää ilmoitukset tai sulkee sovelluksen taustalla. Katso myös vinkit sivustolta &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;.</string>
     <string name="faq_6_title">Kuinka voin muokata tai poistaa tapahtumatyypin\?</string>
     <string name="faq_6_text">Voit muokata tai poistaa tapahtumatyyppejä sovelluksen asetuksissa kohdasta Hallitse taphtumatyyppejä. Klikkaa haluamaasi tyyppiä vaihtaaksesi otsikkoa tai väriä. Tapahtumatyypin voit poistaa painamalla sitä listssa pitkään ja klikkamaalla yläpalkkiin ilmestyvää roskakorikuvaketta.</string>
+    <string name="caldav">CalDAV</string>
+    <string name="default_calendar_color">Kalenterin oletusväri</string>
+    <string name="event_color">Tapahtuman väri</string>
+    <string name="status_confirmed">Vahvistettu</string>
+    <string name="status_canceled">Peruttu</string>
+    <string name="accessibility_previous_month">Edellinen kuukausi</string>
+    <string name="accessibility_next_month">Seuraava kuukausi</string>
+    <string name="accessibility_previous_day">Edellinen päivä</string>
+    <string name="accessibility_next_day">Seuraava päivä</string>
 </resources>

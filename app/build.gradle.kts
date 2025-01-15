@@ -55,6 +55,7 @@ android {
         }
         release {
             isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -97,6 +98,13 @@ android {
         abortOnError = true
         warningsAsErrors = true
         baseline = file("lint-baseline.xml")
+    }
+
+    bundle {
+        language {
+            @Suppress("UnstableApiUsage")
+            enableSplit = false
+        }
     }
 }
 

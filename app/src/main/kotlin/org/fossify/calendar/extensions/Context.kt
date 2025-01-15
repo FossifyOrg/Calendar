@@ -48,6 +48,7 @@ import org.joda.time.LocalDate
 import java.io.File
 import java.io.FileOutputStream
 import java.util.Calendar
+import kotlin.math.roundToInt
 
 val Context.config: Config get() = Config.newInstance(applicationContext)
 val Context.eventsDB: EventsDao get() = EventsDatabase.getInstance(applicationContext).EventsDao()
@@ -675,7 +676,8 @@ fun Context.getEventListItems(events: List<Event>, addSectionDays: Boolean = tru
                 it.repeatInterval > 0,
                 it.isTask(),
                 it.isTaskCompleted(),
-                it.isAttendeeInviteDeclined()
+                it.isAttendeeInviteDeclined(),
+                it.isEventCanceled()
             )
         listItems.add(listEvent)
     }
@@ -929,5 +931,19 @@ fun Context.setExactAlarm(triggerAtMillis: Long, operation: PendingIntent, type:
         }
     } catch (e: Exception) {
         showErrorToast(e)
+    }
+}
+
+/**
+ * Returns the width of the week number text.
+ */
+fun Context.getWeekNumberWidth(): Int {
+    return if (config.showWeekNumbers) {
+        val factor = 2.5f
+        (resources.getDimensionPixelSize(
+            org.fossify.commons.R.dimen.smaller_text_size
+        ) * factor).roundToInt()
+    } else {
+        0
     }
 }

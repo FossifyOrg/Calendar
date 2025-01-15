@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 9,
-    "identityHash": "e86c636a21679b3cc37edf60fb5ca93f",
+    "identityHash": "2ce4793f3fe2ff850bacf7adf6575827",
     "entities": [
       {
         "tableName": "events",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `start_ts` INTEGER NOT NULL, `end_ts` INTEGER NOT NULL, `title` TEXT NOT NULL, `location` TEXT NOT NULL, `description` TEXT NOT NULL, `reminder_1_minutes` INTEGER NOT NULL, `reminder_2_minutes` INTEGER NOT NULL, `reminder_3_minutes` INTEGER NOT NULL, `reminder_1_type` INTEGER NOT NULL, `reminder_2_type` INTEGER NOT NULL, `reminder_3_type` INTEGER NOT NULL, `repeat_interval` INTEGER NOT NULL, `repeat_rule` INTEGER NOT NULL, `repeat_limit` INTEGER NOT NULL, `repetition_exceptions` TEXT NOT NULL, `attendees` TEXT NOT NULL, `import_id` TEXT NOT NULL, `time_zone` TEXT NOT NULL, `flags` INTEGER NOT NULL, `event_type` INTEGER NOT NULL, `parent_id` INTEGER NOT NULL, `last_updated` INTEGER NOT NULL, `source` TEXT NOT NULL, `availability` INTEGER NOT NULL, `color` INTEGER NOT NULL, `type` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `start_ts` INTEGER NOT NULL, `end_ts` INTEGER NOT NULL, `title` TEXT NOT NULL, `location` TEXT NOT NULL, `description` TEXT NOT NULL, `reminder_1_minutes` INTEGER NOT NULL, `reminder_2_minutes` INTEGER NOT NULL, `reminder_3_minutes` INTEGER NOT NULL, `reminder_1_type` INTEGER NOT NULL, `reminder_2_type` INTEGER NOT NULL, `reminder_3_type` INTEGER NOT NULL, `repeat_interval` INTEGER NOT NULL, `repeat_rule` INTEGER NOT NULL, `repeat_limit` INTEGER NOT NULL, `repetition_exceptions` TEXT NOT NULL, `attendees` TEXT NOT NULL, `import_id` TEXT NOT NULL, `time_zone` TEXT NOT NULL, `flags` INTEGER NOT NULL, `event_type` INTEGER NOT NULL, `parent_id` INTEGER NOT NULL, `last_updated` INTEGER NOT NULL, `source` TEXT NOT NULL, `availability` INTEGER NOT NULL, `color` INTEGER NOT NULL, `type` INTEGER NOT NULL, `status` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -169,6 +169,12 @@
             "columnName": "type",
             "affinity": "INTEGER",
             "notNull": true
+          },
+          {
+            "fieldPath": "status",
+            "columnName": "status",
+            "affinity": "INTEGER",
+            "notNull": true
           }
         ],
         "primaryKey": {
@@ -300,7 +306,7 @@
       },
       {
         "tableName": "tasks",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `task_id` INTEGER NOT NULL, `start_ts` INTEGER NOT NULL, `flags` INTEGER NOT NULL, FOREIGN KEY(`task_id`) REFERENCES `events`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `task_id` INTEGER NOT NULL, `start_ts` INTEGER NOT NULL, `flags` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -345,25 +351,13 @@
             "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_tasks_id_task_id` ON `${TABLE_NAME}` (`id`, `task_id`)"
           }
         ],
-        "foreignKeys": [
-          {
-            "table": "events",
-            "onDelete": "CASCADE",
-            "onUpdate": "NO ACTION",
-            "columns": [
-              "task_id"
-            ],
-            "referencedColumns": [
-              "id"
-            ]
-          }
-        ]
+        "foreignKeys": []
       }
     ],
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'e86c636a21679b3cc37edf60fb5ca93f')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '2ce4793f3fe2ff850bacf7adf6575827')"
     ]
   }
 }

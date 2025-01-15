@@ -95,13 +95,12 @@
                 android:paddingEnd="@dimen/activity_margin"
                 android:paddingBottom="@dimen/medium_margin">
 
-                <org.fossify.commons.views.MyAppCompatCheckbox
+                <org.fossify.commons.views.MyMaterialSwitch
                     android:id="@+id/task_all_day"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@null"
                     android:clickable="false"
-                    android:layoutDirection="rtl"
                     android:text="@string/all_day"
                     android:textSize="@dimen/day_text_size" />
 

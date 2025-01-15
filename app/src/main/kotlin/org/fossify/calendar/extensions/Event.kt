@@ -41,4 +41,4 @@ fun Event.maybeAdjustRepeatLimitCount(original: Event, occurrenceTS: Long) {
     }
 }
 
-fun Event.shouldStrikeThrough() = isTaskCompleted() || isAttendeeInviteDeclined()
+fun Event.shouldStrikeThrough() = isTaskCompleted() || isAttendeeInviteDeclined() || isEventCanceled()

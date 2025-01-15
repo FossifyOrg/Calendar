@@ -263,4 +263,7 @@
     <string name="system_stream">System</string>
     <string name="alarm_stream">Alarm</string>
     <string name="caldav">CalDAV</string>
+    <string name="status_tentative">Niepewne</string>
+    <string name="status_confirmed">Potwierdzone</string>
+    <string name="status_canceled">Anulowane</string>
 </resources>
