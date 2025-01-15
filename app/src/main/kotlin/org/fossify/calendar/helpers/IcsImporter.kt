@@ -55,7 +55,9 @@ class IcsImporter(val activity: SimpleActivity) {
     private var isParsingTask = false
     private var curReminderTriggerMinutes = REMINDER_OFF
     private var curReminderTriggerAction = REMINDER_NOTIFICATION
+    private var curColor = 0
     private val eventsHelper = activity.eventsHelper
+    private val cssColors = CssColors()
 
     private var eventsImported = 0
     private var eventsFailed = 0
@@ -165,6 +167,17 @@ class IcsImporter(val activity: SimpleActivity) {
                         val color = line.substring(SMT_CATEGORY_COLOR.length)
                         if (color.trimStart('-').areDigitsOnly()) {
                             curCategoryColor = Integer.parseInt(color)
+                        }
+                    } else if (line.startsWith(COLOR)) {
+                        val colorName = line.substring(COLOR.length)
+                        val color = cssColors.cssNameToRgb(colorName)
+                        if (color != null) {
+                            curColor = color
+                        }
+                    } else if (line.startsWith(FOSSIFY_COLOR)) {
+                        val color = line.substring(FOSSIFY_COLOR.length)
+                        if (color.trimStart('-').areDigitsOnly()) {
+                            curColor = Integer.parseInt(color)
                         }
                     } else if (line.startsWith(MISSING_YEAR)) {
                         if (line.substring(MISSING_YEAR.length) == "1") {
@@ -284,7 +297,8 @@ class IcsImporter(val activity: SimpleActivity) {
                             source,
                             curAvailability,
                             type = curType,
-                            status = curStatus
+                            status = curStatus,
+                            color = curColor
                         )
 
                         if (isAllDay && curEnd > curStart && !event.isTask()) {
@@ -466,5 +480,6 @@ class IcsImporter(val activity: SimpleActivity) {
         curReminderTriggerMinutes = REMINDER_OFF
         curReminderTriggerAction = REMINDER_NOTIFICATION
         curType = TYPE_EVENT
+        curColor = 0
     }
 }

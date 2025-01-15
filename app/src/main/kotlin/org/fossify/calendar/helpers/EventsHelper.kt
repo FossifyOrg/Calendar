@@ -411,10 +411,7 @@ class EventsHelper(val context: Context) {
             .filterNot { it.repetitionExceptions.contains(Formatter.getDayCodeFromTS(it.startTS)) }
             .toMutableList() as ArrayList<Event>
 
-        val eventTypeColors = LongSparseArray<Int>()
-        context.eventTypesDB.getEventTypes().forEach {
-            eventTypeColors.put(it.id!!, it.color)
-        }
+        val eventTypeColors = getEventTypeColors()
 
         events.forEach {
             if (it.isTask()) {
@@ -648,5 +645,14 @@ class EventsHelper(val context: Context) {
 
         events = events.distinctBy { it.id } as ArrayList<Event>
         return events
+    }
+
+    fun getEventTypeColors(): LongSparseArray<Int> {
+        val eventTypeColors = LongSparseArray<Int>()
+        context.eventTypesDB.getEventTypes().forEach {
+            eventTypeColors.put(it.id!!, it.color)
+        }
+
+        return eventTypeColors
     }
 }
