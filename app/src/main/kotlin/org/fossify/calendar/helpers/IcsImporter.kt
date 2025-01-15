@@ -101,6 +101,12 @@ class IcsImporter(val activity: SimpleActivity) {
                         curEventTypeId = defaultEventTypeId
                         isParsingTask = true
                         curType = TYPE_TASK
+                    } else if (line.startsWith(DUE)) {
+                        curStart = getTimestamp(line.substring(DUE.length))
+
+                        if (curRrule != "") {
+                            parseRepeatRule()
+                        }
                     } else if (line.startsWith(DTSTART)) {
                         if (isParsingEvent || isParsingTask) {
                             curStart = getTimestamp(line.substring(DTSTART.length))
