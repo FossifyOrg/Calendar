@@ -44,7 +44,6 @@ export const COUNTRIES = [
     ["lithuania.ics", "LT"],
     ["luxembourg.ics", "LU"],
     ["macedonia.ics", "MK"],
-    ["malaysia.ics", "MY"],
     ["mexico.ics", "MX"],
     ["morocco.ics", "MA"],
     ["netherlands.ics", "NL"],
