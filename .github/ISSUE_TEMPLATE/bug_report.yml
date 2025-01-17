@@ -69,6 +69,22 @@ body:
         - Built from source
         - Third-party website
 
+  - type: input
+    id: calendar-service
+    attributes:
+      label: Which calendar service or provider do you use, if any?
+      placeholder: "Example: Nextcloud / Google Calendar"
+    validations:
+      required: false
+
+  - type: input
+    id: calendar-sync-adapter
+    attributes:
+      label: Which sync adapter app do you use for calendar synchronization, if any?
+      placeholder: "Example: DAVx⁵ / Nextcloud app"
+    validations:
+      required: false
+
   - type: textarea
     id: steps-to-reproduce
     attributes:
