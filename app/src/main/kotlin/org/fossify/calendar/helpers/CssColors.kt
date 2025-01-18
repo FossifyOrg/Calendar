@@ -121,7 +121,6 @@ class CssColors {
         "plum" to 0xFFDDA0DD.toInt(),
         "powderblue" to 0xFFB0E0E6.toInt(),
         "purple" to 0xFF800080.toInt(),
-        "rebeccapurple" to 0xFF663399.toInt(),
         "red" to 0xFFFF0000.toInt(),
         "rosybrown" to 0xFFBC8F8F.toInt(),
         "royalblue" to 0xFF4169E1.toInt(),
