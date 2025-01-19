@@ -11,7 +11,9 @@ import org.fossify.calendar.extensions.seconds
 import org.fossify.calendar.helpers.*
 import org.fossify.commons.extensions.addBitIf
 import org.joda.time.DateTime
+import org.joda.time.DateTimeConstants
 import org.joda.time.DateTimeZone
+import org.joda.time.Weeks
 import java.io.Serializable
 
 @Entity(tableName = "events", indices = [(Index(value = ["id"], unique = true))])
@@ -176,11 +178,22 @@ data class Event(
     fun getCalDAVCalendarId() = if (source.startsWith(CALDAV)) (source.split("-").lastOrNull() ?: "0").toString().toInt() else 0
 
     // check if it's the proper week, for events repeating every x weeks
-    // get the week number since 1970, not just in the current year
     fun isOnProperWeek(startTimes: LongSparseArray<Long>): Boolean {
-        val initialWeekNumber = Formatter.getDateTimeFromTS(startTimes[id!!]!!).withTimeAtStartOfDay().millis / (7 * 24 * 60 * 60 * 1000f)
-        val currentWeekNumber = Formatter.getDateTimeFromTS(startTS).withTimeAtStartOfDay().millis / (7 * 24 * 60 * 60 * 1000f)
-        return (Math.round(initialWeekNumber) - Math.round(currentWeekNumber)) % (repeatInterval / WEEK) == 0
+        // Note that the code below hard-codes the start of the week to be Monday. This affects events that repeat on
+        // multiple days of the week. Ideally this should be configurable; but doing it properly will require some work.
+        // For example, Google Calendar uses the value of the "Start of the week" setting at the time the event is
+        // created/edited (critically, changing the setting does not affect existing events). That seems like the best
+        // approach. Implementing this would require adding a (hidden) start-of-week field to events (corresponding to
+        // iCal's WKST rule).
+        if (repeatInterval == WEEK) {
+            return true // optimization for events that repeat every week
+        }
+        val initialDate = Formatter.getDateFromTS(startTimes[id!!]!!)
+        val daysSinceWeekStart = Math.floorMod(initialDate.dayOfWeek - DateTimeConstants.MONDAY, 7)
+        val initialWeekStart = initialDate.minusDays(daysSinceWeekStart)
+        val currentDate = Formatter.getDateFromTS(startTS)
+        val weeks = Weeks.weeksBetween(initialWeekStart, currentDate).weeks
+        return weeks % (repeatInterval / WEEK) == 0
     }
 
     fun updateIsPastEvent() {

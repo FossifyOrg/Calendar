@@ -69,6 +69,22 @@ body:
         - Built from source
         - Third-party website
 
+  - type: input
+    id: calendar-service
+    attributes:
+      label: Which calendar service or provider do you use, if any?
+      placeholder: "Example: Nextcloud / Google Calendar"
+    validations:
+      required: false
+
+  - type: input
+    id: calendar-sync-adapter
+    attributes:
+      label: Which sync adapter app do you use for calendar synchronization, if any?
+      placeholder: "Example: DAVx⁵ / Nextcloud app"
+    validations:
+      required: false
+
   - type: textarea
     id: steps-to-reproduce
     attributes:
@@ -112,7 +128,7 @@ body:
       description: |
         A picture or video is worth a thousand words.
 
-        If applicable, drag and drop screenshots or a screen recording to help explain your problem. If your file is too big for Github to accept, try to compress it (ZIP file), or feel free to paste a link to an image/video hoster here instead.
+        If applicable, drag and drop screenshots or a screen recording to help explain your problem. If your file is too big for Github to accept, try to compress it (ZIP file), or feel free to paste a link to an image/video instead.
 
   - type: textarea
     id: additional-information
