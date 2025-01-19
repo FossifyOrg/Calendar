@@ -5,6 +5,7 @@ import android.provider.CalendarContract.Events
 import org.fossify.calendar.R
 import org.fossify.calendar.extensions.calDAVHelper
 import org.fossify.calendar.extensions.eventTypesDB
+import org.fossify.calendar.extensions.eventsHelper
 import org.fossify.calendar.helpers.IcsExporter.ExportResult.EXPORT_FAIL
 import org.fossify.calendar.helpers.IcsExporter.ExportResult.EXPORT_OK
 import org.fossify.calendar.helpers.IcsExporter.ExportResult.EXPORT_PARTIAL
@@ -28,7 +29,6 @@ class IcsExporter(private val context: Context) {
     private var calendars = ArrayList<CalDAVCalendar>()
     private val reminderLabel = context.getString(R.string.reminder)
     private val exportTime = Formatter.getExportedTime(System.currentTimeMillis())
-    private val status = 1
 
     fun exportEvents(
         outputStream: OutputStream?,
@@ -130,11 +130,19 @@ class IcsExporter(private val context: Context) {
     }
 
     private fun writeEvent(writer: BufferedWriter, event: Event) {
+        val eventTypeColors = context.eventsHelper.getEventTypeColors()
         with(writer) {
             writeLn(BEGIN_EVENT)
             event.title.replace("\n", "\\n").let { if (it.isNotEmpty()) writeLn("$SUMMARY:$it") }
             event.importId.let { if (it.isNotEmpty()) writeLn("$UID$it") }
             writeLn("$CATEGORY_COLOR${context.eventTypesDB.getEventTypeWithId(event.eventType)?.color}")
+            if (event.color != 0 && event.color != eventTypeColors[event.eventType]) {
+                val color = CssColors.findClosestCssColor(event.color)
+                if (color != null) {
+                    writeLn("$COLOR${color}")
+                }
+                writeLn("$FOSSIFY_COLOR${event.color}")
+            }
             writeLn("$CATEGORIES${context.eventTypesDB.getEventTypeWithId(event.eventType)?.title}")
             writeLn("$LAST_MODIFIED:${Formatter.getExportedTime(event.lastUpdated)}")
             writeLn("$TRANSP${if (event.availability == Events.AVAILABILITY_FREE) TRANSPARENT else OPAQUE}")
@@ -163,11 +171,19 @@ class IcsExporter(private val context: Context) {
     }
 
     private fun writeTask(writer: BufferedWriter, task: Event) {
+        val eventTypeColors = context.eventsHelper.getEventTypeColors()
         with(writer) {
             writeLn(BEGIN_TASK)
             task.title.replace("\n", "\\n").let { if (it.isNotEmpty()) writeLn("$SUMMARY:$it") }
             task.importId.let { if (it.isNotEmpty()) writeLn("$UID$it") }
             writeLn("$CATEGORY_COLOR${context.eventTypesDB.getEventTypeWithId(task.eventType)?.color}")
+            if (task.color != 0 && task.color != eventTypeColors[task.eventType]) {
+                val color = CssColors.findClosestCssColor(task.color)
+                if (color != null) {
+                    writeLn("$COLOR${color}")
+                }
+                writeLn("$FOSSIFY_COLOR${task.color}")
+            }
             writeLn("$CATEGORIES${context.eventTypesDB.getEventTypeWithId(task.eventType)?.title}")
             writeLn("$LAST_MODIFIED:${Formatter.getExportedTime(task.lastUpdated)}")
             task.location.let { if (it.isNotEmpty()) writeLn("$LOCATION:$it") }
