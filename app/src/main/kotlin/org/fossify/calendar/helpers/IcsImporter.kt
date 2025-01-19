@@ -1,8 +1,6 @@
 package org.fossify.calendar.helpers
 
-import android.provider.CalendarContract
 import android.provider.CalendarContract.Events
-import org.fossify.calendar.R
 import org.fossify.calendar.activities.SimpleActivity
 import org.fossify.calendar.extensions.eventsDB
 import org.fossify.calendar.extensions.eventsHelper
@@ -57,7 +55,6 @@ class IcsImporter(val activity: SimpleActivity) {
     private var curReminderTriggerAction = REMINDER_NOTIFICATION
     private var curColor = 0
     private val eventsHelper = activity.eventsHelper
-    private val cssColors = CssColors()
 
     private var eventsImported = 0
     private var eventsFailed = 0
@@ -170,7 +167,7 @@ class IcsImporter(val activity: SimpleActivity) {
                         }
                     } else if (line.startsWith(COLOR)) {
                         val colorName = line.substring(COLOR.length)
-                        val color = cssColors.cssNameToRgb(colorName)
+                        val color = CssColors.getColorByName(colorName)
                         if (color != null) {
                             curColor = color
                         }

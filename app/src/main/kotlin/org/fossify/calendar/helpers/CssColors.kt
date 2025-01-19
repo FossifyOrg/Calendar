@@ -1,7 +1,10 @@
 package org.fossify.calendar.helpers
 
-class CssColors {
-    private val nameToRgbMap: Map<String, Int> = mapOf(
+object CssColors {
+
+    // https://www.w3.org/TR/css-color-3/#svg-color
+    @Suppress("SpellCheckingInspection")
+    private val colorsByName: Map<String, Int> = mapOf(
         "aliceblue" to 0xFFF0F8FF.toInt(),
         "antiquewhite" to 0xFFFAEBD7.toInt(),
         "aqua" to 0xFF00FFFF.toInt(),
@@ -151,8 +154,8 @@ class CssColors {
         "yellowgreen" to 0xFF9ACD32.toInt()
     )
 
-    fun cssNameToRgb(name: String): Int? {
-        return nameToRgbMap[name]
+    fun getColorByName(name: String): Int? {
+        return colorsByName[name.lowercase()]
     }
 
     fun findClosestCssColor(color: Int): String? {
@@ -161,7 +164,7 @@ class CssColors {
         val green = (color shr 8) and 0xFF
         val blue = color and 0xFF
 
-        return nameToRgbMap.minByOrNull { (_, value) ->
+        return colorsByName.minByOrNull { (_, value) ->
             val currAlpha = (value shr 24) and 0xFF
             val currRed = (value shr 16) and 0xFF
             val currGreen = (value shr 8) and 0xFF

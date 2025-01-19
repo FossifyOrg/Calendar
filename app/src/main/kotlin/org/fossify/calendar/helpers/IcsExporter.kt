@@ -29,8 +29,6 @@ class IcsExporter(private val context: Context) {
     private var calendars = ArrayList<CalDAVCalendar>()
     private val reminderLabel = context.getString(R.string.reminder)
     private val exportTime = Formatter.getExportedTime(System.currentTimeMillis())
-    private val status = 1
-    private val cssColors = CssColors()
 
     fun exportEvents(
         outputStream: OutputStream?,
@@ -139,7 +137,7 @@ class IcsExporter(private val context: Context) {
             event.importId.let { if (it.isNotEmpty()) writeLn("$UID$it") }
             writeLn("$CATEGORY_COLOR${context.eventTypesDB.getEventTypeWithId(event.eventType)?.color}")
             if (event.color != 0 && event.color != eventTypeColors[event.eventType]) {
-                val color = cssColors.findClosestCssColor(event.color)
+                val color = CssColors.findClosestCssColor(event.color)
                 if (color != null) {
                     writeLn("$COLOR${color}")
                 }
@@ -180,7 +178,7 @@ class IcsExporter(private val context: Context) {
             task.importId.let { if (it.isNotEmpty()) writeLn("$UID$it") }
             writeLn("$CATEGORY_COLOR${context.eventTypesDB.getEventTypeWithId(task.eventType)?.color}")
             if (task.color != 0 && task.color != eventTypeColors[task.eventType]) {
-                val color = cssColors.findClosestCssColor(task.color)
+                val color = CssColors.findClosestCssColor(task.color)
                 if (color != null) {
                     writeLn("$COLOR${color}")
                 }
