@@ -173,12 +173,14 @@ object CssColors {
         }?.key
     }
 
-    private fun distance(a1: Int, r1: Int, g1: Int, b1: Int,
-                         a2: Int, r2: Int, g2: Int, b2: Int): Int {
-        val powA = (a1 - a2) * (a1 - a2)
-        val powR = (r1 - r2) * (r1 - r2)
-        val powG = (g1 - g2) * (g1 - g2)
-        val powB = (b1 - b2) * (b1 - b2)
-        return powA + powR + powG + powB
+    private fun distance(
+        a1: Int, r1: Int, g1: Int, b1: Int,
+        a2: Int, r2: Int, g2: Int, b2: Int,
+    ): Int {
+        val da = a1 - a2
+        val dr = r1 - r2
+        val dg = g1 - g2
+        val db = b1 - b2
+        return da * da + dr * dr + dg * dg + db * db
     }
 }
