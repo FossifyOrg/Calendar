@@ -189,7 +189,7 @@ data class Event(
             return true // optimization for events that repeat every week
         }
         val initialDate = Formatter.getDateFromTS(startTimes[id!!]!!)
-        val daysSinceWeekStart = Math.floorMod(initialDate.getDayOfWeek() - DateTimeConstants.MONDAY, 7)
+        val daysSinceWeekStart = Math.floorMod(initialDate.dayOfWeek - DateTimeConstants.MONDAY, 7)
         val initialWeekStart = initialDate.minusDays(daysSinceWeekStart)
         val currentDate = Formatter.getDateFromTS(startTS)
         val weeks = Weeks.weeksBetween(initialWeekStart, currentDate).weeks
