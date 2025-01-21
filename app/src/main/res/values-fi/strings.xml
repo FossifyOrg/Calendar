@@ -259,4 +259,5 @@
     <string name="accessibility_next_month">Seuraava kuukausi</string>
     <string name="accessibility_previous_day">Edellinen päivä</string>
     <string name="accessibility_next_day">Seuraava päivä</string>
+    <string name="status_tentative">Kokeellinen</string>
 </resources>
