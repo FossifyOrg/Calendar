@@ -38,15 +38,15 @@ function getEvents(countryCode) {
 
 /**
  * Generates reproducible ID for holiday
- * @param {string} countryCode
+ * @param {string} name
  * @param {string} date
  * @param {string} rule
  * @returns
  */
-function generateUid(countryCode, date, rule) {
-    const hashGen = createHash("sha256");
-    hashGen.update(`${countryCode},${date},${rule}`);
-    return hashGen.digest("hex");
+function generateUid(name, date) {
+    const hashGen = createHash("sha1");
+    hashGen.update(`${name}_${date}`);
+    return `fossify_${hashGen.digest("hex")}`;
 }
 
 /**
@@ -78,7 +78,7 @@ async function generateIcal(events, countryCode) {
     const eventsMap = new Map();
     events.forEach((x) => {
         if (isFixedDate(x.rule)) {
-            const uid = generateUid(countryCode, "", x.rule);
+            const uid = generateUid(x.name, "");
             if (!eventsMap.has(uid)) {
                 const yearDiff = x.end.getUTCFullYear() - x.start.getUTCFullYear();
                 x.start.setUTCFullYear(FIXED_DATE_START_YEAR);
@@ -94,7 +94,7 @@ async function generateIcal(events, countryCode) {
                 });
             }
         } else {
-            const uid = generateUid(countryCode, x.date, x.rule);
+            const uid = generateUid(x.name, x.date);
             eventsMap.set(uid, {
                 title: x.name,
                 uid,
