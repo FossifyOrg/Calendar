@@ -263,4 +263,8 @@
     <string name="status_tentative">Temptatiu</string>
     <string name="status_canceled">Cancel·lat</string>
     <string name="status_confirmed">Confirmat</string>
+    <string name="regional_holidays">Festius regionals</string>
+    <string name="other_holidays">Altres festius i celebracions</string>
+    <string name="select_holidays_to_import">Seleccioneu els festius a importar</string>
+    <string name="public_holidays">Festius oficials</string>
 </resources>
