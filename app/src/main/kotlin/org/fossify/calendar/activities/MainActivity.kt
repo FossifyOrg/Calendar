@@ -19,19 +19,113 @@ import org.fossify.calendar.adapters.QuickFilterEventTypeAdapter
 import org.fossify.calendar.databases.EventsDatabase
 import org.fossify.calendar.databinding.ActivityMainBinding
 import org.fossify.calendar.dialogs.SelectEventTypesDialog
+import org.fossify.calendar.dialogs.SelectHolidayTypesDialog
 import org.fossify.calendar.dialogs.SetRemindersDialog
-import org.fossify.calendar.extensions.*
-import org.fossify.calendar.fragments.*
-import org.fossify.calendar.helpers.*
+import org.fossify.calendar.extensions.addImportIdsToTasks
+import org.fossify.calendar.extensions.calDAVHelper
+import org.fossify.calendar.extensions.config
+import org.fossify.calendar.extensions.eventsDB
+import org.fossify.calendar.extensions.eventsHelper
+import org.fossify.calendar.extensions.getEventListItems
+import org.fossify.calendar.extensions.getFirstDayOfWeek
+import org.fossify.calendar.extensions.launchNewEventIntent
+import org.fossify.calendar.extensions.launchNewTaskIntent
+import org.fossify.calendar.extensions.seconds
+import org.fossify.calendar.extensions.tryImportEventsFromFile
+import org.fossify.calendar.extensions.updateWidgets
+import org.fossify.calendar.fragments.DayFragmentsHolder
+import org.fossify.calendar.fragments.EventListFragment
+import org.fossify.calendar.fragments.MonthDayFragmentsHolder
+import org.fossify.calendar.fragments.MonthFragmentsHolder
+import org.fossify.calendar.fragments.MyFragmentHolder
+import org.fossify.calendar.fragments.WeekFragmentsHolder
+import org.fossify.calendar.fragments.YearFragmentsHolder
+import org.fossify.calendar.helpers.ANNIVERSARY_EVENT
+import org.fossify.calendar.helpers.BIRTHDAY_EVENT
+import org.fossify.calendar.helpers.DAILY_VIEW
+import org.fossify.calendar.helpers.DAY_CODE
+import org.fossify.calendar.helpers.EVENTS_LIST_VIEW
+import org.fossify.calendar.helpers.EVENT_ID
+import org.fossify.calendar.helpers.EVENT_OCCURRENCE_TS
+import org.fossify.calendar.helpers.FETCH_INTERVAL
+import org.fossify.calendar.helpers.FLAG_ALL_DAY
+import org.fossify.calendar.helpers.FLAG_MISSING_YEAR
+import org.fossify.calendar.helpers.Formatter
+import org.fossify.calendar.helpers.HOLIDAY_EVENT
+import org.fossify.calendar.helpers.HolidayHelper
+import org.fossify.calendar.helpers.INITIAL_EVENTS
+import org.fossify.calendar.helpers.IS_TASK
+import org.fossify.calendar.helpers.IcsImporter
 import org.fossify.calendar.helpers.IcsImporter.ImportResult
+import org.fossify.calendar.helpers.LAST_VIEW
+import org.fossify.calendar.helpers.MAX_SEARCH_YEAR
+import org.fossify.calendar.helpers.MIN_EVENTS_TRESHOLD
+import org.fossify.calendar.helpers.MONTHLY_DAILY_VIEW
+import org.fossify.calendar.helpers.MONTHLY_VIEW
+import org.fossify.calendar.helpers.OTHER_EVENT
+import org.fossify.calendar.helpers.REPEAT_SAME_DAY
+import org.fossify.calendar.helpers.SHORTCUT_NEW_EVENT
+import org.fossify.calendar.helpers.SHORTCUT_NEW_TASK
+import org.fossify.calendar.helpers.SOURCE_CONTACT_ANNIVERSARY
+import org.fossify.calendar.helpers.SOURCE_CONTACT_BIRTHDAY
+import org.fossify.calendar.helpers.UPDATE_BOTTOM
+import org.fossify.calendar.helpers.UPDATE_TOP
+import org.fossify.calendar.helpers.VIEW_TO_OPEN
+import org.fossify.calendar.helpers.WEEKLY_VIEW
+import org.fossify.calendar.helpers.WEEK_START_DATE_TIME
+import org.fossify.calendar.helpers.YEAR
+import org.fossify.calendar.helpers.YEARLY_VIEW
+import org.fossify.calendar.helpers.YEAR_TO_OPEN
+import org.fossify.calendar.helpers.getActivityToOpen
 import org.fossify.calendar.jobs.CalDAVUpdateListener
 import org.fossify.calendar.models.Event
+import org.fossify.calendar.models.HolidayInfo
 import org.fossify.calendar.models.ListEvent
 import org.fossify.calendar.models.ListItem
 import org.fossify.calendar.models.ListSectionDay
 import org.fossify.commons.dialogs.RadioGroupDialog
-import org.fossify.commons.extensions.*
-import org.fossify.commons.helpers.*
+import org.fossify.commons.extensions.adjustAlpha
+import org.fossify.commons.extensions.appLaunched
+import org.fossify.commons.extensions.applyColorFilter
+import org.fossify.commons.extensions.areDigitsOnly
+import org.fossify.commons.extensions.beGone
+import org.fossify.commons.extensions.beGoneIf
+import org.fossify.commons.extensions.beVisible
+import org.fossify.commons.extensions.beVisibleIf
+import org.fossify.commons.extensions.checkWhatsNew
+import org.fossify.commons.extensions.convertToBitmap
+import org.fossify.commons.extensions.fadeIn
+import org.fossify.commons.extensions.fadeOut
+import org.fossify.commons.extensions.getColoredDrawableWithColor
+import org.fossify.commons.extensions.getContrastColor
+import org.fossify.commons.extensions.getIntValue
+import org.fossify.commons.extensions.getLongValue
+import org.fossify.commons.extensions.getMyContactsCursor
+import org.fossify.commons.extensions.getProperBackgroundColor
+import org.fossify.commons.extensions.getProperPrimaryColor
+import org.fossify.commons.extensions.getProperTextColor
+import org.fossify.commons.extensions.getStringValue
+import org.fossify.commons.extensions.hasPermission
+import org.fossify.commons.extensions.hideKeyboard
+import org.fossify.commons.extensions.isGone
+import org.fossify.commons.extensions.isVisible
+import org.fossify.commons.extensions.launchMoreAppsFromUsIntent
+import org.fossify.commons.extensions.queryCursor
+import org.fossify.commons.extensions.shortcutManager
+import org.fossify.commons.extensions.showErrorToast
+import org.fossify.commons.extensions.toast
+import org.fossify.commons.extensions.updateTextColors
+import org.fossify.commons.extensions.viewBinding
+import org.fossify.commons.helpers.LICENSE_JODA
+import org.fossify.commons.helpers.MyContactsContentProvider
+import org.fossify.commons.helpers.PERMISSION_READ_CALENDAR
+import org.fossify.commons.helpers.PERMISSION_READ_CONTACTS
+import org.fossify.commons.helpers.PERMISSION_WRITE_CALENDAR
+import org.fossify.commons.helpers.ensureBackgroundThread
+import org.fossify.commons.helpers.getDateFormats
+import org.fossify.commons.helpers.getDateFormatsWithYear
+import org.fossify.commons.helpers.isNougatMR1Plus
+import org.fossify.commons.helpers.isNougatPlus
 import org.fossify.commons.interfaces.RefreshRecyclerViewListener
 import org.fossify.commons.models.FAQItem
 import org.fossify.commons.models.RadioItem
@@ -558,28 +652,50 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
     }
 
     private fun addHolidays() {
-        val items = getHolidayRadioItems()
-        RadioGroupDialog(this, items) { selectedHoliday ->
-            SetRemindersDialog(this, OTHER_EVENT) {
-                val reminders = it
-                toast(org.fossify.commons.R.string.importing)
-                ensureBackgroundThread {
-                    val holidays = getString(R.string.holidays)
-                    var eventTypeId = eventsHelper.getEventTypeIdWithClass(HOLIDAY_EVENT)
-                    if (eventTypeId == -1L) {
-                        eventTypeId = eventsHelper.createPredefinedEventType(holidays, R.color.default_holidays_color, HOLIDAY_EVENT, true)
-                    }
-                    val result = IcsImporter(this).importEvents(selectedHoliday as String, eventTypeId, 0, false, reminders)
-                    handleParseResult(result)
-                    if (result != ImportResult.IMPORT_FAIL) {
-                        runOnUiThread {
-                            updateViewPager()
-                            setupQuickFilter()
+        getHolidayRadioItems { items ->
+            RadioGroupDialog(this, items) { any ->
+                SelectHolidayTypesDialog(this, any as HolidayInfo) { pathsToImport ->
+                    SetRemindersDialog(this, OTHER_EVENT) { reminders ->
+                        toast(org.fossify.commons.R.string.importing)
+                        ensureBackgroundThread {
+                            val result = pathsToImport
+                                .map { importHolidays(it, reminders) }
+                                .minBy { it.value }
+
+                            handleParseResult(result)
+                            if (result != ImportResult.IMPORT_FAIL) {
+                                runOnUiThread {
+                                    updateViewPager()
+                                    setupQuickFilter()
+                                }
+                            }
                         }
                     }
                 }
             }
         }
+    }
+
+    private fun importHolidays(path: String, reminders: ArrayList<Int>): ImportResult {
+        val holidays = getString(R.string.holidays)
+        var eventTypeId = eventsHelper.getEventTypeIdWithClass(HOLIDAY_EVENT)
+        if (eventTypeId == -1L) {
+            eventTypeId = eventsHelper.createPredefinedEventType(
+                holidays,
+                R.color.default_holidays_color,
+                HOLIDAY_EVENT,
+                true
+            )
+        }
+
+        return IcsImporter(this).importEvents(
+            path = path,
+            defaultEventTypeId = eventTypeId,
+            calDAVCalendarId = 0,
+            overrideFileEventTypes = false,
+            eventReminders = reminders,
+            loadFromAssets = true
+        )
     }
 
     private fun tryAddBirthdays() {
@@ -1261,84 +1377,23 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
         updateViewPager(dayCode)
     }
 
-    // events fetched from Thunderbird, https://www.thunderbird.net/en-US/calendar/holidays and
-    // https://holidays.kayaposoft.com/public_holidays.php?year=2021
-    private fun getHolidayRadioItems(): ArrayList<RadioItem> {
-        val items = ArrayList<RadioItem>()
+    private fun getHolidayRadioItems(callback: (ArrayList<RadioItem>) -> Unit) {
+        ensureBackgroundThread {
+            val items = ArrayList<RadioItem>()
+            HolidayHelper(this).load().forEachIndexed { index, holidayInfo ->
+                items.add(
+                    RadioItem(
+                        id = index,
+                        title = holidayInfo.country,
+                        value = holidayInfo
+                    )
+                )
+            }
 
-        LinkedHashMap<String, String>().apply {
-            put("Algeria", "algeria.ics")
-            put("Argentina", "argentina.ics")
-            put("Australia", "australia.ics")
-            put("België", "belgium.ics")
-            put("Bolivia", "bolivia.ics")
-            put("Brasil", "brazil.ics")
-            put("България", "bulgaria.ics")
-            put("Canada", "canada.ics")
-            put("China", "china.ics")
-            put("Colombia", "colombia.ics")
-            put("Česká republika", "czech.ics")
-            put("Danmark", "denmark.ics")
-            put("Deutschland", "germany.ics")
-            put("Eesti", "estonia.ics")
-            put("España", "spain.ics")
-            put("Éire", "ireland.ics")
-            put("France", "france.ics")
-            put("Fürstentum Liechtenstein", "liechtenstein.ics")
-            put("Hellas", "greece.ics")
-            put("Hrvatska", "croatia.ics")
-            put("India", "india.ics")
-            put("Indonesia", "indonesia.ics")
-            put("Ísland", "iceland.ics")
-            put("Israel", "israel.ics")
-            put("Italia", "italy.ics")
-            put("Қазақстан Республикасы", "kazakhstan.ics")
-            put("المملكة المغربية", "morocco.ics")
-            put("Latvija", "latvia.ics")
-            put("Lietuva", "lithuania.ics")
-            put("Luxemburg", "luxembourg.ics")
-            put("Makedonija", "macedonia.ics")
-            put("Malaysia", "malaysia.ics")
-            put("Magyarország", "hungary.ics")
-            put("México", "mexico.ics")
-            put("Nederland", "netherlands.ics")
-            put("República de Nicaragua", "nicaragua.ics")
-            put("日本", "japan.ics")
-            put("Nigeria", "nigeria.ics")
-            put("Norge", "norway.ics")
-            put("Österreich", "austria.ics")
-            put("Pākistān", "pakistan.ics")
-            put("Polska", "poland.ics")
-            put("Portugal", "portugal.ics")
-            put("Россия", "russia.ics")
-            put("República de Costa Rica", "costarica.ics")
-            put("República Oriental del Uruguay", "uruguay.ics")
-            put("République d'Haïti", "haiti.ics")
-            put("România", "romania.ics")
-            put("Schweiz", "switzerland.ics")
-            put("Singapore", "singapore.ics")
-            put("한국", "southkorea.ics")
-            put("Srbija", "serbia.ics")
-            put("Slovenija", "slovenia.ics")
-            put("Slovensko", "slovakia.ics")
-            put("South Africa", "southafrica.ics")
-            put("Sri Lanka", "srilanka.ics")
-            put("Suomi", "finland.ics")
-            put("Sverige", "sweden.ics")
-            put("Taiwan", "taiwan.ics")
-            put("ราชอาณาจักรไทย", "thailand.ics")
-            put("Türkiye Cumhuriyeti", "turkey.ics")
-            put("Ukraine", "ukraine.ics")
-            put("United Kingdom", "unitedkingdom.ics")
-            put("United States", "unitedstates.ics")
-
-            var i = 0
-            for ((country, file) in this) {
-                items.add(RadioItem(i++, country, file))
+            runOnUiThread {
+                callback(items)
             }
         }
-
-        return items
     }
 
     private fun checkWhatsNewDialog() {

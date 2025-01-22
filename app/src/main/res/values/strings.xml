@@ -172,7 +172,11 @@
     <string name="holidays">Holidays</string>
     <string name="add_holidays">Add holidays</string>
     <string name="national_holidays">National holidays</string>
+    <string name="public_holidays">Public holidays</string>
+    <string name="regional_holidays">Regional holidays</string>
+    <string name="other_holidays">Other holidays and observances</string>
     <string name="religious_holidays">Religious holidays</string>
+    <string name="select_holidays_to_import">Select holidays to import</string>
     <string name="holidays_imported_successfully">Holidays have been successfully imported into the \"Holidays\" event type</string>
     <string name="importing_some_holidays_failed">Importing some events failed</string>
     <string name="importing_holidays_failed">Importing holidays failed</string>

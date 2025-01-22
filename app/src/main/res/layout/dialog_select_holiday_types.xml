@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/medium_margin">
+
+    <RelativeLayout
+        android:id="@+id/public_checkbox_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/medium_margin"
+        android:background="?attr/selectableItemBackground"
+        android:paddingStart="@dimen/activity_margin"
+        android:paddingEnd="@dimen/bigger_margin">
+
+        <org.fossify.commons.views.MyAppCompatCheckbox
+            android:id="@+id/public_checkbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:checked="false"
+            android:clickable="false"
+            android:paddingHorizontal="@dimen/medium_margin"
+            android:text="@string/public_holidays" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/regional_checkbox_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/medium_margin"
+        android:background="?attr/selectableItemBackground"
+        android:paddingStart="@dimen/activity_margin"
+        android:paddingEnd="@dimen/bigger_margin">
+
+        <org.fossify.commons.views.MyAppCompatCheckbox
+            android:id="@+id/regional_checkbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:checked="false"
+            android:clickable="false"
+            android:paddingHorizontal="@dimen/medium_margin"
+            android:text="@string/regional_holidays" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/other_checkbox_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/medium_margin"
+        android:background="?attr/selectableItemBackground"
+        android:paddingStart="@dimen/activity_margin"
+        android:paddingEnd="@dimen/bigger_margin">
+
+        <org.fossify.commons.views.MyAppCompatCheckbox
+            android:id="@+id/other_checkbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:checked="false"
+            android:clickable="false"
+            android:paddingHorizontal="@dimen/medium_margin"
+            android:text="@string/other_holidays" />
+
+    </RelativeLayout>
+
+</LinearLayout>

@@ -3,83 +3,84 @@ import { join } from "node:path";
 
 export const SHOULD_LOG = process.env.LOG_ENABLED === "true";
 
-export const ICS_PATH = join(cwd(), "../../../app/src/main/assets");
+export const ASSETS_DIR = join(cwd(), "../../../app/src/main/assets");
+export const HOLIDAYS_DIR = "holidays";
 
 // country codes from https://github.com/commenthol/date-holidays?tab=readme-ov-file#supported-countries-states-regions
 export const COUNTRIES = [
-    ["algeria.ics", "DZ"],
-    ["argentina.ics", "AR"],
-    ["australia.ics", "AU"],
-    ["austria.ics", "AT"],
-    ["belgium.ics", "BE"],
-    ["bolivia.ics", "BO"],
-    ["brazil.ics", "BR"],
-    ["bulgaria.ics", "BG"],
-    ["canada.ics", "CA"],
-    ["china.ics", "CN"],
-    ["colombia.ics", "CO"],
-    ["costarica.ics", "CR"],
-    ["croatia.ics", "HR"],
-    ["czech.ics", "CZ"],
-    ["denmark.ics", "DK"],
-    ["estonia.ics", "EE"],
-    ["finland.ics", "FI"],
-    ["france.ics", "FR"],
-    ["germany.ics", "DE"],
-    ["greece.ics", "GR"],
-    ["haiti.ics", "HT"],
-    ["hungary.ics", "HU"],
-    ["iceland.ics", "IS"],
-    // TODO add India: https://github.com/commenthol/date-holidays/issues/137
-    // ["india.ics", ""],
-    ["indonesia.ics", "ID"],
-    ["ireland.ics", "IE"],
-    ["israel.ics", "IL"],
-    ["italy.ics", "IT"],
-    ["japan.ics", "jp"],
-    // TODO add Kazakhstan: (no GH issue)
-    // ["kazakhstan.ics", ""],
-    ["latvia.ics", "LV"],
-    ["liechtenstein.ics", "LI"],
-    ["lithuania.ics", "LT"],
-    ["luxembourg.ics", "LU"],
-    ["macedonia.ics", "MK"],
-    ["malaysia.ics", "MY"],
-    ["mexico.ics", "MX"],
-    ["morocco.ics", "MA"],
-    ["netherlands.ics", "NL"],
-    ["nicaragua.ics", "NI"],
-    ["nigeria.ics", "NG"],
-    ["norway.ics", "NO"],
-    // TODO add Pakistan: https://github.com/commenthol/date-holidays/pull/138
-    // ["pakistan.ics", ""],
-    ["poland.ics", "PL"],
-    ["portugal.ics", "PT"],
-    ["romania.ics", "RO"],
-    ["russia.ics", "RU"],
-    ["serbia.ics", "RS"],
-    ["singapore.ics", "SG"],
-    ["slovakia.ics", "SK"],
-    ["slovenia.ics", "SI"],
-    ["southafrica.ics", "ZA"],
-    ["southkorea.ics", "KR"],
-    ["spain.ics", "ES"],
-    // TODO add Sri Lanka: (no GH issue)
-    // ["srilanka.ics", ""],
-    ["sweden.ics", "SE"],
-    ["switzerland.ics", "CH"],
-    ["taiwan.ics", "TW"],
-    ["thailand.ics", "TH"],
-    ["turkey.ics", "TR"],
-    ["ukraine.ics", "UA"],
-    ["unitedkingdom.ics", "GB"],
-    ["unitedstates.ics", "US"],
-    ["uruguay.ics", "UY"],
+    "DZ", // Algeria
+    "AR", // Argentina
+    "AU", // Australia
+    "AT", // Austria
+    "BE", // Belgium
+    "BO", // Bolivia
+    "BR", // Brazil
+    "BG", // Bulgaria
+    "CA", // Canada
+    "CN", // China
+    "CO", // Colombia
+    "CR", // Costa Rica
+    "HR", // Croatia
+    "CZ", // Czech Republic
+    "DK", // Denmark
+    "EE", // Estonia
+    "FI", // Finland
+    "FR", // France
+    "DE", // Germany
+    "GR", // Greece
+    "HT", // Haiti
+    "HU", // Hungary
+    "IS", // Iceland
+    "ID", // Indonesia
+    "IE", // Ireland
+    "IL", // Israel
+    "IT", // Italy
+    "JP", // Japan
+    "LV", // Latvia
+    "LI", // Liechtenstein
+    "LT", // Lithuania
+    "LU", // Luxembourg
+    "MK", // Macedonia
+    "MY", // Malaysia
+    "MX", // Mexico
+    "MA", // Morocco
+    "NL", // Netherlands
+    "NI", // Nicaragua
+    "NG", // Nigeria
+    "NO", // Norway
+    "PL", // Poland
+    "PT", // Portugal
+    "RO", // Romania
+    "RU", // Russia
+    "RS", // Serbia
+    "SG", // Singapore
+    "SK", // Slovakia
+    "SI", // Slovenia
+    "ZA", // South Africa
+    "KR", // South Korea
+    "ES", // Spain
+    "SE", // Sweden
+    "CH", // Switzerland
+    "TW", // Taiwan
+    "TH", // Thailand
+    "TR", // Turkey
+    "UA", // Ukraine
+    "GB", // United Kingdom
+    "US", // United States
+    "UY", // Uruguay
 ];
+
+export const UNSUPPORTED_COUNTRIES = {
+    "IN": "India", // TODO: https://github.com/commenthol/date-holidays/issues/137
+    "KZ": "Kazakhstan", // TODO: (no GH issue)
+    "PK": "Pakistan", // TODO: https://github.com/commenthol/date-holidays/pull/138
+    "LK": "Sri Lanka", // TODO: (no GH issue)
+};
 
 export const START_YEAR = new Date().getFullYear(); // start with current year
 export const END_YEAR = START_YEAR + 1;
 export const FIXED_DATE_START_YEAR = 1970; // start recurring events from start of Unix epoch
 
 // https://www.npmjs.com/package/date-holidays#types-of-holidays
-export const TYPE_WHITELIST = ["public", "bank"];
+export const TYPE_PUBLIC = ["public", "bank"];
+export const TYPE_OTHER = ["optional", "school", "observance"];

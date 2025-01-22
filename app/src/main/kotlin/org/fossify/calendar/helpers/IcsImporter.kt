@@ -20,8 +20,11 @@ import java.io.File
 import kotlin.math.min
 
 class IcsImporter(val activity: SimpleActivity) {
-    enum class ImportResult {
-        IMPORT_FAIL, IMPORT_OK, IMPORT_PARTIAL, IMPORT_NOTHING_NEW
+    enum class ImportResult(val value: Int) {
+        IMPORT_PARTIAL(0),
+        IMPORT_OK(1),
+        IMPORT_NOTHING_NEW(2),
+        IMPORT_FAIL(3)
     }
 
     private var curStart = -1L
@@ -66,6 +69,7 @@ class IcsImporter(val activity: SimpleActivity) {
         calDAVCalendarId: Int,
         overrideFileEventTypes: Boolean,
         eventReminders: ArrayList<Int>? = null,
+        loadFromAssets: Boolean = false,
     ): ImportResult {
         try {
             val eventTypes = eventsHelper.getEventTypesSync()
@@ -73,10 +77,10 @@ class IcsImporter(val activity: SimpleActivity) {
             val eventsToInsert = ArrayList<Event>()
             var line = ""
 
-            val inputStream = if (path.contains("/")) {
-                File(path).inputStream()
-            } else {
+            val inputStream = if (loadFromAssets) {
                 activity.assets.open(path)
+            } else {
+                File(path).inputStream()
             }
 
             inputStream.bufferedReader().use {
