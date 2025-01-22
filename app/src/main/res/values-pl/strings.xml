@@ -266,4 +266,8 @@
     <string name="status_tentative">Niepewne</string>
     <string name="status_confirmed">Potwierdzone</string>
     <string name="status_canceled">Anulowane</string>
+    <string name="public_holidays">Dni wolne od pracy</string>
+    <string name="other_holidays">Inne święta i uroczystości</string>
+    <string name="select_holidays_to_import">Wybierz święta do zaimportowania</string>
+    <string name="regional_holidays">Święta regionalne</string>
 </resources>
