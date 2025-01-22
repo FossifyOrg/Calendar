@@ -21,10 +21,10 @@ import kotlin.math.min
 
 class IcsImporter(val activity: SimpleActivity) {
     enum class ImportResult(val value: Int) {
-        IMPORT_PARTIAL(0),
-        IMPORT_OK(1),
+        IMPORT_FAIL(3),
         IMPORT_NOTHING_NEW(2),
-        IMPORT_FAIL(3)
+        IMPORT_OK(1),
+        IMPORT_PARTIAL(0),
     }
 
     private var curStart = -1L

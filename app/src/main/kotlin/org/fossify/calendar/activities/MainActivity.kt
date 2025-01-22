@@ -677,14 +677,13 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
     }
 
     private fun importHolidays(path: String, reminders: ArrayList<Int>): ImportResult {
-        val holidays = getString(R.string.holidays)
         var eventTypeId = eventsHelper.getEventTypeIdWithClass(HOLIDAY_EVENT)
         if (eventTypeId == -1L) {
             eventTypeId = eventsHelper.createPredefinedEventType(
-                holidays,
-                R.color.default_holidays_color,
-                HOLIDAY_EVENT,
-                true
+                title = getString(R.string.holidays),
+                colorResId = R.color.default_holidays_color,
+                type = HOLIDAY_EVENT,
+                caldav = true
             )
         }
 
