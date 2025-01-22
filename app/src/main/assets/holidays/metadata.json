@@ -418,5 +418,33 @@
     "public": "holidays/ZA/public.ics",
     "regional": null,
     "other": "holidays/ZA/other.ics"
+  },
+  {
+    "code": "IN",
+    "country": "India",
+    "public": "holidays/IN/public.ics",
+    "regional": null,
+    "other": null
+  },
+  {
+    "code": "KZ",
+    "country": "Kazakhstan",
+    "public": "holidays/KZ/public.ics",
+    "regional": null,
+    "other": null
+  },
+  {
+    "code": "PK",
+    "country": "Pakistan",
+    "public": "holidays/PK/public.ics",
+    "regional": null,
+    "other": null
+  },
+  {
+    "code": "LK",
+    "country": "Sri Lanka",
+    "public": "holidays/LK/public.ics",
+    "regional": null,
+    "other": null
   }
 ]
