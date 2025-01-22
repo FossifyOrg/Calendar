@@ -1,0 +1,422 @@
+[
+  {
+    "code": "AR",
+    "country": "Argentina",
+    "public": "holidays/AR/public.ics",
+    "regional": null,
+    "other": "holidays/AR/other.ics"
+  },
+  {
+    "code": "AT",
+    "country": "Österreich",
+    "public": "holidays/AT/public.ics",
+    "regional": "holidays/AT/regional.ics",
+    "other": "holidays/AT/other.ics"
+  },
+  {
+    "code": "AU",
+    "country": "Australia",
+    "public": "holidays/AU/public.ics",
+    "regional": "holidays/AU/regional.ics",
+    "other": "holidays/AU/other.ics"
+  },
+  {
+    "code": "BE",
+    "country": "Belgique",
+    "public": "holidays/BE/public.ics",
+    "regional": "holidays/BE/regional.ics",
+    "other": "holidays/BE/other.ics"
+  },
+  {
+    "code": "BG",
+    "country": "България",
+    "public": "holidays/BG/public.ics",
+    "regional": null,
+    "other": "holidays/BG/other.ics"
+  },
+  {
+    "code": "BO",
+    "country": "Bolivia",
+    "public": "holidays/BO/public.ics",
+    "regional": "holidays/BO/regional.ics",
+    "other": "holidays/BO/other.ics"
+  },
+  {
+    "code": "BR",
+    "country": "Brasil",
+    "public": "holidays/BR/public.ics",
+    "regional": "holidays/BR/regional.ics",
+    "other": "holidays/BR/other.ics"
+  },
+  {
+    "code": "CA",
+    "country": "Canada",
+    "public": "holidays/CA/public.ics",
+    "regional": "holidays/CA/regional.ics",
+    "other": "holidays/CA/other.ics"
+  },
+  {
+    "code": "CH",
+    "country": "Schweiz",
+    "public": "holidays/CH/public.ics",
+    "regional": "holidays/CH/regional.ics",
+    "other": "holidays/CH/other.ics"
+  },
+  {
+    "code": "CN",
+    "country": "中华人民共和国",
+    "public": "holidays/CN/public.ics",
+    "regional": null,
+    "other": null
+  },
+  {
+    "code": "CO",
+    "country": "Colombia",
+    "public": "holidays/CO/public.ics",
+    "regional": null,
+    "other": "holidays/CO/other.ics"
+  },
+  {
+    "code": "CR",
+    "country": "Costa Rica",
+    "public": "holidays/CR/public.ics",
+    "regional": null,
+    "other": "holidays/CR/other.ics"
+  },
+  {
+    "code": "CZ",
+    "country": "Česká republika",
+    "public": "holidays/CZ/public.ics",
+    "regional": null,
+    "other": "holidays/CZ/other.ics"
+  },
+  {
+    "code": "DE",
+    "country": "Deutschland",
+    "public": "holidays/DE/public.ics",
+    "regional": "holidays/DE/regional.ics",
+    "other": "holidays/DE/other.ics"
+  },
+  {
+    "code": "DK",
+    "country": "Danmark",
+    "public": "holidays/DK/public.ics",
+    "regional": null,
+    "other": "holidays/DK/other.ics"
+  },
+  {
+    "code": "DZ",
+    "country": "الجمهورية الجزائرية الديمقراطية الشعبية",
+    "public": "holidays/DZ/public.ics",
+    "regional": null,
+    "other": null
+  },
+  {
+    "code": "EE",
+    "country": "Eesti",
+    "public": "holidays/EE/public.ics",
+    "regional": null,
+    "other": "holidays/EE/other.ics"
+  },
+  {
+    "code": "ES",
+    "country": "España",
+    "public": "holidays/ES/public.ics",
+    "regional": "holidays/ES/regional.ics",
+    "other": "holidays/ES/other.ics"
+  },
+  {
+    "code": "FI",
+    "country": "Suomi",
+    "public": "holidays/FI/public.ics",
+    "regional": null,
+    "other": "holidays/FI/other.ics"
+  },
+  {
+    "code": "FR",
+    "country": "France",
+    "public": "holidays/FR/public.ics",
+    "regional": "holidays/FR/regional.ics",
+    "other": "holidays/FR/other.ics"
+  },
+  {
+    "code": "GB",
+    "country": "United Kingdom",
+    "public": "holidays/GB/public.ics",
+    "regional": "holidays/GB/regional.ics",
+    "other": "holidays/GB/other.ics"
+  },
+  {
+    "code": "GR",
+    "country": "Ελλάδα",
+    "public": "holidays/GR/public.ics",
+    "regional": null,
+    "other": "holidays/GR/other.ics"
+  },
+  {
+    "code": "HR",
+    "country": "Hrvatska",
+    "public": "holidays/HR/public.ics",
+    "regional": null,
+    "other": "holidays/HR/other.ics"
+  },
+  {
+    "code": "HT",
+    "country": "Haïti",
+    "public": "holidays/HT/public.ics",
+    "regional": null,
+    "other": "holidays/HT/other.ics"
+  },
+  {
+    "code": "HU",
+    "country": "Magyarország",
+    "public": "holidays/HU/public.ics",
+    "regional": null,
+    "other": "holidays/HU/other.ics"
+  },
+  {
+    "code": "ID",
+    "country": "Indonesia",
+    "public": "holidays/ID/public.ics",
+    "regional": null,
+    "other": null
+  },
+  {
+    "code": "IE",
+    "country": "Ireland",
+    "public": "holidays/IE/public.ics",
+    "regional": null,
+    "other": "holidays/IE/other.ics"
+  },
+  {
+    "code": "IL",
+    "country": "מְדִינַת יִשְׂרָאֵל",
+    "public": "holidays/IL/public.ics",
+    "regional": null,
+    "other": "holidays/IL/other.ics"
+  },
+  {
+    "code": "IS",
+    "country": "Ísland",
+    "public": "holidays/IS/public.ics",
+    "regional": null,
+    "other": "holidays/IS/other.ics"
+  },
+  {
+    "code": "IT",
+    "country": "Italia",
+    "public": "holidays/IT/public.ics",
+    "regional": "holidays/IT/regional.ics",
+    "other": "holidays/IT/other.ics"
+  },
+  {
+    "code": "JP",
+    "country": "日本",
+    "public": "holidays/JP/public.ics",
+    "regional": null,
+    "other": "holidays/JP/other.ics"
+  },
+  {
+    "code": "KR",
+    "country": "대한민국",
+    "public": "holidays/KR/public.ics",
+    "regional": null,
+    "other": "holidays/KR/other.ics"
+  },
+  {
+    "code": "LI",
+    "country": "Lichtenstein",
+    "public": "holidays/LI/public.ics",
+    "regional": null,
+    "other": "holidays/LI/other.ics"
+  },
+  {
+    "code": "LT",
+    "country": "Lietuva",
+    "public": "holidays/LT/public.ics",
+    "regional": null,
+    "other": "holidays/LT/other.ics"
+  },
+  {
+    "code": "LU",
+    "country": "Luxembourg",
+    "public": "holidays/LU/public.ics",
+    "regional": null,
+    "other": "holidays/LU/other.ics"
+  },
+  {
+    "code": "LV",
+    "country": "Latvija",
+    "public": "holidays/LV/public.ics",
+    "regional": null,
+    "other": "holidays/LV/other.ics"
+  },
+  {
+    "code": "MA",
+    "country": "المملكة المغربية",
+    "public": "holidays/MA/public.ics",
+    "regional": null,
+    "other": null
+  },
+  {
+    "code": "MK",
+    "country": "Република Македонија",
+    "public": "holidays/MK/public.ics",
+    "regional": null,
+    "other": "holidays/MK/other.ics"
+  },
+  {
+    "code": "MX",
+    "country": "México",
+    "public": "holidays/MX/public.ics",
+    "regional": null,
+    "other": "holidays/MX/other.ics"
+  },
+  {
+    "code": "MY",
+    "country": "Malaysia",
+    "public": "holidays/MY/public.ics",
+    "regional": "holidays/MY/regional.ics",
+    "other": null
+  },
+  {
+    "code": "NG",
+    "country": "Nigeria",
+    "public": "holidays/NG/public.ics",
+    "regional": null,
+    "other": "holidays/NG/other.ics"
+  },
+  {
+    "code": "NI",
+    "country": "Nicaragua",
+    "public": "holidays/NI/public.ics",
+    "regional": null,
+    "other": "holidays/NI/other.ics"
+  },
+  {
+    "code": "NL",
+    "country": "Nederland",
+    "public": "holidays/NL/public.ics",
+    "regional": null,
+    "other": "holidays/NL/other.ics"
+  },
+  {
+    "code": "NO",
+    "country": "Norge",
+    "public": "holidays/NO/public.ics",
+    "regional": null,
+    "other": "holidays/NO/other.ics"
+  },
+  {
+    "code": "PL",
+    "country": "Polska",
+    "public": "holidays/PL/public.ics",
+    "regional": null,
+    "other": "holidays/PL/other.ics"
+  },
+  {
+    "code": "PT",
+    "country": "Portugal",
+    "public": "holidays/PT/public.ics",
+    "regional": null,
+    "other": "holidays/PT/other.ics"
+  },
+  {
+    "code": "RO",
+    "country": "Romania",
+    "public": "holidays/RO/public.ics",
+    "regional": null,
+    "other": "holidays/RO/other.ics"
+  },
+  {
+    "code": "RS",
+    "country": "Република Србија",
+    "public": "holidays/RS/public.ics",
+    "regional": null,
+    "other": "holidays/RS/other.ics"
+  },
+  {
+    "code": "RU",
+    "country": "Россия",
+    "public": "holidays/RU/public.ics",
+    "regional": null,
+    "other": null
+  },
+  {
+    "code": "SE",
+    "country": "Sverige",
+    "public": "holidays/SE/public.ics",
+    "regional": null,
+    "other": "holidays/SE/other.ics"
+  },
+  {
+    "code": "SG",
+    "country": "Singapore",
+    "public": "holidays/SG/public.ics",
+    "regional": null,
+    "other": null
+  },
+  {
+    "code": "SI",
+    "country": "Republika Slovenija",
+    "public": "holidays/SI/public.ics",
+    "regional": null,
+    "other": "holidays/SI/other.ics"
+  },
+  {
+    "code": "SK",
+    "country": "Slovenská republika",
+    "public": "holidays/SK/public.ics",
+    "regional": null,
+    "other": "holidays/SK/other.ics"
+  },
+  {
+    "code": "TH",
+    "country": "Thailand",
+    "public": "holidays/TH/public.ics",
+    "regional": null,
+    "other": null
+  },
+  {
+    "code": "TR",
+    "country": "Türkiye",
+    "public": "holidays/TR/public.ics",
+    "regional": null,
+    "other": null
+  },
+  {
+    "code": "TW",
+    "country": "中華民國",
+    "public": "holidays/TW/public.ics",
+    "regional": null,
+    "other": "holidays/TW/other.ics"
+  },
+  {
+    "code": "UA",
+    "country": "Україна",
+    "public": "holidays/UA/public.ics",
+    "regional": null,
+    "other": null
+  },
+  {
+    "code": "US",
+    "country": "United States of America",
+    "public": "holidays/US/public.ics",
+    "regional": "holidays/US/regional.ics",
+    "other": "holidays/US/other.ics"
+  },
+  {
+    "code": "UY",
+    "country": "Uruguay",
+    "public": "holidays/UY/public.ics",
+    "regional": null,
+    "other": "holidays/UY/other.ics"
+  },
+  {
+    "code": "ZA",
+    "country": "South Africa",
+    "public": "holidays/ZA/public.ics",
+    "regional": null,
+    "other": "holidays/ZA/other.ics"
+  }
+]
