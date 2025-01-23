@@ -263,4 +263,8 @@
     <string name="status_tentative">Předběžné</string>
     <string name="status_confirmed">Potvrzeno</string>
     <string name="status_canceled">Zrušeno</string>
+    <string name="public_holidays">Veřejné svátky</string>
+    <string name="regional_holidays">Místní svátky</string>
+    <string name="other_holidays">Ostatní svátky a události</string>
+    <string name="select_holidays_to_import">Vyberte svátky, které chcete importovat</string>
 </resources>
