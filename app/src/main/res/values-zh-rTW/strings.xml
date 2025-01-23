@@ -260,4 +260,8 @@
     <string name="status_canceled">已取消</string>
     <string name="status_confirmed">已確認</string>
     <string name="status_tentative">暫定</string>
+    <string name="other_holidays">其他節日與紀念活動</string>
+    <string name="select_holidays_to_import">選取要匯入的節日</string>
+    <string name="regional_holidays">區域節日</string>
+    <string name="public_holidays">公眾節日</string>
 </resources>
