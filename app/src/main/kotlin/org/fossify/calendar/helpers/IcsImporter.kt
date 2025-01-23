@@ -133,11 +133,11 @@ class IcsImporter(val activity: SimpleActivity) {
                         curEnd = curStart + curDuration
                     } else if (line.startsWith(SUMMARY) && !isNotificationDescription) {
                         curTitle = line.substring(SUMMARY.length)
-                        curTitle = getTitle(curTitle).replace("\\n", "\n").replace("\\,", ",")
+                        curTitle = cleanupString(getTitle(curTitle))
                     } else if (line.startsWith(DESCRIPTION) && !isNotificationDescription) {
                         val match = DESCRIPTION_REGEX.matchEntire(line)
                         if (match != null) {
-                            curDescription = match.groups[1]!!.value.replace("\\n", "\n").replace("\\,", ",")
+                            curDescription = cleanupString(match.groups[1]!!.value)
                         }
                         if (curDescription.trim().isEmpty()) {
                             curDescription = ""
@@ -382,6 +382,13 @@ class IcsImporter(val activity: SimpleActivity) {
             eventsFailed > 0 -> IMPORT_PARTIAL
             else -> IMPORT_OK
         }
+    }
+
+    private fun cleanupString(value: String): String {
+        return value
+            .replace("\\n", "\n")
+            .replace("\\,", ",")
+            .replace("\\;", ";")
     }
 
     private fun getTimestamp(fullString: String): Long {
