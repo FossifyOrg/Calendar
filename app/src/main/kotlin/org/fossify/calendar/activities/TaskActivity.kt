@@ -3,7 +3,6 @@ package org.fossify.calendar.activities
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.core.content.ContextCompat
@@ -648,18 +647,18 @@ class TaskActivity : SimpleActivity() {
     }
 
     private fun updateTaskCompletedButton() {
+        val primaryColor = getProperPrimaryColor()
         if (mTaskCompleted) {
-            binding.toggleMarkComplete.background = ContextCompat.getDrawable(this, org.fossify.commons.R.drawable.button_background_stroke)
+            binding.toggleMarkComplete.background = ContextCompat.getDrawable(
+                this, org.fossify.commons.R.drawable.button_background_stroke
+            )
             binding.toggleMarkComplete.setText(R.string.mark_incomplete)
             binding.toggleMarkComplete.setTextColor(getProperTextColor())
         } else {
-            val markCompleteBgColor = if (isWhiteTheme()) {
-                Color.WHITE
-            } else {
-                getProperPrimaryColor()
-            }
-            binding.toggleMarkComplete.setTextColor(markCompleteBgColor.getContrastColor())
+            binding.toggleMarkComplete.setTextColor(primaryColor.getContrastColor())
         }
+
+        binding.toggleMarkComplete.background.applyColorFilter(primaryColor)
     }
 
     private fun toggleCompletion() {
