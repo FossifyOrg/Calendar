@@ -4,6 +4,7 @@ import android.app.IntentService
 import android.content.Intent
 import org.fossify.calendar.extensions.eventsDB
 import org.fossify.calendar.extensions.updateTaskCompletion
+import org.fossify.calendar.extensions.updateWidgets
 import org.fossify.calendar.helpers.ACTION_MARK_COMPLETED
 import org.fossify.calendar.helpers.EVENT_ID
 import org.fossify.calendar.helpers.EVENT_OCCURRENCE_TS
@@ -24,6 +25,7 @@ class MarkCompletedService : IntentService("MarkCompleted") {
 
             if (task != null) {
                 updateTaskCompletion(task, completed = true)
+                updateWidgets()
             }
         }
     }
