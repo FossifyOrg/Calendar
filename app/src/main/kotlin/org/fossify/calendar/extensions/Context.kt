@@ -473,6 +473,7 @@ private fun getSnoozePendingIntent(context: Context, event: Event): PendingInten
 private fun getMarkCompletedPendingIntent(context: Context, task: Event): PendingIntent {
     val intent = Intent(context, MarkCompletedService::class.java).setAction(ACTION_MARK_COMPLETED)
     intent.putExtra(EVENT_ID, task.id)
+    intent.putExtra(EVENT_OCCURRENCE_TS, task.startTS)
     return PendingIntent.getService(context, task.id!!.toInt(), intent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
 }
 
