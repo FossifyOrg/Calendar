@@ -9,6 +9,8 @@ import org.fossify.calendar.activities.SimpleActivity
 import org.fossify.calendar.databinding.ItemAutocompleteTitleSubtitleBinding
 import org.fossify.calendar.models.Attendee
 import org.fossify.commons.extensions.beVisibleIf
+import org.fossify.commons.extensions.getProperTextColor
+import org.fossify.commons.extensions.isDynamicTheme
 import org.fossify.commons.extensions.normalizeString
 import org.fossify.commons.helpers.SimpleContactsHelper
 
@@ -20,7 +22,17 @@ class AutoCompleteTextViewAdapter(val activity: SimpleActivity, val attendees: A
         val attendeeHasName = attendee.name.isNotEmpty()
         var listItem = convertView
         if (listItem == null || listItem.tag != attendeeHasName) {
-            listItem = ItemAutocompleteTitleSubtitleBinding.inflate(activity.layoutInflater, parent, false).root
+            listItem = ItemAutocompleteTitleSubtitleBinding.inflate(
+                activity.layoutInflater, parent, false
+            ).apply {
+                // TODO: Dark text color is set for dynamic theme only because light themes are
+                //  configured with dark overflow menu background for some reason ¯\_(ツ)_/¯
+                if (activity.isDynamicTheme()) {
+                    val textColor = activity.getProperTextColor()
+                    itemAutocompleteTitle.setTextColor(textColor)
+                    itemAutocompleteSubtitle.setTextColor(textColor)
+                }
+            }.root
         }
 
         val nameToUse = when {
