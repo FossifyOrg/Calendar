@@ -14,7 +14,10 @@ import org.fossify.commons.extensions.isDynamicTheme
 import org.fossify.commons.extensions.normalizeString
 import org.fossify.commons.helpers.SimpleContactsHelper
 
-class AutoCompleteTextViewAdapter(val activity: SimpleActivity, val attendees: ArrayList<Attendee>) : ArrayAdapter<Attendee>(activity, 0, attendees) {
+class AutoCompleteTextViewAdapter(
+    val activity: SimpleActivity,
+    val attendees: ArrayList<Attendee>,
+) : ArrayAdapter<Attendee>(activity, 0, attendees) {
     var resultList = ArrayList<Attendee>()
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
@@ -41,7 +44,6 @@ class AutoCompleteTextViewAdapter(val activity: SimpleActivity, val attendees: A
             else -> "A"
         }
 
-        val placeholder = BitmapDrawable(activity.resources, SimpleContactsHelper(context).getContactLetterIcon(nameToUse))
         listItem.tag = attendeeHasName
         ItemAutocompleteTitleSubtitleBinding.bind(listItem).apply {
             itemAutocompleteTitle.text = if (attendeeHasName) {
@@ -52,6 +54,11 @@ class AutoCompleteTextViewAdapter(val activity: SimpleActivity, val attendees: A
 
             itemAutocompleteSubtitle.text = attendee.email
             itemAutocompleteSubtitle.beVisibleIf(attendeeHasName)
+
+            val placeholder = BitmapDrawable(
+                activity.resources,
+                SimpleContactsHelper(context).getContactLetterIcon(nameToUse)
+            )
             attendee.updateImage(context, itemAutocompleteImage, placeholder)
         }
 
@@ -65,7 +72,10 @@ class AutoCompleteTextViewAdapter(val activity: SimpleActivity, val attendees: A
                 val results = mutableListOf<Attendee>()
                 val searchString = constraint.toString().normalizeString()
                 attendees.forEach {
-                    if (it.email.contains(searchString, true) || it.name.contains(searchString, true)) {
+                    if (
+                        it.email.contains(searchString, true) ||
+                        it.name.contains(searchString, true)
+                    ) {
                         results.add(it)
                     }
                 }
@@ -95,7 +105,9 @@ class AutoCompleteTextViewAdapter(val activity: SimpleActivity, val attendees: A
             }
         }
 
-        override fun convertResultToString(resultValue: Any?) = (resultValue as? Attendee)?.getPublicName()
+        override fun convertResultToString(resultValue: Any?): String? {
+            return (resultValue as? Attendee)?.getPublicName()
+        }
     }
 
     override fun getItem(index: Int) = resultList[index]
