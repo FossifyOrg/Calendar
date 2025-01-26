@@ -4,8 +4,6 @@ import android.annotation.SuppressLint
 import android.content.ContentUris
 import android.content.ContentValues
 import android.content.Context
-import android.graphics.Color
-import android.provider.CalendarContract
 import android.provider.CalendarContract.*
 import android.widget.Toast
 import org.fossify.calendar.R
@@ -18,7 +16,6 @@ import org.fossify.commons.helpers.PERMISSION_WRITE_CALENDAR
 import org.joda.time.DateTimeZone
 import org.joda.time.format.DateTimeFormat
 import kotlin.math.max
-import kotlin.math.min
 
 @SuppressLint("MissingPermission")
 class CalDAVHelper(val context: Context) {
@@ -118,15 +115,6 @@ class CalDAVHelper(val context: Context) {
         return colors[eventType.color]
     }
 
-    // darkens the given color to ensure that white text is clearly visible on top of it
-    private fun getDisplayColorFromColor(color: Int): Int {
-        val hsv = FloatArray(3)
-        Color.colorToHSV(color, hsv)
-        hsv[1] = min(hsv[1] * SATURATION_ADJUST, 1.0f)
-        hsv[2] = hsv[2] * INTENSITY_ADJUST
-        return Color.HSVToColor(hsv)
-    }
-
     @SuppressLint("MissingPermission")
     fun getAvailableCalDAVCalendarColors(eventType: EventType, colorType: Int = Colors.TYPE_CALENDAR): Map<Int, String> {
         val colors = mutableMapOf<Int, String>()
@@ -138,12 +126,7 @@ class CalDAVHelper(val context: Context) {
         context.queryCursor(uri, projection, selection, selectionArgs) { cursor ->
             val colorKey = cursor.getStringValue(Colors.COLOR_KEY)
             val color = cursor.getIntValue(Colors.COLOR)
-            val displayColor = if (colorType == Colors.TYPE_CALENDAR) {
-                color
-            } else {
-                getDisplayColorFromColor(color)
-            }
-            colors[displayColor] = colorKey
+            colors[color] = colorKey
         }
         return colors.toSortedMap(HsvColorComparator())
     }
@@ -216,12 +199,7 @@ class CalDAVHelper(val context: Context) {
             val attendees = getCalDAVEventAttendees(id, calendar)
             val availability = cursor.getIntValue(Events.AVAILABILITY)
             val status = cursor.getIntValue(Events.STATUS)
-            val color = cursor.getIntValueOrNull(Events.EVENT_COLOR)
-            val displayColor = if (color != null) {
-                getDisplayColorFromColor(color)
-            } else {
-                0
-            }
+            val color = cursor.getIntValueOrNull(Events.EVENT_COLOR) ?: 0
 
             if (endTS == 0L) {
                 val duration = cursor.getStringValue(Events.DURATION) ?: ""
@@ -243,7 +221,7 @@ class CalDAVHelper(val context: Context) {
                 reminder1?.type ?: REMINDER_NOTIFICATION, reminder2?.type ?: REMINDER_NOTIFICATION,
                 reminder3?.type ?: REMINDER_NOTIFICATION, repeatRule.repeatInterval, repeatRule.repeatRule,
                 repeatRule.repeatLimit, ArrayList(), attendees, importId, eventTimeZone, allDay, eventTypeId,
-                source = source, availability = availability, color = displayColor, status = status
+                source = source, availability = availability, color = color, status = status
             )
 
             if (event.getIsAllDay()) {
@@ -597,9 +575,4 @@ class CalDAVHelper(val context: Context) {
     private fun getCalDAVEventImportId(calendarId: Int, eventId: Long) = "$CALDAV-$calendarId-$eventId"
 
     private fun refreshCalDAVCalendar(event: Event) = context.refreshCalDAVCalendars(event.getCalDAVCalendarId().toString(), false)
-
-    companion object {
-        private const val INTENSITY_ADJUST = 0.8f
-        private const val SATURATION_ADJUST = 1.3f
-    }
 }
