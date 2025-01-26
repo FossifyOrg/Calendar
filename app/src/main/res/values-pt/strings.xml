@@ -263,4 +263,8 @@
     <string name="status_tentative">Tentativa</string>
     <string name="status_confirmed">Confirmado</string>
     <string name="status_canceled">Cancelado</string>
+    <string name="public_holidays">Feriados públicos</string>
+    <string name="regional_holidays">Feriados regionais</string>
+    <string name="other_holidays">Outras datas relevantes</string>
+    <string name="select_holidays_to_import">Selecione os feriados a importar</string>
 </resources>
