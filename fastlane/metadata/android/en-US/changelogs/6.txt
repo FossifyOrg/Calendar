@@ -1,0 +1,10 @@
+* Fixed issue with "Mark completed" notification button
+* Fixed cut-off text in month view on some devices
+* Fixed broken weekly repetition in some timezones
+* Fixed 'Mark completed' button color in black & white theme
+* Fixed invisible attendee suggestions
+* Added ability to export event colors in ICS files
+* Added ability to quickly filter calendars on long press
+* Added state-specific and optional holidays
+* Other minor bug fixes and improvements
+* Added more translations

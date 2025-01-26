@@ -1,6 +1,20 @@
 Changelog
 ==========
 
+Version 1.2.0 *(2025-01-26)*
+----------------------------
+
+* Fixed issue with "Mark completed" notification button (#156)
+* Fixed cut-off text in month view on some devices (#265)
+* Fixed broken weekly repetition in some timezones (#408)
+* Fixed "Mark completed" button color in black & white theme (#357)
+* Fixed invisible attendee suggestions (#41)
+* Added ability to export event colors in ICS files (#188)
+* Added ability to quickly filter calendars on long press (#309)
+* Added state-specific and optional holidays (#379, #413)
+* Other minor bug fixes and improvements
+* Added more translations
+
 Version 1.1.0 *(2024-11-15)*
 ----------------------------
 
