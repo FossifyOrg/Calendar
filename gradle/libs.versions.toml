@@ -13,9 +13,9 @@ swiperefreshlayout = "1.1.0"
 #Room
 room = "2.6.1"
 #Fossify
-commons = "2de50c22d6"
+commons = "ec2b2faab5"
 #Gradle
-gradlePlugins-agp = "8.7.2"
+gradlePlugins-agp = "8.7.3"
 #build
 app-build-compileSDKVersion = "34"
 app-build-targetSDK = "34"
