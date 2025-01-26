@@ -1,0 +1,8 @@
+* Corregit un problema amb el botó de notificació «Marca completada»
+* Corregit el text límit en la vista mensual en alguns dispositius
+* Corregida la repetició setmanal trencada en algunes zones horàries
+* Corregit el color del botó «Marca completada» en el tema blanc i negre
+* Corregits els suggeriments invisibles de l'assistent
+* Afegida la capacitat d'exportar colors d'esdeveniments en fitxers ICS
+* Afegida la capacitat de filtrar ràpidament els calendaris en prémer llargament
+* Afegits[...]
