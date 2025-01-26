@@ -263,4 +263,8 @@
     <string name="status_tentative">Incerto</string>
     <string name="status_confirmed">Confermato</string>
     <string name="status_canceled">Annullato</string>
+    <string name="regional_holidays">Festività regionali</string>
+    <string name="public_holidays">Festività nazionali</string>
+    <string name="other_holidays">Altre festività e celebrazioni</string>
+    <string name="select_holidays_to_import">Seleziona le festività da importare</string>
 </resources>

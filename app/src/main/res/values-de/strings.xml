@@ -130,7 +130,7 @@
     <string name="event_types">Termintypen</string>
     <string name="add_new_type">Neuen Typ hinzufügen</string>
     <string name="edit_type">Typ bearbeiten</string>
-    <string name="type_already_exists">Typ mit diesem Namen existiert bereits</string>
+    <string name="type_already_exists">Ein Typ mit diesem Namen existiert bereits</string>
     <string name="color">Farbe</string>
     <string name="regular_event">Regelmäßiger Termin</string>
     <string name="cannot_delete_default_type">Standardtermintyp kann nicht gelöscht werden</string>
@@ -260,4 +260,8 @@
     <string name="faq_6_title">Wie kann ich einen bestehenden Termintyp ändern oder löschen\?</string>
     <string name="faq_6_text">Du kannst beides in der App unter „Einstellungen – Termintypen verwalten“ einstellen. Klicke einfach auf den gewünschte Termin, um Beschriftung und Farbe zu ändern, oder wähle den gewünschten Termin durch langes Drücken aus und verwende den Mülleimer im oberen Menü.</string>
     <string name="caldav">CalDAV</string>
+    <string name="public_holidays">Gesetzliche Feiertage</string>
+    <string name="other_holidays">Andere Feier- und Gedenktage</string>
+    <string name="regional_holidays">Regionale Feiertage</string>
+    <string name="select_holidays_to_import">Zu importierende Feiertage auswählen</string>
 </resources>

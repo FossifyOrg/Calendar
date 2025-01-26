@@ -249,7 +249,7 @@
     <string name="faq_3_text">A exibição do lembrete e o áudio são fortemente influenciados pelas configurações do sistema. Se você não consegue ouvir o som, verifique as configurações do aplicativo, selecionando a opção \"Fonte de áudio usada pelos lembretes\" e modificando o seu valor. Se isso não funcionar, verifique as configurações, especialmente se o som não está mudo.</string>
     <string name="faq_4_title">O aplicativo oferece suporte para fuso horário\?</string>
     <string name="faq_4_text">Sim. Por padrão, todos os eventos são criados em seu fuso horário atual. Se você deseja alterar o fuso horário de um evento, será necessário primeiro habilitar a escolha de fuso horário nas configurações do aplicativo e depois alterá-lo na tela de detalhes do evento. Este recurso fica desabilitado por padrão, pois a maioria das pessoas não precisa usá-lo.</string>
-    <string name="faq_5_title">O app não mostra notificações, por quê?</string>
+    <string name="faq_5_title">O aplicativo não mostra notificações, por quê?</string>
     <string name="faq_5_text">Verifique a bateria do seu dispositivo e as configurações de notificações para ver se algo está bloqueando os lembretes ou desligando aplicativos de fundo. Você também pode dar uma olhada em &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;, pode ajudar com algumas dicas úteis.</string>
     <string name="faq_6_title">Como posso modificar ou excluir um tipo de evento já existente\?</string>
     <string name="faq_6_text">Você pode modificar ou excluir um tipo de evento através das Configurações - Gerenciar tipos de evento. Clique no evento desejado para editar o texto ou cor, ou toque e segure o evento desejado e arraste-o até a lixeira para excluí-lo.</string>

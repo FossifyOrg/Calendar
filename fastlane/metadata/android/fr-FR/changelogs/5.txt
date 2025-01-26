@@ -1,0 +1,10 @@
+* Résolution du problème des événements de plusieurs jours qui ne s'affichaient pas dans la barre supérieure
+* Correction de la fonctionnalité d'ouverture des tâches à partir des widgets
+* Correction du problème de redimensionnement dans le widget de la date
+* Correction de l'opacité pour les tâches incomplètes dans les widgets
+* Correction de la traduction espagnole pour le samedi.
+* Ajout d'un support pour le statut des événements
+* Remplacement des cases à cocher par des interrupteurs
+* Suppression de la prise en charge d'Android 7 et des versions antérieures
+* Autres corrections de bugs mineurs et améliorations
+* Ajout de nouvelles traductions

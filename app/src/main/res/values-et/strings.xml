@@ -138,7 +138,7 @@
     <string name="unsync_caldav_calendar">CalDAV-põhise kalendri eemaldamiseks pead tema sünkroniseerimise lõpetama</string>
     <string name="holidays">Pühad</string>
     <string name="add_holidays">Lisa püha</string>
-    <string name="national_holidays">Riigipühad</string>
+    <string name="national_holidays">Rahvuspühad</string>
     <string name="religious_holidays">Usupühad</string>
     <string name="holidays_imported_successfully">Pühad on edukalt imporditud sündmuse tüüpi „Pühad“</string>
     <string name="importing_some_holidays_failed">Mõne sündmuse importimine ei õnnestunud</string>
@@ -260,4 +260,8 @@
     <string name="status_confirmed">Kinnitatud</string>
     <string name="status_canceled">Tühistatud</string>
     <string name="status_tentative">Esialgne</string>
+    <string name="public_holidays">Riigipühad</string>
+    <string name="regional_holidays">Piirkondlikud pühad</string>
+    <string name="other_holidays">Muud pühad ja mälestuspäevad</string>
+    <string name="select_holidays_to_import">Vali imporditavad pühad</string>
 </resources>

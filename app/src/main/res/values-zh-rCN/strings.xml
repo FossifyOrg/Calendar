@@ -17,9 +17,9 @@
     <string name="event">活动</string>
     <string name="edit_event">编辑活动</string>
     <string name="new_event">新活动</string>
-    <string name="create_new_event">建立一个新活动</string>
+    <string name="create_new_event">创建新活动</string>
     <string name="duplicate_event">重复的活动</string>
-    <string name="title_empty">标题不能是空白的</string>
+    <string name="title_empty">标题不能为空</string>
     <string name="end_before_start">活动结束时间不能比开始早</string>
     <string name="event_added">活动添加成功</string>
     <string name="event_updated">活动更新成功</string>
@@ -137,13 +137,13 @@
     <string name="move_events_into_default">受影响的活动移到预设活动类型</string>
     <string name="remove_affected_events">受影响的活动永久移除</string>
     <string name="unsync_caldav_calendar">想移除 CalDAV 日历，您必须取消同步</string>
-    <string name="holidays">节日</string>
-    <string name="add_holidays">添加节日</string>
-    <string name="national_holidays">法定节日</string>
-    <string name="religious_holidays">宗教节日</string>
-    <string name="holidays_imported_successfully">节日已成功导入节日活动类型</string>
+    <string name="holidays">节假日</string>
+    <string name="add_holidays">添加节假日</string>
+    <string name="national_holidays">法定节假日</string>
+    <string name="religious_holidays">宗教节假日</string>
+    <string name="holidays_imported_successfully">节假日已成功导入“节假日”活动类型</string>
     <string name="importing_some_holidays_failed">导入一些活动失败</string>
-    <string name="importing_holidays_failed">导入节日失败</string>
+    <string name="importing_holidays_failed">导入节假日失败</string>
     <string name="manage_event_types">管理活动类型</string>
     <string name="start_day_at">每日开始于</string>
     <string name="end_day_at">每日结束于</string>
@@ -239,8 +239,8 @@
     <string name="accessibility_previous_month">转到上一个月</string>
     <string name="accessibility_next_month">转到下一个月</string>
     <string name="accessibility_previous_day">转到前一天</string>
-    <string name="faq_1_title">我如何移除用[添加节日]按钮所导入的节日\?</string>
-    <string name="faq_1_text">以这方式建立的节日，会被加进一个叫做「节日」的新活动类型。 您可以到[设定] -&gt; [管理活动类型]，长按特定的活动类型，然后选择垃圾桶来删除。</string>
+    <string name="faq_1_title">如何移除通过“添加节假日”按钮导入的节假日？</string>
+    <string name="faq_1_text">以这种方式创建的节假日会加入到名为“节假日”的新活动类型。您可以在“设置”-&gt;“管理活动类型”，长按活动类型，然后选择回收站删除。</string>
     <string name="faq_2_title">我可以透过 Google 日历或其它支援 CalDAV 的服务来同步我的活动吗\?</string>
     <string name="faq_2_title_extra">或者和其他人分享日历？</string>
     <string name="faq_2_text">行的，只要打开程序设定内的[CalDAV同步]，然后选择您要同步的日历。然而您需要一些第三方应用程序来处理装置和服务器之间的同步。 如果您要同步 Google 日历，他们官方的日历程序就能做到了。而其它日历，您需要有第三方同步工具才行，像是 DAVx5。</string>
@@ -257,4 +257,8 @@
     <string name="status_confirmed">已确认</string>
     <string name="status_canceled">已取消</string>
     <string name="status_tentative">暂定</string>
+    <string name="regional_holidays">国家/地区节假日</string>
+    <string name="select_holidays_to_import">选择要导入的节假日</string>
+    <string name="public_holidays">公共节假日</string>
+    <string name="other_holidays">其他节假日和节日</string>
 </resources>
