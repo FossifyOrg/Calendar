@@ -6,4 +6,5 @@
 * Unterstützung für Ereignisstatus hinzugefügt
 * Checkboxen durch Schalter ersetzt
 * Unterstützung für Android 7 und ältere Versionen entfernt
-* Weitere kleinere Fehlerkorrekturen …
+* Weitere kleinere Fehlerkorrekturen
+…
