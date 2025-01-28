@@ -38,9 +38,11 @@ class QuickFilterEventTypeAdapter(
                 .firstOrNull { eventType -> eventType.id.toString() == quickFilterEventType }
                 ?: return@forEach
             quickFilterEventTypes.add(eventType)
+        }
 
-            if (displayEventTypes.contains(eventType.id.toString())) {
-                activeKeys.add(eventType.id!!)
+        allEventTypes.forEach {
+            if (displayEventTypes.contains(it.id.toString())) {
+                activeKeys.add(it.id!!)
             }
         }
 
