@@ -136,6 +136,7 @@ body:
       label: Additional information
       description: |
         Please provide any additional information or context that may be relevant, for example:
+        * date time and timezone info
         * any file or media that led to this bug
         * any crash logs (if you know how to get one)
         * the affected device is rooted, a foldable or a TV
