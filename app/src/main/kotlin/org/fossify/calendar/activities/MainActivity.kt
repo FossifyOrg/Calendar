@@ -923,9 +923,6 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
 
                     val formatter = SimpleDateFormat(format, Locale.getDefault())
                     val date = formatter.parse(birthdayAnniversary)
-                    if (date.year < 70) {
-                        date.year = 70
-                    }
 
                     val timestamp = date.time / 1000L
                     val lastUpdated = System.currentTimeMillis()
