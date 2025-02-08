@@ -9,8 +9,8 @@
     <string name="yearly_view">年历视图</string>
     <string name="simple_event_list">简单活动列表</string>
     <string name="no_upcoming_events">最近没有任何活动。</string>
-    <string name="go_to_today">前往今天</string>
-    <string name="go_to_date">前往日期</string>
+    <string name="go_to_today">回到今天</string>
+    <string name="go_to_date">跳转日期</string>
     <string name="widget_monthly">日历 月历视图</string>
     <string name="widget_list">日历 活动列表</string>
     <string name="widget_todays_date">日历 今天的日期</string>
