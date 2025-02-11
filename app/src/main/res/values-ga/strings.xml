@@ -269,4 +269,8 @@
         <item quantity="other">Laistigh de %d laethanta eile</item>
     </plurals>
     <string name="faq_1_text">Cuirtear laethanta saoire a cruthaíodh ar an mbealach sin isteach i gcineál imeachta nua ar a dtugtar \"Laethanta Saoire\". Is féidir leat dul i Socruithe -&gt; Bainistigh Cineálacha Imeachtaí, brúigh fada ar an gcineál imeachta a thugtar agus scrios é tríd an bruscar a roghnú.</string>
+    <string name="public_holidays">Laethanta saoire poiblí</string>
+    <string name="regional_holidays">Laethanta saoire réigiúnacha</string>
+    <string name="other_holidays">Laethanta saoire agus deasghnátha eile</string>
+    <string name="select_holidays_to_import">Roghnaigh laethanta saoire le hiompórtáil</string>
 </resources>

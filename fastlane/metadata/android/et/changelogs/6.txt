@@ -1,0 +1,10 @@
+* Parandsime „Märgi loetuks“ nupu teavitusvea
+* Parandsime osalise teksti kuvamise vea mõnedes seadmetes
+* Parandsime iganädalaste korduste vea mõnedes ajavööndites
+* Parandsime „Märgi tehtuks“ nupu värvi mustvalges kujunduses
+* Parandsime nähtamatuks jäänud osalejate ettepanekud
+* Lisasime võimaluse eksportida sündmuste värve ISC failidesse
+* Lisasime kalendri kiirfiltri pika vajutusega
+* Lisasime osariigikohased ja täiendavad pühad
+* Muud pisiparandused ja täiendused
+* Lisasime veel tõlkeid

@@ -1,0 +1,10 @@
+* Üst çubukta görüntülenmeyen çok günlük tüm gün etkinlikleri sorunu çözüldü
+* Araçlarda işlevsiz görev açma sorunu düzeltildi
+* Tarih aracında yeniden boyutlandırma sorunu düzeltildi
+* Araçlarda tamamlanmamış görevler için sabit opaklık sorunu düzeltildi
+* "Cumartesi" İspanyolca çevirisi düzeltildi.
+* Etkinlik durumu desteği eklendi
+* Onay kutuları düğmelerle değiştirdi
+* Android 7 ve eski sürümler için destek kaldırıldı
+* Diğer hata düzeltmeleri ve iyileştirmeleri
+* Daha fazla çeviri eklendi

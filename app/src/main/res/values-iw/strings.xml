@@ -215,4 +215,12 @@
     <string name="no_upcoming_events">אין פגישות קרובות.</string>
     <string name="everything_filtered_out">סיננת את כל סוגי הפגישות</string>
     <string name="event_color">צבע האירוע</string>
+    <string name="delete_all_events_and_tasks">מחק את כל האירועים והמשימות</string>
+    <string name="default_calendar_color">צבע ברירת מחדל של לוח השנה</string>
+    <string name="task_is_repeatable">המשימה היא חזרתית</string>
+    <string name="select_holidays_to_import">בחר חגים לייבוא</string>
+    <string name="other_holidays">חגים ומועדים אחרים</string>
+    <string name="task_color">צבע המשימה</string>
+    <string name="reminders">תזכורות</string>
+    <string name="export_tasks">ייצוא משימות</string>
 </resources>
