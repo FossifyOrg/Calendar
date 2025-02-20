@@ -17,6 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingStart="@dimen/activity_margin"
+            android:paddingEnd="@dimen/activity_margin"
             android:paddingBottom="@dimen/activity_margin">
 
             <org.fossify.commons.views.MyTextView
@@ -36,6 +37,13 @@
                 android:padding="@dimen/normal_margin"
                 android:text="@string/within_the_next_one_year" />
 
+            <org.fossify.commons.views.MyMaterialSwitch
+                android:id="@+id/show_widget_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/period_picker_value"
+                android:text="@string/show_widget_header" />
+
         </RelativeLayout>
 
         <org.fossify.commons.views.MyRecyclerView
@@ -43,7 +51,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_above="@+id/config_bg_color"
-            android:layout_below="@id/period_picker_holder"
+            android:layout_below="@+id/period_picker_holder"
             android:layout_marginBottom="@dimen/activity_margin"
             android:background="@drawable/widget_round_background"
             android:clipToPadding="false"
