@@ -11,9 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/top_left_arrow"
-        android:columnCount="4"
+        android:columnCount="6"
         android:padding="@dimen/yearly_padding_side"
-        android:rowCount="3">
+        android:rowCount="2">
 
         <include
             android:id="@+id/month_1_holder"
