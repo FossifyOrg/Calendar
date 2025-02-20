@@ -98,6 +98,7 @@ class SettingsActivity : SimpleActivity() {
         setupDefaultReminder3()
         setupDisplayPastEvents()
         setupFontSize()
+        setupShowWidgetHeader()
         setupCustomizeWidgetColors()
         setupViewToOpenFromListWidget()
         setupDimEvents()
@@ -482,7 +483,8 @@ class SettingsActivity : SimpleActivity() {
         settingsReminderSound.text = config.reminderSoundTitle
 
         settingsReminderSoundHolder.setOnClickListener {
-            SelectAlarmSoundDialog(this@SettingsActivity,
+            SelectAlarmSoundDialog(
+                this@SettingsActivity,
                 config.reminderSoundUri,
                 config.reminderAudioStream,
                 GET_RINGTONE_URI,
@@ -672,6 +674,14 @@ class SettingsActivity : SimpleActivity() {
                 settingsFontSize.text = getFontSizeText()
                 updateWidgets()
             }
+        }
+    }
+
+    private fun setupShowWidgetHeader() {
+        binding.settingsShowWidgetHeader.isChecked = config.showListWidgetHeader
+        binding.settingsShowWidgetHeader.setOnClickListener {
+            config.showListWidgetHeader = binding.settingsShowWidgetHeader.isChecked
+            updateWidgets()
         }
     }
 

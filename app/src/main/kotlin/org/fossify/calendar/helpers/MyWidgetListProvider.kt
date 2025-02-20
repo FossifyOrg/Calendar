@@ -35,12 +35,18 @@ class MyWidgetListProvider : AppWidgetProvider() {
     private fun performUpdate(context: Context) {
         val fontSize = context.getWidgetFontSize()
         val textColor = context.config.widgetTextColor
+        val showHeader = context.config.showListWidgetHeader
+        val layout = if (showHeader) {
+            R.layout.widget_event_list
+        } else {
+            R.layout.widget_event_headless_list
+        }
 
         val appWidgetManager = AppWidgetManager.getInstance(context) ?: return
         ensureBackgroundThread {
             appWidgetManager.getAppWidgetIds(getComponentName(context)).forEach {
                 val widget = context.widgetsDB.getWidgetWithWidgetId(it)
-                val views = RemoteViews(context.packageName, R.layout.widget_event_list).apply {
+                val views = RemoteViews(context.packageName, layout).apply {
                     applyColorFilter(R.id.widget_event_list_background, context.config.widgetBgColor)
                     setTextColor(R.id.widget_event_list_empty, textColor)
                     setTextSize(R.id.widget_event_list_empty, fontSize)
@@ -49,17 +55,19 @@ class MyWidgetListProvider : AppWidgetProvider() {
                     setTextSize(R.id.widget_event_list_today, fontSize)
                 }
 
-                views.setImageViewBitmap(
-                    R.id.widget_event_new_event, context.resources.getColoredBitmap(
-                        resourceId = org.fossify.commons.R.drawable.ic_plus_vector,
-                        newColor = textColor
+                if (showHeader) {
+                    views.setImageViewBitmap(
+                        R.id.widget_event_new_event, context.resources.getColoredBitmap(
+                            resourceId = org.fossify.commons.R.drawable.ic_plus_vector,
+                            newColor = textColor
+                        )
                     )
-                )
-                setupIntent(context, views, NEW_EVENT, R.id.widget_event_new_event)
-                setupIntent(context, views, LAUNCH_CAL, R.id.widget_event_list_today)
+                    setupIntent(context, views, NEW_EVENT, R.id.widget_event_new_event)
+                    setupIntent(context, views, LAUNCH_CAL, R.id.widget_event_list_today)
 
-                views.setImageViewBitmap(R.id.widget_event_go_to_today, context.resources.getColoredBitmap(R.drawable.ic_today_vector, textColor))
-                setupIntent(context, views, GO_TO_TODAY, R.id.widget_event_go_to_today)
+                    views.setImageViewBitmap(R.id.widget_event_go_to_today, context.resources.getColoredBitmap(R.drawable.ic_today_vector, textColor))
+                    setupIntent(context, views, GO_TO_TODAY, R.id.widget_event_go_to_today)
+                }
 
                 Intent(context, WidgetService::class.java).apply {
                     putExtra(EVENT_LIST_PERIOD, widget?.period)
@@ -118,9 +126,14 @@ class MyWidgetListProvider : AppWidgetProvider() {
 
     // hacky solution for reseting the events list
     private fun goToToday(context: Context) {
+        val layout = if (context.config.showListWidgetHeader) {
+            R.layout.widget_event_list
+        } else {
+            R.layout.widget_event_headless_list
+        }
         val appWidgetManager = AppWidgetManager.getInstance(context) ?: return
         appWidgetManager.getAppWidgetIds(getComponentName(context)).forEach {
-            val views = RemoteViews(context.packageName, R.layout.widget_event_list)
+            val views = RemoteViews(context.packageName, layout)
             Intent(context, WidgetServiceEmpty::class.java).apply {
                 data = Uri.parse(this.toUri(Intent.URI_INTENT_SCHEME))
                 views.setRemoteAdapter(R.id.widget_event_list, this)
