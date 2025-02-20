@@ -9,5 +9,6 @@ import androidx.room.PrimaryKey
 data class Widget(
     @PrimaryKey(autoGenerate = true) var id: Long?,
     @ColumnInfo(name = "widget_id") var widgetId: Int,
-    @ColumnInfo(name = "period") var period: Int
+    @ColumnInfo(name = "period") var period: Int,
+    @ColumnInfo(name = "header") var header: Boolean
 )

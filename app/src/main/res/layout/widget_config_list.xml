@@ -16,15 +16,35 @@
             android:id="@+id/period_picker_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingStart="@dimen/activity_margin"
             android:paddingBottom="@dimen/activity_margin">
+
+            <RelativeLayout
+                android:id="@+id/show_widget_header_holder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:padding="@dimen/activity_margin">
+
+                <org.fossify.commons.views.MyMaterialSwitch
+                    android:id="@+id/show_widget_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:clickable="false"
+                    android:text="@string/show_widget_header"
+                    app:switchPadding="@dimen/medium_margin" />
+
+            </RelativeLayout>
 
             <org.fossify.commons.views.MyTextView
                 android:id="@+id/period_picker_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/normal_margin"
+                android:layout_below="@+id/show_widget_header_holder"
+                android:layout_marginTop="@dimen/medium_margin"
                 android:layout_marginBottom="@dimen/normal_margin"
+                android:paddingStart="@dimen/activity_margin"
+                android:paddingEnd="@dimen/activity_margin"
                 android:text="@string/show_events_happening" />
 
             <org.fossify.commons.views.MyTextView
@@ -32,24 +52,25 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/period_picker_label"
+                android:layout_marginStart="@dimen/activity_margin"
                 android:background="@drawable/button_background"
                 android:padding="@dimen/normal_margin"
                 android:text="@string/within_the_next_one_year" />
 
         </RelativeLayout>
 
-        <org.fossify.commons.views.MyRecyclerView
-            android:id="@+id/config_events_list"
+        <include
+            android:id="@+id/config_widget_preview"
+            layout="@layout/widget_config_event_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_above="@+id/config_bg_color"
-            android:layout_below="@id/period_picker_holder"
+            android:layout_below="@+id/period_picker_holder"
             android:layout_marginBottom="@dimen/activity_margin"
             android:background="@drawable/widget_round_background"
             android:clipToPadding="false"
             android:divider="@null"
-            android:paddingTop="@dimen/medium_margin"
-            app:layoutManager="org.fossify.commons.views.MyLinearLayoutManager" />
+            android:paddingTop="@dimen/medium_margin" />
 
         <ImageView
             android:id="@+id/config_bg_color"

@@ -289,6 +289,7 @@
         <item quantity="one">Within the next %d month</item>
         <item quantity="other">Within the next %d months</item>
     </plurals>
+    <string name="show_widget_header">Show header</string>
 
     <!-- Accessibility label -->
     <string name="accessibility_previous_month">Go to previous month</string>

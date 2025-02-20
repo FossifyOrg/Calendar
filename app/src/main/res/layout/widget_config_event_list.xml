@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/widget_config_event_list_holder"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/widget_config_event_list_background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/widget_round_background" />
+
+    <include
+        android:id="@+id/widget_header_include"
+        layout="@layout/widget_event_list_header" />
+
+    <org.fossify.commons.views.MyRecyclerView
+        android:id="@+id/config_events_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/widget_header_include"
+        android:clipToPadding="false"
+        android:divider="@null"
+        android:paddingTop="@dimen/small_margin"
+        android:paddingBottom="@dimen/small_margin"
+        app:layoutManager="org.fossify.commons.views.MyLinearLayoutManager" />
+
+</RelativeLayout>
