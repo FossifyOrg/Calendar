@@ -73,6 +73,7 @@ class EventActivity : SimpleActivity() {
     private var mAvailableContacts = ArrayList<Attendee>()
     private var mSelectedContacts = ArrayList<Attendee>()
     private var mAvailability = Attendees.AVAILABILITY_BUSY
+    private var mAccessLevel = Events.ACCESS_DEFAULT
     private var mStatus = Events.STATUS_CONFIRMED
     private var mStoredEventTypes = ArrayList<EventType>()
     private var mOriginalTimeZone = DateTimeZone.getDefault().id
@@ -175,6 +176,7 @@ class EventActivity : SimpleActivity() {
 
             putString(ATTENDEES, Gson().toJson(getAllAttendees(false)))
 
+            putInt(CLASS, mAccessLevel)
             putInt(AVAILABILITY, mAvailability)
             putInt(STATUS, mStatus)
             putInt(EVENT_COLOR, mEventColor)
@@ -209,6 +211,7 @@ class EventActivity : SimpleActivity() {
             mReminder2Type = getInt(REMINDER_2_TYPE)
             mReminder3Type = getInt(REMINDER_3_TYPE)
 
+            mAccessLevel = getInt(CLASS)
             mAvailability = getInt(AVAILABILITY)
             mStatus = getInt(STATUS)
             mEventColor = getInt(EVENT_COLOR)
@@ -330,6 +333,14 @@ class EventActivity : SimpleActivity() {
             showReminderTypePicker(mReminder3Type) {
                 mReminder3Type = it
                 updateReminderTypeImage(eventReminder3Type, Reminder(mReminder3Minutes, mReminder3Type))
+            }
+        }
+
+        eventAccessLevel.setOnClickListener {
+            showAccessLevelPicker(mAccessLevel) {
+                mAccessLevel = it
+                updateAccessLevelText()
+                updateAccessLevelImage()
             }
         }
 
@@ -472,6 +483,8 @@ class EventActivity : SimpleActivity() {
         updateAvailabilityImage()
         updateStatusText()
         updateStatusImage()
+        updateAccessLevelText()
+        updateAccessLevelImage()
     }
 
     private fun setupEditEvent() {
@@ -514,6 +527,7 @@ class EventActivity : SimpleActivity() {
         mEventTypeId = mEvent.eventType
         mEventCalendarId = mEvent.getCalDAVCalendarId()
         mAvailability = mEvent.availability
+        mAccessLevel = mEvent.accessLevel
         mStatus = mEvent.status
         mEventColor = mEvent.color
 
@@ -962,6 +976,20 @@ class EventActivity : SimpleActivity() {
         }
     }
 
+    private fun showAccessLevelPicker(currentValue: Int, callback: (Int) -> Unit){
+        val items = arrayListOf(
+            RadioItem(Events.ACCESS_PUBLIC, getString(R.string.access_level_public)),
+            RadioItem(Events.ACCESS_CONFIDENTIAL, getString(R.string.access_level_confidential)),
+            RadioItem(Events.ACCESS_PRIVATE, getString(R.string.access_level_private))
+        )
+
+        val mappedCurrentValue = if(currentValue == Events.ACCESS_DEFAULT) Events.ACCESS_PUBLIC else currentValue
+
+        RadioGroupDialog(this, items, mappedCurrentValue){
+            callback(it as Int)
+        }
+    }
+
     private fun showAvailabilityPicker(currentValue: Int, callback: (Int) -> Unit) {
         val items = arrayListOf(
             RadioItem(Attendees.AVAILABILITY_BUSY, getString(R.string.status_busy)),
@@ -997,6 +1025,9 @@ class EventActivity : SimpleActivity() {
         binding.eventAvailabilityDivider.beVisibleIf(isSyncedEvent)
         binding.eventAvailabilityImage.beVisibleIf(isSyncedEvent)
         binding.eventAvailability.beVisibleIf(isSyncedEvent)
+        binding.eventAccessLevelImage.beVisibleIf(isSyncedEvent)
+        binding.eventAccessLevelDivider.beVisibleIf(isSyncedEvent)
+        binding.eventAccessLevel.beVisibleIf(isSyncedEvent)
     }
 
     private fun updateReminderTypeImage(view: ImageView, reminder: Reminder) {
@@ -1037,6 +1068,24 @@ class EventActivity : SimpleActivity() {
         }
         val icon = resources.getColoredDrawableWithColor(drawable, getProperTextColor())
         binding.eventStatusImage.setImageDrawable(icon)
+    }
+
+    private fun updateAccessLevelText(){
+        when (mAccessLevel) {
+            Events.ACCESS_PRIVATE -> binding.eventAccessLevel.text = getString(R.string.access_level_private)
+            Events.ACCESS_CONFIDENTIAL -> binding.eventAccessLevel.text = getString(R.string.access_level_confidential)
+            else ->  binding.eventAccessLevel.text = getString(R.string.access_level_public)
+        }
+    }
+
+    private fun updateAccessLevelImage(){
+        val drawable = when (mAccessLevel) {
+            Events.ACCESS_PRIVATE -> R.drawable.ic_lock_outline_vector
+            Events.ACCESS_CONFIDENTIAL -> R.drawable.ic_group_vector
+            else -> R.drawable.ic_groups_2_vector
+        }
+        val icon = resources.getColoredDrawableWithColor(drawable, getProperTextColor())
+        binding.eventAccessLevelImage.setImageDrawable(icon)
     }
 
     private fun updateRepetitionText() {
@@ -1083,6 +1132,8 @@ class EventActivity : SimpleActivity() {
                     updateAvailabilityImage()
                     updateStatusText()
                     updateStatusImage()
+                    updateAccessLevelText()
+                    updateAccessLevelImage()
                 }
             }
         } else {
@@ -1356,6 +1407,7 @@ class EventActivity : SimpleActivity() {
             lastUpdated = System.currentTimeMillis()
             source = newSource
             location = binding.eventLocation.value
+            accessLevel = mAccessLevel
             availability = mAvailability
             status = mStatus
             color = mEventColor
