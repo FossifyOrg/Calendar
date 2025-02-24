@@ -1,0 +1,8 @@
+* Problem mit der Benachrichtigungsschaltfläche „Als abgeschlossen markieren“ behoben
+* Abgeschnittener Text in der Monatsansicht auf einigen Geräten behoben
+* Fehlerhafte wöchentliche Wiederholung in einigen Zeitzonen behoben
+* Farbe der Schaltfläche „Als abgeschlossen markieren“ im Schwarz-Weiß-Farbschema behoben
+* Unsichtbare Teilnehmervorschläge behoben
+* Möglichkeit zum Export von Terminfarben in ICS-Dateien
+* Möglichkeit zum schnellen Filtern von Kalendern bei langem Drücken
+…
