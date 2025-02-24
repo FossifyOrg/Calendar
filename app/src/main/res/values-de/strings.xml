@@ -211,6 +211,8 @@
     <string name="status_tentative">Vorläufig</string>
     <string name="status_confirmed">Bestätigt</string>
     <string name="status_canceled">Abgesagt</string>
+    <string name="access_level_private">Privat</string>
+    <string name="access_level_confidential">Vertraulich</string>
     <string name="monday_alt">Montag</string>
     <string name="tuesday_alt">Dienstag</string>
     <string name="wednesday_alt">Mittwoch</string>
@@ -264,4 +266,5 @@
     <string name="other_holidays">Andere Feier- und Gedenktage</string>
     <string name="regional_holidays">Regionale Feiertage</string>
     <string name="select_holidays_to_import">Zu importierende Feiertage auswählen</string>
+    <string name="access_level_public">Öffentlich</string>
 </resources>
