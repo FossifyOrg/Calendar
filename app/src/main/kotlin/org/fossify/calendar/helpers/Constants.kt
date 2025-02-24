@@ -1,6 +1,5 @@
 package org.fossify.calendar.helpers
 
-import android.provider.CalendarContract
 import android.provider.CalendarContract.Events
 import org.fossify.calendar.activities.EventActivity
 import org.fossify.calendar.activities.TaskActivity
