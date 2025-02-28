@@ -204,7 +204,7 @@
         <item quantity="other">Nākamo %d mēnešu laikā</item>
     </plurals>
     <string name="faq_1_title">Kā izdzēst svētku dienas, kas ievietotas ar pogu \"Pievienot svētku dienas\"?</string>
-    <string name="faq_1_text">Šādi izveidotām svētku dienām tiek piešķirts jauns notikumu veids ar nosaukumu \"Svētku dienas\". Izdzēst var \"Iestatījumi \" -&gt; \"Notikumu veidu pārvaldīšana\" ar ilgu attiecīgā notikuma veida piespiešanu un nospiešanu uz atkritumu tvertnes ikonas.</string>
+    <string name="faq_1_text">Šādi izveidotām svētku dienām tiek piešķirts jauns notikumu veids ar nosaukumu \"Svētku dienas\". Izdzēst var \"Iestatījumi \" -&gt; \"Notikumu veidu pārvaldīšana\" ar ilgu attiecīgā notikuma veida piespiešanu un nospiešanu uz atkritnes.</string>
     <string name="faq_2_title">Vai iespējams sinhronizēt notikumus ar Google kalendāru vai citu pakalpojumu, kas atbalsta CalDAV?</string>
     <string name="faq_2_text">Jā, lietotnes iestatījumos tikai jāiespējo \"CalDAV Sync \" un jāatlasa sinhronizējamie kalendāri. Taču būs nepieciešama trešās puses lietotne, kas veic sinhronizēšanu starp ierīci un serveriem. Ja gadījumā ir vēlēšanās sinhronizēt Google kalendāru, pietiks ar Google kalendāra lietotni. Citiem kalendāriem būs nepieciešams trešās puses sinhronizēšanas rīks, piemēram, DAVx⁵.</string>
     <string name="faq_3_title">Es redzu vizuālos atgādinājumus, bet nedzirdu skaņu. Kā rīkoties\?</string>
@@ -266,5 +266,5 @@
     <string name="accessibility_previous_day">Doties uz iepriekšējo dienu</string>
     <string name="accessibility_next_day">Doties uz nākamo dienu</string>
     <string name="status_canceled">Atcelts</string>
-    <string name="faq_6_text">Abas darbības var veikt \"Iestatījumi\" - \"Notikumu veidu pārvaldīšana\". Jāklikšķina uz nepieciešamā, lai nomainītu iezīmi un krāsu, vai ilgi jāpiespiež uz nevajadzīgā un jāizmanto atkritumu tvertnes ikona augšējā izvēlnē, lai izdzēstu.</string>
+    <string name="faq_6_text">Abas darbības var veikt \"Iestatījumi\" - \"Notikumu veidu pārvaldīšana\". Jāklikšķina uz nepieciešamā, lai nomainītu iezīmi un krāsu, vai ilgi jāpiespiež uz nevajadzīgā un jāizmanto atkritne augšējā izvēlnē, lai izdzēstu.</string>
 </resources>
