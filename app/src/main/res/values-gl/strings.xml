@@ -26,7 +26,7 @@
     <string name="filter_events_by_type">Filtrar eventos por tipo</string>
     <string name="please_fill_location">Escribe a localización para que se mostre nun mapa</string>
     <string name="public_event_notification_text">Hai un evento próximo</string>
-    <string name="everything_filtered_out">Filtraches todoslos tipos de eventos</string>
+    <string name="everything_filtered_out">Filtraches tódolos tipos de eventos</string>
     <string name="task">Tarefa</string>
     <string name="tasks">Tarefas</string>
     <string name="edit_task">Editar tarefa</string>
