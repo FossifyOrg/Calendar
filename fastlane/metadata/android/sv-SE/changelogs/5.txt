@@ -1,0 +1,10 @@
+* Åtgärdade problem med att flerdagars heldagshändelser inte visades 
+* Åtgärdade öppning av uppgifter från widgetar
+* Åtgärdade storlektsändring problem i datumwidget
+* Åtgärdade opacitet för ofärdiga uppgifter i widgetar
+* Åtgärdade spansk översättning för lördag
+* Lade till stöd för status för händelser
+* Ersatte kryssrutor med brytare
+* Tog bort stöd för Android 7 och äldre versioner
+* Andra mindre buggfixar och förbättringar
+* Lade till fler översättningar
