@@ -251,6 +251,9 @@
     <string name="status_tentative">Tentative</string>
     <string name="status_confirmed">Confirmed</string>
     <string name="status_canceled">Canceled</string>
+    <string name="access_level_public">Public</string>
+    <string name="access_level_private">Private</string>
+    <string name="access_level_confidential">Confidential</string>
 
     <!-- alternative versions for some languages, use the same translations if you are not sure what this means -->
     <!-- used in repetition, like "Every last Sunday" -->
