@@ -263,4 +263,8 @@
     <string name="status_canceled">Annulé</string>
     <string name="status_confirmed">Confirmé</string>
     <string name="status_tentative">Provisoire</string>
+    <string name="other_holidays">Autres jours fériés et commémorations</string>
+    <string name="public_holidays">Jours fériés publiques</string>
+    <string name="regional_holidays">Vacances régionales</string>
+    <string name="select_holidays_to_import">Sélectionner les vacances à importer</string>
 </resources>
