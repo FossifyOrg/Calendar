@@ -47,6 +47,7 @@ class IcsImporter(val activity: SimpleActivity) {
     private var curLastModified = 0L
     private var curCategoryColor = -2
     private var curAvailability = Events.AVAILABILITY_BUSY
+    private var curAccessLevel = Events.ACCESS_DEFAULT
     private var curStatus = Events.STATUS_CONFIRMED
     private var isNotificationDescription = false
     private var isProperReminderAction = false
@@ -196,6 +197,13 @@ class IcsImporter(val activity: SimpleActivity) {
                         if (line.substring(SMT_MISSING_YEAR.length) == "1") {
                             curFlags = curFlags or FLAG_MISSING_YEAR
                         }
+                    } else if (line.startsWith(CLASS)){
+                        val value = line.substringAfterLast(":")
+                        curAccessLevel = when (value){
+                            PRIVATE -> Events.ACCESS_PRIVATE
+                            CONFIDENTIAL -> Events.ACCESS_CONFIDENTIAL
+                            else -> Events.ACCESS_PUBLIC
+                        }
                     } else if (line.startsWith(STATUS)) {
                         if (isParsingTask && line.substring(STATUS.length) == COMPLETED) {
                             curFlags = curFlags or FLAG_TASK_COMPLETED
@@ -307,6 +315,7 @@ class IcsImporter(val activity: SimpleActivity) {
                             curAvailability,
                             type = curType,
                             status = curStatus,
+                            accessLevel = curAccessLevel,
                             color = curColor
                         )
 
