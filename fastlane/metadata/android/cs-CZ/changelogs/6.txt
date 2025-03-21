@@ -1,0 +1,10 @@
+* Opr. problém s tl. oznámení „Označit jako hotové“
+* Opr. uříznutí textu v zobr. měsíce na některých zař.
+* Opr. nefunkční týd. opak. v některých čas. pásmech
+* Opr. barva tlačítka „Označit jako hotové“ v černém a bílém motivu
+* Opr. nevid. návrhy účastníků
+* Přid. možn. export. barvy událostí do souborů ICS
+* Přid. možn. rychlého filtr. kalend. při dl. stisknutí tl.
+* Přid. svátky specif. pro jednotlivé státy a volitelné svátky
+* Další drobné opravy chyb a vylepšení
+* Přidány další překlady

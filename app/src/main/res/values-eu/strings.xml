@@ -260,4 +260,8 @@
     <string name="status_tentative">Behin-behinekoa</string>
     <string name="status_confirmed">Baieztatuta</string>
     <string name="status_canceled">Bertan behera utzita</string>
+    <string name="public_holidays">Jaiegun nazionalak</string>
+    <string name="regional_holidays">Zonaldeko jaiegunak</string>
+    <string name="other_holidays">Beste jaiegun eta ospakizunak</string>
+    <string name="select_holidays_to_import">Aukeratu inportatu beharreko jaiegunak</string>
 </resources>
