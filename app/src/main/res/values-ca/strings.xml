@@ -107,7 +107,7 @@
     <string name="not_going">No assistiré</string>
     <string name="maybe_going">Potser assistiré</string>
     <string name="invited">Convidat</string>
-    <string name="enter_a_country">Introduïu un país o una zona horària</string>
+    <string name="enter_a_country">Introduïu un país o fus horari</string>
     <string name="import_events">Importa esdeveniments</string>
     <string name="export_events">Exporta esdeveniments</string>
     <string name="import_events_from_ics">Importa esdeveniments des d\'un fitxer .ics</string>
