@@ -1,2 +1,0 @@
-* Simple Calendar-ekin inportatzeko bateragarritasuna konpondu da.
-* Foss zaporearen konfigurazioa konpondu da.
