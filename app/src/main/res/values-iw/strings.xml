@@ -77,7 +77,7 @@
     <string name="first_f">ראשונה</string>
     <string name="second_f">שניה</string>
     <string name="third_f">שלישית</string>
-    <string name="fourth_f">רביעית</string>
+    <string name="fourth_f">­רביעית</string>
     <string name="fifth_f">חמישי</string>
     <string name="last_f">אחרונה</string>
     <string name="birthdays">ימי הולדת</string>
@@ -212,7 +212,7 @@
     <string name="sample_title_5">הפסקת קפה</string>
     <string name="show_events_happening">הצג אירועים שקורים:</string>
     <string name="within_the_next_one_year">Within the next 1 year‬</string>
-    <string name="no_upcoming_events">אין פגישות קרובות.</string>
+    <string name="no_upcoming_events">אין אירועים קרובים.</string>
     <string name="everything_filtered_out">סיננת את כל סוגי הפגישות</string>
     <string name="event_color">צבע האירוע</string>
     <string name="delete_all_events_and_tasks">מחק את כל האירועים והמשימות</string>
