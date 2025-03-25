@@ -262,6 +262,6 @@
     <string name="other_holidays">Diğer tatiller</string>
     <string name="select_holidays_to_import">İçe aktarılacak tatilleri seçin</string>
     <string name="status_confirmed">Onaylanmış</string>
-    <string name="status_tentative">Belirsiz</string>
+    <string name="status_tentative">Kesin değil</string>
     <string name="status_canceled">İptal edilmiş</string>
 </resources>
