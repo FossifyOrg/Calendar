@@ -49,7 +49,7 @@
     <string name="years_raw">år</string>
     <string name="repeat_till">Gjenta til</string>
     <string name="forever">For alltid</string>
-    <string name="event_is_repeatable">Hendelsen er repeterbar</string>
+    <string name="event_is_repeatable">Hendelsen kan gjentas</string>
     <string name="task_is_repeatable">Oppgaven kan gjentas</string>
     <string name="selection_contains_repetition">Markeringen inneholder gjentagende hendelser</string>
     <string name="delete_one_only">Slett bare den merkede forekomsten</string>
@@ -103,7 +103,7 @@
     <string name="add_another_reminder">Legg til en annen påminnelse</string>
     <string name="event_reminders">Hendelsespåminnelser</string>
     <string name="reminders">Påminnelser</string>
-    <string name="add_another_attendee">Legg til en annen deltager</string>
+    <string name="add_another_attendee">Legg til en annen deltaker</string>
     <string name="my_status">Min status:</string>
     <string name="invited">Invitert</string>
     <string name="enter_a_country">Angi et land eller tidssone</string>
@@ -113,7 +113,7 @@
     <string name="import_events_from_ics_pro">Importer hendelser fra en .ics-fil (Pro)</string>
     <string name="export_events_to_ics">Eksporter hendelser til en .ics-fil</string>
     <string name="default_event_type">Standard hendelsestype</string>
-    <string name="export_past_events_too">Eksporter tidligere hendelser også</string>
+    <string name="export_past_events_too">Eksporter også tidligere hendelser</string>
     <string name="export_tasks">Eksporter oppgaver</string>
     <string name="export_past_entries">Eksporter tidligere oppføringer også</string>
     <string name="include_event_types">Inkluder hendelsestyper</string>
@@ -240,4 +240,7 @@
     <string name="accessibility_previous_month">Gå til forrige måned</string>
     <string name="accessibility_next_month">Gå til neste måned</string>
     <string name="accessibility_previous_day">Gå til forrige dag</string>
+    <string name="not_going">Kommer ikke</string>
+    <string name="maybe_going">Kommer kanskje</string>
+    <string name="going">Kommer</string>
 </resources>
