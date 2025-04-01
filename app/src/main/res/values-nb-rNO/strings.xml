@@ -252,4 +252,9 @@
     <string name="status_tentative">Foreløpig</string>
     <string name="status_confirmed">Bekreftet</string>
     <string name="status_canceled">Avlyst</string>
+    <string name="faq_5_text">Kontrollere batteri‑ og varslingsinnstillingene på enheten din, og at ingenting blokkerer påminnelsene eller avslutter appen i bakgrunnen. Du kan også ta en titt på <a href="https://dontkillmyapp.com">https://dontkillmyapp.com</a>, der finner du nyttige tips.</string>
+    <string name="faq_4_text">Ja, den gjør. Som standard opprettes alle hendelser i din nåværende tidssone. Om du ønsker å endre tidssonen for en hendelse, må du først aktivere tidssonevelgeren i appinnstillingene, og deretter endre den i hendelsesdetaljene. Den er deaktivert som standard, ettersom de fleste ikke har behov for den.</string>
+    <string name="faq_3_title">Jeg ser de visuelle påminnelsene, men hører ingen lyd. Hva kan jeg gjøre?</string>
+    <string name="faq_4_title">Støtter appen tidssoner?</string>
+    <string name="faq_5_title">Hvorfor viser ikke appen noen varsler?</string>
 </resources>
