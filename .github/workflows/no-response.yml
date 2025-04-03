@@ -9,7 +9,7 @@ jobs:
   noResponse:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/stale@v9
+      - uses: naveensingh/stale@v9.1.1
         with:
           repo-token: ${{ secrets.FOSSIFYBOT_TOKEN }}
           days-before-stale: -1
