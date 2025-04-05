@@ -74,6 +74,8 @@ class WidgetListConfigureActivity : SimpleActivity() {
         }
 
         updateSelectedPeriod(config.lastUsedEventSpan)
+
+        updateTextColors(binding.periodPickerHolder)
     }
 
     private fun initVariables() {
@@ -97,6 +99,8 @@ class WidgetListConfigureActivity : SimpleActivity() {
         }
 
         updateTextColor()
+
+        binding.showWidgetHeader.isChecked = config.showListWidgetHeader
     }
 
     private fun saveConfig() {
@@ -107,6 +111,7 @@ class WidgetListConfigureActivity : SimpleActivity() {
 
         storeWidgetColors()
         requestWidgetUpdate()
+        storeWidgetHeaderVisibility()
 
         config.lastUsedEventSpan = mSelectedPeriodOption
 
@@ -183,6 +188,10 @@ class WidgetListConfigureActivity : SimpleActivity() {
             widgetBgColor = mBgColor
             widgetTextColor = mTextColor
         }
+    }
+
+    private fun storeWidgetHeaderVisibility() {
+        config.showListWidgetHeader = binding.showWidgetHeader.isChecked
     }
 
     private fun pickBackgroundColor() {

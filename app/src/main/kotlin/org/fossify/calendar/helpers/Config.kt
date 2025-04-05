@@ -288,4 +288,7 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(AUTO_BACKUP_PAST_ENTRIES, true)
         set(autoBackupPastEntries) = prefs.edit().putBoolean(AUTO_BACKUP_PAST_ENTRIES, autoBackupPastEntries).apply()
 
+    var showListWidgetHeader: Boolean
+        get() = prefs.getBoolean(SHOW_LIST_WIDGET_HEADER, true)
+        set(showListWidgetHeader) = prefs.edit().putBoolean(SHOW_LIST_WIDGET_HEADER, showListWidgetHeader).apply()
 }
