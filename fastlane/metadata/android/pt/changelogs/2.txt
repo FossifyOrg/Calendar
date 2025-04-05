@@ -1,1 +1,0 @@
-* Introdução da compatibilidade com a importação do Simple Calendar.

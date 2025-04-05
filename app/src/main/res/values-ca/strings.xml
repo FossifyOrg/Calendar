@@ -107,7 +107,7 @@
     <string name="not_going">No assistiré</string>
     <string name="maybe_going">Potser assistiré</string>
     <string name="invited">Convidat</string>
-    <string name="enter_a_country">Introduïu un país o una zona horària</string>
+    <string name="enter_a_country">Introduïu un país o fus horari</string>
     <string name="import_events">Importa esdeveniments</string>
     <string name="export_events">Exporta esdeveniments</string>
     <string name="import_events_from_ics">Importa esdeveniments des d\'un fitxer .ics</string>
@@ -186,7 +186,7 @@
     <string name="other_time">Una altra hora</string>
     <string name="highlight_weekends">Ressalta els caps de setmana en algunes vistes</string>
     <string name="highlight_weekends_color">Color dels caps de setmana ressaltats</string>
-    <string name="allow_changing_time_zones">Permet canviar les zones horàries dels esdeveniments</string>
+    <string name="allow_changing_time_zones">Permet canviar els fusos horaris dels esdeveniments</string>
     <string name="manage_quick_filter_event_types">Gestiona els tipus d\'esdeveniment de filtre ràpid</string>
     <string name="allow_creating_tasks">Permet crear tasques</string>
     <string name="select_caldav_calendars">Seleccioneu els calendaris que voleu sincronitzar</string>
@@ -246,8 +246,8 @@
     <string name="faq_2_text">Sí, només cal que activeu la «Sincronització CalDAV» a la configuració de l\'aplicació i seleccioneu els calendaris que voleu sincronitzar. Tanmateix, necessitareu una aplicació de tercers que gestioni la sincronització entre el dispositiu i els servidors. En cas que vulgueu sincronitzar un calendari de Google, la seva aplicació oficial Calendar farà la feina. Per a altres calendaris, necessitareu un adaptador de sincronització de tercers, per exemple DAVx5.</string>
     <string name="faq_3_title">Veig els recordatoris visuals, però no escolto cap àudio. Què puc fer\?</string>
     <string name="faq_3_text">No només es mostra el recordatori real, sinó que la reproducció de l\'àudio també es veu molt afectada pel sistema. Si no sentiu cap so, proveu d\'anar a la configuració de l\'aplicació, premeu l\'opció «Flux d\'àudio utilitzat pels recordatoris» i canvieu-lo a un valor diferent. Si encara no funciona, comproveu la configuració del so, en concret, si la reproducció no està silenciada.</string>
-    <string name="faq_4_title">L\'aplicació admet zones horàries\?</string>
-    <string name="faq_4_text">Sí, les admet. De manera predeterminada, tots els esdeveniments es creen a la vostra zona horària actual. Si voleu canviar la zona horària d\'un esdeveniment, primer haureu d\'activar el selector de fus horari a la configuració de l\'aplicació i, a continuació, canviar-lo a la pantalla Detalls de l\'esdeveniment. Està desactivat per defecte, ja que la majoria de la gent no el necessitarà.</string>
+    <string name="faq_4_title">L\'aplicació admet fusos horaris?</string>
+    <string name="faq_4_text">Sí, els admet. De manera predeterminada, tots els esdeveniments es creen al vostre fus horari actual. Si voleu canviar el fus horari d\'un esdeveniment, primer haureu d\'activar el selector de fus horari a la configuració de l\'aplicació i, a continuació, canviar-lo a la pantalla Detalls de l\'esdeveniment. Està desactivat per defecte, ja que la majoria de la gent no el necessitarà.</string>
     <string name="faq_5_title">L\'aplicació no mostra cap notificació, per què és això\?</string>
     <string name="faq_5_text">Comproveu la bateria del dispositiu i la configuració de notificacions, si no hi ha res que bloquegi els recordatoris o que mati l\'aplicació en segon pla. També us recomanem que doneu una ullada a &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;, té alguns consells útils.</string>
     <string name="faq_6_title">Com puc modificar o suprimir un tipus d\'esdeveniment existent\?</string>

@@ -221,7 +221,7 @@
     <string name="sample_title_4">Ebéd Máriával</string>
     <string name="sample_description_4">A plázában</string>
     <string name="sample_title_5">Kávészünet</string>
-    <string name="show_events_happening">Mutasd a következő eseményeket:</string>
+    <string name="show_events_happening">Következő események megjelenítése:</string>
     <string name="within_the_next_one_year">A következő egy évben</string>
     <string name="today_only">Csak ma</string>
     <string name="within_the_next">A következő…</string>
@@ -260,4 +260,8 @@
     <string name="status_tentative">Bizonytalan</string>
     <string name="status_confirmed">Megerősített</string>
     <string name="status_canceled">Visszavont</string>
+    <string name="public_holidays">Munkaszüneti napok</string>
+    <string name="other_holidays">Egyéb ünnepnapok és megemlékezések</string>
+    <string name="regional_holidays">Regionális ünnepnapok</string>
+    <string name="select_holidays_to_import">Importálandó ünnepnapok kiválasztása</string>
 </resources>

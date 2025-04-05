@@ -1,8 +1,0 @@
-* Risolto il problema di visualizzazione degli eventi plurigiornalieri nella barra superiore
-* Corretta la funzionalità di apertura delle attività dai widget
-* Corretto il problema di ridimensionamento del widget della data
-* Corretta l'opacità delle attività incomplete nei widget
-* Aggiunto il supporto per lo stato degli eventi
-* Sostituite le caselle di controllo con interruttori
-* Rimosso il supporto per Android 7 e versioni precedenti
-* Altre correzioni, miglioramenti e aggiunta traduzioni

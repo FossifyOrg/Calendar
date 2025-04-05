@@ -1,1 +1,0 @@
-* Die Importkompatibilität mit Simple Calendar verbessert.

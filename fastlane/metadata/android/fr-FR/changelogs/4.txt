@@ -1,6 +1,0 @@
-* Correction du problème d'affichage du mois sur Google Pixel 8 Pro.
-* Correction des points de couleur des événements sur la vue mensuelle et quotidienne.
-* Correction du fuseau horaire incorrect lors de l'importation de fichiers ICS.
-* Mise en évidence des week-ends en mode impression.
-* Mise à jour des jours fériés pour certains pays.
-* Ajout de quelques traductions.

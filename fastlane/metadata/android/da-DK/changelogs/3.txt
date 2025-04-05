@@ -1,2 +1,0 @@
-* Fiksede import af Simple Calendar.
-* Fiksede foss-udgave af indstillinger.

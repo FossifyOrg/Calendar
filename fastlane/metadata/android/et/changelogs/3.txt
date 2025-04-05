@@ -1,2 +1,0 @@
-* Parandasime andmete impordi ühilduvust Lihtsa Kalendriga.
-* Tegime korda FOSS-variandi seadistused.
