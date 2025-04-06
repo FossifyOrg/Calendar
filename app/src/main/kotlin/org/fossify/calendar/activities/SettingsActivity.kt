@@ -482,7 +482,8 @@ class SettingsActivity : SimpleActivity() {
         settingsReminderSound.text = config.reminderSoundTitle
 
         settingsReminderSoundHolder.setOnClickListener {
-            SelectAlarmSoundDialog(this@SettingsActivity,
+            SelectAlarmSoundDialog(
+                this@SettingsActivity,
                 config.reminderSoundUri,
                 config.reminderAudioStream,
                 GET_RINGTONE_URI,
