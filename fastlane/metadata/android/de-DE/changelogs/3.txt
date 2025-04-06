@@ -1,2 +1,0 @@
-* Die Importkompatibilität mit Simple Calendar verbessert.
-* Foss-Flavor-Konfiguration korrigiert.

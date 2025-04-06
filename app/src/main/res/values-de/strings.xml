@@ -247,7 +247,7 @@
     <string name="accessibility_previous_day">Gehe zum vorherigen Tag</string>
     <string name="accessibility_next_day">Gehe zum nächsten Tag</string>
     <string name="faq_1_title">Wie kann ich Feiertage löschen, die über „Feiertage hinzufügen“ importiert wurden\?</string>
-    <string name="faq_1_text">Die über diesen Weg erstellten Feiertage sind als Termintyp „Feiertage“ deklariert. Du kannst in den Einstellungen -&gt; Termintypen verwalten auf den Termintyp gedrückt halten und über das Papierkorbsymbol löschen.</string>
+    <string name="faq_1_text">Auf diese Weise erstellte Feiertage werden als Termintyp „Feiertage“ deklariert. Du kannst unter „Einstellungen -&gt; Termintypen verwalten“ auf den entsprechenden Termintyp lange drücken und ihn mit dem Papierkorbsymbol löschen.</string>
     <string name="faq_2_title">Kann ich meine Termine über Google Kalender oder andere CalDAV-unterstützende Dienste synchronisieren\?</string>
     <string name="faq_2_title_extra">Kann ich auch Kalender mit anderen teilen\?</string>
     <string name="faq_2_text">Ja, aktiviere „CalDAV-Synchronisierung“ in den Einstellungen und wähle die Kalender aus, die du synchronisieren möchtest. Jedoch benötigst du eine separate App, welche die Synchronisierung zwischen Gerät und Servern handhabt. Falls du einen Google-Kalender synchronisieren möchtest, kann deren offizielle Kalender-App dies übernehmen. Für andere Kalender benötigst du einen Synchronisierungsadapter wie z. B. DAVx5.</string>
@@ -258,7 +258,7 @@
     <string name="faq_5_title">Die App zeigt keine Benachrichtigungen an, woran liegt das?</string>
     <string name="faq_5_text">Überprüfe den Akku deines Geräts und die Benachrichtigungseinstellungen, um sicherzustellen, dass die Erinnerungen nicht blockiert werden oder die App im Hintergrund beendet wird. Vielleicht möchtest du auch einen Blick auf &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt; werfen, dort lassen sich einige nützliche Tipps finden.</string>
     <string name="faq_6_title">Wie kann ich einen bestehenden Termintyp ändern oder löschen\?</string>
-    <string name="faq_6_text">Du kannst beides in der App unter „Einstellungen – Termintypen verwalten“ einstellen. Klicke einfach auf den gewünschte Termin, um Beschriftung und Farbe zu ändern, oder wähle den gewünschten Termin durch langes Drücken aus und verwende den Mülleimer im oberen Menü.</string>
+    <string name="faq_6_text">Du kannst beides in der App unter „Einstellungen – Termintypen verwalten“ einstellen. Klicke einfach auf den gewünschten Termin, um die Beschriftung und Farbe zu ändern, oder wähle den gewünschten Termin durch langes Drücken aus und verwende das Papierkorbsymbol im oberen Menü zum Löschen.</string>
     <string name="caldav">CalDAV</string>
     <string name="public_holidays">Gesetzliche Feiertage</string>
     <string name="other_holidays">Andere Feier- und Gedenktage</string>

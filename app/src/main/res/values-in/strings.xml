@@ -257,4 +257,8 @@
     <string name="status_tentative">Tentatif</string>
     <string name="status_confirmed">Terkonfirmasi</string>
     <string name="status_canceled">Dibatalkan</string>
+    <string name="public_holidays">Hari libur nasional</string>
+    <string name="regional_holidays">Hari libur daerah</string>
+    <string name="other_holidays">Hari libur dan perayaan lainnya</string>
+    <string name="select_holidays_to_import">Pilih hari libur untuk diimpor</string>
 </resources>
