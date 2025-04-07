@@ -261,4 +261,5 @@
     <string name="select_holidays_to_import">选择要导入的节假日</string>
     <string name="public_holidays">公共节假日</string>
     <string name="other_holidays">其他节假日和节日</string>
+    <string name="show_widget_header">显示标题</string>
 </resources>
