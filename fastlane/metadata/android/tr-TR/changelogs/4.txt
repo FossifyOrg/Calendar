@@ -1,6 +1,0 @@
-* Google Pixel 8 Pro'daki ay görünümü sorunu düzeltildi.
-* Aylık ve günlük görünümdeki olay renk noktaları düzeltildi.
-* ICS dosyalarını içe aktarırken yanlış zaman dilimi düzeltildi.
-* Yazdırma modunda hafta sonlarını vurgulayın.
-* Bazı ülkeler için tatiller güncellendi.
-* Bazı çeviriler eklendi.

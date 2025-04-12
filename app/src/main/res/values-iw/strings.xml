@@ -77,7 +77,7 @@
     <string name="first_f">ראשונה</string>
     <string name="second_f">שניה</string>
     <string name="third_f">שלישית</string>
-    <string name="fourth_f">רביעית</string>
+    <string name="fourth_f">­רביעית</string>
     <string name="fifth_f">חמישי</string>
     <string name="last_f">אחרונה</string>
     <string name="birthdays">ימי הולדת</string>
@@ -212,7 +212,7 @@
     <string name="sample_title_5">הפסקת קפה</string>
     <string name="show_events_happening">הצג אירועים שקורים:</string>
     <string name="within_the_next_one_year">Within the next 1 year‬</string>
-    <string name="no_upcoming_events">אין פגישות קרובות.</string>
+    <string name="no_upcoming_events">אין אירועים קרובים.</string>
     <string name="everything_filtered_out">סיננת את כל סוגי הפגישות</string>
     <string name="event_color">צבע האירוע</string>
     <string name="delete_all_events_and_tasks">מחק את כל האירועים והמשימות</string>
@@ -223,4 +223,48 @@
     <string name="task_color">צבע המשימה</string>
     <string name="reminders">תזכורות</string>
     <string name="export_tasks">ייצוא משימות</string>
+    <string name="alarm_stream">התראה</string>
+    <string name="caldav">CalDAV</string>
+    <plurals name="within_the_next_weeks">
+        <item quantity="one">בתוך %d השבוע הבא</item>
+        <item quantity="two">בתוך %d השבועות הבאים</item>
+        <item quantity="other">בתוך %d השבועות הבאים</item>
+    </plurals>
+    <string name="faq_2_title_extra">אולי אפילו לשתף יומנים עם אנשים אחרים?</string>
+    <string name="faq_3_title">אני רואה את התזכורות החזותיות, אבל לא שומע אודיו. מה אני יכול לעשות?</string>
+    <string name="faq_4_title">האם האפליקציה תומכת באזורי זמן?</string>
+    <string name="faq_5_title">האפליקציה לא מציגה התראות, למה?</string>
+    <string name="faq_6_title">כיצד אוכל לשנות או למחוק סוג אירוע קיים?</string>
+    <string name="export_past_entries">ייצא גם ערכים קודמים</string>
+    <string name="status_free">חינמי</string>
+    <string name="fetching_event_failed">אחזור האירוע %s נכשל</string>
+    <string name="faq_2_title">האם אוכל לסנכרן את האירועים שלי באמצעות יומן Google, או שירות אחר התומך ב-CalDAV?</string>
+    <string name="faq_3_text">לא רק הצגת התזכורת בפועל, אלא גם השמעת השמע מושפעת מאוד מהמערכת. אם אינך שומע שום צליל, נסה להיכנס להגדרות האפליקציה, ללחוץ על האפשרות \"זרם שמע בשימוש תזכורות\" ולשנות אותה לערך אחר. אם זה עדיין לא יעבוד, בדוק את הגדרות הסאונד שלך, אם הזרם המסוים אינו מושתק.</string>
+    <string name="faq_4_text">כן, זה נתמך. כברירת מחדל, כל האירועים נוצרים באזור הזמן הנוכחי שלך. אם ברצונך לשנות את אזור הזמן של אירוע, תחילה עליך להפעיל בחירת אזורי זמן בהגדרות האפליקציה, ולאחר מכן לשנות אותו במסך פרטי האירוע. זה מושבת כברירת מחדל מכיוון שרוב האנשים לא זקוקים לזה.</string>
+    <string name="faq_2_text">כן, פשוט החלף את \"סנכרון CalDAV\" בהגדרות האפליקציה ובחר את היומנים שברצונך לסנכרן. עם זאת, תזדקק לאפליקציית צד שלישי שמטפלת בסנכרון בין המכשיר לשרתים. במקרה שאתה רוצה לסנכרן יומן של גוגל, אפליקציית היומן הרשמית שלהם תעשה את העבודה. עבור לוחות שנה אחרים תזדקק למתאם סנכרון של צד שלישי, למשל DAVx5.</string>
+    <string name="public_holidays">חגים ציבוריים</string>
+    <string name="regional_holidays">חגים אזוריים</string>
+    <string name="status_confirmed">מאומת</string>
+    <string name="status_canceled">בוטל</string>
+    <string name="today_only">רק היום</string>
+    <string name="within_the_next">בתוך הבא…</string>
+    <plurals name="within_the_next_months">
+        <item quantity="one">בתוך %d החודש הבא</item>
+        <item quantity="two">בתוך %d החודשים הבאים</item>
+        <item quantity="other">בתוך %d החודשים הבאים</item>
+    </plurals>
+    <string name="accessibility_previous_month">עבור לחודש הקודם</string>
+    <string name="accessibility_next_month">עבור לחודש הבא</string>
+    <string name="accessibility_previous_day">עבור ליום קודם</string>
+    <string name="accessibility_next_day">עבור ליום הבא</string>
+    <string name="faq_1_title">כיצד אוכל להסיר את החגים שיובאו באמצעות כפתור \"הוסף חגים\"?</string>
+    <string name="faq_5_text">בדוק את הגדרות הסוללה וההתראות של המכשיר שלך, אם אין דבר שחוסם את התזכורות או סוגר את האפליקציה ברקע. אולי תרצה להסתכל ב-&lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;, יש בו כמה טיפים שימושיים.</string>
+    <string name="faq_6_text">אתה יכול לעשות את שניהם בהגדרות האפליקציה - נהל סוגי אירועים. פשוט לחץ על המבוקש כדי לשנות את התווית והצבע, או בחר את המבוקש על ידי לחיצה ארוכה עליו והשתמש בפח האשפה בתפריט העליון למחיקה.</string>
+    <string name="status_tentative">זמני</string>
+    <string name="faq_1_text">חגים שנוצרו כך מוכנסים לסוג אירוע חדש בשם \"חגים\". אתה יכול להיכנס להגדרות -&gt; ניהול סוגי אירועים, ללחוץ לחיצה ארוכה על סוג האירוע הנתון ולמחוק אותו על ידי בחירת פח האשפה.</string>
+    <plurals name="within_the_next_days">
+        <item quantity="one">בתוך %d היום הבא</item>
+        <item quantity="two">בתוך %d הימים הבאים</item>
+        <item quantity="other">בתוך %d הימים הבאים</item>
+    </plurals>
 </resources>

@@ -1,6 +1,5 @@
 package org.fossify.calendar.helpers
 
-import android.provider.CalendarContract
 import android.provider.CalendarContract.Events
 import org.fossify.calendar.activities.EventActivity
 import org.fossify.calendar.activities.TaskActivity
@@ -150,6 +149,7 @@ const val AUTO_BACKUP_EVENTS = "auto_backup_events"
 const val AUTO_BACKUP_TASKS = "auto_backup_tasks"
 const val AUTO_BACKUP_PAST_ENTRIES = "auto_backup_past_entries"
 const val LAST_AUTO_BACKUP_TIME = "last_auto_backup_time"
+const val LAST_USED_SHOW_LIST_WIDGET_HEADER = "last_used_show_widget_header"
 
 // repeat_rule for monthly and yearly repetition
 const val REPEAT_SAME_DAY =

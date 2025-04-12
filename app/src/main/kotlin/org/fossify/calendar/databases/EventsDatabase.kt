@@ -22,7 +22,7 @@ import org.fossify.calendar.models.Widget
 import org.fossify.commons.extensions.getProperPrimaryColor
 import java.util.concurrent.Executors
 
-@Database(entities = [Event::class, EventType::class, Widget::class, Task::class], version = 10)
+@Database(entities = [Event::class, EventType::class, Widget::class, Task::class], version = 11)
 @TypeConverters(Converters::class)
 abstract class EventsDatabase : RoomDatabase() {
 
@@ -57,6 +57,7 @@ abstract class EventsDatabase : RoomDatabase() {
                             .addMigrations(MIGRATION_7_8)
                             .addMigrations(MIGRATION_8_9)
                             .addMigrations(MIGRATION_9_10)
+                            .addMigrations(MIGRATION_10_11)
                             .build()
                         db!!.openHelper.setWriteAheadLoggingEnabled(true)
                     }
@@ -159,6 +160,14 @@ abstract class EventsDatabase : RoomDatabase() {
                     execSQL("CREATE UNIQUE INDEX IF NOT EXISTS `index_tasks_id_task_id` ON `tasks` (`id`, `task_id`)")
                     execSQL("INSERT INTO `tasks` SELECT * FROM `_tasks_tmp`")
                     execSQL("DROP TABLE `_tasks_tmp`")
+                }
+            }
+        }
+
+        private val MIGRATION_10_11 = object : Migration(10, 11) {
+            override fun migrate(database: SupportSQLiteDatabase) {
+                database.apply {
+                    execSQL("ALTER TABLE widgets ADD COLUMN header INTEGER NOT NULL DEFAULT 1")
                 }
             }
         }
