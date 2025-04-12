@@ -914,24 +914,29 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
             contacts.forEach { contact ->
                 val events = if (birthdays) contact.birthdays else contact.anniversaries
                 events.forEach { birthdayAnniversary ->
+                    var missingYear = false
                     // private contacts are created in Simple Contacts Pro, so we can guarantee that they exist only in these 2 formats
                     val format = if (birthdayAnniversary.startsWith("--")) {
+                        missingYear = true
                         "--MM-dd"
                     } else {
                         "yyyy-MM-dd"
                     }
 
+                    var flags = if (missingYear) {
+                        FLAG_ALL_DAY or FLAG_MISSING_YEAR
+                    } else {
+                        FLAG_ALL_DAY
+                    }
+
                     val formatter = SimpleDateFormat(format, Locale.getDefault())
                     val date = formatter.parse(birthdayAnniversary)
-                    if (date.year < 70) {
-                        date.year = 70
-                    }
 
                     val timestamp = date.time / 1000L
                     val lastUpdated = System.currentTimeMillis()
                     val event = Event(
                         null, timestamp, timestamp, contact.name, reminder1Minutes = reminders[0], reminder2Minutes = reminders[1],
-                        reminder3Minutes = reminders[2], importId = contact.contactId.toString(), timeZone = DateTimeZone.getDefault().id, flags = FLAG_ALL_DAY,
+                        reminder3Minutes = reminders[2], importId = contact.contactId.toString(), timeZone = DateTimeZone.getDefault().id, flags = flags,
                         repeatInterval = YEAR, repeatRule = REPEAT_SAME_DAY, eventType = eventTypeId, source = source, lastUpdated = lastUpdated
                     )
 
