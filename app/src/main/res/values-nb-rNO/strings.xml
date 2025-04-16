@@ -49,7 +49,7 @@
     <string name="years_raw">år</string>
     <string name="repeat_till">Gjenta til</string>
     <string name="forever">For alltid</string>
-    <string name="event_is_repeatable">Hendelsen er repeterbar</string>
+    <string name="event_is_repeatable">Hendelsen kan gjentas</string>
     <string name="task_is_repeatable">Oppgaven kan gjentas</string>
     <string name="selection_contains_repetition">Markeringen inneholder gjentagende hendelser</string>
     <string name="delete_one_only">Slett bare den merkede forekomsten</string>
@@ -103,7 +103,7 @@
     <string name="add_another_reminder">Legg til en annen påminnelse</string>
     <string name="event_reminders">Hendelsespåminnelser</string>
     <string name="reminders">Påminnelser</string>
-    <string name="add_another_attendee">Legg til en annen deltager</string>
+    <string name="add_another_attendee">Legg til en annen deltaker</string>
     <string name="my_status">Min status:</string>
     <string name="invited">Invitert</string>
     <string name="enter_a_country">Angi et land eller tidssone</string>
@@ -113,9 +113,9 @@
     <string name="import_events_from_ics_pro">Importer hendelser fra en .ics-fil (Pro)</string>
     <string name="export_events_to_ics">Eksporter hendelser til en .ics-fil</string>
     <string name="default_event_type">Standard hendelsestype</string>
-    <string name="export_past_events_too">Eksporter tidligere hendelser også</string>
+    <string name="export_past_events_too">Eksporter også tidligere hendelser</string>
     <string name="export_tasks">Eksporter oppgaver</string>
-    <string name="export_past_entries">Eksporter tidligere oppføringer også</string>
+    <string name="export_past_entries">Eksporter også tidligere oppføringer</string>
     <string name="include_event_types">Inkluder hendelsestyper</string>
     <string name="filename_without_ics">Filnavn (uten .ics)</string>
     <string name="ignore_event_types">Ignorer hendelsestyper i filen, bruk alltid standardtypen</string>
@@ -170,10 +170,10 @@
     <string name="notification_stream">Varsel</string>
     <string name="ring_stream">Ringetone</string>
     <string name="use_last_event_reminders">Bruk den siste hendelsens påminnelser som standard for nye hendelser</string>
-    <string name="default_reminder_1">Standardpåminnelse 1</string>
-    <string name="default_reminder_2">Standardpåminnelse 2</string>
-    <string name="default_reminder_3">Standardpåminnelse 3</string>
-    <string name="view_to_open_from_widget">Visning å åpne fra hendelseslistemodulen</string>
+    <string name="default_reminder_1">Standard påminnelse 1</string>
+    <string name="default_reminder_2">Standard påminnelse 2</string>
+    <string name="default_reminder_3">Standard påminnelse 3</string>
+    <string name="view_to_open_from_widget">Visning som skal åpnes fra hendelseslistemodulen</string>
     <string name="last_view">Siste visning</string>
     <string name="new_events">Nye hendelser</string>
     <string name="default_start_time">Standard starttid</string>
@@ -230,14 +230,31 @@
         <item quantity="one">Innen neste %d måned</item>
         <item quantity="other">Innen de neste %d månedene</item>
     </plurals>
-    <string name="faq_1_title">Hvordan kan jeg fjerne off. fridager importert via meny - \"Legg til off. fridager\"\?</string>
+    <string name="faq_1_title">Hvordan kan jeg fjerne off. fridager importert via knappen «Legg til off. fridager»?</string>
     <string name="faq_1_text">Off. fridager opprettet på denne måten settes inn i en ny hendelsestype kalt \"Off. fridager\". Gå til Innstillinger -&gt; Behandle hendelsestyper, lang-trykk hendelsestypen og slett den ved å velge søppelbøtten.</string>
     <string name="faq_2_title">Kan jeg synkronisere hendelsene mine via Google Kalender eller annen tjeneste som støtter CalDAV\?</string>
-    <string name="faq_2_text">Ja, bare aktiver \"CalDAV-synkronisering\" i innstillingene og velg kalenderne du vil synkronisere. Du trenger imidlertid program som håndterer synkroniseringen mellom enheten og serverne. Hvis du vil synkronisere en Google-kalender, vil deres offisielle kalenderapp gjøre jobben. For andre kalendere trenger du en annen synkroniseringsapp, for eksempel DAVx5.</string>
+    <string name="faq_2_text">Ja, bare slå på «CalDAV-synkronisering» i appinnstillingene og velg kalenderne du vil synkronisere. Du må imidlertid ha en tredjepartsapp som håndterer synkroniseringen mellom enheten og tjenerne. Om du vil synkronisere en Google-kalender, vil Googles offisielle kalenderapp gjøre jobben. For andre kalendere trenger du et tredjeparts synkroniseringsadapter, for eksempel DAVx5.</string>
     <string name="accessibility_next_day">Gå til neste dag</string>
     <string name="system_stream">System</string>
     <string name="alarm_stream">Alarm</string>
     <string name="accessibility_previous_month">Gå til forrige måned</string>
     <string name="accessibility_next_month">Gå til neste måned</string>
     <string name="accessibility_previous_day">Gå til forrige dag</string>
+    <string name="not_going">Kommer ikke</string>
+    <string name="maybe_going">Kommer kanskje</string>
+    <string name="going">Kommer</string>
+    <string name="caldav">CalDAV</string>
+    <string name="caldav_event_not_found">Hendelsen ble ikke funnet. Slå på CalDAV‑synkronisering for den aktuelle kalenderen i appens innstillinger.</string>
+    <string name="fetching_event_failed">Henting av hendelsen %s mislyktes</string>
+    <string name="faq_2_title_extra">Kanskje til og med dele kalendere med andre?</string>
+    <string name="no_synchronized_calendars">Ingen synkroniserbare kalendere ble funnet</string>
+    <string name="status_free">Ledig</string>
+    <string name="status_tentative">Foreløpig</string>
+    <string name="status_confirmed">Bekreftet</string>
+    <string name="status_canceled">Avlyst</string>
+    <string name="faq_5_text">Kontrollere batteri‑ og varslingsinnstillingene på enheten din, og at ingenting blokkerer påminnelsene eller avslutter appen i bakgrunnen. Du kan også ta en titt på <a href="https://dontkillmyapp.com">https://dontkillmyapp.com</a>, der finner du nyttige tips.</string>
+    <string name="faq_4_text">Ja, den gjør. Som standard opprettes alle hendelser i din nåværende tidssone. Om du ønsker å endre tidssonen for en hendelse, må du først aktivere tidssonevelgeren i appinnstillingene, og deretter endre den i hendelsesdetaljene. Den er deaktivert som standard, ettersom de fleste ikke har behov for den.</string>
+    <string name="faq_3_title">Jeg ser de visuelle påminnelsene, men hører ingen lyd. Hva kan jeg gjøre?</string>
+    <string name="faq_4_title">Støtter appen tidssoner?</string>
+    <string name="faq_5_title">Hvorfor viser ikke appen noen varsler?</string>
 </resources>
