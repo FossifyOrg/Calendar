@@ -172,7 +172,7 @@
     <string name="alarm_stream">منبه</string>
     <string name="notification_stream">تنبيه</string>
     <string name="ring_stream">حلقة</string>
-    <string name="use_last_event_reminders">استخدم أخر تنبيهات الأحداث افتراضيا للأحداث الجديدة</string>
+    <string name="use_last_event_reminders">استخدام تذكيرات الحدث الأخير كتذكير افتراضي للأحداث الجديدة</string>
     <string name="default_reminder_1">مذكرة افتراضية ١</string>
     <string name="default_reminder_2">مذكرة افتراضية ٢</string>
     <string name="default_reminder_3">مذكرة افتراضية ٣</string>
@@ -261,4 +261,20 @@
     <string name="faq_5_text">تحقق من إعدادات بطارية جهازك والإشعارات ، إذا لم يكن هناك شيء يمنع التذكيرات ، أو يقتل التطبيق في الخلفية. قد ترغب أيضا في إلقاء نظرة على &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt; ، يحتوي على بعض النصائح المفيدة.</string>
     <string name="faq_6_title">كيف يمكنني تعديل أو حذف نوع حدث موجود؟</string>
     <string name="faq_6_text">يمكنك القيام بكل من هذين الخيارين في إعدادات التطبيق - إدارة أنواع الأحداث. ما عليك سوى النقر فوق المطلوب لتغيير الملصق واللون ، أو تحديد الاسم المطلوب بالضغط عليه لفترة طويلة واستخدام سلة المهملات في القائمة العلوية للحذف.</string>
+    <string name="show_widget_header">إظهار العنوان</string>
+    <string name="default_calendar_color">اللون الافتراضي للتقويم</string>
+    <string name="caldav">كال ديف CalDAV</string>
+    <string name="accessibility_previous_day">انتقل إلى اليوم السابق</string>
+    <string name="accessibility_next_day">انتقل إلى اليوم التالي</string>
+    <string name="public_holidays">العطلات الرسمية</string>
+    <string name="regional_holidays">العطل الإقليمية</string>
+    <string name="other_holidays">الأعياد والمناسبات الأخرى</string>
+    <string name="select_holidays_to_import">حدد العطلات المراد استيرادها</string>
+    <string name="status_tentative">مؤقت</string>
+    <string name="status_free">حر</string>
+    <string name="status_canceled">ألغي</string>
+    <string name="event_color">لون الحدث</string>
+    <string name="status_confirmed">مؤكد</string>
+    <string name="accessibility_previous_month">انتقل إلى الشهر الماضي</string>
+    <string name="accessibility_next_month">انتقل إلى الشهر القادم</string>
 </resources>
