@@ -11,7 +11,7 @@ print = "1.0.0"
 constraintlayout = "2.2.0"
 swiperefreshlayout = "1.1.0"
 #Room
-room = "2.6.1"
+room = "2.7.1"
 #Fossify
 commons = "ec2b2faab5"
 #Gradle
