@@ -267,4 +267,5 @@
     <string name="accessibility_next_day">Doties uz nākamo dienu</string>
     <string name="status_canceled">Atcelts</string>
     <string name="faq_6_text">Abas darbības var veikt \"Iestatījumi\" - \"Notikumu veidu pārvaldīšana\". Jāklikšķina uz nepieciešamā, lai nomainītu iezīmi un krāsu, vai ilgi jāpiespiež uz nevajadzīgā un jāizmanto atkritne augšējā izvēlnē, lai izdzēstu.</string>
+    <string name="show_widget_header">Rādīt galveni</string>
 </resources>
