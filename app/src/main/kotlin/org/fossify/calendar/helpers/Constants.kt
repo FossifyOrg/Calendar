@@ -275,6 +275,7 @@ const val REPEAT_LIMIT = "REPEAT_LIMIT"
 const val REPEAT_RULE = "REPEAT_RULE"
 const val ATTENDEES = "ATTENDEES"
 const val AVAILABILITY = "AVAILABILITY"
+const val CLASS = "CLASS"
 const val EVENT_TYPE_ID = "EVENT_TYPE_ID"
 const val EVENT_CALENDAR_ID = "EVENT_CALENDAR_ID"
 const val IS_NEW_EVENT = "IS_NEW_EVENT"
@@ -283,6 +284,11 @@ const val EVENT_COLOR = "EVENT_COLOR"
 // From Status attribute (RFC 5545 3.8.1.11)
 const val CANCELLED = "CANCELLED"
 const val TENTATIVE = "TENTATIVE"
+
+//From Classification attribute (RFC 2445 4.8.1.3)
+const val PUBLIC = "PUBLIC"
+const val PRIVATE = "PRIVATE"
+const val CONFIDENTIAL = "CONFIDENTIAL"
 
 // actions
 const val ACTION_MARK_COMPLETED = "ACTION_MARK_COMPLETED"
@@ -351,5 +357,13 @@ fun getStatusStringFromEventStatus(statusCode: Int): String {
         Events.STATUS_CONFIRMED -> CONFIRMED
         Events.STATUS_CANCELED -> CANCELLED
         else -> TENTATIVE
+    }
+}
+
+fun getAccessLevelStringFromEventAccessLevel(accessLevel: Int): String {
+    return when (accessLevel) {
+        Events.ACCESS_PRIVATE -> PRIVATE
+        Events.ACCESS_CONFIDENTIAL -> CONFIDENTIAL
+        else -> PUBLIC
     }
 }

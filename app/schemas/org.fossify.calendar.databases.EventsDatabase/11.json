@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 11,
-    "identityHash": "ad61295d38c96b0b225c19f9d9bb7c0c",
+    "identityHash": "ab28877f557ed5ff8a83137b5b9b858f",
     "entities": [
       {
         "tableName": "events",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `start_ts` INTEGER NOT NULL, `end_ts` INTEGER NOT NULL, `title` TEXT NOT NULL, `location` TEXT NOT NULL, `description` TEXT NOT NULL, `reminder_1_minutes` INTEGER NOT NULL, `reminder_2_minutes` INTEGER NOT NULL, `reminder_3_minutes` INTEGER NOT NULL, `reminder_1_type` INTEGER NOT NULL, `reminder_2_type` INTEGER NOT NULL, `reminder_3_type` INTEGER NOT NULL, `repeat_interval` INTEGER NOT NULL, `repeat_rule` INTEGER NOT NULL, `repeat_limit` INTEGER NOT NULL, `repetition_exceptions` TEXT NOT NULL, `attendees` TEXT NOT NULL, `import_id` TEXT NOT NULL, `time_zone` TEXT NOT NULL, `flags` INTEGER NOT NULL, `event_type` INTEGER NOT NULL, `parent_id` INTEGER NOT NULL, `last_updated` INTEGER NOT NULL, `source` TEXT NOT NULL, `availability` INTEGER NOT NULL, `color` INTEGER NOT NULL, `type` INTEGER NOT NULL, `status` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `start_ts` INTEGER NOT NULL, `end_ts` INTEGER NOT NULL, `title` TEXT NOT NULL, `location` TEXT NOT NULL, `description` TEXT NOT NULL, `reminder_1_minutes` INTEGER NOT NULL, `reminder_2_minutes` INTEGER NOT NULL, `reminder_3_minutes` INTEGER NOT NULL, `reminder_1_type` INTEGER NOT NULL, `reminder_2_type` INTEGER NOT NULL, `reminder_3_type` INTEGER NOT NULL, `repeat_interval` INTEGER NOT NULL, `repeat_rule` INTEGER NOT NULL, `repeat_limit` INTEGER NOT NULL, `repetition_exceptions` TEXT NOT NULL, `attendees` TEXT NOT NULL, `import_id` TEXT NOT NULL, `time_zone` TEXT NOT NULL, `flags` INTEGER NOT NULL, `event_type` INTEGER NOT NULL, `parent_id` INTEGER NOT NULL, `last_updated` INTEGER NOT NULL, `source` TEXT NOT NULL, `availability` INTEGER NOT NULL, `access_level` INTEGER NOT NULL, `color` INTEGER NOT NULL, `type` INTEGER NOT NULL, `status` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -155,6 +155,12 @@
           {
             "fieldPath": "availability",
             "columnName": "availability",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "accessLevel",
+            "columnName": "access_level",
             "affinity": "INTEGER",
             "notNull": true
           },
@@ -375,7 +381,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'ad61295d38c96b0b225c19f9d9bb7c0c')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'ab28877f557ed5ff8a83137b5b9b858f')"
     ]
   }
 }
