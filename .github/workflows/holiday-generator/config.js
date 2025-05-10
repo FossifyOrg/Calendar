@@ -12,6 +12,7 @@ export const COUNTRIES = [
     "AR", // Argentina
     "AU", // Australia
     "AT", // Austria
+    "BD", // Bangladesh
     "BE", // Belgium
     "BO", // Bolivia
     "BR", // Brazil

@@ -161,12 +161,12 @@
     <string name="sample_title_1">व्यायाम</string>
     <string name="sunday_alt">रविवार</string>
     <plurals name="within_the_next_weeks">
-        <item quantity="one">अगले %d सप्ताह के भीतर</item>
+        <item quantity="one">अगले सप्ताह के भीतर</item>
         <item quantity="other">अगले %d सप्ताह के भीतर</item>
     </plurals>
     <string name="faq_1_title">मैं \"छुट्टियाँ जोड़ें\" बटन के माध्यम से आयातित छुट्टियों को कैसे हटा सकता हूँ?</string>
     <string name="faq_2_title_extra">शायद अन्य लोगों के साथ कैलेंडर भी साझा करें?</string>
-    <string name="faq_5_title">ऐप कोई सूचना नहीं दिखाता, ऐसा क्यों है?</string>
+    <string name="faq_5_title">यह ऐप कोई सूचना नहीं दिखाता, ऐसा क्यों है?</string>
     <string name="faq_6_title">मैं किसी मौजूदा आयोजन प्रकार को कैसे संशोधित या हटा सकता हूँ?</string>
     <string name="accessibility_previous_month">पिछले महीने पर जाएँ</string>
     <string name="accessibility_next_month">अगले महीने जाओ</string>
@@ -257,4 +257,12 @@
         <item quantity="one">अगले %d महीने के भीतर</item>
         <item quantity="other">अगले %d महीनों के भीतर</item>
     </plurals>
+    <string name="select_holidays_to_import">आयात करने के लिए छुट्टियाँ चुनें</string>
+    <string name="regional_holidays">क्षेत्रीय छुट्टियाँ</string>
+    <string name="public_holidays">सार्वजनिक छुट्टियाँ</string>
+    <string name="other_holidays">अन्य छुट्टियाँ एवं उत्सव</string>
+    <string name="status_tentative">अनिश्चित</string>
+    <string name="status_confirmed">निश्चित</string>
+    <string name="status_canceled">रद्द</string>
+    <string name="show_widget_header">शीर्षणी दिखायें</string>
 </resources>

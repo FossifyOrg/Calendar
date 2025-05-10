@@ -1,2 +1,0 @@
-* Reparação da compatibilidade com a importação do Simple Calendar.
-* Reparação da configuração floss flavor.

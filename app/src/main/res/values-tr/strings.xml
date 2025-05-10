@@ -5,7 +5,7 @@
     <string name="daily_view">Günlük görünüm</string>
     <string name="weekly_view">Haftalık görünüm</string>
     <string name="monthly_view">Aylık görünüm</string>
-    <string name="monthly_daily_view">Aylık + günlük görünüm</string>
+    <string name="monthly_daily_view">Aylık ve günlük görünüm</string>
     <string name="yearly_view">Yıllık görünüm</string>
     <string name="simple_event_list">Basit etkinlik listesi</string>
     <string name="no_upcoming_events">Yaklaşan etkinlik yok.</string>
@@ -166,8 +166,8 @@
     <string name="delete_all_events_confirmation">Tüm etkinlikleri ve görevleri silmek istediğinizden emin misiniz\? Bu, etkinlik türlerinizi ve diğer ayarlarınızı olduğu gibi bırakacaktır.</string>
     <string name="show_a_grid">Izgara göster</string>
     <string name="loop_reminders">Kapatılana kadar hatırlatıcıları tekrarla</string>
-    <string name="dim_past_events">Geçmiş etkinlikleri karart</string>
-    <string name="dim_completed_tasks">Tamamlanan görevleri karart</string>
+    <string name="dim_past_events">Geçmiş etkinlikleri soldur</string>
+    <string name="dim_completed_tasks">Tamamlanan görevleri soldur</string>
     <string name="events">Etkinlikler</string>
     <string name="reminder_stream">Hatırlatıcılar tarafından kullanılan ses akışı</string>
     <string name="system_stream">Sistem</string>
@@ -204,7 +204,7 @@
     <string name="insufficient_permissions">Seçili takvime yazmanıza izin verilmiyor</string>
     <string name="caldav_event_not_found">Etkinlik bulunamadı. Lütfen uygulama ayarlarından uygun takvim için CalDAV eşzamanlamasını etkinleştirin.</string>
     <string name="no_synchronized_calendars">Eşzamanlanabilir takvim bulunamadı</string>
-    <string name="status_free">Serbest</string>
+    <string name="status_free">Uygun</string>
     <string name="status_busy">Meşgul</string>
     <string name="fetching_event_failed">%s etkinliği getirilemedi</string>
     <string name="monday_alt">Pazartesi</string>
@@ -257,4 +257,11 @@
     <string name="faq_6_text">Bunların ikisini de uygulamanın Ayarlar - Etkinlik türlerini yönet kısmında yapabilirsiniz. Etiket ve rengi değiştirmek için istediğinizin üzerine tıklayın veya uzun basarak istediğinizi seçin ve silmek için üst menüdeki çöp kutusunu kullanın.</string>
     <string name="alarm_stream">Alarm</string>
     <string name="caldav">CalDAV</string>
+    <string name="public_holidays">Resmi tatiller</string>
+    <string name="regional_holidays">Dini tatiller</string>
+    <string name="other_holidays">Diğer tatiller</string>
+    <string name="select_holidays_to_import">İçe aktarılacak tatilleri seçin</string>
+    <string name="status_confirmed">Onaylanmış</string>
+    <string name="status_tentative">Kesin değil</string>
+    <string name="status_canceled">İptal edilmiş</string>
 </resources>

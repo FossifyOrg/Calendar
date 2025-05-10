@@ -180,11 +180,11 @@
     <string name="new_events">Nya händelser</string>
     <string name="default_start_time">Standard starttid</string>
     <string name="next_full_hour">Nästa heltimme</string>
-    <string name="current_time">Nuvarande tid</string>
+    <string name="current_time">Aktuell tid</string>
     <string name="default_duration">Standard varaktighet</string>
     <string name="last_used_one">Senast använda</string>
     <string name="other_time">Annan tid</string>
-    <string name="highlight_weekends">Markera veckoslut i vissa vyer</string>
+    <string name="highlight_weekends">Markera helger i vissa vyer</string>
     <string name="highlight_weekends_color">Markeringsfärg för helger</string>
     <string name="allow_changing_time_zones">Tillåt ändring av tidszoner för händelser</string>
     <string name="manage_quick_filter_event_types">Hantera typer av händelser med snabbfilter</string>
@@ -245,7 +245,7 @@
     <string name="faq_3_text">Inte bara visar den faktiska påminnelsen, men att spela upp ljudet påverkas enormt av systemet också. Om du inte kan höra något ljud kan du prova att gå in i appinställningarna, trycka på alternativet Ljudström som används av påminnelser och ändra det till ett annat värde. Om det fortfarande inte fungerar kontrollerar du ljudinställningarna om den aktuella strömmen inte är avstängd.</string>
     <string name="faq_4_title">Har appen stöd för tidszoner\?</string>
     <string name="faq_4_text">Ja, det gör den. Som standard skapas alla händelser i din aktuella tidszon. Om du vill ändra tidszonen för en händelse måste du först aktivera tidszonsväljaren i appinställningarna och sedan ändra tidszonen på skärmen Händelseinformation. Tidszonsväljaren är inaktiverad som standard eftersom de flesta inte behöver den.</string>
-    <string name="faq_5_title">Appen visar inga meddelanden, varför är det så\?</string>
+    <string name="faq_5_title">Appen visar inga aviseringar, varför är det så?</string>
     <string name="faq_5_text">Kontrollera enhetens batteri och inställningar för meddelanden, om det inte finns något som blockerar påminnelserna eller om appen inte är dödad i bakgrunden. Du kanske också vill ta en titt på &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;, där finns en del användbara tips.</string>
     <string name="faq_6_title">Hur kan jag ändra eller ta bort en befintlig händelsetyp\?</string>
     <string name="faq_6_text">Du kan göra båda i appens Inställningar - Hantera händelsetyper. Tryck bara på den önskade händelsen för att ändra etiketten och färgen, eller välj den önskade händelsen genom att trycka länge på den och använd papperskorgen i toppmenyn för att ta bort den.</string>
@@ -260,4 +260,9 @@
     <string name="status_tentative">Preliminär</string>
     <string name="status_confirmed">Bekräftad</string>
     <string name="status_canceled">Inställd</string>
+    <string name="other_holidays">Andra helgdagar och högtider</string>
+    <string name="public_holidays">Allmänna helgdagar</string>
+    <string name="regional_holidays">Regionala helgdagar</string>
+    <string name="select_holidays_to_import">Välj vilka helgdagar som ska importeras</string>
+    <string name="show_widget_header">Visa rubrik</string>
 </resources>

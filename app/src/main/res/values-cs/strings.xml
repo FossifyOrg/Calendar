@@ -267,4 +267,5 @@
     <string name="regional_holidays">Místní svátky</string>
     <string name="other_holidays">Ostatní svátky a události</string>
     <string name="select_holidays_to_import">Vyberte svátky, které chcete importovat</string>
+    <string name="show_widget_header">Zobrazit záhlaví</string>
 </resources>

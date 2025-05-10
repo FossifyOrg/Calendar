@@ -402,11 +402,11 @@ class IcsImporter(val activity: SimpleActivity) {
 
     private fun getTimestamp(fullString: String): Long {
         return try {
+            var timeZone = DateTimeZone.getDefault()
             when {
                 fullString.startsWith(';') -> {
                     // Ideally, we should parse BEGIN:VTIMEZONE and derive the timezone from there, but to get things working, let's assume TZID refers to one
                     // of the known timezones
-                    var timeZone = DateTimeZone.getDefault()
                     if (fullString.contains(':')) {
                         val timeZoneId = fullString.substringAfter("%s=".format(TZID)).substringBefore(':')
                         if (DateTimeZone.getAvailableIDs().contains(timeZoneId)) {
@@ -424,7 +424,8 @@ class IcsImporter(val activity: SimpleActivity) {
                     Parser().parseDateTimeValue(value, timeZone)
                 }
 
-                fullString.startsWith(":") -> Parser().parseDateTimeValue(fullString.substring(1).trim())
+                fullString.startsWith(":") -> Parser().parseDateTimeValue(fullString.substring(1).trim(), timeZone)
+
                 else -> Parser().parseDateTimeValue(fullString)
             }
         } catch (e: Exception) {

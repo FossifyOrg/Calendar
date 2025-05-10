@@ -1,8 +1,0 @@
-* Problema resolt amb esdeveniments de tot el dia de diversos dies que no es mostren a la barra superior
-* Corregida la funcionalitat d'obertura de tasques des dels ginys
-* Corregit un problema de redimensionament al giny de data
-* Corregida l'opacitat de tasques incompletes als ginys
-* Corregida la traducció al castellà del dissabte.
-* Afegida la implementació de l'estat dels esdeveniments
-* Caselles de selecció substituïdes per interruptors
-* Eliminat el suport per a l'Android 7 i ant. [...]

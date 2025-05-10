@@ -155,7 +155,7 @@
     <string name="reminder_sound">Lyd til påmindelser</string>
     <string name="no_ringtone_picker">Der blev ikke fundet en app til indstilling af ringetone</string>
     <string name="no_ringtone_selected">Ingen</string>
-    <string name="day_end_before_start">Dagen skal starte inden den slutter!</string>
+    <string name="day_end_before_start">Dagen kan ikke slutte før den starter</string>
     <string name="caldav_sync">CalDAV-synk</string>
     <string name="event_lists">Begivenhedsliste</string>
     <string name="display_past_events">Vis overståede begivenheder</string>
@@ -250,11 +250,19 @@
     <string name="faq_2_title_extra">Måske endda dele kalendere med andre?</string>
     <string name="faq_2_text">Ja, klik på \"CalDAV synk\" i appens indstillinger og vælg de kalendere du vil synkronisere. Det kræver dog at du har en app til at synkronisere mellem din enhed og kalenderservere. Hvis du vil synkronisere en Googlekalender, kan Googles officielle app klare det. For andre kalenderes vedkommende kan du bruge en 3. partsapp som for eksempel DAVx5.</string>
     <string name="faq_3_title">Jeg kan se mine påmindelser, men der er ingen lyd på. Hvad kan jeg gøre ved det\?</string>
-    <string name="faq_3_text">Såvel visning af påmindelser som afspilning af lyd til dem, er afhængig af systemet. Hvis ikke du kan høre nogen lyd, kan du prøve at gå ind i appens indstillinger. Her kan du trykke på \"Audio-stream anvendt af påmindelser\" og vælge en anden indstilling. Virker det stadig ikke skal du tjekke i dine lydindstillinger om lyden i det aktuelle valg er slået fra.</string>
+    <string name="faq_3_text">Afspilning af påmindelser styres også af systemet. Hvis du ikke hører lyd, så gå til appens indstillinger, tryk på \"Lydstrøm til påmindelser\" og vælg en anden værdi. Tjek også, om lydstrømmen er slået fra i systemets lydindstillinger.</string>
     <string name="faq_4_title">Understøtter appen tidszoner\?</string>
     <string name="faq_4_text">Ja, det gør den. Som standard oprettes alle begivenheder i din aktuelle tidszone. Vil du ændre det for en given begivenhed, skal du først aktivere tidszonevælgeren i appens indstillinger og derefter ændre tidszone under selve begivenheden. Funktionen er fra starten deaktiveret da de færreste brugere behøver den.</string>
-    <string name="faq_5_title">Appen viser ingen meddelelser, hvordan kan det være\?</string>
+    <string name="faq_5_title">Appen viser ingen meddelelser. Hvorfor?</string>
     <string name="faq_5_text">Tjek batteriet på din enhed og indstillingerne for meddelelser, om der er noget, der blokerer påmindelserne, eller om appen er slået fra i baggrunden. Du kan også tage et kig på &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;, den har nogle gode tips.</string>
     <string name="faq_6_title">Hvordan kan jeg ændre eller slette en eksisterende begivenhedstype\?</string>
     <string name="faq_6_text">Du kan gøre begge dele i Indstillinger - Administrer begivenhedstyper. Du skal blot klikke på den ønskede begivenhed for at ændre etiketten og farven, eller du kan vælge den ønskede begivenhed ved at trykke længe på den og bruge papirkurven i topmenuen til at slette den.</string>
+    <string name="show_widget_header">Vis overskrift</string>
+    <string name="public_holidays">Helligdage</string>
+    <string name="regional_holidays">Regionale helligdage</string>
+    <string name="other_holidays">Andre helligdage og højtider</string>
+    <string name="select_holidays_to_import">Vælg helligdage at importere</string>
+    <string name="status_confirmed">Bekræftet</string>
+    <string name="status_canceled">Annulleret</string>
+    <string name="status_tentative">Foreløbig</string>
 </resources>

@@ -243,7 +243,7 @@
     <string name="faq_2_title_extra">Võib-olla isegi soovid jagada kalendreid teiste inimestega\?</string>
     <string name="faq_2_text">Jah saad, lülita rakenduse seadetes lihtsalt sisse „CalDAV-sünkroniseerimine“ ja vali kalendrid, mida soovid sünkroniseerida. Lisaks on sul vaja mõnda kolmanda osapoole rakendust, mis tegeleb seadme ja serverite vahelise sünkroniseerimisega. Juhul, kui soovid sünkroniseerida Google\'i kalendrit, pakub seda võimalust nende ametlik kalendrirakendus. Teiste kalendrite jaoks vajad kolmanda osapoole sünkroniseerimisadapterit, näiteks DAVx5.</string>
     <string name="faq_3_title">Ma näen visuaalseid meeldetuletusi, kuid ei kuule heli. Mida ma saan teha\?</string>
-    <string name="faq_3_text">Mitte ainult tegeliku meeldetuletuse kuvamine, vaid ka heli esitamine on süsteemist väga mõjutatud. Kui sa ei kuule mingit heli, ava rakenduse seadistused , vajuta valikut „Meeldetuletuste heli“ ja muuda sealne väärtus sobivaks. Kui see ikka veel ei tööta, kontrolli oma nutiseadme heliseadistusi, kas konkreetne voog ei ole vaigistatud.</string>
+    <string name="faq_3_text">Mitte ainult tegeliku meeldetuletuse kuvamine, vaid ka heli esitamine on süsteemist väga mõjutatud. Kui sa ei kuule mingit heli, ava rakenduse seadistused, vajuta valikut „Meeldetuletuste heli“ ja muuda sealne väärtus sobivaks. Kui see ikka veel ei tööta, kontrolli oma nutiseadme heliseadistusi ja vaata, kas konkreetne voog ei ole vaigistatud.</string>
     <string name="faq_4_title">Kas see rakendus toetab ajavööndeid\?</string>
     <string name="faq_4_text">Jah, ikka. Vaikimisi luuakse kõik sündmused sinu praeguses ajavööndis. Kui soovid sündmuste ajavööndit muuta, pead esmalt rakenduses seadetes aktiveerima ajavööndi valiku ja seejärel muutma seda sündmuse üksikasjade vaates. Ajavööndid on vaikimisi välja lülitatud, kuna enamik inimesi seda ei vaja.</string>
     <string name="faq_5_title">Rakendus ei näita teateid, miks see nii on\?</string>
@@ -264,4 +264,5 @@
     <string name="regional_holidays">Piirkondlikud pühad</string>
     <string name="other_holidays">Muud pühad ja mälestuspäevad</string>
     <string name="select_holidays_to_import">Vali imporditavad pühad</string>
+    <string name="show_widget_header">Näita päist</string>
 </resources>

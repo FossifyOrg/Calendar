@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_launcher_name">Calendario</string>
-    <string name="change_view">Trocala visión</string>
+    <string name="change_view">Trocar visión</string>
     <string name="daily_view">Vista diaria</string>
     <string name="weekly_view">Vista semanal</string>
     <string name="monthly_view">Vista mensual</string>
@@ -26,7 +26,7 @@
     <string name="filter_events_by_type">Filtrar eventos por tipo</string>
     <string name="please_fill_location">Escribe a localización para que se mostre nun mapa</string>
     <string name="public_event_notification_text">Hai un evento próximo</string>
-    <string name="everything_filtered_out">Filtraches todoslos tipos de eventos</string>
+    <string name="everything_filtered_out">Filtraches tódolos tipos de eventos</string>
     <string name="task">Tarefa</string>
     <string name="tasks">Tarefas</string>
     <string name="edit_task">Editar tarefa</string>
@@ -114,8 +114,8 @@
     <string name="export_events_to_ics">Exportar eventos a un ficheiro .ics</string>
     <string name="default_event_type">Tipo de evento predeterminado</string>
     <string name="export_past_events_too">Exportar tamén eventos pasados</string>
-    <string name="export_tasks">Exportalas tarefas</string>
-    <string name="export_past_entries">Exporta tamén as tarefas pasadas</string>
+    <string name="export_tasks">Exportar tarefas</string>
+    <string name="export_past_entries">Exportar tamén as tarefas pasadas</string>
     <string name="include_event_types">Incluír tipos de eventos</string>
     <string name="filename_without_ics">Nome do ficheiro (sen .ics)</string>
     <string name="ignore_event_types">Ignorar os tipos dos eventos no ficheiro, usar sempre o predeterminado</string>
@@ -257,4 +257,11 @@
     <string name="default_calendar_color">Cor predeterminada do almanaque</string>
     <string name="event_color">Cor do evento</string>
     <string name="caldav">CalDAV</string>
+    <string name="public_holidays">Festivos nacionais</string>
+    <string name="regional_holidays">Festivos rexionais</string>
+    <string name="other_holidays">Outros festivos e celebracións</string>
+    <string name="status_tentative">Provisional</string>
+    <string name="status_confirmed">Confirmado</string>
+    <string name="status_canceled">Cancelado</string>
+    <string name="select_holidays_to_import">Escoller festivos a importar</string>
 </resources>

@@ -263,4 +263,9 @@
     <string name="status_tentative">Provisório</string>
     <string name="status_confirmed">Confirmado</string>
     <string name="status_canceled">Cancelado</string>
+    <string name="public_holidays">Feriados públicos</string>
+    <string name="other_holidays">Outros feriados e observâncias</string>
+    <string name="select_holidays_to_import">Selecione feriados para importar</string>
+    <string name="regional_holidays">Feriados regionais</string>
+    <string name="show_widget_header">Mostrar cabeçalho</string>
 </resources>

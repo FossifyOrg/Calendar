@@ -1,2 +1,0 @@
-* Risolta compatibilità di importazione da Simple Calendar.
-* Risolta configurazione FOSS.

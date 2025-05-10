@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 11,
-    "identityHash": "96d6f6755b9ea54780e3254b407015fc",
+    "identityHash": "ab28877f557ed5ff8a83137b5b9b858f",
     "entities": [
       {
         "tableName": "events",
@@ -270,7 +270,7 @@
       },
       {
         "tableName": "widgets",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `widget_id` INTEGER NOT NULL, `period` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `widget_id` INTEGER NOT NULL, `period` INTEGER NOT NULL, `header` INTEGER NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -287,6 +287,12 @@
           {
             "fieldPath": "period",
             "columnName": "period",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "header",
+            "columnName": "header",
             "affinity": "INTEGER",
             "notNull": true
           }
@@ -375,7 +381,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '96d6f6755b9ea54780e3254b407015fc')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'ab28877f557ed5ff8a83137b5b9b858f')"
     ]
   }
 }

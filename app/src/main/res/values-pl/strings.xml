@@ -270,4 +270,5 @@
     <string name="other_holidays">Inne święta i uroczystości</string>
     <string name="select_holidays_to_import">Wybierz święta do zaimportowania</string>
     <string name="regional_holidays">Święta regionalne</string>
+    <string name="show_widget_header">Pokazuj nagłówek</string>
 </resources>
