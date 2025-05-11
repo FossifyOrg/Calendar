@@ -271,4 +271,7 @@
     <string name="other_holidays">Інші свята та пам\'ятні дати</string>
     <string name="regional_holidays">Регіональні свята</string>
     <string name="show_widget_header">Показувати заголовок</string>
+    <string name="access_level_private">Приватний</string>
+    <string name="access_level_confidential">Конфіденційно</string>
+    <string name="access_level_public">Громадськість</string>
 </resources>
