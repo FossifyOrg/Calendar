@@ -479,7 +479,7 @@
                 android:layout_alignBottom="@+id/event_status"
                 android:layout_marginStart="@dimen/normal_margin"
                 android:padding="@dimen/medium_margin"
-                android:src="@drawable/ic_check_circle_outline_vector" />
+                android:src="@drawable/ic_event_status_outline_vector" />
 
             <org.fossify.commons.views.MyTextView
                 android:id="@+id/event_status"
@@ -513,7 +513,7 @@
                 android:layout_alignBottom="@+id/event_access_level"
                 android:layout_marginStart="@dimen/normal_margin"
                 android:padding="@dimen/medium_margin"
-                android:src="@drawable/ic_groups_2_vector" />
+                android:src="@drawable/ic_lock_outline_vector" />
 
             <org.fossify.commons.views.MyTextView
                 android:id="@+id/event_access_level"
@@ -547,7 +547,7 @@
                 android:layout_alignBottom="@+id/event_availability"
                 android:layout_marginStart="@dimen/normal_margin"
                 android:padding="@dimen/medium_margin"
-                android:src="@drawable/ic_event_busy_vector" />
+                android:src="@drawable/ic_work_outline_vector" />
 
             <org.fossify.commons.views.MyTextView
                 android:id="@+id/event_availability"

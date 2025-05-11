@@ -507,7 +507,6 @@ class EventActivity : SimpleActivity() {
             showAccessLevelPicker(mAccessLevel) {
                 mAccessLevel = it
                 updateAccessLevelText()
-                updateAccessLevelImage()
             }
         }
 
@@ -515,7 +514,6 @@ class EventActivity : SimpleActivity() {
             showAvailabilityPicker(mAvailability) {
                 mAvailability = it
                 updateAvailabilityText()
-                updateAvailabilityImage()
             }
         }
 
@@ -523,7 +521,6 @@ class EventActivity : SimpleActivity() {
             showStatusPicker(mStatus) {
                 mStatus = it
                 updateStatusText()
-                updateStatusImage()
             }
         }
 
@@ -650,11 +647,8 @@ class EventActivity : SimpleActivity() {
         updateTimeZoneText()
         updateCalDAVVisibility()
         updateAvailabilityText()
-        updateAvailabilityImage()
         updateStatusText()
-        updateStatusImage()
         updateAccessLevelText()
-        updateAccessLevelImage()
     }
 
     private fun setupEditEvent() {
@@ -1305,16 +1299,6 @@ class EventActivity : SimpleActivity() {
         view.setImageDrawable(icon)
     }
 
-    private fun updateAvailabilityImage() {
-        val drawable = if (mAvailability == Attendees.AVAILABILITY_FREE) {
-            R.drawable.ic_event_available_vector
-        } else {
-            R.drawable.ic_event_busy_vector
-        }
-        val icon = resources.getColoredDrawableWithColor(drawable, getProperTextColor())
-        binding.eventAvailabilityImage.setImageDrawable(icon)
-    }
-
     private fun updateAvailabilityText() {
         binding.eventAvailability.text = if (mAvailability == Attendees.AVAILABILITY_FREE) {
             getString(R.string.status_free)
@@ -1337,16 +1321,6 @@ class EventActivity : SimpleActivity() {
         }
     }
 
-    private fun updateStatusImage() {
-        val drawable = when (mStatus) {
-            Events.STATUS_CONFIRMED -> R.drawable.ic_check_circle_outline_vector
-            Events.STATUS_CANCELED -> R.drawable.ic_cancel_circle_outline_vector
-            else -> R.drawable.ic_question_circle_outline_vector
-        }
-        val icon = resources.getColoredDrawableWithColor(drawable, getProperTextColor())
-        binding.eventStatusImage.setImageDrawable(icon)
-    }
-
     private fun updateAccessLevelText() {
         when (mAccessLevel) {
             Events.ACCESS_PRIVATE -> binding.eventAccessLevel.text =
@@ -1357,16 +1331,6 @@ class EventActivity : SimpleActivity() {
 
             else -> binding.eventAccessLevel.text = getString(R.string.access_level_public)
         }
-    }
-
-    private fun updateAccessLevelImage() {
-        val drawable = when (mAccessLevel) {
-            Events.ACCESS_PRIVATE -> R.drawable.ic_lock_outline_vector
-            Events.ACCESS_CONFIDENTIAL -> R.drawable.ic_group_vector
-            else -> R.drawable.ic_groups_2_vector
-        }
-        val icon = resources.getColoredDrawableWithColor(drawable, getProperTextColor())
-        binding.eventAccessLevelImage.setImageDrawable(icon)
     }
 
     private fun updateRepetitionText() {
@@ -1419,11 +1383,8 @@ class EventActivity : SimpleActivity() {
                     updateReminderTypeImages()
                     updateCalDAVVisibility()
                     updateAvailabilityText()
-                    updateAvailabilityImage()
                     updateStatusText()
-                    updateStatusImage()
                     updateAccessLevelText()
-                    updateAccessLevelImage()
                 }
             }
         } else {
@@ -2451,6 +2412,8 @@ class EventActivity : SimpleActivity() {
             eventReminder2Type,
             eventReminder3Type,
             eventAttendeesImage,
+            eventStatusImage,
+            eventAccessLevelImage,
             eventAvailabilityImage,
             eventColorImage
         ).forEach {
