@@ -265,4 +265,7 @@
     <string name="other_holidays">Muud pühad ja mälestuspäevad</string>
     <string name="select_holidays_to_import">Vali imporditavad pühad</string>
     <string name="show_widget_header">Näita päist</string>
+    <string name="access_level_private">Isiklik</string>
+    <string name="access_level_confidential">Salajane</string>
+    <string name="access_level_public">Avalik</string>
 </resources>
