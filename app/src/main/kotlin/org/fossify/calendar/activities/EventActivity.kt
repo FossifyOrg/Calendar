@@ -976,16 +976,20 @@ class EventActivity : SimpleActivity() {
         }
     }
 
-    private fun showAccessLevelPicker(currentValue: Int, callback: (Int) -> Unit){
+    private fun showAccessLevelPicker(currentValue: Int, callback: (Int) -> Unit) {
         val items = arrayListOf(
             RadioItem(Events.ACCESS_PUBLIC, getString(R.string.access_level_public)),
             RadioItem(Events.ACCESS_CONFIDENTIAL, getString(R.string.access_level_confidential)),
             RadioItem(Events.ACCESS_PRIVATE, getString(R.string.access_level_private))
         )
 
-        val mappedCurrentValue = if(currentValue == Events.ACCESS_DEFAULT) Events.ACCESS_PUBLIC else currentValue
+        val mappedCurrentValue = if(currentValue == Events.ACCESS_DEFAULT) {
+            Events.ACCESS_PUBLIC
+        } else {
+            currentValue
+        }
 
-        RadioGroupDialog(this, items, mappedCurrentValue){
+        RadioGroupDialog(this, items, mappedCurrentValue) {
             callback(it as Int)
         }
     }
@@ -1070,7 +1074,7 @@ class EventActivity : SimpleActivity() {
         binding.eventStatusImage.setImageDrawable(icon)
     }
 
-    private fun updateAccessLevelText(){
+    private fun updateAccessLevelText() {
         when (mAccessLevel) {
             Events.ACCESS_PRIVATE -> binding.eventAccessLevel.text = getString(R.string.access_level_private)
             Events.ACCESS_CONFIDENTIAL -> binding.eventAccessLevel.text = getString(R.string.access_level_confidential)
@@ -1078,7 +1082,7 @@ class EventActivity : SimpleActivity() {
         }
     }
 
-    private fun updateAccessLevelImage(){
+    private fun updateAccessLevelImage() {
         val drawable = when (mAccessLevel) {
             Events.ACCESS_PRIVATE -> R.drawable.ic_lock_outline_vector
             Events.ACCESS_CONFIDENTIAL -> R.drawable.ic_group_vector
