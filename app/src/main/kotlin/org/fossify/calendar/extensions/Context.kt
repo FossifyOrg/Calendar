@@ -44,10 +44,12 @@ import org.fossify.commons.extensions.*
 import org.fossify.commons.helpers.*
 import org.joda.time.DateTime
 import org.joda.time.DateTimeConstants
+import org.joda.time.Days
 import org.joda.time.LocalDate
 import java.io.File
 import java.io.FileOutputStream
 import java.util.Calendar
+import kotlin.math.absoluteValue
 import kotlin.math.roundToInt
 
 val Context.config: Config get() = Config.newInstance(applicationContext)
@@ -764,23 +766,30 @@ fun Context.getFirstDayOfWeek(date: DateTime): String {
 }
 
 fun Context.getFirstDayOfWeekDt(date: DateTime): DateTime {
-    val currentDate = date.withTimeAtStartOfDay()
-    if (config.startWeekWithCurrentDay) {
-        return currentDate
-    } else {
+    var today = date.withTimeAtStartOfDay()
+    var currentDate = today
+    if (!config.startWeekWithCurrentDay) {
         val firstDayOfWeek = config.firstDayOfWeek
         val currentDayOfWeek = currentDate.dayOfWeek
-        return if (currentDayOfWeek == firstDayOfWeek) {
-            currentDate
-        } else {
+
+        if (currentDayOfWeek != firstDayOfWeek) {
             // Joda-time's weeks always starts on Monday but user preferred firstDayOfWeek could be any week day
             if (firstDayOfWeek < currentDayOfWeek) {
-                currentDate.withDayOfWeek(firstDayOfWeek)
+                currentDate = currentDate.withDayOfWeek(firstDayOfWeek)
             } else {
-                currentDate.minusWeeks(1).withDayOfWeek(firstDayOfWeek)
+                currentDate = currentDate.minusWeeks(1).withDayOfWeek(firstDayOfWeek)
+            }
+
+            // moving start of the week according to the weeklyViewDays setting
+            if (config.weeklyViewDays < 7) {
+                val diff = Days.daysBetween(currentDate, today).days.absoluteValue
+                // integer division first to get a starting day of the screen
+                val daysToMove = (diff / config.weeklyViewDays) * config.weeklyViewDays
+                currentDate = currentDate.plusDays(daysToMove)
             }
         }
     }
+    return currentDate
 }
 
 fun Context.getDayOfWeekString(dayOfWeek: Int): String {
