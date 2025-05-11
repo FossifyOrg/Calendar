@@ -267,4 +267,5 @@
         <item quantity="two">בתוך %d הימים הבאים</item>
         <item quantity="other">בתוך %d הימים הבאים</item>
     </plurals>
+    <string name="show_widget_header">הצג כותרת</string>
 </resources>
