@@ -265,4 +265,7 @@
     <string name="status_confirmed">Bekræftet</string>
     <string name="status_canceled">Annulleret</string>
     <string name="status_tentative">Foreløbig</string>
+    <string name="access_level_public">Offentligt</string>
+    <string name="access_level_confidential">Fortroligt</string>
+    <string name="access_level_private">Privat</string>
 </resources>
