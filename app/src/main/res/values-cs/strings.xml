@@ -268,4 +268,7 @@
     <string name="other_holidays">Ostatní svátky a události</string>
     <string name="select_holidays_to_import">Vyberte svátky, které chcete importovat</string>
     <string name="show_widget_header">Zobrazit záhlaví</string>
+    <string name="access_level_public">Veřejné</string>
+    <string name="access_level_private">Soukromé</string>
+    <string name="access_level_confidential">Tajné</string>
 </resources>
