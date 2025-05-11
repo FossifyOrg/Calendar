@@ -268,4 +268,7 @@
     <string name="regional_holidays">Vacances régionales</string>
     <string name="select_holidays_to_import">Sélectionner les vacances à importer</string>
     <string name="show_widget_header">Montrer l\'en-tête</string>
+    <string name="access_level_confidential">Confidentiel</string>
+    <string name="access_level_public">Public</string>
+    <string name="access_level_private">Privé</string>
 </resources>
