@@ -262,4 +262,7 @@
     <string name="public_holidays">公共节假日</string>
     <string name="other_holidays">其他节假日和节日</string>
     <string name="show_widget_header">显示标题</string>
+    <string name="access_level_private">私人</string>
+    <string name="access_level_confidential">机密</string>
+    <string name="access_level_public">公开</string>
 </resources>
