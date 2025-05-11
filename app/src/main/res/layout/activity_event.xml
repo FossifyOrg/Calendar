@@ -534,7 +534,7 @@
                 android:id="@+id/event_access_level_divider"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/divider_height"
-                android:layout_below="@+id/event_access_level_image"
+                android:layout_below="@+id/event_access_level"
                 android:layout_marginTop="@dimen/medium_margin"
                 android:background="@color/divider_grey"
                 android:importantForAccessibility="no" />
