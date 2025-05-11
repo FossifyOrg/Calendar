@@ -107,7 +107,7 @@
                 android:layout_alignBottom="@+id/event_all_day_holder"
                 android:layout_marginStart="@dimen/normal_margin"
                 android:padding="@dimen/medium_margin"
-                android:src="@drawable/ic_clock_vector" />
+                android:src="@drawable/ic_clock_outline_vector" />
 
             <RelativeLayout
                 android:id="@+id/event_all_day_holder"
@@ -239,7 +239,7 @@
                 android:layout_alignBottom="@+id/event_reminder_1"
                 android:layout_marginStart="@dimen/normal_margin"
                 android:padding="@dimen/medium_margin"
-                android:src="@drawable/ic_bell_vector" />
+                android:src="@drawable/ic_bell_outline_vector" />
 
             <org.fossify.commons.views.MyTextView
                 android:id="@+id/event_reminder_1"
@@ -269,7 +269,7 @@
                 android:layout_marginEnd="@dimen/medium_margin"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:padding="@dimen/medium_margin"
-                android:src="@drawable/ic_bell_vector" />
+                android:src="@drawable/ic_bell_outline_vector" />
 
             <org.fossify.commons.views.MyTextView
                 android:id="@+id/event_reminder_2"
@@ -301,7 +301,7 @@
                 android:layout_marginEnd="@dimen/medium_margin"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:padding="@dimen/medium_margin"
-                android:src="@drawable/ic_bell_vector" />
+                android:src="@drawable/ic_bell_outline_vector" />
 
             <org.fossify.commons.views.MyTextView
                 android:id="@+id/event_reminder_3"
@@ -333,7 +333,7 @@
                 android:layout_marginEnd="@dimen/medium_margin"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:padding="@dimen/medium_margin"
-                android:src="@drawable/ic_bell_vector" />
+                android:src="@drawable/ic_bell_outline_vector" />
 
             <ImageView
                 android:id="@+id/event_reminder_divider"
@@ -354,7 +354,7 @@
                 android:layout_alignBottom="@+id/event_repetition"
                 android:layout_marginStart="@dimen/normal_margin"
                 android:padding="@dimen/medium_margin"
-                android:src="@drawable/ic_repeat_vector" />
+                android:src="@drawable/ic_repeat_outline_vector" />
 
             <org.fossify.commons.views.MyTextView
                 android:id="@+id/event_repetition"
@@ -451,7 +451,7 @@
                 android:layout_marginStart="@dimen/normal_margin"
                 android:layout_marginTop="@dimen/small_margin"
                 android:padding="@dimen/medium_margin"
-                android:src="@drawable/ic_people_vector" />
+                android:src="@drawable/ic_people_outline_vector" />
 
             <LinearLayout
                 android:id="@+id/event_attendees_holder"
@@ -641,7 +641,7 @@
                 android:layout_alignBottom="@+id/event_type_holder"
                 android:layout_marginStart="@dimen/normal_margin"
                 android:padding="@dimen/medium_margin"
-                android:src="@drawable/ic_category_vector" />
+                android:src="@drawable/ic_category_outline_vector" />
 
             <RelativeLayout
                 android:id="@+id/event_type_holder"
@@ -682,7 +682,7 @@
                 android:layout_alignBottom="@+id/event_color_holder"
                 android:layout_marginStart="@dimen/normal_margin"
                 android:padding="@dimen/medium_margin"
-                android:src="@drawable/ic_color_vector" />
+                android:src="@drawable/ic_color_outline_vector" />
 
             <RelativeLayout
                 android:id="@+id/event_color_holder"

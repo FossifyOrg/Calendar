@@ -1290,9 +1290,9 @@ class EventActivity : SimpleActivity() {
     private fun updateReminderTypeImage(view: ImageView, reminder: Reminder) {
         view.beVisibleIf(reminder.minutes != REMINDER_OFF && mEventCalendarId != STORED_LOCALLY_ONLY)
         val drawable = if (reminder.type == REMINDER_NOTIFICATION) {
-            org.fossify.commons.R.drawable.ic_bell_vector
+            R.drawable.ic_bell_outline_vector
         } else {
-            org.fossify.commons.R.drawable.ic_mail_vector
+            R.drawable.ic_mail_outline_vector
         }
 
         val icon = resources.getColoredDrawableWithColor(drawable, getProperTextColor())
