@@ -44,7 +44,7 @@ class WeekFragmentsHolder : MyFragmentHolder(), WeekFragmentListener {
         super.onCreate(savedInstanceState)
         val dateTimeString = arguments?.getString(WEEK_START_DATE_TIME) ?: return
         currentWeekTS = (DateTime.parse(dateTimeString) ?: DateTime()).seconds()
-        thisWeekTS = DateTime.parse(requireContext().getFirstDayOfWeek(DateTime())).seconds()
+        updateThisWeekTS()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -214,12 +214,22 @@ class WeekFragmentsHolder : MyFragmentHolder(), WeekFragmentListener {
 
     private fun updateWeeklyViewDays(days: Int) {
         requireContext().config.weeklyViewDays = days
+        updateThisWeekTS()
+        updateCurrentWeekTS()
         updateDaysCount(days)
         setupWeeklyViewPager()
     }
 
     private fun updateDaysCount(cnt: Int) {
         binding.weekViewDaysCount.text = requireContext().resources.getQuantityString(org.fossify.commons.R.plurals.days, cnt, cnt)
+    }
+
+    private fun updateThisWeekTS() {
+        thisWeekTS = DateTime.parse(requireContext().getFirstDayOfWeek(DateTime())).seconds()
+    }
+
+    private fun updateCurrentWeekTS() {
+        currentWeekTS = DateTime.parse(requireContext().getFirstDayOfWeek(DateTime(currentWeekTS * 1000))).seconds()
     }
 
     override fun refreshEvents() {
