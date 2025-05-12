@@ -265,4 +265,7 @@
     <string name="regional_holidays">區域節日</string>
     <string name="public_holidays">公眾節日</string>
     <string name="show_widget_header">顯示標題</string>
+    <string name="access_level_private">私人</string>
+    <string name="access_level_confidential">機密</string>
+    <string name="access_level_public">公開</string>
 </resources>
