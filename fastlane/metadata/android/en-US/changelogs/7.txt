@@ -1,0 +1,18 @@
+ Added:
+
+• Support for setting event visibility 
+• Option to hide date header in event list widget 
+• Holidays for Bangladesh
+
+Changed:
+
+• Updated some in-app icons for consistency 
+• Updated translations
+• Updated holiday data
+
+Fixed:
+
+• Addressed a glitch when long pressing in quick filter
+• Fixed age calculation for birthdays from private contacts 
+• Fixed incorrect time in some events imported via ICS files 
+• Fixed "Go to today" button in weekly view 
