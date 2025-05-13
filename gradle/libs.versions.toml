@@ -4,7 +4,7 @@ kotlin = "1.9.25"
 #KSP
 ksp = "1.9.25-1.0.20"
 #Detekt
-detekt = "1.23.3"
+detekt = "1.23.8"
 #Androidx
 multidex = "2.0.1"
 print = "1.0.0"
