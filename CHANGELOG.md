@@ -7,9 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.3.0] - 2025-05-13
+
+### Added
+
+- Support for setting event visibility ([#148])
+- Option to hide date header in event list widget ([#484])
+- Holidays for Bangladesh
+
 ### Changed
 
 - Updated some in-app icons for consistency ([#567])
+- Updated translations
+- Updated holiday data
+
+### Fixed
+
+- Addressed a glitch when long pressing in quick filter
+- Fixed age calculation for birthdays from private contacts ([#196])
+- Fixed incorrect time in some events imported via ICS files ([#262])
+- Fixed "Go to today" button in weekly view ([#551])
 
 ## [1.2.0] - 2025-01-26
 
@@ -89,7 +106,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Initial release
 
-[Unreleased]: https://github.com/FossifyOrg/Calendar/compare/1.2.0...HEAD
+[Unreleased]: https://github.com/FossifyOrg/Calendar/compare/1.3.0...HEAD
+[1.3.0]: https://github.com/FossifyOrg/Calendar/compare/1.2.0...1.3.0
 [1.2.0]: https://github.com/FossifyOrg/Calendar/compare/1.1.0...1.2.0
 [1.1.0]: https://github.com/FossifyOrg/Calendar/compare/1.0.3...1.1.0
 [1.0.3]: https://github.com/FossifyOrg/Calendar/compare/1.0.2...1.0.3
@@ -97,4 +115,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [1.0.1]: https://github.com/FossifyOrg/Calendar/compare/1.0.0...1.0.1
 [1.0.0]: https://github.com/FossifyOrg/Calendar/releases/tag/1.0.0
 
+[#148]: https://github.com/FossifyOrg/Calendar/issues/148
+[#196]: https://github.com/FossifyOrg/Calendar/issues/196
+[#262]: https://github.com/FossifyOrg/Calendar/issues/262
+[#484]: https://github.com/FossifyOrg/Calendar/issues/484
+[#551]: https://github.com/FossifyOrg/Calendar/issues/551
 [#567]: https://github.com/FossifyOrg/Calendar/issues/567
