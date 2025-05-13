@@ -105,7 +105,6 @@ import org.fossify.calendar.helpers.STATUS
 import org.fossify.calendar.helpers.STORED_LOCALLY_ONLY
 import org.fossify.calendar.helpers.TIME_ZONE
 import org.fossify.calendar.helpers.generateImportId
-import org.fossify.calendar.helpers.getJavaDayOfWeekFromJoda
 import org.fossify.calendar.models.Attendee
 import org.fossify.calendar.models.CalDAVCalendar
 import org.fossify.calendar.models.Event
@@ -162,6 +161,7 @@ import org.fossify.commons.helpers.THURSDAY_BIT
 import org.fossify.commons.helpers.TUESDAY_BIT
 import org.fossify.commons.helpers.WEDNESDAY_BIT
 import org.fossify.commons.helpers.ensureBackgroundThread
+import org.fossify.commons.helpers.getJavaDayOfWeekFromISO
 import org.fossify.commons.models.RadioItem
 import org.fossify.commons.views.MyAutoCompleteTextView
 import org.joda.time.DateTime
@@ -1882,7 +1882,7 @@ class EventActivity : SimpleActivity() {
             mEventStartDateTime.dayOfMonth
         )
 
-        datePicker.datePicker.firstDayOfWeek = getJavaDayOfWeekFromJoda(config.firstDayOfWeek)
+        datePicker.datePicker.firstDayOfWeek = getJavaDayOfWeekFromISO(config.firstDayOfWeek)
         datePicker.show()
     }
 
@@ -1930,7 +1930,7 @@ class EventActivity : SimpleActivity() {
             mEventEndDateTime.dayOfMonth
         )
 
-        datePicker.datePicker.firstDayOfWeek = getJavaDayOfWeekFromJoda(config.firstDayOfWeek)
+        datePicker.datePicker.firstDayOfWeek = getJavaDayOfWeekFromISO(config.firstDayOfWeek)
         datePicker.show()
     }
 

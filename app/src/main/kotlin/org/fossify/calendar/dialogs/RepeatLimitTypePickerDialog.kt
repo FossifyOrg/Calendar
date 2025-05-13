@@ -8,9 +8,9 @@ import org.fossify.calendar.databinding.DialogRepeatLimitTypePickerBinding
 import org.fossify.calendar.extensions.config
 import org.fossify.calendar.extensions.seconds
 import org.fossify.calendar.helpers.Formatter
-import org.fossify.calendar.helpers.getJavaDayOfWeekFromJoda
 import org.fossify.calendar.helpers.getNowSeconds
 import org.fossify.commons.extensions.*
+import org.fossify.commons.helpers.getJavaDayOfWeekFromISO
 import org.joda.time.DateTime
 
 class RepeatLimitTypePickerDialog(val activity: Activity, var repeatLimit: Long, val startTS: Long, val callback: (repeatLimit: Long) -> Unit) {
@@ -93,7 +93,7 @@ class RepeatLimitTypePickerDialog(val activity: Activity, var repeatLimit: Long,
             repeatLimitDateTime.monthOfYear - 1, repeatLimitDateTime.dayOfMonth
         )
 
-        datePicker.datePicker.firstDayOfWeek = getJavaDayOfWeekFromJoda(activity.config.firstDayOfWeek)
+        datePicker.datePicker.firstDayOfWeek = getJavaDayOfWeekFromISO(activity.config.firstDayOfWeek)
         datePicker.show()
     }
 

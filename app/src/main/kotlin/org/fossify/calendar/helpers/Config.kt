@@ -11,8 +11,6 @@ import org.fossify.commons.helpers.BaseConfig
 import org.fossify.commons.helpers.DAY_MINUTES
 import org.fossify.commons.helpers.YEAR_SECONDS
 import java.util.Arrays
-import java.util.Calendar
-import java.util.Locale
 
 class Config(context: Context) : BaseConfig(context) {
     companion object {
@@ -30,13 +28,6 @@ class Config(context: Context) : BaseConfig(context) {
     var startWeekWithCurrentDay: Boolean
         get() = prefs.getBoolean(START_WEEK_WITH_CURRENT_DAY, false)
         set(startWeekWithCurrentDay) = prefs.edit().putBoolean(START_WEEK_WITH_CURRENT_DAY, startWeekWithCurrentDay).apply()
-
-    var firstDayOfWeek: Int
-        get() {
-            val defaultFirstDayOfWeek = Calendar.getInstance(Locale.getDefault()).firstDayOfWeek
-            return prefs.getInt(FIRST_DAY_OF_WEEK, getJodaDayOfWeekFromJava(defaultFirstDayOfWeek))
-        }
-        set(firstDayOfWeek) = prefs.edit().putInt(FIRST_DAY_OF_WEEK, firstDayOfWeek).apply()
 
     var showMidnightSpanningEventsAtTop: Boolean
         get() = prefs.getBoolean(SHOW_MIDNIGHT_SPANNING_EVENTS_AT_TOP, true)
