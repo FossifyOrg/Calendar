@@ -542,7 +542,7 @@ class TaskActivity : SimpleActivity() {
             this, getDatePickerDialogTheme(), dateSetListener, mTaskDateTime.year, mTaskDateTime.monthOfYear - 1, mTaskDateTime.dayOfMonth
         )
 
-        datePicker.datePicker.firstDayOfWeek = getJavaDayOfWeekFromJoda(config.firstDayOfWeek)
+        datePicker.datePicker.firstDayOfWeek = getJavaDayOfWeekFromISO(config.firstDayOfWeek)
         datePicker.show()
     }
 

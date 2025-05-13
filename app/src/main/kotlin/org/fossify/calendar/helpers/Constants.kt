@@ -6,7 +6,6 @@ import org.fossify.calendar.activities.TaskActivity
 import org.fossify.commons.helpers.MONTH_SECONDS
 import org.joda.time.DateTime
 import org.joda.time.DateTimeConstants
-import java.util.Calendar
 import java.util.UUID
 
 const val STORED_LOCALLY_ONLY = 0
@@ -88,7 +87,6 @@ const val EVENT_LIST_PERIOD = "event_list_period"
 const val WEEK_NUMBERS = "week_numbers"
 const val START_WEEKLY_AT = "start_weekly_at"
 const val START_WEEK_WITH_CURRENT_DAY = "start_week_with_current_day"
-const val FIRST_DAY_OF_WEEK = "first_day_of_week"
 const val SHOW_MIDNIGHT_SPANNING_EVENTS_AT_TOP = "show_midnight_spanning_events_at_top"
 const val ALLOW_CUSTOMIZE_DAY_COUNT = "allow_customise_day_count"
 const val VIBRATE = "vibrate"
@@ -324,32 +322,6 @@ fun getNextAutoBackupTime(): DateTime {
 fun getPreviousAutoBackupTime(): DateTime {
     val nextBackupTime = getNextAutoBackupTime()
     return nextBackupTime.minusDays(AUTO_BACKUP_INTERVAL_IN_DAYS)
-}
-
-fun getJodaDayOfWeekFromJava(dayOfWeek: Int): Int {
-    return when (dayOfWeek) {
-        Calendar.SUNDAY -> DateTimeConstants.SUNDAY
-        Calendar.MONDAY -> DateTimeConstants.MONDAY
-        Calendar.TUESDAY -> DateTimeConstants.TUESDAY
-        Calendar.WEDNESDAY -> DateTimeConstants.WEDNESDAY
-        Calendar.THURSDAY -> DateTimeConstants.THURSDAY
-        Calendar.FRIDAY -> DateTimeConstants.FRIDAY
-        Calendar.SATURDAY -> DateTimeConstants.SATURDAY
-        else -> throw IllegalArgumentException("Invalid day: $dayOfWeek")
-    }
-}
-
-fun getJavaDayOfWeekFromJoda(dayOfWeek: Int): Int {
-    return when (dayOfWeek) {
-        DateTimeConstants.SUNDAY -> Calendar.SUNDAY
-        DateTimeConstants.MONDAY -> Calendar.MONDAY
-        DateTimeConstants.TUESDAY -> Calendar.TUESDAY
-        DateTimeConstants.WEDNESDAY -> Calendar.WEDNESDAY
-        DateTimeConstants.THURSDAY -> Calendar.THURSDAY
-        DateTimeConstants.FRIDAY -> Calendar.FRIDAY
-        DateTimeConstants.SATURDAY -> Calendar.SATURDAY
-        else -> throw IllegalArgumentException("Invalid day: $dayOfWeek")
-    }
 }
 
 fun getStatusStringFromEventStatus(statusCode: Int): String {
