@@ -21,6 +21,13 @@
     "other": "holidays/AU/other.ics"
   },
   {
+    "code": "BD",
+    "country": "গণপ্রজাতন্ত্রী বাংলাদেশ",
+    "public": "holidays/BD/public.ics",
+    "regional": null,
+    "other": "holidays/BD/other.ics"
+  },
+  {
     "code": "BE",
     "country": "Belgique",
     "public": "holidays/BE/public.ics",
@@ -225,7 +232,7 @@
   },
   {
     "code": "LI",
-    "country": "Lichtenstein",
+    "country": "Liechtenstein",
     "public": "holidays/LI/public.ics",
     "regional": null,
     "other": "holidays/LI/other.ics"
