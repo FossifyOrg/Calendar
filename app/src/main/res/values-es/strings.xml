@@ -267,4 +267,8 @@
     <string name="regional_holidays">Festivos regionales</string>
     <string name="select_holidays_to_import">Seleccionar festivos a importar</string>
     <string name="other_holidays">Otros festivos y celebraciones</string>
+    <string name="show_widget_header">Mostrar encabezado</string>
+    <string name="access_level_private">Privado</string>
+    <string name="access_level_public">Público</string>
+    <string name="access_level_confidential">Confidencial</string>
 </resources>
