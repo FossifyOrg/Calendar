@@ -268,4 +268,7 @@
         <item quantity="other">בתוך %d הימים הבאים</item>
     </plurals>
     <string name="show_widget_header">הצג כותרת</string>
+    <string name="access_level_private">פרטי</string>
+    <string name="access_level_confidential">סודי</string>
+    <string name="access_level_public">ציבורי</string>
 </resources>
