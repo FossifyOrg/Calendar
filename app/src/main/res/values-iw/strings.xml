@@ -155,7 +155,7 @@
     <string name="delete_all_events">מחיקת כל האירועים</string>
     <string name="delete_all_events_confirmation">למחוק את כל האירועים\? סוגי האירועים והגדרות נוספות יישמרו.</string>
     <string name="show_a_grid">תצוגת רשת</string>
-    <string name="loop_reminders">תזכורות לולאה עד להדחה</string>
+    <string name="loop_reminders">תזכורות לולאה עד לסגירה</string>
     <string name="dim_past_events">עמעם אירועי עבר</string>
     <string name="dim_completed_tasks">עמום השלים משימות</string>
     <string name="events">אירועים</string>
