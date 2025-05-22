@@ -22,7 +22,7 @@ jobs:
               working-directory: ./.github/workflows/holiday-generator
               run: 'npm install && npm start'
             - name: Create PR
-              uses: peter-evans/create-pull-request@v6
+              uses: peter-evans/create-pull-request@v7
               with:
                 token: ${{ secrets.FOSSIFYBOT_TOKEN }}
                 committer: 'fossifybot <188744758+fossifybot@users.noreply.github.com>'
