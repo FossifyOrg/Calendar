@@ -11,8 +11,8 @@ class Converters {
     private val attendeeType = object : TypeToken<List<Attendee>>() {}.type
 
     @TypeConverter
-    fun jsonToStringList(value: String): List<String> {
-        val newValue = if (value.isNotEmpty() && !value.startsWith("[")) {
+    fun jsonToStringList(value: String?): List<String> {
+        val newValue = if (!value.isNullOrEmpty() && !value.startsWith("[")) {
             "[$value]"
         } else {
             value
