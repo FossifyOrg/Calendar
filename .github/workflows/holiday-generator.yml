@@ -7,12 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  token:
-    uses: FossifyOrg/.github/.github/workflows/fossifybot-token.yml@main
-    secrets: inherit
-
   generate:
-    needs: token
     name: Generate ICS
     runs-on: ubuntu-latest
     steps:
@@ -26,10 +21,17 @@ jobs:
           LOG_ENABLED: true
         working-directory: ./.github/workflows/holiday-generator
         run: "npm install && npm start"
+
+      - id: app-token
+        uses: actions/create-github-app-token@df432ceedc7162793a195dd1713ff69aefc7379e
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
       - name: Create PR
         uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e
         with:
-          token: ${{ needs.token.outputs.token }}
+          token: ${{ steps.app-token.outputs.token }}
           sign-commits: true
           commit-message: "chore: update holidays"
           title: "chore: update holidays"
