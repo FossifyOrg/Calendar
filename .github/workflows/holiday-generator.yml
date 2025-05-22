@@ -1,31 +1,36 @@
 name: Generate holiday ICS files
 
 on:
-    schedule:
-        # Run every year on 1st December, midnight
-        - cron: '0 0 1 12 *'
-    workflow_dispatch:
+  schedule:
+    # Run every year on 1st December, midnight
+    - cron: "0 0 1 12 *"
+  workflow_dispatch:
 
 jobs:
-    generate:
-        name: Generate ICS
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v4
-            - name: Install NodeJS
-              uses: actions/setup-node@v4
-              with:
-                node-version: 20
-            - name: Run script
-              env:
-                LOG_ENABLED: true
-              working-directory: ./.github/workflows/holiday-generator
-              run: 'npm install && npm start'
-            - name: Create PR
-              uses: peter-evans/create-pull-request@v7
-              with:
-                token: ${{ secrets.FOSSIFYBOT_TOKEN }}
-                committer: 'fossifybot <188744758+fossifybot@users.noreply.github.com>'
-                commit-message: 'chore: update holidays'
-                title: 'chore: update holidays'
-                body: ' '
+  token:
+    uses: FossifyOrg/.github/.github/workflows/fossifybot-token.yml@main
+    secrets: inherit
+
+  generate:
+    needs: token
+    name: Generate ICS
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Install NodeJS
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 20
+      - name: Run script
+        env:
+          LOG_ENABLED: true
+        working-directory: ./.github/workflows/holiday-generator
+        run: "npm install && npm start"
+      - name: Create PR
+        uses: peter-evans/create-pull-request@271a8d0340265f705b14b6d32b9829c1cb33d45e
+        with:
+          token: ${{ needs.token.outputs.token }}
+          sign-commits: true
+          commit-message: "chore: update holidays"
+          title: "chore: update holidays"
+          body: " "
