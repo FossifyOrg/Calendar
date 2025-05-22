@@ -1,4 +1,3 @@
-import org.jetbrains.kotlin.gradle.plugin.mpp.pm20.util.archivesName
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.jetbrains.kotlin.konan.properties.Properties
 import java.io.FileInputStream
@@ -32,9 +31,9 @@ android {
         targetSdk = project.libs.versions.app.build.targetSDK.get().toInt()
         versionCode = project.libs.versions.app.version.versionCode.get().toInt()
         versionName = project.libs.versions.app.version.versionName.get()
-        archivesName.set("calendar-$versionCode")
         multiDexEnabled = true
         vectorDrawables.useSupportLibrary = true
+        setProperty("archivesBaseName", "calendar-$versionCode")
         ksp {
             arg("room.schemaLocation", "$projectDir/schemas")
         }
