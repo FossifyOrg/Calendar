@@ -2,7 +2,7 @@ Jste unaveni z nepřehledných kalendářů, které zajímají jen vaše data?
 
 Kalendář Fossify je tu, aby to změnil. Je vaším open-source domovem pro správu života, navržený s ohledem na ochranu soukromí a plný skvělých funkcí, které vám pomohou zorganizovat svůj život.
 
-Proč je Kalendář Fossify jiný?
+V čem Kalendář Fossify jiný:
 
 🚫 BEZ REKLAM A SOUKROMÝ: 
 Vaše události zůstanou vaše. Žádné reklamy, žádné sledování, žádná nebezpečná oprávnění.
