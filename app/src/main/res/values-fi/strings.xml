@@ -265,4 +265,7 @@
     <string name="regional_holidays">Alueelliset juhlapäivät</string>
     <string name="other_holidays">Muuta juhlapäivät ja -menot</string>
     <string name="show_widget_header">Näytä otsikko</string>
+    <string name="access_level_public">Julkinen</string>
+    <string name="access_level_private">Yksityinen</string>
+    <string name="access_level_confidential">Luottamuksellinen</string>
 </resources>
