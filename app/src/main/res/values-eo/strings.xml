@@ -264,4 +264,8 @@
     <string name="status_busy">Okupata</string>
     <string name="fetching_event_failed">Venigo de la evento %s malsukcesis</string>
     <string name="faq_3_text">Kaj la montro kaj la sono de la memorigiloj estas multe afektitaj pro la sistemo. Se vi nenion aŭdas, provu iri al la aplikaĵaj agordoj kaj ŝanĝi la valoron de \"Sonfluo uzita pro memorigiloj\". Se la sono ankoraŭ ne funkcias, kontrolu viajn sonajn agordojn kaj ĉu tiu specifa fluo estas silentigita.</string>
+    <string name="show_widget_header">Montri ĉapon</string>
+    <string name="access_level_public">Publika</string>
+    <string name="access_level_private">Privata</string>
+    <string name="access_level_confidential">Konfidenca</string>
 </resources>
