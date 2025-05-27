@@ -8,7 +8,7 @@ detekt = "1.23.8"
 #Androidx
 multidex = "2.0.1"
 print = "1.0.0"
-constraintlayout = "2.2.0"
+constraintlayout = "2.2.1"
 swiperefreshlayout = "1.1.0"
 #Room
 room = "2.7.1"
