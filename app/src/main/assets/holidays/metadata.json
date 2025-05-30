@@ -420,6 +420,13 @@
     "other": "holidays/UY/other.ics"
   },
   {
+    "code": "VN",
+    "country": "Cộng hòa Xã hội chủ nghĩa Việt Nam",
+    "public": "holidays/VN/public.ics",
+    "regional": null,
+    "other": "holidays/VN/other.ics"
+  },
+  {
     "code": "ZA",
     "country": "South Africa",
     "public": "holidays/ZA/public.ics",
