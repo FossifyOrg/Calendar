@@ -69,6 +69,7 @@ export const COUNTRIES = [
     "GB", // United Kingdom
     "US", // United States
     "UY", // Uruguay
+    "VN", // Vietnam
 ];
 
 export const UNSUPPORTED_COUNTRIES = {
