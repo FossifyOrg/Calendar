@@ -5,7 +5,7 @@
     <string name="daily_view">תצוגה יומית</string>
     <string name="weekly_view">תצוגה שבועית</string>
     <string name="monthly_view">תצוגה חודשית</string>
-    <string name="monthly_daily_view">צפייה חודשית + יומית</string>
+    <string name="monthly_daily_view">צפייה חודשית ויומית</string>
     <string name="yearly_view">תצוגה שנתית</string>
     <string name="simple_event_list">רשימת אירועים פשוטה</string>
     <string name="go_to_today">עבור להיום</string>
@@ -18,8 +18,8 @@
     <string name="new_event">אירוע חדש</string>
     <string name="create_new_event">צור אירוע חדש</string>
     <string name="duplicate_event">שכפל אירוע</string>
-    <string name="title_empty">כותרת לא יכולה להישאר ריקה</string>
-    <string name="end_before_start">אירוע לא יכול להסתייים לפני שהתחיל</string>
+    <string name="title_empty">הכותרת לא יכולה להיות ריקה</string>
+    <string name="end_before_start">האירוע לא יכול להסתייים לפני שהתחיל</string>
     <string name="event_added">אירוע נוסף בהצלחה</string>
     <string name="event_updated">אירוע עודכן בהצלחה</string>
     <string name="filter_events_by_type">סנן אירועים לפי סוג</string>
@@ -31,10 +31,10 @@
     <string name="new_task">משימה חדשה</string>
     <string name="create_new_task">צור משימה חדשה</string>
     <string name="duplicate_task">משימה כפולה</string>
-    <string name="mark_completed">סימן הושלם</string>
-    <string name="mark_incomplete">סמן כלא שלם</string>
+    <string name="mark_completed">סמן כהושלם</string>
+    <string name="mark_incomplete">סמן כלא הושלם</string>
     <string name="repetition">אירוע חוזר</string>
-    <string name="no_repetition">אין חזרה</string>
+    <string name="no_repetition">ללא חזרה</string>
     <string name="daily">יומי</string>
     <string name="weekly">שבועי</string>
     <string name="monthly">חודשי</string>
@@ -213,7 +213,7 @@
     <string name="show_events_happening">הצג אירועים שקורים:</string>
     <string name="within_the_next_one_year">Within the next 1 year‬</string>
     <string name="no_upcoming_events">אין אירועים קרובים.</string>
-    <string name="everything_filtered_out">סיננת את כל סוגי הפגישות</string>
+    <string name="everything_filtered_out">סיננת את כל סוגי האירועים</string>
     <string name="event_color">צבע האירוע</string>
     <string name="delete_all_events_and_tasks">מחק את כל האירועים והמשימות</string>
     <string name="default_calendar_color">צבע ברירת מחדל של לוח השנה</string>
@@ -269,6 +269,6 @@
     </plurals>
     <string name="show_widget_header">הצג כותרת</string>
     <string name="access_level_private">פרטי</string>
-    <string name="access_level_confidential">סודי</string>
+    <string name="access_level_confidential">חסוי</string>
     <string name="access_level_public">ציבורי</string>
 </resources>
