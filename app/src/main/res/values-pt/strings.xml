@@ -268,4 +268,7 @@
     <string name="other_holidays">Outras datas relevantes</string>
     <string name="select_holidays_to_import">Selecione os feriados a importar</string>
     <string name="show_widget_header">Mostrar cabeçalho</string>
+    <string name="access_level_public">Público</string>
+    <string name="access_level_private">Privado</string>
+    <string name="access_level_confidential">Confidencial</string>
 </resources>
