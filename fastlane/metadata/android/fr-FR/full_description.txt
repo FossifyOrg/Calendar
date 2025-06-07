@@ -1,8 +1,8 @@
-Fatigué des calendriers encombrés et des problèmes de confidentialité ?
+En avez-vous assez des calendriers encombrés et des problèmes de confidentialité ?
 
-Le Calendrier Fossify est là pour changer ça. Votre locomotive open-source pour gérer votre vie, conçue avec la confidentialité comme priorité et dotée de fonctionnalités puissantes pour que vous restiez organisé.
+Fossify Calendar est là pour changer ça. Votre locomotive open-source pour gérer votre vie, conçue avec la confidentialité comme priorité et dotée de fonctionnalités puissantes pour que vous restiez organisé.
 
-Voici ce qui rend le Calendrier Fossify différent :
+Voici ce qui rend Fossify Calendar différent :
 
 🚫 PAS DE PUBS ET PRIVÉ :
 Vos évènements restent les vôtres. Pas de publicités, pas de pistage, pas de permissions intrusives.
@@ -34,11 +34,11 @@ Basculez sans effort entre les vues quotidiennes, hebdomadaires, mensuelles, ann
 ✨ MATERIAL DESIGN ÉLÉGANT :
 Profitez d'une interface intuitive et facile à utiliser avec des thèmes dynamiques.
 
-De plus, le Calendrier Fossify est open-source ! Rejoignez la communauté en mouvement sur Github, contribuez au projet et faites-le devenir le vôtre.
+De plus, Fossify Calendar est open-source ! Rejoignez la communauté en mouvement sur Github, contribuez au projet et faites-le devenir le vôtre.
 
-Téléchargez le Calendrier Fossify maintenant et profitez de la puissance d'un calendrier privé et personnalisable.
+Téléchargez Fossify Calendar maintenant et profitez de la puissance d'un calendrier privé et personnalisable.
 
-Découvrez plus d'apps de Fossify : https://www.fossify.org
+Découvrez plus d'applis de Fossify : https://www.fossify.org
 Code open-source : https://www.github.com/FossifyOrg
 Rejoignez la communauté sur Reddit : https://www.reddit.com/r/Fossify
 Restez connecté via Telegram : https://t.me/Fossify
