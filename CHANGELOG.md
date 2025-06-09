@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Holidays for Vietnam
+- Holidays for Vietnam ([#613])
 
 ### Changed
 
@@ -129,3 +129,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#484]: https://github.com/FossifyOrg/Calendar/issues/484
 [#551]: https://github.com/FossifyOrg/Calendar/issues/551
 [#567]: https://github.com/FossifyOrg/Calendar/issues/567
+[#613]: https://github.com/FossifyOrg/Calendar/issues/613
