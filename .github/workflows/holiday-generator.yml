@@ -33,8 +33,6 @@ jobs:
         with:
           token: ${{ steps.app-token.outputs.token }}
           sign-commits: true
-          assignees: naveensingh
-          reviewers: naveensingh
           branch: fossifybot/holidays
           commit-message: "chore: update holidays"
           title: "chore: update holidays"
