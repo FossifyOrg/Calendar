@@ -264,4 +264,5 @@
     <string name="status_confirmed">Onaylanmış</string>
     <string name="status_tentative">Kesin değil</string>
     <string name="status_canceled">İptal edilmiş</string>
+    <string name="show_widget_header">Başlığı göster</string>
 </resources>
