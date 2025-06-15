@@ -44,3 +44,12 @@ updates:
       prefix: "chore"
       prefix-development: "chore"
       include: "scope"
+
+  - package-ecosystem: "npm"
+    directory: "/.github/workflows/holiday-generator"
+    schedule:
+      interval: "weekly"
+    commit-message:
+      prefix: "chore"
+      prefix-development: "chore"
+      include: "scope"
