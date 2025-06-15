@@ -30,6 +30,7 @@ export const COUNTRIES = [
     "DE", // Germany
     "GR", // Greece
     "HT", // Haiti
+    "HK", // Hong Kong
     "HU", // Hungary
     "IS", // Iceland
     "ID", // Indonesia
