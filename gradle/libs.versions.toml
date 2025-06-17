@@ -13,7 +13,7 @@ swiperefreshlayout = "1.1.0"
 #Room
 room = "2.7.1"
 #Fossify
-commons = "3.0.3"
+commons = "3.0.5"
 #Gradle
 gradlePlugins-agp = "8.10.1"
 #build
