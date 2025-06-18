@@ -137,7 +137,7 @@
     <string name="select_event_type">Bir etkinlik türü seçin</string>
     <string name="move_events_into_default">Etkilenen etkinlikleri öntanımlı etkinlik türüne taşı</string>
     <string name="remove_affected_events">Etkilenen etkinlikleri kalıcı olarak kaldır</string>
-    <string name="unsync_caldav_calendar">CalDAV takvimini kaldırmak için, eşzamanlamasını kaldırmalısınız</string>
+    <string name="unsync_caldav_calendar">CalDAV takvimini kaldırmak için, önce eşlemesini kaldırmalısınız</string>
     <string name="holidays">Tatiller</string>
     <string name="add_holidays">Tatil ekle</string>
     <string name="national_holidays">Ulusal tatiller</string>
@@ -156,7 +156,7 @@
     <string name="no_ringtone_picker">Zil sesi ayarlayabilen uygulama yok</string>
     <string name="no_ringtone_selected">Hiçbiri</string>
     <string name="day_end_before_start">Gün başladığından daha erken bitemez</string>
-    <string name="caldav_sync">CalDAV eşzamanlaması</string>
+    <string name="caldav_sync">CalDAV eşlemesi</string>
     <string name="event_lists">Etkinlik listeleri</string>
     <string name="display_past_events">Geçmişten gelen etkinlikleri görüntüle</string>
     <string name="replace_description_with_location">Etkinlik açıklamasını konumla değiştir</string>
@@ -191,19 +191,19 @@
     <string name="allow_changing_time_zones">Etkinlik saat dilimlerini değiştirmeye izin ver</string>
     <string name="manage_quick_filter_event_types">Hızlı filtre etkinlik türlerini yönet</string>
     <string name="allow_creating_tasks">Görev oluşturmaya izin ver</string>
-    <string name="select_caldav_calendars">Eşzamanlanacak takvimleri seç</string>
-    <string name="manage_synced_calendars">Eşzamanlanan takvimleri yönet</string>
+    <string name="select_caldav_calendars">Eşlenecek takvimleri seçin</string>
+    <string name="manage_synced_calendars">Eşlenmiş takvimleri yönet</string>
     <string name="store_locally_only">Yalnızca yerel olarak depola</string>
     <string name="refresh_caldav_calendars">CalDAV takvimlerini yenile</string>
     <string name="refreshing">Yenileniyor…</string>
     <string name="refreshing_complete">Yenileme tamamlandı</string>
     <string name="editing_calendar_failed">Takvim düzenlenme başarısız</string>
-    <string name="syncing">Eşzamanlanıyor…</string>
-    <string name="synchronization_completed">Eşzamanlama tamamlandı</string>
+    <string name="syncing">Eşleniyor…</string>
+    <string name="synchronization_completed">Eşleme tamamlandı</string>
     <string name="select_a_different_caldav_color">Farklı bir renk seçin (yalnızca yerel olarak uygulanabilir)</string>
     <string name="insufficient_permissions">Seçili takvime yazmanıza izin verilmiyor</string>
-    <string name="caldav_event_not_found">Etkinlik bulunamadı. Lütfen uygulama ayarlarından uygun takvim için CalDAV eşzamanlamasını etkinleştirin.</string>
-    <string name="no_synchronized_calendars">Eşzamanlanabilir takvim bulunamadı</string>
+    <string name="caldav_event_not_found">Etkinlik bulunamadı. Lütfen uygulama ayarlarından uygun takvim için CalDAV eşlemesini etkinleştirin.</string>
+    <string name="no_synchronized_calendars">Eşlenebilir takvim bulunamadı</string>
     <string name="status_free">Uygun</string>
     <string name="status_busy">Meşgul</string>
     <string name="fetching_event_failed">%s etkinliği getirilemedi</string>
@@ -244,9 +244,9 @@
     <string name="accessibility_next_day">Sonraki güne git</string>
     <string name="faq_1_title">\"Tatil ekle\" düğmesiyle içe aktarılan tatilleri nasıl kaldırabilirim\?</string>
     <string name="faq_1_text">Tatiller, \"Tatiller\" olarak adlandırılan yeni bir etkinlik türüne eklenir. Ayarlar -&gt; Etkinlik Türlerini Yönet\'e gidip, belirlenen etkinlik türüne uzun basıp çöp kutusunu seçerek silebilirsiniz.</string>
-    <string name="faq_2_title">Etkinliklerimi Google Takvim\'le veya CalDAV\'ı destekleyen başka bir hizmetle eşzamanlayabilir miyim\?</string>
+    <string name="faq_2_title">Etkinliklerimi Google Takvim\'le veya CalDAV\'ı destekleyen başka bir hizmetle eşleyebilir miyim?</string>
     <string name="faq_2_title_extra">Hatta belki takvimlerimi başkalarıyla paylaşabilir miyim\?</string>
-    <string name="faq_2_text">Evet, uygulama ayarlarından \"CalDAV eşzamanlaması\" seçeneğini işaretleyin ve eşzamanlamak istediğiniz takvimleri seçin. Bununla birlikte, aygıt ve sunucular arasındaki eşzamanlamayı ele alan bazı üçüncü taraf uygulamalarına ihtiyacınız olacaktır. Bu durumda bir Google takvimini eşzamanlamak istiyorsanız, resmi Takvim uygulaması bunu yapacaktır. Diğer takvimler için, DAVx5 gibi üçüncü taraf eşzamanlama uygulamasına ihtiyacınız olacaktır.</string>
+    <string name="faq_2_text">Evet, uygulama ayarlarından \"CalDAV eşlemesi\" seçeneğini işaretleyin ve eşlemek istediğiniz takvimleri seçin. Bununla birlikte, aygıt ve sunucular arasındaki eşlemeyi ele alan bazı üçüncü taraf uygulamalarına ihtiyacınız olacaktır. Bu durumda bir Google takvimini eşlemek istiyorsanız, resmi takvim uygulaması bunu yapacaktır. Diğer takvimler için, DAVx5 gibi üçüncü taraf eşleme uygulamasına ihtiyacınız olacaktır.</string>
     <string name="faq_3_title">Görsel hatırlatıcıları görüyorum ama ses duymuyorum. Ne yapabilirim\?</string>
     <string name="faq_3_text">Yalnızca gerçek hatırlatıcıyı görüntülemekle kalmaz, aynı zamanda ses çalmak da sistemden büyük ölçüde etkilenir. Herhangi bir ses duyamıyorsanız, uygulama ayarlarına girmeyi, \"Hatırlatıcılar tarafından kullanılan ses akışına\" basmayı ve bunu farklı bir değere değiştirmeyi deneyin. Hala işe yaramazsa, belirli bir akış sessiz değilse, Ses ayarlarınızı gözden geçirin.</string>
     <string name="faq_4_title">Uygulama saat dilimlerini destekliyor mu\?</string>
@@ -264,4 +264,8 @@
     <string name="status_confirmed">Onaylanmış</string>
     <string name="status_tentative">Kesin değil</string>
     <string name="status_canceled">İptal edilmiş</string>
+    <string name="show_widget_header">Başlığı göster</string>
+    <string name="access_level_public">Herkese açık</string>
+    <string name="access_level_private">Kişisel</string>
+    <string name="access_level_confidential">Gizli</string>
 </resources>
