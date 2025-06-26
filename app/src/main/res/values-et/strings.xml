@@ -110,9 +110,9 @@
     <string name="enter_a_country">Sisestariik või ajavöönd</string>
     <string name="import_events">Impordi sündmusi</string>
     <string name="export_events">Ekspordi sündmusi</string>
-    <string name="import_events_from_ics">Impordi sündmusi .ics failist</string>
-    <string name="import_events_from_ics_pro">Impordi sündmusi .ics failist (Pro)</string>
-    <string name="export_events_to_ics">Ekspordi sündmusi .ics faili</string>
+    <string name="import_events_from_ics">Impordi sündmused .ics failist</string>
+    <string name="import_events_from_ics_pro">Impordi sündmused .ics failist (Pro)</string>
+    <string name="export_events_to_ics">Ekspordi sündmused .ics faili</string>
     <string name="default_event_type">Sündmuse tüüp vaikimisi</string>
     <string name="export_past_events_too">Ekspordi ka minevikus toimunud sündmused</string>
     <string name="export_tasks">Ekspordi ülesanded</string>
