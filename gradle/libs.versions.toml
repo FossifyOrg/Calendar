@@ -5,6 +5,7 @@ kotlin = "2.2.0"
 ksp = "2.1.21-2.0.2"
 #Detekt
 detekt = "1.23.8"
+detektCompose = "0.4.22"
 #Androidx
 multidex = "2.0.1"
 print = "1.1.0"
@@ -32,6 +33,8 @@ androidx-swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefre
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
 androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+#Compose
+compose-detekt = { module = "io.nlopez.compose.rules:detekt", version.ref = "detektCompose" }
 #Fossify
 fossify-commons = { module = "org.fossify:commons", version.ref = "commons" }
 [bundles]
