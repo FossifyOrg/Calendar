@@ -75,50 +75,23 @@
     <ID>LargeClass:TaskActivity.kt$TaskActivity : SimpleActivity</ID>
     <ID>LargeClass:WeekFragment.kt$WeekFragment : FragmentWeeklyCalendar</ID>
     <ID>LongMethod:CalDAVHelper.kt$CalDAVHelper$@SuppressLint("MissingPermission") private fun fetchCalDAVCalendarEvents( calendar: CalDAVCalendar, eventTypeId: Long, showToasts: Boolean, )</ID>
-    <ID>LongMethod:Context.kt$@SuppressLint("NewApi") fun Context.getNotification(pendingIntent: PendingIntent, event: Event, content: String, publicVersion: Boolean = false): Notification?</ID>
-    <ID>LongMethod:Context.kt$fun Context.backupEventsAndTasks()</ID>
-    <ID>LongMethod:EventActivity.kt$EventActivity$private fun addSelectedAttendee( attendee: Attendee, autoCompleteView: MyAutoCompleteTextView, attendeeHolder: ItemAttendeeBinding, )</ID>
     <ID>LongMethod:EventActivity.kt$EventActivity$private fun gotEvent( savedInstanceState: Bundle?, localEventType: EventType?, event: Event?, )</ID>
     <ID>LongMethod:EventActivity.kt$EventActivity$private fun saveEvent()</ID>
-    <ID>LongMethod:EventActivity.kt$EventActivity$private fun updateCurrentCalendarInfo(currentCalendar: CalDAVCalendar?)</ID>
-    <ID>LongMethod:EventListWidgetAdapter.kt$EventListWidgetAdapter$override fun onDataSetChanged()</ID>
-    <ID>LongMethod:EventsHelper.kt$EventsHelper$fun getEventsSync( fromTS: Long, toTS: Long, eventId: Long = -1L, applyTypeFilter: Boolean, searchQuery: String = "", callback: (events: ArrayList&lt;Event&gt;) -&gt; Unit )</ID>
     <ID>LongMethod:IcsImporter.kt$IcsImporter$fun importEvents( path: String, defaultEventTypeId: Long, calDAVCalendarId: Int, overrideFileEventTypes: Boolean, eventReminders: ArrayList&lt;Int&gt;? = null, loadFromAssets: Boolean = false, ): ImportResult</ID>
-    <ID>LongMethod:MainActivity.kt$MainActivity$private fun addContactEvents(birthdays: Boolean, reminders: ArrayList&lt;Int&gt;, initEventsFound: Int, initEventsAdded: Int, callback: (Int) -&gt; Unit)</ID>
-    <ID>LongMethod:MainActivity.kt$MainActivity$private fun addPrivateEvents( birthdays: Boolean, contacts: ArrayList&lt;SimpleContact&gt;, reminders: ArrayList&lt;Int&gt;, callback: (eventsFound: Int, eventsAdded: Int) -&gt; Unit )</ID>
-    <ID>LongMethod:MonthView.kt$MonthView$override fun onDraw(canvas: Canvas)</ID>
     <ID>LongMethod:MyTimeZones.kt$fun getAllTimeZones()</ID>
-    <ID>LongMethod:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider$private fun updateDays(context: Context, views: RemoteViews, days: List&lt;DayMonthly&gt;)</ID>
-    <ID>LongMethod:SettingsActivity.kt$SettingsActivity$private fun parseFile(inputStream: InputStream?)</ID>
-    <ID>LongMethod:SettingsActivity.kt$SettingsActivity$private fun setupSettingItems()</ID>
-    <ID>LongMethod:TaskActivity.kt$TaskActivity$private fun gotTask(savedInstanceState: Bundle?, localEventType: EventType?, task: Event?)</ID>
-    <ID>LongMethod:TaskActivity.kt$TaskActivity$private fun saveTask()</ID>
-    <ID>LongMethod:WeekFragment.kt$WeekFragment$@SuppressLint("NewApi") private fun addAllDayEvent(event: Event)</ID>
     <ID>LongMethod:WeekFragment.kt$WeekFragment$private fun addEvents(events: ArrayList&lt;Event&gt;)</ID>
-    <ID>LongMethod:WeekFragment.kt$WeekFragment$private fun initGrid()</ID>
-    <ID>LongMethod:WidgetListConfigureActivity.kt$WidgetListConfigureActivity$private fun getListItems(): ArrayList&lt;ListItem&gt;</ID>
-    <ID>LongParameterList:Context.kt$( uri: Uri, projection: Array&lt;String&gt;, selection: String? = null, selectionArgs: Array&lt;String&gt;? = null, sortOrder: String? = null, showErrors: Boolean = false, callback: (cursor: Cursor) -&gt; Unit )</ID>
-    <ID>LongParameterList:CssColors.kt$CssColors$( a1: Int, r1: Int, g1: Int, b1: Int, a2: Int, r2: Int, g2: Int, b2: Int, )</ID>
-    <ID>LongParameterList:EventsHelper.kt$EventsHelper$( fromTS: Long, toTS: Long, eventId: Long = -1L, applyTypeFilter: Boolean = true, searchQuery: String = "", callback: (events: ArrayList&lt;Event&gt;) -&gt; Unit )</ID>
-    <ID>LongParameterList:EventsHelper.kt$EventsHelper$( fromTS: Long, toTS: Long, eventId: Long = -1L, applyTypeFilter: Boolean, searchQuery: String = "", callback: (events: ArrayList&lt;Event&gt;) -&gt; Unit )</ID>
-    <ID>LongParameterList:IcsImporter.kt$IcsImporter$( path: String, defaultEventTypeId: Long, calDAVCalendarId: Int, overrideFileEventTypes: Boolean, eventReminders: ArrayList&lt;Int&gt;? = null, loadFromAssets: Boolean = false, )</ID>
-    <ID>LongParameterList:MonthView.kt$MonthView$(event: MonthViewEvent, canvas: Canvas, x: Float, y: Float, availableWidth: Float, paint: Paint)</ID>
     <ID>LongParameterList:SelectEventTypeDialog.kt$SelectEventTypeDialog$( val activity: Activity, val currEventType: Long, val showCalDAVCalendars: Boolean, val showNewEventTypeOption: Boolean, val addLastUsedOneAsFirstOption: Boolean, val showOnlyWritable: Boolean, var showManageEventTypes: Boolean, val callback: (eventType: EventType) -&gt; Unit )</ID>
     <ID>LoopWithTooManyJumpStatements:IcsImporter.kt$IcsImporter$while</ID>
     <ID>LoopWithTooManyJumpStatements:ManageEventTypesAdapter.kt$ManageEventTypesAdapter$for</ID>
     <ID>LoopWithTooManyJumpStatements:WeekFragment.kt$WeekFragment$do</ID>
     <ID>MagicNumber:AutomaticBackupReceiver.kt$AutomaticBackupReceiver$3000</ID>
     <ID>MagicNumber:CalDAVCalendar.kt$CalDAVCalendar$500</ID>
-    <ID>MagicNumber:CalDAVHelper.kt$CalDAVHelper$1000L</ID>
     <ID>MagicNumber:CalDAVHelper.kt$CalDAVHelper$60L</ID>
     <ID>MagicNumber:CalDAVHelper.kt$CalDAVHelper$8</ID>
     <ID>MagicNumber:Config.kt$Config$10</ID>
     <ID>MagicNumber:Config.kt$Config$7</ID>
-    <ID>MagicNumber:Constants.kt$1000L</ID>
     <ID>MagicNumber:Constants.kt$6</ID>
     <ID>MagicNumber:Context.kt$0.25f</ID>
-    <ID>MagicNumber:Context.kt$1000</ID>
-    <ID>MagicNumber:Context.kt$1000L</ID>
     <ID>MagicNumber:Context.kt$2.5f</ID>
     <ID>MagicNumber:Context.kt$3f</ID>
     <ID>MagicNumber:Context.kt$500</ID>
@@ -131,15 +104,12 @@
     <ID>MagicNumber:CssColors.kt$CssColors$16</ID>
     <ID>MagicNumber:CssColors.kt$CssColors$24</ID>
     <ID>MagicNumber:CssColors.kt$CssColors$8</ID>
-    <ID>MagicNumber:DateTime.kt$1000L</ID>
-    <ID>MagicNumber:DayFragment.kt$DayFragment$1000</ID>
     <ID>MagicNumber:DayFragmentsHolder.kt$DayFragmentsHolder$100000</ID>
     <ID>MagicNumber:DayFragmentsHolder.kt$DayFragmentsHolder$251</ID>
     <ID>MagicNumber:Event.kt$Event$3</ID>
     <ID>MagicNumber:Event.kt$Event$4</ID>
     <ID>MagicNumber:Event.kt$Event$7</ID>
     <ID>MagicNumber:EventActivity.kt$EventActivity$0.4f</ID>
-    <ID>MagicNumber:EventActivity.kt$EventActivity$1000L</ID>
     <ID>MagicNumber:EventActivity.kt$EventActivity$12</ID>
     <ID>MagicNumber:EventActivity.kt$EventActivity$23</ID>
     <ID>MagicNumber:EventActivity.kt$EventActivity$3</ID>
@@ -149,7 +119,6 @@
     <ID>MagicNumber:EventActivity.kt$EventActivity$6</ID>
     <ID>MagicNumber:EventActivity.kt$EventActivity$60</ID>
     <ID>MagicNumber:EventActivity.kt$EventActivity$7</ID>
-    <ID>MagicNumber:EventListFragment.kt$EventListFragment$1000</ID>
     <ID>MagicNumber:EventListFragment.kt$EventListFragment$100000</ID>
     <ID>MagicNumber:EventListFragment.kt$EventListFragment$6</ID>
     <ID>MagicNumber:EventListWidgetAdapter.kt$EventListWidgetAdapter$23</ID>
@@ -168,20 +137,15 @@
     <ID>MagicNumber:EventsDatabase.kt$EventsDatabase.Companion.&lt;no name provided&gt;$9</ID>
     <ID>MagicNumber:EventsHelper.kt$EventsHelper$23</ID>
     <ID>MagicNumber:EventsHelper.kt$EventsHelper$59</ID>
-    <ID>MagicNumber:Formatter.kt$Formatter$1000L</ID>
     <ID>MagicNumber:Formatter.kt$Formatter$3</ID>
     <ID>MagicNumber:Formatter.kt$Formatter$4</ID>
     <ID>MagicNumber:Formatter.kt$Formatter$6</ID>
     <ID>MagicNumber:HsvColorComparator.kt$HsvColorComparator$3</ID>
-    <ID>MagicNumber:IcsExporter.kt$IcsExporter$1000L</ID>
     <ID>MagicNumber:IcsExporter.kt$IcsExporter$75</ID>
-    <ID>MagicNumber:IcsImporter.kt$IcsImporter$1000L</ID>
     <ID>MagicNumber:IcsImporter.kt$IcsImporter$180</ID>
     <ID>MagicNumber:IcsImporter.kt$IcsImporter$2</ID>
     <ID>MagicNumber:IcsImporter.kt$IcsImporter$60</ID>
-    <ID>MagicNumber:IcsImporter.kt$IcsImporter.ImportResult.IMPORT_FAIL$3</ID>
     <ID>MagicNumber:MainActivity.kt$MainActivity$0.8f</ID>
-    <ID>MagicNumber:MainActivity.kt$MainActivity$1000L</ID>
     <ID>MagicNumber:MainActivity.kt$MainActivity$300</ID>
     <ID>MagicNumber:MonthDayFragment.kt$MonthDayFragment$7</ID>
     <ID>MagicNumber:MonthDayFragmentsHolder.kt$MonthDayFragmentsHolder$100000</ID>
@@ -199,10 +163,8 @@
     <ID>MagicNumber:MonthView.kt$MonthView$2.5f</ID>
     <ID>MagicNumber:MonthView.kt$MonthView$3</ID>
     <ID>MagicNumber:MonthView.kt$MonthView$41</ID>
-    <ID>MagicNumber:MonthView.kt$MonthView$42</ID>
     <ID>MagicNumber:MonthView.kt$MonthView$7</ID>
     <ID>MagicNumber:MonthView.kt$MonthView$7f</ID>
-    <ID>MagicNumber:MonthlyCalendarImpl.kt$MonthlyCalendarImpl$42</ID>
     <ID>MagicNumber:MonthlyCalendarImpl.kt$MonthlyCalendarImpl$43</ID>
     <ID>MagicNumber:MonthlyCalendarImpl.kt$MonthlyCalendarImpl$7</ID>
     <ID>MagicNumber:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider$3</ID>
@@ -260,7 +222,6 @@
     <ID>MagicNumber:WeekFragment.kt$WeekFragment$60</ID>
     <ID>MagicNumber:WeekFragment.kt$WeekFragment.&lt;no name provided&gt;$24</ID>
     <ID>MagicNumber:WeekFragment.kt$WeekFragment.&lt;no name provided&gt;$24f</ID>
-    <ID>MagicNumber:WeekFragmentsHolder.kt$WeekFragmentsHolder$1000</ID>
     <ID>MagicNumber:WeekFragmentsHolder.kt$WeekFragmentsHolder$100000</ID>
     <ID>MagicNumber:WeekFragmentsHolder.kt$WeekFragmentsHolder$14</ID>
     <ID>MagicNumber:WeekFragmentsHolder.kt$WeekFragmentsHolder$151</ID>
