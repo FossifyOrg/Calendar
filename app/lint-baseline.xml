@@ -73,8 +73,8 @@
         errorLine1="app-build-targetSDK = &quot;34&quot;"
         errorLine2="                      ~~~~">
         <location
-            file="$HOME/work/Calendar/Calendar/gradle/libs.versions.toml"
-            line="21"
+            file="$HOME/Projects/Fossify/FossifyOrg/Calendar/gradle/libs.versions.toml"
+            line="22"
             column="23"/>
     </issue>
 
@@ -216,7 +216,7 @@
         errorLine1="distributionUrl=https\://services.gradle.org/distributions/gradle-8.11.1-bin.zip"
         errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="$HOME/work/Calendar/Calendar/gradle/wrapper/gradle-wrapper.properties"
+            file="$HOME/Projects/Fossify/FossifyOrg/Calendar/gradle/wrapper/gradle-wrapper.properties"
             line="3"
             column="17"/>
     </issue>
@@ -227,8 +227,8 @@
         errorLine1="gradlePlugins-agp = &quot;8.10.1&quot;"
         errorLine2="                    ~~~~~~~~">
         <location
-            file="$HOME/work/Calendar/Calendar/gradle/libs.versions.toml"
-            line="18"
+            file="$HOME/Projects/Fossify/FossifyOrg/Calendar/gradle/libs.versions.toml"
+            line="19"
             column="21"/>
     </issue>
 
@@ -238,8 +238,8 @@
         errorLine1="app-build-compileSDKVersion = &quot;34&quot;"
         errorLine2="                              ~~~~">
         <location
-            file="$HOME/work/Calendar/Calendar/gradle/libs.versions.toml"
-            line="20"
+            file="$HOME/Projects/Fossify/FossifyOrg/Calendar/gradle/libs.versions.toml"
+            line="21"
             column="31"/>
     </issue>
 
