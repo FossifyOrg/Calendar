@@ -161,6 +161,13 @@
     "other": "holidays/GR/other.ics"
   },
   {
+    "code": "HK",
+    "country": "香港",
+    "public": "holidays/HK/public.ics",
+    "regional": null,
+    "other": null
+  },
+  {
     "code": "HR",
     "country": "Hrvatska",
     "public": "holidays/HR/public.ics",
