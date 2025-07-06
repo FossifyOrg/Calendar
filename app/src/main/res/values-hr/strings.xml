@@ -263,4 +263,11 @@
     <string name="status_tentative">Privremeno</string>
     <string name="status_confirmed">Potvrđeno</string>
     <string name="status_canceled">Otkazano</string>
+    <string name="public_holidays">Državni praznici</string>
+    <string name="regional_holidays">Regionalni praznici</string>
+    <string name="other_holidays">Drugi praznici i spomendani</string>
+    <string name="select_holidays_to_import">Odaberi praznike za uvoz</string>
+    <string name="access_level_public">Javni</string>
+    <string name="access_level_private">Privatni</string>
+    <string name="access_level_confidential">Povjerljivo</string>
 </resources>
