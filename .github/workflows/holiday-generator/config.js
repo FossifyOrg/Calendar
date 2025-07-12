@@ -29,6 +29,7 @@ export const COUNTRIES = [
     "FR", // France
     "DE", // Germany
     "GR", // Greece
+    "GT", // Guatemala
     "HT", // Haiti
     "HK", // Hong Kong
     "HU", // Hungary
