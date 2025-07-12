@@ -5,6 +5,11 @@ on:
     # Run every year on 1st December, midnight
     - cron: "0 0 1 12 *"
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/holiday-generator/package-lock.json"
+      - ".github/workflows/holiday-generator/config.js"
 
 jobs:
   generate:
