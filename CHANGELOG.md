@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- Holidays for Guatemala
+- Holidays for Guatemala ([#682])
 
 ### Changed
 
@@ -143,3 +143,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#567]: https://github.com/FossifyOrg/Calendar/issues/567
 [#574]: https://github.com/FossifyOrg/Calendar/issues/574
 [#613]: https://github.com/FossifyOrg/Calendar/issues/613
+[#682]: https://github.com/FossifyOrg/Calendar/issues/682
