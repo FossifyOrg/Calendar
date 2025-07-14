@@ -477,6 +477,7 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
+    @Deprecated("Not used on Oreo+ devices")
     private fun setupReminderSound() = binding.apply {
         settingsReminderSoundHolder.beGoneIf(isOreoPlus())
         settingsReminderSound.text = config.reminderSoundTitle
@@ -503,6 +504,7 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
+    @Deprecated("Not used on Oreo+ devices")
     private fun updateReminderSound(alarmSound: AlarmSound) {
         config.reminderSoundTitle = alarmSound.title
         config.reminderSoundUri = alarmSound.uri

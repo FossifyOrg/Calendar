@@ -41,14 +41,17 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(VIBRATE, false)
         set(vibrate) = prefs.edit().putBoolean(VIBRATE, vibrate).apply()
 
+    @Deprecated("Not used on Oreo+ devices")
     var reminderSoundUri: String
         get() = prefs.getString(REMINDER_SOUND_URI, RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION).toString())!!
         set(reminderSoundUri) = prefs.edit().putString(REMINDER_SOUND_URI, reminderSoundUri).apply()
 
+    @Deprecated("Not used on Oreo+ devices")
     var reminderSoundTitle: String
         get() = prefs.getString(REMINDER_SOUND_TITLE, context.getDefaultAlarmTitle(RingtoneManager.TYPE_NOTIFICATION))!!
         set(reminderSoundTitle) = prefs.edit().putString(REMINDER_SOUND_TITLE, reminderSoundTitle).apply()
 
+    @Deprecated("Not used on Oreo+ devices")
     var lastSoundUri: String
         get() = prefs.getString(LAST_SOUND_URI, "")!!
         set(lastSoundUri) = prefs.edit().putString(LAST_SOUND_URI, lastSoundUri).apply()
