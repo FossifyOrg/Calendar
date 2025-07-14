@@ -431,8 +431,8 @@ fun Context.notifyEvent(originalEvent: Event) {
     }
 }
 
-fun Context.getUsageAttributeForStreamType(streamType: Int = config.reminderAudioStream): Int {
-    return when (streamType) {
+fun Context.getUsageAttributeForStreamType(): Int {
+    return when (config.reminderAudioStream) {
         AudioManager.STREAM_ALARM -> AudioAttributes.USAGE_ALARM
         AudioManager.STREAM_SYSTEM -> AudioAttributes.USAGE_ASSISTANCE_SONIFICATION
         AudioManager.STREAM_NOTIFICATION -> AudioAttributes.USAGE_NOTIFICATION_EVENT
