@@ -15,6 +15,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Updated translations
 
+### Fixed
+
+- Audio stream preference now works correctly ([#394])
+
 ## [1.4.0] - 2025-07-05
 
 ### Added
@@ -138,6 +142,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#148]: https://github.com/FossifyOrg/Calendar/issues/148
 [#196]: https://github.com/FossifyOrg/Calendar/issues/196
 [#262]: https://github.com/FossifyOrg/Calendar/issues/262
+[#394]: https://github.com/FossifyOrg/Calendar/issues/394
 [#484]: https://github.com/FossifyOrg/Calendar/issues/484
 [#551]: https://github.com/FossifyOrg/Calendar/issues/551
 [#567]: https://github.com/FossifyOrg/Calendar/issues/567
