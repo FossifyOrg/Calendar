@@ -2,7 +2,11 @@ package org.fossify.calendar.extensions
 
 import android.accounts.Account
 import android.annotation.SuppressLint
-import android.app.*
+import android.app.AlarmManager
+import android.app.Notification
+import android.app.NotificationChannel
+import android.app.NotificationManager
+import android.app.PendingIntent
 import android.appwidget.AppWidgetManager
 import android.content.ComponentName
 import android.content.ContentResolver
@@ -13,6 +17,7 @@ import android.content.res.Resources
 import android.database.Cursor
 import android.graphics.Bitmap
 import android.media.AudioAttributes
+import android.media.AudioManager
 import android.media.MediaScannerConnection
 import android.net.Uri
 import android.os.Bundle
@@ -21,6 +26,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.core.app.NotificationCompat
+import androidx.core.net.toUri
 import androidx.print.PrintHelper
 import org.fossify.calendar.R
 import org.fossify.calendar.activities.EventActivity
@@ -29,19 +35,87 @@ import org.fossify.calendar.activities.SnoozeReminderActivity
 import org.fossify.calendar.activities.TaskActivity
 import org.fossify.calendar.databases.EventsDatabase
 import org.fossify.calendar.databinding.DayMonthlyEventViewBinding
-import org.fossify.calendar.helpers.*
+import org.fossify.calendar.helpers.ACTION_MARK_COMPLETED
+import org.fossify.calendar.helpers.AUTOMATIC_BACKUP_REQUEST_CODE
+import org.fossify.calendar.helpers.CalDAVHelper
+import org.fossify.calendar.helpers.Config
+import org.fossify.calendar.helpers.DAY
+import org.fossify.calendar.helpers.DEFAULT_START_TIME_CURRENT_TIME
+import org.fossify.calendar.helpers.DEFAULT_START_TIME_NEXT_FULL_HOUR
+import org.fossify.calendar.helpers.DELETE_ALL_OCCURRENCES
+import org.fossify.calendar.helpers.DELETE_FUTURE_OCCURRENCES
+import org.fossify.calendar.helpers.DELETE_SELECTED_OCCURRENCE
+import org.fossify.calendar.helpers.EVENT_ID
+import org.fossify.calendar.helpers.EVENT_OCCURRENCE_TS
+import org.fossify.calendar.helpers.EventsHelper
+import org.fossify.calendar.helpers.FLAG_TASK_COMPLETED
+import org.fossify.calendar.helpers.Formatter
+import org.fossify.calendar.helpers.IS_TASK_COMPLETED
+import org.fossify.calendar.helpers.IcsExporter
+import org.fossify.calendar.helpers.MONTH
+import org.fossify.calendar.helpers.MyWidgetDateProvider
+import org.fossify.calendar.helpers.MyWidgetListProvider
+import org.fossify.calendar.helpers.MyWidgetMonthlyProvider
+import org.fossify.calendar.helpers.NEW_EVENT_START_TS
+import org.fossify.calendar.helpers.REMINDER_NOTIFICATION
+import org.fossify.calendar.helpers.REMINDER_OFF
+import org.fossify.calendar.helpers.SCHEDULE_CALDAV_REQUEST_CODE
+import org.fossify.calendar.helpers.WEEK
+import org.fossify.calendar.helpers.YEAR
+import org.fossify.calendar.helpers.generateImportId
+import org.fossify.calendar.helpers.getActivityToOpen
+import org.fossify.calendar.helpers.getNextAutoBackupTime
+import org.fossify.calendar.helpers.getNowSeconds
+import org.fossify.calendar.helpers.getPreviousAutoBackupTime
+import org.fossify.calendar.helpers.isWeekend
 import org.fossify.calendar.interfaces.EventTypesDao
 import org.fossify.calendar.interfaces.EventsDao
 import org.fossify.calendar.interfaces.TasksDao
 import org.fossify.calendar.interfaces.WidgetsDao
-import org.fossify.calendar.models.*
+import org.fossify.calendar.models.DayMonthly
+import org.fossify.calendar.models.Event
+import org.fossify.calendar.models.ListEvent
+import org.fossify.calendar.models.ListItem
+import org.fossify.calendar.models.ListSectionDay
+import org.fossify.calendar.models.ListSectionMonth
+import org.fossify.calendar.models.Task
 import org.fossify.calendar.receivers.AutomaticBackupReceiver
 import org.fossify.calendar.receivers.CalDAVSyncReceiver
 import org.fossify.calendar.receivers.NotificationReceiver
 import org.fossify.calendar.services.MarkCompletedService
 import org.fossify.calendar.services.SnoozeService
-import org.fossify.commons.extensions.*
-import org.fossify.commons.helpers.*
+import org.fossify.commons.extensions.adjustAlpha
+import org.fossify.commons.extensions.applyColorFilter
+import org.fossify.commons.extensions.beVisibleIf
+import org.fossify.commons.extensions.createDocumentUriUsingFirstParentTreeUri
+import org.fossify.commons.extensions.createSAFFileSdk30
+import org.fossify.commons.extensions.ensureTwoDigits
+import org.fossify.commons.extensions.formatSecondsToTimeString
+import org.fossify.commons.extensions.getContrastColor
+import org.fossify.commons.extensions.getDoesFilePathExist
+import org.fossify.commons.extensions.getMimeType
+import org.fossify.commons.extensions.grantReadUriPermission
+import org.fossify.commons.extensions.hasProperStoredFirstParentUri
+import org.fossify.commons.extensions.removeBit
+import org.fossify.commons.extensions.showErrorToast
+import org.fossify.commons.extensions.toast
+import org.fossify.commons.helpers.FONT_SIZE_LARGE
+import org.fossify.commons.helpers.FONT_SIZE_MEDIUM
+import org.fossify.commons.helpers.FONT_SIZE_SMALL
+import org.fossify.commons.helpers.FRIDAY_BIT
+import org.fossify.commons.helpers.MONDAY_BIT
+import org.fossify.commons.helpers.SATURDAY_BIT
+import org.fossify.commons.helpers.SILENT
+import org.fossify.commons.helpers.SUNDAY_BIT
+import org.fossify.commons.helpers.THURSDAY_BIT
+import org.fossify.commons.helpers.TUESDAY_BIT
+import org.fossify.commons.helpers.WEDNESDAY_BIT
+import org.fossify.commons.helpers.WEEK_SECONDS
+import org.fossify.commons.helpers.YEAR_SECONDS
+import org.fossify.commons.helpers.ensureBackgroundThread
+import org.fossify.commons.helpers.isOreoPlus
+import org.fossify.commons.helpers.isRPlus
+import org.fossify.commons.helpers.isSPlus
 import org.joda.time.DateTime
 import org.joda.time.DateTimeConstants
 import org.joda.time.Days
@@ -357,6 +431,16 @@ fun Context.notifyEvent(originalEvent: Event) {
     }
 }
 
+fun Context.getUsageAttributeForStreamType(): Int {
+    return when (config.reminderAudioStream) {
+        AudioManager.STREAM_ALARM -> AudioAttributes.USAGE_ALARM
+        AudioManager.STREAM_SYSTEM -> AudioAttributes.USAGE_ASSISTANCE_SONIFICATION
+        AudioManager.STREAM_NOTIFICATION -> AudioAttributes.USAGE_NOTIFICATION_EVENT
+        AudioManager.STREAM_RING -> AudioAttributes.USAGE_NOTIFICATION_RINGTONE
+        else -> AudioAttributes.USAGE_NOTIFICATION_EVENT
+    }
+}
+
 @SuppressLint("NewApi")
 fun Context.getNotification(pendingIntent: PendingIntent, event: Event, content: String, publicVersion: Boolean = false): Notification? {
     var soundUri = config.reminderSoundUri
@@ -382,27 +466,24 @@ fun Context.getNotification(pendingIntent: PendingIntent, event: Event, content:
     }
 
     val channelId = "simple_calendar_${config.lastReminderChannel}_${config.reminderAudioStream}_${event.eventType}"
-    if (isOreoPlus()) {
-        val audioAttributes = AudioAttributes.Builder()
-            .setUsage(AudioAttributes.USAGE_ALARM)
-            .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
-            .setLegacyStreamType(config.reminderAudioStream)
-            .build()
+    val audioAttributes = AudioAttributes.Builder()
+        .setUsage(getUsageAttributeForStreamType())
+        .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+        .build()
 
-        val name = eventTypesDB.getEventTypeWithId(event.eventType)?.getDisplayTitle()
-        val importance = NotificationManager.IMPORTANCE_HIGH
-        NotificationChannel(channelId, name, importance).apply {
-            setBypassDnd(true)
-            enableLights(true)
-            lightColor = event.color
-            enableVibration(config.vibrateOnReminder)
-            setSound(Uri.parse(soundUri), audioAttributes)
-            try {
-                notificationManager.createNotificationChannel(this)
-            } catch (e: Exception) {
-                showErrorToast(e)
-                return null
-            }
+    val name = eventTypesDB.getEventTypeWithId(event.eventType)?.getDisplayTitle()
+    val importance = NotificationManager.IMPORTANCE_HIGH
+    NotificationChannel(channelId, name, importance).apply {
+        setBypassDnd(true)
+        enableLights(true)
+        lightColor = event.color
+        enableVibration(config.vibrateOnReminder)
+        setSound(soundUri.toUri(), audioAttributes)
+        try {
+            notificationManager.createNotificationChannel(this)
+        } catch (e: Exception) {
+            showErrorToast(e)
+            return null
         }
     }
 
@@ -419,7 +500,6 @@ fun Context.getNotification(pendingIntent: PendingIntent, event: Event, content:
         .setDefaults(Notification.DEFAULT_LIGHTS)
         .setCategory(Notification.CATEGORY_EVENT)
         .setAutoCancel(true)
-        .setSound(Uri.parse(soundUri), config.reminderAudioStream)
         .setChannelId(channelId)
         .apply {
             if (event.isTask() && !event.isTaskCompleted()) {
