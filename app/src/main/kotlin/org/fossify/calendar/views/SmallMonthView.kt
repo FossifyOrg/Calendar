@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.res.Configuration
 import android.graphics.Canvas
 import android.graphics.Paint
+import android.graphics.Rect
 import android.util.AttributeSet
 import android.view.View
 import org.fossify.calendar.R
@@ -27,6 +28,7 @@ class SmallMonthView(context: Context, attrs: AttributeSet, defStyle: Int) : Vie
     private var highlightWeekends = false
     private var isPrintVersion = false
     private var mEvents: ArrayList<DayYearly>? = null
+    private var bufferTextBounds: Rect = Rect()
 
     var firstDay = 0
     var todaysId = 0
@@ -74,6 +76,17 @@ class SmallMonthView(context: Context, attrs: AttributeSet, defStyle: Int) : Vie
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
+
+        fun edgeCaseHorizontalOffset(text: String, textWidth: Int): Float = when (text) {
+            // dates that end with "1" require a horizontal offset for "today" circle to be
+            // visually centered around the text, coefficients were determined by trial and error
+            "1" ->  -.35f * textWidth
+            "11" -> -.15f * textWidth
+            "21" -> -.18f * textWidth
+            "31" -> -.175f * textWidth
+            else -> 0f
+        }
+
         if (dayWidth == 0f) {
             dayWidth = if (isLandscape) {
                 width / 9f
@@ -87,11 +100,19 @@ class SmallMonthView(context: Context, attrs: AttributeSet, defStyle: Int) : Vie
             for (x in 1..7) {
                 if (curId in 1..days) {
                     val paint = getPaint(curId, x, highlightWeekends)
-                    canvas.drawText(curId.toString(), x * dayWidth - (dayWidth / 4), y * dayWidth, paint)
+                    val textX = x * dayWidth - (dayWidth / 4)
+                    val textY = y * dayWidth
+                    val text = curId.toString()
+                    canvas.drawText(text, textX, textY, paint)
 
                     if (curId == todaysId && !isPrintVersion) {
-                        val dividerConstant = if (isLandscape) 6 else 4
-                        canvas.drawCircle(x * dayWidth - dayWidth / 2, y * dayWidth - dayWidth / dividerConstant, dayWidth * 0.41f, todayCirclePaint)
+                        paint.getTextBounds(text, 0, text.length, bufferTextBounds)
+                        val textHeight = bufferTextBounds.height()
+                        val textWidth = bufferTextBounds.width()
+                        val xOffset = edgeCaseHorizontalOffset(text, textWidth)
+                        val centerX = textX - textWidth / 2 + xOffset
+                        val centerY = textY - textHeight / 2
+                        canvas.drawCircle(centerX, centerY, dayWidth * 0.41f, todayCirclePaint)
                     }
                 }
                 curId++
@@ -117,7 +138,7 @@ class SmallMonthView(context: Context, attrs: AttributeSet, defStyle: Int) : Vie
     fun togglePrintMode() {
         isPrintVersion = !isPrintVersion
         textColor = if (isPrintVersion) {
-            resources.getColor(org.fossify.commons.R.color.theme_light_text_color)
+            resources.getColor(org.fossify.commons.R.color.theme_light_text_color, null)
         } else {
             context.getProperTextColor().adjustAlpha(MEDIUM_ALPHA)
         }
