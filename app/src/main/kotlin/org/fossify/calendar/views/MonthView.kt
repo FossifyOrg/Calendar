@@ -200,12 +200,22 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
 
                     val isDaySelected = selectedDayCoords.x != -1 && x == selectedDayCoords.x && y == selectedDayCoords.y
                     if (isDaySelected) {
-                        canvas.drawCircle(xPosCenter, textY - dayTextRect.height() / 2, textPaint.textSize * 0.8f, circleStrokePaint)
+                        canvas.drawCircle(
+                            xPosCenter,
+                            textY - dayTextRect.height() / 2,
+                            textPaint.textSize * 0.8f,
+                            circleStrokePaint
+                        )
                         if (day.isToday) {
                             textPaint.color = textColor
                         }
                     } else if (day.isToday && !isPrintVersion) {
-                        canvas.drawCircle(xPosCenter, textY - dayTextRect.height() / 2, textPaint.textSize * 0.8f, getCirclePaint(day))
+                        canvas.drawCircle(
+                            xPosCenter,
+                            textY - dayTextRect.height() / 2,
+                            textPaint.textSize * 0.8f,
+                            getCirclePaint(day)
+                        )
                     }
 
                     // mark days with a dot for each event

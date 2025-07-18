@@ -18,6 +18,13 @@ import org.fossify.commons.helpers.MEDIUM_ALPHA
 
 // used for displaying months at Yearly view
 class SmallMonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(context, attrs, defStyle) {
+    companion object {
+        private const val DATE_1_OFFSET_COEFFICIENT = -.35f
+        private const val DATE_11_OFFSET_COEFFICIENT = -.15f
+        private const val DATE_21_OFFSET_COEFFICIENT = -.18f
+        private const val DATE_31_OFFSET_COEFFICIENT = -.175f
+    }
+
     private var paint: Paint
     private var todayCirclePaint: Paint
     private var dayWidth = 0f
@@ -80,10 +87,10 @@ class SmallMonthView(context: Context, attrs: AttributeSet, defStyle: Int) : Vie
         fun edgeCaseHorizontalOffset(text: String, textWidth: Int): Float = when (text) {
             // dates that end with "1" require a horizontal offset for "today" circle to be
             // visually centered around the text, coefficients were determined by trial and error
-            "1" ->  -.35f * textWidth
-            "11" -> -.15f * textWidth
-            "21" -> -.18f * textWidth
-            "31" -> -.175f * textWidth
+            "1" -> DATE_1_OFFSET_COEFFICIENT * textWidth
+            "11" -> DATE_11_OFFSET_COEFFICIENT * textWidth
+            "21" -> DATE_21_OFFSET_COEFFICIENT * textWidth
+            "31" -> DATE_31_OFFSET_COEFFICIENT * textWidth
             else -> 0f
         }
 
