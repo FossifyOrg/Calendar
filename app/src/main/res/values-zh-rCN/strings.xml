@@ -243,7 +243,7 @@
     <string name="faq_1_text">以这种方式创建的节假日会加入到名为“节假日”的新活动类型。您可以在“设置”-&gt;“管理活动类型”，长按活动类型，然后选择回收站删除。</string>
     <string name="faq_2_title">我可以透过 Google 日历或其它支援 CalDAV 的服务来同步我的活动吗\?</string>
     <string name="faq_2_title_extra">或者和其他人分享日历？</string>
-    <string name="faq_2_text">行的，只要打开程序设定内的[CalDAV同步]，然后选择您要同步的日历。然而您需要一些第三方应用程序来处理装置和服务器之间的同步。 如果您要同步 Google 日历，他们官方的日历程序就能做到了。而其它日历，您需要有第三方同步工具才行，像是 DAVx5。</string>
+    <string name="faq_2_text">是的，只需在应用设置中切换“CalDAV 同步”，然后选择要同步的日历。但是，您需要一些第三方应用来处理设备和服务器之间的同步。如果您想同步 Google 日历，可以使用其官方日历应用。对于其他日历，您需要第三方同步适配器，例如 DAVx5。</string>
     <string name="faq_3_title">我看到了视觉的提醒，但没听到音效。我能怎么办\?</string>
     <string name="faq_3_text">不仅是显示实际提醒，播放音频也极大受到系统影响。如果您听不到任何声音，试着转到应用程序的设置， 按\"用于提醒的音频流\"选项，然后更改成不同数值。如果还是没有用，请检查您的音量设定，以及特定串流是否被静音。</string>
     <string name="faq_4_title">该应用程序支持时区吗？</string>
