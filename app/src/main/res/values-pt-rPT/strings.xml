@@ -6,7 +6,7 @@
     <plurals name="within_the_next_weeks">
         <item quantity="one">Na próxima %d semana</item>
         <item quantity="many">Nas próximas %d semanas</item>
-        <item quantity="other"></item>
+        <item quantity="other"/>
     </plurals>
     <string name="faq_2_title">Posso sincronizar os meus eventos via Google Calendar ou por outro serviço que suporte CalDAV?</string>
     <string name="event_added">Evento adicionado com sucesso</string>
@@ -192,13 +192,13 @@
     <plurals name="within_the_next_days">
         <item quantity="one">No próximo %d dia</item>
         <item quantity="many">Nos próximos %d dias</item>
-        <item quantity="other"></item>
+        <item quantity="other"/>
     </plurals>
     <string name="sample_description_4">Ir ao mercado</string>
     <plurals name="within_the_next_months">
         <item quantity="one">No próximo %d mês</item>
         <item quantity="many">Nos próximos %d meses</item>
-        <item quantity="other"></item>
+        <item quantity="other"/>
     </plurals>
     <string name="accessibility_previous_month">Ir para o mês anterior</string>
     <string name="accessibility_next_month">Ir para o mês seguinte</string>
