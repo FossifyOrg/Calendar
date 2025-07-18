@@ -256,9 +256,9 @@
     <string name="accessibility_previous_day">Téigh go dtí an lá roimhe sin</string>
     <string name="accessibility_next_day">Téigh go dtí an chéad lá eile</string>
     <string name="faq_1_title">Conas is féidir liom na laethanta saoire a allmhairítear tríd an gcnaipe \"Cuir laethanta saoire leis\" a bhaint?</string>
-    <string name="faq_2_text">Sea, ní gá ach \"CalDAV sync\" a scoránú i socruithe an fheidhmchláir agus roghnaigh na féilirí is mian leat a shioncronú. Mar sin féin, beidh ort roinnt app tríú páirtí a láimhseáil an sioncrónaithe idir an gléas agus freastalaithe. Sa chás gur mian leat féilire Google a shioncrónú, déanfaidh a n-aip oifigiúil Féilire an post. I gcás féilirí eile beidh cuibheoir sioncronaithe tríú páirtí de dhíth ort, mar shampla DAVx5.</string>
+    <string name="faq_2_text">Sea, níl le déanamh ach \"Sioncrónú CalDAV\" a athrú sna socruithe aip agus na féilirí is mian leat a shioncrónú a roghnú. Mar sin féin, beidh aip tríú páirtí ag teastáil uait a láimhseálann an sioncrónú idir an gléas agus na freastalaithe. Más mian leat féilire Google a shioncrónú, déanfaidh a n-aip oifigiúil Féilire an jab. I gcás féilirí eile, beidh oiriúntóir sioncrónaithe tríú páirtí ag teastáil uait, mar shampla DAVx5.</string>
     <string name="faq_4_text">Is ea, a dhéanann sé. De réir réamhshocraithe cruthaítear gach imeacht i do chrios ama reatha. Más mian leat crios ama imeachta a athrú, beidh ort an roghnóir crios ama a chumasú ag socruithe na haipe ar dtús, ansin é a athrú ag an scáileán Sonraí Imeachta. Tá sé díchumasaithe de réir réamhshocraithe mar ní bheidh sé de dhíth ar fhormhór na ndaoine.</string>
-    <string name="faq_5_title">Ní thaispeánann an aip aon fhógraí, cén fáth?</string>
+    <string name="faq_5_title">Ní léiríonn an app aon fhógraí, cén fáth é sin?</string>
     <string name="faq_6_title">Conas is féidir liom cineál teagmhais atá ann cheana a mhodhnú nó a scriosadh?</string>
     <string name="faq_6_text">Is féidir leat an dá cheann acu sin a dhéanamh i Socruithe an fheidhmchláir - Bainistigh cineálacha imeachtaí. Just a cliceáil ar an ceann a bhí ag iarraidh chun an lipéad agus an dath a athrú, nó roghnaigh an ceann a bhí ag iarraidh é a bhrú le fada agus bain úsáid as an bruscar ag an roghchlár barr le scriosadh.</string>
     <plurals name="within_the_next_days">
