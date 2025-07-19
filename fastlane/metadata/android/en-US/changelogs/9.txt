@@ -1,0 +1,12 @@
+Added:
+
+• Holidays for Guatemala 
+
+Changed:
+
+• Updated translations
+
+Fixed:
+
+• Audio stream preference now works correctly 
+
