@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Audio stream preference now works correctly ([#394])
+- Fixed "today" highlight alignment in month view ([#603])
 
 ## [1.4.0] - 2025-07-05
 
@@ -147,5 +148,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#551]: https://github.com/FossifyOrg/Calendar/issues/551
 [#567]: https://github.com/FossifyOrg/Calendar/issues/567
 [#574]: https://github.com/FossifyOrg/Calendar/issues/574
+[#603]: https://github.com/FossifyOrg/Calendar/issues/603
 [#613]: https://github.com/FossifyOrg/Calendar/issues/613
 [#682]: https://github.com/FossifyOrg/Calendar/issues/682
