@@ -82,13 +82,13 @@ class SmallMonthView(context: Context, attrs: AttributeSet, defStyle: Int) : Vie
             }
         }
 
+        val fm = paint.fontMetrics
+        val radius = dayWidth * 0.41f
+
         var curId = 1 - firstDay
         for (y in 1..6) {
             for (x in 1..7) {
                 if (curId in 1..days) {
-                    val fm = paint.fontMetrics
-                    val radius = dayWidth * 0.41f
-
                     val centerX = x * dayWidth - dayWidth / 2
                     val centerY = y * dayWidth - dayWidth / 2
                     val baselineY = centerY - (fm.ascent + fm.descent) / 2
