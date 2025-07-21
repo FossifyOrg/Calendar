@@ -8,6 +8,7 @@ import android.util.AttributeSet
 import android.view.View
 import org.fossify.calendar.R
 import org.fossify.calendar.extensions.config
+import org.fossify.calendar.extensions.isWeekendIndex
 import org.fossify.calendar.models.DayYearly
 import org.fossify.commons.extensions.adjustAlpha
 import org.fossify.commons.extensions.getProperPrimaryColor
@@ -89,11 +90,12 @@ class SmallMonthView(context: Context, attrs: AttributeSet, defStyle: Int) : Vie
         for (y in 1..6) {
             for (x in 1..7) {
                 if (curId in 1..days) {
+                    val textPaint = getPaint(curId, x, highlightWeekends)
                     val centerX = x * dayWidth - dayWidth / 2
                     val centerY = y * dayWidth - dayWidth / 2
                     val baselineY = centerY - (fm.ascent + fm.descent) / 2
 
-                    canvas.drawText(curId.toString(), centerX, baselineY, paint)
+                    canvas.drawText(curId.toString(), centerX, baselineY, textPaint)
                     if (curId == todaysId && !isPrintVersion) {
                         canvas.drawCircle(centerX, centerY, radius, todayCirclePaint)
                     }
@@ -101,6 +103,21 @@ class SmallMonthView(context: Context, attrs: AttributeSet, defStyle: Int) : Vie
                 curId++
             }
         }
+    }
+
+    private fun getPaint(curId: Int, weekDay: Int, highlightWeekends: Boolean): Paint {
+        val colors = mEvents?.get(curId)?.eventColors ?: HashSet()
+        if (colors.isNotEmpty()) {
+            val curPaint = Paint(paint)
+            curPaint.color = colors.first()
+            return curPaint
+        } else if (highlightWeekends && context.isWeekendIndex(weekDay - 1)) {
+            val curPaint = Paint(paint)
+            curPaint.color = weekendsTextColor
+            return curPaint
+        }
+
+        return paint
     }
 
     fun togglePrintMode() {
