@@ -1,0 +1,13 @@
+Added:
+
+• Holidays for Guatemala 
+
+Changed:
+
+• Updated translations
+
+Fixed:
+
+• Audio stream preference now works correctly 
+• Fixed "today" highlight alignment in month view 
+
