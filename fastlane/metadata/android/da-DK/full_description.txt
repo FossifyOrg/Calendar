@@ -1,0 +1,44 @@
+Træt af rodede kalendere og bekymringer om privatlivets fred?
+
+Fossify Calendar er her for at ændre det. Dit open source-kraftværk til at styre livet, designet med privatliv som kerne og fyldt med kraftfulde funktioner, der holder dig organiseret.
+
+Her er hvad der gør Fossify Calendar anderledes:
+
+🚫 REKLAMFRI OG PRIVAT:
+Dine begivenheder forbliver dine. Ingen annoncer, ingen sporing, ingen påtrængende tilladelser.
+
+⏰ FLEKSIBEL OG TILPASSET:
+Skab begivenheder præcist med tidspunkter, varigheder, påmindelser og avancerede gentagelsesregler.
+
+🔄 PROBLEMFRI SYNKRONISERING:
+Synkroniser ubesværet med Google Kalender, Outlook, Nextcloud, Exchange og mere.
+
+🎨 PERSONLIGGØR DIN PLANLÆGGER:
+Indstil brugerdefinerede lyde, looping af lydstrømme, vibrationer og temaer, der matcher dine præferencer.
+
+🌈 LIVLIGE WIDGETS:
+Lys din dag op med smukke kalenderwidgets og temaer til din startskærm.
+
+📅 NEM DAGSADMINISTRATION:
+Planlæg din dag nemt, uanset om du er en travl professionel eller en familieorganisator.
+
+🎉 IMPORTER FEJRINGER:
+Gå aldrig glip af en fødselsdag eller et jubilæum! Importer nemt helligdage og særlige datoer.
+
+🔍 FILTERVISNINGER:
+Find hurtigt det, du leder efter, med begivenhedsfiltre.
+
+📆 FLERE VISNINGER:
+Skift nemt mellem daglige, ugentlige, månedlige, årlige og begivenhedsvisninger.
+
+✨ ELEGANCE AF MATERIALEDESIGN:
+Nyd en intuitiv og brugervenlig grænseflade med dynamiske temaer.
+
+Derudover er Fossify Calendar open source! Bliv en del af det livlige fællesskab på GitHub, bidrag til projektet, og gør det unikt til dit eget.
+
+Download Fossify Calendar nu og oplev styrken ved en privat og tilpasselig tidsplan.
+
+Udforsk flere Fossify-apps: https://www.fossify.org
+Open source-kode: https://www.github.com/FossifyOrg
+Deltag i fællesskabet på Reddit: https://www.reddit.com/r/Fossify
+Følg med på Telegram: https://t.me/Fossify
