@@ -146,8 +146,8 @@
     <string name="importing_some_holidays_failed">Nogle helligdages blev ikke importeret</string>
     <string name="importing_holidays_failed">Import af helligdage mislykkedes</string>
     <string name="manage_event_types">Håndter begivenhedstyper</string>
-    <string name="start_day_at">Start dagen kl.</string>
-    <string name="end_day_at">Slut dagen kl.</string>
+    <string name="start_day_at">Start dagen kl</string>
+    <string name="end_day_at">Slut dagen kl</string>
     <string name="midnight_spanning">Vis begivenheder, der strækker sig hen over midnat, i toplinjen</string>
     <string name="allow_customizing_day_count">Tillad tilpasning af antal dage</string>
     <string name="week_numbers">Vis ugenumre</string>
@@ -223,7 +223,7 @@
     <string name="sample_title_3">Biblioteket</string>
     <string name="sample_title_4">Frokost med Marie</string>
     <string name="sample_description_4">I byen</string>
-    <string name="sample_title_5">Kaffetid!</string>
+    <string name="sample_title_5">Kaffetid</string>
     <string name="show_events_happening">Vis begivenheder, der finder sted:</string>
     <string name="within_the_next_one_year">I løbet af det næste år</string>
     <string name="today_only">Kun i dag</string>
@@ -248,7 +248,7 @@
     <string name="faq_1_text">Helligdage oprettet på den måde er indsat under begivenhedstypen \"Helligdage\". Gå til Indstillinger -&gt; Håndter begivenhedstyper. Efter et par sekunders pres på en type kan du slette den ved at klikke på papirkurven.</string>
     <string name="faq_2_title">Kan jeg synkronisere mine begivenheder med Googles kalender eller en anden kalender der understøtter CalDAV\?</string>
     <string name="faq_2_title_extra">Måske endda dele kalendere med andre?</string>
-    <string name="faq_2_text">Ja, klik på \"CalDAV synk\" i appens indstillinger og vælg de kalendere du vil synkronisere. Det kræver dog at du har en app til at synkronisere mellem din enhed og kalenderservere. Hvis du vil synkronisere en Googlekalender, kan Googles officielle app klare det. For andre kalenderes vedkommende kan du bruge en 3. partsapp som for eksempel DAVx5.</string>
+    <string name="faq_2_text">Ja, du skal blot slå \"CalDAV-synkronisering\" til og fra i appens indstillinger, og vælge de kalendere, du vil synkronisere. Du skal dog bruge en tredjepartsapp, der håndterer synkroniseringen mellem enheden og serverne. Hvis du vil synkronisere en Google-kalender, vil deres officielle Kalender-app klare opgaven. Til andre kalendere skal du bruge en tredjeparts synkroniseringsadapter, f.eks. DAVx5.</string>
     <string name="faq_3_title">Jeg kan se mine påmindelser, men der er ingen lyd på. Hvad kan jeg gøre ved det\?</string>
     <string name="faq_3_text">Afspilning af påmindelser styres også af systemet. Hvis du ikke hører lyd, så gå til appens indstillinger, tryk på \"Lydstrøm til påmindelser\" og vælg en anden værdi. Tjek også, om lydstrømmen er slået fra i systemets lydindstillinger.</string>
     <string name="faq_4_title">Understøtter appen tidszoner\?</string>
