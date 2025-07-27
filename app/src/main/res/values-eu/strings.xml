@@ -264,4 +264,8 @@
     <string name="regional_holidays">Zonaldeko jaiegunak</string>
     <string name="other_holidays">Beste jaiegun eta ospakizunak</string>
     <string name="select_holidays_to_import">Aukeratu inportatu beharreko jaiegunak</string>
+    <string name="access_level_public">Publikoa</string>
+    <string name="access_level_private">Pribatua</string>
+    <string name="access_level_confidential">Isilpekoa</string>
+    <string name="show_widget_header">Erakutsi goiburua</string>
 </resources>
