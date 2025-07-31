@@ -255,4 +255,10 @@
     <string name="faq_5_text">Pozrite sa do nastavení batérie a upozornení vášho zariadenia, či nič neblokuje upozornenia, alebo nevypína na pozadí apku. Mohli by ste sa pozrieť aj na &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;, je tam veľa užitočných tipov.</string>
     <string name="faq_6_title">Ako môžem upraviť alebo odstrániť existujúci typ udalosti\?</string>
     <string name="faq_6_text">Oboje viete spraviť v nastaveniach apky - Spravovať typy udalostí. Kliknutím viete upraviť názov a farbu, odstrániť ich viete dlhým podržaním a použitím odpadkového koša na hornom menu.</string>
+    <string name="public_holidays">Verejné sviatky</string>
+    <string name="regional_holidays">Miestne sviatky</string>
+    <string name="other_holidays">Ostatné sviatky a udalosti</string>
+    <string name="select_holidays_to_import">Vyberte sviatky, ktoré chcete importovať</string>
+    <string name="caldav">CalDAV</string>
+    <string name="status_tentative">Predbežné</string>
 </resources>
