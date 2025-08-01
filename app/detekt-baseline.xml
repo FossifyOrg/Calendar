@@ -197,7 +197,6 @@
     <ID>MagicNumber:SimpleActivity.kt$SimpleActivity$3000L</ID>
     <ID>MagicNumber:SmallMonthView.kt$SmallMonthView$0.41f</ID>
     <ID>MagicNumber:SmallMonthView.kt$SmallMonthView$31</ID>
-    <ID>MagicNumber:SmallMonthView.kt$SmallMonthView$4</ID>
     <ID>MagicNumber:SmallMonthView.kt$SmallMonthView$6</ID>
     <ID>MagicNumber:SmallMonthView.kt$SmallMonthView$7</ID>
     <ID>MagicNumber:SmallMonthView.kt$SmallMonthView$7f</ID>
@@ -417,8 +416,6 @@
     <ID>MaxLineLength:MonthDayFragmentsHolder.kt$MonthDayFragmentsHolder$override</ID>
     <ID>MaxLineLength:MonthFragment.kt$MonthFragment$override</ID>
     <ID>MaxLineLength:MonthView.kt$MonthView$// handle overlapping repeating events e.g. an event that lasts 3 days, but repeats every 2 days has a one day overlap</ID>
-    <ID>MaxLineLength:MonthView.kt$MonthView$canvas.drawCircle(xPosCenter, yPos + textPaint.textSize * 0.7f, textPaint.textSize * 0.8f, circleStrokePaint)</ID>
-    <ID>MaxLineLength:MonthView.kt$MonthView$canvas.drawCircle(xPosCenter, yPos + textPaint.textSize * 0.7f, textPaint.textSize * 0.8f, getCirclePaint(day))</ID>
     <ID>MaxLineLength:MonthView.kt$MonthView$canvas.drawLine(0f, i * dayHeight + weekDaysLetterHeight, canvas.width.toFloat(), i * dayHeight + weekDaysLetterHeight, gridPaint)</ID>
     <ID>MaxLineLength:MonthView.kt$MonthView$canvas.drawRoundRect(bgRectF, BG_CORNER_RADIUS, BG_CORNER_RADIUS, getEventBackgroundColor(event, startDayIndex, endDayIndex))</ID>
     <ID>MaxLineLength:MonthView.kt$MonthView$compareBy({ -it.daysCnt }, { !it.isAllDay }, { it.startTS }, { it.endTS }, { it.startDayIndex }, { it.title })</ID>
@@ -432,7 +429,6 @@
     <ID>MaxLineLength:MonthView.kt$MonthView$val isDaySelected = selectedDayCoords.x != -1 &amp;&amp; x == selectedDayCoords.x &amp;&amp; y == selectedDayCoords.y</ID>
     <ID>MaxLineLength:MonthView.kt$MonthView$val isMidnight = Formatter.getDateTimeFromTS(endDateTime.seconds()) == Formatter.getDateTimeFromTS(endDateTime.seconds()).withTimeAtStartOfDay()</ID>
     <ID>MaxLineLength:MonthView.kt$MonthView$val newEvent = event.copy(startDayIndex = newStartDayIndex, daysCnt = event.daysCnt - (newStartDayIndex - event.startDayIndex))</ID>
-    <ID>MaxLineLength:MonthView.kt$MonthView$val shouldAddEvent = notYetAddedOrIsRepeatingEvent || canOverlap &amp;&amp; (lastEvent!!.startTS &lt; event.startTS)</ID>
     <ID>MaxLineLength:MonthView.kt$MonthView$val taskIcon = resources.getColoredDrawableWithColor(R.drawable.ic_task_vector, specificEventTitlePaint.color).mutate()</ID>
     <ID>MaxLineLength:MonthlyCalendar.kt$MonthlyCalendar$fun updateMonthlyCalendar(context: Context, month: String, days: ArrayList&lt;DayMonthly&gt;, checkedEvents: Boolean, currTargetDate: DateTime)</ID>
     <ID>MaxLineLength:MonthlyCalendarImpl.kt$MonthlyCalendarImpl$return targetDate.withDayOfMonth(min(curDayInMonth, targetMonthDays)).toString(Formatter.DAYCODE_PATTERN) == mToday</ID>
@@ -486,7 +482,6 @@
     <ID>MaxLineLength:SettingsActivity.kt$SettingsActivity$val reminders = sortedSetOf(config.defaultReminder1, config.defaultReminder2, config.defaultReminder3).filter { it != REMINDER_OFF }</ID>
     <ID>MaxLineLength:SettingsActivity.kt$SettingsActivity$}</ID>
     <ID>MaxLineLength:SimpleActivity.kt$SimpleActivity$// caldav refresh content observer triggers multiple times in a row at updating, so call the callback only a few seconds after the (hopefully) last one</ID>
-    <ID>MaxLineLength:SmallMonthView.kt$SmallMonthView$canvas.drawCircle(x * dayWidth - dayWidth / 2, y * dayWidth - dayWidth / dividerConstant, dayWidth * 0.41f, todayCirclePaint)</ID>
     <ID>MaxLineLength:TaskActivity.kt$TaskActivity$// the stored value might be incorrect so update it (e.g. user completed the task via notification action before editing)</ID>
     <ID>MaxLineLength:TaskActivity.kt$TaskActivity$ColorPickerDialog</ID>
     <ID>MaxLineLength:TaskActivity.kt$TaskActivity$DELETE_SELECTED_OCCURRENCE -&gt; eventsHelper.deleteRepeatingEventOccurrence(mTask.id!!, mTaskOccurrenceTS, false)</ID>
@@ -647,11 +642,6 @@
     <ID>WildcardImport:Activity.kt$import org.fossify.calendar.helpers.*</ID>
     <ID>WildcardImport:Activity.kt$import org.fossify.commons.extensions.*</ID>
     <ID>WildcardImport:BootCompletedReceiver.kt$import org.fossify.calendar.extensions.*</ID>
-    <ID>WildcardImport:Context.kt$import android.app.*</ID>
-    <ID>WildcardImport:Context.kt$import org.fossify.calendar.helpers.*</ID>
-    <ID>WildcardImport:Context.kt$import org.fossify.calendar.models.*</ID>
-    <ID>WildcardImport:Context.kt$import org.fossify.commons.extensions.*</ID>
-    <ID>WildcardImport:Context.kt$import org.fossify.commons.helpers.*</ID>
     <ID>WildcardImport:CustomEventRepeatIntervalDialog.kt$import org.fossify.commons.extensions.*</ID>
     <ID>WildcardImport:CustomPeriodPickerDialog.kt$import org.fossify.commons.extensions.*</ID>
     <ID>WildcardImport:DayEventsAdapter.kt$import org.fossify.calendar.extensions.*</ID>
