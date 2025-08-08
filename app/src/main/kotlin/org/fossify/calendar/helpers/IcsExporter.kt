@@ -117,15 +117,25 @@ class IcsExporter(private val context: Context) {
         var isFirstLine = true
 
         while (index < description.length) {
-            val substring = description.substring(index, Math.min(index + MAX_LINE_LENGTH, description.length))
+            var end = index + MAX_LINE_LENGTH
+            if (end > description.length) {
+                end = description.length
+            } else {
+                // Avoid splitting surrogate pairs
+                if (Character.isHighSurrogate(description[end - 1])) {
+                    end--
+                }
+            }
+
+            val substring = description.substring(index, end)
             if (isFirstLine) {
                 out.writeLn("$DESCRIPTION_EXPORT$substring")
             } else {
-                out.writeLn("\t$substring")
+                out.writeLn(" $substring")
             }
 
             isFirstLine = false
-            index += MAX_LINE_LENGTH
+            index = end
         }
     }
 
