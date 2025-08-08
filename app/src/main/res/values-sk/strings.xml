@@ -261,4 +261,14 @@
     <string name="select_holidays_to_import">Vyberte sviatky, ktoré chcete importovať</string>
     <string name="caldav">CalDAV</string>
     <string name="status_tentative">Predbežné</string>
+    <string name="status_confirmed">Potvrdené</string>
+    <string name="status_canceled">Zrušené</string>
+    <string name="access_level_public">Verejné</string>
+    <string name="access_level_private">Súkromné</string>
+    <string name="access_level_confidential">Tajné</string>
+    <string name="show_widget_header">Ukázať hlavičku</string>
+    <string name="accessibility_previous_month">Ísť na predchádzajúci mesiac</string>
+    <string name="accessibility_next_month">Ísť na nasledujúci mesiac</string>
+    <string name="accessibility_previous_day">Ísť na predchádzajúci deň</string>
+    <string name="accessibility_next_day">Ísť na nasledujúci deň</string>
 </resources>
