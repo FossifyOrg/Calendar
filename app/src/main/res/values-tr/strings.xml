@@ -142,7 +142,7 @@
     <string name="add_holidays">Tatil ekle</string>
     <string name="national_holidays">Ulusal tatiller</string>
     <string name="religious_holidays">Dini tatiller</string>
-    <string name="holidays_imported_successfully">Tatiller \"Tatiller\" etkinlik türüne başarıyla aktarıldı</string>
+    <string name="holidays_imported_successfully">Tatiller, \"Tatiller\" etkinlik türüne başarıyla aktarıldı</string>
     <string name="importing_some_holidays_failed">Bazı etkinlikler içe aktarılamadı</string>
     <string name="importing_holidays_failed">Tatiller içe aktarılamadı</string>
     <string name="manage_event_types">Etkinlik türlerini yönet</string>
@@ -251,7 +251,7 @@
     <string name="faq_3_text">Yalnızca gerçek hatırlatıcıyı görüntülemekle kalmaz, aynı zamanda ses çalmak da sistemden büyük ölçüde etkilenir. Herhangi bir ses duyamıyorsanız, uygulama ayarlarına girmeyi, \"Hatırlatıcılar tarafından kullanılan ses akışına\" basmayı ve bunu farklı bir değere değiştirmeyi deneyin. Hala işe yaramazsa, belirli bir akış sessiz değilse, Ses ayarlarınızı gözden geçirin.</string>
     <string name="faq_4_title">Uygulama saat dilimlerini destekliyor mu\?</string>
     <string name="faq_4_text">Evet, destekliyor. Öntanımlı olarak tüm etkinlikler geçerli saat diliminizde oluşturulur. Etkinliklerin saat dilimini değiştirmek istiyorsanız, önce uygulama ayarlarından saat dilimi seçiciyi etkinleştirmeniz, ardından Etkinlik Ayrıntıları ekranından değiştirmeniz gerekir. Çoğu insanın ihtiyacı olmayacağı için öntanımlı olarak devre dışıdır.</string>
-    <string name="faq_5_title">Uygulama hiçbir bildirim göstermiyor, bunun nedeni ne\?</string>
+    <string name="faq_5_title">Uygulama bildirim göstermiyor, bunun nedeni ne?</string>
     <string name="faq_5_text">Hatırlatıcıları engelleyen veya arka planda uygulamayı kapatan bir şey yoksa aygıtınızın pilini ve bildirim ayarlarını denetleyin. Ayrıca yararlı ipuçları bulabileceğiniz &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt; adresine de göz atmak isteyebilirsiniz.</string>
     <string name="faq_6_title">Mevcut bir etkinlik türünü nasıl değiştirebilir veya silebilirim\?</string>
     <string name="faq_6_text">Bunların ikisini de uygulamanın Ayarlar - Etkinlik türlerini yönet kısmında yapabilirsiniz. Etiket ve rengi değiştirmek için istediğinizin üzerine tıklayın veya uzun basarak istediğinizi seçin ve silmek için üst menüdeki çöp kutusunu kullanın.</string>
