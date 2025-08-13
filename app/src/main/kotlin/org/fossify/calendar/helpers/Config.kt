@@ -2,11 +2,8 @@ package org.fossify.calendar.helpers
 
 import android.content.Context
 import android.media.AudioManager
-import android.media.RingtoneManager
 import org.fossify.calendar.R
-import org.fossify.calendar.extensions.config
 import org.fossify.calendar.extensions.scheduleCalDAVSync
-import org.fossify.commons.extensions.getDefaultAlarmTitle
 import org.fossify.commons.helpers.BaseConfig
 import org.fossify.commons.helpers.DAY_MINUTES
 import org.fossify.commons.helpers.YEAR_SECONDS
@@ -36,29 +33,6 @@ class Config(context: Context) : BaseConfig(context) {
     var allowCustomizeDayCount: Boolean
         get() = prefs.getBoolean(ALLOW_CUSTOMIZE_DAY_COUNT, true)
         set(allow) = prefs.edit().putBoolean(ALLOW_CUSTOMIZE_DAY_COUNT, allow).apply()
-
-    var vibrateOnReminder: Boolean
-        get() = prefs.getBoolean(VIBRATE, false)
-        set(vibrate) = prefs.edit().putBoolean(VIBRATE, vibrate).apply()
-
-    @Deprecated("Not used on Oreo+ devices")
-    var reminderSoundUri: String
-        get() = prefs.getString(REMINDER_SOUND_URI, RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION).toString())!!
-        set(reminderSoundUri) = prefs.edit().putString(REMINDER_SOUND_URI, reminderSoundUri).apply()
-
-    @Deprecated("Not used on Oreo+ devices")
-    var reminderSoundTitle: String
-        get() = prefs.getString(REMINDER_SOUND_TITLE, context.getDefaultAlarmTitle(RingtoneManager.TYPE_NOTIFICATION))!!
-        set(reminderSoundTitle) = prefs.edit().putString(REMINDER_SOUND_TITLE, reminderSoundTitle).apply()
-
-    @Deprecated("Not used on Oreo+ devices")
-    var lastSoundUri: String
-        get() = prefs.getString(LAST_SOUND_URI, "")!!
-        set(lastSoundUri) = prefs.edit().putString(LAST_SOUND_URI, lastSoundUri).apply()
-
-    var lastReminderChannel: Long
-        get() = prefs.getLong(LAST_REMINDER_CHANNEL_ID, 0L)
-        set(lastReminderChannel) = prefs.edit().putLong(LAST_REMINDER_CHANNEL_ID, lastReminderChannel).apply()
 
     var storedView: Int
         get() = prefs.getInt(VIEW, MONTHLY_VIEW)
@@ -190,10 +164,6 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(PULL_TO_REFRESH, false)
         set(pullToRefresh) = prefs.edit().putBoolean(PULL_TO_REFRESH, pullToRefresh).apply()
 
-    var lastVibrateOnReminder: Boolean
-        get() = prefs.getBoolean(LAST_VIBRATE_ON_REMINDER, context.config.vibrateOnReminder)
-        set(lastVibrateOnReminder) = prefs.edit().putBoolean(LAST_VIBRATE_ON_REMINDER, lastVibrateOnReminder).apply()
-
     var defaultStartTime: Int
         get() = prefs.getInt(DEFAULT_START_TIME, DEFAULT_START_TIME_NEXT_FULL_HOUR)
         set(defaultStartTime) = prefs.edit().putInt(DEFAULT_START_TIME, defaultStartTime).apply()
@@ -265,6 +235,10 @@ class Config(context: Context) : BaseConfig(context) {
     var wasFilteredOutWarningShown: Boolean
         get() = prefs.getBoolean(WAS_FILTERED_OUT_WARNING_SHOWN, false)
         set(wasFilteredOutWarningShown) = prefs.edit().putBoolean(WAS_FILTERED_OUT_WARNING_SHOWN, wasFilteredOutWarningShown).apply()
+
+    var notificationChannelsMigrated: Boolean
+        get() = prefs.getBoolean(NOTIFICATION_CHANNELS_MIGRATED, false)
+        set(notificationChannelsMigrated) = prefs.edit().putBoolean(NOTIFICATION_CHANNELS_MIGRATED, notificationChannelsMigrated).apply()
 
     var autoBackupEventTypes: Set<String>
         get() = prefs.getStringSet(AUTO_BACKUP_EVENT_TYPES, HashSet())!!
