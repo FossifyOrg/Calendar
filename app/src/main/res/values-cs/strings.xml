@@ -164,8 +164,8 @@
     <string name="delete_all_events_confirmation">Opravdu chcete smazat všechny události a úkoly\? Typy událostí a ostatní nastavení zůstanou nedotčeny.</string>
     <string name="show_a_grid">Zobrazovat mřížku</string>
     <string name="loop_reminders">Opakovat připomínky až do zamítnutí</string>
-    <string name="dim_past_events">Utlumit minulé události</string>
-    <string name="dim_completed_tasks">Utlumit dokončené úkoly</string>
+    <string name="dim_past_events">Ztmavit minulé události</string>
+    <string name="dim_completed_tasks">Ztmavit dokončené úkoly</string>
     <string name="events">Události</string>
     <string name="reminder_stream">Zvukový kanál používaný připomínkami</string>
     <string name="system_stream">Systém</string>
@@ -193,7 +193,7 @@
     <string name="select_caldav_calendars">Vybrat kalendáře k synchronizaci</string>
     <string name="manage_synced_calendars">Spravovat synchronizované kalendáře</string>
     <string name="store_locally_only">Uložit pouze lokálně</string>
-    <string name="refresh_caldav_calendars">Aktualizovat CalDAV kalendáře</string>
+    <string name="refresh_caldav_calendars">Aktualizovat kalendáře CalDAV</string>
     <string name="refreshing">Aktualizuji…</string>
     <string name="refreshing_complete">Aktualizace dokončena</string>
     <string name="editing_calendar_failed">Úprava kalendáře se nezdařila</string>
