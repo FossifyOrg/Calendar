@@ -377,6 +377,7 @@ fun Context.getRepetitionText(seconds: Int) = when (seconds) {
 
 fun Context.notifyRunningEvents() {
     eventsHelper.getRunningEventsOrTasks()
+        .filter { !it.isAttendeeInviteDeclined() }
         .filter { it.getReminders().any { reminder -> reminder.type == REMINDER_NOTIFICATION } }
         .forEach {
             notifyEvent(it)
