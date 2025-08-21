@@ -51,6 +51,7 @@ export const COUNTRIES = [
     "NI", // Nicaragua
     "NG", // Nigeria
     "NO", // Norway
+    "PH", // Philippines
     "PL", // Poland
     "PT", // Portugal
     "RO", // Romania

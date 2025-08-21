@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Holidays for Philippines ([#729])
 
 ## [1.5.0] - 2025-07-22
 ### Added
@@ -113,6 +115,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#603]: https://github.com/FossifyOrg/Calendar/issues/603
 [#613]: https://github.com/FossifyOrg/Calendar/issues/613
 [#682]: https://github.com/FossifyOrg/Calendar/issues/682
+[#729]: https://github.com/FossifyOrg/Calendar/issues/729
 
 [Unreleased]: https://github.com/FossifyOrg/Calendar/compare/1.5.0...HEAD
 [1.5.0]: https://github.com/FossifyOrg/Calendar/compare/1.4.0...1.5.0
