@@ -329,6 +329,13 @@
     "other": "holidays/NO/other.ics"
   },
   {
+    "code": "PH",
+    "country": "Philippines",
+    "public": "holidays/PH/public.ics",
+    "regional": null,
+    "other": "holidays/PH/other.ics"
+  },
+  {
     "code": "PL",
     "country": "Polska",
     "public": "holidays/PL/public.ics",
