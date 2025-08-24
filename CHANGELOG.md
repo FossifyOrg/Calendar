@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Declined events no longer trigger notifications ([#732])
+
 ## [1.6.0] - 2025-08-21
 ### Added
 - Holidays for Philippines ([#729])
@@ -121,6 +124,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#613]: https://github.com/FossifyOrg/Calendar/issues/613
 [#682]: https://github.com/FossifyOrg/Calendar/issues/682
 [#729]: https://github.com/FossifyOrg/Calendar/issues/729
+[#732]: https://github.com/FossifyOrg/Calendar/issues/732
 
 [Unreleased]: https://github.com/FossifyOrg/Calendar/compare/1.6.0...HEAD
 [1.6.0]: https://github.com/FossifyOrg/Calendar/compare/1.5.0...1.6.0

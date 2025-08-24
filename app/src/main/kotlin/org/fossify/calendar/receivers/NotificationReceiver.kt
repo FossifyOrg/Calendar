@@ -26,19 +26,25 @@ class NotificationReceiver : BroadcastReceiver() {
 
     private fun handleIntent(context: Context, intent: Intent) {
         val id = intent.getLongExtra(EVENT_ID, -1L)
-        if (id == -1L) {
-            return
-        }
+        if (id != -1L) {
+            context.updateListWidget()
+            val event = context.eventsDB.getEventOrTaskWithId(id)
+            if (
+                event == null
+                || event.getReminders().none { it.type == REMINDER_NOTIFICATION }
+                || event.repetitionExceptions.contains(Formatter.getTodayCode())
+            ) {
+                return
+            }
 
-        context.updateListWidget()
-        val event = context.eventsDB.getEventOrTaskWithId(id)
-        if (event == null || event.getReminders().none { it.type == REMINDER_NOTIFICATION } || event.repetitionExceptions.contains(Formatter.getTodayCode())) {
-            return
-        }
+            if (event.isAttendeeInviteDeclined()) {
+                return
+            }
 
-        if (!event.repetitionExceptions.contains(Formatter.getDayCodeFromTS(event.startTS))) {
-            context.notifyEvent(event)
+            if (!event.repetitionExceptions.contains(Formatter.getDayCodeFromTS(event.startTS))) {
+                context.notifyEvent(event)
+            }
+            context.scheduleNextEventReminder(event, false)
         }
-        context.scheduleNextEventReminder(event, false)
     }
 }
