@@ -6,8 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Declined events will no longer trigger notifications ([#732])
+
 ### Fixed
-- Declined events no longer trigger notifications ([#732])
+- Fixed incorrect widget font size on foldable devices ([#337])
 
 ## [1.6.0] - 2025-08-21
 ### Added
@@ -115,6 +118,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#148]: https://github.com/FossifyOrg/Calendar/issues/148
 [#196]: https://github.com/FossifyOrg/Calendar/issues/196
 [#262]: https://github.com/FossifyOrg/Calendar/issues/262
+[#337]: https://github.com/FossifyOrg/Calendar/issues/337
 [#394]: https://github.com/FossifyOrg/Calendar/issues/394
 [#484]: https://github.com/FossifyOrg/Calendar/issues/484
 [#551]: https://github.com/FossifyOrg/Calendar/issues/551
