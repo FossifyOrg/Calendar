@@ -11,7 +11,7 @@ class RescheduleEventsReceiver : BroadcastReceiver() {
 
     @SuppressLint("UnsafeProtectedBroadcastReceiver")
     override fun onReceive(context: Context, intent: Intent) {
-        val pendingResult = goAsync() // TO DO: switch to WorkManager for more resilence
+        val pendingResult = goAsync() // TO DO: switch to WorkManager for more resilience
         ensureBackgroundThread {
             context.apply {
                 initializeFossifyCalendar()
