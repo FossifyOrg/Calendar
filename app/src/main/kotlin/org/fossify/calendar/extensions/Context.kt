@@ -116,6 +116,7 @@ import org.fossify.commons.helpers.ensureBackgroundThread
 import org.fossify.commons.helpers.isOreoPlus
 import org.fossify.commons.helpers.isRPlus
 import org.fossify.commons.helpers.isSPlus
+import org.fossify.commons.helpers.isTiramisuPlus
 import org.joda.time.DateTime
 import org.joda.time.DateTimeConstants
 import org.joda.time.Days
@@ -997,13 +998,32 @@ fun Context.addImportIdsToTasks(callback: () -> Unit) {
 
 fun Context.getAlarmManager() = getSystemService(Context.ALARM_SERVICE) as AlarmManager
 
-fun Context.setExactAlarm(triggerAtMillis: Long, operation: PendingIntent, type: Int = AlarmManager.RTC_WAKEUP) {
-    val alarmManager = getAlarmManager()
+fun Context.setExactAlarm(
+    triggerAtMillis: Long,
+    operation: PendingIntent,
+    type: Int = AlarmManager.RTC_WAKEUP
+) = with(getAlarmManager()) {
     try {
-        if (isSPlus() && alarmManager.canScheduleExactAlarms() || !isSPlus()) {
-            alarmManager.setExactAndAllowWhileIdle(type, triggerAtMillis, operation)
-        } else {
-            alarmManager.setAndAllowWhileIdle(type, triggerAtMillis, operation)
+        when {
+            // USE_EXACT_ALARM *cannot* be revoked by users on Android 13+
+            isTiramisuPlus() -> try {
+                setExactAndAllowWhileIdle(type, triggerAtMillis, operation)
+            } catch (e: SecurityException) {
+                throw IllegalStateException(
+                    "Exact alarm blocked despite USE_EXACT_ALARM declaration in manifest.", e
+                )
+            }
+
+            // SCHEDULE_EXACT_ALARM *may* be revoked by users/system on Android 12
+            isSPlus() && canScheduleExactAlarms() -> {
+                setExactAndAllowWhileIdle(type, triggerAtMillis, operation)
+            }
+
+            // No special permissions are needed *before* Android 12
+            !isSPlus() -> setExactAndAllowWhileIdle(type, triggerAtMillis, operation)
+
+            // Fallback to *inexact* alarms for Android 12. This will cause delayed reminders.
+            else -> setAndAllowWhileIdle(type, triggerAtMillis, operation)
         }
     } catch (e: Exception) {
         showErrorToast(e)
