@@ -848,7 +848,7 @@ fun Context.getFirstDayOfWeek(date: DateTime): String {
 }
 
 fun Context.getFirstDayOfWeekDt(date: DateTime): DateTime {
-    var today = date.withTimeAtStartOfDay()
+    val today = date.withTimeAtStartOfDay()
     var currentDate = today
     if (!config.startWeekWithCurrentDay) {
         val firstDayOfWeek = config.firstDayOfWeek
@@ -1006,13 +1006,7 @@ fun Context.setExactAlarm(
     try {
         when {
             // USE_EXACT_ALARM *cannot* be revoked by users on Android 13+
-            isTiramisuPlus() -> try {
-                setExactAndAllowWhileIdle(type, triggerAtMillis, operation)
-            } catch (e: SecurityException) {
-                throw IllegalStateException(
-                    "Exact alarm blocked despite USE_EXACT_ALARM declaration in manifest.", e
-                )
-            }
+            isTiramisuPlus() -> setExactAndAllowWhileIdle(type, triggerAtMillis, operation)
 
             // SCHEDULE_EXACT_ALARM *may* be revoked by users/system on Android 12
             isSPlus() && canScheduleExactAlarms() -> {
@@ -1042,4 +1036,15 @@ fun Context.getWeekNumberWidth(): Int {
     } else {
         0
     }
+}
+
+/**
+ * Does everything that needs to be done on device boot, app updates, etc.
+ */
+fun Context.initializeFossifyCalendar() {
+    scheduleAllEvents()
+    notifyRunningEvents()
+    recheckCalDAVCalendars(true) {}
+    scheduleNextAutomaticBackup()
+    checkAndBackupEventsOnBoot()
 }
