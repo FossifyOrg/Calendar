@@ -15,7 +15,7 @@ class BootCompletedReceiver : BroadcastReceiver() {
 
     @SuppressLint("UnsafeProtectedBroadcastReceiver")
     override fun onReceive(context: Context, intent: Intent) {
-        val pendingResult = goAsync()
+        val pendingResult = goAsync() // TO DO: switch to WorkManager for more resilence
         ensureBackgroundThread {
             context.apply {
                 scheduleAllEvents()
