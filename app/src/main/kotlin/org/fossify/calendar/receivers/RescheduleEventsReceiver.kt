@@ -11,7 +11,7 @@ import org.fossify.calendar.extensions.scheduleAllEvents
 import org.fossify.calendar.extensions.scheduleNextAutomaticBackup
 import org.fossify.commons.helpers.ensureBackgroundThread
 
-class BootCompletedReceiver : BroadcastReceiver() {
+class RescheduleEventsReceiver : BroadcastReceiver() {
 
     @SuppressLint("UnsafeProtectedBroadcastReceiver")
     override fun onReceive(context: Context, intent: Intent) {
