@@ -5,12 +5,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-
 ### Changed
 - Declined events will no longer trigger notifications ([#732])
 
 ### Fixed
 - Fixed incorrect widget font size on foldable devices ([#337])
+- Fixed missing reminders after reboot in some cases ([#217])
 
 ## [1.6.0] - 2025-08-21
 ### Added
@@ -117,6 +117,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [#148]: https://github.com/FossifyOrg/Calendar/issues/148
 [#196]: https://github.com/FossifyOrg/Calendar/issues/196
+[#217]: https://github.com/FossifyOrg/Calendar/issues/217
 [#262]: https://github.com/FossifyOrg/Calendar/issues/262
 [#337]: https://github.com/FossifyOrg/Calendar/issues/337
 [#394]: https://github.com/FossifyOrg/Calendar/issues/394
