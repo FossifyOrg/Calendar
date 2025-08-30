@@ -1037,14 +1037,3 @@ fun Context.getWeekNumberWidth(): Int {
         0
     }
 }
-
-/**
- * Does everything that needs to be done on device boot, app updates, etc.
- */
-fun Context.initializeFossifyCalendar() {
-    scheduleAllEvents()
-    notifyRunningEvents()
-    recheckCalDAVCalendars(true) {}
-    scheduleNextAutomaticBackup()
-    checkAndBackupEventsOnBoot()
-}

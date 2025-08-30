@@ -24,6 +24,10 @@
         android:name="android.permission.USE_FINGERPRINT"
         tools:node="remove" />
 
+    <uses-permission
+        android:name="android.permission.FOREGROUND_SERVICE"
+        android:maxSdkVersion="32" />
+
     <queries>
         <package android:name="org.fossify.contacts.debug" />
         <package android:name="org.fossify.contacts" />
