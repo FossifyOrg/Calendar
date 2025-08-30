@@ -13,12 +13,11 @@ import androidx.work.WorkManager
 import androidx.work.WorkerParameters
 import org.fossify.calendar.R
 import org.fossify.calendar.extensions.checkAndBackupEventsOnBoot
-import org.fossify.calendar.extensions.notifyRunningEvents
 import org.fossify.calendar.extensions.recheckCalDAVCalendars
 import org.fossify.calendar.extensions.scheduleAllEvents
+import org.fossify.calendar.extensions.scheduleDummyAlarm
 import org.fossify.calendar.extensions.scheduleNextAutomaticBackup
 import org.fossify.commons.extensions.notificationManager
-import java.time.Duration
 
 /**
  * Does everything that needs to be done on device boot, app updates, etc.
@@ -30,8 +29,8 @@ class AppStartupWorker(
 
     override suspend fun doWork(): Result = with(applicationContext) {
         try {
-            notifyRunningEvents()
             scheduleAllEvents()
+            scheduleDummyAlarm()
             scheduleNextAutomaticBackup()
             checkAndBackupEventsOnBoot()
         } catch (_: Throwable) {
@@ -42,7 +41,7 @@ class AppStartupWorker(
         Result.success()
     }
 
-    // expedited work on pre-Android 12 devices.
+    // expedited work on before Android 12 requires a foreground service
     override suspend fun getForegroundInfo(): ForegroundInfo {
         val channelId = "app_startup_worker"
         val channelName = applicationContext.getString(R.string.app_name)
@@ -70,7 +69,6 @@ class AppStartupWorker(
                     if (replaceExistingWork) ExistingWorkPolicy.REPLACE else ExistingWorkPolicy.KEEP,
                     OneTimeWorkRequestBuilder<AppStartupWorker>()
                         .setExpedited(OutOfQuotaPolicy.RUN_AS_NON_EXPEDITED_WORK_REQUEST)
-                        .setInitialDelay(Duration.ofSeconds(2))
                         .build()
                 )
         }

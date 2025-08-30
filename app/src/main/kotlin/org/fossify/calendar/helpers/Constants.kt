@@ -13,6 +13,7 @@ const val ROW_COUNT = 6
 const val COLUMN_COUNT = 7
 const val SCHEDULE_CALDAV_REQUEST_CODE = 10000
 const val AUTOMATIC_BACKUP_REQUEST_CODE = 10001
+const val DUMMY_ALARM_REQUEST_CODE = 10002
 const val FETCH_INTERVAL = 3 * MONTH_SECONDS
 const val MAX_SEARCH_YEAR =
     2051218800L  // 2035, limit search results for events repeating indefinitely
