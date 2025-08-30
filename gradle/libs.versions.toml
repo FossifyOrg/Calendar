@@ -11,6 +11,7 @@ multidex = "2.0.1"
 print = "1.1.0"
 constraintlayout = "2.2.1"
 swiperefreshlayout = "1.1.0"
+work = "2.9.1"
 #Room
 room = "2.7.2"
 #Fossify
@@ -29,6 +30,7 @@ androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayo
 androidx-multidex = { module = "androidx.multidex:multidex", version.ref = "multidex" }
 androidx-print = { module = "androidx.print:print", version.ref = "print" }
 androidx-swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "swiperefreshlayout" }
+androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "work" }
 #Room
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
 androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }

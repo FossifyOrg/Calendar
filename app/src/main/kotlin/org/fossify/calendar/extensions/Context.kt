@@ -45,6 +45,7 @@ import org.fossify.calendar.helpers.DEFAULT_START_TIME_NEXT_FULL_HOUR
 import org.fossify.calendar.helpers.DELETE_ALL_OCCURRENCES
 import org.fossify.calendar.helpers.DELETE_FUTURE_OCCURRENCES
 import org.fossify.calendar.helpers.DELETE_SELECTED_OCCURRENCE
+import org.fossify.calendar.helpers.DUMMY_ALARM_REQUEST_CODE
 import org.fossify.calendar.helpers.EVENT_ID
 import org.fossify.calendar.helpers.EVENT_OCCURRENCE_TS
 import org.fossify.calendar.helpers.EventsHelper
@@ -81,6 +82,7 @@ import org.fossify.calendar.models.ListSectionMonth
 import org.fossify.calendar.models.Task
 import org.fossify.calendar.receivers.AutomaticBackupReceiver
 import org.fossify.calendar.receivers.CalDAVSyncReceiver
+import org.fossify.calendar.receivers.DummyAlarmReceiver
 import org.fossify.calendar.receivers.NotificationReceiver
 import org.fossify.calendar.services.MarkCompletedService
 import org.fossify.calendar.services.SnoozeService
@@ -116,6 +118,7 @@ import org.fossify.commons.helpers.ensureBackgroundThread
 import org.fossify.commons.helpers.isOreoPlus
 import org.fossify.commons.helpers.isRPlus
 import org.fossify.commons.helpers.isSPlus
+import org.fossify.commons.helpers.isTiramisuPlus
 import org.joda.time.DateTime
 import org.joda.time.DateTimeConstants
 import org.joda.time.Days
@@ -123,6 +126,7 @@ import org.joda.time.LocalDate
 import java.io.File
 import java.io.FileOutputStream
 import java.util.Calendar
+import java.util.concurrent.TimeUnit
 import kotlin.math.absoluteValue
 import kotlin.math.roundToInt
 
@@ -847,7 +851,7 @@ fun Context.getFirstDayOfWeek(date: DateTime): String {
 }
 
 fun Context.getFirstDayOfWeekDt(date: DateTime): DateTime {
-    var today = date.withTimeAtStartOfDay()
+    val today = date.withTimeAtStartOfDay()
     var currentDate = today
     if (!config.startWeekWithCurrentDay) {
         val firstDayOfWeek = config.firstDayOfWeek
@@ -997,13 +1001,26 @@ fun Context.addImportIdsToTasks(callback: () -> Unit) {
 
 fun Context.getAlarmManager() = getSystemService(Context.ALARM_SERVICE) as AlarmManager
 
-fun Context.setExactAlarm(triggerAtMillis: Long, operation: PendingIntent, type: Int = AlarmManager.RTC_WAKEUP) {
-    val alarmManager = getAlarmManager()
+fun Context.setExactAlarm(
+    triggerAtMillis: Long,
+    operation: PendingIntent,
+    type: Int = AlarmManager.RTC_WAKEUP
+) = with(getAlarmManager()) {
     try {
-        if (isSPlus() && alarmManager.canScheduleExactAlarms() || !isSPlus()) {
-            alarmManager.setExactAndAllowWhileIdle(type, triggerAtMillis, operation)
-        } else {
-            alarmManager.setAndAllowWhileIdle(type, triggerAtMillis, operation)
+        when {
+            // USE_EXACT_ALARM *cannot* be revoked by users on Android 13+
+            isTiramisuPlus() -> setExactAndAllowWhileIdle(type, triggerAtMillis, operation)
+
+            // SCHEDULE_EXACT_ALARM *may* be revoked by users/system on Android 12
+            isSPlus() && canScheduleExactAlarms() -> {
+                setExactAndAllowWhileIdle(type, triggerAtMillis, operation)
+            }
+
+            // No special permissions are needed *before* Android 12
+            !isSPlus() -> setExactAndAllowWhileIdle(type, triggerAtMillis, operation)
+
+            // Fallback to *inexact* alarms for Android 12. This will cause delayed reminders.
+            else -> setAndAllowWhileIdle(type, triggerAtMillis, operation)
         }
     } catch (e: Exception) {
         showErrorToast(e)
@@ -1022,4 +1039,26 @@ fun Context.getWeekNumberWidth(): Int {
     } else {
         0
     }
+}
+
+/**
+ * Returns true if the dummy alarm is already scheduled.
+ */
+fun Context.hasDummyAlarm(): Boolean {
+    return PendingIntent.getBroadcast(
+        this, DUMMY_ALARM_REQUEST_CODE,
+        Intent(this, DummyAlarmReceiver::class.java),
+        PendingIntent.FLAG_NO_CREATE or PendingIntent.FLAG_IMMUTABLE
+    ) != null
+}
+
+fun Context.scheduleDummyAlarm() {
+    setExactAlarm(
+        triggerAtMillis = System.currentTimeMillis() + TimeUnit.DAYS.toMillis(1),
+        operation = PendingIntent.getBroadcast(
+            this, DUMMY_ALARM_REQUEST_CODE,
+            Intent(this, DummyAlarmReceiver::class.java),
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
+    )
 }
