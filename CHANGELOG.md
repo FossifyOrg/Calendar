@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - Fixed incorrect widget font size on foldable devices ([#337])
-- Fixed missing reminders after reboot in some cases ([#217])
+- Fixed missing or delayed reminders in some cases ([#217])
 
 ## [1.6.0] - 2025-08-21
 ### Added
