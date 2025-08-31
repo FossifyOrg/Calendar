@@ -5,14 +5,19 @@ import android.database.ContentObserver
 import android.os.Handler
 import android.provider.CalendarContract
 import androidx.core.app.NotificationManagerCompat
+import org.fossify.calendar.BuildConfig
 import org.fossify.calendar.R
 import org.fossify.calendar.extensions.config
+import org.fossify.calendar.extensions.getAlarmManager
 import org.fossify.calendar.extensions.refreshCalDAVCalendars
 import org.fossify.commons.activities.BaseSimpleActivity
 import org.fossify.commons.dialogs.ConfirmationDialog
 import org.fossify.commons.dialogs.PermissionRequiredDialog
 import org.fossify.commons.extensions.openNotificationSettings
+import org.fossify.commons.extensions.openRequestExactAlarmSettings
 import org.fossify.commons.helpers.ensureBackgroundThread
+import org.fossify.commons.helpers.isSPlus
+import org.fossify.commons.helpers.isTiramisuPlus
 
 open class SimpleActivity : BaseSimpleActivity() {
     val CALDAV_REFRESH_DELAY = 3000L
@@ -97,6 +102,25 @@ open class SimpleActivity : BaseSimpleActivity() {
                     org.fossify.commons.R.string.allow_notifications_reminders,
                     { openNotificationSettings() })
             }
+        }
+    }
+
+    fun maybeRequestExactAlarmPermission(callback: () -> Unit = {}) {
+        if (isSPlus() && !isTiramisuPlus()) {
+            // SCHEDULE_EXACT_ALARM *may* be revoked by users/system on Android 12
+            if (getAlarmManager().canScheduleExactAlarms()) {
+                callback()
+            } else {
+                PermissionRequiredDialog(
+                    activity = this,
+                    textId = R.string.allow_alarms_reminders,
+                    positiveActionCallback = {
+                        openRequestExactAlarmSettings(BuildConfig.APPLICATION_ID)
+                    },
+                )
+            }
+        } else {
+            callback()
         }
     }
 }

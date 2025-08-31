@@ -878,13 +878,15 @@ class SettingsActivity : SimpleActivity() {
         settingsEnableAutomaticBackupsHolder.setOnClickListener {
             val wasBackupDisabled = !config.autoBackup
             if (wasBackupDisabled) {
-                ManageAutomaticBackupsDialog(
-                    activity = this@SettingsActivity,
-                    onSuccess = {
-                        enableOrDisableAutomaticBackups(true)
-                        scheduleNextAutomaticBackup()
-                    }
-                )
+                maybeRequestExactAlarmPermission {
+                    ManageAutomaticBackupsDialog(
+                        activity = this@SettingsActivity,
+                        onSuccess = {
+                            enableOrDisableAutomaticBackups(true)
+                            scheduleNextAutomaticBackup()
+                        }
+                    )
+                }
             } else {
                 cancelScheduledAutomaticBackup()
                 enableOrDisableAutomaticBackups(false)
@@ -895,12 +897,14 @@ class SettingsActivity : SimpleActivity() {
     private fun setupManageAutomaticBackups() = binding.apply {
         settingsManageAutomaticBackupsHolder.beVisibleIf(isRPlus() && config.autoBackup)
         settingsManageAutomaticBackupsHolder.setOnClickListener {
-            ManageAutomaticBackupsDialog(
-                activity = this@SettingsActivity,
-                onSuccess = {
-                    scheduleNextAutomaticBackup()
-                }
-            )
+            maybeRequestExactAlarmPermission {
+                ManageAutomaticBackupsDialog(
+                    activity = this@SettingsActivity,
+                    onSuccess = {
+                        scheduleNextAutomaticBackup()
+                    }
+                )
+            }
         }
     }
 
