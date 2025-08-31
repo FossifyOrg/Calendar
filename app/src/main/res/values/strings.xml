@@ -300,6 +300,9 @@
     <string name="accessibility_previous_day">Go to previous day</string>
     <string name="accessibility_next_day">Go to next day</string>
 
+    <!-- Permissions -->
+    <string name="allow_alarms_reminders">You must allow the app to schedule alarms for reminders to work properly.</string>
+
     <!-- FAQ -->
     <string name="faq_1_title">How can I remove the holidays imported via the \"Add holidays\" button?</string>
     <string name="faq_1_text">Holidays created that way are inserted in a new event type called \"Holidays\". You can go in Settings -> Manage Event Types,
