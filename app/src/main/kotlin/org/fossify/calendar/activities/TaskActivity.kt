@@ -480,7 +480,7 @@ class TaskActivity : SimpleActivity() {
             }
             when (it) {
                 EDIT_SELECTED_OCCURRENCE -> {
-                    eventsHelper.editSelectedOccurrence(mTask, true) {
+                    eventsHelper.editSelectedOccurrence(mTask, mTaskOccurrenceTS, true) {
                         finish()
                     }
                 }

@@ -299,7 +299,7 @@ class WeekFragment : Fragment(), WeeklyCalendar {
                                                         }
 
                                                         EDIT_SELECTED_OCCURRENCE -> {
-                                                            context?.eventsHelper?.editSelectedOccurrence(newEvent, false) {
+                                                            context?.eventsHelper?.editSelectedOccurrence(newEvent, originalStartTS, false) {
                                                                 updateCalendar()
                                                             }
                                                         }

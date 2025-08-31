@@ -1774,7 +1774,11 @@ class EventActivity : SimpleActivity() {
             }
             when (it) {
                 EDIT_SELECTED_OCCURRENCE -> {
-                    eventsHelper.editSelectedOccurrence(event = mEvent, showToasts = true) {
+                    eventsHelper.editSelectedOccurrence(
+                        event = mEvent,
+                        eventOccurrenceTS = mEventOccurrenceTS,
+                        showToasts = true
+                    ) {
                         finish()
                     }
                 }
