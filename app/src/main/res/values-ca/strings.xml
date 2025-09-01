@@ -271,4 +271,5 @@
     <string name="access_level_public">Públic</string>
     <string name="access_level_private">Privat</string>
     <string name="access_level_confidential">Confidencial</string>
+    <string name="allow_alarms_reminders">Heu de permetre que l\'aplicació programi alarmes perquè els recordatoris funcionin correctament.</string>
 </resources>
