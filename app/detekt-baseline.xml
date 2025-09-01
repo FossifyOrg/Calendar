@@ -449,7 +449,6 @@
     <ID>MaxLineLength:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider.&lt;no name provided&gt;$override</ID>
     <ID>MaxLineLength:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider.&lt;no name provided&gt;$val shouldGoToTodayBeVisible = currTargetDate.withTime(0, 0, 0, 0) != DateTime.now().withDayOfMonth(1).withTime(0, 0, 0, 0)</ID>
     <ID>MaxLineLength:MyYearPagerAdapter.kt$MyYearPagerAdapter$class</ID>
-    <ID>MaxLineLength:NotificationReceiver.kt$NotificationReceiver$if</ID>
     <ID>MaxLineLength:Parser.kt$Parser$// properly handle events repeating by 14 days or so, just add a repeat rule to specify a day of the week</ID>
     <ID>MaxLineLength:Parser.kt$Parser$event.repeatInterval.isXMonthlyRepetition() || event.repeatInterval.isXYearlyRepetition()</ID>
     <ID>MaxLineLength:Parser.kt$Parser$private fun getDurationValue(duration: String, char: String)</ID>
@@ -641,7 +640,6 @@
     <ID>VariableNaming:YearFragmentsHolder.kt$YearFragmentsHolder$private val PREFILLED_YEARS = 61</ID>
     <ID>WildcardImport:Activity.kt$import org.fossify.calendar.helpers.*</ID>
     <ID>WildcardImport:Activity.kt$import org.fossify.commons.extensions.*</ID>
-    <ID>WildcardImport:BootCompletedReceiver.kt$import org.fossify.calendar.extensions.*</ID>
     <ID>WildcardImport:CustomEventRepeatIntervalDialog.kt$import org.fossify.commons.extensions.*</ID>
     <ID>WildcardImport:CustomPeriodPickerDialog.kt$import org.fossify.commons.extensions.*</ID>
     <ID>WildcardImport:DayEventsAdapter.kt$import org.fossify.calendar.extensions.*</ID>
