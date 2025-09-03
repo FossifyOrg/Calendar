@@ -266,6 +266,7 @@
     <string name="select_holidays_to_import">Välj vilka helgdagar som ska importeras</string>
     <string name="show_widget_header">Visa rubrik</string>
     <string name="access_level_confidential">Konfidentiell</string>
-    <string name="access_level_public">Publik</string>
+    <string name="access_level_public">Offentlig</string>
     <string name="access_level_private">Privat</string>
+    <string name="allow_alarms_reminders">Du måste tillåta att appen schemalägger alarm för att påminnelser ska fungera korrekt.</string>
 </resources>
