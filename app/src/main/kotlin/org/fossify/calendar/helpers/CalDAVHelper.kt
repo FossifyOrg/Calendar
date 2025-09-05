@@ -207,6 +207,7 @@ class CalDAVHelper(val context: Context) {
             Events.CALENDAR_TIME_ZONE,
             Events.DELETED,
             Events.AVAILABILITY,
+            Events.ACCESS_LEVEL,
             Events.STATUS,
             Events.EVENT_COLOR
         )
@@ -239,6 +240,7 @@ class CalDAVHelper(val context: Context) {
             val originalInstanceTime = cursor.getLongValue(Events.ORIGINAL_INSTANCE_TIME)
             val reminders = getCalDAVEventReminders(id)
             val attendees = getCalDAVEventAttendees(id, calendar)
+            val accessLevel = cursor.getIntValue(Events.ACCESS_LEVEL)
             val availability = cursor.getIntValue(Events.AVAILABILITY)
             val status = cursor.getIntValue(Events.STATUS)
             val color = cursor.getIntValueOrNull(Events.EVENT_COLOR) ?: 0
@@ -280,6 +282,7 @@ class CalDAVHelper(val context: Context) {
                 flags = allDay,
                 eventType = eventTypeId,
                 source = source,
+                accessLevel = accessLevel,
                 availability = availability,
                 color = color,
                 status = status
@@ -490,6 +493,7 @@ class CalDAVHelper(val context: Context) {
             put(Events.DESCRIPTION, event.description)
             put(Events.EVENT_LOCATION, event.location)
             put(Events.STATUS, event.status)
+            put(Events.ACCESS_LEVEL, event.accessLevel)
             put(Events.AVAILABILITY, event.availability)
 
             if (event.color == 0) {

@@ -24,6 +24,10 @@
         android:name="android.permission.USE_FINGERPRINT"
         tools:node="remove" />
 
+    <uses-permission
+        android:name="android.permission.FOREGROUND_SERVICE"
+        android:maxSdkVersion="32" />
+
     <queries>
         <package android:name="org.fossify.contacts.debug" />
         <package android:name="org.fossify.contacts" />
@@ -39,12 +43,11 @@
         android:required="false" />
 
     <application
-        android:name="org.fossify.commons.FossifyApp"
+        android:name=".App"
         android:allowBackup="true"
         android:appCategory="productivity"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_launcher_name"
-        android:localeConfig="@xml/locale_config"
         android:roundIcon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -282,19 +285,24 @@
             android:exported="false" />
 
         <receiver
-            android:name=".receivers.BootCompletedReceiver"
+            android:name=".receivers.RescheduleEventsReceiver"
             android:exported="true">
 
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
-                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
                 <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+                <action android:name="android.intent.action.TIME_SET" />
+                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
             </intent-filter>
         </receiver>
 
         <receiver
             android:name=".receivers.AutomaticBackupReceiver"
+            android:exported="false" />
+
+        <receiver android:name=".receivers.DummyAlarmReceiver"
             android:exported="false" />
 
         <provider

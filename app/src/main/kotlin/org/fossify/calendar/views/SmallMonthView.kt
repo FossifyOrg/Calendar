@@ -64,7 +64,7 @@ class SmallMonthView(context: Context, attrs: AttributeSet, defStyle: Int) : Vie
         paint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
             color = textColor
             textSize = resources.getDimensionPixelSize(R.dimen.year_view_day_text_size).toFloat()
-            textAlign = Paint.Align.RIGHT
+            textAlign = Paint.Align.CENTER
         }
 
         todayCirclePaint = Paint(paint)
@@ -74,6 +74,7 @@ class SmallMonthView(context: Context, attrs: AttributeSet, defStyle: Int) : Vie
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
+
         if (dayWidth == 0f) {
             dayWidth = if (isLandscape) {
                 width / 9f
@@ -82,16 +83,21 @@ class SmallMonthView(context: Context, attrs: AttributeSet, defStyle: Int) : Vie
             }
         }
 
+        val fm = paint.fontMetrics
+        val radius = dayWidth * 0.41f
+
         var curId = 1 - firstDay
         for (y in 1..6) {
             for (x in 1..7) {
                 if (curId in 1..days) {
-                    val paint = getPaint(curId, x, highlightWeekends)
-                    canvas.drawText(curId.toString(), x * dayWidth - (dayWidth / 4), y * dayWidth, paint)
+                    val textPaint = getPaint(curId, x, highlightWeekends)
+                    val centerX = x * dayWidth - dayWidth / 2
+                    val centerY = y * dayWidth - dayWidth / 2
+                    val baselineY = centerY - (fm.ascent + fm.descent) / 2
 
+                    canvas.drawText(curId.toString(), centerX, baselineY, textPaint)
                     if (curId == todaysId && !isPrintVersion) {
-                        val dividerConstant = if (isLandscape) 6 else 4
-                        canvas.drawCircle(x * dayWidth - dayWidth / 2, y * dayWidth - dayWidth / dividerConstant, dayWidth * 0.41f, todayCirclePaint)
+                        canvas.drawCircle(centerX, centerY, radius, todayCirclePaint)
                     }
                 }
                 curId++
@@ -117,7 +123,7 @@ class SmallMonthView(context: Context, attrs: AttributeSet, defStyle: Int) : Vie
     fun togglePrintMode() {
         isPrintVersion = !isPrintVersion
         textColor = if (isPrintVersion) {
-            resources.getColor(org.fossify.commons.R.color.theme_light_text_color)
+            resources.getColor(org.fossify.commons.R.color.theme_light_text_color, null)
         } else {
             context.getProperTextColor().adjustAlpha(MEDIUM_ALPHA)
         }

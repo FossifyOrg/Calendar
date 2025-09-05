@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_launcher_name">Agenda</string>
+    <string name="change_view">Cambiar la vista</string>
+    <string name="daily_view">Vista jornalièra</string>
+    <string name="weekly_view">Vista setmanièra</string>
+    <string name="monthly_view">Vista mesadièra</string>
+    <string name="monthly_daily_view">Vista mesadièra e jornalièra</string>
+    <string name="yearly_view">Vista annal</string>
+    <string name="go_to_today">Veire uèi</string>
+    <string name="go_to_date">Anar a la data</string>
+    <string name="widget_monthly">Agenda mesadièr</string>
+    <string name="widget_list">Lista dels eveniments de l\'agenda</string>
+    <string name="widget_todays_date">Data del jorn</string>
+    <string name="event">Eveniment</string>
+    <string name="edit_event">Modificar l\'eveniment</string>
+    <string name="new_event">Eveniment novèl</string>
+    <string name="create_new_event">Crear un eveniment novèl</string>
+    <string name="duplicate_event">Duplicar l\'eveniment</string>
+</resources>

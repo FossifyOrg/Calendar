@@ -239,6 +239,8 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
         addImportIdsToTasks {
             refreshViewPager()
         }
+
+        maybeRequestExactAlarmPermission()
     }
 
     override fun onResume() {

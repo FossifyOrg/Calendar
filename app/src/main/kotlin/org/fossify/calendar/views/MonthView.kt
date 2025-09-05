@@ -138,7 +138,7 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
 
                 // handle overlapping repeating events e.g. an event that lasts 3 days, but repeats every 2 days has a one day overlap
                 val canOverlap = event.endTS - event.startTS > event.repeatInterval
-                val shouldAddEvent = notYetAddedOrIsRepeatingEvent || canOverlap && (lastEvent!!.startTS < event.startTS)
+                val shouldAddEvent = notYetAddedOrIsRepeatingEvent || canOverlap && (lastEvent.startTS < event.startTS)
 
                 if (shouldAddEvent && !validDayEvent) {
                     val daysCnt = getEventLastingDaysCount(event)
@@ -188,27 +188,38 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
             for (x in 0 until COLUMN_COUNT) {
                 val day = days.getOrNull(curId)
                 if (day != null) {
+                    val dayNumber = day.value.toString()
+                    val textPaint = getTextPaint(day)
+                    textPaint.getTextBounds(dayNumber, 0, dayNumber.length, dayTextRect)
                     dayVerticalOffsets.put(day.indexOnMonthView, dayVerticalOffsets[day.indexOnMonthView] + weekDaysLetterHeight)
                     val verticalOffset = dayVerticalOffsets[day.indexOnMonthView]
                     val xPos = x * dayWidth + horizontalOffset
                     val yPos = y * dayHeight + verticalOffset
+                    val textY = yPos + textPaint.textSize
                     val xPosCenter = xPos + dayWidth / 2
-                    val dayNumber = day.value.toString()
 
-                    val textPaint = getTextPaint(day)
                     val isDaySelected = selectedDayCoords.x != -1 && x == selectedDayCoords.x && y == selectedDayCoords.y
                     if (isDaySelected) {
-                        canvas.drawCircle(xPosCenter, yPos + textPaint.textSize * 0.7f, textPaint.textSize * 0.8f, circleStrokePaint)
+                        canvas.drawCircle(
+                            xPosCenter,
+                            textY - dayTextRect.height() / 2,
+                            textPaint.textSize * 0.8f,
+                            circleStrokePaint
+                        )
                         if (day.isToday) {
                             textPaint.color = textColor
                         }
                     } else if (day.isToday && !isPrintVersion) {
-                        canvas.drawCircle(xPosCenter, yPos + textPaint.textSize * 0.7f, textPaint.textSize * 0.8f, getCirclePaint(day))
+                        canvas.drawCircle(
+                            xPosCenter,
+                            textY - dayTextRect.height() / 2,
+                            textPaint.textSize * 0.8f,
+                            getCirclePaint(day)
+                        )
                     }
 
                     // mark days with a dot for each event
                     if (isMonthDayView && !isDaySelected && !day.isToday && day.dayEvents.isNotEmpty()) {
-                        getCirclePaint(day).getTextBounds(dayNumber, 0, dayNumber.length, dayTextRect)
                         val height = dayTextRect.height() * 1.25f
                         val eventCount = day.dayEvents.size
                         val dotRadius = textPaint.textSize * 0.2f
@@ -250,7 +261,7 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
                         }
                     }
 
-                    canvas.drawText(dayNumber, xPosCenter, yPos + textPaint.textSize, textPaint)
+                    canvas.drawText(dayNumber, xPosCenter, textY, textPaint)
                     dayVerticalOffsets.put(day.indexOnMonthView, (verticalOffset + textPaint.textSize * 2).toInt())
                 }
                 curId++
@@ -481,7 +492,7 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
     fun togglePrintMode() {
         isPrintVersion = !isPrintVersion
         textColor = if (isPrintVersion) {
-            resources.getColor(org.fossify.commons.R.color.theme_light_text_color)
+            resources.getColor(org.fossify.commons.R.color.theme_light_text_color, null)
         } else {
             context.getProperTextColor()
         }

@@ -1,0 +1,10 @@
+Changed:
+
+• Declined events will no longer trigger notifications 
+• Updated translations
+
+Fixed:
+
+• Fixed incorrect widget font size on foldable devices 
+• Fixed missing or delayed reminders in some cases 
+

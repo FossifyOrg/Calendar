@@ -166,7 +166,7 @@
     <string name="alarm_stream">Аларм</string>
     <string name="notification_stream">Известување</string>
     <string name="ring_stream">Прстен</string>
-    <string name="use_last_event_reminders">Користете ги потсетниците на последните настани како потврда за новите настани</string>
+    <string name="use_last_event_reminders">Користете ги потдсетниците на последните настани како потврда за новите настани</string>
     <string name="default_reminder_1">Потсетник 1</string>
     <string name="default_reminder_2">Потсетник 2</string>
     <string name="default_reminder_3">Потсетник 3</string>
@@ -238,9 +238,34 @@
     <string name="faq_3_title">Ги гледам визуелните потсетници, но не слушам аудио. Што можам да направам\?</string>
     <string name="faq_3_text">Не само прикажување на вистинскиот потсетник, туку и пуштањето на аудиото е многу погодена од системот. Ако не можете да слушнете звук, обидете се да одите во подесувањата на апликацијата, да ја притиснете опцијата \"Аудио поток кој се користи од потсетниците\" и да ја смените на различна вредност. Ако сеуште нема да функционира, проверете ги вашите звучни подесувања, ако конкретниот поток не е приглумен.</string>
     <string name="faq_4_title">Дали апликацијата ги поддржува временските зони\?</string>
-    <string name="faq_4_text">Да, така е. По некое време, сите настани се создадени во вашата моментална временска зона. Ако сакате да ја промените временската зона на настаните, прво ќе морате да го овозможите избирачот на временската зона на подесувањата на апликацијата, а потоа да го промените на екранот Детали за настанот. Тоа е оневозможено по некое време, бидејќи повеќето луѓе нема да имаат потреба од тоа.</string>
+    <string name="faq_4_text">Да, така е. По некое време, сите настани се создадени во вашата моментална временска зона. Ако сакате да ја промените временската зона на настаните, прво ќе морате да го овозможите избирачот на временската зона во нагодувањата на апликацијата, а потоа да го промените на екранот Детали за настанот. Тоа е оневозможено по некое време, бидејќи повеќето луѓе нема да имаат потреба од тоа.</string>
     <string name="faq_5_title">Апликацијата не покажува известувања, зошто е тоа\?</string>
     <string name="faq_5_text">Проверете ги поставките за батеријата и известувањето на вашиот уред, ако нема ништо што ги блокира потсетниците, или убивање на апликацијата во позадина. Можеби ќе сакате да погледнете &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;, има некои корисни совети.</string>
     <string name="faq_6_title">Како можам да го модифицирам или избришам постоечкиот тип на настани\?</string>
     <string name="faq_6_text">Можете да ги направите и двете во апликацијата Settings - Управување со типовите на настани. Само кликнете на бараната за промена на етикетата и бојата, или изберете ја бараната со долго притискање и користете го ѓубрето на врвното мени за бришење.</string>
+    <string name="access_level_private">Приватно</string>
+    <string name="show_widget_header">Прикажи глава</string>
+    <string name="accessibility_previous_day">Оди на предходниот ден</string>
+    <string name="accessibility_next_day">Оди на следниот ден</string>
+    <string name="no_upcoming_events">Нема предстоечки настани.</string>
+    <string name="task_color">Боја на задача</string>
+    <string name="delete_all_events_and_tasks">Избриши ги сите настани и задачи</string>
+    <string name="caldav">CalDAV</string>
+    <string name="faq_2_title_extra">Можеби и да споделите календари со други луѓе?</string>
+    <string name="access_level_public">Јавно</string>
+    <string name="access_level_confidential">Доверливо</string>
+    <string name="export_tasks">Извези задачи</string>
+    <string name="export_past_entries">Извези ги и минатите ставки</string>
+    <string name="regional_holidays">Регионални празници</string>
+    <string name="public_holidays">Државни празници</string>
+    <string name="other_holidays">Други празници</string>
+    <string name="select_holidays_to_import">Одбери ги празниците за увоз</string>
+    <string name="status_tentative">Привремено</string>
+    <string name="status_confirmed">Потврдено</string>
+    <string name="status_canceled">Одкажано</string>
+    <string name="accessibility_previous_month">Оди на предходниот месец</string>
+    <string name="accessibility_next_month">Оди на следниот месец</string>
+    <string name="everything_filtered_out">Ги изфилтриравте сите видови настани</string>
+    <string name="event_color">Боја на настан</string>
+    <string name="default_calendar_color">Стандардна боја на календар</string>
 </resources>

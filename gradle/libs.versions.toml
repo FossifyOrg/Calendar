@@ -1,41 +1,42 @@
 [versions]
 #jetbrains
-kotlin = "1.9.25"
+kotlin = "2.2.10"
 #KSP
-ksp = "1.9.25-1.0.20"
+ksp = "2.2.10-2.0.2"
 #Detekt
-detekt = "1.23.3"
+detekt = "1.23.8"
+detektCompose = "0.4.27"
 #Androidx
 multidex = "2.0.1"
-print = "1.0.0"
-constraintlayout = "2.2.0"
+print = "1.1.0"
+constraintlayout = "2.2.1"
 swiperefreshlayout = "1.1.0"
+work = "2.9.1"
 #Room
-room = "2.6.1"
+room = "2.7.2"
 #Fossify
-commons = "ec2b2faab5"
+commons = "5.0.2"
 #Gradle
-gradlePlugins-agp = "8.9.2"
+gradlePlugins-agp = "8.11.1"
 #build
 app-build-compileSDKVersion = "34"
 app-build-targetSDK = "34"
 app-build-minimumSDK = "26"
 app-build-javaVersion = "VERSION_17"
 app-build-kotlinJVMTarget = "17"
-#versioning
-app-version-appId = "org.fossify.calendar"
-app-version-versionCode = "6"
-app-version-versionName = "1.2.0"
 [libraries]
 #Android X
 androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
 androidx-multidex = { module = "androidx.multidex:multidex", version.ref = "multidex" }
 androidx-print = { module = "androidx.print:print", version.ref = "print" }
 androidx-swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "swiperefreshlayout" }
+androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "work" }
 #Room
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
 androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+#Compose
+compose-detekt = { module = "io.nlopez.compose.rules:detekt", version.ref = "detektCompose" }
 #Fossify
 fossify-commons = { module = "org.fossify:commons", version.ref = "commons" }
 [bundles]

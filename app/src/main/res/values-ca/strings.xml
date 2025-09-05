@@ -268,4 +268,8 @@
     <string name="select_holidays_to_import">Seleccioneu els festius a importar</string>
     <string name="public_holidays">Festius oficials</string>
     <string name="show_widget_header">Mostra la capçalera</string>
+    <string name="access_level_public">Públic</string>
+    <string name="access_level_private">Privat</string>
+    <string name="access_level_confidential">Confidencial</string>
+    <string name="allow_alarms_reminders">Heu de permetre que l\'aplicació programi alarmes perquè els recordatoris funcionin correctament.</string>
 </resources>

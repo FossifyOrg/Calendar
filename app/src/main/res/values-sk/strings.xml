@@ -255,4 +255,20 @@
     <string name="faq_5_text">Pozrite sa do nastavení batérie a upozornení vášho zariadenia, či nič neblokuje upozornenia, alebo nevypína na pozadí apku. Mohli by ste sa pozrieť aj na &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;, je tam veľa užitočných tipov.</string>
     <string name="faq_6_title">Ako môžem upraviť alebo odstrániť existujúci typ udalosti\?</string>
     <string name="faq_6_text">Oboje viete spraviť v nastaveniach apky - Spravovať typy udalostí. Kliknutím viete upraviť názov a farbu, odstrániť ich viete dlhým podržaním a použitím odpadkového koša na hornom menu.</string>
+    <string name="public_holidays">Verejné sviatky</string>
+    <string name="regional_holidays">Miestne sviatky</string>
+    <string name="other_holidays">Ostatné sviatky a udalosti</string>
+    <string name="select_holidays_to_import">Vyberte sviatky, ktoré chcete importovať</string>
+    <string name="caldav">CalDAV</string>
+    <string name="status_tentative">Predbežné</string>
+    <string name="status_confirmed">Potvrdené</string>
+    <string name="status_canceled">Zrušené</string>
+    <string name="access_level_public">Verejné</string>
+    <string name="access_level_private">Súkromné</string>
+    <string name="access_level_confidential">Tajné</string>
+    <string name="show_widget_header">Ukázať hlavičku</string>
+    <string name="accessibility_previous_month">Ísť na predchádzajúci mesiac</string>
+    <string name="accessibility_next_month">Ísť na nasledujúci mesiac</string>
+    <string name="accessibility_previous_day">Ísť na predchádzajúci deň</string>
+    <string name="accessibility_next_day">Ísť na nasledujúci deň</string>
 </resources>

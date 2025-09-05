@@ -110,9 +110,9 @@
     <string name="enter_a_country">Sisestariik või ajavöönd</string>
     <string name="import_events">Impordi sündmusi</string>
     <string name="export_events">Ekspordi sündmusi</string>
-    <string name="import_events_from_ics">Impordi sündmusi .ics failist</string>
-    <string name="import_events_from_ics_pro">Impordi sündmusi .ics failist (Pro)</string>
-    <string name="export_events_to_ics">Ekspordi sündmusi .ics faili</string>
+    <string name="import_events_from_ics">Impordi sündmused .ics failist</string>
+    <string name="import_events_from_ics_pro">Impordi sündmused .ics failist (Pro)</string>
+    <string name="export_events_to_ics">Ekspordi sündmused .ics faili</string>
     <string name="default_event_type">Sündmuse tüüp vaikimisi</string>
     <string name="export_past_events_too">Ekspordi ka minevikus toimunud sündmused</string>
     <string name="export_tasks">Ekspordi ülesanded</string>
@@ -241,7 +241,7 @@
     <string name="faq_1_text">Sel viisil loodud pühad lisatakse uude sündmuse tüüpi nimega „Pühad“. Ava menüüs Seaded -&gt; Halda sündmuste tüüp, vajuta pikalt antud sündmuse tüübile ja valides prügikasti kustuta see kirje.</string>
     <string name="faq_2_title">Kas ma saan oma sündmusi sünkroonida Google\'i kalendri või mõne muu CalDAVi toetava teenuse kaudu\?</string>
     <string name="faq_2_title_extra">Võib-olla isegi soovid jagada kalendreid teiste inimestega\?</string>
-    <string name="faq_2_text">Jah saad, lülita rakenduse seadetes lihtsalt sisse „CalDAV-sünkroniseerimine“ ja vali kalendrid, mida soovid sünkroniseerida. Lisaks on sul vaja mõnda kolmanda osapoole rakendust, mis tegeleb seadme ja serverite vahelise sünkroniseerimisega. Juhul, kui soovid sünkroniseerida Google\'i kalendrit, pakub seda võimalust nende ametlik kalendrirakendus. Teiste kalendrite jaoks vajad kolmanda osapoole sünkroniseerimisadapterit, näiteks DAVx5.</string>
+    <string name="faq_2_text">Jah saad, lülita rakenduse seadetes lihtsalt sisse „Sünkroniseerimine CalDAV-iga“ ja vali kalendrid, mida soovid sünkroniseerida. Lisaks on sul vaja mõnda kolmanda osapoole rakendust, mis tegeleb seadme ja serverite vahelise sünkroniseerimisega. Juhul, kui soovid sünkroniseerida Google\'i kalendrit, pakub seda võimalust nende ametlik kalendrirakendus. Teiste kalendrite jaoks vajad kolmanda osapoole sünkroniseerimisadapterit, näiteks DAVx⁵.</string>
     <string name="faq_3_title">Ma näen visuaalseid meeldetuletusi, kuid ei kuule heli. Mida ma saan teha\?</string>
     <string name="faq_3_text">Mitte ainult tegeliku meeldetuletuse kuvamine, vaid ka heli esitamine on süsteemist väga mõjutatud. Kui sa ei kuule mingit heli, ava rakenduse seadistused, vajuta valikut „Meeldetuletuste heli“ ja muuda sealne väärtus sobivaks. Kui see ikka veel ei tööta, kontrolli oma nutiseadme heliseadistusi ja vaata, kas konkreetne voog ei ole vaigistatud.</string>
     <string name="faq_4_title">Kas see rakendus toetab ajavööndeid\?</string>
@@ -265,4 +265,8 @@
     <string name="other_holidays">Muud pühad ja mälestuspäevad</string>
     <string name="select_holidays_to_import">Vali imporditavad pühad</string>
     <string name="show_widget_header">Näita päist</string>
+    <string name="access_level_private">Isiklik</string>
+    <string name="access_level_confidential">Salajane</string>
+    <string name="access_level_public">Avalik</string>
+    <string name="allow_alarms_reminders">Et meeldetuletused toimiks korralikult, pead lubama rakendusel ajastada äratusi.</string>
 </resources>

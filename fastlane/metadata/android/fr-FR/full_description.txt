@@ -1,6 +1,6 @@
-Fatigué des calendriers encombrés et des préoccupations en matière de confidentialité ?
+En avez-vous assez des calendriers encombrés et des problèmes de confidentialité ?
 
-Fossify Calendrier est là pour changer ça. Votre locomotive open-source pour gérer votre vie, conçue avec la confidentialité comme cœur et remplie de fonctionnalités puissantes pour que vous restiez organisé.
+Fossify Calendar est là pour changer ça. Votre locomotive open-source pour gérer votre vie, conçue avec la confidentialité comme priorité et dotée de fonctionnalités puissantes pour que vous restiez organisé.
 
 Voici ce qui rend Fossify Calendar différent :
 
@@ -10,7 +10,7 @@ Vos évènements restent les vôtres. Pas de publicités, pas de pistage, pas de
 ⏰ FLEXIBLE ET PERSONNALISABLE :
 Créez des évènements précisément avec des temps, des durées, des rappels et des règles de répétition avancées.
 
-🔄 SYNCHRONISATION SANS ACCROCS :
+🔄 SYNCHRONISATION SANS ACCROC :
 Synchronisez sans effort avec Google Calendar, Outlook, Nextcloud, Exchange, et plus.
 
 🎨 PERSONNALISEZ VOTRE PLANIFICATEUR :
@@ -28,17 +28,17 @@ Ne manquez jamais un anniversaire ou une commémoration ! Importez facilement 
 🔍 FILTREZ LES VUES :
 Trouvez rapidement ce que vous cherchez avec les filtres d'évènements.
 
-📆 MULTIPLES VUES :
+📆 VUES MULTIPLES :
 Basculez sans effort entre les vues quotidiennes, hebdomadaires, mensuelles, annuelles et la liste d'évènements.
 
 ✨ MATERIAL DESIGN ÉLÉGANT :
 Profitez d'une interface intuitive et facile à utiliser avec des thèmes dynamiques.
 
-De plus, Fossify Calendrier est open-source ! Rejoignez la communauté en mouvement sur Github, contribuez au projet et faites-le devenir le vôtre.
+De plus, Fossify Calendar est open-source ! Rejoignez la communauté en mouvement sur Github, contribuez au projet et faites-le devenir le vôtre.
 
-Téléchargez Fossify Calendrier maintenant et découvrez la puissance d'un calendrier privé et personnalisable.
+Téléchargez Fossify Calendar maintenant et profitez de la puissance d'un calendrier privé et personnalisable.
 
-Explorez plus d'apps de Fossify : https://www.fossify.org
+Découvrez plus d'applis de Fossify : https://www.fossify.org
 Code open-source : https://www.github.com/FossifyOrg
 Rejoignez la communauté sur Reddit : https://www.reddit.com/r/Fossify
 Restez connecté via Telegram : https://t.me/Fossify

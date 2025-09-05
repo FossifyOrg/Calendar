@@ -20,7 +20,7 @@
         app:showAsAction="ifRoom" />
     <item
         android:id="@+id/refresh_caldav_calendars"
-        android:icon="@drawable/ic_repeat_vector"
+        android:icon="@drawable/ic_repeat_outline_vector"
         android:title="@string/refresh_caldav_calendars"
         app:showAsAction="ifRoom" />
     <item
@@ -61,6 +61,6 @@
     <item
         android:id="@+id/more_apps_from_us"
         android:icon="@drawable/ic_google_play_vector"
-        android:title="@string/more_apps_from_us"
+        android:title="@string/more_fossify_apps"
         app:showAsAction="ifRoom" />
 </menu>

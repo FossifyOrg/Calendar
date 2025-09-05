@@ -1,4 +1,4 @@
-import org.jetbrains.kotlin.gradle.plugin.mpp.pm20.util.archivesName
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.jetbrains.kotlin.konan.properties.Properties
 import java.io.FileInputStream
@@ -27,14 +27,14 @@ android {
     compileSdk = project.libs.versions.app.build.compileSDKVersion.get().toInt()
 
     defaultConfig {
-        applicationId = libs.versions.app.version.appId.get()
+        applicationId = project.property("APP_ID").toString()
         minSdk = project.libs.versions.app.build.minimumSDK.get().toInt()
         targetSdk = project.libs.versions.app.build.targetSDK.get().toInt()
-        versionCode = project.libs.versions.app.version.versionCode.get().toInt()
-        versionName = project.libs.versions.app.version.versionName.get()
-        archivesName.set("calendar-$versionCode")
+        versionCode = project.property("VERSION_CODE").toString().toInt()
+        versionName = project.property("VERSION_NAME").toString()
         multiDexEnabled = true
         vectorDrawables.useSupportLibrary = true
+        setProperty("archivesBaseName", "calendar-$versionCode")
         ksp {
             arg("room.schemaLocation", "$projectDir/schemas")
         }
@@ -103,17 +103,25 @@ android {
         includeInApk = false
     }
 
-    tasks.withType<KotlinCompile> {
-        kotlinOptions.jvmTarget = project.libs.versions.app.build.kotlinJVMTarget.get()
+    androidResources {
+        @Suppress("UnstableApiUsage")
+        generateLocaleConfig = true
     }
 
-    namespace = libs.versions.app.version.appId.get()
+    tasks.withType<KotlinCompile> {
+        compilerOptions.jvmTarget.set(
+            JvmTarget.fromTarget(project.libs.versions.app.build.kotlinJVMTarget.get())
+        )
+    }
+
+    namespace = project.property("APP_ID").toString()
 
     lint {
         checkReleaseBuilds = false
         abortOnError = true
-        warningsAsErrors = true
+        warningsAsErrors = false
         baseline = file("lint-baseline.xml")
+        lintConfig = rootProject.file("lint.xml")
     }
 
     bundle {
@@ -125,6 +133,9 @@ android {
 
 detekt {
     baseline = file("detekt-baseline.xml")
+    config.setFrom("$rootDir/detekt.yml")
+    buildUponDefaultConfig = true
+    allRules = false
 }
 
 dependencies {
@@ -134,5 +145,7 @@ dependencies {
     implementation(libs.androidx.swiperefreshlayout)
     implementation(libs.androidx.print)
     implementation(libs.bundles.room)
+    implementation(libs.androidx.work.runtime.ktx)
     ksp(libs.androidx.room.compiler)
+    detektPlugins(libs.compose.detekt)
 }

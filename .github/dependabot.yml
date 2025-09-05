@@ -1,4 +1,18 @@
 version: 2
+
+registries:
+  maven-google:
+    type: maven-repository
+    url: "https://dl.google.com/dl/android/maven2/"
+
+  maven-central:
+    type: maven-repository
+    url: "https://repo.maven.apache.org/maven2"
+
+  jitpack:
+    type: maven-repository
+    url: "https://jitpack.io"
+
 updates:
   - package-ecosystem: "bundler"
     directory: "/"
@@ -8,19 +22,19 @@ updates:
       prefix: "chore"
       prefix-development: "chore"
       include: "scope"
-    assignees:
-      - "naveensingh"
 
   - package-ecosystem: "gradle"
     directory: "/"
+    registries:
+      - maven-central
+      - maven-google
+      - jitpack
     schedule:
       interval: "weekly"
     commit-message:
       prefix: "chore"
       prefix-development: "chore"
       include: "scope"
-    assignees:
-      - "naveensingh"
 
   - package-ecosystem: "github-actions"
     directory: "/"
@@ -30,5 +44,12 @@ updates:
       prefix: "chore"
       prefix-development: "chore"
       include: "scope"
-    assignees:
-      - "naveensingh"
+
+  - package-ecosystem: "npm"
+    directory: "/.github/workflows/holiday-generator"
+    schedule:
+      interval: "weekly"
+    commit-message:
+      prefix: "chore"
+      prefix-development: "chore"
+      include: "scope"

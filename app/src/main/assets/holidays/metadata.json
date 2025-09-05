@@ -21,6 +21,13 @@
     "other": "holidays/AU/other.ics"
   },
   {
+    "code": "BD",
+    "country": "গণপ্রজাতন্ত্রী বাংলাদেশ",
+    "public": "holidays/BD/public.ics",
+    "regional": null,
+    "other": "holidays/BD/other.ics"
+  },
+  {
     "code": "BE",
     "country": "Belgique",
     "public": "holidays/BE/public.ics",
@@ -154,6 +161,20 @@
     "other": "holidays/GR/other.ics"
   },
   {
+    "code": "GT",
+    "country": "Guatemala",
+    "public": "holidays/GT/public.ics",
+    "regional": null,
+    "other": "holidays/GT/other.ics"
+  },
+  {
+    "code": "HK",
+    "country": "香港",
+    "public": "holidays/HK/public.ics",
+    "regional": null,
+    "other": null
+  },
+  {
     "code": "HR",
     "country": "Hrvatska",
     "public": "holidays/HR/public.ics",
@@ -225,7 +246,7 @@
   },
   {
     "code": "LI",
-    "country": "Lichtenstein",
+    "country": "Liechtenstein",
     "public": "holidays/LI/public.ics",
     "regional": null,
     "other": "holidays/LI/other.ics"
@@ -306,6 +327,13 @@
     "public": "holidays/NO/public.ics",
     "regional": null,
     "other": "holidays/NO/other.ics"
+  },
+  {
+    "code": "PH",
+    "country": "Philippines",
+    "public": "holidays/PH/public.ics",
+    "regional": null,
+    "other": "holidays/PH/other.ics"
   },
   {
     "code": "PL",
@@ -411,6 +439,13 @@
     "public": "holidays/UY/public.ics",
     "regional": null,
     "other": "holidays/UY/other.ics"
+  },
+  {
+    "code": "VN",
+    "country": "Cộng hòa Xã hội chủ nghĩa Việt Nam",
+    "public": "holidays/VN/public.ics",
+    "regional": null,
+    "other": "holidays/VN/other.ics"
   },
   {
     "code": "ZA",

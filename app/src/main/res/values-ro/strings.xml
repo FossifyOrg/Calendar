@@ -260,4 +260,15 @@
     <string name="accessibility_next_day">Mergi la ziua următoare</string>
     <string name="default_calendar_color">Culoare calendar implicit</string>
     <string name="task_color">Culoare sarcină</string>
+    <string name="show_widget_header">Afișează antetul</string>
+    <string name="access_level_public">Public</string>
+    <string name="access_level_private">Privat</string>
+    <string name="access_level_confidential">Confidențial</string>
+    <string name="public_holidays">Sărbători publice</string>
+    <string name="regional_holidays">Sărbători regionale</string>
+    <string name="other_holidays">Alte sărbători și tradiții</string>
+    <string name="select_holidays_to_import">Selectează sărbătorile pentru a le importa</string>
+    <string name="status_tentative">Tentativă</string>
+    <string name="status_confirmed">Confirmat</string>
+    <string name="status_canceled">Anulat</string>
 </resources>

@@ -265,4 +265,7 @@
     <string name="other_holidays">Andere feestdagen en vieringen</string>
     <string name="regional_holidays">Regionale feestdagen</string>
     <string name="show_widget_header">Koptekst tonen</string>
+    <string name="access_level_private">Privé</string>
+    <string name="access_level_confidential">Vertrouwelijk</string>
+    <string name="access_level_public">Openbaar</string>
 </resources>

@@ -271,4 +271,8 @@
     <string name="select_holidays_to_import">Wybierz święta do zaimportowania</string>
     <string name="regional_holidays">Święta regionalne</string>
     <string name="show_widget_header">Pokazuj nagłówek</string>
+    <string name="access_level_public">Publiczne</string>
+    <string name="access_level_private">Prywatne</string>
+    <string name="access_level_confidential">Poufne</string>
+    <string name="allow_alarms_reminders">Musisz zezwolić aplikacji na planowanie alarmów, aby przypomnienia działały prawidłowo.</string>
 </resources>
