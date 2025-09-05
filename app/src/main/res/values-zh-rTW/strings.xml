@@ -268,4 +268,5 @@
     <string name="access_level_private">私人</string>
     <string name="access_level_confidential">機密</string>
     <string name="access_level_public">公開</string>
+    <string name="allow_alarms_reminders">您必須允許應用程式設定鬧鐘才能讓提醒功能正常運作。</string>
 </resources>
