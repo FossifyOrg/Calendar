@@ -194,8 +194,12 @@ class EventsHelper(val context: Context) {
         }
     }
 
-    fun editSelectedOccurrence(event: Event, showToasts: Boolean, callback: () -> Unit) {
+    fun editSelectedOccurrence(event: Event, eventOccurrenceTS: Long, showToasts: Boolean, callback: () -> Unit) {
         ensureBackgroundThread {
+            val originalEvent = eventsDB.getEventOrTaskWithId(event.id!!) ?: return@ensureBackgroundThread
+            originalEvent.addRepetitionException(Formatter.getDayCodeFromTS(eventOccurrenceTS))
+            updateEvent(originalEvent, updateAtCalDAV = !originalEvent.isTask(), showToasts = false)
+
             event.apply {
                 parentId = id!!.toLong()
                 id = null

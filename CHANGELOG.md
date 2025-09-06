@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Fixed
+- Fixed editing only the selected occurrence of a repeating event ([#138], [#486], [#706])
 
 ## [1.6.1] - 2025-09-01
 ### Changed
@@ -118,6 +120,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Initial release
 
+[#138]: https://github.com/FossifyOrg/Calendar/issues/138
 [#148]: https://github.com/FossifyOrg/Calendar/issues/148
 [#196]: https://github.com/FossifyOrg/Calendar/issues/196
 [#217]: https://github.com/FossifyOrg/Calendar/issues/217
@@ -125,12 +128,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#337]: https://github.com/FossifyOrg/Calendar/issues/337
 [#394]: https://github.com/FossifyOrg/Calendar/issues/394
 [#484]: https://github.com/FossifyOrg/Calendar/issues/484
+[#486]: https://github.com/FossifyOrg/Calendar/issues/486
 [#551]: https://github.com/FossifyOrg/Calendar/issues/551
 [#567]: https://github.com/FossifyOrg/Calendar/issues/567
 [#574]: https://github.com/FossifyOrg/Calendar/issues/574
 [#603]: https://github.com/FossifyOrg/Calendar/issues/603
 [#613]: https://github.com/FossifyOrg/Calendar/issues/613
 [#682]: https://github.com/FossifyOrg/Calendar/issues/682
+[#706]: https://github.com/FossifyOrg/Calendar/issues/706
 [#729]: https://github.com/FossifyOrg/Calendar/issues/729
 [#732]: https://github.com/FossifyOrg/Calendar/issues/732
 
