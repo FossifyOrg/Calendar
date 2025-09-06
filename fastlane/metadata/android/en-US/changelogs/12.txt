@@ -1,0 +1,8 @@
+Changed:
+
+• Updated translations
+
+Fixed:
+
+• Fixed editing only the selected occurrence of a repeating event ([#138], [#486], [#706])
+
