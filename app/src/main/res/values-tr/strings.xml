@@ -268,4 +268,5 @@
     <string name="access_level_public">Herkese açık</string>
     <string name="access_level_private">Kişisel</string>
     <string name="access_level_confidential">Gizli</string>
+    <string name="allow_alarms_reminders">Hatırlatıcıların düzgün çalışabilmesi için uygulamaya alarm planlama izni vermelisiniz.</string>
 </resources>
