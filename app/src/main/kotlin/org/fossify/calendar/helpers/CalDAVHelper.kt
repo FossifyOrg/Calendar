@@ -242,7 +242,7 @@ class CalDAVHelper(val context: Context) {
             val attendees = getCalDAVEventAttendees(id, calendar)
             val accessLevel = cursor.getIntValue(Events.ACCESS_LEVEL)
             val availability = cursor.getIntValue(Events.AVAILABILITY)
-            val status = cursor.getIntValue(Events.STATUS)
+            val status = cursor.getIntValueOrNull(Events.STATUS) ?: Events.STATUS_CONFIRMED
             val color = cursor.getIntValueOrNull(Events.EVENT_COLOR) ?: 0
 
             if (endTS == 0L) {
