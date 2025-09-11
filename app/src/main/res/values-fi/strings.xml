@@ -268,4 +268,5 @@
     <string name="access_level_public">Julkinen</string>
     <string name="access_level_private">Yksityinen</string>
     <string name="access_level_confidential">Luottamuksellinen</string>
+    <string name="allow_alarms_reminders">Sinun on annettava sovelluksen asettaa ajastettuja hälytyksiä, jotta muistutukset voivat toimia kunnolla.</string>
 </resources>

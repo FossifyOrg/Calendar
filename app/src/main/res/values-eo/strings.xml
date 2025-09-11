@@ -268,4 +268,5 @@
     <string name="access_level_public">Publika</string>
     <string name="access_level_private">Privata</string>
     <string name="access_level_confidential">Konfidenca</string>
+    <string name="allow_alarms_reminders">Vi devas permesi, ke la aplikaĵo programu alarmojn por ke sciigoj ĝuste funkciu.</string>
 </resources>
