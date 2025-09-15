@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - Fixed editing only the selected occurrence of a repeating event ([#138], [#486], [#706])
+- Fixed syncing exceptions to repeating events ([#641])
 
 ## [1.6.1] - 2025-09-01
 ### Changed
@@ -138,6 +139,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#603]: https://github.com/FossifyOrg/Calendar/issues/603
 [#613]: https://github.com/FossifyOrg/Calendar/issues/613
 [#682]: https://github.com/FossifyOrg/Calendar/issues/682
+[#641]: https://github.com/FossifyOrg/Calendar/issues/641
 [#706]: https://github.com/FossifyOrg/Calendar/issues/706
 [#729]: https://github.com/FossifyOrg/Calendar/issues/729
 [#732]: https://github.com/FossifyOrg/Calendar/issues/732
