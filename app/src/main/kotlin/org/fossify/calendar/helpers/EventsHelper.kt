@@ -210,7 +210,12 @@ class EventsHelper(val context: Context) {
             if (event.isTask()) {
                 insertTask(event, showToasts = showToasts, callback = callback)
             } else {
-                insertEvent(event, addToCalDAV = true, showToasts = showToasts, parentEvent = originalEvent, eventOccurrenceTS = eventOccurrenceTS) {
+                insertEvent(
+                    event, addToCalDAV = true,
+                    showToasts = showToasts,
+                    parentEvent = originalEvent,
+                    eventOccurrenceTS = eventOccurrenceTS
+                ) {
                     callback()
                 }
             }
