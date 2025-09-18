@@ -1,0 +1,9 @@
+Changed:
+
+• Synchronized events with unspecified status are now treated as confirmed 
+• Updated translations
+
+Fixed:
+
+• Fixed editing only the selected occurrence of a repeating event ([#138], [#486], [#706])
+
