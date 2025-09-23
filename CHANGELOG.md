@@ -9,7 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Synchronized events with unspecified status are now treated as confirmed ([#761]) 
 
 ### Fixed
-- Fixed editing only the selected occurrence of a repeating event ([#138], [#486], [#706])
+- Fixed event duplication when editing instances of recurring events ([#138])
+- Fixed old reminders not being removed when moving events ([#486])
+- Fixed drag and drop copying events instead of moving them ([#706])
 
 ## [1.6.1] - 2025-09-01
 ### Changed
