@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+- Fixed syncing exceptions to repeating events ([#641])
+
 ### Changed
 - Synchronized events with unspecified status are now treated as confirmed ([#761]) 
 
@@ -12,7 +14,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed event duplication when editing instances of recurring events ([#138])
 - Fixed old reminders not being removed when moving events ([#486])
 - Fixed drag and drop copying events instead of moving them ([#706])
-- Fixed syncing exceptions to repeating events ([#641])
 
 ## [1.6.1] - 2025-09-01
 ### Changed
