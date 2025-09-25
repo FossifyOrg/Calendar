@@ -111,7 +111,7 @@ class EventsHelper(val context: Context) {
         }
     }
 
-    fun insertEvent(event: Event, addToCalDAV: Boolean, showToasts: Boolean, enableEventType: Boolean = true, parentEvent: Event? = null, eventOccurrenceTS: Long? = null, callback: ((id: Long) -> Unit)? = null) {
+    fun insertEvent(event: Event, addToCalDAV: Boolean, showToasts: Boolean, enableEventType: Boolean = true, eventOccurrenceTS: Long? = null, callback: ((id: Long) -> Unit)? = null) {
         if (event.startTS > event.endTS) {
             callback?.invoke(0)
             return
@@ -124,7 +124,7 @@ class EventsHelper(val context: Context) {
         context.scheduleNextEventReminder(event, showToasts)
 
         if (addToCalDAV && config.caldavSync && event.source != SOURCE_SIMPLE_CALENDAR && event.source != SOURCE_IMPORTED_ICS) {
-            context.calDAVHelper.insertCalDAVEvent(event, parentEvent, eventOccurrenceTS)
+            context.calDAVHelper.insertCalDAVEvent(event, eventOccurrenceTS)
         }
 
         callback?.invoke(event.id!!)
@@ -213,7 +213,6 @@ class EventsHelper(val context: Context) {
                 insertEvent(
                     event, addToCalDAV = true,
                     showToasts = showToasts,
-                    parentEvent = originalEvent,
                     eventOccurrenceTS = eventOccurrenceTS
                 ) {
                     callback()

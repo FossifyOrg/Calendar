@@ -9,7 +9,6 @@ import android.provider.CalendarContract.Calendars
 import android.provider.CalendarContract.Colors
 import android.provider.CalendarContract.Events
 import android.provider.CalendarContract.Reminders
-import android.util.Log
 import android.widget.Toast
 import org.fossify.calendar.R
 import org.fossify.calendar.extensions.config
@@ -409,22 +408,9 @@ class CalDAVHelper(val context: Context) {
     }
 
     @SuppressLint("MissingPermission")
-    fun insertCalDAVEvent(event: Event, parentEvent: Event? = null, originalInstanceTime: Long? = null) {
+    fun insertCalDAVEvent(event: Event, originalInstanceTime: Long? = null) {
         val uri = Events.CONTENT_URI
-        val values = fillEventContentValues(event)
-        if (parentEvent != null && originalInstanceTime != null) {
-            values.apply {
-                val isParentAllDay = parentEvent.getIsAllDay()
-                put(Events.ORIGINAL_ID, parentEvent.getCalDAVEventId())
-                put(Events.ORIGINAL_INSTANCE_TIME, originalInstanceTime * 1000L)
-                if (isParentAllDay) {
-                    put(Events.ORIGINAL_ALL_DAY, 1)
-                } else {
-                    put(Events.ORIGINAL_ALL_DAY, 0)
-                }
-            }
-        }
-
+        val values = fillEventContentValues(event, originalInstanceTime)
         val newUri = context.contentResolver.insert(uri, values)
 
         val calendarId = event.getCalDAVCalendarId()
@@ -499,7 +485,7 @@ class CalDAVHelper(val context: Context) {
         )
     }
 
-    private fun fillEventContentValues(event: Event): ContentValues {
+    private fun fillEventContentValues(event: Event, originalInstanceTime: Long? = null): ContentValues {
         val calendarId = event.getCalDAVCalendarId()
         return ContentValues().apply {
             put(Events.CALENDAR_ID, calendarId)
@@ -530,6 +516,25 @@ class CalDAVHelper(val context: Context) {
                 put(Events.ALL_DAY, 1)
             } else {
                 put(Events.ALL_DAY, 0)
+            }
+
+            val parentEventId = event.parentId
+            if (parentEventId != 0L) {
+                val parentEvent = context.eventsDB.getEventWithId(parentEventId) ?: return@apply
+                val isParentAllDay = parentEvent.getIsAllDay()
+                // original instance time must be in UTC when the parent is an all-day event
+                val originalInstanceTS = if (isParentAllDay && !event.getIsAllDay()) {
+                    Formatter.getShiftedUtcTS(originalInstanceTime ?: event.startTS)
+                } else {
+                    originalInstanceTime ?: event.startTS
+                }
+                put(Events.ORIGINAL_ID, parentEvent.getCalDAVEventId())
+                put(Events.ORIGINAL_INSTANCE_TIME, originalInstanceTS * 1000L)
+                if (isParentAllDay) {
+                    put(Events.ORIGINAL_ALL_DAY, 1)
+                } else {
+                    put(Events.ORIGINAL_ALL_DAY, 0)
+                }
             }
 
             put(Events.DTSTART, event.startTS * 1000L)
