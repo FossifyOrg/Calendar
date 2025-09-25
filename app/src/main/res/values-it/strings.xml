@@ -271,4 +271,5 @@
     <string name="show_widget_header">Mostra intestazione</string>
     <string name="access_level_public">Pubblico</string>
     <string name="access_level_private">Privato</string>
+    <string name="allow_alarms_reminders">Per garantire il corretto funzionamento dei promemoria, è necessario consentire all\'app di impostare le sveglie.</string>
 </resources>
