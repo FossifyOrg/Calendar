@@ -1,44 +1,44 @@
-Træt af rodede kalendere og bekymringer om privatlivets fred?
+Træt af rodede kalendere og bekymringer om privatliv?
 
-Fossify Calendar er her for at ændre det. Dit open source-kraftværk til at styre livet, designet med privatliv som kerne og fyldt med kraftfulde funktioner, der holder dig organiseret.
+Fossify Kalender er her for at ændre det. En open source-app til at organisere dit liv – bygget med privatliv i centrum og spækket med funktioner, der holder dig på sporet.
 
-Her er hvad der gør Fossify Calendar anderledes:
+Sådan skiller Fossify Kalender sig ud:
 
-🚫 REKLAMFRI OG PRIVAT:
-Dine begivenheder forbliver dine. Ingen annoncer, ingen sporing, ingen påtrængende tilladelser.
+🚫 REKLAMEFRI OG PRIVAT:
+Dine begivenheder er dine egne. Ingen reklamer, ingen sporing, ingen påtrængende tilladelser.
 
-⏰ FLEKSIBEL OG TILPASSET:
-Skab begivenheder præcist med tidspunkter, varigheder, påmindelser og avancerede gentagelsesregler.
+⏰ FLEKSIBEL OG TILPASSELIG:
+Opret præcise begivenheder med tidspunkter, varigheder, påmindelser og avancerede gentagelsesregler.
 
 🔄 PROBLEMFRI SYNKRONISERING:
-Synkroniser ubesværet med Google Kalender, Outlook, Nextcloud, Exchange og mere.
+Synkronisér nemt med Google Kalender, Outlook, Nextcloud, Exchange m.fl.
 
-🎨 PERSONLIGGØR DIN PLANLÆGGER:
-Indstil brugerdefinerede lyde, looping af lydstrømme, vibrationer og temaer, der matcher dine præferencer.
+🎨 TILPAS DIN KALENDER:
+Vælg egne lyde, gentagende lyd, vibrationer og temaer efter dine præferencer.
 
-🌈 LIVLIGE WIDGETS:
-Lys din dag op med smukke kalenderwidgets og temaer til din startskærm.
+🌈 FARVERIGE WIDGETS:
+Pift din startskærm op med smukke kalender-widgets og temaer.
 
-📅 NEM DAGSADMINISTRATION:
-Planlæg din dag nemt, uanset om du er en travl professionel eller en familieorganisator.
+📅 NEM HVERDAGSPLANLÆGNING:
+Planlæg din dag uden besvær – uanset om du er travl professionel eller familiekalenderfører.
 
-🎉 IMPORTER FEJRINGER:
-Gå aldrig glip af en fødselsdag eller et jubilæum! Importer nemt helligdage og særlige datoer.
+🎉 IMPORTÉR BEGIVENHEDER:
+Gå aldrig glip af fødselsdage eller årsdage! Importér helligdage og særlige datoer med få tryk.
 
-🔍 FILTERVISNINGER:
+🔍 FILTRÉR VISNINGER:
 Find hurtigt det, du leder efter, med begivenhedsfiltre.
 
 📆 FLERE VISNINGER:
-Skift nemt mellem daglige, ugentlige, månedlige, årlige og begivenhedsvisninger.
+Skift ubesværet mellem dag-, uge-, måneds-, års- og begivenhedsvisning.
 
-✨ ELEGANCE AF MATERIALEDESIGN:
+✨ MATERIAL DESIGN-ELEGANCE:
 Nyd en intuitiv og brugervenlig grænseflade med dynamiske temaer.
 
-Derudover er Fossify Calendar open source! Bliv en del af det livlige fællesskab på GitHub, bidrag til projektet, og gør det unikt til dit eget.
+Fossify Kalender er desuden open source! Deltag i fællesskabet på GitHub, bidrag til projektet og gør det til dit eget.
 
-Download Fossify Calendar nu og oplev styrken ved en privat og tilpasselig tidsplan.
+Hent Fossify Kalender nu, og oplev styrken ved en privat og tilpasselig kalender.
 
 Udforsk flere Fossify-apps: https://www.fossify.org
 Open source-kode: https://www.github.com/FossifyOrg
 Deltag i fællesskabet på Reddit: https://www.reddit.com/r/Fossify
-Følg med på Telegram: https://t.me/Fossify
+Følg os på Telegram: https://t.me/Fossify
