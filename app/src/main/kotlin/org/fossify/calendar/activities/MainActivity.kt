@@ -1407,4 +1407,9 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
             checkWhatsNew(this, org.fossify.calendar.BuildConfig.VERSION_CODE)
         }
     }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        val minimalState = Bundle()
+        super.onSaveInstanceState(minimalState)
+    }
 }
