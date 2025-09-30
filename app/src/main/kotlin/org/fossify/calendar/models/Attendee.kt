@@ -8,6 +8,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
+import java.io.Serializable
 
 data class Attendee(
     val contactId: Int,
@@ -17,7 +18,11 @@ data class Attendee(
     var photoUri: String,
     var isMe: Boolean,
     var relationship: Int
-) {
+) : Serializable {
+
+    companion object {
+        private const val serialVersionUID = 1L
+    }
     fun getPublicName() = name.ifEmpty { email }
 
     fun updateImage(context: Context, imageView: ImageView, placeholder: Drawable) {
