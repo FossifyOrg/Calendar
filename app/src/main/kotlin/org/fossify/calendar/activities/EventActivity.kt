@@ -286,7 +286,7 @@ class EventActivity : SimpleActivity() {
         }
 
         outState.apply {
-            putSerializable(EVENT, mEvent)
+            putSerializable(EVENT, mEvent.copy(attendees = emptyList()))
             putLong(START_TS, mEventStartDateTime.seconds())
             putLong(END_TS, mEventEndDateTime.seconds())
             putString(TIME_ZONE, mEvent.timeZone)
@@ -352,6 +352,7 @@ class EventActivity : SimpleActivity() {
             val token = object : TypeToken<List<Attendee>>() {}.type
             mAttendees =
                 Gson().fromJson<ArrayList<Attendee>>(getString(ATTENDEES), token) ?: ArrayList()
+            mEvent.attendees = mAttendees
 
             mEventTypeId = getLong(EVENT_TYPE_ID)
             mEventCalendarId = getInt(EVENT_CALENDAR_ID)
