@@ -523,7 +523,7 @@ class CalDAVHelper(val context: Context) {
                 val parentEvent = context.eventsDB.getEventWithId(parentEventId) ?: return@apply
                 val isParentAllDay = parentEvent.getIsAllDay()
                 // original instance time must be in UTC when the parent is an all-day event
-                val originalInstanceTS = if (isParentAllDay && !event.getIsAllDay()) {
+                val originalInstanceTS = if (isParentAllDay) {
                     Formatter.getShiftedUtcTS(originalInstanceTime ?: event.startTS)
                 } else {
                     originalInstanceTime ?: event.startTS
