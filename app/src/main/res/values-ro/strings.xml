@@ -271,4 +271,5 @@
     <string name="status_tentative">Tentativă</string>
     <string name="status_confirmed">Confirmat</string>
     <string name="status_canceled">Anulat</string>
+    <string name="allow_alarms_reminders">Trebuie să permiți aplicației să programeze alarmele pentru ca mementourile să funcționeze corect.</string>
 </resources>

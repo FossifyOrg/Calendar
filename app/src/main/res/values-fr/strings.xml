@@ -271,4 +271,5 @@
     <string name="access_level_confidential">Confidentiel</string>
     <string name="access_level_public">Public</string>
     <string name="access_level_private">Privé</string>
+    <string name="allow_alarms_reminders">Vous devez autoriser l\'application à planifier les alarmes pour les fonctionnement correcte des rappels.</string>
 </resources>

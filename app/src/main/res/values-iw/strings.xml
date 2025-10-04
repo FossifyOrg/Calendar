@@ -271,4 +271,5 @@
     <string name="access_level_private">פרטי</string>
     <string name="access_level_confidential">חסוי</string>
     <string name="access_level_public">ציבורי</string>
+    <string name="allow_alarms_reminders">עליך לאפשר לאפליקציה לתזמן התראות כדי שהתזכורות יפעלו כראוי.</string>
 </resources>

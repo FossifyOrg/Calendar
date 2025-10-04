@@ -248,7 +248,7 @@
     <string name="faq_3_text">不僅僅是要顯示實際的提醒，播放音效也受到系統的影響。如果你聽不到任何聲音，嘗試到應用程式的設定中，點選「提醒用的音訊串流」選項，並更換至其他項目。如果還是無效，請檢查你的聲音設定，確保特定的串流未被靜音。</string>
     <string name="faq_4_title">此應用程式是否支援時區設定？</string>
     <string name="faq_4_text">是的，它支援。預設情況下，所有的活動都會在你目前所在的時區建立。如果你想改變活動的時區，你需要先在應用程式設定中開啟時區選擇器，然後在「活動詳細資訊」頁面更改。由於大多數人可能並不需要這項功能，所以它預設為關閉狀態。</string>
-    <string name="faq_5_title">這個 app 怎麼一直不跳通知啊？</string>
+    <string name="faq_5_title">為什麼這個 app 不顯示通知啊？</string>
     <string name="faq_5_text">請檢查你裝置的電池與通知設定，確保沒有設定阻止提醒或是在背景關閉 app。你也可以參考這個網站：&lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;，這裡面有些實用的小技巧。</string>
     <string name="faq_6_title">我該如何修改或刪除現有的活動類型？</string>
     <string name="faq_6_text">你可以在「設定」-「管理活動類型」裡面進行以上兩種操作。點擊你想要的活動類型，就可以改變標籤與顏色；如果你想刪除，可以長按該活動類型，然後點選上方選單的垃圾桶圖示即可。</string>
@@ -268,4 +268,5 @@
     <string name="access_level_private">私人</string>
     <string name="access_level_confidential">機密</string>
     <string name="access_level_public">公開</string>
+    <string name="allow_alarms_reminders">您必須允許應用程式設定鬧鐘才能讓提醒功能正常運作。</string>
 </resources>
