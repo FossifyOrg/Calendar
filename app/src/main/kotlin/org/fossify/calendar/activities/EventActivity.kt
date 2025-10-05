@@ -254,10 +254,26 @@ class EventActivity : SimpleActivity() {
 
     override fun onResume() {
         super.onResume()
+        setupToolbar()
+    }
+
+    private fun setupToolbar() {
         setupToolbar(binding.eventToolbar, NavigationIcon.Arrow)
+        binding.eventToolbar.setNavigationOnClickListener {
+            maybeShowUnsavedChangesDialog {
+                hideKeyboard()
+                finish()
+            }
+        }
     }
 
     override fun onBackPressed() {
+        maybeShowUnsavedChangesDialog {
+            super.onBackPressed()
+        }
+    }
+
+    private fun maybeShowUnsavedChangesDialog(discard: () -> Unit) {
         val now = System.currentTimeMillis()
         if (now - mLastSavePromptTS > SAVE_DISCARD_PROMPT_INTERVAL && isEventChanged()) {
             mLastSavePromptTS = now
@@ -271,11 +287,11 @@ class EventActivity : SimpleActivity() {
                 if (it) {
                     saveCurrentEvent()
                 } else {
-                    super.onBackPressed()
+                    discard()
                 }
             }
         } else {
-            super.onBackPressed()
+            discard()
         }
     }
 
