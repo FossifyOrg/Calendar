@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed old reminders not being removed when moving events ([#486])
 - Fixed drag and drop copying events instead of moving them ([#706])
 - Fixed crash when editing events with attendees ([#34])
+- Fixed event edits being silently discarded when using navigation arrow ([#803])
 
 ## [1.6.1] - 2025-09-01
 ### Changed
@@ -146,6 +147,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#729]: https://github.com/FossifyOrg/Calendar/issues/729
 [#732]: https://github.com/FossifyOrg/Calendar/issues/732
 [#761]: http://github.com/FossifyOrg/Calendar/issues/761
+[#803]: https://github.com/FossifyOrg/Calendar/issues/803
 
 [Unreleased]: https://github.com/FossifyOrg/Calendar/compare/1.6.1...HEAD
 [1.6.1]: https://github.com/FossifyOrg/Calendar/compare/1.6.0...1.6.1
