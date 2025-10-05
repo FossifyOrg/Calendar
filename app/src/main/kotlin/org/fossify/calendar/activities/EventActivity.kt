@@ -650,7 +650,7 @@ class EventActivity : SimpleActivity() {
                 mRepeatInterval != mEvent.repeatInterval ||
                 mRepeatRule != mEvent.repeatRule ||
                 mRepeatLimit != mEvent.repeatLimit ||
-                mAttendees != mEvent.attendees ||
+                getAllAttendees(false) != mEvent.attendees ||
                 mAvailability != mEvent.availability ||
                 mAccessLevel != mEvent.accessLevel ||
                 mStatus != mEvent.status ||
