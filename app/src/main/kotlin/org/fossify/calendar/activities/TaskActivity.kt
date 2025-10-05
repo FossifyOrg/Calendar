@@ -86,6 +86,10 @@ class TaskActivity : SimpleActivity() {
 
     override fun onResume() {
         super.onResume()
+        setupToolbar()
+    }
+
+    private fun setupToolbar() {
         setupToolbar(binding.taskToolbar, NavigationIcon.Arrow)
         binding.taskToolbar.setNavigationOnClickListener {
             maybeShowUnsavedChangesDialog {
