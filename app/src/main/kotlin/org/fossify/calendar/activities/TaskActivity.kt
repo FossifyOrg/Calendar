@@ -141,6 +141,7 @@ class TaskActivity : SimpleActivity() {
             reminders != originalReminders ||
             mRepeatInterval != mTask.repeatInterval ||
             mRepeatRule != mTask.repeatRule ||
+            mRepeatLimit != mTask.repeatLimit ||
             mEventTypeId != mTask.eventType ||
             mEventColor != mTask.color ||
             hasTimeChanged

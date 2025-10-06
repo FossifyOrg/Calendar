@@ -649,6 +649,11 @@ class EventActivity : SimpleActivity() {
                 reminders != mEvent.getReminders() ||
                 mRepeatInterval != mEvent.repeatInterval ||
                 mRepeatRule != mEvent.repeatRule ||
+                mRepeatLimit != mEvent.repeatLimit ||
+                getAllAttendees(false) != mEvent.attendees ||
+                mAvailability != mEvent.availability ||
+                mAccessLevel != mEvent.accessLevel ||
+                mStatus != mEvent.status ||
                 mEventTypeId != mEvent.eventType ||
                 mWasCalendarChanged ||
                 mIsAllDayEvent != mEvent.getIsAllDay() ||
