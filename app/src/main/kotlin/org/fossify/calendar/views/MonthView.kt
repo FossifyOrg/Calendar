@@ -361,12 +361,10 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
             }
         }
 
-        val startDayIndex = days[event.originalStartDayIndex]
-        val endDayIndex = days[min(event.startDayIndex + event.daysCnt - 1, 41)]
         bgRectF.set(bgLeft, bgTop, bgRight, bgBottom)
-        canvas.drawRoundRect(bgRectF, BG_CORNER_RADIUS, BG_CORNER_RADIUS, getEventBackgroundColor(event, startDayIndex, endDayIndex))
+        canvas.drawRoundRect(bgRectF, BG_CORNER_RADIUS, BG_CORNER_RADIUS, getEventBackgroundColor(event))
 
-        val specificEventTitlePaint = getEventTitlePaint(event, startDayIndex, endDayIndex)
+        val specificEventTitlePaint = getEventTitlePaint(event)
         var taskIconWidth = 0
         if (event.isTask) {
             val taskIcon = resources.getColoredDrawableWithColor(R.drawable.ic_task_vector, specificEventTitlePaint.color).mutate()
@@ -408,12 +406,11 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
         return curPaint
     }
 
-    private fun getEventBackgroundColor(event: MonthViewEvent, startDay: DayMonthly, endDay: DayMonthly): Paint {
+    private fun getEventBackgroundColor(event: MonthViewEvent): Paint {
         var paintColor = event.color
 
         val adjustAlpha = when {
             event.isTask -> dimCompletedTasks && event.isTaskCompleted
-            !startDay.isThisMonth && !endDay.isThisMonth -> true
             else -> dimPastEvents && event.isPastEvent && !isPrintVersion
         }
 
@@ -424,11 +421,10 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
         return getColoredPaint(paintColor)
     }
 
-    private fun getEventTitlePaint(event: MonthViewEvent, startDay: DayMonthly, endDay: DayMonthly): Paint {
+    private fun getEventTitlePaint(event: MonthViewEvent): Paint {
         var paintColor = event.color.getContrastColor()
         val adjustAlpha = when {
             event.isTask -> dimCompletedTasks && event.isTaskCompleted
-            !startDay.isThisMonth && !endDay.isThisMonth -> true
             else -> dimPastEvents && event.isPastEvent && !isPrintVersion
         }
 
