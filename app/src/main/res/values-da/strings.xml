@@ -88,8 +88,8 @@
     <string name="last_f">sidste</string>
     <string name="birthdays">Fødselsdage</string>
     <string name="add_birthdays">Tilføj dine kontakters fødselsdage</string>
-    <string name="no_birthdays">Der blev ikke fundet nogen fødselsdage</string>
-    <string name="no_new_birthdays">Der blev ikke fundet nogen nye fødselsdage</string>
+    <string name="no_birthdays">Ingen fødselsdage blev fundet</string>
+    <string name="no_new_birthdays">Ingen nye fødselsdage blev fundet</string>
     <string name="birthdays_added">Fødselsdage tilføjet</string>
     <string name="add_birthdays_automatically">Tilføj automatisk nye fødselsdage</string>
     <string name="anniversaries">Mærkedage</string>
