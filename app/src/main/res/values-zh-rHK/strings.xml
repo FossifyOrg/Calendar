@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_launcher_name">簡易行事曆</string>
+    <string name="app_launcher_name">行事曆</string>
     <string name="change_view">改變檢視模式</string>
     <string name="daily_view">日曆</string>
     <string name="weekly_view">週曆</string>
@@ -174,7 +174,7 @@
     <string name="alarm_stream">鬧鐘</string>
     <string name="notification_stream">通知</string>
     <string name="ring_stream">鈴聲</string>
-    <string name="use_last_event_reminders">使用最後活動的提醒作為新活動的預設</string>
+    <string name="use_last_event_reminders">使用最後一個活動的提醒設定作為新活動的預設</string>
     <string name="default_reminder_1">預設提醒1</string>
     <string name="default_reminder_2">預設提醒2</string>
     <string name="default_reminder_3">預設提醒3</string>
@@ -265,4 +265,8 @@
     <string name="regional_holidays">區域節日</string>
     <string name="public_holidays">公眾節日</string>
     <string name="show_widget_header">顯示標題</string>
+    <string name="access_level_public">公開</string>
+    <string name="access_level_private">私人</string>
+    <string name="access_level_confidential">機密</string>
+    <string name="allow_alarms_reminders">您必須允許應用程式設定鬧鐘才能讓提醒功能正常運作。</string>
 </resources>

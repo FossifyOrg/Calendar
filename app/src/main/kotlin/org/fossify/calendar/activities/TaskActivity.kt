@@ -86,7 +86,17 @@ class TaskActivity : SimpleActivity() {
 
     override fun onResume() {
         super.onResume()
+        setupToolbar()
+    }
+
+    private fun setupToolbar() {
         setupToolbar(binding.taskToolbar, NavigationIcon.Arrow)
+        binding.taskToolbar.setNavigationOnClickListener {
+            maybeShowUnsavedChangesDialog {
+                hideKeyboard()
+                finish()
+            }
+        }
     }
 
     private fun refreshMenuItems() {
@@ -131,12 +141,19 @@ class TaskActivity : SimpleActivity() {
             reminders != originalReminders ||
             mRepeatInterval != mTask.repeatInterval ||
             mRepeatRule != mTask.repeatRule ||
+            mRepeatLimit != mTask.repeatLimit ||
             mEventTypeId != mTask.eventType ||
             mEventColor != mTask.color ||
             hasTimeChanged
     }
 
     override fun onBackPressed() {
+        maybeShowUnsavedChangesDialog {
+            super.onBackPressed()
+        }
+    }
+
+    private fun maybeShowUnsavedChangesDialog(discard: () -> Unit) {
         if (System.currentTimeMillis() - mLastSavePromptTS > SAVE_DISCARD_PROMPT_INTERVAL && isTaskChanged()) {
             mLastSavePromptTS = System.currentTimeMillis()
             ConfirmationAdvancedDialog(
@@ -149,11 +166,11 @@ class TaskActivity : SimpleActivity() {
                 if (it) {
                     saveCurrentTask()
                 } else {
-                    super.onBackPressed()
+                    discard()
                 }
             }
         } else {
-            super.onBackPressed()
+            discard()
         }
     }
 
