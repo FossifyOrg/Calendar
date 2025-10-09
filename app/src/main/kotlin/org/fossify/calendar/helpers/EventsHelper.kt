@@ -189,11 +189,12 @@ class EventsHelper(val context: Context) {
             context.scheduleNextEventReminder(originalEvent, false)
 
             event.apply {
-                parentId = id!!.toLong()
+                parentId = id!!
                 id = null
                 repeatRule = 0
                 repeatInterval = 0
                 repeatLimit = 0
+                repetitionExceptions = emptyList()
             }
             if (event.isTask()) {
                 insertTask(event, showToasts = showToasts, callback = callback)
