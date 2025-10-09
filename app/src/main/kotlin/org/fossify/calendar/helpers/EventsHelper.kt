@@ -186,6 +186,7 @@ class EventsHelper(val context: Context) {
             val originalEvent = eventsDB.getEventOrTaskWithId(event.id!!) ?: return@ensureBackgroundThread
             originalEvent.addRepetitionException(Formatter.getDayCodeFromTS(eventOccurrenceTS))
             eventsDB.updateEventRepetitionExceptions(originalEvent.repetitionExceptions.toString(), originalEvent.id!!)
+            context.scheduleNextEventReminder(originalEvent, false)
 
             event.apply {
                 parentId = id!!.toLong()
