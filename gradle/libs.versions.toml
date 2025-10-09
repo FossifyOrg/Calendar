@@ -15,7 +15,7 @@ work = "2.9.1"
 #Room
 room = "2.8.1"
 #Fossify
-commons = "5.2.0"
+commons = "5.3.0"
 #Gradle
 gradlePlugins-agp = "8.11.1"
 #build
