@@ -14,7 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed drag and drop copying events instead of moving them ([#706])
 - Fixed crash when editing events with attendees ([#34])
 - Fixed event edits being silently discarded on back press ([#49])
-- Fixed syncing exceptions to repeating events ([#641])
+- Fixed synchronization issues when editing events in a recurring series ([#641])
 
 ## [1.6.1] - 2025-09-01
 ### Changed
