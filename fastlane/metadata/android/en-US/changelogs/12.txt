@@ -1,0 +1,14 @@
+Changed:
+
+• Synchronized events with unspecified status are now treated as confirmed 
+• Updated translations
+
+Fixed:
+
+• Fixed event duplication when editing instances of recurring events 
+• Fixed old reminders not being removed when moving events 
+• Fixed drag and drop copying events instead of moving them 
+• Fixed crash when editing events with attendees 
+• Fixed event edits being silently discarded on back press 
+• Fixed synchronization issues when editing events in a recurring series 
+
