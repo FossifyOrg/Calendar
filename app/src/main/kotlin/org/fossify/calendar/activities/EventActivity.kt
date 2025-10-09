@@ -739,7 +739,7 @@ class EventActivity : SimpleActivity() {
         mEventColor = mEvent.color
 
         mAttendees = mEvent.attendees.toMutableList() as ArrayList<Attendee>
-        mOriginalAttendees = ArrayList(mAttendees.map { it.copy() })
+        mOriginalAttendees = mAttendees.map { it.copy() }.toMutableList() as ArrayList<Attendee>
 
         checkRepeatTexts(mRepeatInterval)
         checkAttendees()
