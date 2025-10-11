@@ -17,7 +17,7 @@
     <string name="event">Esdeveniment</string>
     <string name="edit_event">Edita l\'esdeveniment</string>
     <string name="new_event">Esdeveniment nou</string>
-    <string name="create_new_event">Crea un esdeveniment nou</string>
+    <string name="create_new_event">Crea un esdeveniment</string>
     <string name="duplicate_event">Duplica l\'esdeveniment</string>
     <string name="title_empty">El títol no pot estar buit</string>
     <string name="end_before_start">L\'esdeveniment no pot acabar abans del seu inici</string>

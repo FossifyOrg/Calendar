@@ -408,9 +408,9 @@ class CalDAVHelper(val context: Context) {
     }
 
     @SuppressLint("MissingPermission")
-    fun insertCalDAVEvent(event: Event) {
+    fun insertCalDAVEvent(event: Event, originalInstanceTime: Long? = null) {
         val uri = Events.CONTENT_URI
-        val values = fillEventContentValues(event)
+        val values = fillEventContentValues(event, originalInstanceTime)
         val newUri = context.contentResolver.insert(uri, values)
 
         val calendarId = event.getCalDAVCalendarId()
@@ -485,7 +485,7 @@ class CalDAVHelper(val context: Context) {
         )
     }
 
-    private fun fillEventContentValues(event: Event): ContentValues {
+    private fun fillEventContentValues(event: Event, originalInstanceTime: Long? = null): ContentValues {
         val calendarId = event.getCalDAVCalendarId()
         return ContentValues().apply {
             put(Events.CALENDAR_ID, calendarId)
@@ -519,14 +519,14 @@ class CalDAVHelper(val context: Context) {
             }
 
             val parentEventId = event.parentId
-            if (parentEventId != 0L) {
+            if (parentEventId != 0L && originalInstanceTime != null) {
                 val parentEvent = context.eventsDB.getEventWithId(parentEventId) ?: return@apply
                 val isParentAllDay = parentEvent.getIsAllDay()
                 // original instance time must be in UTC when the parent is an all-day event
-                val originalInstanceTS = if (isParentAllDay && !event.getIsAllDay()) {
-                    Formatter.getShiftedUtcTS(event.startTS)
+                val originalInstanceTS = if (isParentAllDay) {
+                    Formatter.getShiftedUtcTS(originalInstanceTime)
                 } else {
-                    event.startTS
+                    originalInstanceTime
                 }
                 put(Events.ORIGINAL_ID, parentEvent.getCalDAVEventId())
                 put(Events.ORIGINAL_INSTANCE_TIME, originalInstanceTS * 1000L)

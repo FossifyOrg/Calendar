@@ -135,11 +135,11 @@
     <string name="move_events_into_default">Flytt berørte hendelser til standardhendelsestypen</string>
     <string name="remove_affected_events">Fjern berørte hendelser permanent</string>
     <string name="unsync_caldav_calendar">For å fjerne en CalDAV-kalender må du desynkronisere den</string>
-    <string name="holidays">Off. fridager</string>
-    <string name="add_holidays">Legg til off. fridager</string>
-    <string name="national_holidays">Nasjonale off. fridager</string>
-    <string name="religious_holidays">Religiøse off. fridager</string>
-    <string name="holidays_imported_successfully">Off. fridager er vellykket importert til hendelsestypen \"Off. fridager\"</string>
+    <string name="holidays">Off. fridager/merkedager</string>
+    <string name="add_holidays">Legg til off. fridager/merkedager</string>
+    <string name="national_holidays">Nasjonale off. fridager/merkedager</string>
+    <string name="religious_holidays">Religiøse off. fridager/merkedager</string>
+    <string name="holidays_imported_successfully">Off. fridager/merkedager er importert til hendelsestypen \"Off. fridager/merkedager\"</string>
     <string name="importing_some_holidays_failed">Importering av noen hendelser feilet</string>
     <string name="importing_holidays_failed">Importering av off. fridager feilet</string>
     <string name="manage_event_types">Behandle hendelsestyper</string>
@@ -230,8 +230,8 @@
         <item quantity="one">Innen neste %d måned</item>
         <item quantity="other">Innen de neste %d månedene</item>
     </plurals>
-    <string name="faq_1_title">Hvordan kan jeg fjerne off. fridager importert via knappen «Legg til off. fridager»?</string>
-    <string name="faq_1_text">Off. fridager opprettet på denne måten settes inn i en ny hendelsestype kalt \"Off. fridager\". Gå til Innstillinger -&gt; Behandle hendelsestyper, lang-trykk hendelsestypen og slett den ved å velge søppelbøtten.</string>
+    <string name="faq_1_title">Hvordan kan jeg fjerne off. fridager/merkedager importert via knappen «Legg til off. fridager/merkedager»?</string>
+    <string name="faq_1_text">Off. fridager/merkedager opprettet på denne måten settes inn i en ny hendelsestype kalt \"Off. fridager/merkedager\". Gå til Innstillinger -&gt; Behandle hendelsestyper, lang-trykk hendelsestypen og slett den ved å velge søppelbøtten.</string>
     <string name="faq_2_title">Kan jeg synkronisere hendelsene mine via Google Kalender eller annen tjeneste som støtter CalDAV\?</string>
     <string name="faq_2_text">Ja, bare slå på «CalDAV-synkronisering» i appinnstillingene og velg kalenderne du vil synkronisere. Du må imidlertid ha en tredjepartsapp som håndterer synkroniseringen mellom enheten og tjenerne. Om du vil synkronisere en Google-kalender, vil Googles offisielle kalenderapp gjøre jobben. For andre kalendere trenger du et tredjeparts synkroniseringsadapter, for eksempel DAVx5.</string>
     <string name="accessibility_next_day">Gå til neste dag</string>
@@ -257,4 +257,12 @@
     <string name="faq_3_title">Jeg ser de visuelle påminnelsene, men hører ingen lyd. Hva kan jeg gjøre?</string>
     <string name="faq_4_title">Støtter appen tidssoner?</string>
     <string name="faq_5_title">Hvorfor viser ikke appen noen varsler?</string>
+    <string name="select_holidays_to_import">Velg off. fridager/merkedager som skal importeres</string>
+    <string name="other_holidays">Andre off. fridager og merkedager</string>
+    <string name="regional_holidays">Regionale fridager/merkedager</string>
+    <string name="public_holidays">Off. fridager</string>
+    <string name="access_level_public">Offentlig</string>
+    <string name="access_level_private">Privat</string>
+    <string name="access_level_confidential">Fortrolig</string>
+    <string name="show_widget_header">Vis overskrift</string>
 </resources>

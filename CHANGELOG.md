@@ -5,8 +5,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [1.6.2] - 2025-10-09
 ### Changed
-- Synchronized events with unspecified status are now treated as confirmed ([#761]) 
+- Synchronized events with unspecified status are now treated as confirmed ([#761])
+- Updated translations
 
 ### Fixed
 - Fixed event duplication when editing instances of recurring events ([#138])
@@ -14,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed drag and drop copying events instead of moving them ([#706])
 - Fixed crash when editing events with attendees ([#34])
 - Fixed event edits being silently discarded on back press ([#49])
+- Fixed synchronization issues when editing events in a recurring series ([#641])
 
 ## [1.6.1] - 2025-09-01
 ### Changed
@@ -143,14 +147,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#574]: https://github.com/FossifyOrg/Calendar/issues/574
 [#603]: https://github.com/FossifyOrg/Calendar/issues/603
 [#613]: https://github.com/FossifyOrg/Calendar/issues/613
+[#641]: https://github.com/FossifyOrg/Calendar/issues/641
 [#682]: https://github.com/FossifyOrg/Calendar/issues/682
 [#706]: https://github.com/FossifyOrg/Calendar/issues/706
 [#729]: https://github.com/FossifyOrg/Calendar/issues/729
 [#732]: https://github.com/FossifyOrg/Calendar/issues/732
-[#761]: http://github.com/FossifyOrg/Calendar/issues/761
-[#803]: https://github.com/FossifyOrg/Calendar/issues/803
+[#761]: https://github.com/FossifyOrg/Calendar/issues/761
 
-[Unreleased]: https://github.com/FossifyOrg/Calendar/compare/1.6.1...HEAD
+[Unreleased]: https://github.com/FossifyOrg/Calendar/compare/1.6.2...HEAD
+[1.6.2]: https://github.com/FossifyOrg/Calendar/compare/1.6.1...1.6.2
 [1.6.1]: https://github.com/FossifyOrg/Calendar/compare/1.6.0...1.6.1
 [1.6.0]: https://github.com/FossifyOrg/Calendar/compare/1.5.0...1.6.0
 [1.5.0]: https://github.com/FossifyOrg/Calendar/compare/1.4.0...1.5.0

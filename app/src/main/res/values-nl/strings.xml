@@ -268,4 +268,5 @@
     <string name="access_level_private">Privé</string>
     <string name="access_level_confidential">Vertrouwelijk</string>
     <string name="access_level_public">Openbaar</string>
+    <string name="allow_alarms_reminders">Om herinneringen goed te laten werken, heeft de app het recht nodig om alarmen in te stellen.</string>
 </resources>

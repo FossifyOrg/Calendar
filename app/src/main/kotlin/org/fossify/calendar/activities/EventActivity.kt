@@ -58,6 +58,7 @@ import org.fossify.calendar.extensions.showEventRepeatIntervalDialog
 import org.fossify.calendar.helpers.ATTENDEES
 import org.fossify.calendar.helpers.AVAILABILITY
 import org.fossify.calendar.helpers.CALDAV
+import org.fossify.calendar.helpers.ORIGINAL_ATTENDEES
 import org.fossify.calendar.helpers.CLASS
 import org.fossify.calendar.helpers.CURRENT_TIME_ZONE
 import org.fossify.calendar.helpers.DELETE_ALL_OCCURRENCES
@@ -191,6 +192,7 @@ class EventActivity : SimpleActivity() {
     private var mWasContactsPermissionChecked = false
     private var mWasCalendarChanged = false
     private var mAttendees = ArrayList<Attendee>()
+    private var mOriginalAttendees = ArrayList<Attendee>()
     private var mAttendeeAutoCompleteViews = ArrayList<MyAutoCompleteTextView>()
     private var mAvailableContacts = ArrayList<Attendee>()
     private var mSelectedContacts = ArrayList<Attendee>()
@@ -320,6 +322,7 @@ class EventActivity : SimpleActivity() {
             putLong(REPEAT_LIMIT, mRepeatLimit)
 
             putString(ATTENDEES, Gson().toJson(getAllAttendees(false)))
+            putString(ORIGINAL_ATTENDEES, Gson().toJson(mOriginalAttendees))
 
             putInt(CLASS, mAccessLevel)
             putInt(AVAILABILITY, mAvailability)
@@ -368,6 +371,8 @@ class EventActivity : SimpleActivity() {
             val token = object : TypeToken<List<Attendee>>() {}.type
             mAttendees =
                 Gson().fromJson<ArrayList<Attendee>>(getString(ATTENDEES), token) ?: ArrayList()
+            mOriginalAttendees =
+                Gson().fromJson<ArrayList<Attendee>>(getString(ORIGINAL_ATTENDEES), token) ?: ArrayList()
             mEvent.attendees = mAttendees
 
             mEventTypeId = getLong(EVENT_TYPE_ID)
@@ -650,7 +655,7 @@ class EventActivity : SimpleActivity() {
                 mRepeatInterval != mEvent.repeatInterval ||
                 mRepeatRule != mEvent.repeatRule ||
                 mRepeatLimit != mEvent.repeatLimit ||
-                getAllAttendees(false) != mEvent.attendees ||
+                attendeesChanged() ||
                 mAvailability != mEvent.availability ||
                 mAccessLevel != mEvent.accessLevel ||
                 mStatus != mEvent.status ||
@@ -659,6 +664,20 @@ class EventActivity : SimpleActivity() {
                 mIsAllDayEvent != mEvent.getIsAllDay() ||
                 mEventColor != mEvent.color ||
                 hasTimeChanged
+    }
+
+    private fun attendeesChanged(): Boolean {
+        val currentAttendees = getAllAttendees(false).sortedBy { it.email }
+        val originalAttendees = mOriginalAttendees.sortedBy { it.email }
+        if (currentAttendees.size != originalAttendees.size) {
+            return true
+        }
+
+        return currentAttendees.zip(originalAttendees).any { (first, second) ->
+                    first.email != second.email ||
+                    first.status != second.status ||
+                    first.relationship != second.relationship
+        }
     }
 
     private fun updateTexts() {
@@ -720,6 +739,7 @@ class EventActivity : SimpleActivity() {
         mEventColor = mEvent.color
 
         mAttendees = mEvent.attendees.toMutableList() as ArrayList<Attendee>
+        mOriginalAttendees = mAttendees.map { it.copy() }.toMutableList() as ArrayList<Attendee>
 
         checkRepeatTexts(mRepeatInterval)
         checkAttendees()
