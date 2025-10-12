@@ -155,6 +155,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#729]: https://github.com/FossifyOrg/Calendar/issues/729
 [#732]: https://github.com/FossifyOrg/Calendar/issues/732
 [#761]: https://github.com/FossifyOrg/Calendar/issues/761
+[#808]: https://github.com/FossifyOrg/Calendar/issues/808
 
 [Unreleased]: https://github.com/FossifyOrg/Calendar/compare/1.6.2...HEAD
 [1.6.2]: https://github.com/FossifyOrg/Calendar/compare/1.6.1...1.6.2
