@@ -240,12 +240,12 @@
     <string name="faq_1_text">Os días festivos creados dese xeito insírense nun tipo de evento chamado \"Festivo\". Podes ir a Axustes -&gt; Xestionar tipos de eventos, manter preso o tipo de evento desexado e eliminalo escollendo a Papeleira do lixo.</string>
     <string name="faq_2_title">Podo sincronizar os meus eventos vía Google Calendar, ou outro servizo que use CalDAV\?</string>
     <string name="faq_2_title_extra">Quizais poida compartir calendarios con outras persoas\?</string>
-    <string name="faq_2_text">Si, activa \"Sincronización de CalDAV\" nos axustes da app e escolle os calendarios que queres sincronizar. Porén, precisas unha app de terceiros para xestionar a sincronización entre dispositivos e servidores. Se desexas sincronizar un calendario de Google, o seu app oficial Calendar fará o traballo. Para outros calendario precisas un app de sincronización, como DAVx5.</string>
+    <string name="faq_2_text">Si, activa \"Sincronización de CalDAV\" nos axustes da app e escolle os calendarios que queres sincronizar. Porén, precisas unha app de terceiros para xestionar a sincronización entre dispositivos e servidores. Se desexas sincronizar un calendario de Google, o seu app oficial Calendar fará o traballo. Para outros calendarios precisas un app de sincronización, como DAVx5.</string>
     <string name="faq_3_title">Vexo os recordatorios visualmente, pero non escoito audio. Que podo facer\?</string>
     <string name="faq_3_text">Tanto o recordatorio propiamente dito como a reprodución do son dependen en gran medida do sistema. Se non podes escoitar ningún son, intenta ir aos axustes do app, premer en \"Canle de audio usado polos recordatorios\" e cambialo a un valor diferente. Se aínda así non funciona, comproba os axustes de son, que o fluxo en particular non estea acalado.</string>
     <string name="faq_4_title">O app soporta zonas horarias\?</string>
     <string name="faq_4_text">Si. Por defecto todos os eventos créanse na túa zona horaria actual. Se desexas cambiar a zona horaria do evento, primeiro tes que activar o selector de zona horaria nos axustes do app, e despois cambialo na pantalla de Detalles do Evento. Está desactivado de inicio porque a maioría da xente non o necesita.</string>
-    <string name="faq_5_title">O app non mostra ningunha notificación. Que é o que pasa\?</string>
+    <string name="faq_5_title">O app non mostra ningunha notificación, que é o que pasa?</string>
     <string name="faq_5_text">Comproba os axustes de batería e de notificacións do teu dispositivo e que non haxa nada que bloquee os recordatorios nin que deteña o app ao estar en segundo plano. Pódeslle botar un ollo tamén a &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;, xa que ten algúns consellos útiles.</string>
     <string name="faq_6_title">Como podo modificar ou borrar un tipo de evento\?</string>
     <string name="faq_6_text">Podes facer ámbalas cousas en Axustes, Xestionar tipos de eventos. Preme no que necesites para cambiar o nome e maila cor, ou selecciónao manténdoo premido e usa a papeleira do menú superior para borralo.</string>
@@ -264,4 +264,9 @@
     <string name="status_confirmed">Confirmado</string>
     <string name="status_canceled">Cancelado</string>
     <string name="select_holidays_to_import">Escoller festivos a importar</string>
+    <string name="access_level_public">Público</string>
+    <string name="access_level_private">Privado</string>
+    <string name="access_level_confidential">Confidencial</string>
+    <string name="show_widget_header">Amosar encabezamento</string>
+    <string name="allow_alarms_reminders">Debe permitir que a app programe alarmas para que os recordatorios funcionen axeitadamente.</string>
 </resources>
