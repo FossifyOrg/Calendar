@@ -1,0 +1,57 @@
+Umorni ste od pretrpanih kalendara i briga o privatnosti?
+
+Fossify Calendar je tu da to promijeni. Vaš alat otvorenog koda za upravljanje životom, dizajniran s privatnošću kao srži i prepun moćnih značajki koje će vas održati organiziranima.
+
+Evo što Fossify Calendar čini drugačijim:
+
+🚫 BEZ OGLASA I PRIVATNO:
+
+Vaši događaji ostaju vaši. Nema oglasa, nema praćenja, nema nametljivih dozvola.
+
+⏰ FLEKSIBILNO I PRILAGODLJIVO:
+
+Precizno kreirajte događaje s vremenima, trajanjem, podsjetnicima i naprednim pravilima ponavljanja.
+
+🔄 BESPRIJEKORNA SINKRONIZACIJA:
+
+Sinkronizirajte bez napora s Google kalendarom, Outlookom, Nextcloudom, Exchangeom i drugima.
+
+🎨 PERSONALIZIRAJTE SVOJ PLANER:
+
+Postavite prilagođene zvukove, ponavljajuće audio streamove, vibracije i teme kako bi odgovarali vašim željama.
+
+🌈 ŽIVAHNI WIDGETI:
+
+Uljepšajte svoj dan prekrasnim kalendarskim widgetima i temama za početni zaslon.
+
+📅 JEDNOSTAVNO UPRAVLJANJE DANOM:
+
+Planirajte svoj dan s lakoćom, bez obzira jeste li zauzeti profesionalac ili obiteljski organizator.
+
+🎉 UVOZ PROSLAVA:
+
+Nikada ne propustite rođendan ili godišnjicu! Jednostavno uvezite praznike i posebne datume.
+
+🔍 FILTRIRANJE PRIKAZA:
+
+Brzo pronađite ono što tražite pomoću filtera događaja.
+
+📆 VIŠE PRIKAZA:
+
+Bez napora se prebacujte između dnevnog, tjednog, mjesečnog, godišnjeg i prikaza događaja.
+
+✨ ELEGANCIJA MATERIJALNOG DIZAJNA:
+
+Uživajte u intuitivnom i korisničkom sučelju s dinamičnim temama.
+
+Osim toga, Fossify Calendar je otvorenog koda! Pridružite se živahnoj zajednici na GitHubu, doprinesite projektu i učinite ga jedinstveno svojim.
+
+Preuzmite Fossify kalendar odmah i iskusite moć privatnog i prilagodljivog rasporeda.
+
+Istražite više Fossify aplikacija: https://www.fossify.org
+
+Otvoreni kod: https://www.github.com/FossifyOrg
+
+Pridružite se zajednici na Redditu: https://www.reddit.com/r/Fossify
+
+Povežite se na Telegramu: https://t.me/Fossify
