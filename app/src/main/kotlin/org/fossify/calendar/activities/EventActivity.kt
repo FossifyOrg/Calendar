@@ -270,7 +270,11 @@ class EventActivity : SimpleActivity() {
             }
 
             runOnUiThread {
-                val adapter = ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, eventTitleMap.keys.toList())
+                val adapter = ArrayAdapter(
+                    this,
+                    android.R.layout.simple_dropdown_item_1line,
+                    eventTitleMap.keys.toList()
+                )
                 binding.eventTitle.setAdapter(adapter)
             }
 
