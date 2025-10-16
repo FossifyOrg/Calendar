@@ -473,6 +473,7 @@ class CalDAVHelper(val context: Context) {
                         Attendees.RELATIONSHIP_ATTENDEE
                     }
                 )
+                put(Attendees.ATTENDEE_TYPE, Attendees.TYPE_REQUIRED)
                 put(Attendees.EVENT_ID, event.getCalDAVEventId())
             }
 
