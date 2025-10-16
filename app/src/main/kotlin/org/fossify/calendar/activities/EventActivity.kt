@@ -2361,12 +2361,27 @@ class EventActivity : SimpleActivity() {
         if (mEvent.id == null && isSavingEvent && attendees.isNotEmpty()) {
             val currentCalendar =
                 calDAVHelper.getCalDAVCalendars("", true).firstOrNull { it.id == mEventCalendarId }
-            mAvailableContacts.firstOrNull { it.email == currentCalendar?.ownerName }?.apply {
-                attendees = attendees.filter { it.email != currentCalendar?.ownerName }
-                    .toMutableList() as ArrayList<Attendee>
-                status = Attendees.ATTENDEE_STATUS_ACCEPTED
-                relationship = Attendees.RELATIONSHIP_ORGANIZER
-                attendees.add(this)
+            val organizerEmail = currentCalendar?.ownerName
+            val organizer = mAvailableContacts.firstOrNull { it.email.equals(organizerEmail, true) }
+            attendees = attendees
+                .filter { !it.email.equals(organizerEmail, true) }
+                .toMutableList() as ArrayList<Attendee>
+            if (organizer != null) {
+                organizer.status = Attendees.ATTENDEE_STATUS_ACCEPTED
+                organizer.relationship = Attendees.RELATIONSHIP_ORGANIZER
+                attendees.add(organizer)
+            } else if (!organizerEmail.isNullOrBlank()) {
+                attendees.add(
+                    Attendee(
+                        contactId = 0,
+                        name = "",
+                        email = organizerEmail,
+                        status = Attendees.ATTENDEE_STATUS_ACCEPTED,
+                        photoUri = "",
+                        isMe = true,
+                        relationship = Attendees.RELATIONSHIP_ORGANIZER
+                    )
+                )
             }
         }
 
