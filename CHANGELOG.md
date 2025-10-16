@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Events shown in adjacent months are no longer dimmed ([#808])
 
+### Fixed
+- Fixed missing email notifications for attendees in some cases ([#135])
+- Fixed missing attendees list when using some specific providers ([#818])
+
 ## [1.6.2] - 2025-10-09
 ### Changed
 - Synchronized events with unspecified status are now treated as confirmed ([#761])
@@ -135,6 +139,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [#34]: https://github.com/FossifyOrg/Calendar/issues/34
 [#49]: https://github.com/FossifyOrg/Calendar/issues/49
+[#135]: https://github.com/FossifyOrg/Calendar/issues/135
 [#138]: https://github.com/FossifyOrg/Calendar/issues/138
 [#148]: https://github.com/FossifyOrg/Calendar/issues/148
 [#196]: https://github.com/FossifyOrg/Calendar/issues/196
@@ -156,6 +161,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#732]: https://github.com/FossifyOrg/Calendar/issues/732
 [#761]: https://github.com/FossifyOrg/Calendar/issues/761
 [#808]: https://github.com/FossifyOrg/Calendar/issues/808
+[#818]: https://github.com/FossifyOrg/Calendar/issues/818
 
 [Unreleased]: https://github.com/FossifyOrg/Calendar/compare/1.6.2...HEAD
 [1.6.2]: https://github.com/FossifyOrg/Calendar/compare/1.6.1...1.6.2
