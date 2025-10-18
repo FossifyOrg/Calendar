@@ -1,0 +1,10 @@
+Changed:
+
+• Events shown in adjacent months are no longer dimmed 
+• Updated translations
+
+Fixed:
+
+• Fixed missing email notifications for attendees in some cases 
+• Fixed missing attendees list when using some specific providers 
+
