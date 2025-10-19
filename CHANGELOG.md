@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- Removed permission to access network state (it was added accidentally) ([#826])
 
 ## [1.7.0] - 2025-10-16
 ### Changed
@@ -165,6 +167,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#761]: https://github.com/FossifyOrg/Calendar/issues/761
 [#808]: https://github.com/FossifyOrg/Calendar/issues/808
 [#818]: https://github.com/FossifyOrg/Calendar/issues/818
+[#826]: https://github.com/FossifyOrg/Calendar/issues/826
 
 [Unreleased]: https://github.com/FossifyOrg/Calendar/compare/1.7.0...HEAD
 [1.7.0]: https://github.com/FossifyOrg/Calendar/compare/1.6.2...1.7.0
