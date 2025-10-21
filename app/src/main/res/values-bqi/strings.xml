@@ -1,3 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_launcher_name">ویرگار</string>
+    <string name="change_view">آلشت نما</string>
+    <string name="daily_view">نما رۊزووه</string>
 </resources>
