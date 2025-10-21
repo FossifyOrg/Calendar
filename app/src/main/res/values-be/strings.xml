@@ -238,7 +238,7 @@
     <string name="faq_1_title">Як я магу выдаліць святы, імпартаваныя праз кнопку \"Дадаць святы\"\?</string>
     <string name="faq_1_text">Святы, створаныя такім чынам, устаўляюцца ў новы тып падзеі пад назвай \"Святы\". Вы можаце перайсці ў Налады -&gt; Кіраванне тыпамі падзей, доўга націскаць на дадзены тып падзеі і выдаліць яго, выбраўшы сметніцу.</string>
     <string name="faq_2_title">Ці магу я сінхранізаваць свае падзеі праз Google Calendar або іншы сэрвіс, які падтрымлівае CalDAV\?</string>
-    <string name="faq_2_text">Так, проста пераключыце «Сінхранізацыю CalDAV» у наладах праграмы і выберыце календары, якія вы хочаце сінхранізаваць. Тым не менш, вам спатрэбіцца якое-небудзь старонняе прыкладанне для сінхранізацыі паміж прыладай і серверамі. У выпадку, калі вы хочаце сінхранізаваць каляндар Google, іх афіцыйнае прыкладанне Calendar зробіць гэтую працу. Для іншых календароў вам спатрэбіцца старонні адаптар сінхранізацыі, напрыклад DAVx5.</string>
+    <string name="faq_2_text">Так, проста пераключыце «Сінхранізацыю CalDAV» у наладах праграмы і выберыце календары, якія вы хочаце сінхранізаваць. Тым не менш, вам спатрэбіцца якое-небудзь старонняе прыкладанне для сінхранізацыі паміж прыладай і серверамі. У выпадку, калі вы хочаце сінхранізаваць каляндар Google, іх афіцыйнае прыкладанне Календар зробіць гэтую працу. Для іншых календароў вам спатрэбіцца старонні адаптар сінхранізацыі, напрыклад DAVx5.</string>
     <string name="faq_3_title">Я бачу візуальныя напаміны, але не чую гуку. Што я магу зрабіць\?</string>
     <string name="faq_3_text">Сістэма моцна ўплывае не толькі на адлюстраванне фактычнага напамінку, але і на прайграванне аўдыя. Калі вы не чуеце гуку, паспрабуйце зайсці ў налады праграмы, націснуць опцыю «Аўдыёплынь, якая выкарыстоўваецца напамінамі» і змяніць яе значэнне. Калі гэта ўсё яшчэ не працуе, праверце налады гуку, ці не адключаны гук канкрэтнага патоку.</string>
     <string name="faq_4_title">Ці падтрымлівае праграма гадзінныя паясы\?</string>
@@ -247,4 +247,32 @@
     <string name="faq_5_text">Праверце акумулятар прылады і налады апавяшчэнняў, калі нішто не блакуе напаміны або забівае праграму ў фонавым рэжыме. Вы таксама можаце зазірнуць на &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;, там ёсць некалькі карысных парад.</string>
     <string name="faq_6_title">Як я магу змяніць або выдаліць існуючы тып падзеі\?</string>
     <string name="faq_6_text">Вы можаце зрабіць і тое, і іншае ў наладах прыкладання - Кіраванне тыпамі падзей. Проста націсніце на патрэбны, каб змяніць пазнаку і колер, або выберыце патрэбны, доўга націскаючы на яго, і выкарыстоўвайце кошык у верхнім меню для выдалення.</string>
+    <string name="no_upcoming_events">Няма надыходзячых падзей.</string>
+    <string name="everything_filtered_out">Вы адфільтравалі падзеі ўсіх тыпаў</string>
+    <string name="event_color">Колер падзеі</string>
+    <string name="default_calendar_color">Колер календара па змаўчанні</string>
+    <string name="task_color">Колер задачы</string>
+    <string name="task_is_repeatable">Паўтараемая задача</string>
+    <string name="export_tasks">Экспарт задач</string>
+    <string name="export_past_entries">Экспарт і мінулых запісаў</string>
+    <string name="public_holidays">Дзяржаўныя святы</string>
+    <string name="regional_holidays">Рэгіянальныя святы</string>
+    <string name="other_holidays">Іншыя святы і памятныя даты</string>
+    <string name="select_holidays_to_import">Выберыце святы для імпарту</string>
+    <string name="delete_all_events_and_tasks">Выдаліць усе падзеі і задачы</string>
+    <string name="caldav">CalDAV</string>
+    <string name="fetching_event_failed">Атрымаць падзею %s не ўдалося</string>
+    <string name="status_tentative">Верагодна</string>
+    <string name="status_confirmed">Пацверджана</string>
+    <string name="status_canceled">Адменена</string>
+    <string name="access_level_public">Публічна</string>
+    <string name="access_level_private">Прыватна</string>
+    <string name="access_level_confidential">Канфідэнцыяльна</string>
+    <string name="show_widget_header">Паказваць загаловак</string>
+    <string name="accessibility_previous_month">Перайсці да мінулага месяца</string>
+    <string name="accessibility_next_month">Перайсці да наступнага месяца</string>
+    <string name="accessibility_previous_day">Перайсці да мінулага дня</string>
+    <string name="accessibility_next_day">Перайсці да наступнага дня</string>
+    <string name="allow_alarms_reminders">Вы павінны дазволіць праграме ствараць будзільнікі і напаміны для карэктнай працы.</string>
+    <string name="faq_2_title_extra">Мабыць нават дзяліцца календаром з іншымі людзьмі?</string>
 </resources>
