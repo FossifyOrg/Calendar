@@ -50,7 +50,6 @@ class TaskActivity : SimpleActivity() {
     private val binding by viewBinding(ActivityTaskBinding::inflate)
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        isMaterialActivity = true
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         setupOptionsMenu()
@@ -60,7 +59,7 @@ class TaskActivity : SimpleActivity() {
             return
         }
 
-        updateMaterialActivityViews(binding.taskCoordinator, binding.taskHolder, useTransparentNavigation = true, useTopSearchMenu = false)
+        updateEdgeToEdge(topAppBar = binding.taskToolbar, scrollingView = binding.taskScrollview)
         setupMaterialScrollListener(binding.taskNestedScrollview, binding.taskToolbar)
 
         val intent = intent ?: return

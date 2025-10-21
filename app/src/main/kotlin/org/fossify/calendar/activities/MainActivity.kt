@@ -139,6 +139,7 @@ import java.text.SimpleDateFormat
 import java.util.Locale
 
 class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
+    override var isSearchBarEnabled = true
 
     private var showCalDAVRefreshToast = false
     private var mShouldFilterBeVisible = false
@@ -174,7 +175,7 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
         appLaunched(org.fossify.calendar.BuildConfig.APPLICATION_ID)
         setupOptionsMenu()
         refreshMenuItems()
-        updateMaterialActivityViews(binding.mainCoordinator, binding.mainHolder, useTransparentNavigation = false, useTopSearchMenu = true)
+        updateEdgeToEdge(topAppBar = binding.mainSearchMenu.getToolbar())
 
         checkWhatsNewDialog()
         binding.calendarFab.beVisibleIf(config.storedView != YEARLY_VIEW && config.storedView != WEEKLY_VIEW)

@@ -19,16 +19,13 @@ class ManageEventTypesActivity : SimpleActivity(), DeleteEventTypesListener {
     private val binding by viewBinding(ActivityManageEventTypesBinding::inflate)
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        isMaterialActivity = true
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         setupOptionsMenu()
 
-        updateMaterialActivityViews(
-            binding.manageEventTypesCoordinator,
-            binding.manageEventTypesList,
-            useTransparentNavigation = true,
-            useTopSearchMenu = false
+        updateEdgeToEdge(
+            topAppBar = binding.manageEventTypesToolbar,
+            scrollingView = binding.manageEventTypesList,
         )
         setupMaterialScrollListener(binding.manageEventTypesList, binding.manageEventTypesToolbar)
 

@@ -213,7 +213,6 @@ class EventActivity : SimpleActivity() {
     private val binding by viewBinding(ActivityEventBinding::inflate)
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        isMaterialActivity = true
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         setupOptionsMenu()
@@ -223,11 +222,9 @@ class EventActivity : SimpleActivity() {
             return
         }
 
-        updateMaterialActivityViews(
-            mainCoordinatorLayout = binding.eventCoordinator,
-            nestedView = binding.eventHolder,
-            useTransparentNavigation = true,
-            useTopSearchMenu = false
+        updateEdgeToEdge(
+            topAppBar = binding.eventToolbar,
+            scrollingView = binding.eventNestedScrollview,
         )
         setupMaterialScrollListener(binding.eventNestedScrollview, binding.eventToolbar)
 
