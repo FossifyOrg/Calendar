@@ -159,32 +159,32 @@
     <string name="caldav_sync">CalDAV-synk</string>
     <string name="event_lists">Begivenhedsliste</string>
     <string name="display_past_events">Vis overståede begivenheder</string>
-    <string name="replace_description_with_location">Erstat beskrivelse med sted</string>
+    <string name="replace_description_with_location">Erstat beskrivelse med lokation</string>
     <string name="display_description_or_location">Vis beskrivelse eller lokation</string>
     <string name="delete_all_events">Slet alle begivenheder</string>
     <string name="delete_all_events_and_tasks">Slet alle begivenheder og opgaver</string>
-    <string name="delete_all_events_confirmation">Er du sikker på at du vil slette alle begivenheder\? Dine begivenhedstyper og andre indstillinger vil forblive intakte.</string>
+    <string name="delete_all_events_confirmation">Er du sikker på, at du vil slette alle begivenheder og opgaver? Dette påvirker ikke dine begivenhedstyper og andre indstillinger.</string>
     <string name="show_a_grid">Vis gitter</string>
-    <string name="loop_reminders">Fortsæt påmindelser indtil jeg stopper dem</string>
+    <string name="loop_reminders">Gentag påmindelser indtil afvist</string>
     <string name="dim_past_events">Nedton gamle begivenheder</string>
-    <string name="dim_completed_tasks">Nedton afsluttede opgaver</string>
+    <string name="dim_completed_tasks">Nedton fuldførte opgaver</string>
     <string name="events">Begivenheder</string>
-    <string name="reminder_stream">Audio stream anvendt af påmindelser</string>
+    <string name="reminder_stream">Lydstrøm brugt af påmindelser</string>
     <string name="system_stream">System</string>
     <string name="alarm_stream">Alarm</string>
     <string name="notification_stream">Notifikation</string>
     <string name="ring_stream">Ringetone</string>
-    <string name="use_last_event_reminders">Brug den sidst opsatte påmindelse som standard for påmindelser</string>
-    <string name="default_reminder_1">Påmindelse 1</string>
-    <string name="default_reminder_2">Påmindelse 2</string>
-    <string name="default_reminder_3">Påmindelse 3</string>
-    <string name="view_to_open_from_widget">Visning til brug i widget\'en</string>
+    <string name="use_last_event_reminders">Brug påmindelser fra den sidste begivenhed som standard for nye</string>
+    <string name="default_reminder_1">Standardpåmindelse 1</string>
+    <string name="default_reminder_2">Standardpåmindelse 2</string>
+    <string name="default_reminder_3">Standardpåmindelse 3</string>
+    <string name="view_to_open_from_widget">Visning til brug i widgetten</string>
     <string name="last_view">Seneste visning</string>
     <string name="new_events">Nye begivenheder</string>
-    <string name="default_start_time">Standard starttidspunkt</string>
+    <string name="default_start_time">Standardstarttidspunkt</string>
     <string name="next_full_hour">Næste hele time</string>
     <string name="current_time">Aktuelle tid</string>
-    <string name="default_duration">Standard varighed</string>
+    <string name="default_duration">Standardvarighed</string>
     <string name="last_used_one">Senest brugte</string>
     <string name="other_time">Anden tid</string>
     <string name="highlight_weekends">Fremhæv weekender i visse visninger</string>
@@ -194,7 +194,7 @@
     <string name="allow_creating_tasks">Tillad oprettelse af opgaver</string>
     <string name="caldav">CalDAV</string>
     <string name="select_caldav_calendars">Vælg kalendere til synk</string>
-    <string name="manage_synced_calendars">Håndter synkronisering af kalendere</string>
+    <string name="manage_synced_calendars">Administrer synkroniserede kalendere</string>
     <string name="store_locally_only">Gem kun lokalt</string>
     <string name="refresh_caldav_calendars">Opdater CalDAV-kalendere</string>
     <string name="refreshing">Opdaterer…</string>
@@ -202,10 +202,10 @@
     <string name="editing_calendar_failed">Redigering af kalenderen mislykkedes</string>
     <string name="syncing">Synkroniserer…</string>
     <string name="synchronization_completed">Synkronisering gennemført</string>
-    <string name="select_a_different_caldav_color">Vælg en anden farve (den kan være tilføjet lokalt)</string>
+    <string name="select_a_different_caldav_color">Vælg en anden farve (anvendes muligvis kun lokalt)</string>
     <string name="insufficient_permissions">Du har ikke tilladelse til at skrive i den valgte kalender</string>
     <string name="caldav_event_not_found">Begivenheden blev ikke fundet. Aktiver CalDAV-synkronisering med den relevante kalender i app-indstillingerne.</string>
-    <string name="no_synchronized_calendars">Der er ikke fundet nogen kalendere der kan synkroniseres</string>
+    <string name="no_synchronized_calendars">Ingen synkroniserbare kalendere fundet</string>
     <string name="status_free">Ledig</string>
     <string name="status_busy">Optaget</string>
     <string name="fetching_event_failed">Hentning af begivenhed %s mislykkedes</string>
@@ -220,7 +220,7 @@
     <string name="sample_description_1">Træne ben</string>
     <string name="sample_title_2">Møde med John</string>
     <string name="sample_description_2">Botanisk have</string>
-    <string name="sample_title_3">Biblioteket</string>
+    <string name="sample_title_3">Bibliotek</string>
     <string name="sample_title_4">Frokost med Marie</string>
     <string name="sample_description_4">I byen</string>
     <string name="sample_title_5">Kaffetid</string>
@@ -229,7 +229,7 @@
     <string name="today_only">Kun i dag</string>
     <string name="within_the_next">Indenfor…</string>
     <plurals name="within_the_next_days">
-        <item quantity="one">%d dag</item>
+        <item quantity="one">I løbet af %d dag</item>
         <item quantity="other">I løbet af de næste %d dage</item>
     </plurals>
     <plurals name="within_the_next_weeks">
@@ -244,7 +244,7 @@
     <string name="accessibility_next_month">Gå til næste måned</string>
     <string name="accessibility_previous_day">Gå til forrige dag</string>
     <string name="accessibility_next_day">Gå til næste dag</string>
-    <string name="faq_1_title">Hvordan kan jeg fjerne helligdage der er importeret med funktionen \"Tilføj helligdage\"\?</string>
+    <string name="faq_1_title">Hvordan kan jeg fjerne helligdage importeret via \"Tilføj helligdage\"?</string>
     <string name="faq_1_text">Helligdage oprettet på den måde er indsat under begivenhedstypen \"Helligdage\". Gå til Indstillinger -&gt; Håndter begivenhedstyper. Efter et par sekunders pres på en type kan du slette den ved at klikke på papirkurven.</string>
     <string name="faq_2_title">Kan jeg synkronisere mine begivenheder med Googles kalender eller en anden kalender der understøtter CalDAV\?</string>
     <string name="faq_2_title_extra">Måske endda dele kalendere med andre?</string>
@@ -257,7 +257,7 @@
     <string name="faq_5_text">Tjek batteriet på din enhed og indstillingerne for meddelelser, om der er noget, der blokerer påmindelserne, eller om appen er slået fra i baggrunden. Du kan også tage et kig på &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;, den har nogle gode tips.</string>
     <string name="faq_6_title">Hvordan kan jeg ændre eller slette en eksisterende begivenhedstype\?</string>
     <string name="faq_6_text">Du kan gøre begge dele i Indstillinger - Administrer begivenhedstyper. Du skal blot klikke på den ønskede begivenhed for at ændre etiketten og farven, eller du kan vælge den ønskede begivenhed ved at trykke længe på den og bruge papirkurven i topmenuen til at slette den.</string>
-    <string name="show_widget_header">Vis overskrift</string>
+    <string name="show_widget_header">Vis header</string>
     <string name="public_holidays">Helligdage</string>
     <string name="regional_holidays">Regionale helligdage</string>
     <string name="other_holidays">Andre helligdage og højtider</string>
@@ -268,4 +268,5 @@
     <string name="access_level_public">Offentligt</string>
     <string name="access_level_confidential">Fortroligt</string>
     <string name="access_level_private">Privat</string>
+    <string name="allow_alarms_reminders">Appen skal have tilladelse til at planlægge alarmer, ellers vil påmindelserne ikke fungere korrekt.</string>
 </resources>
