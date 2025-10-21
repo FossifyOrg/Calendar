@@ -85,11 +85,11 @@ class TaskActivity : SimpleActivity() {
 
     override fun onResume() {
         super.onResume()
-        setupToolbar()
+        setupTopAppBar()
     }
 
-    private fun setupToolbar() {
-        setupToolbar(binding.taskToolbar, NavigationIcon.Arrow)
+    private fun setupTopAppBar() {
+        setupTopAppBar(binding.taskToolbar, NavigationIcon.Arrow)
         binding.taskToolbar.setNavigationOnClickListener {
             maybeShowUnsavedChangesDialog {
                 hideKeyboard()

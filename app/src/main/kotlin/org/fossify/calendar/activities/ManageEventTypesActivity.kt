@@ -35,7 +35,7 @@ class ManageEventTypesActivity : SimpleActivity(), DeleteEventTypesListener {
 
     override fun onResume() {
         super.onResume()
-        setupToolbar(binding.manageEventTypesToolbar, NavigationIcon.Arrow)
+        setupTopAppBar(binding.manageEventTypesToolbar, NavigationIcon.Arrow)
     }
 
     private fun showEventTypeDialog(eventType: EventType? = null) {

@@ -253,11 +253,11 @@ class EventActivity : SimpleActivity() {
 
     override fun onResume() {
         super.onResume()
-        setupToolbar()
+        setupTopAppBar()
     }
 
-    private fun setupToolbar() {
-        setupToolbar(binding.eventToolbar, NavigationIcon.Arrow)
+    private fun setupTopAppBar() {
+        setupTopAppBar(binding.eventToolbar, NavigationIcon.Arrow)
         binding.eventToolbar.setNavigationOnClickListener {
             maybeShowUnsavedChangesDialog {
                 hideKeyboard()
