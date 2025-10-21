@@ -175,7 +175,9 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
         appLaunched(org.fossify.calendar.BuildConfig.APPLICATION_ID)
         setupOptionsMenu()
         refreshMenuItems()
-        updateEdgeToEdge(topAppBar = binding.mainSearchMenu.getToolbar())
+        setupEdgeToEdge(
+            padBottomImeAndSystem = listOf(binding.searchHolder, binding.quickEventTypeFilter),
+        )
 
         checkWhatsNewDialog()
         binding.calendarFab.beVisibleIf(config.storedView != YEARLY_VIEW && config.storedView != WEEKLY_VIEW)
@@ -269,7 +271,6 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
             }
         }
 
-        updateStatusbarColor(getProperBackgroundColor())
         binding.apply {
             mainMenu.updateColors()
             storeStateVariables()
@@ -317,7 +318,7 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
         }
 
         shouldGoToTodayBeVisible = currentFragments.lastOrNull()?.shouldGoToTodayBeVisible() ?: false
-        binding.mainMenu.getToolbar().menu.apply {
+        binding.mainMenu.requireToolbar().menu.apply {
             goToTodayButton = findItem(R.id.go_to_today)
             findItem(R.id.print).isVisible = config.storedView != MONTHLY_DAILY_VIEW
             findItem(R.id.filter).isVisible = mShouldFilterBeVisible
@@ -329,7 +330,7 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
     }
 
     private fun setupOptionsMenu() = binding.apply {
-        mainMenu.getToolbar().inflateMenu(R.menu.menu_main)
+        mainMenu.requireToolbar().inflateMenu(R.menu.menu_main)
         mainMenu.toggleHideOnScroll(false)
         mainMenu.setupMenu()
 
@@ -337,7 +338,7 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
             searchQueryChanged(text)
         }
 
-        mainMenu.getToolbar().setOnMenuItemClickListener { menuItem ->
+        mainMenu.requireToolbar().setOnMenuItemClickListener { menuItem ->
             if (fabExtendedOverlay.isVisible()) {
                 hideExtendedFab()
             }

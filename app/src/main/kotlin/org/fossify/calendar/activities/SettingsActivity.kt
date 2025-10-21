@@ -48,13 +48,13 @@ class SettingsActivity : SimpleActivity() {
         setContentView(binding.root)
         mStoredPrimaryColor = getProperPrimaryColor()
 
-        updateEdgeToEdge(topAppBar = binding.settingsToolbar, scrollingView = binding.settingsNestedScrollview)
-        setupMaterialScrollListener(binding.settingsNestedScrollview, binding.settingsToolbar)
+        setupEdgeToEdge(padBottomSystem = listOf(binding.settingsNestedScrollview))
+        setupMaterialScrollListener(binding.settingsNestedScrollview, binding.settingsAppbar)
     }
 
     override fun onResume() {
         super.onResume()
-        setupTopAppBar(binding.settingsToolbar, NavigationIcon.Arrow)
+        setupTopAppBar(binding.settingsAppbar, NavigationIcon.Arrow)
         setupSettingItems()
     }
 

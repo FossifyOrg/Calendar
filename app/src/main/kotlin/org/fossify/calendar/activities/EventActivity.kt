@@ -222,11 +222,8 @@ class EventActivity : SimpleActivity() {
             return
         }
 
-        updateEdgeToEdge(
-            topAppBar = binding.eventToolbar,
-            scrollingView = binding.eventNestedScrollview,
-        )
-        setupMaterialScrollListener(binding.eventNestedScrollview, binding.eventToolbar)
+        setupEdgeToEdge(padBottomSystem = listOf(binding.eventNestedScrollview))
+        setupMaterialScrollListener(binding.eventNestedScrollview, binding.eventAppbar)
 
         val intent = intent ?: return
         mWasContactsPermissionChecked = hasPermission(PERMISSION_READ_CONTACTS)
@@ -257,7 +254,7 @@ class EventActivity : SimpleActivity() {
     }
 
     private fun setupTopAppBar() {
-        setupTopAppBar(binding.eventToolbar, NavigationIcon.Arrow)
+        setupTopAppBar(binding.eventAppbar, NavigationIcon.Arrow)
         binding.eventToolbar.setNavigationOnClickListener {
             maybeShowUnsavedChangesDialog {
                 hideKeyboard()

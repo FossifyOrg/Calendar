@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <org.fossify.commons.views.MyAppBarLayout
         android:id="@+id/select_time_zone_app_bar_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -19,7 +19,7 @@
             app:title=""
             app:titleTextAppearance="@style/AppTheme.ActionBar.TitleTextStyle" />
 
-    </com.google.android.material.appbar.AppBarLayout>
+    </org.fossify.commons.views.MyAppBarLayout>
 
     <org.fossify.commons.views.MyRecyclerView
         android:id="@+id/select_time_zone_list"

@@ -23,11 +23,8 @@ class ManageEventTypesActivity : SimpleActivity(), DeleteEventTypesListener {
         setContentView(binding.root)
         setupOptionsMenu()
 
-        updateEdgeToEdge(
-            topAppBar = binding.manageEventTypesToolbar,
-            scrollingView = binding.manageEventTypesList,
-        )
-        setupMaterialScrollListener(binding.manageEventTypesList, binding.manageEventTypesToolbar)
+        setupEdgeToEdge(padBottomSystem = listOf(binding.manageEventTypesList))
+        setupMaterialScrollListener(binding.manageEventTypesList, binding.manageEventTypesAppbar)
 
         getEventTypes()
         updateTextColors(binding.manageEventTypesList)
@@ -35,7 +32,7 @@ class ManageEventTypesActivity : SimpleActivity(), DeleteEventTypesListener {
 
     override fun onResume() {
         super.onResume()
-        setupTopAppBar(binding.manageEventTypesToolbar, NavigationIcon.Arrow)
+        setupTopAppBar(binding.manageEventTypesAppbar, NavigationIcon.Arrow)
     }
 
     private fun showEventTypeDialog(eventType: EventType? = null) {

@@ -59,8 +59,8 @@ class TaskActivity : SimpleActivity() {
             return
         }
 
-        updateEdgeToEdge(topAppBar = binding.taskToolbar, scrollingView = binding.taskScrollview)
-        setupMaterialScrollListener(binding.taskNestedScrollview, binding.taskToolbar)
+        setupEdgeToEdge(padBottomSystem = listOf(binding.taskNestedScrollview))
+        setupMaterialScrollListener(binding.taskNestedScrollview, binding.taskAppbar)
 
         val intent = intent ?: return
         updateColors()
@@ -89,7 +89,7 @@ class TaskActivity : SimpleActivity() {
     }
 
     private fun setupTopAppBar() {
-        setupTopAppBar(binding.taskToolbar, NavigationIcon.Arrow)
+        setupTopAppBar(binding.taskAppbar, NavigationIcon.Arrow)
         binding.taskToolbar.setNavigationOnClickListener {
             maybeShowUnsavedChangesDialog {
                 hideKeyboard()
