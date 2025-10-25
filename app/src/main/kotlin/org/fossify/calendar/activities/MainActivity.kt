@@ -362,16 +362,23 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
         }
     }
 
-    override fun onBackPressed() {
-        if (binding.mainMenu.isSearchOpen) {
+    override fun onBackPressedCompat(): Boolean {
+        return if (binding.mainMenu.isSearchOpen) {
             closeSearch()
+            true
         } else {
             binding.swipeRefreshLayout.isRefreshing = false
             checkSwipeRefreshAvailability()
             when {
-                binding.fabExtendedOverlay.isVisible() -> hideExtendedFab()
-                currentFragments.size > 1 -> removeTopFragment()
-                else -> super.onBackPressed()
+                binding.fabExtendedOverlay.isVisible() -> {
+                    hideExtendedFab()
+                    true
+                }
+                currentFragments.size > 1 -> {
+                    removeTopFragment()
+                    true
+                }
+                else -> false
             }
         }
     }
@@ -1167,7 +1174,7 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
     private fun showBackNavigationArrow() {
         binding.mainMenu.toggleForceArrowBackIcon(true)
         binding.mainMenu.onNavigateBackClickListener = {
-            onBackPressed()
+            performDefaultBack()
         }
     }
 
