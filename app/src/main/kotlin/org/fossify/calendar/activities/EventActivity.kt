@@ -222,7 +222,7 @@ class EventActivity : SimpleActivity() {
             return
         }
 
-        setupEdgeToEdge(padBottomSystem = listOf(binding.eventNestedScrollview))
+        setupEdgeToEdge(padBottomImeAndSystem = listOf(binding.eventNestedScrollview))
         setupMaterialScrollListener(binding.eventNestedScrollview, binding.eventAppbar)
 
         val intent = intent ?: return

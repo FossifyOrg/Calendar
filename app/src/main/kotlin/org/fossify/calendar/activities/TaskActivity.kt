@@ -59,7 +59,7 @@ class TaskActivity : SimpleActivity() {
             return
         }
 
-        setupEdgeToEdge(padBottomSystem = listOf(binding.taskNestedScrollview))
+        setupEdgeToEdge(padBottomImeAndSystem = listOf(binding.taskNestedScrollview))
         setupMaterialScrollListener(binding.taskNestedScrollview, binding.taskAppbar)
 
         val intent = intent ?: return
