@@ -5,7 +5,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
 ### Changed
+
+- Compatibility updates for Android 15 & 16
 - Removed permission to access network state (it was added accidentally) ([#826])
 
 ## [1.7.0] - 2025-10-16

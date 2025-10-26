@@ -50,7 +50,6 @@ class TaskActivity : SimpleActivity() {
     private val binding by viewBinding(ActivityTaskBinding::inflate)
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        isMaterialActivity = true
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         setupOptionsMenu()
@@ -60,8 +59,8 @@ class TaskActivity : SimpleActivity() {
             return
         }
 
-        updateMaterialActivityViews(binding.taskCoordinator, binding.taskHolder, useTransparentNavigation = true, useTopSearchMenu = false)
-        setupMaterialScrollListener(binding.taskNestedScrollview, binding.taskToolbar)
+        setupEdgeToEdge(padBottomImeAndSystem = listOf(binding.taskNestedScrollview))
+        setupMaterialScrollListener(binding.taskNestedScrollview, binding.taskAppbar)
 
         val intent = intent ?: return
         updateColors()
@@ -86,11 +85,11 @@ class TaskActivity : SimpleActivity() {
 
     override fun onResume() {
         super.onResume()
-        setupToolbar()
+        setupTopAppBar()
     }
 
-    private fun setupToolbar() {
-        setupToolbar(binding.taskToolbar, NavigationIcon.Arrow)
+    private fun setupTopAppBar() {
+        setupTopAppBar(binding.taskAppbar, NavigationIcon.Arrow)
         binding.taskToolbar.setNavigationOnClickListener {
             maybeShowUnsavedChangesDialog {
                 hideKeyboard()
@@ -147,10 +146,11 @@ class TaskActivity : SimpleActivity() {
             hasTimeChanged
     }
 
-    override fun onBackPressed() {
+    override fun onBackPressedCompat(): Boolean {
         maybeShowUnsavedChangesDialog {
-            super.onBackPressed()
+            performDefaultBack()
         }
+        return true
     }
 
     private fun maybeShowUnsavedChangesDialog(discard: () -> Unit) {

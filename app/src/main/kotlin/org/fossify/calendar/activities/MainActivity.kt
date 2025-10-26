@@ -139,6 +139,7 @@ import java.text.SimpleDateFormat
 import java.util.Locale
 
 class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
+    override var isSearchBarEnabled = true
 
     private var showCalDAVRefreshToast = false
     private var mShouldFilterBeVisible = false
@@ -174,7 +175,9 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
         appLaunched(org.fossify.calendar.BuildConfig.APPLICATION_ID)
         setupOptionsMenu()
         refreshMenuItems()
-        updateMaterialActivityViews(binding.mainCoordinator, binding.mainHolder, useTransparentNavigation = false, useTopSearchMenu = true)
+        setupEdgeToEdge(
+            padBottomImeAndSystem = listOf(binding.searchHolder, binding.quickEventTypeFilter),
+        )
 
         checkWhatsNewDialog()
         binding.calendarFab.beVisibleIf(config.storedView != YEARLY_VIEW && config.storedView != WEEKLY_VIEW)
@@ -268,7 +271,6 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
             }
         }
 
-        updateStatusbarColor(getProperBackgroundColor())
         binding.apply {
             mainMenu.updateColors()
             storeStateVariables()
@@ -316,7 +318,7 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
         }
 
         shouldGoToTodayBeVisible = currentFragments.lastOrNull()?.shouldGoToTodayBeVisible() ?: false
-        binding.mainMenu.getToolbar().menu.apply {
+        binding.mainMenu.requireToolbar().menu.apply {
             goToTodayButton = findItem(R.id.go_to_today)
             findItem(R.id.print).isVisible = config.storedView != MONTHLY_DAILY_VIEW
             findItem(R.id.filter).isVisible = mShouldFilterBeVisible
@@ -328,7 +330,7 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
     }
 
     private fun setupOptionsMenu() = binding.apply {
-        mainMenu.getToolbar().inflateMenu(R.menu.menu_main)
+        mainMenu.requireToolbar().inflateMenu(R.menu.menu_main)
         mainMenu.toggleHideOnScroll(false)
         mainMenu.setupMenu()
 
@@ -336,7 +338,7 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
             searchQueryChanged(text)
         }
 
-        mainMenu.getToolbar().setOnMenuItemClickListener { menuItem ->
+        mainMenu.requireToolbar().setOnMenuItemClickListener { menuItem ->
             if (fabExtendedOverlay.isVisible()) {
                 hideExtendedFab()
             }
@@ -360,16 +362,23 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
         }
     }
 
-    override fun onBackPressed() {
-        if (binding.mainMenu.isSearchOpen) {
+    override fun onBackPressedCompat(): Boolean {
+        return if (binding.mainMenu.isSearchOpen) {
             closeSearch()
+            true
         } else {
             binding.swipeRefreshLayout.isRefreshing = false
             checkSwipeRefreshAvailability()
             when {
-                binding.fabExtendedOverlay.isVisible() -> hideExtendedFab()
-                currentFragments.size > 1 -> removeTopFragment()
-                else -> super.onBackPressed()
+                binding.fabExtendedOverlay.isVisible() -> {
+                    hideExtendedFab()
+                    true
+                }
+                currentFragments.size > 1 -> {
+                    removeTopFragment()
+                    true
+                }
+                else -> false
             }
         }
     }
@@ -1165,7 +1174,7 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
     private fun showBackNavigationArrow() {
         binding.mainMenu.toggleForceArrowBackIcon(true)
         binding.mainMenu.onNavigateBackClickListener = {
-            onBackPressed()
+            performDefaultBack()
         }
     }
 

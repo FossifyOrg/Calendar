@@ -213,7 +213,6 @@ class EventActivity : SimpleActivity() {
     private val binding by viewBinding(ActivityEventBinding::inflate)
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        isMaterialActivity = true
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         setupOptionsMenu()
@@ -223,13 +222,8 @@ class EventActivity : SimpleActivity() {
             return
         }
 
-        updateMaterialActivityViews(
-            mainCoordinatorLayout = binding.eventCoordinator,
-            nestedView = binding.eventHolder,
-            useTransparentNavigation = true,
-            useTopSearchMenu = false
-        )
-        setupMaterialScrollListener(binding.eventNestedScrollview, binding.eventToolbar)
+        setupEdgeToEdge(padBottomImeAndSystem = listOf(binding.eventNestedScrollview))
+        setupMaterialScrollListener(binding.eventNestedScrollview, binding.eventAppbar)
 
         val intent = intent ?: return
         mWasContactsPermissionChecked = hasPermission(PERMISSION_READ_CONTACTS)
@@ -256,11 +250,11 @@ class EventActivity : SimpleActivity() {
 
     override fun onResume() {
         super.onResume()
-        setupToolbar()
+        setupTopAppBar()
     }
 
-    private fun setupToolbar() {
-        setupToolbar(binding.eventToolbar, NavigationIcon.Arrow)
+    private fun setupTopAppBar() {
+        setupTopAppBar(binding.eventAppbar, NavigationIcon.Arrow)
         binding.eventToolbar.setNavigationOnClickListener {
             maybeShowUnsavedChangesDialog {
                 hideKeyboard()
@@ -269,10 +263,11 @@ class EventActivity : SimpleActivity() {
         }
     }
 
-    override fun onBackPressed() {
+    override fun onBackPressedCompat(): Boolean {
         maybeShowUnsavedChangesDialog {
-            super.onBackPressed()
+            performDefaultBack()
         }
+        return true
     }
 
     private fun maybeShowUnsavedChangesDialog(discard: () -> Unit) {

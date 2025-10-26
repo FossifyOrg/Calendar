@@ -19,18 +19,12 @@ class ManageEventTypesActivity : SimpleActivity(), DeleteEventTypesListener {
     private val binding by viewBinding(ActivityManageEventTypesBinding::inflate)
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        isMaterialActivity = true
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         setupOptionsMenu()
 
-        updateMaterialActivityViews(
-            binding.manageEventTypesCoordinator,
-            binding.manageEventTypesList,
-            useTransparentNavigation = true,
-            useTopSearchMenu = false
-        )
-        setupMaterialScrollListener(binding.manageEventTypesList, binding.manageEventTypesToolbar)
+        setupEdgeToEdge(padBottomSystem = listOf(binding.manageEventTypesList))
+        setupMaterialScrollListener(binding.manageEventTypesList, binding.manageEventTypesAppbar)
 
         getEventTypes()
         updateTextColors(binding.manageEventTypesList)
@@ -38,7 +32,7 @@ class ManageEventTypesActivity : SimpleActivity(), DeleteEventTypesListener {
 
     override fun onResume() {
         super.onResume()
-        setupToolbar(binding.manageEventTypesToolbar, NavigationIcon.Arrow)
+        setupTopAppBar(binding.manageEventTypesAppbar, NavigationIcon.Arrow)
     }
 
     private fun showEventTypeDialog(eventType: EventType? = null) {

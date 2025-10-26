@@ -11,7 +11,6 @@
     <ID>ComplexCondition:MainActivity.kt$MainActivity$mStoredFirstDayOfWeek != config.firstDayOfWeek || mStoredUse24HourFormat != config.use24HourFormat || mStoredMidnightSpan != config.showMidnightSpanningEventsAtTop || mStoredStartWeekWithCurrentDay != config.startWeekWithCurrentDay</ID>
     <ID>ComplexCondition:MainActivity.kt$MainActivity$mStoredTextColor != getProperTextColor() || mStoredBackgroundColor != getProperBackgroundColor() || mStoredPrimaryColor != getProperPrimaryColor() || mStoredDayCode != Formatter.getTodayCode() || mStoredDimPastEvents != config.dimPastEvents || mStoredDimCompletedTasks != config.dimCompletedTasks || mStoredHighlightWeekends != config.highlightWeekends || mStoredHighlightWeekendsColor != config.highlightWeekendsColor</ID>
     <ID>ComplexCondition:MonthView.kt$MonthView$isMonthDayView &amp;&amp; !isDaySelected &amp;&amp; !day.isToday &amp;&amp; day.dayEvents.isNotEmpty()</ID>
-    <ID>ComplexCondition:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider$it.isTask() &amp;&amp; it.isTaskCompleted() &amp;&amp; dimCompletedTasks || !day.isThisMonth || (dimPastEvents &amp;&amp; it.isPastEvent &amp;&amp; !it.isTask())</ID>
     <ID>ComplexCondition:SettingsActivity.kt$SettingsActivity$requestCode == PICK_EVENTS_EXPORT_FILE_INTENT &amp;&amp; resultCode == Activity.RESULT_OK &amp;&amp; resultData != null &amp;&amp; resultData.data != null</ID>
     <ID>ComplexCondition:SettingsActivity.kt$SettingsActivity$requestCode == PICK_EVENTS_IMPORT_SOURCE_INTENT &amp;&amp; resultCode == Activity.RESULT_OK &amp;&amp; resultData != null &amp;&amp; resultData.data != null</ID>
     <ID>ComplexCondition:SettingsActivity.kt$SettingsActivity$requestCode == PICK_SETTINGS_IMPORT_SOURCE_INTENT &amp;&amp; resultCode == Activity.RESULT_OK &amp;&amp; resultData != null &amp;&amp; resultData.data != null</ID>
@@ -162,7 +161,6 @@
     <ID>MagicNumber:MonthView.kt$MonthView$175</ID>
     <ID>MagicNumber:MonthView.kt$MonthView$2.5f</ID>
     <ID>MagicNumber:MonthView.kt$MonthView$3</ID>
-    <ID>MagicNumber:MonthView.kt$MonthView$41</ID>
     <ID>MagicNumber:MonthView.kt$MonthView$7</ID>
     <ID>MagicNumber:MonthView.kt$MonthView$7f</ID>
     <ID>MagicNumber:MonthlyCalendarImpl.kt$MonthlyCalendarImpl$43</ID>
@@ -404,7 +402,6 @@
     <ID>MaxLineLength:MainActivity.kt$MainActivity$private</ID>
     <ID>MaxLineLength:MainActivity.kt$MainActivity$reminder3Minutes = reminders[2]</ID>
     <ID>MaxLineLength:MainActivity.kt$MainActivity$repeatInterval = YEAR</ID>
-    <ID>MaxLineLength:MainActivity.kt$MainActivity$updateMaterialActivityViews(binding.mainCoordinator, binding.mainHolder, useTransparentNavigation = false, useTopSearchMenu = true)</ID>
     <ID>MaxLineLength:MainActivity.kt$MainActivity$val eventTypeId = if (birthdays) eventsHelper.getLocalBirthdaysEventTypeId() else eventsHelper.getAnniversariesEventTypeId()</ID>
     <ID>MaxLineLength:MainActivity.kt$MainActivity$val lastPosition = (binding.searchResultsList.layoutManager as MyLinearLayoutManager).findLastVisibleItemPosition()</ID>
     <ID>MaxLineLength:MainActivity.kt$MainActivity$||</ID>
@@ -417,7 +414,6 @@
     <ID>MaxLineLength:MonthFragment.kt$MonthFragment$override</ID>
     <ID>MaxLineLength:MonthView.kt$MonthView$// handle overlapping repeating events e.g. an event that lasts 3 days, but repeats every 2 days has a one day overlap</ID>
     <ID>MaxLineLength:MonthView.kt$MonthView$canvas.drawLine(0f, i * dayHeight + weekDaysLetterHeight, canvas.width.toFloat(), i * dayHeight + weekDaysLetterHeight, gridPaint)</ID>
-    <ID>MaxLineLength:MonthView.kt$MonthView$canvas.drawRoundRect(bgRectF, BG_CORNER_RADIUS, BG_CORNER_RADIUS, getEventBackgroundColor(event, startDayIndex, endDayIndex))</ID>
     <ID>MaxLineLength:MonthView.kt$MonthView$compareBy({ -it.daysCnt }, { !it.isAllDay }, { it.startTS }, { it.endTS }, { it.startDayIndex }, { it.title })</ID>
     <ID>MaxLineLength:MonthView.kt$MonthView$dayLetters = context.withFirstDayOfWeekToFront(context.resources.getStringArray(org.fossify.commons.R.array.week_day_letters).toList())</ID>
     <ID>MaxLineLength:MonthView.kt$MonthView$dayVerticalOffsets.put(day.indexOnMonthView, dayVerticalOffsets[day.indexOnMonthView] + weekDaysLetterHeight)</ID>
@@ -441,7 +437,6 @@
     <ID>MaxLineLength:MyWidgetListProvider.kt$MyWidgetListProvider$PendingIntent.getActivity(context, 0, startActivityIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_MUTABLE)</ID>
     <ID>MaxLineLength:MyWidgetListProvider.kt$MyWidgetListProvider$views.setImageViewBitmap(R.id.widget_event_go_to_today, context.resources.getColoredBitmap(R.drawable.ic_today_vector, textColor))</ID>
     <ID>MaxLineLength:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider$day.dayEvents</ID>
-    <ID>MaxLineLength:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider$if</ID>
     <ID>MaxLineLength:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider$setInt(R.id.day_monthly_event_id, "setPaintFlags", Paint.ANTI_ALIAS_FLAG or Paint.STRIKE_THRU_TEXT_FLAG)</ID>
     <ID>MaxLineLength:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider$setText(id, "${days[i * 7 + 3].weekOfYear}:")</ID>
     <ID>MaxLineLength:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider$val pendingIntent = PendingIntent.getActivity(context, Integer.parseInt(dayCode), this, PendingIntent.FLAG_IMMUTABLE)</ID>
@@ -475,7 +470,6 @@
     <ID>MaxLineLength:SettingsActivity.kt$SettingsActivity$PermissionRequiredDialog(this, org.fossify.commons.R.string.allow_notifications_reminders, { openNotificationSettings() })</ID>
     <ID>MaxLineLength:SettingsActivity.kt$SettingsActivity$arrayOf(settingsDefaultReminder1Holder, settingsDefaultReminder2Holder, settingsDefaultReminder3Holder)</ID>
     <ID>MaxLineLength:SettingsActivity.kt$SettingsActivity$settingsUseEnglishHolder.beVisibleIf((config.wasUseEnglishToggled || Locale.getDefault().language != "en") &amp;&amp; !isTiramisuPlus())</ID>
-    <ID>MaxLineLength:SettingsActivity.kt$SettingsActivity$updateMaterialActivityViews(binding.settingsCoordinator, binding.settingsHolder, useTransparentNavigation = true, useTopSearchMenu = false)</ID>
     <ID>MaxLineLength:SettingsActivity.kt$SettingsActivity$val eventType = EventType(null, it.displayName, it.color, it.id, it.displayName, it.accountName)</ID>
     <ID>MaxLineLength:SettingsActivity.kt$SettingsActivity$val events = eventsHelper.getEventsToExport(eventTypes, config.exportEvents, config.exportTasks, config.exportPastEntries)</ID>
     <ID>MaxLineLength:SettingsActivity.kt$SettingsActivity$val reminders = sortedSetOf(config.defaultReminder1, config.defaultReminder2, config.defaultReminder3).filter { it != REMINDER_OFF }</ID>
@@ -496,7 +490,6 @@
     <ID>MaxLineLength:TaskActivity.kt$TaskActivity$private fun isLastDayOfTheMonth()</ID>
     <ID>MaxLineLength:TaskActivity.kt$TaskActivity$reminders = reminders.filter { it.minutes != REMINDER_OFF }.sortedBy { it.minutes }.toMutableList() as ArrayList&lt;Reminder&gt;</ID>
     <ID>MaxLineLength:TaskActivity.kt$TaskActivity$this</ID>
-    <ID>MaxLineLength:TaskActivity.kt$TaskActivity$updateMaterialActivityViews(binding.taskCoordinator, binding.taskHolder, useTransparentNavigation = true, useTopSearchMenu = false)</ID>
     <ID>MaxLineLength:TaskActivity.kt$TaskActivity$val</ID>
     <ID>MaxLineLength:TaskActivity.kt$TaskActivity$val everyString = getString(if (isMaleGender(mTaskDateTime.dayOfWeek)) R.string.every_m else R.string.every_f)</ID>
     <ID>MaxLineLength:WeekFragment.kt$WeekFragment$((currentEventWeeklyView.range.upper - currentEventWeeklyView.range.lower) * minuteHeight).toInt() - 1</ID>
@@ -547,10 +540,7 @@
     <ID>NestedBlockDepth:SmallMonthView.kt$SmallMonthView$override fun onDraw(canvas: Canvas)</ID>
     <ID>NestedBlockDepth:WeekFragment.kt$WeekFragment$@SuppressLint("NewApi") private fun addAllDayEvent(event: Event)</ID>
     <ID>NestedBlockDepth:WeekFragment.kt$WeekFragment$private fun addEvents(events: ArrayList&lt;Event&gt;)</ID>
-    <ID>ReturnCount:EventActivity.kt$EventActivity$private fun saveEvent()</ID>
     <ID>ReturnCount:HsvColorComparator.kt$HsvColorComparator$override fun compare(lhs: Int?, rhs: Int?): Int</ID>
-    <ID>ReturnCount:SmallMonthView.kt$SmallMonthView$private fun getPaint(curId: Int, weekDay: Int, highlightWeekends: Boolean): Paint</ID>
-    <ID>ReturnCount:SmartSwipeRefreshLayout.kt$SmartSwipeRefreshLayout$override fun onInterceptTouchEvent(ev: MotionEvent): Boolean</ID>
     <ID>SwallowedException:CalDAVHelper.kt$CalDAVHelper$e: Exception</ID>
     <ID>SwallowedException:Converters.kt$Converters$e: Exception</ID>
     <ID>SwallowedException:Event.kt$Event$e: Exception</ID>

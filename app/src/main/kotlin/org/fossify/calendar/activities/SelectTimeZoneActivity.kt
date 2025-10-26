@@ -51,7 +51,7 @@ class SelectTimeZoneActivity : SimpleActivity() {
 
     override fun onResume() {
         super.onResume()
-        setupToolbar(binding.selectTimeZoneToolbar, NavigationIcon.Arrow, searchMenuItem = mSearchMenuItem)
+        setupTopAppBar(binding.selectTimeZoneAppBarLayout, NavigationIcon.Arrow, searchMenuItem = mSearchMenuItem)
     }
 
     private fun setupOptionsMenu() {
