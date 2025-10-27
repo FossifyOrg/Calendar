@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Compatibility updates for Android 15 & 16
 - Removed permission to access network state (it was added accidentally) ([#826])
+- Updated holiday data
 
 ## [1.7.0] - 2025-10-16
 ### Changed
