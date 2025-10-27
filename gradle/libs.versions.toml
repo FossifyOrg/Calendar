@@ -13,7 +13,7 @@ constraintlayout = "2.2.1"
 swiperefreshlayout = "1.1.0"
 work = "2.11.0"
 #Room
-room = "2.8.2"
+room = "2.8.3"
 #Fossify
 commons = "5.7.0"
 #Gradle
