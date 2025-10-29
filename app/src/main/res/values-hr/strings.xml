@@ -271,4 +271,5 @@
     <string name="access_level_private">Privatno</string>
     <string name="access_level_confidential">Povjerljivo</string>
     <string name="show_widget_header">Prikaži zaglavlje</string>
+    <string name="allow_alarms_reminders">Morate dopustiti aplikaciji da zakazuje alarme da bi podsjetnici ispravno radili.</string>
 </resources>
