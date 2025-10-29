@@ -6,11 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.8.0] - 2025-10-29
 ### Changed
-
 - Compatibility updates for Android 15 & 16
 - Removed permission to access network state (it was added accidentally) ([#826])
 - Updated holiday data
+- Updated translations
 
 ## [1.7.0] - 2025-10-16
 ### Changed
@@ -173,7 +174,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#818]: https://github.com/FossifyOrg/Calendar/issues/818
 [#826]: https://github.com/FossifyOrg/Calendar/issues/826
 
-[Unreleased]: https://github.com/FossifyOrg/Calendar/compare/1.7.0...HEAD
+[Unreleased]: https://github.com/FossifyOrg/Calendar/compare/1.8.0...HEAD
+[1.8.0]: https://github.com/FossifyOrg/Calendar/compare/1.7.0...1.8.0
 [1.7.0]: https://github.com/FossifyOrg/Calendar/compare/1.6.2...1.7.0
 [1.6.2]: https://github.com/FossifyOrg/Calendar/compare/1.6.1...1.6.2
 [1.6.1]: https://github.com/FossifyOrg/Calendar/compare/1.6.0...1.6.1

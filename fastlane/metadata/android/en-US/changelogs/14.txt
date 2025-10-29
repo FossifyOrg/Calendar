@@ -1,0 +1,7 @@
+Changed:
+
+• Compatibility updates for Android 15 & 16
+• Removed permission to access network state (it was added accidentally) 
+• Updated holiday data
+• Updated translations
+
