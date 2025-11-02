@@ -245,7 +245,7 @@
     <string name="accessibility_previous_day">Gå til forrige dag</string>
     <string name="accessibility_next_day">Gå til næste dag</string>
     <string name="faq_1_title">Hvordan kan jeg fjerne helligdage importeret via \"Tilføj helligdage\"?</string>
-    <string name="faq_1_text">Helligdage oprettet på den måde er indsat under begivenhedstypen \"Helligdage\". Gå til Indstillinger -&gt; Håndter begivenhedstyper. Efter et par sekunders pres på en type kan du slette den ved at klikke på papirkurven.</string>
+    <string name="faq_1_text">Helligdage oprettet på den måde indsættes som en ny begivenhedstype kaldet \"Helligdage\". Gå til Indstillinger &gt; Administrer begivenhedstyper, hold nede på typen og slet den via papirkurven.</string>
     <string name="faq_2_title">Kan jeg synkronisere mine begivenheder med Googles kalender eller en anden kalender der understøtter CalDAV\?</string>
     <string name="faq_2_title_extra">Måske endda dele kalendere med andre?</string>
     <string name="faq_2_text">Ja, du skal blot slå \"CalDAV-synkronisering\" til og fra i appens indstillinger, og vælge de kalendere, du vil synkronisere. Du skal dog bruge en tredjepartsapp, der håndterer synkroniseringen mellem enheden og serverne. Hvis du vil synkronisere en Google-kalender, vil deres officielle Kalender-app klare opgaven. Til andre kalendere skal du bruge en tredjeparts synkroniseringsadapter, f.eks. DAVx5.</string>
