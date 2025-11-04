@@ -38,6 +38,8 @@ jobs:
         with:
           token: ${{ steps.app-token.outputs.token }}
           sign-commits: true
+          add-paths: |
+            app/src/main/assets/holidays/**
           branch: fossifybot/holidays
           commit-message: "chore: update holidays"
           title: "chore: update holidays"
