@@ -1181,7 +1181,7 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
     private fun showBackNavigationArrow() {
         binding.mainMenu.toggleForceArrowBackIcon(true)
         binding.mainMenu.onNavigateBackClickListener = {
-            performDefaultBack()
+            onBackPressedCompat()
         }
     }
 

@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - Fixed incorrect weekly view start date in some cases ([#45])
+- Fixed issue with Up/Arrow button closing the app ([#870])
 
 ## [1.8.0] - 2025-10-29
 ### Changed
@@ -179,6 +180,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#808]: https://github.com/FossifyOrg/Calendar/issues/808
 [#818]: https://github.com/FossifyOrg/Calendar/issues/818
 [#826]: https://github.com/FossifyOrg/Calendar/issues/826
+[#870]: https://github.com/FossifyOrg/Calendar/issues/870
 
 [Unreleased]: https://github.com/FossifyOrg/Calendar/compare/1.8.0...HEAD
 [1.8.0]: https://github.com/FossifyOrg/Calendar/compare/1.7.0...1.8.0
