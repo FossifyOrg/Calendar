@@ -144,7 +144,7 @@ class MonthFragmentsHolder : MyFragmentHolder(), NavigationListener {
 
     override fun getCurrentDate(): DateTime? {
         return if (currentDayCode != "") {
-            DateTime(Formatter.getDateTimeFromCode(currentDayCode).toString())
+            Formatter.getLocalDateTimeFromCode(currentDayCode)
         } else {
             null
         }

@@ -51,6 +51,7 @@ import org.fossify.calendar.helpers.FETCH_INTERVAL
 import org.fossify.calendar.helpers.FLAG_ALL_DAY
 import org.fossify.calendar.helpers.FLAG_MISSING_YEAR
 import org.fossify.calendar.helpers.Formatter
+import org.fossify.calendar.helpers.Formatter.DAYCODE_PATTERN
 import org.fossify.calendar.helpers.HOLIDAY_EVENT
 import org.fossify.calendar.helpers.HolidayHelper
 import org.fossify.calendar.helpers.INITIAL_EVENTS
@@ -1047,8 +1048,14 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
     }
 
     private fun fixDayCode(dayCode: String? = null): String? = when {
-        config.storedView == WEEKLY_VIEW && (dayCode?.length == Formatter.DAYCODE_PATTERN.length) -> getFirstDayOfWeek(Formatter.getDateTimeFromCode(dayCode))
-        config.storedView == YEARLY_VIEW && (dayCode?.length == Formatter.DAYCODE_PATTERN.length) -> Formatter.getYearFromDayCode(dayCode)
+        config.storedView == WEEKLY_VIEW && (dayCode?.length == DAYCODE_PATTERN.length) -> {
+            getFirstDayOfWeek(Formatter.getLocalDateTimeFromCode(dayCode))
+        }
+
+        config.storedView == YEARLY_VIEW && (dayCode?.length == DAYCODE_PATTERN.length) -> {
+            Formatter.getYearFromDayCode(dayCode)
+        }
+
         else -> dayCode
     }
 
