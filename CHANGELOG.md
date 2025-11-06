@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Updated holiday data
 
+### Fixed
+- Fixed incorrect weekly view start date in some cases ([#45])
+
 ## [1.8.0] - 2025-10-29
 ### Changed
 - Compatibility updates for Android 15 & 16
@@ -150,6 +153,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial release
 
 [#34]: https://github.com/FossifyOrg/Calendar/issues/34
+[#45]: https://github.com/FossifyOrg/Calendar/issues/45
 [#49]: https://github.com/FossifyOrg/Calendar/issues/49
 [#135]: https://github.com/FossifyOrg/Calendar/issues/135
 [#138]: https://github.com/FossifyOrg/Calendar/issues/138
