@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated holiday data
 
 ### Fixed
+- Fixed startup crash in weekly view ([#550])
 - Fixed incorrect weekly view start date in some cases ([#45])
 - Fixed issue with Up/Arrow button closing the app ([#870])
 - Fixed time drift when switching between views ([#590])
@@ -167,6 +168,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#394]: https://github.com/FossifyOrg/Calendar/issues/394
 [#484]: https://github.com/FossifyOrg/Calendar/issues/484
 [#486]: https://github.com/FossifyOrg/Calendar/issues/486
+[#550]: https://github.com/FossifyOrg/Calendar/issues/550
 [#551]: https://github.com/FossifyOrg/Calendar/issues/551
 [#567]: https://github.com/FossifyOrg/Calendar/issues/567
 [#574]: https://github.com/FossifyOrg/Calendar/issues/574
