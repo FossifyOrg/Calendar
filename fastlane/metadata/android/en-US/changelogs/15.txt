@@ -1,0 +1,12 @@
+Changed:
+
+• Updated holiday data
+• Updated translations
+
+Fixed:
+
+• Fixed startup crash in weekly view 
+• Fixed incorrect weekly view start date in some cases 
+• Fixed issue with Up/Arrow button closing the app 
+• Fixed time drift when switching between views 
+
