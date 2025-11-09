@@ -553,25 +553,41 @@ class WeekFragment : Fragment(), WeeklyCalendar {
 
                     if (areTouching && doHaveCommonMinutes) {
                         if (eventWeeklyViewToCheck.slot == 0) {
-                            val nextSlot = eventWeeklyView.slotMax + 1
-                            val slotRange = Array(eventWeeklyView.slotMax) { it + 1 }
-                            val collisionEventWeeklyViews = eventDayList.filter { eventWeeklyView.collisions.contains(it.key) }
+                            val collisionEventWeeklyViews = eventDayList
+                                .filter { eventWeeklyView.collisions.contains(it.key) }
+                            var currentSlotMax = max(
+                                eventWeeklyView.slotMax.coerceAtLeast(1),
+                                eventWeeklyView.slot.coerceAtLeast(1)
+                            )
+                            val maxCollisionSlot = collisionEventWeeklyViews
+                                .maxOfOrNull { it.value.slot.coerceAtLeast(1) } ?: 1
+                            currentSlotMax = max(currentSlotMax, maxCollisionSlot)
+                            val nextSlot = currentSlotMax + 1
+                            val slotRange = IntArray(currentSlotMax) { it + 1 }
                             for ((_, collisionEventWeeklyView) in collisionEventWeeklyViews) {
-                                if (collisionEventWeeklyView.range.intersects(eventWeeklyViewToCheck.range)) {
+                                if (
+                                    collisionEventWeeklyView.range.intersects(eventWeeklyViewToCheck.range)
+                                    && collisionEventWeeklyView.slot in 1..currentSlotMax
+                                ) {
                                     slotRange[collisionEventWeeklyView.slot - 1] = nextSlot
                                 }
                             }
-                            slotRange[eventWeeklyView.slot - 1] = nextSlot
-                            val slot = slotRange.minOrNull()
-                            eventWeeklyViewToCheck.slot = slot!!
+                            if (eventWeeklyView.slot in 1..currentSlotMax) {
+                                slotRange[eventWeeklyView.slot - 1] = nextSlot
+                            }
+
+                            val slot = slotRange.minOrNull() ?: nextSlot
+                            eventWeeklyViewToCheck.slot = slot
+
                             if (slot == nextSlot) {
                                 eventWeeklyViewToCheck.slotMax = nextSlot
                                 eventWeeklyView.slotMax = nextSlot
                                 for ((_, collisionEventWeeklyView) in collisionEventWeeklyViews) {
-                                    collisionEventWeeklyView.slotMax++
+                                    collisionEventWeeklyView.slotMax =
+                                        max(collisionEventWeeklyView.slotMax, nextSlot)
                                 }
                             } else {
-                                eventWeeklyViewToCheck.slotMax = eventWeeklyView.slotMax
+                                eventWeeklyViewToCheck.slotMax = currentSlotMax
                             }
                         }
                         eventWeeklyView.collisions.add(toCheckId)
