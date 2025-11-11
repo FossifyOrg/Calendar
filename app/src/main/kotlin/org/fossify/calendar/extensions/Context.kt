@@ -1,7 +1,6 @@
 package org.fossify.calendar.extensions
 
 import android.accounts.Account
-import android.annotation.SuppressLint
 import android.app.AlarmManager
 import android.app.Notification
 import android.app.NotificationChannel
@@ -19,6 +18,7 @@ import android.graphics.Bitmap
 import android.media.AudioAttributes
 import android.media.AudioManager
 import android.media.MediaScannerConnection
+import android.media.RingtoneManager
 import android.net.Uri
 import android.os.Bundle
 import android.provider.CalendarContract
@@ -26,7 +26,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.core.app.NotificationCompat
-import androidx.core.net.toUri
 import androidx.print.PrintHelper
 import org.fossify.calendar.R
 import org.fossify.calendar.activities.EventActivity
@@ -96,7 +95,6 @@ import org.fossify.commons.extensions.formatSecondsToTimeString
 import org.fossify.commons.extensions.getContrastColor
 import org.fossify.commons.extensions.getDoesFilePathExist
 import org.fossify.commons.extensions.getMimeType
-import org.fossify.commons.extensions.grantReadUriPermission
 import org.fossify.commons.extensions.hasProperStoredFirstParentUri
 import org.fossify.commons.extensions.removeBit
 import org.fossify.commons.extensions.showErrorToast
@@ -107,7 +105,6 @@ import org.fossify.commons.helpers.FONT_SIZE_SMALL
 import org.fossify.commons.helpers.FRIDAY_BIT
 import org.fossify.commons.helpers.MONDAY_BIT
 import org.fossify.commons.helpers.SATURDAY_BIT
-import org.fossify.commons.helpers.SILENT
 import org.fossify.commons.helpers.SUNDAY_BIT
 import org.fossify.commons.helpers.THURSDAY_BIT
 import org.fossify.commons.helpers.TUESDAY_BIT
@@ -115,7 +112,6 @@ import org.fossify.commons.helpers.WEDNESDAY_BIT
 import org.fossify.commons.helpers.WEEK_SECONDS
 import org.fossify.commons.helpers.YEAR_SECONDS
 import org.fossify.commons.helpers.ensureBackgroundThread
-import org.fossify.commons.helpers.isOreoPlus
 import org.fossify.commons.helpers.isRPlus
 import org.fossify.commons.helpers.isSPlus
 import org.fossify.commons.helpers.isTiramisuPlus
@@ -446,31 +442,26 @@ fun Context.getUsageAttributeForStreamType(): Int {
     }
 }
 
-@SuppressLint("NewApi")
 fun Context.getNotification(pendingIntent: PendingIntent, event: Event, content: String, publicVersion: Boolean = false): Notification? {
-    var soundUri = config.reminderSoundUri
-    if (soundUri == SILENT) {
-        soundUri = ""
-    } else {
-        grantReadUriPermission(soundUri)
-    }
-
     val notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-    // create a new channel for every new sound uri as the new Android Oreo notification system is fundamentally broken
-    if (soundUri != config.lastSoundUri || config.lastVibrateOnReminder != config.vibrateOnReminder) {
-        if (!publicVersion) {
-            if (isOreoPlus()) {
-                val oldChannelId = "simple_calendar_${config.lastReminderChannel}_${config.reminderAudioStream}_${event.eventType}"
-                notificationManager.deleteNotificationChannel(oldChannelId)
-            }
-        }
+    // TODO: Properly migrate old notification channels to avoid nuking user customization
+    // use legacy channels for existing users, new stable channels for fresh installs
+    val newChannelId = "simple_calendar_${config.reminderAudioStream}_${event.eventType}"
+    val legacyChannelId = if (!config.notificationChannelsMigrated) {
+        val existingChannels = notificationManager.notificationChannels
+        existingChannels.find { channel ->
+            channel.id.startsWith("simple_calendar_") &&
+                    channel.id.endsWith("_${config.reminderAudioStream}_${event.eventType}") &&
+                    channel.id != newChannelId
+        }?.id
+    } else null
 
-        config.lastVibrateOnReminder = config.vibrateOnReminder
-        config.lastReminderChannel = System.currentTimeMillis()
-        config.lastSoundUri = soundUri
+    val channelId = legacyChannelId ?: newChannelId
+    if (!config.notificationChannelsMigrated) {
+        config.notificationChannelsMigrated = true
     }
 
-    val channelId = "simple_calendar_${config.lastReminderChannel}_${config.reminderAudioStream}_${event.eventType}"
+    val soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
     val audioAttributes = AudioAttributes.Builder()
         .setUsage(getUsageAttributeForStreamType())
         .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
@@ -482,8 +473,7 @@ fun Context.getNotification(pendingIntent: PendingIntent, event: Event, content:
         setBypassDnd(true)
         enableLights(true)
         lightColor = event.color
-        enableVibration(config.vibrateOnReminder)
-        setSound(soundUri.toUri(), audioAttributes)
+        setSound(soundUri, audioAttributes)
         try {
             notificationManager.createNotificationChannel(this)
         } catch (e: Exception) {
@@ -516,11 +506,6 @@ fun Context.getNotification(pendingIntent: PendingIntent, event: Event, content:
                 getSnoozePendingIntent(this@getNotification, event)
             )
         }
-
-    if (config.vibrateOnReminder) {
-        val vibrateArray = LongArray(2) { 500 }
-        builder.setVibrate(vibrateArray)
-    }
 
     if (!publicVersion) {
         val notification = getNotification(pendingIntent, event, content, true)
