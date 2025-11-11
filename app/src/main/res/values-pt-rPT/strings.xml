@@ -6,7 +6,7 @@
     <plurals name="within_the_next_weeks">
         <item quantity="one">Na próxima %d semana</item>
         <item quantity="many">Nas próximas %d semanas</item>
-        <item quantity="other"/>
+        <item quantity="other">Nas próximas %d semanas</item>
     </plurals>
     <string name="faq_2_title">Posso sincronizar os meus eventos via Google Calendar ou por outro serviço que suporte CalDAV?</string>
     <string name="event_added">Evento adicionado com sucesso</string>
@@ -192,13 +192,13 @@
     <plurals name="within_the_next_days">
         <item quantity="one">No próximo %d dia</item>
         <item quantity="many">Nos próximos %d dias</item>
-        <item quantity="other"/>
+        <item quantity="other">Nos próximos %d dias</item>
     </plurals>
     <string name="sample_description_4">Ir ao mercado</string>
     <plurals name="within_the_next_months">
         <item quantity="one">No próximo %d mês</item>
         <item quantity="many">Nos próximos %d meses</item>
-        <item quantity="other"/>
+        <item quantity="other">Nos próximos %d meses</item>
     </plurals>
     <string name="accessibility_previous_month">Ir para o mês anterior</string>
     <string name="accessibility_next_month">Ir para o mês seguinte</string>
@@ -213,7 +213,7 @@
     <string name="faq_5_text">Analise as definições de bateria e de notificações do dispositivo. Pode ser que exista algo a bloquear os lembretes ou a terminar a aplicação em segundo plano. Consulte &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt; para ver algumas dicas.</string>
     <string name="faq_6_title">É possível modificar ou eliminar um tipo de evento existente?</string>
     <string name="faq_4_text">Sim. Por definição, todos os eventos são criados com o seu fuso horário atual. Se pretende alterar o fuso horário de um evento, terá de ativar a escolha de fuso horário nas definições da aplicação e alterá-lo nos Detalhes do evento. Por omissão, esta opção está desativada, pois não é necessário para a maioria das pessoas.</string>
-    <string name="faq_5_title">A aplicação não mostra notificações. Porque será?</string>
+    <string name="faq_5_title">Porquê que a aplicação não mostra notificações?</string>
     <string name="faq_6_text">Pode fazer ambas em Definições - Gerir tipos de eventos. Basta tocar no desejado para alterar o texto ou a cor e pode também eliminar qualquer um com um toque longo no tipo de evento e utilizando a reciclagem no menu superior.</string>
     <string name="use_last_event_reminders">Utilizar lembretes do último evento como definição para os novos eventos</string>
     <string name="event_color">Cor do evento</string>
@@ -231,7 +231,7 @@
     <string name="status_free">Livre</string>
     <string name="status_busy">Ocupado</string>
     <string name="fetching_event_failed">Falha ao obter o evento %s</string>
-    <string name="faq_2_text">Sim, basta ativar \"Sincronização CalDAV \" nas definições da aplicação e selecionar os calendários a sincronizar. No entanto, será necessária uma outra aplicação para sincronizar o dispositivo com os servidores. Para sincronizar um calendário Google, pode usar a sua aplicação oficial. Para outros calendários, precisará de um adaptador de sincronização de terceiros como, por exemplo, DAVx5.</string>
+    <string name="faq_2_text">Sim, basta ativar \"Sincronização CalDAV \" nas definições da aplicação e selecionar os calendários que quer sincronizar. No entanto, será necessária outra aplicação para sincronizar o dispositivo com os servidores. Para sincronizar um calendário Google, pode usar a sua aplicação oficial. Para outros calendários, precisará de um adaptador de sincronização de terceiros como, por exemplo, DAVx5.</string>
     <string name="widget_list">Lista de eventos</string>
     <string name="change_view">Mudar vista</string>
     <string name="daily_view">Vista diária</string>
@@ -260,4 +260,16 @@
     <string name="allow_changing_time_zones">Permitir alteração do fuso horário dos eventos</string>
     <string name="manage_quick_filter_event_types">Gerir tipos de evento no filtro rápido</string>
     <string name="allow_creating_tasks">Permitir criação de tarefas</string>
+    <string name="status_tentative">Tentativo</string>
+    <string name="status_confirmed">Confirmado</string>
+    <string name="status_canceled">Cancelado</string>
+    <string name="access_level_public">Publico</string>
+    <string name="access_level_private">Privado</string>
+    <string name="access_level_confidential">Confidencial</string>
+    <string name="public_holidays">Feriados</string>
+    <string name="regional_holidays">Feriados Religiosos</string>
+    <string name="other_holidays">Outros Feriados e datas relevantes</string>
+    <string name="select_holidays_to_import">Seleccione os feriados para importar</string>
+    <string name="show_widget_header">Mostrar cabeçalho</string>
+    <string name="allow_alarms_reminders">Deve permitir que a aplicação agende alarmes para que os lembretes funcionem corretamente.</string>
 </resources>
