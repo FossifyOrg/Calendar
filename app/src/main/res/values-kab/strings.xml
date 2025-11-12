@@ -1,3 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_launcher_name">Awitay</string>
+    <string name="months_raw">n wayyuren</string>
+    <string name="years_raw">n iseggasen</string>
+    <string name="forever">I lebda</string>
+    <string name="times">n tikkal</string>
+    <string name="first_m">amenzu</string>
+    <string name="color">Ini</string>
+    <string name="holidays">Imuras</string>
+    <string name="no_ringtone_selected">Ula yiwen</string>
+    <string name="events">Tidyanin</string>
+    <string name="system_stream">Anagraw</string>
+    <string name="alarm_stream">Teṭenṭunt</string>
+    <string name="notification_stream">Ulɣu</string>
+    <string name="caldav">CalDAV</string>
+    <string name="monday_alt">Arim</string>
+    <string name="tuesday_alt">Aram</string>
+    <string name="wednesday_alt">Ahad</string>
+    <string name="thursday_alt">Amhad</string>
+    <string name="friday_alt">Sem</string>
+    <string name="saturday_alt">Sed</string>
+    <string name="sunday_alt">Acer</string>
+    <string name="today_only">Ass-a kan</string>
+    <string name="go_to_today">Ddu ar wass-a</string>
+    <string name="task">Tawuri</string>
+    <string name="daily">Yal ass</string>
+    <string name="weekly">Yal dduṛt</string>
+    <string name="monthly">Yal ayyur</string>
+    <string name="yearly">Yal aseggas</string>
+    <string name="weeks_raw">n imalasen</string>
 </resources>
