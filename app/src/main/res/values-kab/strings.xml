@@ -29,4 +29,6 @@
     <string name="monthly">Yal ayyur</string>
     <string name="yearly">Yal aseggas</string>
     <string name="weeks_raw">n imalasen</string>
+    <string name="monthly_daily_view">Timeẓri n wayyur d yal ass</string>
+    <string name="yearly_view">Timeẓri n useggas</string>
 </resources>
