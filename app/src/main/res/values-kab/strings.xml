@@ -31,4 +31,12 @@
     <string name="weeks_raw">n imalasen</string>
     <string name="monthly_daily_view">Timeẓri n wayyur d yal ass</string>
     <string name="yearly_view">Timeẓri n useggas</string>
+    <string name="no_upcoming_events">Ulac tidyanin i d-iteddun.</string>
+    <string name="go_to_date">Ddu ɣer uzemz</string>
+    <string name="widget_monthly">Awitay n wayyur</string>
+    <string name="widget_list">Umuɣ n tedyanin n uwitay</string>
+    <string name="event">Tadyant</string>
+    <string name="edit_event">Ẓreg tadyant</string>
+    <string name="create_new_event">Snulfu-d tadyant tamaynut</string>
+    <string name="duplicate_event">Tadyant n usleg</string>
 </resources>
