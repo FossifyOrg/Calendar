@@ -39,4 +39,7 @@
     <string name="edit_event">Ẓreg tadyant</string>
     <string name="create_new_event">Snulfu-d tadyant tamaynut</string>
     <string name="duplicate_event">Tadyant n usleg</string>
+    <string name="event_added">Tadyant tettwarna akken iwata</string>
+    <string name="event_updated">Tadyant tettwaleqqem akken iwata</string>
+    <string name="public_event_notification_text">Tetteddu-d yiwet n tedyant</string>
 </resources>
