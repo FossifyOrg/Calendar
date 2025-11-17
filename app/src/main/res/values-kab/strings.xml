@@ -42,4 +42,7 @@
     <string name="event_added">Tadyant tettwarna akken iwata</string>
     <string name="event_updated">Tadyant tettwaleqqem akken iwata</string>
     <string name="public_event_notification_text">Tetteddu-d yiwet n tedyant</string>
+    <string name="everything_filtered_out">Tessazedgeḍ akk leṣnaf n tedyanin</string>
+    <string name="edit_task">Ẓreg Tawuri</string>
+    <string name="new_task">Tawuri tamaynut</string>
 </resources>
