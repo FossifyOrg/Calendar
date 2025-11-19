@@ -45,4 +45,10 @@
     <string name="everything_filtered_out">Tessazedgeḍ akk leṣnaf n tedyanin</string>
     <string name="edit_task">Ẓreg Tawuri</string>
     <string name="new_task">Tawuri tamaynut</string>
+    <string name="mark_incomplete">Creḍ ur yemmid ara</string>
+    <string name="task_color">Ini n twuri</string>
+    <string name="repetition">Allus</string>
+    <string name="no_repetition">Ulac allus</string>
+    <string name="repeat_till">Ɛawed alamma d</string>
+    <string name="event_is_repeatable">Tadyant-nni tezmer ad tettwaɛred</string>
 </resources>
