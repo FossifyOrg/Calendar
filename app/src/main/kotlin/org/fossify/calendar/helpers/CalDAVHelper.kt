@@ -675,7 +675,7 @@ class CalDAVHelper(val context: Context) {
                     email = email,
                     status = cursor.getIntValue(Attendees.ATTENDEE_STATUS),
                     photoUri = "",
-                    isMe = email == calendar.ownerName,
+                    isMe = email != "" && email == calendar.ownerName,
                     relationship = cursor.getIntValue(Attendees.ATTENDEE_RELATIONSHIP)
                 )
             attendees.add(attendee)
