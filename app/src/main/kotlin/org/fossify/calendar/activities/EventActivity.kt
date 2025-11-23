@@ -2126,7 +2126,7 @@ class EventActivity : SimpleActivity() {
         val currentCalendar =
             calDAVHelper.getCalDAVCalendars("", true).firstOrNull { it.id == mEventCalendarId }
         mAttendees.forEach {
-            it.isMe = it.email == currentCalendar?.ownerName
+            it.isMe = it.email != "" && it.email == currentCalendar?.ownerName
         }
 
         mAttendees.sortWith(
