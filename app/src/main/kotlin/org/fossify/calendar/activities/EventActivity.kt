@@ -172,7 +172,7 @@ import java.util.regex.Pattern
 
 class EventActivity : SimpleActivity() {
     private val LAT_LON_PATTERN =
-        "^[-+]?([1-8]?\\d(\\.\\d+)?|90(\\.0+)?)([,;])\\s*[-+]?(180(\\.0+)?|((1[0-7]\\d)|([1-9]?\\d))(\\.\\d+)?)\$"
+        "([-+]?(?:[1-8]?\\d(?:\\.\\d+)?|90(?:\\.0+)?))(?:[,;])\\s*([-+]?(?:180(?:\\.0+)?|(?:(?:1[0-7]\\d)|(?:[1-9]?\\d))(?:\\.\\d+)?))"
     private val SELECT_TIME_ZONE_INTENT = 1
 
     private var mIsAllDayEvent = false
@@ -1897,12 +1897,12 @@ class EventActivity : SimpleActivity() {
 
         val pattern = Pattern.compile(LAT_LON_PATTERN)
         val locationValue = binding.eventLocation.value
-        val uri = if (pattern.matcher(locationValue).find()) {
-            val delimiter = if (locationValue.contains(';')) ";" else ","
-            val parts = locationValue.split(delimiter)
-            val latitude = parts.first()
-            val longitude = parts.last()
-            "geo:$latitude,$longitude".toUri()
+        val matcher = pattern.matcher(locationValue)
+        val uri = if (matcher.find()) {
+            val locationName = locationValue.take(matcher.start()) + locationValue.substring(matcher.end(), locationValue.length);
+            val latitude = matcher.group(1)
+            val longitude = matcher.group(2)
+            "geo:$latitude,$longitude?q=$locationName".toUri()
         } else {
             val location = Uri.encode(locationValue)
             "geo:0,0?q=$location".toUri()
