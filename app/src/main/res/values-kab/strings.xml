@@ -51,4 +51,13 @@
     <string name="no_repetition">Ulac allus</string>
     <string name="repeat_till">Ɛawed alamma d</string>
     <string name="event_is_repeatable">Tadyant-nni tezmer ad tettwaɛred</string>
+    <string name="before">send</string>
+    <string name="reminders">Ismektiyen</string>
+    <string name="week">Amalas</string>
+    <string name="all_day">Ass kamel</string>
+    <string name="access_level_public">Azayez</string>
+    <string name="access_level_private">Uslig</string>
+    <string name="access_level_confidential">Abaḍni</string>
+    <string name="description">Aglam</string>
+    <string name="add_holidays">Rnu ussan n imuras</string>
 </resources>
