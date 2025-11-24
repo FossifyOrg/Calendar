@@ -60,4 +60,24 @@
     <string name="access_level_confidential">Abaḍni</string>
     <string name="description">Aglam</string>
     <string name="add_holidays">Rnu ussan n imuras</string>
+    <string name="change_view">Beddel taskant</string>
+    <string name="daily_view">Taskant n yal ass</string>
+    <string name="weekly_view">Taskant n umalas</string>
+    <string name="monthly_view">Taskant n waggur</string>
+    <string name="simple_event_list">Tabdart n tedyanin tiḥerfiyin</string>
+    <string name="widget_todays_date">Awitay n uzemz n wass-a</string>
+    <string name="new_event">Tadyant tamaynut</string>
+    <string name="title_empty">Azwel ur yezmir ara ad yili d ilem</string>
+    <string name="end_before_start">Tadyant ur tezmir ad tekfu uqbel ad tebdu</string>
+    <string name="filter_events_by_type">Zizdeg tidyanin s wanaw</string>
+    <string name="please_fill_location">Ma ulac aɣilif, ččaṛ adig ara d-tsekneḍ ɣef tkarḍa</string>
+    <string name="event_color">Ini n tedyant</string>
+    <string name="default_calendar_color">Ini n uwitay amezwer</string>
+    <string name="tasks">Tiwuriwin</string>
+    <string name="create_new_task">Rnu tawuri tamaynut</string>
+    <string name="duplicate_task">Sleg tawuri</string>
+    <string name="mark_completed">Ifuk ucṛaḍ</string>
+    <string name="task_is_repeatable">Tawuri tezmer ad tettwales</string>
+    <string name="selection_contains_repetition">Afran yegber tidyanin i d-yettuɣalen</string>
+    <string name="delete_one_only">Kkes kan tadyant yettwafernen</string>
 </resources>
