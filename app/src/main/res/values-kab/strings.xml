@@ -80,4 +80,25 @@
     <string name="task_is_repeatable">Tawuri tezmer ad tettwales</string>
     <string name="selection_contains_repetition">Afran yegber tidyanin i d-yettuɣalen</string>
     <string name="delete_one_only">Kkes kan tadyant yettwafernen</string>
+    <string name="third_m">Wis kraḍ</string>
+    <string name="fourth_m">wis kuẓ</string>
+    <string name="fifth_m">Wis semmus</string>
+    <string name="last_m">Aneggaru</string>
+    <string name="repeat_every_f">Ɛawed yal</string>
+    <string name="every_f">Yal</string>
+    <string name="first_f">amezwaru</string>
+    <string name="second_f">wis sin</string>
+    <string name="third_f">Wis kraḍ</string>
+    <string name="fourth_f">wis kuẓ</string>
+    <string name="fifth_f">Wis semmus</string>
+    <string name="last_f">Aneggaru</string>
+    <string name="birthdays">Imulliyen n tlalit</string>
+    <string name="add_birthdays">Rnu amulli n tlalit n unermis</string>
+    <string name="no_birthdays">Ulac imulliyin n tlalit i yettwaffen</string>
+    <string name="no_new_birthdays">Ulac imulliyin n tlalit imaynuten i yettwaffen</string>
+    <string name="birthdays_added">Imulliyin n tlalit ttwarnan akken iwata</string>
+    <string name="add_birthdays_automatically">Rnu imulliyin n tlalit imaynuten s wudem awarman</string>
+    <string name="anniversaries">Imulliyin</string>
+    <string name="add_anniversaries">Rnu imulliyin i unermis</string>
+    <string name="no_anniversaries">Ulac amulli yettwafen</string>
 </resources>
