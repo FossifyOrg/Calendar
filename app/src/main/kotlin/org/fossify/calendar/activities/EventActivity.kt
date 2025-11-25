@@ -19,6 +19,7 @@ import android.text.method.LinkMovementMethod
 import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.EditorInfo
+import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import androidx.core.graphics.drawable.toDrawable
@@ -230,6 +231,43 @@ class EventActivity : SimpleActivity() {
 
         val eventId = intent.getLongExtra(EVENT_ID, 0L)
         ensureBackgroundThread {
+            val eventTitleMap = eventsDB.getAllEvents()
+                .associateBy { it.title } as HashMap<String, Event>
+            binding.eventTitle.setOnItemClickListener { parent, view, position, id ->
+                val prev = eventTitleMap[parent.getItemAtPosition(position)]
+                binding.eventLocation.setText(prev!!.location)
+                binding.eventDescription.setText(prev.description)
+
+                binding.eventAllDay.isChecked = prev.getIsAllDay()
+                mEventEndDateTime = mEventStartDateTime.plus(prev.endTS - prev.startTS)
+
+                mReminder1Minutes = prev.reminder1Minutes
+                mReminder2Minutes = prev.reminder2Minutes
+                mReminder3Minutes = prev.reminder3Minutes
+
+                mReminder1Type = prev.reminder1Type
+                mReminder2Type = prev.reminder2Type
+                mReminder3Type = prev.reminder3Type
+
+                mAccessLevel = prev.accessLevel
+                mAvailability = prev.availability
+                mStatus = prev.status
+                mEventColor = prev.color
+
+                mAttendees = prev.attendees as ArrayList<Attendee>
+
+                mEventTypeId = prev.eventType
+
+                updateTexts()
+                updateEventType()
+                checkAttendees()
+            }
+
+            runOnUiThread {
+                val adapter = ArrayAdapter(this, R.layout.item_dropdown, eventTitleMap.keys.toList())
+                binding.eventTitle.setAdapter(adapter)
+            }
+
             mStoredEventTypes = eventTypesDB.getEventTypes().toMutableList() as ArrayList<EventType>
             val event = eventsDB.getEventWithId(eventId)
             if (eventId != 0L && event == null) {
