@@ -101,4 +101,26 @@
     <string name="anniversaries">Imulliyin</string>
     <string name="add_anniversaries">Rnu imulliyin i unermis</string>
     <string name="no_anniversaries">Ulac amulli yettwafen</string>
+    <string name="export_tasks">Sifeḍ tiwuriwin</string>
+    <string name="export_past_entries">Sifeḍ daɣen inekcam yezrin</string>
+    <string name="include_event_types">Seddu anawen n tedyant</string>
+    <string name="filename_without_ics">Isem n ufaylu (s war .ics)</string>
+    <string name="ignore_event_types">Zgel tawsit n tedyant deg ufaylu, seqdec yal tikelt amezwer</string>
+    <string name="location">Adig</string>
+    <string name="start_week_with_current_day">Bdu imalas s wass-a amiran</string>
+    <string name="event_types">Anawen n tedyant</string>
+    <string name="add_new_type">Rnu anaw amaynut</string>
+    <string name="edit_type">Ẓreg anaw</string>
+    <string name="type_already_exists">Anaw s uzwel-agi yella yakan</string>
+    <string name="regular_event">Tadyant talugant</string>
+    <string name="cannot_delete_default_type">Anaw amezwer n tedyant ulamek ara yettwakkes</string>
+    <string name="select_event_type">Fren anaw n tedyant</string>
+    <string name="move_events_into_default">Smutti tidyanin yettḥazen ɣer wanaw n tedyant tamezwert</string>
+    <string name="remove_affected_events">Kkes i lebda tidyanin yettuḥazen</string>
+    <string name="national_holidays">Imuras iɣelnawen</string>
+    <string name="public_holidays">Imuras izuyaz</string>
+    <string name="regional_holidays">Imuras n temnaḍt</string>
+    <string name="other_holidays">Imuras-nniḍen d tegnatin-nniḍen</string>
+    <string name="religious_holidays">Imuras n ddin</string>
+    <string name="select_holidays_to_import">Fren imuras ara d-ketreḍ</string>
 </resources>
