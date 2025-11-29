@@ -123,4 +123,53 @@
     <string name="other_holidays">Imuras-nniḍen d tegnatin-nniḍen</string>
     <string name="religious_holidays">Imuras n ddin</string>
     <string name="select_holidays_to_import">Fren imuras ara d-ketreḍ</string>
+    <string name="loop_reminders">Taneddict tesmektayt alama tettwazgel</string>
+    <string name="reminder_stream">Asuddem ameslaw yettusqedcen sɣur ismektiyen</string>
+    <string name="ring_stream">Aṭenṭen</string>
+    <string name="use_last_event_reminders">Seqdec ismektayen n tedyant taneggarut d tamezwert i tedyanin timaynutin</string>
+    <string name="default_reminder_1">Asmekti amezwer 1</string>
+    <string name="default_reminder_2">Asmekti amezwer 2</string>
+    <string name="default_reminder_3">Asmekti amezwer 3</string>
+    <string name="view_to_open_from_widget">Sken-d i wakken ad teldiḍ seg uwiǧit n wumuɣ n tedyant</string>
+    <string name="last_view">Taskant taneggarut</string>
+    <string name="new_events">Tidyanin timaynutin</string>
+    <string name="default_start_time">Akud amezwer n tnekra</string>
+    <string name="next_full_hour">Asrag ummid i d-itteddun</string>
+    <string name="current_time">Akud amiran</string>
+    <string name="default_duration">Tanzagt tamezwert</string>
+    <string name="last_used_one">Aneggaru yettwasqedcen</string>
+    <string name="other_time">Tikkelt nniḍen</string>
+    <string name="highlight_weekends">Sebrureq taggara n yimalas ɣef kra n teskanin</string>
+    <string name="no_synchronized_calendars">Ulac awitay n umtawi yettwafen</string>
+    <string name="fetching_event_failed">Awway n tedyant %s ur yeddi ara</string>
+    <string name="status_tentative">Aɛraḍ</string>
+    <string name="status_confirmed">Yettwasentem</string>
+    <string name="status_canceled">Yettwasefsex</string>
+    <string name="sample_description_1">Ass n uḍar</string>
+    <string name="sample_title_2">Timlilit akked john</string>
+    <string name="sample_title_3">Tamkarḍit</string>
+    <string name="sample_description_2">Deg tebḥirt n Rockstone</string>
+    <string name="sample_title_4">Imekli akked Mary</string>
+    <string name="sample_description_4">Deg Plaza</string>
+    <string name="sample_title_5">Akud n lqahwa</string>
+    <string name="show_events_happening">Sken tidyanin iḍerrun:</string>
+    <string name="within_the_next_one_year">Deg useggas i d-iteddun</string>
+    <string name="within_the_next">Syin ɣer zdat…</string>
+    <plurals name="within_the_next_days">
+        <item quantity="one">Deg %d wass i d-iteddun</item>
+        <item quantity="other">Deg %d wussan i d-iteddun</item>
+    </plurals>
+    <plurals name="within_the_next_weeks">
+        <item quantity="one">Deg %d imalas i d-iteddun</item>
+        <item quantity="other">Deg %d n yimalasen i d-iteddun</item>
+    </plurals>
+    <plurals name="within_the_next_months">
+        <item quantity="one">Deg %d waggur i d-iteddun</item>
+        <item quantity="other">Deg %d wagguren i d-iteddun</item>
+    </plurals>
+    <string name="show_widget_header">Sken inixef</string>
+    <string name="accessibility_previous_month">Ddu ɣer waggur yezrin</string>
+    <string name="accessibility_next_month">Ddu ɣer waggur ay d-yetteddun</string>
+    <string name="accessibility_previous_day">Ddu ɣer wass yezrin</string>
+    <string name="accessibility_next_day">Ddu ɣer wass i d-iteddun</string>
 </resources>
