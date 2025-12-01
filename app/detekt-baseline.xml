@@ -331,7 +331,6 @@
     <ID>MaxLineLength:EventListFragment.kt$EventListFragment$val lastPosition = (binding.calendarEventsList.layoutManager as MyLinearLayoutManager).findLastVisibleItemPosition()</ID>
     <ID>MaxLineLength:EventListWidgetAdapter.kt$EventListWidgetAdapter$if</ID>
     <ID>MaxLineLength:EventListWidgetAdapter.kt$EventListWidgetAdapter$}</ID>
-    <ID>MaxLineLength:EventWeeklyView.kt$EventWeeklyView</ID>
     <ID>MaxLineLength:EventsDao.kt$EventsDao$//val selection = "$COL_REMINDER_MINUTES != -1 AND ($COL_START_TS &gt; ? OR $COL_REPEAT_INTERVAL != 0) AND $COL_START_TS != 0"</ID>
     <ID>MaxLineLength:EventsDao.kt$EventsDao$@Query("SELECT * FROM events WHERE reminder_1_minutes != -1 AND (start_ts &gt; :currentTS OR repeat_interval != 0) AND start_ts != 0")</ID>
     <ID>MaxLineLength:EventsDao.kt$EventsDao$@Query("SELECT * FROM events WHERE start_ts &lt;= :toTS AND end_ts &gt;= :fromTS AND start_ts != 0 AND repeat_interval = 0 AND event_type IN (:eventTypeIds) AND (title LIKE :searchQuery OR location LIKE :searchQuery OR description LIKE :searchQuery)")</ID>
@@ -390,8 +389,6 @@
     <ID>MaxLineLength:MainActivity.kt$MainActivity$// private contacts are created in Simple Contacts Pro, so we can guarantee that they exist only in these 2 formats</ID>
     <ID>MaxLineLength:MainActivity.kt$MainActivity$binding.searchResultsList.smoothScrollBy(0, resources.getDimension(R.dimen.endless_scroll_move_height).toInt())</ID>
     <ID>MaxLineLength:MainActivity.kt$MainActivity$binding.swipeRefreshLayout.isEnabled = config.caldavSync &amp;&amp; config.pullToRefresh &amp;&amp; config.storedView != WEEKLY_VIEW</ID>
-    <ID>MaxLineLength:MainActivity.kt$MainActivity$config.storedView == WEEKLY_VIEW &amp;&amp; (dayCode?.length == Formatter.DAYCODE_PATTERN.length) -&gt; getFirstDayOfWeek(Formatter.getDateTimeFromCode(dayCode))</ID>
-    <ID>MaxLineLength:MainActivity.kt$MainActivity$config.storedView == YEARLY_VIEW &amp;&amp; (dayCode?.length == Formatter.DAYCODE_PATTERN.length) -&gt; Formatter.getYearFromDayCode(dayCode)</ID>
     <ID>MaxLineLength:MainActivity.kt$MainActivity$faqItems.add(FAQItem(org.fossify.commons.R.string.faq_2_title_commons, org.fossify.commons.R.string.faq_2_text_commons))</ID>
     <ID>MaxLineLength:MainActivity.kt$MainActivity$faqItems.add(FAQItem(org.fossify.commons.R.string.faq_6_title_commons, org.fossify.commons.R.string.faq_6_text_commons))</ID>
     <ID>MaxLineLength:MainActivity.kt$MainActivity$faqItems.add(FAQItem(org.fossify.commons.R.string.faq_7_title_commons, org.fossify.commons.R.string.faq_7_text_commons))</ID>
@@ -502,7 +499,6 @@
     <ID>MaxLineLength:WeekFragment.kt$WeekFragment$scrollView.layoutParams.height = fullHeight - res.getDimension(org.fossify.commons.R.dimen.one_dp).toInt()</ID>
     <ID>MaxLineLength:WeekFragment.kt$WeekFragment$val (eventId, originalStartTS, originalEndTS) = dragEvent.clipData.getItemAt(0).text.toString().split(";").map { it.toLong() }</ID>
     <ID>MaxLineLength:WeekFragment.kt$WeekFragment$val clipData = ClipData.newPlainText(WEEKLY_EVENT_ID_LABEL, "${event.id};${event.startTS};${event.endTS}")</ID>
-    <ID>MaxLineLength:WeekFragment.kt$WeekFragment$val collisionEventWeeklyViews = eventDayList.filter { eventWeeklyView.collisions.contains(it.key) }</ID>
     <ID>MaxLineLength:WeekFragment.kt$WeekFragment$val dayOfWeek = dayColumns.indexOfFirst { it.tag.toInt() == dayCodeStart || it.tag.toInt() in (dayCodeStart + 1)..dayCodeEnd }</ID>
     <ID>MaxLineLength:WeekFragment.kt$WeekFragment$val isRowValidForEvent = lastEvent == null || firstEventRowIdx!! + repeatingEventIndex == index &amp;&amp; lastEventRowIdx!! &lt; index</ID>
     <ID>MaxLineLength:WeekFragment.kt$WeekFragment$val isStartTimeDay = Formatter.getDateTimeFromTS(maxTS) == Formatter.getDateTimeFromTS(maxTS).withTimeAtStartOfDay()</ID>
