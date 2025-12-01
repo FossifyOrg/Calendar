@@ -210,4 +210,13 @@
     <string name="delete_all_events">Kkes akk tidyanin</string>
     <string name="delete_all_events_and_tasks">Kkes akk tidyanin akked twuriwin</string>
     <string name="delete_all_events_confirmation">Tebɣiḍ ad tekkseḍ akk tidyanin akked twuriwin ? Aya ad yeǧǧ tawsit-ik n tedyant akked iɣewwaṛen-nniḍen akken llan.</string>
+    <string name="insufficient_permissions">Ur tesɛiḍ ara urag ad taruḍ deg uwitay yettwafernen</string>
+    <string name="caldav_event_not_found">Ulac tadyant. Ma ulac aɣilif, rmed CalDAV sync i uwitay ilaqen deg iɣewwaṛen n usnas.</string>
+    <string name="status_free">Ilelli</string>
+    <string name="allow_alarms_reminders">Ilaq ad tsiregeḍ asnas i tingedwiyin n usmekti akken ad yeddu akken iwata.</string>
+    <string name="faq_3_title">Ttwaliɣ ismektiyen umaẓraw, maca ur selleɣ ara i yimesli. D acu i zemreɣ ad t-xedmeɣ ?</string>
+    <string name="faq_4_title">Asnas yessefrak timennaḍin n wakud?</string>
+    <string name="faq_5_title">Asnas-agi ur d-yeskanay ara tilɣa, ayɣer?</string>
+    <string name="faq_6_title">Amek ara beddleɣ neɣ ad kkseɣ anaw n tedyant yellan?</string>
+    <string name="faq_6_text">Tzemreḍ ad txedmeḍ deg sin-nni deg yiɣewwaren n usnas - Sefrek anawen n tedyant. Sit kan ɣef win tebɣiḍ i wakken ad beddleḍ tabzimt neɣ ini, neɣ fren win tebɣiḍ s usiti ɣezzifen fell-as u seqdec taqecwalt n uḍummu deg umuɣ ufella i tukksa.</string>
 </resources>
