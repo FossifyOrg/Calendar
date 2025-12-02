@@ -219,4 +219,18 @@
     <string name="faq_5_title">Asnas-agi ur d-yeskanay ara tilɣa, ayɣer?</string>
     <string name="faq_6_title">Amek ara beddleɣ neɣ ad kkseɣ anaw n tedyant yellan?</string>
     <string name="faq_6_text">Tzemreḍ ad txedmeḍ deg sin-nni deg yiɣewwaren n usnas - Sefrek anawen n tedyant. Sit kan ɣef win tebɣiḍ i wakken ad beddleḍ tabzimt neɣ ini, neɣ fren win tebɣiḍ s usiti ɣezzifen fell-as u seqdec taqecwalt n uḍummu deg umuɣ ufella i tukksa.</string>
+    <string name="reminder">Asmekti</string>
+    <string name="add_another_reminder">Rnu asmektay-nniḍen</string>
+    <string name="event_reminders">Ismektiyen n tedyant</string>
+    <string name="my_status">Addad-iw:</string>
+    <string name="invited">Yettwaɛreḍ</string>
+    <string name="enter_a_country">Sekcem tamurt neɣ tamnaḍt n wakud</string>
+    <string name="import_events">Kter tidyanin</string>
+    <string name="export_events">Sifeḍ tidyanin</string>
+    <string name="import_events_from_ics">Kter tidyanin seg ufaylu n .ics</string>
+    <string name="import_events_from_ics_pro">Kter tidyanin seg ufaylu n .ics (Pro)</string>
+    <string name="export_events_to_ics">Sifeḍ tidyanin ɣer ufaylu n .ics</string>
+    <string name="default_event_type">Anaw amezwer n tedyant</string>
+    <string name="export_past_events_too">Sifeḍ tidyanin iɛeddan daɣen</string>
+    <string name="add_another_attendee">Rnu amttekki nniḍen</string>
 </resources>
