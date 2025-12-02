@@ -46,6 +46,7 @@ import org.fossify.calendar.extensions.config
 import org.fossify.calendar.extensions.eventTypesDB
 import org.fossify.calendar.extensions.eventsDB
 import org.fossify.calendar.extensions.eventsHelper
+import org.fossify.calendar.extensions.getNewEventTimestampFromCode
 import org.fossify.calendar.extensions.getRepetitionText
 import org.fossify.calendar.extensions.getShortDaysFromBitmask
 import org.fossify.calendar.extensions.isXMonthlyRepetition
@@ -711,6 +712,17 @@ class EventActivity : SimpleActivity() {
         } else {
             mEventStartDateTime = Formatter.getDateTimeFromTS(realStart)
             mEventEndDateTime = Formatter.getDateTimeFromTS(realStart + duration)
+        }
+
+        // If editing an all-day event, set default times so when user disables all-day,
+        // the event uses proper default start time and duration while making sure to preserve the correct end date
+        if (mEvent.getIsAllDay()) {
+            val defaultStartTS = getNewEventTimestampFromCode(Formatter.getDayCodeFromDateTime(mEventStartDateTime))
+            val defaultStartTime = Formatter.getDateTimeFromTS(defaultStartTS)
+            val defaultDurationMinutes = config.defaultDuration
+            val endTime = defaultStartTime.plusMinutes(defaultDurationMinutes)
+            mEventStartDateTime = mEventStartDateTime.withTime(defaultStartTime.hourOfDay, defaultStartTime.minuteOfHour, 0, 0)
+            mEventEndDateTime = mEventEndDateTime.withTime(endTime.hourOfDay, endTime.minuteOfHour, 0, 0)
         }
 
         binding.eventTitle.setText(mEvent.title)
