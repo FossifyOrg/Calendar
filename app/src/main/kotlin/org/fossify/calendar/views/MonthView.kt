@@ -449,7 +449,7 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
     }
 
     private fun initWeekDayLetters() {
-        dayLetters = context.withFirstDayOfWeekToFront(context.resources.getStringArray(org.fossify.commons.R.array.week_day_letters).toList())
+        dayLetters = context.withFirstDayOfWeekToFront(context.resources.getStringArray(org.fossify.commons.R.array.week_days_short).toList())
     }
 
     private fun setupCurrentDayOfWeekIndex() {

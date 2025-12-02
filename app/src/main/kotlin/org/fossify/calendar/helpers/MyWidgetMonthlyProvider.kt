@@ -236,7 +236,7 @@ class MyWidgetMonthlyProvider : AppWidgetProvider() {
         val firstDayOfWeek = config.firstDayOfWeek
         val smallerFontSize = context.getWidgetFontSize()
         val packageName = context.packageName
-        val letters = context.resources.getStringArray(org.fossify.commons.R.array.week_day_letters)
+        val letters = context.resources.getStringArray(org.fossify.commons.R.array.week_days_short)
 
         for (i in 0..6) {
             val id = resources.getIdentifier("label_$i", "id", packageName)
