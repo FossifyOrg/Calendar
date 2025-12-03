@@ -102,7 +102,7 @@ object Formatter {
 
     fun getDateFromTS(ts: Long) = LocalDate(ts * 1000L, DateTimeZone.getDefault())
 
-    fun getDateTimeFromTS(ts: Long) = DateTime(ts * 1000L, DateTimeZone.getDefault())
+    fun getDateTimeFromTS(ts: Long, tz: DateTimeZone = DateTimeZone.getDefault()) = DateTime(ts * 1000L, tz)
 
     fun getUTCDateTimeFromTS(ts: Long) = DateTime(ts * 1000L, DateTimeZone.UTC)
 
@@ -120,8 +120,8 @@ object Formatter {
         return "${dateTime.toString(DAYCODE_PATTERN)}T${dateTime.toString(TIME_PATTERN)}Z"
     }
 
-    fun getDayCodeFromTS(ts: Long): String {
-        val daycode = getDateTimeFromTS(ts).toString(DAYCODE_PATTERN)
+    fun getDayCodeFromTS(ts: Long, tz: DateTimeZone = DateTimeZone.getDefault()): String {
+        val daycode = getDateTimeFromTS(ts, tz).toString(DAYCODE_PATTERN)
         return if (daycode.isNotEmpty()) {
             daycode
         } else {

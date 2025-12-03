@@ -14,6 +14,7 @@ import org.fossify.calendar.models.Event
 import org.fossify.commons.extensions.toast
 import org.fossify.commons.extensions.writeLn
 import org.fossify.commons.helpers.ensureBackgroundThread
+import org.joda.time.DateTimeZone
 import java.io.BufferedWriter
 import java.io.OutputStream
 import java.io.OutputStreamWriter
@@ -159,8 +160,13 @@ class IcsExporter(private val context: Context) {
             event.location.let { if (it.isNotEmpty()) writeLn("$LOCATION:$it") }
 
             if (event.getIsAllDay()) {
-                writeLn("$DTSTART;$VALUE=$DATE:${Formatter.getDayCodeFromTS(event.startTS)}")
-                writeLn("$DTEND;$VALUE=$DATE:${Formatter.getDayCodeFromTS(event.endTS + TWELVE_HOURS)}")
+                val tz = try {
+                    DateTimeZone.forID(event.timeZone)
+                } catch (ignored: IllegalArgumentException) {
+                    DateTimeZone.getDefault()
+                }
+                writeLn("$DTSTART;$VALUE=$DATE:${Formatter.getDayCodeFromTS(event.startTS, tz)}")
+                writeLn("$DTEND;$VALUE=$DATE:${Formatter.getDayCodeFromTS(event.endTS + TWELVE_HOURS, tz)}")
             } else {
                 writeLn("$DTSTART:${Formatter.getExportedTime(event.startTS * 1000L)}")
                 writeLn("$DTEND:${Formatter.getExportedTime(event.endTS * 1000L)}")
