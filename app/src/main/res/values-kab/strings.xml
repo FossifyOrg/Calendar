@@ -233,4 +233,17 @@
     <string name="default_event_type">Anaw amezwer n tedyant</string>
     <string name="export_past_events_too">Sifeḍ tidyanin iɛeddan daɣen</string>
     <string name="add_another_attendee">Rnu amttekki nniḍen</string>
+    <string name="holidays_imported_successfully">Imuras ttwaketren-d akken iwata deg wanaw n tedyant \"imuras\"</string>
+    <string name="importing_some_holidays_failed">Akter n kra n tedyanin ur yeddi ara</string>
+    <string name="importing_holidays_failed">Akter n yimuras ur yeddi ara</string>
+    <string name="manage_event_types">Sefrek anawen n tedyant</string>
+    <string name="caldav_sync">Amtawi CalDAV</string>
+    <string name="show_a_grid">Sken taferrugt</string>
+    <string name="dim_past_events">Tidyanin iɛeddan</string>
+    <string name="dim_completed_tasks">Tiwuriwin immeden</string>
+    <string name="highlight_weekends_color">Ini n taggara n ddurt yettusebrurqen</string>
+    <string name="allow_changing_time_zones">Sireg asnifel n temnaḍt n wakud n tedyant</string>
+    <string name="manage_quick_filter_event_types">Sefrek anaw n tedyant arurad n usizdeg</string>
+    <string name="allow_creating_tasks">Sireg timerna n twuriwin</string>
+    <string name="faq_1_text">Imuras ttwasnulfan-d s waya deg yiwen n wanaw n tedyant tamaynut umi semman \"Imuras\". Tzemreḍ ad tkecmeḍ ɣer iɣewwaṛen -&gt; Sefrek anawen n uneḍru, sit ɣezzifen ɣef wanaw n tedyant i d-ittunefken syin kkes-it s ufran n tqecwalt n uḍummu.</string>
 </resources>
