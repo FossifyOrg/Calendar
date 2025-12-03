@@ -160,8 +160,13 @@ class IcsExporter(private val context: Context) {
             event.location.let { if (it.isNotEmpty()) writeLn("$LOCATION:$it") }
 
             if (event.getIsAllDay()) {
-                writeLn("$DTSTART;$VALUE=$DATE:${Formatter.getDayCodeFromTS(event.startTS, DateTimeZone.forID(event.timeZone))}")
-                writeLn("$DTEND;$VALUE=$DATE:${Formatter.getDayCodeFromTS(event.endTS + TWELVE_HOURS, DateTimeZone.forID(event.timeZone))}")
+                val tz = try {
+                    DateTimeZone.forID(event.timeZone)
+                } catch (ignored: IllegalArgumentException) {
+                    DateTimeZone.getDefault()
+                }
+                writeLn("$DTSTART;$VALUE=$DATE:${Formatter.getDayCodeFromTS(event.startTS, tz)}")
+                writeLn("$DTEND;$VALUE=$DATE:${Formatter.getDayCodeFromTS(event.endTS + TWELVE_HOURS, tz)}")
             } else {
                 writeLn("$DTSTART:${Formatter.getExportedTime(event.startTS * 1000L)}")
                 writeLn("$DTEND:${Formatter.getExportedTime(event.endTS * 1000L)}")
