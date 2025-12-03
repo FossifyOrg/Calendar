@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- Converting all-day events to timed events now respects default start time and duration ([#917])
 
 ## [1.8.1] - 2025-11-09
 ### Changed
@@ -188,6 +190,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#818]: https://github.com/FossifyOrg/Calendar/issues/818
 [#826]: https://github.com/FossifyOrg/Calendar/issues/826
 [#870]: https://github.com/FossifyOrg/Calendar/issues/870
+[#917]: https://github.com/FossifyOrg/Calendar/issues/917
 
 [Unreleased]: https://github.com/FossifyOrg/Calendar/compare/1.8.1...HEAD
 [1.8.1]: https://github.com/FossifyOrg/Calendar/compare/1.8.0...1.8.1
