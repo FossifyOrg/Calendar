@@ -721,8 +721,18 @@ class EventActivity : SimpleActivity() {
             val defaultStartTime = Formatter.getDateTimeFromTS(defaultStartTS)
             val defaultDurationMinutes = config.defaultDuration
             val endTime = defaultStartTime.plusMinutes(defaultDurationMinutes)
-            mEventStartDateTime = mEventStartDateTime.withTime(defaultStartTime.hourOfDay, defaultStartTime.minuteOfHour, 0, 0)
-            mEventEndDateTime = mEventEndDateTime.withTime(endTime.hourOfDay, endTime.minuteOfHour, 0, 0)
+            mEventStartDateTime = mEventStartDateTime.withTime(
+                defaultStartTime.hourOfDay,
+                defaultStartTime.minuteOfHour,
+                0,
+                0
+            )
+            mEventEndDateTime = mEventEndDateTime.withTime(
+                endTime.hourOfDay,
+                endTime.minuteOfHour,
+                0,
+                0
+            )
         }
 
         binding.eventTitle.setText(mEvent.title)
