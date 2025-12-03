@@ -7,9 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Changed
 - Use weekday abbreviations instead of single char weekday identifiers ([#103])
-
-### Fixed
-- uses default start time and duration also on disabling all-day flag of existing event ([#917])
+- Converting all-day events to timed events now respects default start time and duration ([#917])
 
 ## [1.8.1] - 2025-11-09
 ### Changed
