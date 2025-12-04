@@ -1,0 +1,5 @@
+Changed:
+
+• Use weekday abbreviations instead of single char weekday identifiers 
+• Updated translations
+
