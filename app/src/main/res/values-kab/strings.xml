@@ -246,4 +246,16 @@
     <string name="manage_quick_filter_event_types">Sefrek anaw n tedyant arurad n usizdeg</string>
     <string name="allow_creating_tasks">Sireg timerna n twuriwin</string>
     <string name="faq_1_text">Imuras ttwasnulfan-d s waya deg yiwen n wanaw n tedyant tamaynut umi semman \"Imuras\". Tzemreḍ ad tkecmeḍ ɣer iɣewwaṛen -&gt; Sefrek anawen n uneḍru, sit ɣezzifen ɣef wanaw n tedyant i d-ittunefken syin kkes-it s ufran n tqecwalt n uḍummu.</string>
+    <string name="faq_2_title_extra">Ahat ad tebḍuḍ ula d awitay akked medden nniḍen?</string>
+    <string name="faq_2_text">Ih, rmed kan \"Amtawi n CalDAV\" deg iɣewwaṛen n usnas sakin fren awitay ara yemtawi. D acu kan, ad teḥwiǧeḍ kra n usnas wis kraḍ deg umtawi gar yibenk d yiqeddacen. Ma tebɣiḍ ad temtawi d uwitay n Google, Asnas-nsen unṣib ad yeg axeddim. I uwitayen nniḍen, ad teḥwiǧeḍ amtawi n wis kraḍ, amedya DAVx5.</string>
+    <string name="going">iteddun</string>
+    <string name="not_going">ur iteddu ara</string>
+    <string name="maybe_going">ahat iteddu</string>
+    <string name="unsync_caldav_calendar">Iwakken ad tekkseḍ awitay CalDAVAV issefk ad t-tekkseḍ amtawi-s</string>
+    <string name="select_caldav_calendars">Fren awitay ara yemtawi</string>
+    <string name="manage_synced_calendars">Sefrek iwitayen yemtawin</string>
+    <string name="store_locally_only">Sekles kan s wudem adigan</string>
+    <string name="refresh_caldav_calendars">Smiren iwitayen CalDAV</string>
+    <string name="refreshing">Asmiren…</string>
+    <string name="refreshing_complete">Asmiren yemmed</string>
 </resources>
