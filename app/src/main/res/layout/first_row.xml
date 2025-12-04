@@ -23,7 +23,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:text="@string/monday_letter" />
+        android:text="@string/monday_short" />
 
     <org.fossify.commons.views.MyTextView
         android:id="@+id/label_1"
@@ -31,7 +31,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:text="@string/tuesday_letter" />
+        android:text="@string/tuesday_short" />
 
     <org.fossify.commons.views.MyTextView
         android:id="@+id/label_2"
@@ -39,7 +39,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:text="@string/wednesday_letter" />
+        android:text="@string/wednesday_short" />
 
     <org.fossify.commons.views.MyTextView
         android:id="@+id/label_3"
@@ -47,7 +47,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:text="@string/thursday_letter" />
+        android:text="@string/thursday_short" />
 
     <org.fossify.commons.views.MyTextView
         android:id="@+id/label_4"
@@ -55,7 +55,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:text="@string/friday_letter" />
+        android:text="@string/friday_short" />
 
     <org.fossify.commons.views.MyTextView
         android:id="@+id/label_5"
@@ -63,7 +63,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:text="@string/saturday_letter" />
+        android:text="@string/saturday_short" />
 
     <org.fossify.commons.views.MyTextView
         android:id="@+id/label_6"
@@ -71,6 +71,6 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:text="@string/sunday_letter" />
+        android:text="@string/sunday_short" />
 
 </LinearLayout>
