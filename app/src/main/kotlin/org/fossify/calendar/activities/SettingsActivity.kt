@@ -32,7 +32,6 @@ import java.util.Locale
 import kotlin.system.exitProcess
 
 class SettingsActivity : SimpleActivity() {
-    private val GET_RINGTONE_URI = 1
     private val PICK_SETTINGS_IMPORT_SOURCE_INTENT = 2
     private val PICK_EVENTS_IMPORT_SOURCE_INTENT = 3
     private val PICK_EVENTS_EXPORT_FILE_INTENT = 4
@@ -79,8 +78,6 @@ class SettingsActivity : SimpleActivity() {
         setupMidnightSpanEvents()
         setupAllowCustomizeDayCount()
         setupStartWeekWithCurrentDay()
-        setupVibrate()
-        setupReminderSound()
         setupReminderAudioStream()
         setupUseSameSnooze()
         setupLoopReminders()
@@ -145,15 +142,12 @@ class SettingsActivity : SimpleActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
         super.onActivityResult(requestCode, resultCode, resultData)
-        if (requestCode == GET_RINGTONE_URI && resultCode == RESULT_OK && resultData != null) {
-            val newAlarmSound = storeNewYourAlarmSound(resultData)
-            updateReminderSound(newAlarmSound)
-        } else if (requestCode == PICK_SETTINGS_IMPORT_SOURCE_INTENT && resultCode == Activity.RESULT_OK && resultData != null && resultData.data != null) {
+        if (requestCode == PICK_SETTINGS_IMPORT_SOURCE_INTENT && resultCode == RESULT_OK && resultData != null && resultData.data != null) {
             val inputStream = contentResolver.openInputStream(resultData.data!!)
             parseFile(inputStream)
-        } else if (requestCode == PICK_EVENTS_IMPORT_SOURCE_INTENT && resultCode == Activity.RESULT_OK && resultData != null && resultData.data != null) {
+        } else if (requestCode == PICK_EVENTS_IMPORT_SOURCE_INTENT && resultCode == RESULT_OK && resultData != null && resultData.data != null) {
             tryImportEventsFromFile(resultData.data!!)
-        } else if (requestCode == PICK_EVENTS_EXPORT_FILE_INTENT && resultCode == Activity.RESULT_OK && resultData != null && resultData.data != null) {
+        } else if (requestCode == PICK_EVENTS_EXPORT_FILE_INTENT && resultCode == RESULT_OK && resultData != null && resultData.data != null) {
             val outputStream = contentResolver.openOutputStream(resultData.data!!)
             exportEventsTo(eventTypesToExport, outputStream)
         }
@@ -476,40 +470,6 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
-    @Deprecated("Not used on Oreo+ devices")
-    private fun setupReminderSound() = binding.apply {
-        settingsReminderSoundHolder.beGoneIf(isOreoPlus())
-        settingsReminderSound.text = config.reminderSoundTitle
-
-        settingsReminderSoundHolder.setOnClickListener {
-            SelectAlarmSoundDialog(
-                this@SettingsActivity,
-                config.reminderSoundUri,
-                config.reminderAudioStream,
-                GET_RINGTONE_URI,
-                RingtoneManager.TYPE_NOTIFICATION,
-                false,
-                onAlarmPicked = {
-                    if (it != null) {
-                        updateReminderSound(it)
-                    }
-                },
-                onAlarmSoundDeleted = {
-                    if (it.uri == config.reminderSoundUri) {
-                        val defaultAlarm = getDefaultAlarmSound(RingtoneManager.TYPE_NOTIFICATION)
-                        updateReminderSound(defaultAlarm)
-                    }
-                })
-        }
-    }
-
-    @Deprecated("Not used on Oreo+ devices")
-    private fun updateReminderSound(alarmSound: AlarmSound) {
-        config.reminderSoundTitle = alarmSound.title
-        config.reminderSoundUri = alarmSound.uri
-        binding.settingsReminderSound.text = alarmSound.title
-    }
-
     private fun setupReminderAudioStream() = binding.apply {
         settingsReminderAudioStream.text = getAudioStreamText()
         settingsReminderAudioStreamHolder.setOnClickListener {
@@ -535,14 +495,6 @@ class SettingsActivity : SimpleActivity() {
             else -> R.string.ring_stream
         }
     )
-
-    private fun setupVibrate() = binding.apply {
-        settingsVibrate.isChecked = config.vibrateOnReminder
-        settingsVibrateHolder.setOnClickListener {
-            settingsVibrate.toggle()
-            config.vibrateOnReminder = settingsVibrate.isChecked
-        }
-    }
 
     private fun setupLoopReminders() = binding.apply {
         settingsLoopReminders.isChecked = config.loopReminders
@@ -943,7 +895,6 @@ class SettingsActivity : SimpleActivity() {
                 put(SHOW_MIDNIGHT_SPANNING_EVENTS_AT_TOP, config.showMidnightSpanningEventsAtTop)
                 put(ALLOW_CUSTOMIZE_DAY_COUNT, config.allowCustomizeDayCount)
                 put(START_WEEK_WITH_CURRENT_DAY, config.startWeekWithCurrentDay)
-                put(VIBRATE, config.vibrateOnReminder)
                 put(LAST_EVENT_REMINDER_MINUTES, config.lastEventReminderMinutes1)
                 put(LAST_EVENT_REMINDER_MINUTES_2, config.lastEventReminderMinutes2)
                 put(LAST_EVENT_REMINDER_MINUTES_3, config.lastEventReminderMinutes3)
@@ -1053,7 +1004,6 @@ class SettingsActivity : SimpleActivity() {
                 SHOW_MIDNIGHT_SPANNING_EVENTS_AT_TOP -> config.showMidnightSpanningEventsAtTop = value.toBoolean()
                 ALLOW_CUSTOMIZE_DAY_COUNT -> config.allowCustomizeDayCount = value.toBoolean()
                 START_WEEK_WITH_CURRENT_DAY -> config.startWeekWithCurrentDay = value.toBoolean()
-                VIBRATE -> config.vibrateOnReminder = value.toBoolean()
                 LAST_EVENT_REMINDER_MINUTES -> config.lastEventReminderMinutes1 = value.toInt()
                 LAST_EVENT_REMINDER_MINUTES_2 -> config.lastEventReminderMinutes2 = value.toInt()
                 LAST_EVENT_REMINDER_MINUTES_3 -> config.lastEventReminderMinutes3 = value.toInt()
