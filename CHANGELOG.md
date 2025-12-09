@@ -6,11 +6,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Changed
-- Use weekday abbreviations instead of single char weekday identifiers ([#103])
-- Converting all-day events to timed events now respects default start time and duration ([#917])
+- Weekday labels now use three-letter abbreviations instead of single letters ([#103])
+- Converting all-day events to timed events now respects the default start time and duration ([#917])
 
 ### Fixed
-- Fixed crashes and freezing affecting some devices ([#889])
+- Fixed crashes and freezing on some devices ([#889])
 
 ## [1.8.1] - 2025-11-09
 ### Changed
