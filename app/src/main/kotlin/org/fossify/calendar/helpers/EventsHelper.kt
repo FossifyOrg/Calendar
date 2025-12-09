@@ -111,7 +111,15 @@ class EventsHelper(val context: Context) {
         }
     }
 
-    fun insertEvent(event: Event, addToCalDAV: Boolean, showToasts: Boolean, enableEventType: Boolean = true, eventOccurrenceTS: Long? = null, callback: ((id: Long) -> Unit)? = null) {
+    fun insertEvent(
+        event: Event,
+        addToCalDAV: Boolean,
+        showToasts: Boolean,
+        enableEventType: Boolean = true,
+        eventOccurrenceTS: Long? = null,
+        updateWidgets: Boolean = true,
+        callback: ((id: Long) -> Unit)? = null
+    ) {
         if (event.startTS > event.endTS) {
             callback?.invoke(0)
             return
@@ -119,7 +127,7 @@ class EventsHelper(val context: Context) {
 
         event.id = eventsDB.insertOrUpdate(event)
         ensureEventTypeVisibility(event, enableEventType)
-        context.updateWidgets()
+        if (updateWidgets) context.updateWidgets()
         context.scheduleNextEventReminder(event, showToasts)
 
         if (addToCalDAV && config.caldavSync && event.source != SOURCE_SIMPLE_CALENDAR && event.source != SOURCE_IMPORTED_ICS) {
@@ -157,10 +165,17 @@ class EventsHelper(val context: Context) {
         }
     }
 
-    fun updateEvent(event: Event, updateAtCalDAV: Boolean, showToasts: Boolean, enableEventType: Boolean = true, callback: (() -> Unit)? = null) {
+    fun updateEvent(
+        event: Event,
+        updateAtCalDAV: Boolean,
+        showToasts: Boolean,
+        enableEventType: Boolean = true,
+        updateWidgets: Boolean = true,
+        callback: (() -> Unit)? = null
+    ) {
         eventsDB.insertOrUpdate(event)
         ensureEventTypeVisibility(event, enableEventType)
-        context.updateWidgets()
+        if (updateWidgets) context.updateWidgets()
         context.scheduleNextEventReminder(event, showToasts)
         if (updateAtCalDAV && event.source != SOURCE_SIMPLE_CALENDAR && config.caldavSync) {
             context.calDAVHelper.updateCalDAVEvent(event)
@@ -255,9 +270,15 @@ class EventsHelper(val context: Context) {
         }
     }
 
-    fun deleteEvent(id: Long, deleteFromCalDAV: Boolean) = deleteEvents(arrayListOf(id), deleteFromCalDAV)
+    fun deleteEvent(id: Long, deleteFromCalDAV: Boolean, updateWidgets: Boolean = true) {
+        deleteEvents(arrayListOf(id), deleteFromCalDAV, updateWidgets)
+    }
 
-    fun deleteEvents(ids: MutableList<Long>, deleteFromCalDAV: Boolean) {
+    fun deleteEvents(
+        ids: MutableList<Long>,
+        deleteFromCalDAV: Boolean,
+        updateWidgets: Boolean = true
+    ) {
         if (ids.isEmpty()) {
             return
         }
@@ -277,15 +298,19 @@ class EventsHelper(val context: Context) {
                 }
             }
 
-            deleteChildEvents(it as MutableList<Long>, deleteFromCalDAV)
-            context.updateWidgets()
+            deleteChildEvents(it as MutableList<Long>, deleteFromCalDAV, updateWidgets)
+            if (updateWidgets) context.updateWidgets()
         }
     }
 
-    private fun deleteChildEvents(ids: List<Long>, deleteFromCalDAV: Boolean) {
+    private fun deleteChildEvents(
+        ids: List<Long>,
+        deleteFromCalDAV: Boolean,
+        updateWidgets: Boolean = true
+    ) {
         val childIds = eventsDB.getEventIdsWithParentIds(ids).toMutableList()
         if (childIds.isNotEmpty()) {
-            deleteEvents(childIds, deleteFromCalDAV)
+            deleteEvents(childIds, deleteFromCalDAV, updateWidgets)
         }
     }
 
