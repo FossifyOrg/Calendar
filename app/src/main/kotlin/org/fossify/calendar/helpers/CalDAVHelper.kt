@@ -20,6 +20,7 @@ import org.fossify.calendar.extensions.refreshCalDAVCalendars
 import org.fossify.calendar.extensions.scheduleCalDAVSync
 import org.fossify.calendar.extensions.toLocalAllDayEvent
 import org.fossify.calendar.extensions.toUtcAllDayEvent
+import org.fossify.calendar.extensions.updateWidgets
 import org.fossify.calendar.models.Attendee
 import org.fossify.calendar.models.CalDAVCalendar
 import org.fossify.calendar.models.Event
@@ -76,6 +77,7 @@ class CalDAVHelper(val context: Context) {
 
             callback()
         } finally {
+            context.updateWidgets()
             isUpdatingCalDAV = false
         }
     }
@@ -307,7 +309,8 @@ class CalDAVHelper(val context: Context) {
                             event = parentEvent,
                             addToCalDAV = false,
                             showToasts = false,
-                            enableEventType = false
+                            enableEventType = false,
+                            updateWidgets = false
                         )
                     }
 
@@ -322,13 +325,18 @@ class CalDAVHelper(val context: Context) {
                             event = event,
                             addToCalDAV = false,
                             showToasts = false,
-                            enableEventType = false
+                            enableEventType = false,
+                            updateWidgets = false
                         )
                     } else {
                         // delete the deleted exception event from local db
                         val storedEventId = context.eventsDB.getEventIdWithImportId(importId)
                         if (storedEventId != null) {
-                            eventsHelper.deleteEvent(storedEventId, true)
+                            eventsHelper.deleteEvent(
+                                id = storedEventId,
+                                deleteFromCalDAV = true,
+                                updateWidgets = false
+                            )
                         }
                     }
 
@@ -378,7 +386,8 @@ class CalDAVHelper(val context: Context) {
                         event = event,
                         updateAtCalDAV = false,
                         showToasts = false,
-                        enableEventType = false
+                        enableEventType = false,
+                        updateWidgets = false
                     )
                 }
             } else {
@@ -388,7 +397,8 @@ class CalDAVHelper(val context: Context) {
                         event = event,
                         addToCalDAV = false,
                         showToasts = false,
-                        enableEventType = false
+                        enableEventType = false,
+                        updateWidgets = false
                     )
                 }
             }
@@ -404,7 +414,11 @@ class CalDAVHelper(val context: Context) {
             }
         }
 
-        eventsHelper.deleteEvents(eventIdsToDelete.toMutableList(), false)
+        eventsHelper.deleteEvents(
+            ids = eventIdsToDelete.toMutableList(),
+            deleteFromCalDAV = false,
+            updateWidgets = false
+        )
     }
 
     @SuppressLint("MissingPermission")
