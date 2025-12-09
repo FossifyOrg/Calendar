@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Changed
-- Weekday labels now use three-letter abbreviations instead of single characters ([#103])
+- Weekday labels now use three-letter abbreviations instead of single letters ([#103])
 - Converting all-day events to timed events now respects the default start time and duration ([#917])
 
 ### Fixed
