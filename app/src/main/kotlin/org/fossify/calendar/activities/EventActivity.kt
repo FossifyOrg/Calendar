@@ -46,6 +46,7 @@ import org.fossify.calendar.extensions.config
 import org.fossify.calendar.extensions.eventTypesDB
 import org.fossify.calendar.extensions.eventsDB
 import org.fossify.calendar.extensions.eventsHelper
+import org.fossify.calendar.extensions.getNewEventTimestampFromCode
 import org.fossify.calendar.extensions.getRepetitionText
 import org.fossify.calendar.extensions.getShortDaysFromBitmask
 import org.fossify.calendar.extensions.isXMonthlyRepetition
@@ -205,6 +206,7 @@ class EventActivity : SimpleActivity() {
     private var mOriginalEndTS = 0L
     private var mIsNewEvent = true
     private var mEventColor = 0
+    private var mConvertedFromOriginalAllDay = false
 
     private lateinit var mEventStartDateTime: DateTime
     private lateinit var mEventEndDateTime: DateTime
@@ -1542,6 +1544,33 @@ class EventActivity : SimpleActivity() {
 
     private fun toggleAllDay(isAllDay: Boolean) {
         hideKeyboard()
+
+        // when converting from all-day to timed for the first time,
+        // set default start time and duration to avoid spanning into next day
+        if (!isAllDay && mEvent.getIsAllDay() && !mConvertedFromOriginalAllDay) {
+            val defaultStartTS = getNewEventTimestampFromCode(Formatter.getDayCodeFromDateTime(mEventStartDateTime))
+            val defaultStartTime = Formatter.getDateTimeFromTS(defaultStartTS)
+            val defaultDurationMinutes = config.defaultDuration
+            val endTime = defaultStartTime.plusMinutes(defaultDurationMinutes)
+
+            mEventStartDateTime = mEventStartDateTime.withTime(
+                defaultStartTime.hourOfDay,
+                defaultStartTime.minuteOfHour,
+                0,
+                0
+            )
+            mEventEndDateTime = mEventEndDateTime.withTime(
+                endTime.hourOfDay,
+                endTime.minuteOfHour,
+                0,
+                0
+            )
+
+            mConvertedFromOriginalAllDay = true
+            updateStartTexts()
+            updateEndTexts()
+        }
+
         mIsAllDayEvent = isAllDay
         binding.eventStartTime.beGoneIf(isAllDay)
         binding.eventEndTime.beGoneIf(isAllDay)

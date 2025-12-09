@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Changed
 - Use weekday abbreviations instead of single char weekday identifiers ([#103])
+- Converting all-day events to timed events now respects default start time and duration ([#917])
 
 ### Fixed
 - Fixed crashes and freezing affecting some devices ([#889])
@@ -195,6 +196,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#826]: https://github.com/FossifyOrg/Calendar/issues/826
 [#870]: https://github.com/FossifyOrg/Calendar/issues/870
 [#889]: https://github.com/FossifyOrg/Calendar/issues/889
+[#917]: https://github.com/FossifyOrg/Calendar/issues/917
 
 [Unreleased]: https://github.com/FossifyOrg/Calendar/compare/1.8.1...HEAD
 [1.8.1]: https://github.com/FossifyOrg/Calendar/compare/1.8.0...1.8.1

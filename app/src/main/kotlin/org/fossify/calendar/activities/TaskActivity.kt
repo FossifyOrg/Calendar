@@ -46,6 +46,7 @@ class TaskActivity : SimpleActivity() {
     private var mLastSavePromptTS = 0L
     private var mIsNewTask = true
     private var mEventColor = 0
+    private var mConvertedFromOriginalAllDay = false
 
     private val binding by viewBinding(ActivityTaskBinding::inflate)
 
@@ -646,6 +647,24 @@ class TaskActivity : SimpleActivity() {
 
     private fun toggleAllDay(isChecked: Boolean) {
         hideKeyboard()
+
+        // One-time migration: when converting from all-day to timed for the first time,
+        // set default start time to avoid unexpected time values
+        if (!isChecked && mTask.getIsAllDay() && !mConvertedFromOriginalAllDay) {
+            val defaultStartTS = getNewEventTimestampFromCode(Formatter.getDayCodeFromDateTime(mTaskDateTime))
+            val defaultStartTime = Formatter.getDateTimeFromTS(defaultStartTS)
+
+            mTaskDateTime = mTaskDateTime.withTime(
+                defaultStartTime.hourOfDay,
+                defaultStartTime.minuteOfHour,
+                0,
+                0
+            )
+
+            mConvertedFromOriginalAllDay = true
+            updateTimeText()
+        }
+
         mIsAllDayTask = isChecked
         binding.taskTime.beGoneIf(isChecked)
     }
