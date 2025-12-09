@@ -715,7 +715,6 @@ class EventActivity : SimpleActivity() {
             mEventEndDateTime = Formatter.getDateTimeFromTS(realStart + duration)
         }
 
-
         binding.eventTitle.setText(mEvent.title)
         binding.eventLocation.setText(mEvent.location)
         binding.eventDescription.setText(mEvent.description)
