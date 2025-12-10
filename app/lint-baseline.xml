@@ -266,6 +266,17 @@
     </issue>
 
     <issue
+        id="NewerVersionAvailable"
+        message="A newer version of io.nlopez.compose.rules:detekt than 0.4.28 is available: 0.5.1"
+        errorLine1="detektCompose = &quot;0.4.28&quot;"
+        errorLine2="                ~~~~~~~~">
+        <location
+            file="$HOME/work/Calendar/Calendar/gradle/libs.versions.toml"
+            line="8"
+            column="17"/>
+    </issue>
+
+    <issue
         id="DiscouragedApi"
         message="Fixed screen orientations will be ignored in most cases, starting from Android 16. Android is moving toward a model where apps are expected to adapt to various orientations, display sizes, and aspect ratios."
         errorLine1="            android:screenOrientation=&quot;portrait&quot;"
@@ -426,7 +437,7 @@
         errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/activities/EventActivity.kt"
-            line="2233"
+            line="2262"
             column="17"/>
     </issue>
 
@@ -437,7 +448,7 @@
         errorLine2="               ^">
         <location
             file="src/main/kotlin/org/fossify/calendar/activities/EventActivity.kt"
-            line="2297"
+            line="2326"
             column="16"/>
     </issue>
 
