@@ -412,7 +412,6 @@
     <ID>MaxLineLength:MonthView.kt$MonthView$// handle overlapping repeating events e.g. an event that lasts 3 days, but repeats every 2 days has a one day overlap</ID>
     <ID>MaxLineLength:MonthView.kt$MonthView$canvas.drawLine(0f, i * dayHeight + weekDaysLetterHeight, canvas.width.toFloat(), i * dayHeight + weekDaysLetterHeight, gridPaint)</ID>
     <ID>MaxLineLength:MonthView.kt$MonthView$compareBy({ -it.daysCnt }, { !it.isAllDay }, { it.startTS }, { it.endTS }, { it.startDayIndex }, { it.title })</ID>
-    <ID>MaxLineLength:MonthView.kt$MonthView$dayLetters = context.withFirstDayOfWeekToFront(context.resources.getStringArray(org.fossify.commons.R.array.week_day_letters).toList())</ID>
     <ID>MaxLineLength:MonthView.kt$MonthView$dayVerticalOffsets.put(day.indexOnMonthView, dayVerticalOffsets[day.indexOnMonthView] + weekDaysLetterHeight)</ID>
     <ID>MaxLineLength:MonthView.kt$MonthView$drawEventTitle(event, canvas, xPos + taskIconWidth, yPos + verticalOffset, bgRight - bgLeft - smallPadding - taskIconWidth, specificEventTitlePaint)</ID>
     <ID>MaxLineLength:MonthView.kt$MonthView$private</ID>
