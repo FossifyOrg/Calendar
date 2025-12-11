@@ -1,0 +1,10 @@
+Changed:
+
+• Weekday labels now use three-letter abbreviations instead of single letters 
+• Converting all-day events to timed events now respects the default start time and duration 
+• Updated translations
+
+Fixed:
+
+• Fixed crashes and freezing on some devices 
+
