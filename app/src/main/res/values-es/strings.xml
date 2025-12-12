@@ -186,7 +186,7 @@
     <string name="other_time">Otro momento</string>
     <string name="highlight_weekends">Resaltar los fines de semana en algunas vistas</string>
     <string name="highlight_weekends_color">Color de los fines de semana resaltados</string>
-    <string name="allow_changing_time_zones">Permitir cambiar la zona horaria del evento</string>
+    <string name="allow_changing_time_zones">Permetre canviar els fusos horaris dels esdeveniments</string>
     <string name="manage_quick_filter_event_types">Administrar tipos de evento de filtro rápido</string>
     <string name="allow_creating_tasks">Permitir crear tareas</string>
     <string name="select_caldav_calendars">Seleccionar los calendarios que se van a sincronizar</string>
