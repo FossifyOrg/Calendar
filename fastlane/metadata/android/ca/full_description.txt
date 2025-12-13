@@ -39,6 +39,6 @@ A més, el Calendari Fossify és de codi obert! Uniu-vos a la comunitat vibrant 
 Descarregueu el Calendari Fossify ara i experimenteu la potència d'una planificació horari privada i personalitzable.
 
 Exploreu més aplicacions de Fossify: https://www.fossify.org
-Codi obert: https://www.github.com/FossifyOrg
+Codi font obert: https://www.github.com/FossifyOrg
 Uniu-vos a la comunitat a Reddit: https://www.reddit.com/r/Fossify
 Connecteu a Telegram: https://t.me/Fossify
