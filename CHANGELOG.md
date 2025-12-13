@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Changed
+- Replaced "event types" concept with "calendars" ([#629])
 - Weekday labels now use three-letter abbreviations instead of single letters ([#103])
 - Converting all-day events to timed events now respects the default start time and duration ([#917])
 
@@ -186,6 +187,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#603]: https://github.com/FossifyOrg/Calendar/issues/603
 [#613]: https://github.com/FossifyOrg/Calendar/issues/613
 [#641]: https://github.com/FossifyOrg/Calendar/issues/641
+[#629]: https://github.com/FossifyOrg/Calendar/issues/629
 [#682]: https://github.com/FossifyOrg/Calendar/issues/682
 [#706]: https://github.com/FossifyOrg/Calendar/issues/706
 [#729]: https://github.com/FossifyOrg/Calendar/issues/729
