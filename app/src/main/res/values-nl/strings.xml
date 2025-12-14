@@ -160,7 +160,7 @@
     <string name="display_description_or_location">Beschrijving of locatie tonen</string>
     <string name="delete_all_events">Alle afspraken verwijderen</string>
     <string name="delete_all_events_and_tasks">Alle afspraken en taken verwijderen</string>
-    <string name="delete_all_events_confirmation">Alle afspraken en taken verwijderen\? Afspraaktypes en andere instellingen blijven behouden.</string>
+    <string name="delete_all_events_confirmation">Alle afspraken en taken verwijderen? Afspraaktypes en andere instellingen blijven behouden.</string>
     <string name="show_a_grid">Rasterlijnen tonen</string>
     <string name="loop_reminders">Herinneringen blijven herhalen totdat ze zijn uitgezet</string>
     <string name="dim_past_events">Afgelopen afspraken dimmen</string>
@@ -246,7 +246,7 @@
     <string name="faq_4_text">Ja. Normaliter zullen nieuwe afspraken de huidige tijdzone krijgen toegewezen. De tijdzone van een afspraak kan worden gewijzigd door de optie voor tijdzones in de instellingen te activeren. Hierna kan de tijdzone worden opgegeven in de afspraakdetails. De instelling is standaard niet ingeschakeld, omdat de meeste mensen het niet nodig zullen hebben.</string>
     <string name="faq_5_title">Waarom laat de app geen meldingen zien\?</string>
     <string name="faq_5_text">Controleer bij Meldingen via App-info of er geen notificaties geblokkeerd worden. Probeer anders bij de geavanceerde instellingen in App-info de batterijoptimalisatie voor deze app uit te schakelen. Kijk op &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt; voor verdere tips.</string>
-    <string name="faq_6_title">Hoe kan ik een bestaand afspraaktype aanpassen of verwijderen\?</string>
+    <string name="faq_6_title">Hoe kan ik een bestaand afspraaktype aanpassen of verwijderen?</string>
     <string name="faq_6_text">Dit kan via Instellingen -&gt; Afspraaktypes beheren. Klik op het item om de naam en kleur te veranderen, of druk lang op een item om het te verwijderen met de knop bovenin.</string>
     <string name="alarm_stream">Alarm</string>
     <string name="accessibility_next_day">Volgende dag</string>
