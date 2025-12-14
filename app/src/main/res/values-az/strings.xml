@@ -121,7 +121,7 @@
     <string name="display_past_events">Keçmiş hadisələri göstər</string>
     <string name="replace_description_with_location">Hadisə əlavəsini məkan ilə dəyiş</string>
     <string name="delete_all_events">Bütün hadisələri sil</string>
-    <string name="delete_all_events_confirmation">Bütün hadisələri silmək istədiyinizə əminsiniz\? Bu hadisələri və parametrlərini bütövlüklə siləcək.</string>
+    <string name="delete_all_events_confirmation">Bütün hadisələri silmək istədiyinizə əminsiniz? Bu hadisələri və parametrlərini bütövlüklə siləcək.</string>
     <string name="show_a_grid">Cədvəl göstər</string>
     <string name="loop_reminders">Buraxılana qədər xatırladıcıları təkrarla</string>
     <string name="dim_past_events">Keçmiş hadisələri qaralt</string>
