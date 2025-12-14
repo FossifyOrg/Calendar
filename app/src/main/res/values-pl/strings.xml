@@ -163,7 +163,7 @@
     <string name="display_description_or_location">Wyświetlaj opis lub lokalizację</string>
     <string name="delete_all_events">Usuń wszystkie wydarzenia</string>
     <string name="delete_all_events_and_tasks">Usuń wszystkie wydarzenia i zadania</string>
-    <string name="delete_all_events_confirmation">Czy usunąć wszystkie wydarzenia i zadania\? Nie naruszy to typów wydarzeń i innych ustawień.</string>
+    <string name="delete_all_events_confirmation">Czy usunąć wszystkie wydarzenia i zadania? Nie naruszy to typów wydarzeń i innych ustawień.</string>
     <string name="show_a_grid">Pokazuj siatkę</string>
     <string name="loop_reminders">Powtarzaj przypomnienia aż do ich odrzucenia</string>
     <string name="dim_past_events">Przyciemniaj przeszłe wydarzenia</string>
@@ -258,7 +258,7 @@
     <string name="faq_4_text">Tak. Domyślnie wszystkie wydarzenia są tworzone w Twojej aktualnej strefie czasowej. Jeśli chcesz zmienić strefę czasową wydarzeń, najpierw musisz włączyć selektor stref czasowych w ustawieniach aplikacji, a następnie zmienić go na ekranie edycji wydarzenia. Opcja ta jest domyślnie wyłączona, ponieważ większość użytkowników jej nie potrzebuje.</string>
     <string name="faq_5_title">Aplikacja nie wyświetla żadnych powiadomień. Dlaczego tak jest\?</string>
     <string name="faq_5_text">Sprawdź ustawienia baterii i powiadomień w swoim urządzeniu, czy nic nie blokuje przypomnień lub nie wyłącza aplikacji w tle. Możesz również rzucić okiem na &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;, gdzie znajdują się przydatne wskazówki.</string>
-    <string name="faq_6_title">Jak mogę zmodyfikować lub usunąć istniejący typ wydarzeń\?</string>
+    <string name="faq_6_title">Jak mogę zmodyfikować lub usunąć istniejący typ wydarzeń?</string>
     <string name="faq_6_text">Obie te czynności możesz wykonać w Ustawienia -&gt; Zarządzaj typami wydarzeń. Po prostu naciśnij wybrany typ wydarzeń, aby zmienić jego nazwę lub kolor, albo wybierz go przez długie naciśnięcie i użyj ikony kosza, aby usunąć.</string>
     <string name="system_stream">System</string>
     <string name="alarm_stream">Alarm</string>
