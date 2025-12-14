@@ -159,7 +159,7 @@
     <string name="replace_description_with_location">Pakeisti įvykio aprašą įvykio vieta</string>
     <string name="display_description_or_location">Rodyti aprašą arba vietą</string>
     <string name="delete_all_events">Ištrinti visus įvykius</string>
-    <string name="delete_all_events_confirmation">Ar tikrai norite ištrinti visus įvykius\? Tai neištrins įvykių tipų ir kitų nustatymų.</string>
+    <string name="delete_all_events_confirmation">Ar tikrai norite ištrinti visus įvykius? Tai neištrins įvykių tipų ir kitų nustatymų.</string>
     <string name="show_a_grid">Rodyti tinklelį</string>
     <string name="loop_reminders">Kartoti priminimus tol, kol jie nebus atmesti</string>
     <string name="dim_past_events">Pritemdyti praeities įvykius</string>
@@ -249,6 +249,6 @@
     <string name="faq_4_text">Taip, palaiko. Pagal numatymą, visi įvykiai yra sukuriami jūsų dabartinėje laiko juostoje. Jei norite pakeisti įvykio laiko juostą, iš pradžių, programėlės nustatymuose turite įjungti laiko juostų parinktį, o tuomet pakeisti laiko juostą išsamesnėje įvykio informacijoje. Pagal numatymą, laiko juostos yra išjungtos, nes daugelis žmonių jomis nesinaudoja.</string>
     <string name="faq_5_title">Programėlė nerodo pranešimų. Kodėl\?</string>
     <string name="faq_5_text">Patikrinkite savo įrenginio akumuliatoriaus ir pranešimų nustatymus, ar nėra nieko, kas blokuotų priminimus ar nutrauktų foninių programėlių darbą. Taip pat galite pageidauti peržiūrėti internetinę svetainę &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;, kurioje rasite naudingų patarimų.</string>
-    <string name="faq_6_title">Kaip galiu pakeisti ar ištrinti esamą įvykio tipą\?</string>
+    <string name="faq_6_title">Kaip galiu pakeisti ar ištrinti esamą įvykio tipą?</string>
     <string name="faq_6_text">Ir pirmą, ir antrą veiksmą galite atlikti perėję į Nustatymus – Tvarkyti įvykių tipus. Tiesiog, spustelėkite ant tipo norėdami keisti jo etiketę bei spalvą, arba pažymėkite pageidaujamą tipą ilgai ant jo nuspaudę ir naudokite viršutiniame meniu esančią šiukšlinę, kad jį ištrintumėte.</string>
 </resources>
