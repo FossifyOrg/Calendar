@@ -161,7 +161,7 @@
     <string name="display_description_or_location">Bistaratu deskribapena edo kokapena</string>
     <string name="delete_all_events">Ezabatu gertaera guztiak</string>
     <string name="delete_all_events_and_tasks">Ezabatu gertaera eta zeregin guztiak</string>
-    <string name="delete_all_events_confirmation">Ziur zaude gertaera guztiak ezabatu nahi dituzula\? Honek gertaera motak eta bestelako ezarpenak berdin utziko ditu.</string>
+    <string name="delete_all_events_confirmation">Ziur zaude gertaera guztiak ezabatu nahi dituzula? Honek gertaera motak eta bestelako ezarpenak berdin utziko ditu.</string>
     <string name="show_a_grid">Erakutsi sareta</string>
     <string name="loop_reminders">Errepikatu abisuak baztertu arte</string>
     <string name="dim_past_events">Lausotu iraganeko gertaerak</string>
@@ -247,7 +247,7 @@
     <string name="faq_4_text">Bai, onartzen ditu. Gertaera guztiak zure ordu-zonaren arabera sortzen dira modu lehenetsian. Gertaera baten ordu-zona aldatu nahi baduzu, lehenengo ordu-zonaren hautatzailea gaitu behar duzu aplikazioaren ezarpenetan eta, ondoren, gertaeraren xehetasunen pantailan aldatu. Modu lehenetsian desgaituta dago, jende gehienak ez duelako behar.</string>
     <string name="faq_5_title">Zergatik ez du jakinarazpenik erakusten?</string>
     <string name="faq_5_text">Egiaztatu gailuaren bateria eta jakinarazpenen ezarpenak, egiaztatu abisuak ez daudela blokeatuta edo aplikazioa bigarren planoan exekutatzea galarazten duen ezer ez dagoela. Baliteke &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt; helbidera ere begiratu nahi izatea, aholku erabilgarriak ditu.</string>
-    <string name="faq_6_title">Nola aldatu edo ezabatu dezaket lehendik dagoen gertaera mota bat\?</string>
+    <string name="faq_6_title">Nola aldatu edo ezabatu dezaket lehendik dagoen gertaera mota bat?</string>
     <string name="faq_6_text">Gauza biak egin ditzakezu Ezarpenak - Kudeatu gertaera motak aplikazioan. Egin klik nahi duzun elementuan etiketa eta kolorea aldatzeko, edo hautatu nahi duzuna luze sakatuz eta erabili goiko menuko zakarrontzia ezabatzeko.</string>
     <string name="accessibility_next_day">Joan hurrengo egunera</string>
     <string name="caldav">CalDAV</string>
