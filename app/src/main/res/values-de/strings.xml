@@ -163,7 +163,7 @@
     <string name="display_description_or_location">Beschreibung oder Ort anzeigen</string>
     <string name="delete_all_events">Alle Termine löschen</string>
     <string name="delete_all_events_and_tasks">Alle Termine und Aufgaben löschen</string>
-    <string name="delete_all_events_confirmation">Sollen wirklich alle Termine und Aufgaben gelöscht werden\? Die Termintypen und andere Einstellungen bleiben erhalten.</string>
+    <string name="delete_all_events_confirmation">Sollen wirklich alle Termine und Aufgaben gelöscht werden? Die Termintypen und andere Einstellungen bleiben erhalten.</string>
     <string name="show_a_grid">Raster anzeigen</string>
     <string name="loop_reminders">Erinnerungen wiederholen bis sie verworfen werden</string>
     <string name="dim_past_events">Vergangene Termine ausgrauen</string>
@@ -259,7 +259,7 @@
     <string name="faq_4_text">Ja. Standardmäßig werden alle neuen Termine in der aktuellen Zeitzone des Gerätes erstellt. Um die Zeitzone eines Termins ändern zu können, muss die Option „Ändern der Zeitzonen für Termine zulassen“ in den Einstellungen aktiviert sein. Die Zeitzone eines Termins kann dann beim Anlegen oder Bearbeiten geändert werden. Standardmäßig ist diese Funktion deaktiviert, da die meisten Nutzer sie nicht benötigen werden.</string>
     <string name="faq_5_title">Die App zeigt keine Benachrichtigungen an, woran liegt das?</string>
     <string name="faq_5_text">Überprüfe den Akku deines Geräts und die Benachrichtigungseinstellungen, um sicherzustellen, dass die Erinnerungen nicht blockiert werden oder die App im Hintergrund beendet wird. Vielleicht möchtest du auch einen Blick auf &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt; werfen, dort lassen sich einige nützliche Tipps finden.</string>
-    <string name="faq_6_title">Wie kann ich einen bestehenden Termintyp ändern oder löschen\?</string>
+    <string name="faq_6_title">Wie kann ich einen bestehenden Termintyp ändern oder löschen?</string>
     <string name="faq_6_text">Du kannst beides in der App unter „Einstellungen – Termintypen verwalten“ einstellen. Klicke einfach auf den gewünschten Termin, um die Beschriftung und Farbe zu ändern, oder wähle den gewünschten Termin durch langes Drücken aus und verwende das Papierkorbsymbol im oberen Menü zum Löschen.</string>
     <string name="caldav">CalDAV</string>
     <string name="public_holidays">Gesetzliche Feiertage</string>
