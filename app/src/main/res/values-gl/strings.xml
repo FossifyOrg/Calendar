@@ -160,7 +160,7 @@
     <string name="display_description_or_location">Mostrar descrición ou localización</string>
     <string name="delete_all_events">Borrar todos os eventos</string>
     <string name="delete_all_events_and_tasks">Elimina todolos eventos e tarefas</string>
-    <string name="delete_all_events_confirmation">Estás seguro de que queres eliminar todos os eventos e tarefas\? Isto deixará intactos os teus tipos de eventos e outras opcións de configuración.</string>
+    <string name="delete_all_events_confirmation">Estás seguro de que queres eliminar todos os eventos e tarefas? Isto deixará intactos os teus tipos de eventos e outras opcións de configuración.</string>
     <string name="show_a_grid">Mostrar unha cuadrícula</string>
     <string name="loop_reminders">Repetir recordatorios ata que se descarten</string>
     <string name="dim_past_events">Atenuar eventos pasados</string>
@@ -247,7 +247,7 @@
     <string name="faq_4_text">Si. Por defecto todos os eventos créanse na túa zona horaria actual. Se desexas cambiar a zona horaria do evento, primeiro tes que activar o selector de zona horaria nos axustes do app, e despois cambialo na pantalla de Detalles do Evento. Está desactivado de inicio porque a maioría da xente non o necesita.</string>
     <string name="faq_5_title">O app non mostra ningunha notificación, que é o que pasa?</string>
     <string name="faq_5_text">Comproba os axustes de batería e de notificacións do teu dispositivo e que non haxa nada que bloquee os recordatorios nin que deteña o app ao estar en segundo plano. Pódeslle botar un ollo tamén a &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;, xa que ten algúns consellos útiles.</string>
-    <string name="faq_6_title">Como podo modificar ou borrar un tipo de evento\?</string>
+    <string name="faq_6_title">Como podo modificar ou borrar un tipo de evento?</string>
     <string name="faq_6_text">Podes facer ámbalas cousas en Axustes, Xestionar tipos de eventos. Preme no que necesites para cambiar o nome e maila cor, ou selecciónao manténdoo premido e usa a papeleira do menú superior para borralo.</string>
     <string name="task_color">Cor da tarefa</string>
     <string name="accessibility_previous_month">Ir ao mes anterior</string>
