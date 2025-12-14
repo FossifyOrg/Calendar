@@ -9,8 +9,8 @@
     <string name="yearly_view">Vista anual</string>
     <string name="simple_event_list">Llista d\'esdeveniments senzilla</string>
     <string name="no_upcoming_events">No hi ha esdeveniments pròxims.</string>
-    <string name="go_to_today">Anar a avui</string>
-    <string name="go_to_date">Anar a la data</string>
+    <string name="go_to_today">Ves a avui</string>
+    <string name="go_to_date">Ves a la data</string>
     <string name="widget_monthly">Calendari mensual</string>
     <string name="widget_list">Llista d\'esdeveniments del calendari</string>
     <string name="widget_todays_date">Calendari de la data d\'avui</string>
@@ -23,10 +23,10 @@
     <string name="end_before_start">L\'esdeveniment no pot acabar abans del seu inici</string>
     <string name="event_added">L\'esdeveniment s\'ha afegit correctament</string>
     <string name="event_updated">L\'esdeveniment s\'ha actualitzat correctament</string>
-    <string name="filter_events_by_type">Filtra els esdeveniments per tipus</string>
+    <string name="filter_events_by_type">Filtra els esdeveniments per calendari</string>
     <string name="please_fill_location">Ompliu una ubicació que es mostrarà en un mapa</string>
     <string name="public_event_notification_text">S\'acosta un esdeveniment</string>
-    <string name="everything_filtered_out">Heu filtrat tots els tipus d\'esdeveniments</string>
+    <string name="everything_filtered_out">Heu filtrat tots els calendaris</string>
     <string name="task">Tasca</string>
     <string name="tasks">Tasques</string>
     <string name="edit_task">Edita la tasca</string>
@@ -114,8 +114,8 @@
     <string name="import_events_from_ics_pro">Importa esdeveniments des d\'un fitxer .ics (Pro)</string>
     <string name="export_events_to_ics">Exporta esdeveniments a un fitxer .ics</string>
     <string name="default_event_type">Calendari predeterminat</string>
-    <string name="export_past_events_too">Exportar també els esdeveniments passats</string>
-    <string name="export_tasks">Exportar tasques</string>
+    <string name="export_past_events_too">Exporta també els esdeveniments passats</string>
+    <string name="export_tasks">Exporta tasques</string>
     <string name="export_past_entries">Exporta també les entrades anteriors</string>
     <string name="include_event_types">Inclou calendaris</string>
     <string name="filename_without_ics">Nom del fitxer (sense .ics)</string>
@@ -124,7 +124,7 @@
     <string name="description">Descripció</string>
     <string name="all_day">Tot el dia</string>
     <string name="week">Setmana</string>
-    <string name="start_week_with_current_day">Començar la setmana amb el dia actual</string>
+    <string name="start_week_with_current_day">Comença la setmana amb el dia actual</string>
     <string name="event_types">Calendaris</string>
     <string name="add_new_type">Afegeix un calendari nou</string>
     <string name="edit_type">Edita el calendari</string>
@@ -198,7 +198,7 @@
     <string name="editing_calendar_failed">Ha fallat l\'edició del calendari</string>
     <string name="syncing">S\'està sincronitzant…</string>
     <string name="synchronization_completed">S\'ha completat la sincronització</string>
-    <string name="select_a_different_caldav_color">Trieu un color diferent (només es pot aplicar localment)</string>
+    <string name="select_a_different_caldav_color">Seleccioneu un color diferent (només es pot aplicar localment)</string>
     <string name="insufficient_permissions">No teniu permís per a escriure al calendari seleccionat</string>
     <string name="caldav_event_not_found">No s\'ha trobat l\'esdeveniment. Activeu la sincronització de CalDAV per al calendari adequat a la configuració de l\'aplicació.</string>
     <string name="no_synchronized_calendars">No s\'ha trobat cap calendari que es pugui sincronitzar</string>
@@ -240,7 +240,7 @@
         <item quantity="other">En els %d mesos següents</item>
     </plurals>
     <string name="faq_1_title">Com puc eliminar els dies festius importats mitjançant el botó «Afegeix festius»\?</string>
-    <string name="faq_1_text">Els dies festius creats d\'aquesta manera s\'insereixen en un calendari nou anomenat «Festius». Podeu anar a Configuració -&gt; Gestionar els calendari, prémer prolongadament el calendari indicat i suprimir-lo seleccionant la paperera.</string>
+    <string name="faq_1_text">Els dies festius creats d\'aquesta manera s\'insereixen en un calendari nou anomenat «Festius». Podeu anar a Configuració -&gt; Gestiona els calendari, prémer prolongadament el calendari indicat i suprimir-lo seleccionant la paperera.</string>
     <string name="faq_2_title">Puc sincronitzar els meus esdeveniments a través de Google Calendar o d\'un altre servei que admeti CalDAV\?</string>
     <string name="faq_2_title_extra">Potser fins i tot compartir calendaris amb altres persones\?</string>
     <string name="faq_2_text">Sí, només cal que activeu la «Sincronització CalDAV» a la configuració de l\'aplicació i seleccioneu els calendaris que voleu sincronitzar. Tanmateix, necessitareu una aplicació de tercers que gestioni la sincronització entre el dispositiu i els servidors. En cas que vulgueu sincronitzar un calendari de Google, la seva aplicació oficial Calendar farà la feina. Per a altres calendaris, necessitareu un adaptador de sincronització de tercers, per exemple DAVx5.</string>
@@ -251,15 +251,15 @@
     <string name="faq_5_title">L\'aplicació no mostra cap notificació, per què és això\?</string>
     <string name="faq_5_text">Comproveu la bateria del dispositiu i la configuració de notificacions, si no hi ha res que bloquegi els recordatoris o que mati l\'aplicació en segon pla. També us recomanem que feu una ullada a &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;, té alguns consells útils.</string>
     <string name="faq_6_title">Com puc modificar o suprimir un calendari existent?</string>
-    <string name="faq_6_text">Podeu fer les dues coses a la Configuració de l\'aplicació - Gestionar els calendaris. Només cal fer clic en el desitjat per a canviar l\'etiqueta o el color, o el podeu seleccionar prement-lo prolongadament i utilitzeu la paperera del menú superior per a suprimir-lo.</string>
+    <string name="faq_6_text">Podeu fer les dues coses a la Configuració de l\'aplicació - Gestiona els calendaris. Només cal fer clic en el desitjat per a canviar l\'etiqueta o el color, o el podeu seleccionar prement-lo prolongadament i utilitzeu la paperera del menú superior per a suprimir-lo.</string>
     <string name="event_color">Color de l\'esdeveniment</string>
     <string name="default_calendar_color">Color del calendari predeterminat</string>
     <string name="color">Color</string>
     <string name="caldav">CalDAV</string>
-    <string name="accessibility_next_month">Anar al mes següent</string>
-    <string name="accessibility_previous_day">Anar al dia anterior</string>
-    <string name="accessibility_previous_month">Anar al mes anterior</string>
-    <string name="accessibility_next_day">Anar al dia següent</string>
+    <string name="accessibility_next_month">Ves al mes següent</string>
+    <string name="accessibility_previous_day">Ves al dia anterior</string>
+    <string name="accessibility_previous_month">Ves al mes anterior</string>
+    <string name="accessibility_next_day">Ves al dia següent</string>
     <string name="status_tentative">Temptatiu</string>
     <string name="status_canceled">Cancel·lat</string>
     <string name="status_confirmed">Confirmat</string>
@@ -267,7 +267,7 @@
     <string name="other_holidays">Altres festius i celebracions</string>
     <string name="select_holidays_to_import">Seleccioneu els festius a importar</string>
     <string name="public_holidays">Festius oficials</string>
-    <string name="show_widget_header">Mostrar la capçalera</string>
+    <string name="show_widget_header">Mostra la capçalera</string>
     <string name="access_level_public">Públic</string>
     <string name="access_level_private">Privat</string>
     <string name="access_level_confidential">Confidencial</string>
