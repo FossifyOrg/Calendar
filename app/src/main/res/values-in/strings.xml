@@ -161,7 +161,7 @@
     <string name="display_description_or_location">Tampilkan deskripsi atau lokasi</string>
     <string name="delete_all_events">Hapus semua acara</string>
     <string name="delete_all_events_and_tasks">Hapus semua acara dan catatan</string>
-    <string name="delete_all_events_confirmation">Apakah Anda yakin ingin menghapus semua acara dan tugas\? Tindakan ini tidak akan menghapus kategori dan pengaturan lainnya.</string>
+    <string name="delete_all_events_confirmation">Apakah Anda yakin ingin menghapus semua acara dan tugas? Tindakan ini tidak akan menghapus kategori dan pengaturan lainnya.</string>
     <string name="show_a_grid">Tampilkan grid</string>
     <string name="loop_reminders">Ulangi pengingat sampai dihentikan</string>
     <string name="dim_past_events">Redupkan acara yang sudah lewat</string>
@@ -234,7 +234,7 @@
     <string name="faq_4_text">Ya. Secara bawaan semua acara dibuat dalam zona waktu anda saat ini. Jika anda ingin mengubah zona waktu suatu acara, anda harus terlebih dahulu mengaktifkan opsi pemilih zona waktu pada pengaturan aplikasi, dan kemudian mengubahnya di layar Detail Acara. Fitur ini dinonaktifkan secara bawaan karena tidak banyak orang yang membutuhkannya.</string>
     <string name="faq_5_title">Aplikasinya tidak menampilkan notifikasi, mengapa\?</string>
     <string name="faq_5_text">Periksa baterai perangkat dan pengaturan notifikasi Anda, jika tidak ada yang memblokir pengingat, atau menghentikan aplikasi di latar belakang. Anda mungkin juga ingin melihat &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;, itu memiliki beberapa kiat yang berguna.</string>
-    <string name="faq_6_title">Bagaimana saya dapat mengubah atau menghapus jenis acara yang sudah ada\?</string>
+    <string name="faq_6_title">Bagaimana saya dapat mengubah atau menghapus jenis acara yang sudah ada?</string>
     <string name="faq_6_text">Anda dapat melakukan kedua-duanya dalam Pengaturan - Kelola jenis acara. Klik saja yang diinginkan untuk mengubah label atau warna, atau pilih yang tidak diinginkan dengan menekannya dengan lama dan gunakan tong sampah di atas menu untuk dihapus.</string>
     <string name="event_color">Warna acara</string>
     <string name="default_calendar_color">Warna bawaan kalender</string>
