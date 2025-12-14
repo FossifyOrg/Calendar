@@ -163,7 +163,7 @@
     <string name="display_description_or_location">Zobraziť popis alebo miesto</string>
     <string name="delete_all_events">Odstrániť všetky udalosti</string>
     <string name="delete_all_events_and_tasks">Odstrániť všetky udalosti a úlohy</string>
-    <string name="delete_all_events_confirmation">Ste si istý, že chcete odstrániť všetky udalosti a úlohy\? Všetky typy udalostí a nastavenia ostanú nedotknuté.</string>
+    <string name="delete_all_events_confirmation">Ste si istý, že chcete odstrániť všetky udalosti a úlohy? Všetky typy udalostí a nastavenia ostanú nedotknuté.</string>
     <string name="show_a_grid">Zobraziť mriežku</string>
     <string name="loop_reminders">Opakovať pripomienky až po odstránenie</string>
     <string name="dim_past_events">Stlmiť minulé udalosti</string>
@@ -253,7 +253,7 @@
     <string name="faq_4_text">Áno, podporuje. Štandardne sú všetky udalosti vytvárané vo vašom súčasnom časovom pásme. Ak chcete zmeniť časové pásmo niektorej udalosti, najprv musíte povoliť menenie časových pásem v nastaveniach apky, následne ho zmeniť na obrazovke s detailmi udalosti. Menenie je štandardne vypnuté, keďže ho väčšina ľudí potrebovať nebude.</string>
     <string name="faq_5_title">Apka nezobrazuje upozornenia, čím to je\?</string>
     <string name="faq_5_text">Pozrite sa do nastavení batérie a upozornení vášho zariadenia, či nič neblokuje upozornenia, alebo nevypína na pozadí apku. Mohli by ste sa pozrieť aj na &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;, je tam veľa užitočných tipov.</string>
-    <string name="faq_6_title">Ako môžem upraviť alebo odstrániť existujúci typ udalosti\?</string>
+    <string name="faq_6_title">Ako môžem upraviť alebo odstrániť existujúci typ udalosti?</string>
     <string name="faq_6_text">Oboje viete spraviť v nastaveniach apky - Spravovať typy udalostí. Kliknutím viete upraviť názov a farbu, odstrániť ich viete dlhým podržaním a použitím odpadkového koša na hornom menu.</string>
     <string name="public_holidays">Verejné sviatky</string>
     <string name="regional_holidays">Miestne sviatky</string>
