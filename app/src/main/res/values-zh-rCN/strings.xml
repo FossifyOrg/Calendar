@@ -131,8 +131,8 @@
     <string name="edit_type">编辑日历</string>
     <string name="type_already_exists">已经存在此标题的日历</string>
     <string name="color">颜色</string>
-    <string name="regular_event">一般活动</string>
-    <string name="cannot_delete_default_type">不能删除默认日历</string>
+    <string name="regular_event">本地日历</string>
+    <string name="cannot_delete_default_type">不能删除内置日历</string>
     <string name="select_event_type">选择日历</string>
     <string name="move_events_into_default">将受影响活动移到默认日历中</string>
     <string name="remove_affected_events">受影响的活动永久移除</string>
