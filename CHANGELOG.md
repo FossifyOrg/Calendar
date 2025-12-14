@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Changed
 - Replaced "event types" concept with "calendars" ([#629])
+- Renamed default "Regular event" calendar to "Local calendar"
 - Weekday labels now use three-letter abbreviations instead of single letters ([#103])
 - Converting all-day events to timed events now respects the default start time and duration ([#917])
 
