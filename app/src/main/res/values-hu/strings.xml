@@ -161,7 +161,7 @@
     <string name="display_description_or_location">Leírás vagy hely megjelenítése</string>
     <string name="delete_all_events">Összes esemény törlése</string>
     <string name="delete_all_events_and_tasks">Az összes esemény és feladat törlése</string>
-    <string name="delete_all_events_confirmation">Biztos, hogy törli az összes eseményt és feladatot\? Ez változatlanul fogja hagyni az eseménytípusokat és az egyéb beállításokat.</string>
+    <string name="delete_all_events_confirmation">Biztos, hogy törli az összes eseményt és feladatot? Ez változatlanul fogja hagyni az eseménytípusokat és az egyéb beállításokat.</string>
     <string name="show_a_grid">Rács megjelenítése</string>
     <string name="loop_reminders">Emlékeztetők ismétlése, amíg el nem veti őket</string>
     <string name="dim_past_events">Múltbeli események elhalványítása</string>
@@ -248,7 +248,7 @@
     <string name="faq_4_text">Igen. Alapértelmezés szerint minden esemény a jelenlegi időzónájában kerül létrehozásra. Ha módosítani akarja egy esemény időzónáját, akkor előbb engedélyeznie kell az időzóna-választót az alkalmazásbeállításokban, majd módosítania az Esemény részletei képernyőn. Alapértelmezetten le van tiltva, mert a legtöbb embernek nincs rá szüksége.</string>
     <string name="faq_5_title">Az alkalmazás nem jelenít meg értesítéseket, ez miért van\?</string>
     <string name="faq_5_text">Nézze meg az eszköz akkumulátor- és értesítési beállításait, hogy semmi sem blokkolja az emlékeztetőket vagy lövi ki az alkalmazást a háttérben. Érdemes lehet megnéznie a &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt; weboldalt, van rajta néhány hasznos tipp.</string>
-    <string name="faq_6_title">Hogyan módosíthatom vagy törölhetem egy meglévő esemény típusát\?</string>
+    <string name="faq_6_title">Hogyan módosíthatom vagy törölhetem egy meglévő esemény típusát?</string>
     <string name="faq_6_text">Mindkettőt a Beállítások – Eseménytípusok kezelése alatt teheti meg. Csak kattintson a kívánt elemre a címkéje vagy a színe a módosításához, vagy válassza ki a kívántat hosszú érintéssel, és a törléshez használja a felső menüben lévő kukát.</string>
     <string name="event_color">Esemény szín</string>
     <string name="caldav">CalDAV</string>
