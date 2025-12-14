@@ -87,7 +87,10 @@ class EventsHelper(val context: Context) {
     fun getEventTypeWithCalDAVCalendarId(calendarId: Int) = eventTypesDB.getEventTypeWithCalDAVCalendarId(calendarId)
 
     fun deleteEventTypes(eventTypes: ArrayList<EventType>, deleteEvents: Boolean) {
-        val typesToDelete = eventTypes.asSequence().filter { it.caldavCalendarId == 0 && it.id != LOCAL_CALENDAR_ID }.toMutableList()
+        val typesToDelete = eventTypes
+            .asSequence()
+            .filter { it.caldavCalendarId == 0 && it.id != LOCAL_CALENDAR_ID }
+            .toMutableList()
         val deleteIds = typesToDelete.map { it.id }.toMutableList()
         val deletedSet = deleteIds.map { it.toString() }.toHashSet()
         config.removeDisplayEventTypes(deletedSet)
