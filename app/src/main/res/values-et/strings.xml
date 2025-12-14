@@ -161,7 +161,7 @@
     <string name="display_description_or_location">Kuva kirjeldus või asukoht</string>
     <string name="delete_all_events">Kustuta kõik sündmused</string>
     <string name="delete_all_events_and_tasks">Kustuta kõik sündmused ja ülesanded</string>
-    <string name="delete_all_events_confirmation">Kas oled kindel, et soovid kõik sündmused ja ülesanded kustutada\? See jätab sinu sündmuste tüübid ja muud seadistused muutmata.</string>
+    <string name="delete_all_events_confirmation">Kas oled kindel, et soovid kõik sündmused ja ülesanded kustutada? See jätab sinu sündmuste tüübid ja muud seadistused muutmata.</string>
     <string name="show_a_grid">Näita ruudustikku</string>
     <string name="loop_reminders">Korda meeldetuletusi kuni teavituse lõpetamiseni</string>
     <string name="dim_past_events">Hämarda minevikusündmused</string>
@@ -248,7 +248,7 @@
     <string name="faq_4_text">Jah, ikka. Vaikimisi luuakse kõik sündmused sinu praeguses ajavööndis. Kui soovid sündmuste ajavööndit muuta, pead esmalt rakenduses seadetes aktiveerima ajavööndi valiku ja seejärel muutma seda sündmuse üksikasjade vaates. Ajavööndid on vaikimisi välja lülitatud, kuna enamik inimesi seda ei vaja.</string>
     <string name="faq_5_title">Rakendus ei näita teateid, miks see nii on\?</string>
     <string name="faq_5_text">Kontrolli seadme akut ja märguannete seadeid ja vaata, et miski ei blokeeriks meeldetuletusi ega sulgeks rakendust taustal. Samuti vaata siia: &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;, seal leidub kasulikke näpunäiteid.</string>
-    <string name="faq_6_title">Kuidas saan olemasolevat sündmuse tüüpi muuta või kustutada\?</string>
+    <string name="faq_6_title">Kuidas saan olemasolevat sündmuse tüüpi muuta või kustutada?</string>
     <string name="faq_6_text">Mõlemat saad teha valikust „Seaded - Halda sündmuse tüüpe“. Nime ja värvi muutmiseks lihtsalt klõpsa soovitud tüübil sildi või pika vajutuse järel kasuta kustutamiseks ülemises menüüs olevat prügikasti.</string>
     <string name="event_color">Sündmuse värv</string>
     <string name="default_calendar_color">Kalendri vaikimisi värv</string>
