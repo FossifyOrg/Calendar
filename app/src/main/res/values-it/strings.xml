@@ -163,7 +163,7 @@
     <string name="display_description_or_location">Visualizza la descrizione o la posizione</string>
     <string name="delete_all_events">Cancella tutti gli eventi</string>
     <string name="delete_all_events_and_tasks">Elimina tutti gli eventi e le attività</string>
-    <string name="delete_all_events_confirmation">Sei sicuro/sicura di voler eliminare tutti gli eventi e le attività\? In questo modo i tipi di eventi e le altre impostazioni rimarranno intatti.</string>
+    <string name="delete_all_events_confirmation">Sei sicuro/sicura di voler eliminare tutti gli eventi e le attività? In questo modo i tipi di eventi e le altre impostazioni rimarranno intatti.</string>
     <string name="show_a_grid">Mostra una griglia</string>
     <string name="loop_reminders">Manda in loop i promemoria finchè non vengono rimossi</string>
     <string name="dim_past_events">Rimuovi gli eventi passati</string>
@@ -257,7 +257,7 @@
     <string name="faq_4_text">Sì. Solitamente tutti gli eventi vengono create nel tuo fuso orario. Se vuoi cambiare il fuso orario di un specifico evento, devi abilitare la funzionalità nelle impostazioni dell\'app, successivamente potrai cambiare il fuso nella schermata di dettaglio dell\'evento. La funzionalità è disabilitata inizialmente siccome la maggior parte degli utenti non ne hanno bisogno.</string>
     <string name="faq_5_title">L\'app non mostra notifiche, perché\?</string>
     <string name="faq_5_text">Controlla la batteria del tuo dispositivo e le impostazioni di notifica, se non c\'è nulla che blocchi i promemoria, o che uccida l\'app in sfondo. Si potrebbe anche dare un\'occhiata a &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;, ha alcuni suggerimenti utili.</string>
-    <string name="faq_6_title">Come posso modificare o eliminare un tipo di evento esistente\?</string>
+    <string name="faq_6_title">Come posso modificare o eliminare un tipo di evento esistente?</string>
     <string name="faq_6_text">Puoi fare entrambe le cose in Impostazioni dell\'app – Gestisci tipi di eventi. Basta cliccare su quello desiderato per cambiare l\'etichetta e il colore, o selezionare quello desiderato premendolo a lungo e usare il cestino nel menù in alto per eliminarlo.</string>
     <string name="caldav">CalDAV</string>
     <string name="status_tentative">Incerto</string>
