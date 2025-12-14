@@ -155,7 +155,7 @@
     <string name="replace_description_with_location">Nadomestite opis dogodka z lokacijo</string>
     <string name="display_description_or_location">Prikaži opis ali lokacijo</string>
     <string name="delete_all_events">Izbriši vse dogodke</string>
-    <string name="delete_all_events_confirmation">Ste prepričani, da želite izbrisati vse dogodke in naloge\? Tako bodo vaše vrste dogodkov in druge nastavitve ostale nedotaknjene.</string>
+    <string name="delete_all_events_confirmation">Ste prepričani, da želite izbrisati vse dogodke in naloge? Tako bodo vaše vrste dogodkov in druge nastavitve ostale nedotaknjene.</string>
     <string name="show_a_grid">Prikaži mrežo</string>
     <string name="loop_reminders">Opomniki v zanki, dokler se ne odpusti</string>
     <string name="dim_past_events">Dim pretekli dogodki</string>
@@ -247,7 +247,7 @@
     <string name="faq_4_text">Da, je. Privzeto so vsi dogodki ustvarjeni v vašem trenutnem časovnem pasu. Če želite spremeniti časovni pas dogodka, morate najprej v nastavitvah aplikacije omogočiti izbiro časovnega pasu in ga nato spremeniti na zaslonu Podrobnosti o dogodku. Privzeto je onemogočen, saj ga večina ljudi ne bo potrebovala.</string>
     <string name="faq_5_title">Aplikacija ne prikazuje nobenih obvestil, zakaj je tako\?</string>
     <string name="faq_5_text">Check your device battery and notification settings, if there is nothing blocking the reminders, or killing the app in the background. Morda boste želeli pogledati tudi na &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;, ima nekaj koristnih nasvetov.</string>
-    <string name="faq_6_title">Kako lahko spremenim ali izbrišem obstoječo vrsto dogodka\?</string>
+    <string name="faq_6_title">Kako lahko spremenim ali izbrišem obstoječo vrsto dogodka?</string>
     <string name="faq_6_text">Oboje lahko storite v aplikaciji Nastavitve - Upravljanje vrst dogodkov. Za spremembo oznake in barve kliknite želeni dogodek ali pa ga izberite z dolgim pritiskom in za brisanje uporabite koš za smeti v zgornjem meniju.</string>
     <string name="event_color">Barva dogodka</string>
     <string name="default_calendar_color">Privzeta barva koledarja</string>
