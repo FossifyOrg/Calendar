@@ -156,7 +156,7 @@
     <string name="replace_description_with_location">予定の説明を場所に置き換える</string>
     <string name="display_description_or_location">説明や場所を表示</string>
     <string name="delete_all_events">すべての予定を削除</string>
-    <string name="delete_all_events_confirmation">予定をすべて削除してもよろしいですか？　予定の種類やその他の設定はそのまま残ります。</string>
+    <string name="delete_all_events_confirmation">予定をすべて削除してもよろしいですか？ 予定の種類やその他の設定はそのまま残ります。</string>
     <string name="show_a_grid">グリッドを表示</string>
     <string name="loop_reminders">リマインダーを閉じるまで繰り返す</string>
     <string name="dim_past_events">過去の予定を薄い色で表示</string>
