@@ -161,7 +161,7 @@
     <string name="display_description_or_location">Prikaži opis ili lokaciju</string>
     <string name="delete_all_events">Izbriši sve događaje</string>
     <string name="delete_all_events_and_tasks">Izbriši sve događaje i zadatke</string>
-    <string name="delete_all_events_confirmation">Stvarno želiš izbrisati sve događaje i zadatke\? To će ostaviti tvoje vrste događaja i druge postavke netaknutima.</string>
+    <string name="delete_all_events_confirmation">Stvarno želiš izbrisati sve događaje i zadatke? To će ostaviti tvoje vrste događaja i druge postavke netaknutima.</string>
     <string name="show_a_grid">Prikaži mrežu</string>
     <string name="loop_reminders">Ponavljaj podsjetnike sve dok se ne odbace</string>
     <string name="dim_past_events">Zatamni prošle događaje</string>
@@ -250,7 +250,7 @@
     <string name="faq_4_text">Da, podržava ih. Prema standardnim postavkama svi se događaji stvaraju u tvojoj aktualnoj vremenskoj zoni. Ako želiš promijeniti vremensku zonu događaja, najprije moraš aktivirati birač vremenske zone u postavkama aplikacije, a zatim ga promijeni u ekranu detalja događaja. Standardno je deaktiviran, jer ga većina ljudi neće trebati.</string>
     <string name="faq_5_title">Aplikacija ne prikazuje obavijesti. Zašto?</string>
     <string name="faq_5_text">Provjeri bateriju uređaja i postavke obavijesti ako ništa ne blokira podsjetnike ili ne zaustavlja aplikaciju u pozadini. Također pogledaj &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;. SStranica sadrži korisne savjete.</string>
-    <string name="faq_6_title">Kako mogu promijeniti ili izbrisati postojeću vrstu događaja\?</string>
+    <string name="faq_6_title">Kako mogu promijeniti ili izbrisati postojeću vrstu događaja?</string>
     <string name="faq_6_text">Oboje možeš učiniti u postavkama aplikacije – Upravljaj vrstama događaja. Pritisni željenu vrstu za mijenjanje oznake i boje ili odaberi željenu vrstu dugim pritiskom i koristi koš za smeće u gornjem izborniku za brisanje.</string>
     <string name="alarm_stream">Alarm</string>
     <string name="caldav">CalDAV</string>
