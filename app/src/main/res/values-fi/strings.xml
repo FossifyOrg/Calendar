@@ -161,7 +161,7 @@
     <string name="display_description_or_location">Näytä kuvaus tai sijainti</string>
     <string name="delete_all_events">Poista kaikki tapahtumat</string>
     <string name="delete_all_events_and_tasks">Poista tapahtumat ja tehtävät</string>
-    <string name="delete_all_events_confirmation">Haluatko varmasti poistaa kaikki tapahtumat ja tehtävät\? Tämä jättää tapahtumatyypisi ja muut asetukset ennalleen.</string>
+    <string name="delete_all_events_confirmation">Haluatko varmasti poistaa kaikki tapahtumat ja tehtävät? Tämä jättää tapahtumatyypisi ja muut asetukset ennalleen.</string>
     <string name="show_a_grid">Näytä ruudukko</string>
     <string name="loop_reminders">Toista muistutuksia, kunnes ne hylätään</string>
     <string name="dim_past_events">Himmennä menneet tapahtumat</string>
@@ -248,7 +248,7 @@
     <string name="faq_4_text">Kyllä. Oletuksena kaikki tapahtumat luodaan nykyiselle aikavyöhykkeellesi. Jos haluat muuttaa tapahtuman aikavyöhykettä, sinun on ensin otettava käyttöön aikavyöhykkeen valitsin sovelluksen asetuksissa ja muutettava se sitten Tapahtuman tiedot-näytössä. Se on oletusarvoisesti pois käytöstä, koska useimmat ihmiset eivät tarvitse sitä.</string>
     <string name="faq_5_title">Miksi sovellus ei näytä ilmoituksia\?</string>
     <string name="faq_5_text">Tarkista laitteesi akku- ja ilmoitusasetukset siltä varalta että jokin asetus estää ilmoitukset tai sulkee sovelluksen taustalla. Katso myös vinkit sivustolta &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;.</string>
-    <string name="faq_6_title">Kuinka voin muokata tai poistaa tapahtumatyypin\?</string>
+    <string name="faq_6_title">Kuinka voin muokata tai poistaa tapahtumatyypin?</string>
     <string name="faq_6_text">Voit muokata tai poistaa tapahtumatyyppejä sovelluksen asetuksissa kohdasta Hallitse taphtumatyyppejä. Klikkaa haluamaasi tyyppiä vaihtaaksesi otsikkoa tai väriä. Tapahtumatyypin voit poistaa painamalla sitä listssa pitkään ja klikkamaalla yläpalkkiin ilmestyvää roskakorikuvaketta.</string>
     <string name="caldav">CalDAV</string>
     <string name="default_calendar_color">Kalenterin oletusväri</string>
