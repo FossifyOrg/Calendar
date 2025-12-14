@@ -132,8 +132,8 @@
     <string name="edit_type">Edytuj kalendarz</string>
     <string name="type_already_exists">Kalendarz o tym tytule już istnieje</string>
     <string name="color">Kolor</string>
-    <string name="regular_event">Zwykłe wydarzenie</string>
-    <string name="cannot_delete_default_type">Domyślny kalendarz nie może zostać usunięty</string>
+    <string name="regular_event">Lokalny kalendarz</string>
+    <string name="cannot_delete_default_type">Wbudowany kalendarz nie może zostać usunięty</string>
     <string name="select_event_type">Wybierz kalendarz</string>
     <string name="move_events_into_default">Przenieś powiązane wydarzenia do domyślnego kalendarza</string>
     <string name="remove_affected_events">Usuń trwale powiązane wydarzenia</string>
