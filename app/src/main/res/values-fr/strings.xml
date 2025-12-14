@@ -162,7 +162,7 @@
     <string name="display_description_or_location">Afficher la description ou le lieu</string>
     <string name="delete_all_events">Supprimer tous les évènements</string>
     <string name="delete_all_events_and_tasks">Supprimer tous les évènements et tâches</string>
-    <string name="delete_all_events_confirmation">Voulez-vous vraiment supprimer tous les évènements et tâches  \? Vos types d\'évènements et autres paramètres personnalisés ne seront pas modifiés.</string>
+    <string name="delete_all_events_confirmation">Voulez-vous vraiment supprimer tous les évènements et tâches ? Vos types d\'évènements et autres paramètres personnalisés ne seront pas modifiés.</string>
     <string name="show_a_grid">Afficher une grille</string>
     <string name="loop_reminders">Rappels en boucle jusqu\'à ce qu\'ils soient rejetés</string>
     <string name="dim_past_events">Assombrir les évènements passés</string>
@@ -251,8 +251,8 @@
     <string name="faq_4_text">Oui, c\'est le cas. Par défaut, tous les évènements sont créés dans votre fuseau horaire actuel. Si vous souhaitez modifier le fuseau horaire d\'un évènement, vous devrez d\'abord activer le sélecteur de fuseaux horaires dans les paramètres de l\'application, puis le modifier sur l\'écran Détails de l\'Évènement. Il est désactivé par défaut, car la plupart des utilisateurs n\'en ont pas besoin.</string>
     <string name="faq_5_title">L\'application n\'affiche aucune notification, pourquoi ?</string>
     <string name="faq_5_text">Vérifiez dans les paramètres « Batterie » et « Notifications » de votre appareil que rien ne bloque l\'affichage des rappels ou n\'arrête l\'exécution de l\'application en arrière-plan. Vous pouvez aussi trouver des informations utiles à l\'adresse web suivante  : &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;.</string>
-    <string name="faq_6_title">Comment puis-je modifier ou supprimer un type d\'évènement existant \?</string>
-    <string name="faq_6_text">Vous pouvez réaliser ces deux opérations depuis les paramètres de l\'application -&gt; puis « Gérer les types d\'évènements ». Cliquez simplement sur l\'évènement concerné pour modifier son titre ou sa couleur, ou sélectionnez celui que vous souhaitez en appuyant longuement dessus et utilisez la corbeille dans le menu supérieur pour le supprimer.</string>
+    <string name="faq_6_title">Comment puis-je modifier ou supprimer un type d\'évènement existant ?</string>
+    <string name="faq_6_text">Vous pouvez réaliser ces deux opérations depuis les paramètres de l\'application -&gt; puis « Gérer les types d\'évènements ». Cliquez simplement sur l\'évènement concerné pour modifier son titre ou sa couleur, ou sélectionnez celui que vous souhaitez en appuyant longuement dessus et utilisez la corbeille dans le menu supérieur pour le supprimer.</string>
     <string name="notification_stream">Notification</string>
     <string name="accessibility_next_day">Aller au jour suivant</string>
     <string name="caldav">CalDAV</string>
