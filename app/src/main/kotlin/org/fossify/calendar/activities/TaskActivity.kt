@@ -26,7 +26,7 @@ import org.fossify.commons.models.RadioItem
 import org.joda.time.DateTime
 
 class TaskActivity : SimpleActivity() {
-    private var mEventTypeId = REGULAR_EVENT_TYPE_ID
+    private var mEventTypeId = LOCAL_CALENDAR_ID
     private lateinit var mTaskDateTime: DateTime
     private lateinit var mTask: Event
 
@@ -237,7 +237,7 @@ class TaskActivity : SimpleActivity() {
 
     private fun gotTask(savedInstanceState: Bundle?, localEventType: EventType?, task: Event?) {
         if (localEventType == null) {
-            config.lastUsedLocalEventTypeId = REGULAR_EVENT_TYPE_ID
+            config.lastUsedLocalEventTypeId = LOCAL_CALENDAR_ID
         }
 
         mEventTypeId = if (config.defaultEventTypeId == -1L) config.lastUsedLocalEventTypeId else config.defaultEventTypeId

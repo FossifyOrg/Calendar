@@ -6,7 +6,7 @@ import org.fossify.calendar.R
 import org.fossify.calendar.activities.SimpleActivity
 import org.fossify.calendar.databinding.ItemEventTypeBinding
 import org.fossify.calendar.extensions.eventsHelper
-import org.fossify.calendar.helpers.REGULAR_EVENT_TYPE_ID
+import org.fossify.calendar.helpers.LOCAL_CALENDAR_ID
 import org.fossify.calendar.interfaces.DeleteEventTypesListener
 import org.fossify.calendar.models.EventType
 import org.fossify.commons.adapters.MyRecyclerViewAdapter
@@ -163,7 +163,7 @@ class ManageEventTypesAdapter(
 
         for (key in selectedKeys) {
             val type = getItemWithKey(key) ?: continue
-            if (type.id == REGULAR_EVENT_TYPE_ID) {
+            if (type.id == LOCAL_CALENDAR_ID) {
                 activity.toast(R.string.cannot_delete_default_type)
                 eventTypesToDelete.remove(type)
                 toggleItemSelection(false, getItemKeyPosition(type.id!!.toInt()))

@@ -12,12 +12,12 @@ import org.fossify.calendar.helpers.IcsImporter.ImportResult.IMPORT_FAIL
 import org.fossify.calendar.helpers.IcsImporter.ImportResult.IMPORT_NOTHING_NEW
 import org.fossify.calendar.helpers.IcsImporter.ImportResult.IMPORT_OK
 import org.fossify.calendar.helpers.IcsImporter.ImportResult.IMPORT_PARTIAL
-import org.fossify.calendar.helpers.REGULAR_EVENT_TYPE_ID
+import org.fossify.calendar.helpers.LOCAL_CALENDAR_ID
 import org.fossify.commons.extensions.*
 import org.fossify.commons.helpers.ensureBackgroundThread
 
 class ImportEventsDialog(val activity: SimpleActivity, val path: String, val callback: (refreshView: Boolean) -> Unit) {
-    private var currEventTypeId = REGULAR_EVENT_TYPE_ID
+    private var currEventTypeId = LOCAL_CALENDAR_ID
     private var currEventTypeCalDAVCalendarId = 0
     private val config = activity.config
     private val binding by activity.viewBinding(DialogImportEventsBinding::inflate)
@@ -25,7 +25,7 @@ class ImportEventsDialog(val activity: SimpleActivity, val path: String, val cal
     init {
         ensureBackgroundThread {
             if (activity.eventTypesDB.getEventTypeWithId(config.lastUsedLocalEventTypeId) == null) {
-                config.lastUsedLocalEventTypeId = REGULAR_EVENT_TYPE_ID
+                config.lastUsedLocalEventTypeId = LOCAL_CALENDAR_ID
             }
 
             val isLastCaldavCalendarOK = config.caldavSync && config.getSyncedCalendarIdsAsList().contains(config.lastUsedCaldavCalendarId)
@@ -35,7 +35,7 @@ class ImportEventsDialog(val activity: SimpleActivity, val path: String, val cal
                     currEventTypeCalDAVCalendarId = config.lastUsedCaldavCalendarId
                     lastUsedCalDAVCalendar.id!!
                 } else {
-                    REGULAR_EVENT_TYPE_ID
+                    LOCAL_CALENDAR_ID
                 }
             } else {
                 config.lastUsedLocalEventTypeId

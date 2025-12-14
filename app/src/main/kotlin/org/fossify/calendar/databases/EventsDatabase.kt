@@ -10,7 +10,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import org.fossify.calendar.R
 import org.fossify.calendar.extensions.config
 import org.fossify.calendar.helpers.Converters
-import org.fossify.calendar.helpers.REGULAR_EVENT_TYPE_ID
+import org.fossify.calendar.helpers.LOCAL_CALENDAR_ID
 import org.fossify.calendar.interfaces.EventTypesDao
 import org.fossify.calendar.interfaces.EventsDao
 import org.fossify.calendar.interfaces.TasksDao
@@ -45,7 +45,7 @@ abstract class EventsDatabase : RoomDatabase() {
                             .addCallback(object : Callback() {
                                 override fun onCreate(db: SupportSQLiteDatabase) {
                                     super.onCreate(db)
-                                    insertRegularEventType(context)
+                                    insertLocalCalendar(context)
                                 }
                             })
                             .addMigrations(MIGRATION_1_2)
@@ -70,12 +70,15 @@ abstract class EventsDatabase : RoomDatabase() {
             db = null
         }
 
-        private fun insertRegularEventType(context: Context) {
+        private fun insertLocalCalendar(context: Context) {
             Executors.newSingleThreadScheduledExecutor().execute {
-                val regularEvent = context.resources.getString(R.string.regular_event)
-                val eventType = EventType(REGULAR_EVENT_TYPE_ID, regularEvent, context.getProperPrimaryColor())
+                val eventType = EventType(
+                    id = LOCAL_CALENDAR_ID,
+                    title = context.resources.getString(R.string.regular_event),
+                    color = context.getProperPrimaryColor()
+                )
                 db!!.EventTypesDao().insertOrUpdate(eventType)
-                context.config.addDisplayEventType(REGULAR_EVENT_TYPE_ID.toString())
+                context.config.addDisplayEventType(LOCAL_CALENDAR_ID.toString())
             }
         }
 
