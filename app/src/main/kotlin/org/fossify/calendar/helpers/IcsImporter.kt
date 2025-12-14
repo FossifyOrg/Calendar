@@ -43,7 +43,7 @@ class IcsImporter(val activity: SimpleActivity) {
     private var curRepeatInterval = 0
     private var curRepeatLimit = 0L
     private var curRepeatRule = 0
-    private var curEventTypeId = REGULAR_EVENT_TYPE_ID
+    private var curEventTypeId = LOCAL_CALENDAR_ID
     private var curLastModified = 0L
     private var curCategoryColor = -2
     private var curAvailability = Events.AVAILABILITY_BUSY
@@ -496,7 +496,7 @@ class IcsImporter(val activity: SimpleActivity) {
         curRepeatInterval = 0
         curRepeatLimit = 0L
         curRepeatRule = 0
-        curEventTypeId = REGULAR_EVENT_TYPE_ID
+        curEventTypeId = LOCAL_CALENDAR_ID
         curLastModified = 0L
         curCategoryColor = -2
         isNotificationDescription = false

@@ -83,7 +83,7 @@ import org.fossify.calendar.helpers.NEW_EVENT_SET_HOUR_DURATION
 import org.fossify.calendar.helpers.NEW_EVENT_START_TS
 import org.fossify.calendar.helpers.ORIGINAL_END_TS
 import org.fossify.calendar.helpers.ORIGINAL_START_TS
-import org.fossify.calendar.helpers.REGULAR_EVENT_TYPE_ID
+import org.fossify.calendar.helpers.LOCAL_CALENDAR_ID
 import org.fossify.calendar.helpers.REMINDER_1_MINUTES
 import org.fossify.calendar.helpers.REMINDER_1_TYPE
 import org.fossify.calendar.helpers.REMINDER_2_MINUTES
@@ -186,7 +186,7 @@ class EventActivity : SimpleActivity() {
     private var mRepeatInterval = 0
     private var mRepeatLimit = 0L
     private var mRepeatRule = 0
-    private var mEventTypeId = REGULAR_EVENT_TYPE_ID
+    private var mEventTypeId = LOCAL_CALENDAR_ID
     private var mEventOccurrenceTS = 0L
     private var mLastSavePromptTS = 0L
     private var mEventCalendarId = STORED_LOCALLY_ONLY
@@ -406,7 +406,7 @@ class EventActivity : SimpleActivity() {
         event: Event?,
     ) = binding.apply {
         if (localEventType == null || localEventType.caldavCalendarId != 0) {
-            config.lastUsedLocalEventTypeId = REGULAR_EVENT_TYPE_ID
+            config.lastUsedLocalEventTypeId = LOCAL_CALENDAR_ID
         }
 
         mEventTypeId = if (config.defaultEventTypeId == -1L) {

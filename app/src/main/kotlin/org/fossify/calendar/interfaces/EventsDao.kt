@@ -109,7 +109,7 @@ interface EventsDao {
     @Query("SELECT id FROM events WHERE source = :source AND import_id != \"\" AND type = $TYPE_EVENT")
     fun getCalDAVCalendarEvents(source: String): List<Long>
 
-    @Query("UPDATE events SET event_type = $REGULAR_EVENT_TYPE_ID WHERE event_type = :eventTypeId")
+    @Query("UPDATE events SET event_type = $LOCAL_CALENDAR_ID WHERE event_type = :eventTypeId")
     fun resetEventsAndTasksWithType(eventTypeId: Long)
 
     @Query("UPDATE events SET import_id = :importId, source = :source WHERE id = :id AND type = $TYPE_EVENT")
