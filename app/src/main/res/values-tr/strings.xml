@@ -163,7 +163,7 @@
     <string name="display_description_or_location">Açıklamayı veya konumu göster</string>
     <string name="delete_all_events">Tüm etkinlikleri sil</string>
     <string name="delete_all_events_and_tasks">Tüm etkinlikleri ve görevleri sil</string>
-    <string name="delete_all_events_confirmation">Tüm etkinlikleri ve görevleri silmek istediğinizden emin misiniz\? Bu, etkinlik türlerinizi ve diğer ayarlarınızı olduğu gibi bırakacaktır.</string>
+    <string name="delete_all_events_confirmation">Tüm etkinlikleri ve görevleri silmek istediğinizden emin misiniz? Bu, etkinlik türlerinizi ve diğer ayarlarınızı olduğu gibi bırakacaktır.</string>
     <string name="show_a_grid">Izgara göster</string>
     <string name="loop_reminders">Kapatılana kadar hatırlatıcıları tekrarla</string>
     <string name="dim_past_events">Geçmiş etkinlikleri soldur</string>
@@ -253,7 +253,7 @@
     <string name="faq_4_text">Evet, destekliyor. Öntanımlı olarak tüm etkinlikler geçerli saat diliminizde oluşturulur. Etkinliklerin saat dilimini değiştirmek istiyorsanız, önce uygulama ayarlarından saat dilimi seçiciyi etkinleştirmeniz, ardından Etkinlik Ayrıntıları ekranından değiştirmeniz gerekir. Çoğu insanın ihtiyacı olmayacağı için öntanımlı olarak devre dışıdır.</string>
     <string name="faq_5_title">Uygulama bildirim göstermiyor, bunun nedeni ne?</string>
     <string name="faq_5_text">Hatırlatıcıları engelleyen veya arka planda uygulamayı kapatan bir şey yoksa aygıtınızın pilini ve bildirim ayarlarını denetleyin. Ayrıca yararlı ipuçları bulabileceğiniz &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt; adresine de göz atmak isteyebilirsiniz.</string>
-    <string name="faq_6_title">Mevcut bir etkinlik türünü nasıl değiştirebilir veya silebilirim\?</string>
+    <string name="faq_6_title">Mevcut bir etkinlik türünü nasıl değiştirebilir veya silebilirim?</string>
     <string name="faq_6_text">Bunların ikisini de uygulamanın Ayarlar - Etkinlik türlerini yönet kısmında yapabilirsiniz. Etiket ve rengi değiştirmek için istediğinizin üzerine tıklayın veya uzun basarak istediğinizi seçin ve silmek için üst menüdeki çöp kutusunu kullanın.</string>
     <string name="alarm_stream">Alarm</string>
     <string name="caldav">CalDAV</string>
