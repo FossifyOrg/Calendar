@@ -37,7 +37,7 @@
     <string name="add_anniversaries_automatically">नई वर्षगाँठ स्वचालित रूप से जोड़ें</string>
     <string name="before">पहले</string>
     <string name="ignore_event_types">फाइल में कैलेंडरों को अनदेखा करें, हमेशा डिफ़ॉल्ट कैलेंडर का उपयोग करें</string>
-    <string name="cannot_delete_default_type">डिफ़ॉल्ट कैलेंडर हटाया नहीं जा सकता</string>
+    <string name="cannot_delete_default_type">यह अंतर्निर्मित कैलेंडर हटाया नहीं जा सकता</string>
     <string name="holidays_imported_successfully">छुट्टियों को \"छुट्टियाँ\" कैलेंडर में सफलतापूर्वक आयात की गई हैं</string>
     <string name="delete_all_events_confirmation">क्या आप वाकई सभी आयोजन और कार्यों को हटाना चाहते हैं? इससे आपके कैलेंडर और अन्य सेटिंग्स बरकरार रहेंगी।</string>
     <string name="use_last_event_reminders">नए आयोजन के लिए पिछले आयोजन के अनुस्मारक को डिफ़ॉल्ट के रूप में उपयोग करें</string>
@@ -127,7 +127,7 @@
     <string name="week">सप्ताह</string>
     <string name="add_new_type">नया कैलेंडर जोड़ें</string>
     <string name="edit_type">कैलेंडर संपादित करें</string>
-    <string name="regular_event">नियमित आयोजन</string>
+    <string name="regular_event">स्थानीय कैलेंडर</string>
     <string name="type_already_exists">इस शीर्षक वाला कैलेंडर पहले से मौजूद है</string>
     <string name="color">रंग</string>
     <string name="move_events_into_default">प्रभावित आयोजनों को डिफ़ॉल्ट कैलेंडर में ले जाएँ</string>
