@@ -155,7 +155,7 @@
     <string name="display_description_or_location">Vis utgreiing eller stad</string>
     <string name="delete_all_events">Slett alle hendingane</string>
     <string name="delete_all_events_and_tasks">Slett alle hendingane og oppgåvene</string>
-    <string name="delete_all_events_confirmation">Slett alle hendingane og oppgåvene\? Innstillingane og hendingsslaga dine vert teken vare på.</string>
+    <string name="delete_all_events_confirmation">Slett alle hendingane og oppgåvene? Innstillingane og hendingsslaga dine vert teken vare på.</string>
     <string name="show_a_grid">Vis rutenettet</string>
     <string name="loop_reminders">Gjenta påminningar inntil avviste</string>
     <string name="events">Hendingar</string>
@@ -236,6 +236,6 @@
     <string name="faq_4_text">Ja. Som forval vert alle laga hendingar sette til tidssona di. Om du vil byta tidssona til ei hending, gå først til appinnstillingane og slå på «». So kan du byta tidssoner når du brigdar hendingar.</string>
     <string name="faq_5_title">Appen viser ingen varsel, kvifor\?</string>
     <string name="faq_5_text">Gå til eininga di sine innstillingar for appen og sjå til at appen får lov til å senda påminningar og køyra i bakgrunnen. Det kan au vera til hjelp å sjå på &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;.</string>
-    <string name="faq_6_title">Korleis kan eg brigde eller slette eit hendingsslag\?</string>
+    <string name="faq_6_title">Korleis kan eg brigde eller slette eit hendingsslag?</string>
     <string name="faq_6_text">Du kan gjera begge i «Innstillingar → Handsam hendingsslag». Trykk på eit slag for å byta leten og namnet, og hald inne på eit slag for å so trykke på søppeldunken for å slette det.</string>
 </resources>
