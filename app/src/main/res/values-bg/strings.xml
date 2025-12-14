@@ -23,10 +23,10 @@
     <string name="end_before_start">Събитието не може да приключи по-рано от началото си</string>
     <string name="event_added">Успешно добавено събитие</string>
     <string name="event_updated">Успешно редактирано събитие</string>
-    <string name="filter_events_by_type">Филтриране на събитията по тип</string>
+    <string name="filter_events_by_type">Филтриране на събитията по календар</string>
     <string name="please_fill_location">Моля попълнете местоположение за показване на картата</string>
     <string name="public_event_notification_text">Предстоящо събитие</string>
-    <string name="everything_filtered_out">Вие филтрирахте всички типове събития</string>
+    <string name="everything_filtered_out">Вие филтрирахте всички календари</string>
     <string name="event_color">Цвят на събитието</string>
     <string name="default_calendar_color">Цвят на календара по подразбиране</string>
     <string name="task">Задача</string>
@@ -115,11 +115,11 @@
     <string name="import_events_from_ics">Импортиране на събития от .ics файл</string>
     <string name="import_events_from_ics_pro">Импортиране на събития от .ics файл (Pro)</string>
     <string name="export_events_to_ics">Експортиране на събития в .ics файл</string>
-    <string name="default_event_type">Тип събитие по подразбиране</string>
+    <string name="default_event_type">Подразбиран календар</string>
     <string name="export_past_events_too">Експортиране и на минали събития</string>
     <string name="export_tasks">Експортиране на задачи</string>
     <string name="export_past_entries">Експортиране и на минали записи</string>
-    <string name="include_event_types">Включване на типа събития</string>
+    <string name="include_event_types">Включване на календари</string>
     <string name="filename_without_ics">Име на файла (без .ics)</string>
     <string name="ignore_event_types">Игнорирайте типовете събития във файла, винаги използвайте този по подразбиране</string>
     <string name="location">Местоположение</string>
