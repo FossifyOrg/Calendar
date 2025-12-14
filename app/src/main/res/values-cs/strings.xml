@@ -119,7 +119,7 @@
     <string name="export_past_entries">Exportovat i historické položky</string>
     <string name="include_event_types">Zahrnout typy událostí</string>
     <string name="filename_without_ics">Název souboru (bez .ics)</string>
-    <string name="ignore_event_types">Ignorovat typy událostí v souboru, vždy použít výchozí</string>
+    <string name="ignore_event_types">Ignorovat typy událostí v souboru, vždy použít výchozí</string>
     <string name="location">Místo</string>
     <string name="description">Popis</string>
     <string name="all_day">Celý den</string>
@@ -128,7 +128,7 @@
     <string name="event_types">Typy událostí</string>
     <string name="add_new_type">Přidat nový typ</string>
     <string name="edit_type">Upravit typ</string>
-    <string name="type_already_exists">Typ s tímto názvem již existuje</string>
+    <string name="type_already_exists">Typ s tímto názvem již existuje</string>
     <string name="color">Barva</string>
     <string name="regular_event">Běžná událost</string>
     <string name="cannot_delete_default_type">Výchozí typ události nelze odstranit</string>
@@ -161,7 +161,7 @@
     <string name="display_description_or_location">Zobrazit popis nebo místo</string>
     <string name="delete_all_events">Smazat všechny události</string>
     <string name="delete_all_events_and_tasks">Smazat všechny události a úkoly</string>
-    <string name="delete_all_events_confirmation">Opravdu chcete smazat všechny události a úkoly\? Typy událostí a ostatní nastavení zůstanou nedotčeny.</string>
+    <string name="delete_all_events_confirmation">Opravdu chcete smazat všechny události a úkoly? Typy událostí a ostatní nastavení zůstanou nedotčeny.</string>
     <string name="show_a_grid">Zobrazovat mřížku</string>
     <string name="loop_reminders">Opakovat připomínky až do zamítnutí</string>
     <string name="dim_past_events">Ztmavit minulé události</string>
@@ -251,8 +251,8 @@
     <string name="faq_4_text">Ano, podporuje. Ve výchozím stavu jsou všechny události vytvářeny ve vašem současném časovém pásmu. Pokud chcete změnit časové pásmo některé události, musíte nejdříve povolit úpravy časových pásem v nastavení aplikace, poté jej změníte na obrazovce s detaily události. Ve výchozím nastavení je úprava vypnuta, neboť většina lidí ji nebude potřebovat.</string>
     <string name="faq_5_title">Aplikace nezobrazuje žádná oznámení. Proč tomu tak je\?</string>
     <string name="faq_5_text">Zkontrolujte nastavení oznámení a baterie na vašem zařízení, zda tam není nic blokujícího připomenutí, nebo zabíjení aplikace běžící na pozadí. Možná se také budete chtít podívat na &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com &lt;/a&gt;, kde je několik užitečných tipů.</string>
-    <string name="faq_6_title">Jak mohu upravit nebo odstranit existující typ události\?</string>
-    <string name="faq_6_text">Obojí lze udělat v Nastavení aplikace – Správa typů událostí. Po klepnutí na zvolený typ události můžete upravit název a barvu. Dlouhým podržením a poté použitím odpadkového koše v horním menu typ události odstraníte.</string>
+    <string name="faq_6_title">Jak mohu upravit nebo odstranit existující typ události?</string>
+    <string name="faq_6_text">Obojí lze udělat v Nastavení aplikace – Správa typů událostí. Po klepnutí na zvolený typ události můžete upravit název a barvu. Dlouhým podržením a poté použitím odpadkového koše v horním menu typ události odstraníte.</string>
     <string name="event_color">Barva události</string>
     <string name="caldav">CalDAV</string>
     <string name="accessibility_previous_month">Přejít na předchozí měsíc</string>
