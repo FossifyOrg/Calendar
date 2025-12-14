@@ -250,7 +250,7 @@
     <string name="faq_4_text">Sí, els admet. De manera predeterminada, tots els esdeveniments es creen al vostre fus horari actual. Si voleu canviar el fus horari d\'un esdeveniment, primer haureu d\'activar el selector de fus horari a la configuració de l\'aplicació i, a continuació, canviar-lo a la pantalla Detalls de l\'esdeveniment. Està desactivat per defecte, ja que la majoria de la gent no el necessitarà.</string>
     <string name="faq_5_title">L\'aplicació no mostra cap notificació, per què és això\?</string>
     <string name="faq_5_text">Comproveu la bateria del dispositiu i la configuració de notificacions, si no hi ha res que bloquegi els recordatoris o que mati l\'aplicació en segon pla. També us recomanem que feu una ullada a &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;, té alguns consells útils.</string>
-    <string name="faq_6_title">Com puc modificar o suprimir un tipus d\'esdeveniment existent\?</string>
+    <string name="faq_6_title">Com puc modificar o suprimir un tipus d\'esdeveniment existent?</string>
     <string name="faq_6_text">Podeu fer les dues coses a la Configuració de l\'aplicació - Gestionar els tipus d\'esdeveniments. Només cal fer clic en el desitjat per a canviar l\'etiqueta o el color, o el podeu seleccionar prement-lo prolongadament i utilitzeu la paperera del menú superior per a suprimir-lo.</string>
     <string name="event_color">Color de l\'esdeveniment</string>
     <string name="default_calendar_color">Color del calendari predeterminat</string>
