@@ -160,7 +160,7 @@
     <string name="display_description_or_location">Mostrar descripción o ubicación</string>
     <string name="delete_all_events">Borrar todos los eventos</string>
     <string name="delete_all_events_and_tasks">Borrar todos los eventos y tareas</string>
-    <string name="delete_all_events_confirmation">¿Estás seguro de que quieres borrar todos los eventos y tareas\? Esto dejará intactos tus tipos de eventos y otros ajustes.</string>
+    <string name="delete_all_events_confirmation">¿Estás seguro de que quieres borrar todos los eventos y tareas? Esto dejará intactos tus tipos de eventos y otros ajustes.</string>
     <string name="show_a_grid">Mostrar cuadrícula</string>
     <string name="loop_reminders">Repetir recordatorios hasta ser descartados</string>
     <string name="dim_past_events">Atenuar eventos pasados</string>
@@ -250,7 +250,7 @@
     <string name="faq_4_text">Sí, lo hace. De forma predeterminada, todos los eventos se crean en su zona horaria actual. Si desea cambiar la zona horaria de un evento, primero deberá habilitar el selector de zona horaria en la configuración de la aplicación y luego cambiarlo en la pantalla Detalles del evento. Está deshabilitado de forma predeterminada ya que la mayoría de las personas no lo necesitarán.</string>
     <string name="faq_5_title">La aplicación no muestra notificaciones, ¿por qué?</string>
     <string name="faq_5_text">Comprueba la batería y las opciones de notificación, asegúrate de que los recordatorios no estén bloqueados y de que se permita la ejecución de la aplicación en segundo plano. En esta página web &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt; encontrarás consejos útiles.</string>
-    <string name="faq_6_title">¿Cómo puedo modificar o eliminar un tipo de evento\?</string>
+    <string name="faq_6_title">¿Cómo puedo modificar o eliminar un tipo de evento?</string>
     <string name="faq_6_text">Puede hacer ambas cosas en la aplicación Configuración - Administrar tipos de eventos. Simplemente haga clic en el elemento deseado para cambiar la etiqueta y el color, o seleccione el elemento deseado presionándolo prolongadamente y use la papelera en el menú superior para eliminarlo.</string>
     <string name="event_color">Color del evento</string>
     <string name="default_calendar_color">Color predeterminado del calendario</string>
