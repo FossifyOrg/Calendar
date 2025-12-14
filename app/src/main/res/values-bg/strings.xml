@@ -163,7 +163,7 @@
     <string name="display_description_or_location">Показване на описание или местоположение</string>
     <string name="delete_all_events">Изтриване на всички събития</string>
     <string name="delete_all_events_and_tasks">Изтриване на всички събития и задачи</string>
-    <string name="delete_all_events_confirmation">Сигурни ли сте, че искате да изтриете всички събития и задачи\? Това ще остави типовете събития и другите ви настройки непокътнати.</string>
+    <string name="delete_all_events_confirmation">Сигурни ли сте, че искате да изтриете всички събития и задачи? Това ще остави типовете събития и другите ви настройки непокътнати.</string>
     <string name="show_a_grid">Показване на решетка</string>
     <string name="loop_reminders">Периодично напомняне до изключване</string>
     <string name="dim_past_events">Затъмняване на минали събития</string>
@@ -250,7 +250,7 @@
     <string name="faq_4_title">Приложението поддържа ли часови зони\?</string>
     <string name="faq_5_title">Защо приложението не показва известия\?</string>
     <string name="faq_5_text">Проверете настройките на батерията и известията на устройството си, ако няма нищо блокиращо напомнянията, или убиване на приложението във фонов режим. Бихте могли също да погледнете &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;, има някои полезни съвети.</string>
-    <string name="faq_6_title">Как мога да променя или изтрия съществуващ тип събитие\?</string>
+    <string name="faq_6_title">Как мога да променя или изтрия съществуващ тип събитие?</string>
     <string name="faq_6_text">Можете да направите и двете неща в приложението Настройки - Управление на типове събития. Просто щракнете върху желаното събитие, за да промените етикета и цвета, или изберете желаното събитие, като го натиснете продължително, и използвайте кошчето в горното меню за изтриване.</string>
     <string name="caldav">CalDAV</string>
     <string name="accessibility_previous_month">Отиди в предишния месец</string>
