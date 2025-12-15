@@ -3,18 +3,32 @@ package org.fossify.calendar.dialogs
 import androidx.appcompat.app.AlertDialog
 import org.fossify.calendar.R
 import org.fossify.calendar.activities.SimpleActivity
-import org.fossify.calendar.adapters.FilterEventTypeAdapter
+import org.fossify.calendar.adapters.FilterCalendarAdapter
 import org.fossify.calendar.databinding.DialogExportEventsBinding
 import org.fossify.calendar.extensions.config
 import org.fossify.calendar.extensions.eventsHelper
 import org.fossify.commons.dialogs.FilePickerDialog
-import org.fossify.commons.extensions.*
+import org.fossify.commons.extensions.beGone
+import org.fossify.commons.extensions.beVisible
+import org.fossify.commons.extensions.getAlertDialogBuilder
+import org.fossify.commons.extensions.getCurrentFormattedDateTime
+import org.fossify.commons.extensions.getParentPath
+import org.fossify.commons.extensions.hideKeyboard
+import org.fossify.commons.extensions.humanizePath
+import org.fossify.commons.extensions.internalStoragePath
+import org.fossify.commons.extensions.isAValidFilename
+import org.fossify.commons.extensions.setupDialogStuff
+import org.fossify.commons.extensions.toast
+import org.fossify.commons.extensions.value
+import org.fossify.commons.extensions.viewBinding
 import org.fossify.commons.helpers.ensureBackgroundThread
 import java.io.File
 
 class ExportEventsDialog(
-    val activity: SimpleActivity, val path: String, val hidePath: Boolean,
-    val callback: (file: File, eventTypes: ArrayList<Long>) -> Unit
+    val activity: SimpleActivity,
+    val path: String,
+    val hidePath: Boolean,
+    val callback: (file: File, calendars: ArrayList<Long>) -> Unit
 ) {
     private var realPath = path.ifEmpty { activity.internalStoragePath }
     private val config = activity.config
@@ -51,11 +65,11 @@ class ExportEventsDialog(
                 }
             }
 
-            activity.eventsHelper.getEventTypes(activity, false) {
-                val eventTypes = HashSet<String>()
-                it.mapTo(eventTypes) { it.id.toString() }
+            activity.eventsHelper.getCalendars(activity, false) {
+                val calendars = HashSet<String>()
+                it.mapTo(calendars) { it.id.toString() }
 
-                exportEventsTypesList.adapter = FilterEventTypeAdapter(activity, it, eventTypes)
+                exportEventsTypesList.adapter = FilterCalendarAdapter(activity, it, calendars)
                 if (it.size > 1) {
                     exportEventsPickTypes.beVisible()
                 }
@@ -66,7 +80,11 @@ class ExportEventsDialog(
             .setPositiveButton(org.fossify.commons.R.string.ok, null)
             .setNegativeButton(org.fossify.commons.R.string.cancel, null)
             .apply {
-                activity.setupDialogStuff(binding.root, this, R.string.export_events) { alertDialog ->
+                activity.setupDialogStuff(
+                    view = binding.root,
+                    dialog = this,
+                    titleId = R.string.export_events
+                ) { alertDialog ->
                     alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
                         val filename = binding.exportEventsFilename.value
                         when {
@@ -90,11 +108,13 @@ class ExportEventsDialog(
                                         lastExportPath = file.absolutePath.getParentPath()
                                         exportEvents = exportEventsChecked
                                         exportTasks = exportTasksChecked
-                                        exportPastEntries = binding.exportPastEventsCheckbox.isChecked
+                                        exportPastEntries =
+                                            binding.exportPastEventsCheckbox.isChecked
                                     }
 
-                                    val eventTypes = (binding.exportEventsTypesList.adapter as FilterEventTypeAdapter).getSelectedItemsList()
-                                    callback(file, eventTypes)
+                                    val calendars =
+                                        (binding.exportEventsTypesList.adapter as FilterCalendarAdapter).getSelectedItemsList()
+                                    callback(file, calendars)
                                     alertDialog.dismiss()
                                 }
                             }

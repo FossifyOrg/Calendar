@@ -200,7 +200,7 @@
         </activity>
 
         <activity
-            android:name=".activities.ManageEventTypesActivity"
+            android:name=".activities.ManageCalendarsActivity"
             android:configChanges="orientation"
             android:exported="false"
             android:label="@string/event_types"
@@ -214,7 +214,7 @@
             android:theme="@style/Theme.Transparent" />
 
         <activity
-            android:name=".activities.EventTypePickerActivity"
+            android:name=".activities.CalendarPickerActivity"
             android:configChanges="orientation"
             android:excludeFromRecents="true"
             android:exported="false"

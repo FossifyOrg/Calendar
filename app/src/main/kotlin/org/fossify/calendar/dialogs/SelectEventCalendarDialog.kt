@@ -11,10 +11,20 @@ import org.fossify.calendar.databinding.RadioButtonWithColorBinding
 import org.fossify.calendar.extensions.eventsHelper
 import org.fossify.calendar.helpers.STORED_LOCALLY_ONLY
 import org.fossify.calendar.models.CalDAVCalendar
-import org.fossify.commons.extensions.*
+import org.fossify.commons.extensions.getAlertDialogBuilder
+import org.fossify.commons.extensions.getProperBackgroundColor
+import org.fossify.commons.extensions.setFillWithStroke
+import org.fossify.commons.extensions.setupDialogStuff
+import org.fossify.commons.extensions.updateTextColors
+import org.fossify.commons.extensions.viewBinding
 import org.fossify.commons.helpers.ensureBackgroundThread
 
-class SelectEventCalendarDialog(val activity: Activity, val calendars: List<CalDAVCalendar>, val currCalendarId: Int, val callback: (id: Int) -> Unit) {
+class SelectEventCalendarDialog(
+    val activity: Activity,
+    val calendars: List<CalDAVCalendar>,
+    val currCalendarId: Int,
+    val callback: (id: Int) -> Unit
+) {
     private var dialog: AlertDialog? = null
     private val radioGroup: RadioGroup
     private var wasInit = false
@@ -25,9 +35,9 @@ class SelectEventCalendarDialog(val activity: Activity, val calendars: List<CalD
 
         ensureBackgroundThread {
             calendars.forEach {
-                val localEventType = activity.eventsHelper.getEventTypeWithCalDAVCalendarId(it.id)
-                if (localEventType != null) {
-                    it.color = localEventType.color
+                val localCalendar = activity.eventsHelper.getCalendarWithCalDAVCalendarId(it.id)
+                if (localCalendar != null) {
+                    it.color = localCalendar.color
                 }
             }
 
@@ -35,7 +45,11 @@ class SelectEventCalendarDialog(val activity: Activity, val calendars: List<CalD
                 calendars.forEach {
                     addRadioButton(it.getFullTitle(), it.id, it.color)
                 }
-                addRadioButton(activity.getString(R.string.store_locally_only), STORED_LOCALLY_ONLY, Color.TRANSPARENT)
+                addRadioButton(
+                    activity.getString(R.string.store_locally_only),
+                    STORED_LOCALLY_ONLY,
+                    Color.TRANSPARENT
+                )
                 wasInit = true
                 activity.updateTextColors(binding.dialogRadioHolder)
             }
@@ -58,11 +72,20 @@ class SelectEventCalendarDialog(val activity: Activity, val calendars: List<CalD
         }
 
         if (typeId != STORED_LOCALLY_ONLY) {
-            radioBinding.dialogRadioColor.setFillWithStroke(color, activity.getProperBackgroundColor())
+            radioBinding.dialogRadioColor.setFillWithStroke(
+                color,
+                activity.getProperBackgroundColor()
+            )
         }
 
         radioBinding.root.setOnClickListener { viewClicked(typeId) }
-        radioGroup.addView(radioBinding.root, RadioGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT))
+        radioGroup.addView(
+            radioBinding.root,
+            RadioGroup.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+            )
+        )
     }
 
     private fun viewClicked(typeId: Int) {

@@ -5,22 +5,22 @@ import androidx.core.view.updateLayoutParams
 import androidx.recyclerview.widget.RecyclerView
 import org.fossify.calendar.R
 import org.fossify.calendar.activities.SimpleActivity
-import org.fossify.calendar.databinding.QuickFilterEventTypeViewBinding
+import org.fossify.calendar.databinding.QuickFilterCalendarViewBinding
 import org.fossify.calendar.extensions.config
-import org.fossify.calendar.models.EventType
+import org.fossify.calendar.models.CalendarEntity
 import org.fossify.commons.extensions.adjustAlpha
 import org.fossify.commons.extensions.getProperTextColor
 import org.fossify.commons.helpers.LOWER_ALPHA
 
-class QuickFilterEventTypeAdapter(
+class QuickFilterCalendarAdapter(
     val activity: SimpleActivity,
-    private val allEventTypes: List<EventType>,
-    private val quickFilterEventTypeIds: Set<String>,
+    private val allCalendars: List<CalendarEntity>,
+    private val quickFilterCalendarIds: Set<String>,
     val callback: () -> Unit
-) : RecyclerView.Adapter<QuickFilterEventTypeAdapter.QuickFilterViewHolder>() {
+) : RecyclerView.Adapter<QuickFilterCalendarAdapter.QuickFilterViewHolder>() {
     private val activeKeys = HashSet<Long>()
-    private val quickFilterEventTypes = ArrayList<EventType>()
-    private val displayEventTypes = activity.config.displayEventTypes
+    private val quickFilterCalendars = ArrayList<CalendarEntity>()
+    private val displayCalendars = activity.config.displayCalendars
 
     private val textColorActive = activity.getProperTextColor()
     private val textColorInactive = textColorActive.adjustAlpha(LOWER_ALPHA)
@@ -29,31 +29,31 @@ class QuickFilterEventTypeAdapter(
         activity.resources.getDimensionPixelSize(R.dimen.quick_filter_min_width)
     private var lastClickTS = 0L
 
-    private var lastLongClickedType: EventType? = null
+    private var lastLongClickedType: CalendarEntity? = null
     private var lastActiveKeys = HashSet<Long>()
 
     init {
-        quickFilterEventTypeIds.forEach { quickFilterEventType ->
-            val eventType = allEventTypes
-                .firstOrNull { eventType -> eventType.id.toString() == quickFilterEventType }
+        quickFilterCalendarIds.forEach { quickFilterCalendar ->
+            val calendar = allCalendars
+                .firstOrNull { calendar -> calendar.id.toString() == quickFilterCalendar }
                 ?: return@forEach
-            quickFilterEventTypes.add(eventType)
+            quickFilterCalendars.add(calendar)
         }
 
-        allEventTypes.forEach {
-            if (displayEventTypes.contains(it.id.toString())) {
+        allCalendars.forEach {
+            if (displayCalendars.contains(it.id.toString())) {
                 activeKeys.add(it.id!!)
             }
         }
 
-        quickFilterEventTypes.sortBy { it.title.lowercase() }
+        quickFilterCalendars.sortBy { it.title.lowercase() }
     }
 
-    private fun toggleItemSelection(select: Boolean, eventType: EventType, pos: Int) {
+    private fun toggleItemSelection(select: Boolean, calendar: CalendarEntity, pos: Int) {
         if (select) {
-            activeKeys.add(eventType.id!!)
+            activeKeys.add(calendar.id!!)
         } else {
-            activeKeys.remove(eventType.id)
+            activeKeys.remove(calendar.id)
         }
 
         notifyItemChanged(pos)
@@ -61,8 +61,8 @@ class QuickFilterEventTypeAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QuickFilterViewHolder {
         val parentWidth = parent.measuredWidth
-        val numberOfItems = quickFilterEventTypes.size
-        val binding = QuickFilterEventTypeViewBinding.inflate(
+        val numberOfItems = quickFilterCalendars.size
+        val binding = QuickFilterCalendarViewBinding.inflate(
             activity.layoutInflater, parent, false
         )
 
@@ -78,70 +78,70 @@ class QuickFilterEventTypeAdapter(
     }
 
     override fun onBindViewHolder(holder: QuickFilterViewHolder, position: Int) {
-        val eventType = quickFilterEventTypes[position]
-        holder.bindView(eventType)
+        val calendar = quickFilterCalendars[position]
+        holder.bindView(calendar)
     }
 
-    override fun getItemCount() = quickFilterEventTypes.size
+    override fun getItemCount() = quickFilterCalendars.size
 
-    inner class QuickFilterViewHolder(val binding: QuickFilterEventTypeViewBinding) :
+    inner class QuickFilterViewHolder(val binding: QuickFilterCalendarViewBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bindView(eventType: EventType) {
-            val isSelected = activeKeys.contains(eventType.id)
+        fun bindView(calendar: CalendarEntity) {
+            val isSelected = activeKeys.contains(calendar.id)
             binding.apply {
-                quickFilterEventType.text = eventType.title
+                quickFilterCalendar.text = calendar.title
                 val textColor = if (isSelected) textColorActive else textColorInactive
-                quickFilterEventType.setTextColor(textColor)
+                quickFilterCalendar.setTextColor(textColor)
 
                 val indicatorHeightRes =
                     if (isSelected) R.dimen.quick_filter_active_line_size else R.dimen.quick_filter_inactive_line_size
-                quickFilterEventTypeColor.layoutParams.height =
+                quickFilterCalendarColor.layoutParams.height =
                     root.resources.getDimensionPixelSize(indicatorHeightRes)
-                quickFilterEventTypeColor.setBackgroundColor(eventType.color)
+                quickFilterCalendarColor.setBackgroundColor(calendar.color)
 
                 // avoid too quick clicks, could cause glitches
-                quickFilterEventType.setOnClickListener {
+                quickFilterCalendar.setOnClickListener {
                     if (System.currentTimeMillis() - lastClickTS > 300) {
                         lastClickTS = System.currentTimeMillis()
-                        viewClicked(!isSelected, eventType)
+                        viewClicked(!isSelected, calendar)
                         callback()
                         lastLongClickedType = null
                     }
                 }
 
-                quickFilterEventType.setOnLongClickListener {
-                    if (lastLongClickedType != eventType) {
+                quickFilterCalendar.setOnLongClickListener {
+                    if (lastLongClickedType != calendar) {
                         lastActiveKeys.clear()
                     }
                     val activeKeysCopy = HashSet(activeKeys)
-                    allEventTypes.forEach {
-                        viewClicked(select = lastActiveKeys.contains(it.id!!), eventType = it)
+                    allCalendars.forEach {
+                        viewClicked(select = lastActiveKeys.contains(it.id!!), calendar = it)
                     }
 
-                    val shouldSelectCurrent = if (lastLongClickedType != eventType) {
+                    val shouldSelectCurrent = if (lastLongClickedType != calendar) {
                         true
                     } else {
-                        lastActiveKeys.contains(eventType.id!!)
+                        lastActiveKeys.contains(calendar.id!!)
                     }
 
-                    viewClicked(shouldSelectCurrent, eventType)
+                    viewClicked(shouldSelectCurrent, calendar)
                     notifyItemRangeChanged(0, itemCount)
                     callback()
-                    lastLongClickedType = eventType
+                    lastLongClickedType = calendar
                     lastActiveKeys = activeKeysCopy
                     true
                 }
             }
         }
 
-        private fun viewClicked(select: Boolean, eventType: EventType) {
-            activity.config.displayEventTypes = if (select) {
-                activity.config.displayEventTypes.plus(eventType.id.toString())
+        private fun viewClicked(select: Boolean, calendar: CalendarEntity) {
+            activity.config.displayCalendars = if (select) {
+                activity.config.displayCalendars.plus(calendar.id.toString())
             } else {
-                activity.config.displayEventTypes.minus(eventType.id.toString())
+                activity.config.displayCalendars.minus(calendar.id.toString())
             }
 
-            toggleItemSelection(select, eventType, adapterPosition)
+            toggleItemSelection(select, calendar, adapterPosition)
         }
     }
 }

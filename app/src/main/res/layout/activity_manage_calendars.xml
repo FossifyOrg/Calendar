@@ -6,23 +6,23 @@
     android:layout_height="match_parent">
 
     <org.fossify.commons.views.MyAppBarLayout
-        android:id="@+id/manage_event_types_appbar"
+        android:id="@+id/manage_calendars_appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/manage_event_types_toolbar"
+            android:id="@+id/manage_calendars_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@color/color_primary"
-            app:menu="@menu/menu_event_types"
+            app:menu="@menu/menu_calendars"
             app:title="@string/manage_event_types"
             app:titleTextAppearance="@style/AppTheme.ActionBar.TitleTextStyle" />
 
     </org.fossify.commons.views.MyAppBarLayout>
 
     <org.fossify.commons.views.MyRecyclerView
-        android:id="@+id/manage_event_types_list"
+        android:id="@+id/manage_calendars_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"

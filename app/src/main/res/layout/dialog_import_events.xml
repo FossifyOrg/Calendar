@@ -7,19 +7,19 @@
     android:paddingTop="@dimen/activity_margin">
 
     <org.fossify.commons.views.MyTextInputLayout
-        android:id="@+id/import_event_type_hint"
+        android:id="@+id/import_calendar_hint"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/activity_margin"
         android:layout_marginEnd="@dimen/activity_margin"
-        android:layout_toStartOf="@+id/import_event_type_color"
+        android:layout_toStartOf="@+id/import_calendar_color"
         android:hint="@string/default_event_type"
-        app:layout_constraintEnd_toStartOf="@+id/import_event_type_color"
+        app:layout_constraintEnd_toStartOf="@+id/import_calendar_color"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/import_event_type_title"
+            android:id="@+id/import_calendar_title"
             style="@style/UnclickableEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
@@ -27,15 +27,15 @@
     </org.fossify.commons.views.MyTextInputLayout>
 
     <ImageView
-        android:id="@+id/import_event_type_color"
+        android:id="@+id/import_calendar_color"
         android:layout_width="@dimen/color_sample_size"
         android:layout_height="@dimen/color_sample_size"
         android:layout_marginEnd="@dimen/activity_margin"
         android:clickable="false"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="@+id/import_event_type_hint"
+        app:layout_constraintBottom_toBottomOf="@+id/import_calendar_hint"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/import_event_type_hint" />
+        app:layout_constraintTop_toTopOf="@+id/import_calendar_hint" />
 
     <RelativeLayout
         android:id="@+id/import_events_checkbox_holder"
@@ -46,7 +46,7 @@
         android:paddingTop="@dimen/normal_margin"
         android:paddingEnd="@dimen/activity_margin"
         android:paddingBottom="@dimen/normal_margin"
-        app:layout_constraintTop_toBottomOf="@+id/import_event_type_hint">
+        app:layout_constraintTop_toBottomOf="@+id/import_calendar_hint">
 
         <org.fossify.commons.views.MyAppCompatCheckbox
             android:id="@+id/import_events_checkbox"

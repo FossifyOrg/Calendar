@@ -8,7 +8,27 @@ import androidx.room.Entity
 import androidx.room.Index
 import androidx.room.PrimaryKey
 import org.fossify.calendar.extensions.seconds
-import org.fossify.calendar.helpers.*
+import org.fossify.calendar.helpers.CALDAV
+import org.fossify.calendar.helpers.DAY
+import org.fossify.calendar.helpers.FLAG_ALL_DAY
+import org.fossify.calendar.helpers.FLAG_IS_IN_PAST
+import org.fossify.calendar.helpers.FLAG_MISSING_YEAR
+import org.fossify.calendar.helpers.FLAG_TASK_COMPLETED
+import org.fossify.calendar.helpers.Formatter
+import org.fossify.calendar.helpers.LOCAL_CALENDAR_ID
+import org.fossify.calendar.helpers.MONTH
+import org.fossify.calendar.helpers.REMINDER_NOTIFICATION
+import org.fossify.calendar.helpers.REMINDER_OFF
+import org.fossify.calendar.helpers.REPEAT_ORDER_WEEKDAY
+import org.fossify.calendar.helpers.REPEAT_ORDER_WEEKDAY_USE_LAST
+import org.fossify.calendar.helpers.REPEAT_SAME_DAY
+import org.fossify.calendar.helpers.SOURCE_SIMPLE_CALENDAR
+import org.fossify.calendar.helpers.TYPE_EVENT
+import org.fossify.calendar.helpers.TYPE_TASK
+import org.fossify.calendar.helpers.WEEK
+import org.fossify.calendar.helpers.YEAR
+import org.fossify.calendar.helpers.getAllTimeZones
+import org.fossify.calendar.helpers.getNowSeconds
 import org.fossify.commons.extensions.addBitIf
 import org.joda.time.DateTime
 import org.joda.time.DateTimeConstants
@@ -38,7 +58,7 @@ data class Event(
     @ColumnInfo(name = "import_id") var importId: String = "",
     @ColumnInfo(name = "time_zone") var timeZone: String = "",
     @ColumnInfo(name = "flags") var flags: Int = 0,
-    @ColumnInfo(name = "event_type") var eventType: Long = LOCAL_CALENDAR_ID,
+    @ColumnInfo(name = "event_type") var calendarId: Long = LOCAL_CALENDAR_ID,
     @ColumnInfo(name = "parent_id") var parentId: Long = 0,
     @ColumnInfo(name = "last_updated") var lastUpdated: Long = 0L,
     @ColumnInfo(name = "source") var source: String = SOURCE_SIMPLE_CALENDAR,
@@ -69,7 +89,8 @@ data class Event(
                         REPEAT_SAME_DAY -> addMonthsWithSameDay(oldStart, original)
                         REPEAT_ORDER_WEEKDAY -> addXthDayInterval(oldStart, original, false)
                         REPEAT_ORDER_WEEKDAY_USE_LAST -> addXthDayInterval(oldStart, original, true)
-                        else -> oldStart.plusMonths(repeatInterval / MONTH).dayOfMonth().withMaximumValue()
+                        else -> oldStart.plusMonths(repeatInterval / MONTH).dayOfMonth()
+                            .withMaximumValue()
                     }
 
                     repeatInterval % WEEK == 0 -> {
@@ -109,7 +130,9 @@ data class Event(
             return newDateTime
         }
 
-        while (newDateTime.dayOfMonth().maximumValue < Formatter.getDateTimeFromTS(original.startTS).dayOfMonth().maximumValue) {
+        while (newDateTime.dayOfMonth().maximumValue < Formatter.getDateTimeFromTS(original.startTS)
+                .dayOfMonth().maximumValue
+        ) {
             newDateTime = newDateTime.plusMonths(repeatInterval / MONTH)
             newDateTime = try {
                 newDateTime.withDayOfMonth(currStart.dayOfMonth)
@@ -121,26 +144,34 @@ data class Event(
     }
 
     // handle monthly repetitions like Third Monday
-    private fun addXthDayInterval(currStart: DateTime, original: Event, forceLastWeekday: Boolean): DateTime {
+    private fun addXthDayInterval(
+        currStart: DateTime,
+        original: Event,
+        forceLastWeekday: Boolean
+    ): DateTime {
         val day = currStart.dayOfWeek
         var order = (currStart.dayOfMonth - 1) / 7
-        var properMonth = currStart.withDayOfMonth(7).plusMonths(repeatInterval / MONTH).withDayOfWeek(day)
+        var properMonth =
+            currStart.withDayOfMonth(7).plusMonths(repeatInterval / MONTH).withDayOfWeek(day)
         var wantedDay: Int
 
         // check if it should be for example Fourth Monday, or Last Monday
         if (forceLastWeekday && (order == 3 || order == 4)) {
             val originalDateTime = Formatter.getDateTimeFromTS(original.startTS)
-            val isLastWeekday = originalDateTime.monthOfYear != originalDateTime.plusDays(7).monthOfYear
+            val isLastWeekday =
+                originalDateTime.monthOfYear != originalDateTime.plusDays(7).monthOfYear
             if (isLastWeekday)
                 order = -1
         }
 
         if (order == -1) {
-            wantedDay = properMonth.dayOfMonth + ((properMonth.dayOfMonth().maximumValue - properMonth.dayOfMonth) / 7) * 7
+            wantedDay =
+                properMonth.dayOfMonth + ((properMonth.dayOfMonth().maximumValue - properMonth.dayOfMonth) / 7) * 7
         } else {
             wantedDay = properMonth.dayOfMonth + (order - (properMonth.dayOfMonth - 1) / 7) * 7
             while (properMonth.dayOfMonth().maximumValue < wantedDay) {
-                properMonth = properMonth.withDayOfMonth(7).plusMonths(repeatInterval / MONTH).withDayOfWeek(day)
+                properMonth = properMonth.withDayOfMonth(7).plusMonths(repeatInterval / MONTH)
+                    .withDayOfWeek(day)
                 wantedDay = properMonth.dayOfMonth + (order - (properMonth.dayOfMonth - 1) / 7) * 7
             }
         }
@@ -176,7 +207,9 @@ data class Event(
         }
     }
 
-    fun getCalDAVCalendarId() = if (source.startsWith(CALDAV)) (source.split("-").lastOrNull() ?: "0").toString().toInt() else 0
+    fun getCalDAVCalendarId() =
+        if (source.startsWith(CALDAV)) (source.split("-").lastOrNull() ?: "0").toString()
+            .toInt() else 0
 
     // check if it's the proper week, for events repeating every x weeks
     fun isOnProperWeek(startTimes: LongSparseArray<Long>): Boolean {
@@ -209,7 +242,8 @@ data class Event(
     fun addRepetitionException(dayCode: String) {
         var newRepetitionExceptions = repetitionExceptions.toMutableList()
         newRepetitionExceptions.add(dayCode)
-        newRepetitionExceptions = newRepetitionExceptions.distinct().toMutableList() as ArrayList<String>
+        newRepetitionExceptions =
+            newRepetitionExceptions.distinct().toMutableList() as ArrayList<String>
         repetitionExceptions = newRepetitionExceptions
     }
 
@@ -220,7 +254,8 @@ data class Event(
         }
 
     fun getTimeZoneString(): String {
-        return if (timeZone.isNotEmpty() && getAllTimeZones().map { it.zoneName }.contains(timeZone)) {
+        return if (timeZone.isNotEmpty() && getAllTimeZones().map { it.zoneName }
+                .contains(timeZone)) {
             timeZone
         } else {
             DateTimeZone.getDefault().id

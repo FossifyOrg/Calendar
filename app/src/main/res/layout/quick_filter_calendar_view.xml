@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/quick_filter_event_type_holder"
+    android:id="@+id/quick_filter_calendar_holder"
     android:layout_width="match_parent"
     android:layout_height="@dimen/quick_filter_height"
     android:minWidth="@dimen/quick_filter_min_width">
 
     <org.fossify.commons.views.MyButton
-        android:id="@+id/quick_filter_event_type"
+        android:id="@+id/quick_filter_calendar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/quick_filter_height"
         android:layout_alignParentTop="true"
@@ -21,10 +21,10 @@
         android:textAllCaps="false" />
 
     <ImageView
-        android:id="@+id/quick_filter_event_type_color"
+        android:id="@+id/quick_filter_calendar_color"
         android:layout_width="match_parent"
         android:layout_height="@dimen/quick_filter_inactive_line_size"
-        android:layout_above="@id/quick_filter_event_type"
+        android:layout_above="@id/quick_filter_calendar"
         android:layout_alignParentBottom="true"
         android:background="@color/color_primary"
         android:clickable="false" />

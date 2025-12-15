@@ -27,7 +27,7 @@
             android:importantForAccessibility="no" />
 
         <org.fossify.commons.views.MyTextView
-            android:id="@+id/dialog_manage_event_types"
+            android:id="@+id/dialog_manage_calendars"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/ripple_background"

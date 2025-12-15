@@ -9,8 +9,8 @@ import org.fossify.calendar.helpers.IcsImporter.ImportResult.IMPORT_FAIL
 import org.fossify.calendar.helpers.IcsImporter.ImportResult.IMPORT_NOTHING_NEW
 import org.fossify.calendar.helpers.IcsImporter.ImportResult.IMPORT_OK
 import org.fossify.calendar.helpers.IcsImporter.ImportResult.IMPORT_PARTIAL
+import org.fossify.calendar.models.CalendarEntity
 import org.fossify.calendar.models.Event
-import org.fossify.calendar.models.EventType
 import org.fossify.calendar.models.Reminder
 import org.fossify.commons.extensions.areDigitsOnly
 import org.fossify.commons.extensions.showErrorToast
@@ -43,7 +43,7 @@ class IcsImporter(val activity: SimpleActivity) {
     private var curRepeatInterval = 0
     private var curRepeatLimit = 0L
     private var curRepeatRule = 0
-    private var curEventTypeId = LOCAL_CALENDAR_ID
+    private var curCalendarId = LOCAL_CALENDAR_ID
     private var curLastModified = 0L
     private var curCategoryColor = -2
     private var curAvailability = Events.AVAILABILITY_BUSY
@@ -66,15 +66,16 @@ class IcsImporter(val activity: SimpleActivity) {
 
     fun importEvents(
         path: String,
-        defaultEventTypeId: Long,
+        defaultCalendarId: Long,
         calDAVCalendarId: Int,
-        overrideFileEventTypes: Boolean,
+        overrideFileCalendars: Boolean,
         eventReminders: ArrayList<Int>? = null,
         loadFromAssets: Boolean = false,
     ): ImportResult {
         try {
-            val eventTypes = eventsHelper.getEventTypesSync()
-            val existingEvents = activity.eventsDB.getEventsOrTasksWithImportIds().toMutableList() as ArrayList<Event>
+            val calendars = eventsHelper.getCalendarsSync()
+            val existingEvents = activity.eventsDB.getEventsOrTasksWithImportIds()
+                .toMutableList() as ArrayList<Event>
             val eventsToInsert = ArrayList<Event>()
             var line = ""
 
@@ -98,11 +99,11 @@ class IcsImporter(val activity: SimpleActivity) {
 
                     if (line.trim() == BEGIN_EVENT) {
                         resetValues()
-                        curEventTypeId = defaultEventTypeId
+                        curCalendarId = defaultCalendarId
                         isParsingEvent = true
                     } else if (line.trim() == BEGIN_TASK) {
                         resetValues()
-                        curEventTypeId = defaultEventTypeId
+                        curCalendarId = defaultCalendarId
                         isParsingTask = true
                         curType = TYPE_TASK
                     } else if (line.startsWith(DUE)) {
@@ -155,7 +156,8 @@ class IcsImporter(val activity: SimpleActivity) {
                         val action = line.substring(ACTION.length).trim()
                         isProperReminderAction = action == DISPLAY || action == EMAIL
                         if (isProperReminderAction) {
-                            curReminderTriggerAction = if (action == DISPLAY) REMINDER_NOTIFICATION else REMINDER_EMAIL
+                            curReminderTriggerAction =
+                                if (action == DISPLAY) REMINDER_NOTIFICATION else REMINDER_EMAIL
                         }
                     } else if (line.startsWith(TRIGGER)) {
                         val value = line.substringAfterLast(":")
@@ -197,9 +199,9 @@ class IcsImporter(val activity: SimpleActivity) {
                         if (line.substring(SMT_MISSING_YEAR.length) == "1") {
                             curFlags = curFlags or FLAG_MISSING_YEAR
                         }
-                    } else if (line.startsWith(CLASS)){
+                    } else if (line.startsWith(CLASS)) {
                         val value = line.substringAfterLast(":")
-                        curAccessLevel = when (value){
+                        curAccessLevel = when (value) {
                             PRIVATE -> Events.ACCESS_PRIVATE
                             CONFIDENTIAL -> Events.ACCESS_CONFIDENTIAL
                             else -> Events.ACCESS_PUBLIC
@@ -218,7 +220,7 @@ class IcsImporter(val activity: SimpleActivity) {
                         if (isParsingTask && line.substring(COMPLETED.length).trim().isNotEmpty()) {
                             curFlags = curFlags or FLAG_TASK_COMPLETED
                         }
-                    } else if (line.startsWith(CATEGORIES) && !overrideFileEventTypes) {
+                    } else if (line.startsWith(CATEGORIES) && !overrideFileCalendars) {
                         val categories = line.substring(CATEGORIES.length)
                         tryAddCategories(categories)
                     } else if (line.startsWith(LAST_MODIFIED)) {
@@ -231,13 +233,20 @@ class IcsImporter(val activity: SimpleActivity) {
 
                         if (value.contains(",")) {
                             value.split(",").forEach { exdate ->
-                                curRepeatExceptions.add(Formatter.getDayCodeFromTS(getTimestamp(exdate)))
+                                curRepeatExceptions.add(
+                                    Formatter.getDayCodeFromTS(
+                                        getTimestamp(
+                                            exdate
+                                        )
+                                    )
+                                )
                             }
                         } else {
                             curRepeatExceptions.add(Formatter.getDayCodeFromTS(getTimestamp(value)))
                         }
                     } else if (line.startsWith(LOCATION)) {
-                        curLocation = getLocation(line.substring(LOCATION.length).replace("\\,", ","))
+                        curLocation =
+                            getLocation(line.substring(LOCATION.length).replace("\\,", ","))
                         if (curLocation.trim().isEmpty()) {
                             curLocation = ""
                         }
@@ -247,7 +256,10 @@ class IcsImporter(val activity: SimpleActivity) {
                     } else if (line.startsWith(SEQUENCE)) {
                         isSequence = true
                     } else if (line.startsWith(TRANSP)) {
-                        line.substring(TRANSP.length).let { curAvailability = if (it == TRANSPARENT) Events.AVAILABILITY_FREE else Events.AVAILABILITY_BUSY }
+                        line.substring(TRANSP.length).let {
+                            curAvailability =
+                                if (it == TRANSPARENT) Events.AVAILABILITY_FREE else Events.AVAILABILITY_BUSY
+                        }
                     } else if (line.trim() == BEGIN_ALARM) {
                         isNotificationDescription = true
                     } else if (line.trim() == END_ALARM) {
@@ -269,23 +281,39 @@ class IcsImporter(val activity: SimpleActivity) {
                         }
 
                         // repeating event exceptions can have the same import id as their parents, so pick the latest event to update
-                        val eventToUpdate = existingEvents.filter { curImportId.isNotEmpty() && curImportId == it.importId }.maxByOrNull { it.lastUpdated }
+                        val eventToUpdate =
+                            existingEvents.filter { curImportId.isNotEmpty() && curImportId == it.importId }
+                                .maxByOrNull { it.lastUpdated }
                         if (eventToUpdate != null && eventToUpdate.lastUpdated >= curLastModified) {
                             eventsAlreadyExist++
                             line = curLine
                             continue
                         }
 
-                        var reminders = eventReminders?.map { reminderMinutes -> Reminder(reminderMinutes, REMINDER_NOTIFICATION) } ?: arrayListOf(
-                            Reminder(curReminderMinutes.getOrElse(0) { REMINDER_OFF }, curReminderActions.getOrElse(0) { REMINDER_NOTIFICATION }),
-                            Reminder(curReminderMinutes.getOrElse(1) { REMINDER_OFF }, curReminderActions.getOrElse(1) { REMINDER_NOTIFICATION }),
-                            Reminder(curReminderMinutes.getOrElse(2) { REMINDER_OFF }, curReminderActions.getOrElse(2) { REMINDER_NOTIFICATION })
+                        var reminders = eventReminders?.map { reminderMinutes ->
+                            Reminder(
+                                reminderMinutes,
+                                REMINDER_NOTIFICATION
+                            )
+                        } ?: arrayListOf(
+                            Reminder(
+                                curReminderMinutes.getOrElse(0) { REMINDER_OFF },
+                                curReminderActions.getOrElse(0) { REMINDER_NOTIFICATION }),
+                            Reminder(
+                                curReminderMinutes.getOrElse(1) { REMINDER_OFF },
+                                curReminderActions.getOrElse(1) { REMINDER_NOTIFICATION }),
+                            Reminder(
+                                curReminderMinutes.getOrElse(2) { REMINDER_OFF },
+                                curReminderActions.getOrElse(2) { REMINDER_NOTIFICATION })
                         )
 
-                        reminders = reminders.sortedBy { it.minutes }.sortedBy { it.minutes == REMINDER_OFF }.toMutableList() as ArrayList<Reminder>
+                        reminders = reminders.sortedBy { it.minutes }
+                            .sortedBy { it.minutes == REMINDER_OFF }
+                            .toMutableList() as ArrayList<Reminder>
 
-                        val eventType = eventTypes.firstOrNull { it.id == curEventTypeId }
-                        val source = if (calDAVCalendarId == 0 || eventType?.isSyncedEventType() == false) SOURCE_IMPORTED_ICS else "$CALDAV-$calDAVCalendarId"
+                        val calendar = calendars.firstOrNull { it.id == curCalendarId }
+                        val source =
+                            if (calDAVCalendarId == 0 || calendar?.isSyncedCalendar() == false) SOURCE_IMPORTED_ICS else "$CALDAV-$calDAVCalendarId"
                         val isAllDay = curFlags and FLAG_ALL_DAY != 0
                         val event = Event(
                             null,
@@ -308,7 +336,7 @@ class IcsImporter(val activity: SimpleActivity) {
                             curImportId,
                             DateTimeZone.getDefault().id,
                             curFlags,
-                            curEventTypeId,
+                            curCalendarId,
                             0,
                             curLastModified,
                             source,
@@ -342,13 +370,25 @@ class IcsImporter(val activity: SimpleActivity) {
                             // if an event belongs to a sequence insert it immediately, to avoid some glitches with linked events
                             if (isSequence) {
                                 if (curRecurrenceDayCode.isEmpty()) {
-                                    eventsHelper.insertEvent(event, addToCalDAV = !event.isTask(), showToasts = false)
+                                    eventsHelper.insertEvent(
+                                        event,
+                                        addToCalDAV = !event.isTask(),
+                                        showToasts = false
+                                    )
                                 } else {
                                     // if an event contains the RECURRENCE-ID field, it is an exception to a recurring event, so update its parent too
-                                    val parentEvent = activity.eventsDB.getEventWithImportId(event.importId)
-                                    if (parentEvent != null && !parentEvent.repetitionExceptions.contains(curRecurrenceDayCode)) {
+                                    val parentEvent =
+                                        activity.eventsDB.getEventWithImportId(event.importId)
+                                    if (parentEvent != null && !parentEvent.repetitionExceptions.contains(
+                                            curRecurrenceDayCode
+                                        )
+                                    ) {
                                         parentEvent.addRepetitionException(curRecurrenceDayCode)
-                                        eventsHelper.insertEvent(parentEvent, !parentEvent.isTask(), showToasts = false)
+                                        eventsHelper.insertEvent(
+                                            parentEvent,
+                                            !parentEvent.isTask(),
+                                            showToasts = false
+                                        )
 
                                         event.parentId = parentEvent.id!!
                                         eventsToInsert.add(event)
@@ -359,7 +399,11 @@ class IcsImporter(val activity: SimpleActivity) {
                             }
                         } else {
                             event.id = eventToUpdate.id
-                            eventsHelper.updateEvent(event, updateAtCalDAV = !event.isTask(), showToasts = false)
+                            eventsHelper.updateEvent(
+                                event,
+                                updateAtCalDAV = !event.isTask(),
+                                showToasts = false
+                            )
                         }
                         eventsImported++
                         resetValues()
@@ -408,13 +452,15 @@ class IcsImporter(val activity: SimpleActivity) {
                     // Ideally, we should parse BEGIN:VTIMEZONE and derive the timezone from there, but to get things working, let's assume TZID refers to one
                     // of the known timezones
                     if (fullString.contains(':')) {
-                        val timeZoneId = fullString.substringAfter("%s=".format(TZID)).substringBefore(':')
+                        val timeZoneId =
+                            fullString.substringAfter("%s=".format(TZID)).substringBefore(':')
                         if (DateTimeZone.getAvailableIDs().contains(timeZoneId)) {
                             timeZone = DateTimeZone.forID(timeZoneId)
                         }
                     }
 
-                    val value = fullString.substring(fullString.lastIndexOf(':') + 1).replace(" ", "")
+                    val value =
+                        fullString.substring(fullString.lastIndexOf(':') + 1).replace(" ", "")
                     if (value.isEmpty()) {
                         return 0
                     } else if (!value.contains("T")) {
@@ -424,7 +470,9 @@ class IcsImporter(val activity: SimpleActivity) {
                     Parser().parseDateTimeValue(value, timeZone)
                 }
 
-                fullString.startsWith(":") -> Parser().parseDateTimeValue(fullString.substring(1).trim(), timeZone)
+                fullString.startsWith(":") -> Parser().parseDateTimeValue(
+                    fullString.substring(1).trim(), timeZone
+                )
 
                 else -> Parser().parseDateTimeValue(fullString)
             }
@@ -444,24 +492,24 @@ class IcsImporter(val activity: SimpleActivity) {
     }
 
     private fun tryAddCategories(categories: String) {
-        val eventTypeTitle = if (categories.contains(",")) {
+        val calendarTitle = if (categories.contains(",")) {
             categories.split(",")[0]
         } else {
             categories
         }
 
-        val eventId = eventsHelper.getEventTypeIdWithTitle(eventTypeTitle)
-        curEventTypeId = if (eventId == -1L) {
+        val calendarId = eventsHelper.getCalendarIdWithTitle(calendarTitle)
+        curCalendarId = if (calendarId == -1L) {
             val newTypeColor = if (curCategoryColor == -2) {
                 activity.resources.getColor(org.fossify.commons.R.color.color_primary)
             } else {
                 curCategoryColor
             }
 
-            val eventType = EventType(null, eventTypeTitle, newTypeColor)
-            eventsHelper.insertOrUpdateEventTypeSync(eventType)
+            val calendar = CalendarEntity(null, calendarTitle, newTypeColor)
+            eventsHelper.insertOrUpdateCalendarSync(calendar)
         } else {
-            eventId
+            calendarId
         }
     }
 
@@ -496,7 +544,7 @@ class IcsImporter(val activity: SimpleActivity) {
         curRepeatInterval = 0
         curRepeatLimit = 0L
         curRepeatRule = 0
-        curEventTypeId = LOCAL_CALENDAR_ID
+        curCalendarId = LOCAL_CALENDAR_ID
         curLastModified = 0L
         curCategoryColor = -2
         isNotificationDescription = false

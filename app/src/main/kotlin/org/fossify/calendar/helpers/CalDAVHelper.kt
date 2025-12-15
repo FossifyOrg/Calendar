@@ -11,8 +11,8 @@ import android.provider.CalendarContract.Events
 import android.provider.CalendarContract.Reminders
 import android.widget.Toast
 import org.fossify.calendar.R
+import org.fossify.calendar.extensions.calendarsDB
 import org.fossify.calendar.extensions.config
-import org.fossify.calendar.extensions.eventTypesDB
 import org.fossify.calendar.extensions.eventsDB
 import org.fossify.calendar.extensions.eventsHelper
 import org.fossify.calendar.extensions.queryCursorInlined
@@ -23,8 +23,8 @@ import org.fossify.calendar.extensions.toUtcAllDayEvent
 import org.fossify.calendar.extensions.updateWidgets
 import org.fossify.calendar.models.Attendee
 import org.fossify.calendar.models.CalDAVCalendar
+import org.fossify.calendar.models.CalendarEntity
 import org.fossify.calendar.models.Event
-import org.fossify.calendar.models.EventType
 import org.fossify.calendar.models.Reminder
 import org.fossify.calendar.objects.States.isUpdatingCalDAV
 import org.fossify.commons.extensions.areDigitsOnly
@@ -56,19 +56,19 @@ class CalDAVHelper(val context: Context) {
             val calDAVCalendars =
                 getCalDAVCalendars(context.config.caldavSyncedCalendarIds, showToasts)
             for (calendar in calDAVCalendars) {
-                val localEventType =
-                    eventsHelper.getEventTypeWithCalDAVCalendarId(calendar.id) ?: continue
-                if (calendar.displayName != localEventType.title || calendar.color != localEventType.color) {
-                    localEventType.apply {
+                val localCalendar =
+                    eventsHelper.getCalendarWithCalDAVCalendarId(calendar.id) ?: continue
+                if (calendar.displayName != localCalendar.title || calendar.color != localCalendar.color) {
+                    localCalendar.apply {
                         title = calendar.displayName
                         caldavDisplayName = calendar.displayName
                         caldavEmail = calendar.accountName
                         color = calendar.color
-                        eventsHelper.insertOrUpdateEventTypeSync(this)
+                        eventsHelper.insertOrUpdateCalendarSync(this)
                     }
                 }
 
-                fetchCalDAVCalendarEvents(calendar, localEventType.id!!, showToasts)
+                fetchCalDAVCalendarEvents(calendar, localCalendar.id!!, showToasts)
             }
 
             if (scheduleNextSync) {
@@ -121,44 +121,44 @@ class CalDAVHelper(val context: Context) {
         return calendars
     }
 
-    fun updateCalDAVCalendar(eventType: EventType) {
+    fun updateCalDAVCalendar(calendar: CalendarEntity) {
         val uri =
-            ContentUris.withAppendedId(Calendars.CONTENT_URI, eventType.caldavCalendarId.toLong())
+            ContentUris.withAppendedId(Calendars.CONTENT_URI, calendar.caldavCalendarId.toLong())
         val values = ContentValues().apply {
-            val colorKey = getCalDAVColorKey(eventType)
+            val colorKey = getCalDAVColorKey(calendar)
             if (colorKey != null) {
-                put(Calendars.CALENDAR_COLOR_KEY, getCalDAVColorKey(eventType))
+                put(Calendars.CALENDAR_COLOR_KEY, getCalDAVColorKey(calendar))
             } else {
-                put(Calendars.CALENDAR_COLOR, eventType.color)
+                put(Calendars.CALENDAR_COLOR, calendar.color)
                 put(Calendars.CALENDAR_COLOR_KEY, "")
             }
-            put(Calendars.CALENDAR_DISPLAY_NAME, eventType.title)
+            put(Calendars.CALENDAR_DISPLAY_NAME, calendar.title)
         }
 
         try {
             context.contentResolver.update(uri, values, null, null)
-            context.eventTypesDB.insertOrUpdate(eventType)
+            context.calendarsDB.insertOrUpdate(calendar)
         } catch (_: IllegalArgumentException) {
         } catch (e: SecurityException) {
             context.showErrorToast(e)
         }
     }
 
-    private fun getCalDAVColorKey(eventType: EventType): String? {
-        val colors = getAvailableCalDAVCalendarColors(eventType)
-        return colors[eventType.color]
+    private fun getCalDAVColorKey(calendar: CalendarEntity): String? {
+        val colors = getAvailableCalDAVCalendarColors(calendar)
+        return colors[calendar.color]
     }
 
     @SuppressLint("MissingPermission")
     fun getAvailableCalDAVCalendarColors(
-        eventType: EventType,
+        calendar: CalendarEntity,
         colorType: Int = Colors.TYPE_CALENDAR,
     ): Map<Int, String> {
         val colors = mutableMapOf<Int, String>()
         val uri = Colors.CONTENT_URI
         val projection = arrayOf(Colors.COLOR, Colors.COLOR_KEY)
         val selection = "${Colors.COLOR_TYPE} = ? AND ${Colors.ACCOUNT_NAME} = ?"
-        val selectionArgs = arrayOf(colorType.toString(), eventType.caldavEmail)
+        val selectionArgs = arrayOf(colorType.toString(), calendar.caldavEmail)
 
         context.queryCursor(uri, projection, selection, selectionArgs) { cursor ->
             val colorKey = cursor.getStringValue(Colors.COLOR_KEY)
@@ -171,7 +171,7 @@ class CalDAVHelper(val context: Context) {
     @SuppressLint("MissingPermission")
     private fun fetchCalDAVCalendarEvents(
         calendar: CalDAVCalendar,
-        eventTypeId: Long,
+        localCalendarId: Long,
         showToasts: Boolean,
     ) {
         val calendarId = calendar.id
@@ -282,7 +282,7 @@ class CalDAVHelper(val context: Context) {
                 importId = importId,
                 timeZone = eventTimeZone,
                 flags = allDay,
-                eventType = eventTypeId,
+                calendarId = localCalendarId,
                 source = source,
                 accessLevel = accessLevel,
                 availability = availability,
@@ -309,7 +309,7 @@ class CalDAVHelper(val context: Context) {
                             event = parentEvent,
                             addToCalDAV = false,
                             showToasts = false,
-                            enableEventType = false,
+                            enableCalendar = false,
                             updateWidgets = false
                         )
                     }
@@ -325,7 +325,7 @@ class CalDAVHelper(val context: Context) {
                             event = event,
                             addToCalDAV = false,
                             showToasts = false,
-                            enableEventType = false,
+                            enableCalendar = false,
                             updateWidgets = false
                         )
                     } else {
@@ -386,7 +386,7 @@ class CalDAVHelper(val context: Context) {
                         event = event,
                         updateAtCalDAV = false,
                         showToasts = false,
-                        enableEventType = false,
+                        enableCalendar = false,
                         updateWidgets = false
                     )
                 }
@@ -397,7 +397,7 @@ class CalDAVHelper(val context: Context) {
                         event = event,
                         addToCalDAV = false,
                         showToasts = false,
-                        enableEventType = false,
+                        enableCalendar = false,
                         updateWidgets = false
                     )
                 }
@@ -507,7 +507,10 @@ class CalDAVHelper(val context: Context) {
         )
     }
 
-    private fun fillEventContentValues(event: Event, originalInstanceTime: Long? = null): ContentValues {
+    private fun fillEventContentValues(
+        event: Event,
+        originalInstanceTime: Long? = null
+    ): ContentValues {
         val calendarId = event.getCalDAVCalendarId()
         return ContentValues().apply {
             put(Events.CALENDAR_ID, calendarId)
@@ -521,8 +524,8 @@ class CalDAVHelper(val context: Context) {
             if (event.color == 0) {
                 put(Events.EVENT_COLOR_KEY, "")
             } else {
-                val eventType = eventsHelper.getEventTypeWithCalDAVCalendarId(calendarId)!!
-                val colors = getAvailableCalDAVCalendarColors(eventType, Colors.TYPE_EVENT)
+                val calendar = eventsHelper.getCalendarWithCalDAVCalendarId(calendarId)!!
+                val colors = getAvailableCalDAVCalendarColors(calendar, Colors.TYPE_EVENT)
                 put(Events.EVENT_COLOR_KEY, colors[event.color])
             }
 
