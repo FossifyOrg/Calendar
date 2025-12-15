@@ -8,7 +8,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/activities/SettingsActivity.kt"
-            line="627"
+            line="787"
             column="13"/>
     </issue>
 
@@ -63,7 +63,7 @@
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/activities/SettingsActivity.kt"
-            line="202"
+            line="325"
             column="13"/>
     </issue>
 
@@ -74,7 +74,7 @@
         errorLine2="                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/activities/SettingsActivity.kt"
-            line="632"
+            line="792"
             column="26"/>
     </issue>
 
@@ -216,18 +216,18 @@
         errorLine1="distributionUrl=https\://services.gradle.org/distributions/gradle-8.13-bin.zip"
         errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="$HOME/work/Calendar/Calendar/gradle/wrapper/gradle-wrapper.properties"
+            file="$HOME/Projects/Fossify/FossifyOrg/Calendar/gradle/wrapper/gradle-wrapper.properties"
             line="3"
             column="17"/>
     </issue>
 
     <issue
         id="AndroidGradlePluginVersion"
-        message="A newer version of com.android.application than 8.11.1 is available: 8.13.1. (There is also a newer version of 8.11.𝑥 available, if upgrading to 8.13.1 is difficult: 8.11.2)"
+        message="A newer version of com.android.application than 8.11.1 is available: 8.13.2. (There is also a newer version of 8.11.𝑥 available, if upgrading to 8.13.2 is difficult: 8.11.2)"
         errorLine1="gradlePlugins-agp = &quot;8.11.1&quot;"
         errorLine2="                    ~~~~~~~~">
         <location
-            file="$HOME/work/Calendar/Calendar/gradle/libs.versions.toml"
+            file="$HOME/Projects/Fossify/FossifyOrg/Calendar/gradle/libs.versions.toml"
             line="20"
             column="21"/>
     </issue>
@@ -267,11 +267,11 @@
 
     <issue
         id="NewerVersionAvailable"
-        message="A newer version of io.nlopez.compose.rules:detekt than 0.4.28 is available: 0.5.1"
+        message="A newer version of io.nlopez.compose.rules:detekt than 0.4.28 is available: 0.5.2"
         errorLine1="detektCompose = &quot;0.4.28&quot;"
         errorLine2="                ~~~~~~~~">
         <location
-            file="$HOME/work/Calendar/Calendar/gradle/libs.versions.toml"
+            file="$HOME/Projects/Fossify/FossifyOrg/Calendar/gradle/libs.versions.toml"
             line="8"
             column="17"/>
     </issue>
@@ -404,7 +404,7 @@
         errorLine2="                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/extensions/Context.kt"
-            line="680"
+            line="804"
             column="34"/>
     </issue>
 
@@ -437,7 +437,7 @@
         errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/activities/EventActivity.kt"
-            line="2262"
+            line="2265"
             column="17"/>
     </issue>
 
@@ -448,7 +448,7 @@
         errorLine2="               ^">
         <location
             file="src/main/kotlin/org/fossify/calendar/activities/EventActivity.kt"
-            line="2326"
+            line="2329"
             column="16"/>
     </issue>
 
@@ -459,7 +459,7 @@
         errorLine2="                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/activities/MainActivity.kt"
-            line="478"
+            line="486"
             column="32"/>
     </issue>
 
@@ -470,7 +470,7 @@
         errorLine2="                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/activities/MainActivity.kt"
-            line="495"
+            line="504"
             column="31"/>
     </issue>
 
@@ -895,7 +895,7 @@
     <issue
         id="MissingTranslation"
         message="&quot;filter_events_by_type&quot; is not translated in &quot;fil&quot; (Filipino; Pilipino), &quot;ia&quot; (Interlingua), &quot;ml&quot; (Malayalam), &quot;ms&quot; (Malay), &quot;en&quot; (English), &quot;is&quot; (Icelandic), &quot;my&quot; (Burmese), &quot;ne&quot; (Nepali), &quot;fa&quot; (Persian), &quot;bs&quot; (Bosnian), &quot;oc&quot; (Occitan (post 1500)), &quot;si&quot; (Sinhala), &quot;zgh&quot; (Standard Moroccan Tamazight), &quot;ltg&quot;, &quot;kn&quot; (Kannada), &quot;or&quot; (Odia), &quot;kr&quot; (Kanuri), &quot;sat&quot; (Santali), &quot;ta&quot; (Tamil), &quot;cr&quot; (Cree), &quot;pa&quot; (Punjabi), &quot;te&quot; (Telugu), &quot;th&quot; (Thai), &quot;cy&quot; (Welsh), &quot;bqi&quot;, &quot;ckb&quot;"
-        errorLine1="    &lt;string name=&quot;filter_events_by_type&quot;>Filter events by type&lt;/string>"
+        errorLine1="    &lt;string name=&quot;filter_events_by_type&quot;>Filter events by calendar&lt;/string>"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"
@@ -928,7 +928,7 @@
     <issue
         id="MissingTranslation"
         message="&quot;everything_filtered_out&quot; is not translated in &quot;fil&quot; (Filipino; Pilipino), &quot;ia&quot; (Interlingua), &quot;ml&quot; (Malayalam), &quot;ms&quot; (Malay), &quot;en&quot; (English), &quot;is&quot; (Icelandic), &quot;my&quot; (Burmese), &quot;ne&quot; (Nepali), &quot;az&quot; (Azerbaijani), &quot;fa&quot; (Persian), &quot;bn&quot; (Bangla), &quot;bs&quot; (Bosnian), &quot;oc&quot; (Occitan (post 1500)), &quot;si&quot; (Sinhala), &quot;zgh&quot; (Standard Moroccan Tamazight), &quot;ltg&quot;, &quot;kn&quot; (Kannada), &quot;or&quot; (Odia), &quot;kr&quot; (Kanuri), &quot;sat&quot; (Santali), &quot;ta&quot; (Tamil), &quot;cr&quot; (Cree), &quot;pa&quot; (Punjabi), &quot;te&quot; (Telugu), &quot;th&quot; (Thai), &quot;cy&quot; (Welsh), &quot;bqi&quot;, &quot;ckb&quot;"
-        errorLine1="    &lt;string name=&quot;everything_filtered_out&quot;>You have filtered out all event types&lt;/string>"
+        errorLine1="    &lt;string name=&quot;everything_filtered_out&quot;>You have filtered out all calendars&lt;/string>"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"
@@ -1907,7 +1907,7 @@
     <issue
         id="MissingTranslation"
         message="&quot;default_event_type&quot; is not translated in &quot;fil&quot; (Filipino; Pilipino), &quot;ia&quot; (Interlingua), &quot;ml&quot; (Malayalam), &quot;ms&quot; (Malay), &quot;en&quot; (English), &quot;is&quot; (Icelandic), &quot;my&quot; (Burmese), &quot;ne&quot; (Nepali), &quot;fa&quot; (Persian), &quot;kab&quot; (Kabyle), &quot;bs&quot; (Bosnian), &quot;oc&quot; (Occitan (post 1500)), &quot;si&quot; (Sinhala), &quot;zgh&quot; (Standard Moroccan Tamazight), &quot;ltg&quot;, &quot;kn&quot; (Kannada), &quot;or&quot; (Odia), &quot;kr&quot; (Kanuri), &quot;sat&quot; (Santali), &quot;ta&quot; (Tamil), &quot;cr&quot; (Cree), &quot;pa&quot; (Punjabi), &quot;te&quot; (Telugu), &quot;th&quot; (Thai), &quot;cy&quot; (Welsh), &quot;bqi&quot;, &quot;ckb&quot;"
-        errorLine1="    &lt;string name=&quot;default_event_type&quot;>Default event type&lt;/string>"
+        errorLine1="    &lt;string name=&quot;default_event_type&quot;>Default calendar&lt;/string>"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"
@@ -1951,7 +1951,7 @@
     <issue
         id="MissingTranslation"
         message="&quot;include_event_types&quot; is not translated in &quot;fil&quot; (Filipino; Pilipino), &quot;ia&quot; (Interlingua), &quot;ml&quot; (Malayalam), &quot;ms&quot; (Malay), &quot;en&quot; (English), &quot;is&quot; (Icelandic), &quot;my&quot; (Burmese), &quot;ne&quot; (Nepali), &quot;fa&quot; (Persian), &quot;bs&quot; (Bosnian), &quot;oc&quot; (Occitan (post 1500)), &quot;si&quot; (Sinhala), &quot;zgh&quot; (Standard Moroccan Tamazight), &quot;ltg&quot;, &quot;kn&quot; (Kannada), &quot;or&quot; (Odia), &quot;kr&quot; (Kanuri), &quot;sat&quot; (Santali), &quot;ta&quot; (Tamil), &quot;cr&quot; (Cree), &quot;pa&quot; (Punjabi), &quot;te&quot; (Telugu), &quot;th&quot; (Thai), &quot;cy&quot; (Welsh), &quot;bqi&quot;, &quot;ckb&quot;"
-        errorLine1="    &lt;string name=&quot;include_event_types&quot;>Include event types&lt;/string>"
+        errorLine1="    &lt;string name=&quot;include_event_types&quot;>Include calendars&lt;/string>"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"
@@ -1973,7 +1973,7 @@
     <issue
         id="MissingTranslation"
         message="&quot;ignore_event_types&quot; is not translated in &quot;fil&quot; (Filipino; Pilipino), &quot;ia&quot; (Interlingua), &quot;ml&quot; (Malayalam), &quot;ms&quot; (Malay), &quot;en&quot; (English), &quot;is&quot; (Icelandic), &quot;my&quot; (Burmese), &quot;ne&quot; (Nepali), &quot;az&quot; (Azerbaijani), &quot;fa&quot; (Persian), &quot;bn&quot; (Bangla), &quot;br&quot; (Breton), &quot;bs&quot; (Bosnian), &quot;oc&quot; (Occitan (post 1500)), &quot;si&quot; (Sinhala), &quot;zgh&quot; (Standard Moroccan Tamazight), &quot;ltg&quot;, &quot;kn&quot; (Kannada), &quot;or&quot; (Odia), &quot;kr&quot; (Kanuri), &quot;sat&quot; (Santali), &quot;ta&quot; (Tamil), &quot;cr&quot; (Cree), &quot;pa&quot; (Punjabi), &quot;te&quot; (Telugu), &quot;th&quot; (Thai), &quot;cy&quot; (Welsh), &quot;bqi&quot;, &quot;ckb&quot;"
-        errorLine1="    &lt;string name=&quot;ignore_event_types&quot;>Ignore event types in the file, always use the default one&lt;/string>"
+        errorLine1="    &lt;string name=&quot;ignore_event_types&quot;>Ignore calendars in the file, always use the default one&lt;/string>"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"
@@ -2039,7 +2039,7 @@
     <issue
         id="MissingTranslation"
         message="&quot;event_types&quot; is not translated in &quot;fil&quot; (Filipino; Pilipino), &quot;ia&quot; (Interlingua), &quot;ml&quot; (Malayalam), &quot;ms&quot; (Malay), &quot;en&quot; (English), &quot;is&quot; (Icelandic), &quot;my&quot; (Burmese), &quot;ne&quot; (Nepali), &quot;fa&quot; (Persian), &quot;bs&quot; (Bosnian), &quot;oc&quot; (Occitan (post 1500)), &quot;si&quot; (Sinhala), &quot;zgh&quot; (Standard Moroccan Tamazight), &quot;ltg&quot;, &quot;kn&quot; (Kannada), &quot;or&quot; (Odia), &quot;kr&quot; (Kanuri), &quot;sat&quot; (Santali), &quot;ta&quot; (Tamil), &quot;cr&quot; (Cree), &quot;pa&quot; (Punjabi), &quot;te&quot; (Telugu), &quot;th&quot; (Thai), &quot;cy&quot; (Welsh), &quot;bqi&quot;, &quot;ckb&quot;"
-        errorLine1="    &lt;string name=&quot;event_types&quot;>Event types&lt;/string>"
+        errorLine1="    &lt;string name=&quot;event_types&quot;>Calendars&lt;/string>"
         errorLine2="            ~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"
@@ -2050,7 +2050,7 @@
     <issue
         id="MissingTranslation"
         message="&quot;add_new_type&quot; is not translated in &quot;fil&quot; (Filipino; Pilipino), &quot;ia&quot; (Interlingua), &quot;ml&quot; (Malayalam), &quot;ms&quot; (Malay), &quot;en&quot; (English), &quot;is&quot; (Icelandic), &quot;my&quot; (Burmese), &quot;ne&quot; (Nepali), &quot;fa&quot; (Persian), &quot;bs&quot; (Bosnian), &quot;oc&quot; (Occitan (post 1500)), &quot;si&quot; (Sinhala), &quot;zgh&quot; (Standard Moroccan Tamazight), &quot;ltg&quot;, &quot;kn&quot; (Kannada), &quot;or&quot; (Odia), &quot;kr&quot; (Kanuri), &quot;sat&quot; (Santali), &quot;ta&quot; (Tamil), &quot;cr&quot; (Cree), &quot;pa&quot; (Punjabi), &quot;te&quot; (Telugu), &quot;th&quot; (Thai), &quot;cy&quot; (Welsh), &quot;bqi&quot;, &quot;ckb&quot;"
-        errorLine1="    &lt;string name=&quot;add_new_type&quot;>Add a new type&lt;/string>"
+        errorLine1="    &lt;string name=&quot;add_new_type&quot;>Add a new calendar&lt;/string>"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"
@@ -2061,7 +2061,7 @@
     <issue
         id="MissingTranslation"
         message="&quot;edit_type&quot; is not translated in &quot;fil&quot; (Filipino; Pilipino), &quot;ia&quot; (Interlingua), &quot;ml&quot; (Malayalam), &quot;ms&quot; (Malay), &quot;en&quot; (English), &quot;is&quot; (Icelandic), &quot;my&quot; (Burmese), &quot;ne&quot; (Nepali), &quot;fa&quot; (Persian), &quot;bs&quot; (Bosnian), &quot;oc&quot; (Occitan (post 1500)), &quot;si&quot; (Sinhala), &quot;zgh&quot; (Standard Moroccan Tamazight), &quot;ltg&quot;, &quot;kn&quot; (Kannada), &quot;or&quot; (Odia), &quot;kr&quot; (Kanuri), &quot;sat&quot; (Santali), &quot;ta&quot; (Tamil), &quot;cr&quot; (Cree), &quot;pa&quot; (Punjabi), &quot;te&quot; (Telugu), &quot;th&quot; (Thai), &quot;cy&quot; (Welsh), &quot;bqi&quot;, &quot;ckb&quot;"
-        errorLine1="    &lt;string name=&quot;edit_type&quot;>Edit type&lt;/string>"
+        errorLine1="    &lt;string name=&quot;edit_type&quot;>Edit calendar&lt;/string>"
         errorLine2="            ~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"
@@ -2072,7 +2072,7 @@
     <issue
         id="MissingTranslation"
         message="&quot;type_already_exists&quot; is not translated in &quot;fil&quot; (Filipino; Pilipino), &quot;ia&quot; (Interlingua), &quot;ml&quot; (Malayalam), &quot;ms&quot; (Malay), &quot;en&quot; (English), &quot;is&quot; (Icelandic), &quot;my&quot; (Burmese), &quot;ne&quot; (Nepali), &quot;fa&quot; (Persian), &quot;bs&quot; (Bosnian), &quot;oc&quot; (Occitan (post 1500)), &quot;si&quot; (Sinhala), &quot;zgh&quot; (Standard Moroccan Tamazight), &quot;ltg&quot;, &quot;kn&quot; (Kannada), &quot;or&quot; (Odia), &quot;kr&quot; (Kanuri), &quot;sat&quot; (Santali), &quot;ta&quot; (Tamil), &quot;cr&quot; (Cree), &quot;pa&quot; (Punjabi), &quot;te&quot; (Telugu), &quot;th&quot; (Thai), &quot;cy&quot; (Welsh), &quot;bqi&quot;, &quot;ckb&quot;"
-        errorLine1="    &lt;string name=&quot;type_already_exists&quot;>Type with this title already exists&lt;/string>"
+        errorLine1="    &lt;string name=&quot;type_already_exists&quot;>Calendar with this title already exists&lt;/string>"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"
@@ -2094,7 +2094,7 @@
     <issue
         id="MissingTranslation"
         message="&quot;regular_event&quot; is not translated in &quot;fil&quot; (Filipino; Pilipino), &quot;ia&quot; (Interlingua), &quot;ml&quot; (Malayalam), &quot;ms&quot; (Malay), &quot;en&quot; (English), &quot;is&quot; (Icelandic), &quot;my&quot; (Burmese), &quot;ne&quot; (Nepali), &quot;fa&quot; (Persian), &quot;bs&quot; (Bosnian), &quot;oc&quot; (Occitan (post 1500)), &quot;si&quot; (Sinhala), &quot;zgh&quot; (Standard Moroccan Tamazight), &quot;ltg&quot;, &quot;kn&quot; (Kannada), &quot;or&quot; (Odia), &quot;kr&quot; (Kanuri), &quot;sat&quot; (Santali), &quot;ta&quot; (Tamil), &quot;cr&quot; (Cree), &quot;pa&quot; (Punjabi), &quot;te&quot; (Telugu), &quot;th&quot; (Thai), &quot;cy&quot; (Welsh), &quot;bqi&quot;, &quot;ckb&quot;"
-        errorLine1="    &lt;string name=&quot;regular_event&quot;>Regular event&lt;/string>"
+        errorLine1="    &lt;string name=&quot;regular_event&quot;>Local calendar&lt;/string>"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"
@@ -2105,7 +2105,7 @@
     <issue
         id="MissingTranslation"
         message="&quot;cannot_delete_default_type&quot; is not translated in &quot;fil&quot; (Filipino; Pilipino), &quot;ia&quot; (Interlingua), &quot;ml&quot; (Malayalam), &quot;ms&quot; (Malay), &quot;en&quot; (English), &quot;is&quot; (Icelandic), &quot;my&quot; (Burmese), &quot;ne&quot; (Nepali), &quot;fa&quot; (Persian), &quot;bs&quot; (Bosnian), &quot;oc&quot; (Occitan (post 1500)), &quot;si&quot; (Sinhala), &quot;zgh&quot; (Standard Moroccan Tamazight), &quot;ltg&quot;, &quot;kn&quot; (Kannada), &quot;or&quot; (Odia), &quot;kr&quot; (Kanuri), &quot;sat&quot; (Santali), &quot;ta&quot; (Tamil), &quot;cr&quot; (Cree), &quot;pa&quot; (Punjabi), &quot;te&quot; (Telugu), &quot;th&quot; (Thai), &quot;cy&quot; (Welsh), &quot;bqi&quot;, &quot;ckb&quot;"
-        errorLine1="    &lt;string name=&quot;cannot_delete_default_type&quot;>Default event type cannot be deleted&lt;/string>"
+        errorLine1="    &lt;string name=&quot;cannot_delete_default_type&quot;>Built-in calendar cannot be deleted&lt;/string>"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"
@@ -2116,7 +2116,7 @@
     <issue
         id="MissingTranslation"
         message="&quot;select_event_type&quot; is not translated in &quot;fil&quot; (Filipino; Pilipino), &quot;ia&quot; (Interlingua), &quot;ml&quot; (Malayalam), &quot;ms&quot; (Malay), &quot;en&quot; (English), &quot;is&quot; (Icelandic), &quot;my&quot; (Burmese), &quot;ne&quot; (Nepali), &quot;fa&quot; (Persian), &quot;bs&quot; (Bosnian), &quot;oc&quot; (Occitan (post 1500)), &quot;si&quot; (Sinhala), &quot;zgh&quot; (Standard Moroccan Tamazight), &quot;ltg&quot;, &quot;kn&quot; (Kannada), &quot;or&quot; (Odia), &quot;kr&quot; (Kanuri), &quot;sat&quot; (Santali), &quot;ta&quot; (Tamil), &quot;cr&quot; (Cree), &quot;pa&quot; (Punjabi), &quot;te&quot; (Telugu), &quot;th&quot; (Thai), &quot;cy&quot; (Welsh), &quot;bqi&quot;, &quot;ckb&quot;"
-        errorLine1="    &lt;string name=&quot;select_event_type&quot;>Select an event type&lt;/string>"
+        errorLine1="    &lt;string name=&quot;select_event_type&quot;>Select a calendar&lt;/string>"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"
@@ -2127,7 +2127,7 @@
     <issue
         id="MissingTranslation"
         message="&quot;move_events_into_default&quot; is not translated in &quot;fil&quot; (Filipino; Pilipino), &quot;ia&quot; (Interlingua), &quot;ml&quot; (Malayalam), &quot;ms&quot; (Malay), &quot;en&quot; (English), &quot;is&quot; (Icelandic), &quot;my&quot; (Burmese), &quot;ne&quot; (Nepali), &quot;fa&quot; (Persian), &quot;bs&quot; (Bosnian), &quot;oc&quot; (Occitan (post 1500)), &quot;si&quot; (Sinhala), &quot;zgh&quot; (Standard Moroccan Tamazight), &quot;ltg&quot;, &quot;kn&quot; (Kannada), &quot;or&quot; (Odia), &quot;kr&quot; (Kanuri), &quot;sat&quot; (Santali), &quot;ta&quot; (Tamil), &quot;cr&quot; (Cree), &quot;pa&quot; (Punjabi), &quot;te&quot; (Telugu), &quot;th&quot; (Thai), &quot;cy&quot; (Welsh), &quot;bqi&quot;, &quot;ckb&quot;"
-        errorLine1="    &lt;string name=&quot;move_events_into_default&quot;>Move affected events into the default event type&lt;/string>"
+        errorLine1="    &lt;string name=&quot;move_events_into_default&quot;>Move affected events into the default calendar&lt;/string>"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"
@@ -2248,7 +2248,7 @@
     <issue
         id="MissingTranslation"
         message="&quot;holidays_imported_successfully&quot; is not translated in &quot;fil&quot; (Filipino; Pilipino), &quot;ia&quot; (Interlingua), &quot;ml&quot; (Malayalam), &quot;ms&quot; (Malay), &quot;en&quot; (English), &quot;is&quot; (Icelandic), &quot;my&quot; (Burmese), &quot;vi&quot; (Vietnamese), &quot;ne&quot; (Nepali), &quot;fa&quot; (Persian), &quot;kab&quot; (Kabyle), &quot;br&quot; (Breton), &quot;bs&quot; (Bosnian), &quot;oc&quot; (Occitan (post 1500)), &quot;si&quot; (Sinhala), &quot;zgh&quot; (Standard Moroccan Tamazight), &quot;ltg&quot;, &quot;kn&quot; (Kannada), &quot;or&quot; (Odia), &quot;kr&quot; (Kanuri), &quot;sat&quot; (Santali), &quot;ta&quot; (Tamil), &quot;cr&quot; (Cree), &quot;pa&quot; (Punjabi), &quot;te&quot; (Telugu), &quot;th&quot; (Thai), &quot;cy&quot; (Welsh), &quot;bqi&quot;, &quot;ckb&quot;"
-        errorLine1="    &lt;string name=&quot;holidays_imported_successfully&quot;>Holidays have been successfully imported into the \&quot;Holidays\&quot; event type&lt;/string>"
+        errorLine1="    &lt;string name=&quot;holidays_imported_successfully&quot;>Holidays have been successfully imported into the \&quot;Holidays\&quot; calendar&lt;/string>"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"
@@ -2281,7 +2281,7 @@
     <issue
         id="MissingTranslation"
         message="&quot;manage_event_types&quot; is not translated in &quot;fil&quot; (Filipino; Pilipino), &quot;ia&quot; (Interlingua), &quot;ml&quot; (Malayalam), &quot;ms&quot; (Malay), &quot;en&quot; (English), &quot;is&quot; (Icelandic), &quot;my&quot; (Burmese), &quot;vi&quot; (Vietnamese), &quot;ne&quot; (Nepali), &quot;fa&quot; (Persian), &quot;kab&quot; (Kabyle), &quot;bs&quot; (Bosnian), &quot;oc&quot; (Occitan (post 1500)), &quot;si&quot; (Sinhala), &quot;zgh&quot; (Standard Moroccan Tamazight), &quot;ltg&quot;, &quot;kn&quot; (Kannada), &quot;or&quot; (Odia), &quot;kr&quot; (Kanuri), &quot;sat&quot; (Santali), &quot;ta&quot; (Tamil), &quot;cr&quot; (Cree), &quot;pa&quot; (Punjabi), &quot;te&quot; (Telugu), &quot;th&quot; (Thai), &quot;cy&quot; (Welsh), &quot;bqi&quot;, &quot;ckb&quot;"
-        errorLine1="    &lt;string name=&quot;manage_event_types&quot;>Manage event types&lt;/string>"
+        errorLine1="    &lt;string name=&quot;manage_event_types&quot;>Manage calendars&lt;/string>"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"
@@ -2479,7 +2479,7 @@
     <issue
         id="MissingTranslation"
         message="&quot;delete_all_events_confirmation&quot; is not translated in &quot;fil&quot; (Filipino; Pilipino), &quot;ia&quot; (Interlingua), &quot;ml&quot; (Malayalam), &quot;ms&quot; (Malay), &quot;en&quot; (English), &quot;is&quot; (Icelandic), &quot;my&quot; (Burmese), &quot;vi&quot; (Vietnamese), &quot;ne&quot; (Nepali), &quot;fa&quot; (Persian), &quot;br&quot; (Breton), &quot;bs&quot; (Bosnian), &quot;oc&quot; (Occitan (post 1500)), &quot;si&quot; (Sinhala), &quot;zgh&quot; (Standard Moroccan Tamazight), &quot;ltg&quot;, &quot;kn&quot; (Kannada), &quot;or&quot; (Odia), &quot;kr&quot; (Kanuri), &quot;sat&quot; (Santali), &quot;ta&quot; (Tamil), &quot;cr&quot; (Cree), &quot;pa&quot; (Punjabi), &quot;te&quot; (Telugu), &quot;th&quot; (Thai), &quot;cy&quot; (Welsh), &quot;bqi&quot;, &quot;ckb&quot;"
-        errorLine1="    &lt;string name=&quot;delete_all_events_confirmation&quot;>Are you sure you want to delete all events and tasks? This will leave your event types and other settings intact.&lt;/string>"
+        errorLine1="    &lt;string name=&quot;delete_all_events_confirmation&quot;>Are you sure you want to delete all events and tasks? This will leave your calendars and other settings intact.&lt;/string>"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"
@@ -2776,7 +2776,7 @@
     <issue
         id="MissingTranslation"
         message="&quot;manage_quick_filter_event_types&quot; is not translated in &quot;fil&quot; (Filipino; Pilipino), &quot;ia&quot; (Interlingua), &quot;ml&quot; (Malayalam), &quot;ms&quot; (Malay), &quot;en&quot; (English), &quot;is&quot; (Icelandic), &quot;my&quot; (Burmese), &quot;vi&quot; (Vietnamese), &quot;ne&quot; (Nepali), &quot;az&quot; (Azerbaijani), &quot;fa&quot; (Persian), &quot;nn&quot; (Norwegian Nynorsk), &quot;bn&quot; (Bangla), &quot;kab&quot; (Kabyle), &quot;br&quot; (Breton), &quot;bs&quot; (Bosnian), &quot;oc&quot; (Occitan (post 1500)), &quot;si&quot; (Sinhala), &quot;zgh&quot; (Standard Moroccan Tamazight), &quot;ltg&quot;, &quot;kn&quot; (Kannada), &quot;or&quot; (Odia), &quot;kr&quot; (Kanuri), &quot;sat&quot; (Santali), &quot;ta&quot; (Tamil), &quot;cr&quot; (Cree), &quot;pa&quot; (Punjabi), &quot;te&quot; (Telugu), &quot;th&quot; (Thai), &quot;cy&quot; (Welsh), &quot;bqi&quot;, &quot;ckb&quot;"
-        errorLine1="    &lt;string name=&quot;manage_quick_filter_event_types&quot;>Manage quick filter event types&lt;/string>"
+        errorLine1="    &lt;string name=&quot;manage_quick_filter_event_types&quot;>Manage quick filter calendars&lt;/string>"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"
@@ -3370,7 +3370,7 @@
     <issue
         id="MissingTranslation"
         message="&quot;faq_1_text&quot; is not translated in &quot;fil&quot; (Filipino; Pilipino), &quot;ia&quot; (Interlingua), &quot;ml&quot; (Malayalam), &quot;ms&quot; (Malay), &quot;en&quot; (English), &quot;is&quot; (Icelandic), &quot;my&quot; (Burmese), &quot;vi&quot; (Vietnamese), &quot;ne&quot; (Nepali), &quot;az&quot; (Azerbaijani), &quot;fa&quot; (Persian), &quot;kab&quot; (Kabyle), &quot;br&quot; (Breton), &quot;bs&quot; (Bosnian), &quot;oc&quot; (Occitan (post 1500)), &quot;si&quot; (Sinhala), &quot;zgh&quot; (Standard Moroccan Tamazight), &quot;ltg&quot;, &quot;kn&quot; (Kannada), &quot;or&quot; (Odia), &quot;kr&quot; (Kanuri), &quot;sat&quot; (Santali), &quot;ta&quot; (Tamil), &quot;cr&quot; (Cree), &quot;pa&quot; (Punjabi), &quot;te&quot; (Telugu), &quot;th&quot; (Thai), &quot;cy&quot; (Welsh), &quot;bqi&quot;, &quot;ckb&quot;"
-        errorLine1="    &lt;string name=&quot;faq_1_text&quot;>Holidays created that way are inserted in a new event type called \&quot;Holidays\&quot;. You can go in Settings -> Manage Event Types,"
+        errorLine1="    &lt;string name=&quot;faq_1_text&quot;>Holidays created that way are inserted in a new calendar called \&quot;Holidays\&quot;. You can go in Settings -> Manage calendars,"
         errorLine2="            ~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"
@@ -3480,7 +3480,7 @@
     <issue
         id="MissingTranslation"
         message="&quot;faq_6_title&quot; is not translated in &quot;fil&quot; (Filipino; Pilipino), &quot;ia&quot; (Interlingua), &quot;ml&quot; (Malayalam), &quot;ms&quot; (Malay), &quot;en&quot; (English), &quot;is&quot; (Icelandic), &quot;my&quot; (Burmese), &quot;nb&quot; (Norwegian Bokmål), &quot;ne&quot; (Nepali), &quot;az&quot; (Azerbaijani), &quot;fa&quot; (Persian), &quot;bn&quot; (Bangla), &quot;kab&quot; (Kabyle), &quot;br&quot; (Breton), &quot;bs&quot; (Bosnian), &quot;oc&quot; (Occitan (post 1500)), &quot;si&quot; (Sinhala), &quot;zgh&quot; (Standard Moroccan Tamazight), &quot;ltg&quot;, &quot;kn&quot; (Kannada), &quot;or&quot; (Odia), &quot;kr&quot; (Kanuri), &quot;sat&quot; (Santali), &quot;ta&quot; (Tamil), &quot;cr&quot; (Cree), &quot;pa&quot; (Punjabi), &quot;te&quot; (Telugu), &quot;th&quot; (Thai), &quot;cy&quot; (Welsh), &quot;bqi&quot;, &quot;ckb&quot;"
-        errorLine1="    &lt;string name=&quot;faq_6_title&quot;>How can I modify or delete an existing event type?&lt;/string>"
+        errorLine1="    &lt;string name=&quot;faq_6_title&quot;>How can I modify or delete an existing calendar?&lt;/string>"
         errorLine2="            ~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"
@@ -3491,7 +3491,7 @@
     <issue
         id="MissingTranslation"
         message="&quot;faq_6_text&quot; is not translated in &quot;fil&quot; (Filipino; Pilipino), &quot;ia&quot; (Interlingua), &quot;ml&quot; (Malayalam), &quot;ms&quot; (Malay), &quot;en&quot; (English), &quot;is&quot; (Icelandic), &quot;my&quot; (Burmese), &quot;vi&quot; (Vietnamese), &quot;nb&quot; (Norwegian Bokmål), &quot;ne&quot; (Nepali), &quot;az&quot; (Azerbaijani), &quot;fa&quot; (Persian), &quot;bn&quot; (Bangla), &quot;kab&quot; (Kabyle), &quot;br&quot; (Breton), &quot;bs&quot; (Bosnian), &quot;oc&quot; (Occitan (post 1500)), &quot;si&quot; (Sinhala), &quot;zgh&quot; (Standard Moroccan Tamazight), &quot;ltg&quot;, &quot;kn&quot; (Kannada), &quot;or&quot; (Odia), &quot;kr&quot; (Kanuri), &quot;sat&quot; (Santali), &quot;ta&quot; (Tamil), &quot;cr&quot; (Cree), &quot;pa&quot; (Punjabi), &quot;te&quot; (Telugu), &quot;th&quot; (Thai), &quot;cy&quot; (Welsh), &quot;bqi&quot;, &quot;ckb&quot;"
-        errorLine1="    &lt;string name=&quot;faq_6_text&quot;>You can do both of those in the app Settings - Manage event types. Just click on the wanted one for changing the label and color, or select the wanted one by long pressing it and use the trashbin at the top menu for deleting.&lt;/string>"
+        errorLine1="    &lt;string name=&quot;faq_6_text&quot;>You can do both of those in the app Settings - Manage calendars. Just click on the wanted one for changing the label and color, or select the wanted one by long pressing it and use the trashbin at the top menu for deleting.&lt;/string>"
         errorLine2="            ~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"
@@ -3897,7 +3897,7 @@
         errorLine1="    android:background=&quot;?attr/selectableItemBackground&quot;"
         errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="src/main/res/layout/filter_event_type_view.xml"
+            file="src/main/res/layout/filter_calendar_view.xml"
             line="6"
             column="5"/>
     </issue>
@@ -3919,7 +3919,7 @@
         errorLine1="    android:background=&quot;?attr/selectableItemBackground&quot;"
         errorLine2="    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="src/main/res/layout/item_event_type.xml"
+            file="src/main/res/layout/item_calendar.xml"
             line="7"
             column="5"/>
     </issue>
@@ -4191,7 +4191,7 @@
     <issue
         id="UnusedResources"
         message="The resource `R.string.select_event_type` appears to be unused"
-        errorLine1="    &lt;string name=&quot;select_event_type&quot;>Select an event type&lt;/string>"
+        errorLine1="    &lt;string name=&quot;select_event_type&quot;>Select a calendar&lt;/string>"
         errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/res/values/strings.xml"
@@ -4311,6 +4311,21 @@
         errorLine1="        app:showAsAction=&quot;always&quot; />"
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
+            file="src/main/res/menu/cab_calendar.xml"
+            line="8"
+            column="9"/>
+        <location
+            file="src/main/res/menu/cab_calendar.xml"
+            line="13"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="AlwaysShowAction"
+        message="Prefer &quot;`ifRoom`&quot; instead of &quot;`always`&quot;"
+        errorLine1="        app:showAsAction=&quot;always&quot; />"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
             file="src/main/res/menu/cab_day.xml"
             line="8"
             column="9"/>
@@ -4331,21 +4346,6 @@
             column="9"/>
         <location
             file="src/main/res/menu/cab_event_list.xml"
-            line="13"
-            column="9"/>
-    </issue>
-
-    <issue
-        id="AlwaysShowAction"
-        message="Prefer &quot;`ifRoom`&quot; instead of &quot;`always`&quot;"
-        errorLine1="        app:showAsAction=&quot;always&quot; />"
-        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="src/main/res/menu/cab_event_type.xml"
-            line="8"
-            column="9"/>
-        <location
-            file="src/main/res/menu/cab_event_type.xml"
             line="13"
             column="9"/>
     </issue>
@@ -4395,7 +4395,7 @@
         errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/activities/MainActivity.kt"
-            line="468"
+            line="476"
             column="17"/>
     </issue>
 
@@ -4417,7 +4417,7 @@
         errorLine2="                               ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="22"
+            line="21"
             column="32"/>
     </issue>
 
@@ -4428,25 +4428,25 @@
         errorLine2="                             ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="26"
+            line="25"
             column="30"/>
     </issue>
 
     <issue
         id="UseKtx"
         message="Use the KTX extension function `SharedPreferences.edit` instead?"
-        errorLine1="        set(startWeekWithCurrentDay) = prefs.edit().putBoolean(START_WEEK_WITH_CURRENT_DAY, startWeekWithCurrentDay).apply()"
+        errorLine1="        set(startWeekWithCurrentDay) = prefs.edit()"
         errorLine2="                                       ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="30"
+            line="29"
             column="40"/>
     </issue>
 
     <issue
         id="UseKtx"
         message="Use the KTX extension function `SharedPreferences.edit` instead?"
-        errorLine1="        set(midnightSpanning) = prefs.edit().putBoolean(SHOW_MIDNIGHT_SPANNING_EVENTS_AT_TOP, midnightSpanning).apply()"
+        errorLine1="        set(midnightSpanning) = prefs.edit()"
         errorLine2="                                ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
@@ -4461,7 +4461,7 @@
         errorLine2="                     ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="38"
+            line="39"
             column="22"/>
     </issue>
 
@@ -4472,7 +4472,7 @@
         errorLine2="                       ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="42"
+            line="43"
             column="24"/>
     </issue>
 
@@ -4483,18 +4483,18 @@
         errorLine2="                                ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="47"
+            line="51"
             column="33"/>
     </issue>
 
     <issue
         id="UseKtx"
         message="Use the KTX extension function `SharedPreferences.edit` instead?"
-        errorLine1="        set(reminderSoundTitle) = prefs.edit().putString(REMINDER_SOUND_TITLE, reminderSoundTitle).apply()"
+        errorLine1="        set(reminderSoundTitle) = prefs.edit().putString(REMINDER_SOUND_TITLE, reminderSoundTitle)"
         errorLine2="                                  ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="52"
+            line="59"
             column="35"/>
     </issue>
 
@@ -4505,18 +4505,18 @@
         errorLine2="                            ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="57"
+            line="65"
             column="29"/>
     </issue>
 
     <issue
         id="UseKtx"
         message="Use the KTX extension function `SharedPreferences.edit` instead?"
-        errorLine1="        set(lastReminderChannel) = prefs.edit().putLong(LAST_REMINDER_CHANNEL_ID, lastReminderChannel).apply()"
+        errorLine1="        set(lastReminderChannel) = prefs.edit()"
         errorLine2="                                   ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="61"
+            line="69"
             column="36"/>
     </issue>
 
@@ -4527,40 +4527,40 @@
         errorLine2="                    ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="65"
+            line="74"
             column="21"/>
     </issue>
 
     <issue
         id="UseKtx"
         message="Use the KTX extension function `SharedPreferences.edit` instead?"
-        errorLine1="        set(lastEventReminderMinutes) = prefs.edit().putInt(LAST_EVENT_REMINDER_MINUTES, lastEventReminderMinutes).apply()"
+        errorLine1="        set(lastEventReminderMinutes) = prefs.edit()"
         errorLine2="                                        ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="69"
+            line="78"
             column="41"/>
     </issue>
 
     <issue
         id="UseKtx"
         message="Use the KTX extension function `SharedPreferences.edit` instead?"
-        errorLine1="        set(lastEventReminderMinutes2) = prefs.edit().putInt(LAST_EVENT_REMINDER_MINUTES_2, lastEventReminderMinutes2).apply()"
+        errorLine1="        set(lastEventReminderMinutes2) = prefs.edit()"
         errorLine2="                                         ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="73"
+            line="83"
             column="42"/>
     </issue>
 
     <issue
         id="UseKtx"
         message="Use the KTX extension function `SharedPreferences.edit` instead?"
-        errorLine1="        set(lastEventReminderMinutes3) = prefs.edit().putInt(LAST_EVENT_REMINDER_MINUTES_3, lastEventReminderMinutes3).apply()"
+        errorLine1="        set(lastEventReminderMinutes3) = prefs.edit()"
         errorLine2="                                         ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="77"
+            line="88"
             column="42"/>
     </issue>
 
@@ -4571,40 +4571,40 @@
         errorLine2="                                 ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="81"
+            line="93"
             column="34"/>
     </issue>
 
     <issue
         id="UseKtx"
         message="Use the KTX extension function `SharedPreferences.edit` instead?"
-        errorLine1="        set(displayEventTypes) = prefs.edit().remove(DISPLAY_EVENT_TYPES).putStringSet(DISPLAY_EVENT_TYPES, displayEventTypes).apply()"
-        errorLine2="                                 ~~~~~~~~~~~~">
+        errorLine1="        set(displayCalendars) = prefs.edit().remove(DISPLAY_CALENDARS)"
+        errorLine2="                                ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="85"
-            column="34"/>
+            line="97"
+            column="33"/>
     </issue>
 
     <issue
         id="UseKtx"
         message="Use the KTX extension function `SharedPreferences.edit` instead?"
-        errorLine1="        set(quickFilterEventTypes) = prefs.edit().remove(QUICK_FILTER_EVENT_TYPES).putStringSet(QUICK_FILTER_EVENT_TYPES, quickFilterEventTypes).apply()"
-        errorLine2="                                     ~~~~~~~~~~~~">
+        errorLine1="        set(quickFilterCalendars) = prefs.edit().remove(QUICK_FILTER_CALENDARS)"
+        errorLine2="                                    ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="89"
-            column="38"/>
+            line="102"
+            column="37"/>
     </issue>
 
     <issue
         id="UseKtx"
         message="Use the KTX extension function `SharedPreferences.edit` instead?"
-        errorLine1="        set(viewToOpenFromListWidget) = prefs.edit().putInt(LIST_WIDGET_VIEW_TO_OPEN, viewToOpenFromListWidget).apply()"
+        errorLine1="        set(viewToOpenFromListWidget) = prefs.edit()"
         errorLine2="                                        ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="99"
+            line="113"
             column="41"/>
     </issue>
 
@@ -4615,7 +4615,7 @@
         errorLine2="            ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="105"
+            line="120"
             column="13"/>
     </issue>
 
@@ -4626,7 +4626,7 @@
         errorLine2="                           ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="110"
+            line="125"
             column="28"/>
     </issue>
 
@@ -4637,62 +4637,62 @@
         errorLine2="                          ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="114"
+            line="132"
             column="27"/>
     </issue>
 
     <issue
         id="UseKtx"
         message="Use the KTX extension function `SharedPreferences.edit` instead?"
-        errorLine1="        set(lastUsedLocalEventTypeId) = prefs.edit().putLong(LAST_USED_LOCAL_EVENT_TYPE_ID, lastUsedLocalEventTypeId).apply()"
-        errorLine2="                                        ~~~~~~~~~~~~">
+        errorLine1="        set(lastUsedLocalCalendarId) = prefs.edit()"
+        errorLine2="                                       ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="118"
-            column="41"/>
+            line="136"
+            column="40"/>
     </issue>
 
     <issue
         id="UseKtx"
         message="Use the KTX extension function `SharedPreferences.edit` instead?"
-        errorLine1="        set(lastUsedIgnoreEventTypesState) = prefs.edit().putBoolean(LAST_USED_IGNORE_EVENT_TYPES_STATE, lastUsedIgnoreEventTypesState).apply()"
-        errorLine2="                                             ~~~~~~~~~~~~">
+        errorLine1="        set(lastUsedIgnoreCalendarsState) = prefs.edit()"
+        errorLine2="                                            ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="122"
-            column="46"/>
+            line="141"
+            column="45"/>
     </issue>
 
     <issue
         id="UseKtx"
         message="Use the KTX extension function `SharedPreferences.edit` instead?"
-        errorLine1="        set(reminderAudioStream) = prefs.edit().putInt(REMINDER_AUDIO_STREAM, reminderAudioStream).apply()"
+        errorLine1="        set(reminderAudioStream) = prefs.edit().putInt(REMINDER_AUDIO_STREAM, reminderAudioStream)"
         errorLine2="                                   ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="126"
+            line="146"
             column="36"/>
     </issue>
 
     <issue
         id="UseKtx"
         message="Use the KTX extension function `SharedPreferences.edit` instead?"
-        errorLine1="        set(replaceDescription) = prefs.edit().putBoolean(REPLACE_DESCRIPTION, replaceDescription).apply()"
+        errorLine1="        set(replaceDescription) = prefs.edit().putBoolean(REPLACE_DESCRIPTION, replaceDescription)"
         errorLine2="                                  ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="130"
+            line="151"
             column="35"/>
     </issue>
 
     <issue
         id="UseKtx"
         message="Use the KTX extension function `SharedPreferences.edit` instead?"
-        errorLine1="        set(displayDescription) = prefs.edit().putBoolean(DISPLAY_DESCRIPTION, displayDescription).apply()"
+        errorLine1="        set(displayDescription) = prefs.edit().putBoolean(DISPLAY_DESCRIPTION, displayDescription)"
         errorLine2="                                  ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="134"
+            line="156"
             column="35"/>
     </issue>
 
@@ -4703,7 +4703,7 @@
         errorLine2="                        ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="138"
+            line="161"
             column="25"/>
     </issue>
 
@@ -4714,7 +4714,7 @@
         errorLine2="                             ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="142"
+            line="165"
             column="30"/>
     </issue>
 
@@ -4725,29 +4725,29 @@
         errorLine2="                             ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="146"
+            line="169"
             column="30"/>
     </issue>
 
     <issue
         id="UseKtx"
         message="Use the KTX extension function `SharedPreferences.edit` instead?"
-        errorLine1="        set(dimCompletedTasks) = prefs.edit().putBoolean(DIM_COMPLETED_TASKS, dimCompletedTasks).apply()"
+        errorLine1="        set(dimCompletedTasks) = prefs.edit().putBoolean(DIM_COMPLETED_TASKS, dimCompletedTasks)"
         errorLine2="                                 ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="150"
+            line="173"
             column="34"/>
     </issue>
 
     <issue
         id="UseKtx"
         message="Use the KTX extension function `SharedPreferences.edit` instead?"
-        errorLine1="        set(usePreviousEventReminders) = prefs.edit().putBoolean(USE_PREVIOUS_EVENT_REMINDERS, usePreviousEventReminders).apply()"
+        errorLine1="        set(usePreviousEventReminders) = prefs.edit()"
         errorLine2="                                         ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="175"
+            line="201"
             column="42"/>
     </issue>
 
@@ -4758,7 +4758,7 @@
         errorLine2="                                ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="179"
+            line="206"
             column="33"/>
     </issue>
 
@@ -4769,7 +4769,7 @@
         errorLine2="                                ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="183"
+            line="210"
             column="33"/>
     </issue>
 
@@ -4780,7 +4780,7 @@
         errorLine2="                                ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="187"
+            line="214"
             column="33"/>
     </issue>
 
@@ -4791,18 +4791,18 @@
         errorLine2="                             ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="191"
+            line="218"
             column="30"/>
     </issue>
 
     <issue
         id="UseKtx"
         message="Use the KTX extension function `SharedPreferences.edit` instead?"
-        errorLine1="        set(lastVibrateOnReminder) = prefs.edit().putBoolean(LAST_VIBRATE_ON_REMINDER, lastVibrateOnReminder).apply()"
+        errorLine1="        set(lastVibrateOnReminder) = prefs.edit()"
         errorLine2="                                     ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="195"
+            line="222"
             column="38"/>
     </issue>
 
@@ -4813,7 +4813,7 @@
         errorLine2="                                ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="199"
+            line="227"
             column="33"/>
     </issue>
 
@@ -4824,73 +4824,73 @@
         errorLine2="                               ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="203"
+            line="231"
             column="32"/>
     </issue>
 
     <issue
         id="UseKtx"
         message="Use the KTX extension function `SharedPreferences.edit` instead?"
-        errorLine1="        set(defaultEventTypeId) = prefs.edit().putLong(DEFAULT_EVENT_TYPE_ID, defaultEventTypeId).apply()"
-        errorLine2="                                  ~~~~~~~~~~~~">
-        <location
-            file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="207"
-            column="35"/>
-    </issue>
-
-    <issue
-        id="UseKtx"
-        message="Use the KTX extension function `SharedPreferences.edit` instead?"
-        errorLine1="        set(allowChangingTimeZones) = prefs.edit().putBoolean(ALLOW_CHANGING_TIME_ZONES, allowChangingTimeZones).apply()"
-        errorLine2="                                      ~~~~~~~~~~~~">
-        <location
-            file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="211"
-            column="39"/>
-    </issue>
-
-    <issue
-        id="UseKtx"
-        message="Use the KTX extension function `SharedPreferences.edit` instead?"
-        errorLine1="        set(addBirthdaysAutomatically) = prefs.edit().putBoolean(ADD_BIRTHDAYS_AUTOMATICALLY, addBirthdaysAutomatically).apply()"
-        errorLine2="                                         ~~~~~~~~~~~~">
-        <location
-            file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="215"
-            column="42"/>
-    </issue>
-
-    <issue
-        id="UseKtx"
-        message="Use the KTX extension function `SharedPreferences.edit` instead?"
-        errorLine1="        set(addAnniversariesAutomatically) = prefs.edit().putBoolean(ADD_ANNIVERSARIES_AUTOMATICALLY, addAnniversariesAutomatically).apply()"
-        errorLine2="                                             ~~~~~~~~~~~~">
-        <location
-            file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="219"
-            column="46"/>
-    </issue>
-
-    <issue
-        id="UseKtx"
-        message="Use the KTX extension function `SharedPreferences.edit` instead?"
-        errorLine1="        set(birthdayReminders) = prefs.edit().putString(BIRTHDAY_REMINDERS, birthdayReminders.joinToString(&quot;,&quot;)).apply()"
+        errorLine1="        set(defaultCalendarId) = prefs.edit().putLong(DEFAULT_CALENDAR_ID, defaultCalendarId)"
         errorLine2="                                 ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="223"
+            line="235"
             column="34"/>
     </issue>
 
     <issue
         id="UseKtx"
         message="Use the KTX extension function `SharedPreferences.edit` instead?"
-        errorLine1="        set(anniversaryReminders) = prefs.edit().putString(ANNIVERSARY_REMINDERS, anniversaryReminders.joinToString(&quot;,&quot;)).apply()"
+        errorLine1="        set(allowChangingTimeZones) = prefs.edit()"
+        errorLine2="                                      ~~~~~~~~~~~~">
+        <location
+            file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
+            line="240"
+            column="39"/>
+    </issue>
+
+    <issue
+        id="UseKtx"
+        message="Use the KTX extension function `SharedPreferences.edit` instead?"
+        errorLine1="        set(addBirthdaysAutomatically) = prefs.edit()"
+        errorLine2="                                         ~~~~~~~~~~~~">
+        <location
+            file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
+            line="245"
+            column="42"/>
+    </issue>
+
+    <issue
+        id="UseKtx"
+        message="Use the KTX extension function `SharedPreferences.edit` instead?"
+        errorLine1="        set(addAnniversariesAutomatically) = prefs.edit()"
+        errorLine2="                                             ~~~~~~~~~~~~">
+        <location
+            file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
+            line="250"
+            column="46"/>
+    </issue>
+
+    <issue
+        id="UseKtx"
+        message="Use the KTX extension function `SharedPreferences.edit` instead?"
+        errorLine1="        set(birthdayReminders) = prefs.edit()"
+        errorLine2="                                 ~~~~~~~~~~~~">
+        <location
+            file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
+            line="256"
+            column="34"/>
+    </issue>
+
+    <issue
+        id="UseKtx"
+        message="Use the KTX extension function `SharedPreferences.edit` instead?"
+        errorLine1="        set(anniversaryReminders) = prefs.edit()"
         errorLine2="                                    ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="227"
+            line="262"
             column="37"/>
     </issue>
 
@@ -4901,7 +4901,7 @@
         errorLine2="                            ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="231"
+            line="267"
             column="29"/>
     </issue>
 
@@ -4912,113 +4912,14 @@
         errorLine2="                           ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="235"
+            line="271"
             column="28"/>
     </issue>
 
     <issue
         id="UseKtx"
         message="Use the KTX extension function `SharedPreferences.edit` instead?"
-        errorLine1="        set(exportPastEvents) = prefs.edit().putBoolean(EXPORT_PAST_EVENTS, exportPastEvents).apply()"
-        errorLine2="                                ~~~~~~~~~~~~">
-        <location
-            file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="239"
-            column="33"/>
-    </issue>
-
-    <issue
-        id="UseKtx"
-        message="Use the KTX extension function `SharedPreferences.edit` instead?"
-        errorLine1="        set(weeklyViewItemHeightMultiplier) = prefs.edit().putFloat(WEEKLY_VIEW_ITEM_HEIGHT_MULTIPLIER, weeklyViewItemHeightMultiplier).apply()"
-        errorLine2="                                              ~~~~~~~~~~~~">
-        <location
-            file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="243"
-            column="47"/>
-    </issue>
-
-    <issue
-        id="UseKtx"
-        message="Use the KTX extension function `SharedPreferences.edit` instead?"
-        errorLine1="        set(weeklyViewDays) = prefs.edit().putInt(WEEKLY_VIEW_DAYS, weeklyViewDays).apply()"
-        errorLine2="                              ~~~~~~~~~~~~">
-        <location
-            file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="247"
-            column="31"/>
-    </issue>
-
-    <issue
-        id="UseKtx"
-        message="Use the KTX extension function `SharedPreferences.edit` instead?"
-        errorLine1="        set(highlightWeekends) = prefs.edit().putBoolean(HIGHLIGHT_WEEKENDS, highlightWeekends).apply()"
-        errorLine2="                                 ~~~~~~~~~~~~">
-        <location
-            file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="251"
-            column="34"/>
-    </issue>
-
-    <issue
-        id="UseKtx"
-        message="Use the KTX extension function `SharedPreferences.edit` instead?"
-        errorLine1="        set(highlightWeekendsColor) = prefs.edit().putInt(HIGHLIGHT_WEEKENDS_COLOR, highlightWeekendsColor).apply()"
-        errorLine2="                                      ~~~~~~~~~~~~">
-        <location
-            file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="255"
-            column="39"/>
-    </issue>
-
-    <issue
-        id="UseKtx"
-        message="Use the KTX extension function `SharedPreferences.edit` instead?"
-        errorLine1="        set(lastUsedEventSpan) = prefs.edit().putInt(LAST_USED_EVENT_SPAN, lastUsedEventSpan).apply()"
-        errorLine2="                                 ~~~~~~~~~~~~">
-        <location
-            file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="259"
-            column="34"/>
-    </issue>
-
-    <issue
-        id="UseKtx"
-        message="Use the KTX extension function `SharedPreferences.edit` instead?"
-        errorLine1="        set(allowCreatingTasks) = prefs.edit().putBoolean(ALLOW_CREATING_TASKS, allowCreatingTasks).apply()"
-        errorLine2="                                  ~~~~~~~~~~~~">
-        <location
-            file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="263"
-            column="35"/>
-    </issue>
-
-    <issue
-        id="UseKtx"
-        message="Use the KTX extension function `SharedPreferences.edit` instead?"
-        errorLine1="        set(wasFilteredOutWarningShown) = prefs.edit().putBoolean(WAS_FILTERED_OUT_WARNING_SHOWN, wasFilteredOutWarningShown).apply()"
-        errorLine2="                                          ~~~~~~~~~~~~">
-        <location
-            file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="267"
-            column="43"/>
-    </issue>
-
-    <issue
-        id="UseKtx"
-        message="Use the KTX extension function `SharedPreferences.edit` instead?"
-        errorLine1="        set(autoBackupEventTypes) = prefs.edit().remove(AUTO_BACKUP_EVENT_TYPES).putStringSet(AUTO_BACKUP_EVENT_TYPES, autoBackupEventTypes).apply()"
-        errorLine2="                                    ~~~~~~~~~~~~">
-        <location
-            file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="271"
-            column="37"/>
-    </issue>
-
-    <issue
-        id="UseKtx"
-        message="Use the KTX extension function `SharedPreferences.edit` instead?"
-        errorLine1="        set(autoBackupEvents) = prefs.edit().putBoolean(AUTO_BACKUP_EVENTS, autoBackupEvents).apply()"
+        errorLine1="        set(exportPastEvents) = prefs.edit().putBoolean(EXPORT_PAST_EVENTS, exportPastEvents)"
         errorLine2="                                ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
@@ -5029,33 +4930,132 @@
     <issue
         id="UseKtx"
         message="Use the KTX extension function `SharedPreferences.edit` instead?"
+        errorLine1="        set(weeklyViewItemHeightMultiplier) = prefs.edit()"
+        errorLine2="                                              ~~~~~~~~~~~~">
+        <location
+            file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
+            line="280"
+            column="47"/>
+    </issue>
+
+    <issue
+        id="UseKtx"
+        message="Use the KTX extension function `SharedPreferences.edit` instead?"
+        errorLine1="        set(weeklyViewDays) = prefs.edit().putInt(WEEKLY_VIEW_DAYS, weeklyViewDays).apply()"
+        errorLine2="                              ~~~~~~~~~~~~">
+        <location
+            file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
+            line="285"
+            column="31"/>
+    </issue>
+
+    <issue
+        id="UseKtx"
+        message="Use the KTX extension function `SharedPreferences.edit` instead?"
+        errorLine1="        set(highlightWeekends) = prefs.edit().putBoolean(HIGHLIGHT_WEEKENDS, highlightWeekends)"
+        errorLine2="                                 ~~~~~~~~~~~~">
+        <location
+            file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
+            line="289"
+            column="34"/>
+    </issue>
+
+    <issue
+        id="UseKtx"
+        message="Use the KTX extension function `SharedPreferences.edit` instead?"
+        errorLine1="        set(highlightWeekendsColor) = prefs.edit()"
+        errorLine2="                                      ~~~~~~~~~~~~">
+        <location
+            file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
+            line="294"
+            column="39"/>
+    </issue>
+
+    <issue
+        id="UseKtx"
+        message="Use the KTX extension function `SharedPreferences.edit` instead?"
+        errorLine1="        set(lastUsedEventSpan) = prefs.edit().putInt(LAST_USED_EVENT_SPAN, lastUsedEventSpan)"
+        errorLine2="                                 ~~~~~~~~~~~~">
+        <location
+            file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
+            line="299"
+            column="34"/>
+    </issue>
+
+    <issue
+        id="UseKtx"
+        message="Use the KTX extension function `SharedPreferences.edit` instead?"
+        errorLine1="        set(allowCreatingTasks) = prefs.edit().putBoolean(ALLOW_CREATING_TASKS, allowCreatingTasks)"
+        errorLine2="                                  ~~~~~~~~~~~~">
+        <location
+            file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
+            line="304"
+            column="35"/>
+    </issue>
+
+    <issue
+        id="UseKtx"
+        message="Use the KTX extension function `SharedPreferences.edit` instead?"
+        errorLine1="        set(wasFilteredOutWarningShown) = prefs.edit()"
+        errorLine2="                                          ~~~~~~~~~~~~">
+        <location
+            file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
+            line="309"
+            column="43"/>
+    </issue>
+
+    <issue
+        id="UseKtx"
+        message="Use the KTX extension function `SharedPreferences.edit` instead?"
+        errorLine1="        set(autoBackupCalendars) = prefs.edit().remove(AUTO_BACKUP_CALENDARS)"
+        errorLine2="                                   ~~~~~~~~~~~~">
+        <location
+            file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
+            line="314"
+            column="36"/>
+    </issue>
+
+    <issue
+        id="UseKtx"
+        message="Use the KTX extension function `SharedPreferences.edit` instead?"
+        errorLine1="        set(autoBackupEvents) = prefs.edit().putBoolean(AUTO_BACKUP_EVENTS, autoBackupEvents)"
+        errorLine2="                                ~~~~~~~~~~~~">
+        <location
+            file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
+            line="319"
+            column="33"/>
+    </issue>
+
+    <issue
+        id="UseKtx"
+        message="Use the KTX extension function `SharedPreferences.edit` instead?"
         errorLine1="        set(autoBackupTasks) = prefs.edit().putBoolean(AUTO_BACKUP_TASKS, autoBackupTasks).apply()"
         errorLine2="                               ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="279"
+            line="324"
             column="32"/>
     </issue>
 
     <issue
         id="UseKtx"
         message="Use the KTX extension function `SharedPreferences.edit` instead?"
-        errorLine1="        set(autoBackupPastEntries) = prefs.edit().putBoolean(AUTO_BACKUP_PAST_ENTRIES, autoBackupPastEntries).apply()"
+        errorLine1="        set(autoBackupPastEntries) = prefs.edit()"
         errorLine2="                                     ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="283"
+            line="328"
             column="38"/>
     </issue>
 
     <issue
         id="UseKtx"
         message="Use the KTX extension function `SharedPreferences.edit` instead?"
-        errorLine1="        set(lastUsedShowListWidgetHeader) = prefs.edit().putBoolean(LAST_USED_SHOW_LIST_WIDGET_HEADER, lastUsedShowListWidgetHeader).apply()"
+        errorLine1="        set(lastUsedShowListWidgetHeader) = prefs.edit()"
         errorLine2="                                            ~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/helpers/Config.kt"
-            line="287"
+            line="333"
             column="45"/>
     </issue>
 
@@ -5088,7 +5088,7 @@
         errorLine2="                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/fragments/EventListFragment.kt"
-            line="44"
+            line="71"
             column="35"/>
     </issue>
 
@@ -5099,52 +5099,8 @@
         errorLine2="                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/fragments/EventListFragment.kt"
-            line="44"
+            line="71"
             column="35"/>
-    </issue>
-
-    <issue
-        id="UseKtx"
-        message="Use the KTX extension function `Int.toDrawable` instead?"
-        errorLine1="            fabExtendedOverlay.background = ColorDrawable(getProperBackgroundColor().adjustAlpha(0.8f))"
-        errorLine2="                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="src/main/kotlin/org/fossify/calendar/activities/MainActivity.kt"
-            line="280"
-            column="45"/>
-    </issue>
-
-    <issue
-        id="UseKtx"
-        message="Use the KTX extension function `Int.toDrawable` instead?"
-        errorLine1="            fabExtendedOverlay.background = ColorDrawable(getProperBackgroundColor().adjustAlpha(0.8f))"
-        errorLine2="                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="src/main/kotlin/org/fossify/calendar/activities/MainActivity.kt"
-            line="280"
-            column="45"/>
-    </issue>
-
-    <issue
-        id="UseKtx"
-        message="Use the KTX extension function `Int.toDrawable` instead?"
-        errorLine1="            searchHolder.background = ColorDrawable(getProperBackgroundColor())"
-        errorLine2="                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="src/main/kotlin/org/fossify/calendar/activities/MainActivity.kt"
-            line="287"
-            column="39"/>
-    </issue>
-
-    <issue
-        id="UseKtx"
-        message="Use the KTX extension function `Int.toDrawable` instead?"
-        errorLine1="            searchHolder.background = ColorDrawable(getProperBackgroundColor())"
-        errorLine2="                                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
-        <location
-            file="src/main/kotlin/org/fossify/calendar/activities/MainActivity.kt"
-            line="287"
-            column="39"/>
     </issue>
 
     <issue
@@ -5264,7 +5220,7 @@
         errorLine2="                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/fragments/WeekFragment.kt"
-            line="361"
+            line="458"
             column="34"/>
     </issue>
 
@@ -5275,7 +5231,7 @@
         errorLine2="                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/fragments/WeekFragment.kt"
-            line="361"
+            line="458"
             column="34"/>
     </issue>
 
@@ -5286,7 +5242,7 @@
         errorLine2="                                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/fragments/WeekFragment.kt"
-            line="644"
+            line="749"
             column="43"/>
     </issue>
 
@@ -5297,7 +5253,7 @@
         errorLine2="                                          ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/fragments/WeekFragment.kt"
-            line="644"
+            line="749"
             column="43"/>
     </issue>
 
@@ -5308,7 +5264,7 @@
         errorLine2="                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/fragments/WeekFragment.kt"
-            line="798"
+            line="911"
             column="31"/>
     </issue>
 
@@ -5319,7 +5275,7 @@
         errorLine2="                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/fragments/WeekFragment.kt"
-            line="798"
+            line="911"
             column="31"/>
     </issue>
 
@@ -5451,7 +5407,7 @@
         errorLine2="                ^">
         <location
             file="src/main/kotlin/org/fossify/calendar/fragments/WeekFragment.kt"
-            line="256"
+            line="330"
             column="17"/>
     </issue>
 
@@ -5462,7 +5418,7 @@
         errorLine2="                                          ^">
         <location
             file="src/main/kotlin/org/fossify/calendar/fragments/WeekFragment.kt"
-            line="256"
+            line="330"
             column="43"/>
     </issue>
 
@@ -5758,7 +5714,7 @@
         errorLine1="    &lt;ImageView"
         errorLine2="     ~~~~~~~~~">
         <location
-            file="src/main/res/layout/dialog_event_type.xml"
+            file="src/main/res/layout/dialog_calendar.xml"
             line="37"
             column="6"/>
     </issue>
@@ -5802,7 +5758,7 @@
         errorLine1="    &lt;ImageView"
         errorLine2="     ~~~~~~~~~">
         <location
-            file="src/main/res/layout/filter_event_type_view.xml"
+            file="src/main/res/layout/filter_calendar_view.xml"
             line="22"
             column="6"/>
     </issue>
@@ -5912,7 +5868,7 @@
         errorLine1="        &lt;ImageView"
         errorLine2="         ~~~~~~~~~">
         <location
-            file="src/main/res/layout/item_event_type.xml"
+            file="src/main/res/layout/item_calendar.xml"
             line="29"
             column="10"/>
     </issue>
@@ -5923,7 +5879,7 @@
         errorLine1="        &lt;ImageView"
         errorLine2="         ~~~~~~~~~">
         <location
-            file="src/main/res/layout/item_event_type.xml"
+            file="src/main/res/layout/item_calendar.xml"
             line="38"
             column="10"/>
     </issue>
@@ -5934,7 +5890,7 @@
         errorLine1="    &lt;ImageView"
         errorLine2="     ~~~~~~~~~">
         <location
-            file="src/main/res/layout/quick_filter_event_type_view.xml"
+            file="src/main/res/layout/quick_filter_calendar_view.xml"
             line="23"
             column="6"/>
     </issue>
@@ -6155,7 +6111,7 @@
         errorLine2="                                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/dialogs/ExportEventsDialog.kt"
-            line="26"
+            line="40"
             column="42"/>
     </issue>
 
@@ -6177,7 +6133,7 @@
         errorLine2="                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
         <location
             file="src/main/kotlin/org/fossify/calendar/fragments/WeekFragment.kt"
-            line="230"
+            line="304"
             column="26"/>
     </issue>
 
@@ -6561,7 +6517,7 @@
         errorLine1="        android:paddingStart=&quot;@dimen/small_margin&quot; />"
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="src/main/res/layout/filter_event_type_view.xml"
+            file="src/main/res/layout/filter_calendar_view.xml"
             line="20"
             column="9"/>
     </issue>
@@ -6572,7 +6528,7 @@
         errorLine1="        android:paddingStart=&quot;@dimen/activity_margin&quot;>"
         errorLine2="        ~~~~~~~~~~~~~~~~~~~~">
         <location
-            file="src/main/res/layout/item_event_type.xml"
+            file="src/main/res/layout/item_calendar.xml"
             line="17"
             column="9"/>
     </issue>
