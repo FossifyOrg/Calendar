@@ -898,7 +898,7 @@ class TaskActivity : SimpleActivity() {
             activity = this,
             currCalendar = mCalendarId,
             showCalDAVCalendars = false,
-            showNewCalendarOption = true,
+            showNewCalendarOption = false,
             addLastUsedOneAsFirstOption = false,
             showOnlyWritable = true,
             showManageCalendars = true
