@@ -4,8 +4,8 @@ import androidx.appcompat.app.AlertDialog
 import org.fossify.calendar.R
 import org.fossify.calendar.activities.SimpleActivity
 import org.fossify.calendar.databinding.DialogImportEventsBinding
+import org.fossify.calendar.extensions.calendarsDB
 import org.fossify.calendar.extensions.config
-import org.fossify.calendar.extensions.eventTypesDB
 import org.fossify.calendar.extensions.eventsHelper
 import org.fossify.calendar.helpers.IcsImporter
 import org.fossify.calendar.helpers.IcsImporter.ImportResult.IMPORT_FAIL
@@ -13,34 +13,45 @@ import org.fossify.calendar.helpers.IcsImporter.ImportResult.IMPORT_NOTHING_NEW
 import org.fossify.calendar.helpers.IcsImporter.ImportResult.IMPORT_OK
 import org.fossify.calendar.helpers.IcsImporter.ImportResult.IMPORT_PARTIAL
 import org.fossify.calendar.helpers.LOCAL_CALENDAR_ID
-import org.fossify.commons.extensions.*
+import org.fossify.commons.extensions.getAlertDialogBuilder
+import org.fossify.commons.extensions.getProperBackgroundColor
+import org.fossify.commons.extensions.setFillWithStroke
+import org.fossify.commons.extensions.setupDialogStuff
+import org.fossify.commons.extensions.toast
+import org.fossify.commons.extensions.viewBinding
 import org.fossify.commons.helpers.ensureBackgroundThread
 
-class ImportEventsDialog(val activity: SimpleActivity, val path: String, val callback: (refreshView: Boolean) -> Unit) {
-    private var currEventTypeId = LOCAL_CALENDAR_ID
-    private var currEventTypeCalDAVCalendarId = 0
+class ImportEventsDialog(
+    val activity: SimpleActivity,
+    val path: String,
+    val callback: (refreshView: Boolean) -> Unit
+) {
+    private var currCalendarId = LOCAL_CALENDAR_ID
+    private var currCalendarCalDAVCalendarId = 0
     private val config = activity.config
     private val binding by activity.viewBinding(DialogImportEventsBinding::inflate)
 
     init {
         ensureBackgroundThread {
-            if (activity.eventTypesDB.getEventTypeWithId(config.lastUsedLocalEventTypeId) == null) {
-                config.lastUsedLocalEventTypeId = LOCAL_CALENDAR_ID
+            if (activity.calendarsDB.getCalendarWithId(config.lastUsedLocalCalendarId) == null) {
+                config.lastUsedLocalCalendarId = LOCAL_CALENDAR_ID
             }
 
-            val isLastCaldavCalendarOK = config.caldavSync && config.getSyncedCalendarIdsAsList().contains(config.lastUsedCaldavCalendarId)
-            currEventTypeId = if (isLastCaldavCalendarOK) {
-                val lastUsedCalDAVCalendar = activity.eventsHelper.getEventTypeWithCalDAVCalendarId(config.lastUsedCaldavCalendarId)
+            val isLastCaldavCalendarOK = config.caldavSync && config.getSyncedCalendarIdsAsList()
+                .contains(config.lastUsedCaldavCalendarId)
+            currCalendarId = if (isLastCaldavCalendarOK) {
+                val lastUsedCalDAVCalendar =
+                    activity.eventsHelper.getCalendarWithCalDAVCalendarId(config.lastUsedCaldavCalendarId)
                 if (lastUsedCalDAVCalendar != null) {
-                    currEventTypeCalDAVCalendarId = config.lastUsedCaldavCalendarId
+                    currCalendarCalDAVCalendarId = config.lastUsedCaldavCalendarId
                     lastUsedCalDAVCalendar.id!!
                 } else {
                     LOCAL_CALENDAR_ID
                 }
             } else {
-                config.lastUsedLocalEventTypeId
+                config.lastUsedLocalCalendarId
             }
-            binding.importEventsCheckbox.isChecked = config.lastUsedIgnoreEventTypesState
+            binding.importEventsCheckbox.isChecked = config.lastUsedIgnoreCalendarsState
 
             activity.runOnUiThread {
                 initDialog()
@@ -50,24 +61,24 @@ class ImportEventsDialog(val activity: SimpleActivity, val path: String, val cal
 
     private fun initDialog() {
         binding.apply {
-            updateEventType(this)
-            importEventTypeTitle.setOnClickListener {
-                SelectEventTypeDialog(
+            updateCalendar(this)
+            importCalendarTitle.setOnClickListener {
+                SelectCalendarDialog(
                     activity = activity,
-                    currEventType = currEventTypeId,
+                    currCalendar = currCalendarId,
                     showCalDAVCalendars = true,
-                    showNewEventTypeOption = true,
+                    showNewCalendarOption = true,
                     addLastUsedOneAsFirstOption = false,
                     showOnlyWritable = true,
-                    showManageEventTypes = false
+                    showManageCalendars = false
                 ) {
-                    currEventTypeId = it.id!!
-                    currEventTypeCalDAVCalendarId = it.caldavCalendarId
+                    currCalendarId = it.id!!
+                    currCalendarCalDAVCalendarId = it.caldavCalendarId
 
-                    config.lastUsedLocalEventTypeId = it.id!!
+                    config.lastUsedLocalCalendarId = it.id!!
                     config.lastUsedCaldavCalendarId = it.caldavCalendarId
 
-                    updateEventType(this)
+                    updateCalendar(this)
                 }
             }
 
@@ -80,14 +91,23 @@ class ImportEventsDialog(val activity: SimpleActivity, val path: String, val cal
             .setPositiveButton(org.fossify.commons.R.string.ok, null)
             .setNegativeButton(org.fossify.commons.R.string.cancel, null)
             .apply {
-                activity.setupDialogStuff(binding.root, this, R.string.import_events) { alertDialog ->
+                activity.setupDialogStuff(
+                    binding.root,
+                    this,
+                    R.string.import_events
+                ) { alertDialog ->
                     alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
                         alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(null)
                         activity.toast(org.fossify.commons.R.string.importing)
                         ensureBackgroundThread {
-                            val overrideFileEventTypes = binding.importEventsCheckbox.isChecked
-                            config.lastUsedIgnoreEventTypesState = overrideFileEventTypes
-                            val result = IcsImporter(activity).importEvents(path, currEventTypeId, currEventTypeCalDAVCalendarId, overrideFileEventTypes)
+                            val overrideFileCalendars = binding.importEventsCheckbox.isChecked
+                            config.lastUsedIgnoreCalendarsState = overrideFileCalendars
+                            val result = IcsImporter(activity).importEvents(
+                                path = path,
+                                defaultCalendarId = currCalendarId,
+                                calDAVCalendarId = currCalendarCalDAVCalendarId,
+                                overrideFileCalendars = overrideFileCalendars
+                            )
                             handleParseResult(result)
                             alertDialog.dismiss()
                         }
@@ -96,12 +116,15 @@ class ImportEventsDialog(val activity: SimpleActivity, val path: String, val cal
             }
     }
 
-    private fun updateEventType(binding: DialogImportEventsBinding) {
+    private fun updateCalendar(binding: DialogImportEventsBinding) {
         ensureBackgroundThread {
-            val eventType = activity.eventTypesDB.getEventTypeWithId(currEventTypeId)
+            val calendar = activity.calendarsDB.getCalendarWithId(currCalendarId)
             activity.runOnUiThread {
-                binding.importEventTypeTitle.setText(eventType!!.getDisplayTitle())
-                binding.importEventTypeColor.setFillWithStroke(eventType.color, activity.getProperBackgroundColor())
+                binding.importCalendarTitle.setText(calendar!!.getDisplayTitle())
+                binding.importCalendarColor.setFillWithStroke(
+                    calendar.color,
+                    activity.getProperBackgroundColor()
+                )
             }
         }
     }

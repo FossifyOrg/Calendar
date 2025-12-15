@@ -133,7 +133,7 @@
             android:importantForAccessibility="no" />
 
         <RelativeLayout
-            android:id="@+id/manage_event_types_holder"
+            android:id="@+id/manage_calendars_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/selectableItemBackground"

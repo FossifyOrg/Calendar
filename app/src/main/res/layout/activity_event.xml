@@ -640,28 +640,28 @@
                 android:visibility="gone" />
 
             <ImageView
-                android:id="@+id/event_type_image"
+                android:id="@+id/calendar_image"
                 android:layout_width="@dimen/smaller_icon_size"
                 android:layout_height="@dimen/smaller_icon_size"
                 android:layout_below="@+id/event_caldav_calendar_divider"
-                android:layout_alignTop="@+id/event_type_holder"
-                android:layout_alignBottom="@+id/event_type_holder"
+                android:layout_alignTop="@+id/calendar_holder"
+                android:layout_alignBottom="@+id/calendar_holder"
                 android:layout_marginStart="@dimen/normal_margin"
                 android:padding="@dimen/medium_margin"
                 android:src="@drawable/ic_category_outline_vector" />
 
             <RelativeLayout
-                android:id="@+id/event_type_holder"
+                android:id="@+id/calendar_holder"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/event_caldav_calendar_divider"
                 android:layout_marginTop="@dimen/medium_margin"
                 android:layout_marginBottom="@dimen/medium_margin"
-                android:layout_toEndOf="@+id/event_type_image"
+                android:layout_toEndOf="@+id/calendar_image"
                 android:background="?attr/selectableItemBackground">
 
                 <org.fossify.commons.views.MyTextView
-                    android:id="@+id/event_type"
+                    android:id="@+id/calendar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/small_margin"
@@ -673,10 +673,10 @@
             </RelativeLayout>
 
             <ImageView
-                android:id="@+id/event_type_divider"
+                android:id="@+id/calendar_divider"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/divider_height"
-                android:layout_below="@+id/event_type_holder"
+                android:layout_below="@+id/calendar_holder"
                 android:background="@color/divider_grey"
                 android:importantForAccessibility="no" />
 
@@ -684,7 +684,7 @@
                 android:id="@+id/event_color_image"
                 android:layout_width="@dimen/smaller_icon_size"
                 android:layout_height="@dimen/smaller_icon_size"
-                android:layout_below="@+id/event_type_divider"
+                android:layout_below="@+id/calendar_divider"
                 android:layout_alignTop="@+id/event_color_holder"
                 android:layout_alignBottom="@+id/event_color_holder"
                 android:layout_marginStart="@dimen/normal_margin"
@@ -695,7 +695,7 @@
                 android:id="@+id/event_color_holder"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/event_type_divider"
+                android:layout_below="@+id/calendar_divider"
                 android:layout_marginTop="@dimen/medium_margin"
                 android:layout_marginBottom="@dimen/medium_margin"
                 android:layout_toEndOf="@+id/event_color_image"

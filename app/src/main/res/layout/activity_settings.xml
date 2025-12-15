@@ -90,7 +90,7 @@
             <org.fossify.commons.views.PurchaseThankYouItem
                 android:id="@+id/settings_purchase_thank_you_holder"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content" />
 
             <RelativeLayout
                 android:id="@+id/settings_use_english_holder"
@@ -131,7 +131,7 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/settings_manage_event_types_holder"
+                android:id="@+id/settings_manage_calendars_holder"
                 style="@style/SettingsHolderTextViewOneLinerStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -146,7 +146,7 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/settings_manage_quick_filter_event_types_holder"
+                android:id="@+id/settings_manage_quick_filter_calendars_holder"
                 style="@style/SettingsHolderTextViewOneLinerStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -493,7 +493,7 @@
             </RelativeLayout>
 
             <RelativeLayout
-                android:id="@+id/settings_default_event_type_holder"
+                android:id="@+id/settings_default_calendar_holder"
                 style="@style/SettingsHolderTextViewStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -506,7 +506,7 @@
                     android:text="@string/default_event_type" />
 
                 <org.fossify.commons.views.MyTextView
-                    android:id="@+id/settings_default_event_type"
+                    android:id="@+id/settings_default_calendar"
                     style="@style/SettingsTextValueStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

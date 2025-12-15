@@ -10,9 +10,21 @@ import org.fossify.calendar.helpers.BIRTHDAY_EVENT
 import org.fossify.calendar.helpers.OTHER_EVENT
 import org.fossify.calendar.helpers.REMINDER_OFF
 import org.fossify.commons.dialogs.PermissionRequiredDialog
-import org.fossify.commons.extensions.*
+import org.fossify.commons.extensions.applyColorFilter
+import org.fossify.commons.extensions.beVisible
+import org.fossify.commons.extensions.getAlertDialogBuilder
+import org.fossify.commons.extensions.getFormattedMinutes
+import org.fossify.commons.extensions.getProperTextColor
+import org.fossify.commons.extensions.openNotificationSettings
+import org.fossify.commons.extensions.setupDialogStuff
+import org.fossify.commons.extensions.showPickSecondsDialogHelper
+import org.fossify.commons.extensions.viewBinding
 
-class SetRemindersDialog(val activity: SimpleActivity, val eventType: Int, val callback: (reminders: ArrayList<Int>) -> Unit) {
+class SetRemindersDialog(
+    val activity: SimpleActivity,
+    val eventType: Int,
+    val callback: (reminders: ArrayList<Int>) -> Unit
+) {
     private var mReminder1Minutes = REMINDER_OFF
     private var mReminder2Minutes = REMINDER_OFF
     private var mReminder3Minutes = REMINDER_OFF
@@ -30,7 +42,10 @@ class SetRemindersDialog(val activity: SimpleActivity, val eventType: Int, val c
             setReminders1.setOnClickListener {
                 activity.handleNotificationPermission { granted ->
                     if (granted) {
-                        activity.showPickSecondsDialogHelper(mReminder1Minutes, showDuringDayOption = true) {
+                        activity.showPickSecondsDialogHelper(
+                            mReminder1Minutes,
+                            showDuringDayOption = true
+                        ) {
                             mReminder1Minutes = if (it == -1 || it == 0) it else it / 60
                             setReminders1.text = activity.getFormattedMinutes(mReminder1Minutes)
                             if (mReminder1Minutes != REMINDER_OFF) {
@@ -48,7 +63,10 @@ class SetRemindersDialog(val activity: SimpleActivity, val eventType: Int, val c
             }
 
             setReminders2.setOnClickListener {
-                activity.showPickSecondsDialogHelper(mReminder2Minutes, showDuringDayOption = true) {
+                activity.showPickSecondsDialogHelper(
+                    mReminder2Minutes,
+                    showDuringDayOption = true
+                ) {
                     mReminder2Minutes = if (it == -1 || it == 0) it else it / 60
                     setReminders2.text = activity.getFormattedMinutes(mReminder2Minutes)
                     if (mReminder2Minutes != REMINDER_OFF) {
@@ -58,7 +76,10 @@ class SetRemindersDialog(val activity: SimpleActivity, val eventType: Int, val c
             }
 
             setReminders3.setOnClickListener {
-                activity.showPickSecondsDialogHelper(mReminder3Minutes, showDuringDayOption = true) {
+                activity.showPickSecondsDialogHelper(
+                    mReminder3Minutes,
+                    showDuringDayOption = true
+                ) {
                     mReminder3Minutes = if (it == -1 || it == 0) it else it / 60
                     setReminders3.text = activity.getFormattedMinutes(mReminder3Minutes)
                 }
@@ -90,7 +111,11 @@ class SetRemindersDialog(val activity: SimpleActivity, val eventType: Int, val c
     }
 
     private fun dialogConfirmed() {
-        val tempReminders = arrayListOf(mReminder1Minutes, mReminder2Minutes, mReminder3Minutes).filter { it != REMINDER_OFF }.sorted()
+        val tempReminders = arrayListOf(
+            mReminder1Minutes,
+            mReminder2Minutes,
+            mReminder3Minutes
+        ).filter { it != REMINDER_OFF }.sorted()
         val reminders = arrayListOf(
             tempReminders.getOrNull(0) ?: REMINDER_OFF,
             tempReminders.getOrNull(1) ?: REMINDER_OFF,

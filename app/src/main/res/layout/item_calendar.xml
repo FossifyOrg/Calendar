@@ -10,24 +10,24 @@
     android:foreground="@drawable/selector">
 
     <RelativeLayout
-        android:id="@+id/event_type_holder"
+        android:id="@+id/calendar_holder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackground"
         android:paddingStart="@dimen/activity_margin">
 
         <org.fossify.commons.views.MyTextView
-            android:id="@+id/event_type_title"
+            android:id="@+id/calendar_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_toStartOf="@+id/event_type_color"
+            android:layout_toStartOf="@+id/calendar_color"
             android:paddingStart="@dimen/medium_margin"
             android:paddingEnd="@dimen/medium_margin"
             tools:text="Event type" />
 
         <ImageView
-            android:id="@+id/event_type_color"
+            android:id="@+id/calendar_color"
             android:layout_width="@dimen/color_sample_size"
             android:layout_height="@dimen/color_sample_size"
             android:layout_centerVertical="true"

@@ -37,13 +37,13 @@ import org.fossify.calendar.dialogs.EditRepeatingEventDialog
 import org.fossify.calendar.dialogs.ReminderWarningDialog
 import org.fossify.calendar.dialogs.RepeatLimitTypePickerDialog
 import org.fossify.calendar.dialogs.RepeatRuleWeeklyDialog
+import org.fossify.calendar.dialogs.SelectCalendarDialog
 import org.fossify.calendar.dialogs.SelectEventCalendarDialog
 import org.fossify.calendar.dialogs.SelectEventColorDialog
-import org.fossify.calendar.dialogs.SelectEventTypeDialog
 import org.fossify.calendar.extensions.calDAVHelper
+import org.fossify.calendar.extensions.calendarsDB
 import org.fossify.calendar.extensions.cancelNotification
 import org.fossify.calendar.extensions.config
-import org.fossify.calendar.extensions.eventTypesDB
 import org.fossify.calendar.extensions.eventsDB
 import org.fossify.calendar.extensions.eventsHelper
 import org.fossify.calendar.extensions.getNewEventTimestampFromCode
@@ -59,7 +59,7 @@ import org.fossify.calendar.extensions.showEventRepeatIntervalDialog
 import org.fossify.calendar.helpers.ATTENDEES
 import org.fossify.calendar.helpers.AVAILABILITY
 import org.fossify.calendar.helpers.CALDAV
-import org.fossify.calendar.helpers.ORIGINAL_ATTENDEES
+import org.fossify.calendar.helpers.CALENDAR_ID
 import org.fossify.calendar.helpers.CLASS
 import org.fossify.calendar.helpers.CURRENT_TIME_ZONE
 import org.fossify.calendar.helpers.DELETE_ALL_OCCURRENCES
@@ -74,16 +74,16 @@ import org.fossify.calendar.helpers.EVENT_CALENDAR_ID
 import org.fossify.calendar.helpers.EVENT_COLOR
 import org.fossify.calendar.helpers.EVENT_ID
 import org.fossify.calendar.helpers.EVENT_OCCURRENCE_TS
-import org.fossify.calendar.helpers.EVENT_TYPE_ID
 import org.fossify.calendar.helpers.FLAG_ALL_DAY
 import org.fossify.calendar.helpers.Formatter
 import org.fossify.calendar.helpers.IS_DUPLICATE_INTENT
 import org.fossify.calendar.helpers.IS_NEW_EVENT
+import org.fossify.calendar.helpers.LOCAL_CALENDAR_ID
 import org.fossify.calendar.helpers.NEW_EVENT_SET_HOUR_DURATION
 import org.fossify.calendar.helpers.NEW_EVENT_START_TS
+import org.fossify.calendar.helpers.ORIGINAL_ATTENDEES
 import org.fossify.calendar.helpers.ORIGINAL_END_TS
 import org.fossify.calendar.helpers.ORIGINAL_START_TS
-import org.fossify.calendar.helpers.LOCAL_CALENDAR_ID
 import org.fossify.calendar.helpers.REMINDER_1_MINUTES
 import org.fossify.calendar.helpers.REMINDER_1_TYPE
 import org.fossify.calendar.helpers.REMINDER_2_MINUTES
@@ -109,8 +109,8 @@ import org.fossify.calendar.helpers.TIME_ZONE
 import org.fossify.calendar.helpers.generateImportId
 import org.fossify.calendar.models.Attendee
 import org.fossify.calendar.models.CalDAVCalendar
+import org.fossify.calendar.models.CalendarEntity
 import org.fossify.calendar.models.Event
-import org.fossify.calendar.models.EventType
 import org.fossify.calendar.models.MyTimeZone
 import org.fossify.calendar.models.Reminder
 import org.fossify.commons.dialogs.ColorPickerDialog
@@ -186,7 +186,7 @@ class EventActivity : SimpleActivity() {
     private var mRepeatInterval = 0
     private var mRepeatLimit = 0L
     private var mRepeatRule = 0
-    private var mEventTypeId = LOCAL_CALENDAR_ID
+    private var mCalendarId = LOCAL_CALENDAR_ID
     private var mEventOccurrenceTS = 0L
     private var mLastSavePromptTS = 0L
     private var mEventCalendarId = STORED_LOCALLY_ONLY
@@ -200,7 +200,7 @@ class EventActivity : SimpleActivity() {
     private var mAvailability = Attendees.AVAILABILITY_BUSY
     private var mAccessLevel = Events.ACCESS_DEFAULT
     private var mStatus = Events.STATUS_CONFIRMED
-    private var mStoredEventTypes = ArrayList<EventType>()
+    private var mStoredCalendars = ArrayList<CalendarEntity>()
     private var mOriginalTimeZone = DateTimeZone.getDefault().id
     private var mOriginalStartTS = 0L
     private var mOriginalEndTS = 0L
@@ -232,7 +232,8 @@ class EventActivity : SimpleActivity() {
 
         val eventId = intent.getLongExtra(EVENT_ID, 0L)
         ensureBackgroundThread {
-            mStoredEventTypes = eventTypesDB.getEventTypes().toMutableList() as ArrayList<EventType>
+            mStoredCalendars =
+                calendarsDB.getCalendars().toMutableList() as ArrayList<CalendarEntity>
             val event = eventsDB.getEventWithId(eventId)
             if (eventId != 0L && event == null) {
                 hideKeyboard()
@@ -240,11 +241,11 @@ class EventActivity : SimpleActivity() {
                 return@ensureBackgroundThread
             }
 
-            val localEventType =
-                mStoredEventTypes.firstOrNull { it.id == config.lastUsedLocalEventTypeId }
+            val localCalendar =
+                mStoredCalendars.firstOrNull { it.id == config.lastUsedLocalCalendarId }
             runOnUiThread {
                 if (!isDestroyed && !isFinishing) {
-                    gotEvent(savedInstanceState, localEventType, event)
+                    gotEvent(savedInstanceState, localCalendar, event)
                 }
             }
         }
@@ -326,7 +327,7 @@ class EventActivity : SimpleActivity() {
             putInt(STATUS, mStatus)
             putInt(EVENT_COLOR, mEventColor)
 
-            putLong(EVENT_TYPE_ID, mEventTypeId)
+            putLong(CALENDAR_ID, mCalendarId)
             putInt(EVENT_CALENDAR_ID, mEventCalendarId)
             putBoolean(IS_NEW_EVENT, mIsNewEvent)
             putLong(ORIGINAL_START_TS, mOriginalStartTS)
@@ -369,10 +370,11 @@ class EventActivity : SimpleActivity() {
             mAttendees =
                 Gson().fromJson<ArrayList<Attendee>>(getString(ATTENDEES), token) ?: ArrayList()
             mOriginalAttendees =
-                Gson().fromJson<ArrayList<Attendee>>(getString(ORIGINAL_ATTENDEES), token) ?: ArrayList()
+                Gson().fromJson<ArrayList<Attendee>>(getString(ORIGINAL_ATTENDEES), token)
+                    ?: ArrayList()
             mEvent.attendees = mAttendees
 
-            mEventTypeId = getLong(EVENT_TYPE_ID)
+            mCalendarId = getLong(CALENDAR_ID)
             mEventCalendarId = getInt(EVENT_CALENDAR_ID)
             mIsNewEvent = getBoolean(IS_NEW_EVENT)
             mOriginalStartTS = getLong(ORIGINAL_START_TS)
@@ -382,7 +384,7 @@ class EventActivity : SimpleActivity() {
         checkRepeatTexts(mRepeatInterval)
         checkRepeatRule()
         updateTexts()
-        updateEventType()
+        updateLocalCalendar()
         updateCalDAVCalendar()
         checkAttendees()
         updateActionBarTitle()
@@ -391,7 +393,7 @@ class EventActivity : SimpleActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
         if (
             requestCode == SELECT_TIME_ZONE_INTENT
-            && resultCode == Activity.RESULT_OK && resultData?.hasExtra(TIME_ZONE) == true
+            && resultCode == RESULT_OK && resultData?.hasExtra(TIME_ZONE) == true
         ) {
             val timeZone = resultData.getSerializableExtra(TIME_ZONE) as MyTimeZone
             mEvent.timeZone = timeZone.zoneName
@@ -402,17 +404,17 @@ class EventActivity : SimpleActivity() {
 
     private fun gotEvent(
         savedInstanceState: Bundle?,
-        localEventType: EventType?,
+        localCalendar: CalendarEntity?,
         event: Event?,
     ) = binding.apply {
-        if (localEventType == null || localEventType.caldavCalendarId != 0) {
-            config.lastUsedLocalEventTypeId = LOCAL_CALENDAR_ID
+        if (localCalendar == null || localCalendar.caldavCalendarId != 0) {
+            config.lastUsedLocalCalendarId = LOCAL_CALENDAR_ID
         }
 
-        mEventTypeId = if (config.defaultEventTypeId == -1L) {
-            config.lastUsedLocalEventTypeId
+        mCalendarId = if (config.defaultCalendarId == -1L) {
+            config.lastUsedLocalCalendarId
         } else {
-            config.defaultEventTypeId
+            config.defaultCalendarId
         }
 
         if (event != null) {
@@ -460,7 +462,7 @@ class EventActivity : SimpleActivity() {
 
         if (savedInstanceState == null) {
             updateTexts()
-            updateEventType()
+            updateLocalCalendar()
             updateCalDAVCalendar()
         }
 
@@ -543,7 +545,7 @@ class EventActivity : SimpleActivity() {
             }
         }
 
-        eventTypeHolder.setOnClickListener { showEventTypeDialog() }
+        calendarHolder.setOnClickListener { showCalendarDialog() }
         eventAllDay.apply {
             isChecked = mEvent.getIsAllDay()
             jumpDrawablesToCurrentState()
@@ -656,7 +658,7 @@ class EventActivity : SimpleActivity() {
                 mAvailability != mEvent.availability ||
                 mAccessLevel != mEvent.accessLevel ||
                 mStatus != mEvent.status ||
-                mEventTypeId != mEvent.eventType ||
+                mCalendarId != mEvent.calendarId ||
                 mWasCalendarChanged ||
                 mIsAllDayEvent != mEvent.getIsAllDay() ||
                 mEventColor != mEvent.color ||
@@ -671,7 +673,7 @@ class EventActivity : SimpleActivity() {
         }
 
         return currentAttendees.zip(originalAttendees).any { (first, second) ->
-                    first.email != second.email ||
+            first.email != second.email ||
                     first.status != second.status ||
                     first.relationship != second.relationship
         }
@@ -728,7 +730,7 @@ class EventActivity : SimpleActivity() {
         mRepeatInterval = mEvent.repeatInterval
         mRepeatLimit = mEvent.repeatLimit
         mRepeatRule = mEvent.repeatRule
-        mEventTypeId = mEvent.eventType
+        mCalendarId = mEvent.calendarId
         mEventCalendarId = mEvent.getCalDAVCalendarId()
         mAvailability = mEvent.availability
         mAccessLevel = mEvent.accessLevel
@@ -746,9 +748,9 @@ class EventActivity : SimpleActivity() {
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE)
         binding.eventTitle.requestFocus()
         binding.eventToolbar.title = getString(R.string.new_event)
-        if (config.defaultEventTypeId != -1L) {
-            config.lastUsedCaldavCalendarId = mStoredEventTypes
-                .firstOrNull { it.id == config.defaultEventTypeId }?.caldavCalendarId
+        if (config.defaultCalendarId != -1L) {
+            config.lastUsedCaldavCalendarId = mStoredCalendars
+                .firstOrNull { it.id == config.defaultCalendarId }?.caldavCalendarId
                 ?: 0
         }
 
@@ -816,7 +818,7 @@ class EventActivity : SimpleActivity() {
             reminder3Minutes = mReminder3Minutes
             reminder3Type = mReminder3Type
             status = mStatus
-            eventType = mEventTypeId
+            calendarId = mCalendarId
         }
     }
 
@@ -1132,20 +1134,20 @@ class EventActivity : SimpleActivity() {
         else -> getRepeatXthDayInMonthString(false, mRepeatRule)
     }
 
-    private fun showEventTypeDialog() {
+    private fun showCalendarDialog() {
         hideKeyboard()
 
-        SelectEventTypeDialog(
+        SelectCalendarDialog(
             activity = this,
-            currEventType = mEventTypeId,
+            currCalendar = mCalendarId,
             showCalDAVCalendars = false,
-            showNewEventTypeOption = true,
+            showNewCalendarOption = true,
             addLastUsedOneAsFirstOption = false,
             showOnlyWritable = true,
-            showManageEventTypes = true
+            showManageCalendars = true
         ) {
-            mEventTypeId = it.id!!
-            updateEventType()
+            mCalendarId = it.id!!
+            updateLocalCalendar()
         }
     }
 
@@ -1162,9 +1164,9 @@ class EventActivity : SimpleActivity() {
     }
 
     private fun showCustomEventColorDialog() {
-        val eventType = eventTypesDB.getEventTypeWithId(mEventTypeId)!!
+        val calendar = calendarsDB.getCalendarWithId(mCalendarId)!!
         val currentColor = if (mEventColor == 0) {
-            eventType.color
+            calendar.color
         } else {
             mEventColor
         }
@@ -1176,18 +1178,18 @@ class EventActivity : SimpleActivity() {
                 addDefaultColorButton = true
             ) { wasPositivePressed, newColor ->
                 if (wasPositivePressed) {
-                    gotNewEventColor(newColor, currentColor, eventType.color)
+                    gotNewEventColor(newColor, currentColor, calendar.color)
                 }
             }
         }
     }
 
     private fun showCalDAVEventColorDialog() {
-        val eventType =
-            eventsHelper.getEventTypeWithCalDAVCalendarId(calendarId = mEventCalendarId)!!
-        val eventColors = getEventColors(eventType)
+        val calendar =
+            eventsHelper.getCalendarWithCalDAVCalendarId(calendarId = mEventCalendarId)!!
+        val eventColors = getEventColors(calendar)
         val currentColor = if (mEventColor == 0) {
-            eventType.color
+            calendar.color
         } else {
             mEventColor
         }
@@ -1198,7 +1200,7 @@ class EventActivity : SimpleActivity() {
                 colors = eventColors,
                 currentColor = currentColor
             ) { newColor ->
-                gotNewEventColor(newColor, currentColor, eventType.color)
+                gotNewEventColor(newColor, currentColor, calendar.color)
             }
         }
     }
@@ -1376,13 +1378,13 @@ class EventActivity : SimpleActivity() {
         binding.eventRepetition.text = getRepetitionText(mRepeatInterval)
     }
 
-    private fun updateEventType() {
+    private fun updateLocalCalendar() {
         ensureBackgroundThread {
-            val eventType = eventTypesDB.getEventTypeWithId(mEventTypeId)
-            if (eventType != null) {
+            val calendar = calendarsDB.getCalendarWithId(mCalendarId)
+            if (calendar != null) {
                 runOnUiThread {
-                    binding.eventType.text = eventType.title
-                    updateEventColorInfo(eventType.color)
+                    binding.calendar.text = calendar.title
+                    updateEventColorInfo(calendar.color)
                 }
             }
         }
@@ -1412,8 +1414,8 @@ class EventActivity : SimpleActivity() {
                 hideKeyboard()
                 SelectEventCalendarDialog(this, calendars, mEventCalendarId) {
                     if (mEventCalendarId != STORED_LOCALLY_ONLY && it == STORED_LOCALLY_ONLY) {
-                        mEventTypeId = config.lastUsedLocalEventTypeId
-                        updateEventType()
+                        mCalendarId = config.lastUsedLocalCalendarId
+                        updateLocalCalendar()
                     }
                     mWasCalendarChanged = true
                     mEventCalendarId = it
@@ -1442,8 +1444,8 @@ class EventActivity : SimpleActivity() {
         calendars.firstOrNull { it.id == calendarId }
 
     private fun updateCurrentCalendarInfo(currentCalendar: CalDAVCalendar?) = binding.apply {
-        eventTypeImage.beVisibleIf(currentCalendar == null)
-        eventTypeHolder.beVisibleIf(currentCalendar == null)
+        calendarImage.beVisibleIf(currentCalendar == null)
+        calendarHolder.beVisibleIf(currentCalendar == null)
         eventCaldavCalendarDivider.beVisibleIf(currentCalendar == null)
         eventCaldavCalendarEmail.beGoneIf(currentCalendar == null)
 
@@ -1461,13 +1463,13 @@ class EventActivity : SimpleActivity() {
             }
 
             ensureBackgroundThread {
-                val eventType = eventTypesDB.getEventTypeWithId(mEventTypeId)
+                val calendar = calendarsDB.getCalendarWithId(mCalendarId)
                 runOnUiThread {
-                    eventColorImage.beVisibleIf(eventType != null)
-                    eventColorHolder.beVisibleIf(eventType != null)
-                    eventColorDivider.beVisibleIf(eventType != null)
-                    if (eventType != null) {
-                        updateEventColorInfo(eventType.color)
+                    eventColorImage.beVisibleIf(calendar != null)
+                    eventColorHolder.beVisibleIf(calendar != null)
+                    eventColorDivider.beVisibleIf(calendar != null)
+                    if (calendar != null) {
+                        updateEventColorInfo(calendar.color)
                     }
                 }
             }
@@ -1475,10 +1477,10 @@ class EventActivity : SimpleActivity() {
             eventCaldavCalendarEmail.text = currentCalendar.accountName
 
             ensureBackgroundThread {
-                val eventType = eventsHelper.getEventTypeWithCalDAVCalendarId(currentCalendar.id)
-                val calendarColor = eventType?.color ?: currentCalendar.color
-                val canCustomizeColors = if (eventType != null) {
-                    getEventColors(eventType).isNotEmpty()
+                val localCalendar = eventsHelper.getCalendarWithCalDAVCalendarId(currentCalendar.id)
+                val calendarColor = localCalendar?.color ?: currentCalendar.color
+                val canCustomizeColors = if (localCalendar != null) {
+                    getEventColors(localCalendar).isNotEmpty()
                 } else {
                     false
                 }
@@ -1518,9 +1520,9 @@ class EventActivity : SimpleActivity() {
         binding.eventColor.setFillWithStroke(eventColor, getProperBackgroundColor())
     }
 
-    private fun getEventColors(eventType: EventType): IntArray {
+    private fun getEventColors(calendar: CalendarEntity): IntArray {
         return calDAVHelper.getAvailableCalDAVCalendarColors(
-            eventType = eventType,
+            calendar = calendar,
             colorType = Colors.TYPE_EVENT
         ).keys.toIntArray()
     }
@@ -1548,7 +1550,8 @@ class EventActivity : SimpleActivity() {
         // when converting from all-day to timed for the first time,
         // set default start time and duration to avoid spanning into next day
         if (!isAllDay && mEvent.getIsAllDay() && !mConvertedFromOriginalAllDay) {
-            val defaultStartTS = getNewEventTimestampFromCode(Formatter.getDayCodeFromDateTime(mEventStartDateTime))
+            val defaultStartTS =
+                getNewEventTimestampFromCode(Formatter.getDayCodeFromDateTime(mEventStartDateTime))
             val defaultStartTime = Formatter.getDateTimeFromTS(defaultStartTS)
             val defaultDurationMinutes = config.defaultDuration
             val endTime = defaultStartTime.plusMinutes(defaultDurationMinutes)
@@ -1681,13 +1684,13 @@ class EventActivity : SimpleActivity() {
             generateImportId()
         }
 
-        val newEventType =
+        val newCalendarId =
             if (
                 !config.caldavSync
                 || config.lastUsedCaldavCalendarId == 0
                 || mEventCalendarId == STORED_LOCALLY_ONLY
             ) {
-                mEventTypeId
+                mCalendarId
             } else {
                 calDAVHelper.getCalDAVCalendars("", true).firstOrNull { it.id == mEventCalendarId }
                     ?.apply {
@@ -1699,12 +1702,12 @@ class EventActivity : SimpleActivity() {
                         }
                     }
 
-                eventsHelper.getEventTypeWithCalDAVCalendarId(mEventCalendarId)?.id
-                    ?: config.lastUsedLocalEventTypeId
+                eventsHelper.getCalendarWithCalDAVCalendarId(mEventCalendarId)?.id
+                    ?: config.lastUsedLocalCalendarId
             }
 
         val newSource = if (!config.caldavSync || mEventCalendarId == STORED_LOCALLY_ONLY) {
-            config.lastUsedLocalEventTypeId = newEventType
+            config.lastUsedLocalCalendarId = newCalendarId
             SOURCE_SIMPLE_CALENDAR
         } else {
             "$CALDAV-$mEventCalendarId"
@@ -1764,7 +1767,7 @@ class EventActivity : SimpleActivity() {
             repeatRule = mRepeatRule
             attendees =
                 if (mEventCalendarId == STORED_LOCALLY_ONLY) emptyList() else getAllAttendees(true)
-            eventType = newEventType
+            calendarId = newCalendarId
             lastUpdated = System.currentTimeMillis()
             source = newSource
             location = binding.eventLocation.value
@@ -2491,7 +2494,7 @@ class EventActivity : SimpleActivity() {
             eventTimeZoneImage,
             eventRepetitionImage,
             eventReminderImage,
-            eventTypeImage,
+            calendarImage,
             eventCaldavCalendarImage,
             eventReminder1Type,
             eventReminder2Type,

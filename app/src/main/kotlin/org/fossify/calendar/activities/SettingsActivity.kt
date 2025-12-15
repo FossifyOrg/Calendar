@@ -1,6 +1,5 @@
 package org.fossify.calendar.activities
 
-import android.app.Activity
 import android.app.TimePickerDialog
 import android.content.ActivityNotFoundException
 import android.content.Intent
@@ -12,13 +11,128 @@ import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
 import org.fossify.calendar.R
 import org.fossify.calendar.databinding.ActivitySettingsBinding
-import org.fossify.calendar.dialogs.*
-import org.fossify.calendar.extensions.*
-import org.fossify.calendar.helpers.*
-import org.fossify.calendar.models.EventType
-import org.fossify.commons.dialogs.*
-import org.fossify.commons.extensions.*
-import org.fossify.commons.helpers.*
+import org.fossify.calendar.dialogs.ExportEventsDialog
+import org.fossify.calendar.dialogs.ManageAutomaticBackupsDialog
+import org.fossify.calendar.dialogs.ManageSyncedCalendarsDialog
+import org.fossify.calendar.dialogs.SelectCalendarDialog
+import org.fossify.calendar.dialogs.SelectCalendarsDialog
+import org.fossify.calendar.extensions.calDAVHelper
+import org.fossify.calendar.extensions.calendarsDB
+import org.fossify.calendar.extensions.cancelScheduledAutomaticBackup
+import org.fossify.calendar.extensions.config
+import org.fossify.calendar.extensions.eventsHelper
+import org.fossify.calendar.extensions.getSyncedCalDAVCalendars
+import org.fossify.calendar.extensions.scheduleNextAutomaticBackup
+import org.fossify.calendar.extensions.showImportEventsDialog
+import org.fossify.calendar.extensions.tryImportEventsFromFile
+import org.fossify.calendar.extensions.updateWidgets
+import org.fossify.calendar.helpers.ALLOW_CHANGING_TIME_ZONES
+import org.fossify.calendar.helpers.ALLOW_CREATING_TASKS
+import org.fossify.calendar.helpers.ALLOW_CUSTOMIZE_DAY_COUNT
+import org.fossify.calendar.helpers.DAILY_VIEW
+import org.fossify.calendar.helpers.DEFAULT_DURATION
+import org.fossify.calendar.helpers.DEFAULT_REMINDER_1
+import org.fossify.calendar.helpers.DEFAULT_REMINDER_2
+import org.fossify.calendar.helpers.DEFAULT_REMINDER_3
+import org.fossify.calendar.helpers.DEFAULT_START_TIME
+import org.fossify.calendar.helpers.DEFAULT_START_TIME_CURRENT_TIME
+import org.fossify.calendar.helpers.DEFAULT_START_TIME_NEXT_FULL_HOUR
+import org.fossify.calendar.helpers.DIM_COMPLETED_TASKS
+import org.fossify.calendar.helpers.DIM_PAST_EVENTS
+import org.fossify.calendar.helpers.DISPLAY_DESCRIPTION
+import org.fossify.calendar.helpers.DISPLAY_PAST_EVENTS
+import org.fossify.calendar.helpers.EVENTS_LIST_VIEW
+import org.fossify.calendar.helpers.Formatter
+import org.fossify.calendar.helpers.HIGHLIGHT_WEEKENDS
+import org.fossify.calendar.helpers.HIGHLIGHT_WEEKENDS_COLOR
+import org.fossify.calendar.helpers.IcsExporter
+import org.fossify.calendar.helpers.LAST_EVENT_REMINDER_MINUTES
+import org.fossify.calendar.helpers.LAST_EVENT_REMINDER_MINUTES_2
+import org.fossify.calendar.helpers.LAST_EVENT_REMINDER_MINUTES_3
+import org.fossify.calendar.helpers.LAST_VIEW
+import org.fossify.calendar.helpers.LIST_WIDGET_VIEW_TO_OPEN
+import org.fossify.calendar.helpers.LOOP_REMINDERS
+import org.fossify.calendar.helpers.MONTHLY_DAILY_VIEW
+import org.fossify.calendar.helpers.MONTHLY_VIEW
+import org.fossify.calendar.helpers.PULL_TO_REFRESH
+import org.fossify.calendar.helpers.REMINDER_AUDIO_STREAM
+import org.fossify.calendar.helpers.REMINDER_OFF
+import org.fossify.calendar.helpers.REPLACE_DESCRIPTION
+import org.fossify.calendar.helpers.SHOW_GRID
+import org.fossify.calendar.helpers.SHOW_MIDNIGHT_SPANNING_EVENTS_AT_TOP
+import org.fossify.calendar.helpers.START_WEEKLY_AT
+import org.fossify.calendar.helpers.START_WEEK_WITH_CURRENT_DAY
+import org.fossify.calendar.helpers.USE_PREVIOUS_EVENT_REMINDERS
+import org.fossify.calendar.helpers.VIBRATE
+import org.fossify.calendar.helpers.WEEKLY_VIEW
+import org.fossify.calendar.helpers.WEEK_NUMBERS
+import org.fossify.calendar.helpers.YEARLY_VIEW
+import org.fossify.calendar.models.CalendarEntity
+import org.fossify.commons.dialogs.ColorPickerDialog
+import org.fossify.commons.dialogs.ConfirmationDialog
+import org.fossify.commons.dialogs.CustomIntervalPickerDialog
+import org.fossify.commons.dialogs.FilePickerDialog
+import org.fossify.commons.dialogs.PermissionRequiredDialog
+import org.fossify.commons.dialogs.RadioGroupDialog
+import org.fossify.commons.dialogs.SelectAlarmSoundDialog
+import org.fossify.commons.extensions.beGone
+import org.fossify.commons.extensions.beGoneIf
+import org.fossify.commons.extensions.beVisibleIf
+import org.fossify.commons.extensions.checkAppIconColor
+import org.fossify.commons.extensions.formatMinutesToTimeString
+import org.fossify.commons.extensions.getAppIconColors
+import org.fossify.commons.extensions.getDayOfWeekString
+import org.fossify.commons.extensions.getDefaultAlarmSound
+import org.fossify.commons.extensions.getFileOutputStream
+import org.fossify.commons.extensions.getFontSizeText
+import org.fossify.commons.extensions.getFormattedMinutes
+import org.fossify.commons.extensions.getProperBackgroundColor
+import org.fossify.commons.extensions.getProperPrimaryColor
+import org.fossify.commons.extensions.getTimePickerDialogTheme
+import org.fossify.commons.extensions.hideKeyboard
+import org.fossify.commons.extensions.isDynamicTheme
+import org.fossify.commons.extensions.openNotificationSettings
+import org.fossify.commons.extensions.setFillWithStroke
+import org.fossify.commons.extensions.showErrorToast
+import org.fossify.commons.extensions.showPickSecondsDialogHelper
+import org.fossify.commons.extensions.storeNewYourAlarmSound
+import org.fossify.commons.extensions.toBoolean
+import org.fossify.commons.extensions.toFileDirItem
+import org.fossify.commons.extensions.toInt
+import org.fossify.commons.extensions.toast
+import org.fossify.commons.extensions.updateTextColors
+import org.fossify.commons.extensions.viewBinding
+import org.fossify.commons.helpers.ACCENT_COLOR
+import org.fossify.commons.helpers.APP_ICON_COLOR
+import org.fossify.commons.helpers.BACKGROUND_COLOR
+import org.fossify.commons.helpers.FIRST_DAY_OF_WEEK
+import org.fossify.commons.helpers.FONT_SIZE
+import org.fossify.commons.helpers.FONT_SIZE_EXTRA_LARGE
+import org.fossify.commons.helpers.FONT_SIZE_LARGE
+import org.fossify.commons.helpers.FONT_SIZE_MEDIUM
+import org.fossify.commons.helpers.FONT_SIZE_SMALL
+import org.fossify.commons.helpers.IS_CUSTOMIZING_COLORS
+import org.fossify.commons.helpers.IS_GLOBAL_THEME_ENABLED
+import org.fossify.commons.helpers.NavigationIcon
+import org.fossify.commons.helpers.PERMISSION_READ_CALENDAR
+import org.fossify.commons.helpers.PERMISSION_READ_STORAGE
+import org.fossify.commons.helpers.PERMISSION_WRITE_CALENDAR
+import org.fossify.commons.helpers.PERMISSION_WRITE_STORAGE
+import org.fossify.commons.helpers.PRIMARY_COLOR
+import org.fossify.commons.helpers.SNOOZE_TIME
+import org.fossify.commons.helpers.SUNDAY_FIRST
+import org.fossify.commons.helpers.TEXT_COLOR
+import org.fossify.commons.helpers.USE_24_HOUR_FORMAT
+import org.fossify.commons.helpers.USE_ENGLISH
+import org.fossify.commons.helpers.USE_SAME_SNOOZE
+import org.fossify.commons.helpers.WAS_USE_ENGLISH_TOGGLED
+import org.fossify.commons.helpers.WIDGET_BG_COLOR
+import org.fossify.commons.helpers.WIDGET_TEXT_COLOR
+import org.fossify.commons.helpers.ensureBackgroundThread
+import org.fossify.commons.helpers.isOreoPlus
+import org.fossify.commons.helpers.isQPlus
+import org.fossify.commons.helpers.isRPlus
+import org.fossify.commons.helpers.isTiramisuPlus
 import org.fossify.commons.models.AlarmSound
 import org.fossify.commons.models.RadioItem
 import org.joda.time.DateTime
@@ -39,7 +153,7 @@ class SettingsActivity : SimpleActivity() {
 
     private var mStoredPrimaryColor = 0
 
-    private var eventTypesToExport = listOf<Long>()
+    private var calendarsToExport = listOf<Long>()
 
     private val binding by viewBinding(ActivitySettingsBinding::inflate)
 
@@ -63,8 +177,8 @@ class SettingsActivity : SimpleActivity() {
         setupCustomizeNotifications()
         setupUseEnglish()
         setupLanguage()
-        setupManageEventTypes()
-        setupManageQuickFilterEventTypes()
+        setupManageCalendars()
+        setupManageQuickFilterCalendars()
         setupHourFormat()
         setupAllowCreatingTasks()
         setupStartWeekOn()
@@ -89,7 +203,7 @@ class SettingsActivity : SimpleActivity() {
         setupManageSyncedCalendars()
         setupDefaultStartTime()
         setupDefaultDuration()
-        setupDefaultEventType()
+        setupDefaultCalendar()
         setupPullToRefresh()
         setupDefaultReminder()
         setupDefaultReminder1()
@@ -137,7 +251,11 @@ class SettingsActivity : SimpleActivity() {
 
     override fun onStop() {
         super.onStop()
-        val reminders = sortedSetOf(config.defaultReminder1, config.defaultReminder2, config.defaultReminder3).filter { it != REMINDER_OFF }
+        val reminders = sortedSetOf(
+            config.defaultReminder1,
+            config.defaultReminder2,
+            config.defaultReminder3
+        ).filter { it != REMINDER_OFF }
         config.defaultReminder1 = reminders.getOrElse(0) { REMINDER_OFF }
         config.defaultReminder2 = reminders.getOrElse(1) { REMINDER_OFF }
         config.defaultReminder3 = reminders.getOrElse(2) { REMINDER_OFF }
@@ -148,25 +266,25 @@ class SettingsActivity : SimpleActivity() {
         if (requestCode == GET_RINGTONE_URI && resultCode == RESULT_OK && resultData != null) {
             val newAlarmSound = storeNewYourAlarmSound(resultData)
             updateReminderSound(newAlarmSound)
-        } else if (requestCode == PICK_SETTINGS_IMPORT_SOURCE_INTENT && resultCode == Activity.RESULT_OK && resultData != null && resultData.data != null) {
+        } else if (requestCode == PICK_SETTINGS_IMPORT_SOURCE_INTENT && resultCode == RESULT_OK && resultData != null && resultData.data != null) {
             val inputStream = contentResolver.openInputStream(resultData.data!!)
             parseFile(inputStream)
-        } else if (requestCode == PICK_EVENTS_IMPORT_SOURCE_INTENT && resultCode == Activity.RESULT_OK && resultData != null && resultData.data != null) {
+        } else if (requestCode == PICK_EVENTS_IMPORT_SOURCE_INTENT && resultCode == RESULT_OK && resultData != null && resultData.data != null) {
             tryImportEventsFromFile(resultData.data!!)
-        } else if (requestCode == PICK_EVENTS_EXPORT_FILE_INTENT && resultCode == Activity.RESULT_OK && resultData != null && resultData.data != null) {
+        } else if (requestCode == PICK_EVENTS_EXPORT_FILE_INTENT && resultCode == RESULT_OK && resultData != null && resultData.data != null) {
             val outputStream = contentResolver.openOutputStream(resultData.data!!)
-            exportEventsTo(eventTypesToExport, outputStream)
+            exportEventsTo(calendarsToExport, outputStream)
         }
     }
 
     private fun checkPrimaryColor() {
         if (getProperPrimaryColor() != mStoredPrimaryColor) {
             ensureBackgroundThread {
-                val eventTypes = eventsHelper.getEventTypesSync()
-                if (eventTypes.filter { it.caldavCalendarId == 0 }.size == 1) {
-                    val eventType = eventTypes.first { it.caldavCalendarId == 0 }
-                    eventType.color = getProperPrimaryColor()
-                    eventsHelper.insertOrUpdateEventTypeSync(eventType)
+                val calendars = eventsHelper.getCalendarsSync()
+                if (calendars.filter { it.caldavCalendarId == 0 }.size == 1) {
+                    val calendar = calendars.first { it.caldavCalendarId == 0 }
+                    calendar.color = getProperPrimaryColor()
+                    eventsHelper.insertOrUpdateCalendarSync(calendar)
                 }
             }
         }
@@ -203,19 +321,19 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
-    private fun setupManageEventTypes() {
-        binding.settingsManageEventTypesHolder.setOnClickListener {
-            startActivity(Intent(this, ManageEventTypesActivity::class.java))
+    private fun setupManageCalendars() {
+        binding.settingsManageCalendarsHolder.setOnClickListener {
+            startActivity(Intent(this, ManageCalendarsActivity::class.java))
         }
     }
 
-    private fun setupManageQuickFilterEventTypes() = binding.apply {
-        settingsManageQuickFilterEventTypesHolder.setOnClickListener {
+    private fun setupManageQuickFilterCalendars() = binding.apply {
+        settingsManageQuickFilterCalendarsHolder.setOnClickListener {
             showQuickFilterPicker()
         }
 
-        eventsHelper.getEventTypes(this@SettingsActivity, false) {
-            settingsManageQuickFilterEventTypesHolder.beGoneIf(it.size < 2)
+        eventsHelper.getCalendars(this@SettingsActivity, false) {
+            settingsManageQuickFilterCalendarsHolder.beGoneIf(it.size < 2)
         }
     }
 
@@ -287,8 +405,8 @@ class SettingsActivity : SimpleActivity() {
                 config.getSyncedCalendarIdsAsList().forEach {
                     calDAVHelper.deleteCalDAVCalendarEvents(it.toLong())
                 }
-                eventTypesDB.deleteEventTypesWithCalendarId(config.getSyncedCalendarIdsAsList())
-                updateDefaultEventTypeText()
+                calendarsDB.deleteCalendarsWithCalendarIds(config.getSyncedCalendarIdsAsList())
+                updateDefaultCalendarText()
             }
         }
     }
@@ -296,10 +414,10 @@ class SettingsActivity : SimpleActivity() {
     private fun showCalendarPicker() = binding.apply {
         val oldCalendarIds = config.getSyncedCalendarIdsAsList()
 
-        SelectCalendarsDialog(this@SettingsActivity) {
+        ManageSyncedCalendarsDialog(this@SettingsActivity) {
             val newCalendarIds = config.getSyncedCalendarIdsAsList()
             if (newCalendarIds.isEmpty() && !config.caldavSync) {
-                return@SelectCalendarsDialog
+                return@ManageSyncedCalendarsDialog
             }
 
             settingsManageSyncedCalendarsHolder.beVisibleIf(newCalendarIds.isNotEmpty())
@@ -312,16 +430,23 @@ class SettingsActivity : SimpleActivity() {
 
             ensureBackgroundThread {
                 if (newCalendarIds.isNotEmpty()) {
-                    val existingEventTypeNames = eventsHelper.getEventTypesSync().map {
+                    val existingCalendarNames = eventsHelper.getCalendarsSync().map {
                         it.getDisplayTitle().lowercase(Locale.getDefault())
                     } as ArrayList<String>
 
                     getSyncedCalDAVCalendars().forEach {
                         val calendarTitle = it.getFullTitle()
-                        if (!existingEventTypeNames.contains(calendarTitle.lowercase(Locale.getDefault()))) {
-                            val eventType = EventType(null, it.displayName, it.color, it.id, it.displayName, it.accountName)
-                            existingEventTypeNames.add(calendarTitle.lowercase(Locale.getDefault()))
-                            eventsHelper.insertOrUpdateEventType(this@SettingsActivity, eventType)
+                        if (!existingCalendarNames.contains(calendarTitle.lowercase(Locale.getDefault()))) {
+                            val calendar = CalendarEntity(
+                                id = null,
+                                title = it.displayName,
+                                color = it.color,
+                                caldavCalendarId = it.id,
+                                caldavDisplayName = it.displayName,
+                                caldavEmail = it.accountName
+                            )
+                            existingCalendarNames.add(calendarTitle.lowercase(Locale.getDefault()))
+                            eventsHelper.insertOrUpdateCalendar(this@SettingsActivity, calendar)
                         }
                     }
 
@@ -337,20 +462,20 @@ class SettingsActivity : SimpleActivity() {
                 val removedCalendarIds = oldCalendarIds.filter { !newCalendarIds.contains(it) }
                 removedCalendarIds.forEach {
                     calDAVHelper.deleteCalDAVCalendarEvents(it.toLong())
-                    eventsHelper.getEventTypeWithCalDAVCalendarId(it)?.apply {
-                        eventsHelper.deleteEventTypes(arrayListOf(this), true)
+                    eventsHelper.getCalendarWithCalDAVCalendarId(it)?.apply {
+                        eventsHelper.deleteCalendars(arrayListOf(this), true)
                     }
                 }
 
-                eventTypesDB.deleteEventTypesWithCalendarId(removedCalendarIds)
-                updateDefaultEventTypeText()
+                calendarsDB.deleteCalendarsWithCalendarIds(removedCalendarIds)
+                updateDefaultCalendarText()
             }
         }
     }
 
     private fun showQuickFilterPicker() {
-        SelectEventTypesDialog(this, config.quickFilterEventTypes) {
-            config.quickFilterEventTypes = it
+        SelectCalendarsDialog(this, config.quickFilterCalendars) {
+            config.quickFilterCalendars = it
         }
     }
 
@@ -359,7 +484,10 @@ class SettingsActivity : SimpleActivity() {
             RadioItem(DateTimeConstants.SUNDAY, getString(org.fossify.commons.R.string.sunday)),
             RadioItem(DateTimeConstants.MONDAY, getString(org.fossify.commons.R.string.monday)),
             RadioItem(DateTimeConstants.TUESDAY, getString(org.fossify.commons.R.string.tuesday)),
-            RadioItem(DateTimeConstants.WEDNESDAY, getString(org.fossify.commons.R.string.wednesday)),
+            RadioItem(
+                DateTimeConstants.WEDNESDAY,
+                getString(org.fossify.commons.R.string.wednesday)
+            ),
             RadioItem(DateTimeConstants.THURSDAY, getString(org.fossify.commons.R.string.thursday)),
             RadioItem(DateTimeConstants.FRIDAY, getString(org.fossify.commons.R.string.friday)),
             RadioItem(DateTimeConstants.SATURDAY, getString(org.fossify.commons.R.string.saturday)),
@@ -386,12 +514,21 @@ class SettingsActivity : SimpleActivity() {
     }
 
     private fun setupHighlightWeekendsColor() = binding.apply {
-        settingsHighlightWeekendsColor.setFillWithStroke(config.highlightWeekendsColor, getProperBackgroundColor())
+        settingsHighlightWeekendsColor.setFillWithStroke(
+            config.highlightWeekendsColor,
+            getProperBackgroundColor()
+        )
         settingsHighlightWeekendsColorHolder.setOnClickListener {
-            ColorPickerDialog(this@SettingsActivity, config.highlightWeekendsColor) { wasPositivePressed, color ->
+            ColorPickerDialog(
+                this@SettingsActivity,
+                config.highlightWeekendsColor
+            ) { wasPositivePressed, color ->
                 if (wasPositivePressed) {
                     config.highlightWeekendsColor = color
-                    settingsHighlightWeekendsColor.setFillWithStroke(color, getProperBackgroundColor())
+                    settingsHighlightWeekendsColor.setFillWithStroke(
+                        color,
+                        getProperBackgroundColor()
+                    )
                 }
             }
         }
@@ -399,7 +536,10 @@ class SettingsActivity : SimpleActivity() {
 
     private fun setupDeleteAllEvents() = binding.apply {
         settingsDeleteAllEventsHolder.setOnClickListener {
-            ConfirmationDialog(this@SettingsActivity, messageId = R.string.delete_all_events_confirmation) {
+            ConfirmationDialog(
+                this@SettingsActivity,
+                messageId = R.string.delete_all_events_confirmation
+            ) {
                 eventsHelper.deleteAllEvents()
             }
         }
@@ -516,7 +656,10 @@ class SettingsActivity : SimpleActivity() {
             val items = arrayListOf(
                 RadioItem(AudioManager.STREAM_ALARM, getString(R.string.alarm_stream)),
                 RadioItem(AudioManager.STREAM_SYSTEM, getString(R.string.system_stream)),
-                RadioItem(AudioManager.STREAM_NOTIFICATION, getString(R.string.notification_stream)),
+                RadioItem(
+                    AudioManager.STREAM_NOTIFICATION,
+                    getString(R.string.notification_stream)
+                ),
                 RadioItem(AudioManager.STREAM_RING, getString(R.string.ring_stream))
             )
 
@@ -617,7 +760,11 @@ class SettingsActivity : SimpleActivity() {
     }
 
     private fun toggleDefaultRemindersVisibility(show: Boolean) = binding.apply {
-        arrayOf(settingsDefaultReminder1Holder, settingsDefaultReminder2Holder, settingsDefaultReminder3Holder).forEach {
+        arrayOf(
+            settingsDefaultReminder1Holder,
+            settingsDefaultReminder2Holder,
+            settingsDefaultReminder3Holder
+        ).forEach {
             it.beVisibleIf(show)
         }
     }
@@ -666,7 +813,10 @@ class SettingsActivity : SimpleActivity() {
                 RadioItem(FONT_SIZE_SMALL, getString(org.fossify.commons.R.string.small)),
                 RadioItem(FONT_SIZE_MEDIUM, getString(org.fossify.commons.R.string.medium)),
                 RadioItem(FONT_SIZE_LARGE, getString(org.fossify.commons.R.string.large)),
-                RadioItem(FONT_SIZE_EXTRA_LARGE, getString(org.fossify.commons.R.string.extra_large))
+                RadioItem(
+                    FONT_SIZE_EXTRA_LARGE,
+                    getString(org.fossify.commons.R.string.extra_large)
+                )
             )
 
             RadioGroupDialog(this@SettingsActivity, items, config.fontSize) {
@@ -754,7 +904,12 @@ class SettingsActivity : SimpleActivity() {
 
             val items = ArrayList<RadioItem>()
             items.add(RadioItem(DEFAULT_START_TIME_CURRENT_TIME, getString(R.string.current_time)))
-            items.add(RadioItem(DEFAULT_START_TIME_NEXT_FULL_HOUR, getString(R.string.next_full_hour)))
+            items.add(
+                RadioItem(
+                    DEFAULT_START_TIME_NEXT_FULL_HOUR,
+                    getString(R.string.next_full_hour)
+                )
+            )
             items.add(RadioItem(0, getString(R.string.other_time)))
 
             RadioGroupDialog(this@SettingsActivity, items, currentDefaultTime) {
@@ -762,10 +917,11 @@ class SettingsActivity : SimpleActivity() {
                     config.defaultStartTime = it
                     updateDefaultStartTimeText()
                 } else {
-                    val timeListener = TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute ->
-                        config.defaultStartTime = hourOfDay * 60 + minute
-                        updateDefaultStartTimeText()
-                    }
+                    val timeListener =
+                        TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute ->
+                            config.defaultStartTime = hourOfDay * 60 + minute
+                            updateDefaultStartTimeText()
+                        }
 
                     val currentDateTime = DateTime.now()
 
@@ -837,33 +993,41 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
-    private fun setupDefaultEventType() = binding.apply {
-        updateDefaultEventTypeText()
-        settingsDefaultEventType.text = getString(R.string.last_used_one)
-        settingsDefaultEventTypeHolder.setOnClickListener {
-            SelectEventTypeDialog(this@SettingsActivity, config.defaultEventTypeId, true, false, true, true, false) {
-                config.defaultEventTypeId = it.id!!
-                updateDefaultEventTypeText()
+    private fun setupDefaultCalendar() = binding.apply {
+        updateDefaultCalendarText()
+        settingsDefaultCalendar.text = getString(R.string.last_used_one)
+        settingsDefaultCalendarHolder.setOnClickListener {
+            SelectCalendarDialog(
+                this@SettingsActivity,
+                config.defaultCalendarId,
+                true,
+                false,
+                true,
+                true,
+                false
+            ) {
+                config.defaultCalendarId = it.id!!
+                updateDefaultCalendarText()
             }
         }
     }
 
-    private fun updateDefaultEventTypeText() {
-        if (config.defaultEventTypeId == -1L) {
+    private fun updateDefaultCalendarText() {
+        if (config.defaultCalendarId == -1L) {
             runOnUiThread {
-                binding.settingsDefaultEventType.text = getString(R.string.last_used_one)
+                binding.settingsDefaultCalendar.text = getString(R.string.last_used_one)
             }
         } else {
             ensureBackgroundThread {
-                val eventType = eventTypesDB.getEventTypeWithId(config.defaultEventTypeId)
-                if (eventType != null) {
-                    config.lastUsedCaldavCalendarId = eventType.caldavCalendarId
+                val calendar = calendarsDB.getCalendarWithId(config.defaultCalendarId)
+                if (calendar != null) {
+                    config.lastUsedCaldavCalendarId = calendar.caldavCalendarId
                     runOnUiThread {
-                        binding.settingsDefaultEventType.text = eventType.title
+                        binding.settingsDefaultCalendar.text = calendar.title
                     }
                 } else {
-                    config.defaultEventTypeId = -1
-                    updateDefaultEventTypeText()
+                    config.defaultCalendarId = -1
+                    updateDefaultCalendarText()
                 }
             }
         }
@@ -988,7 +1152,10 @@ class SettingsActivity : SimpleActivity() {
                     try {
                         startActivityForResult(this, PICK_SETTINGS_IMPORT_SOURCE_INTENT)
                     } catch (e: ActivityNotFoundException) {
-                        toast(org.fossify.commons.R.string.system_service_disabled, Toast.LENGTH_LONG)
+                        toast(
+                            org.fossify.commons.R.string.system_service_disabled,
+                            Toast.LENGTH_LONG
+                        )
                     } catch (e: Exception) {
                         showErrorToast(e)
                     }
@@ -1050,7 +1217,9 @@ class SettingsActivity : SimpleActivity() {
                 WIDGET_TEXT_COLOR -> config.widgetTextColor = value.toInt()
                 WEEK_NUMBERS -> config.showWeekNumbers = value.toBoolean()
                 START_WEEKLY_AT -> config.startWeeklyAt = value.toInt()
-                SHOW_MIDNIGHT_SPANNING_EVENTS_AT_TOP -> config.showMidnightSpanningEventsAtTop = value.toBoolean()
+                SHOW_MIDNIGHT_SPANNING_EVENTS_AT_TOP -> config.showMidnightSpanningEventsAtTop =
+                    value.toBoolean()
+
                 ALLOW_CUSTOMIZE_DAY_COUNT -> config.allowCustomizeDayCount = value.toBoolean()
                 START_WEEK_WITH_CURRENT_DAY -> config.startWeekWithCurrentDay = value.toBoolean()
                 VIBRATE -> config.vibrateOnReminder = value.toBoolean()
@@ -1112,13 +1281,19 @@ class SettingsActivity : SimpleActivity() {
                         try {
                             startActivityForResult(this, PICK_EVENTS_IMPORT_SOURCE_INTENT)
                         } catch (e: ActivityNotFoundException) {
-                            toast(org.fossify.commons.R.string.system_service_disabled, Toast.LENGTH_LONG)
+                            toast(
+                                org.fossify.commons.R.string.system_service_disabled,
+                                Toast.LENGTH_LONG
+                            )
                         } catch (e: Exception) {
                             showErrorToast(e)
                         }
                     }
                 } else {
-                    PermissionRequiredDialog(this, org.fossify.commons.R.string.allow_notifications_reminders, { openNotificationSettings() })
+                    PermissionRequiredDialog(
+                        this,
+                        org.fossify.commons.R.string.allow_notifications_reminders,
+                        { openNotificationSettings() })
                 }
             }
         } else {
@@ -1139,8 +1314,8 @@ class SettingsActivity : SimpleActivity() {
 
     private fun tryExportEvents() {
         if (isQPlus()) {
-            ExportEventsDialog(this, config.lastExportPath, true) { file, eventTypes ->
-                eventTypesToExport = eventTypes
+            ExportEventsDialog(this, config.lastExportPath, true) { file, calendars ->
+                calendarsToExport = calendars
                 hideKeyboard()
 
                 Intent(Intent.ACTION_CREATE_DOCUMENT).apply {
@@ -1151,7 +1326,10 @@ class SettingsActivity : SimpleActivity() {
                     try {
                         startActivityForResult(this, PICK_EVENTS_EXPORT_FILE_INTENT)
                     } catch (e: ActivityNotFoundException) {
-                        toast(org.fossify.commons.R.string.system_service_disabled, Toast.LENGTH_LONG)
+                        toast(
+                            org.fossify.commons.R.string.system_service_disabled,
+                            Toast.LENGTH_LONG
+                        )
                     } catch (e: Exception) {
                         showErrorToast(e)
                     }
@@ -1160,9 +1338,9 @@ class SettingsActivity : SimpleActivity() {
         } else {
             handlePermission(PERMISSION_WRITE_STORAGE) { granted ->
                 if (granted) {
-                    ExportEventsDialog(this, config.lastExportPath, false) { file, eventTypes ->
+                    ExportEventsDialog(this, config.lastExportPath, false) { file, calendars ->
                         getFileOutputStream(file.toFileDirItem(this), true) {
-                            exportEventsTo(eventTypes, it)
+                            exportEventsTo(calendars, it)
                         }
                     }
                 }
@@ -1170,9 +1348,14 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
-    private fun exportEventsTo(eventTypes: List<Long>, outputStream: OutputStream?) {
+    private fun exportEventsTo(calendars: List<Long>, outputStream: OutputStream?) {
         ensureBackgroundThread {
-            val events = eventsHelper.getEventsToExport(eventTypes, config.exportEvents, config.exportTasks, config.exportPastEntries)
+            val events = eventsHelper.getEventsToExport(
+                calendars,
+                config.exportEvents,
+                config.exportTasks,
+                config.exportPastEntries
+            )
             if (events.isEmpty()) {
                 toast(org.fossify.commons.R.string.no_entries_for_exporting)
             } else {

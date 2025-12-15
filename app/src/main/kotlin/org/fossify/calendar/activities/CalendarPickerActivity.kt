@@ -8,7 +8,7 @@ import org.fossify.calendar.extensions.launchNewTaskIntent
 import org.fossify.commons.dialogs.RadioGroupDialog
 import org.fossify.commons.models.RadioItem
 
-class EventTypePickerActivity : AppCompatActivity() {
+class CalendarPickerActivity : AppCompatActivity() {
     private val TYPE_EVENT = 0
     private val TYPE_TASK = 1
 

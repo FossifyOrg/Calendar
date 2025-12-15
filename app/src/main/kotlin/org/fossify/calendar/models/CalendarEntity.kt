@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 import org.fossify.calendar.helpers.OTHER_EVENT
 
 @Entity(tableName = "event_types", indices = [(Index(value = ["id"], unique = true))])
-data class EventType(
+data class CalendarEntity(
     @PrimaryKey(autoGenerate = true) var id: Long?,
     @ColumnInfo(name = "title") var title: String,
     @ColumnInfo(name = "color") var color: Int,
@@ -16,7 +16,8 @@ data class EventType(
     @ColumnInfo(name = "caldav_email") var caldavEmail: String = "",
     @ColumnInfo(name = "type") var type: Int = OTHER_EVENT
 ) {
-    fun getDisplayTitle() = if (caldavCalendarId == 0) title else "$caldavDisplayName ($caldavEmail)"
+    fun getDisplayTitle() =
+        if (caldavCalendarId == 0) title else "$caldavDisplayName ($caldavEmail)"
 
-    fun isSyncedEventType() = caldavCalendarId != 0
+    fun isSyncedCalendar() = caldavCalendarId != 0
 }
