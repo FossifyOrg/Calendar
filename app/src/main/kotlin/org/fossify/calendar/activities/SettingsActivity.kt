@@ -146,10 +146,12 @@ import java.util.Locale
 import kotlin.system.exitProcess
 
 class SettingsActivity : SimpleActivity() {
-    private val GET_RINGTONE_URI = 1
-    private val PICK_SETTINGS_IMPORT_SOURCE_INTENT = 2
-    private val PICK_EVENTS_IMPORT_SOURCE_INTENT = 3
-    private val PICK_EVENTS_EXPORT_FILE_INTENT = 4
+    companion object {
+        private const val GET_RINGTONE_URI = 1
+        private const val PICK_SETTINGS_IMPORT_SOURCE_INTENT = 2
+        private const val PICK_EVENTS_IMPORT_SOURCE_INTENT = 3
+        private const val PICK_EVENTS_EXPORT_FILE_INTENT = 4
+    }
 
     private var mStoredPrimaryColor = 0
 
@@ -163,12 +165,15 @@ class SettingsActivity : SimpleActivity() {
         mStoredPrimaryColor = getProperPrimaryColor()
 
         setupEdgeToEdge(padBottomSystem = listOf(binding.settingsNestedScrollview))
-        setupMaterialScrollListener(binding.settingsNestedScrollview, binding.settingsAppbar)
+        setupMaterialScrollListener(
+            scrollingView = binding.settingsNestedScrollview,
+            topAppBar = binding.settingsAppbar
+        )
     }
 
     override fun onResume() {
         super.onResume()
-        setupTopAppBar(binding.settingsAppbar, NavigationIcon.Arrow)
+        setupTopAppBar(topAppBar = binding.settingsAppbar, navigationIcon = NavigationIcon.Arrow)
         setupSettingItems()
     }
 
@@ -520,8 +525,8 @@ class SettingsActivity : SimpleActivity() {
         )
         settingsHighlightWeekendsColorHolder.setOnClickListener {
             ColorPickerDialog(
-                this@SettingsActivity,
-                config.highlightWeekendsColor
+                activity = this@SettingsActivity,
+                color = config.highlightWeekendsColor
             ) { wasPositivePressed, color ->
                 if (wasPositivePressed) {
                     config.highlightWeekendsColor = color
@@ -537,7 +542,7 @@ class SettingsActivity : SimpleActivity() {
     private fun setupDeleteAllEvents() = binding.apply {
         settingsDeleteAllEventsHolder.setOnClickListener {
             ConfirmationDialog(
-                this@SettingsActivity,
+                activity = this@SettingsActivity,
                 messageId = R.string.delete_all_events_confirmation
             ) {
                 eventsHelper.deleteAllEvents()
@@ -569,7 +574,11 @@ class SettingsActivity : SimpleActivity() {
             val items = ArrayList<RadioItem>()
             (0..16).mapTo(items) { RadioItem(it, getHoursString(it)) }
 
-            RadioGroupDialog(this@SettingsActivity, items, config.startWeeklyAt) {
+            RadioGroupDialog(
+                activity = this@SettingsActivity,
+                items = items,
+                checkedItemId = config.startWeeklyAt
+            ) {
                 config.startWeeklyAt = it as Int
                 settingsStartWeeklyAt.text = getHoursString(it)
             }
@@ -623,12 +632,12 @@ class SettingsActivity : SimpleActivity() {
 
         settingsReminderSoundHolder.setOnClickListener {
             SelectAlarmSoundDialog(
-                this@SettingsActivity,
-                config.reminderSoundUri,
-                config.reminderAudioStream,
-                GET_RINGTONE_URI,
-                RingtoneManager.TYPE_NOTIFICATION,
-                false,
+                activity = this@SettingsActivity,
+                currentUri = config.reminderSoundUri,
+                audioStream = config.reminderAudioStream,
+                pickAudioIntentId = GET_RINGTONE_URI,
+                type = RingtoneManager.TYPE_NOTIFICATION,
+                loopAudio = false,
                 onAlarmPicked = {
                     if (it != null) {
                         updateReminderSound(it)
@@ -663,7 +672,11 @@ class SettingsActivity : SimpleActivity() {
                 RadioItem(AudioManager.STREAM_RING, getString(R.string.ring_stream))
             )
 
-            RadioGroupDialog(this@SettingsActivity, items, config.reminderAudioStream) {
+            RadioGroupDialog(
+                activity = this@SettingsActivity,
+                items = items,
+                checkedItemId = config.reminderAudioStream
+            ) {
                 config.reminderAudioStream = it as Int
                 settingsReminderAudioStream.text = getAudioStreamText()
             }
@@ -849,7 +862,11 @@ class SettingsActivity : SimpleActivity() {
                 RadioItem(LAST_VIEW, getString(R.string.last_view))
             )
 
-            RadioGroupDialog(this@SettingsActivity, items, config.listWidgetViewToOpen) {
+            RadioGroupDialog(
+                activity = this@SettingsActivity,
+                items = items,
+                checkedItemId = config.listWidgetViewToOpen
+            ) {
                 config.listWidgetViewToOpen = it as Int
                 settingsListWidgetViewToOpen.text = getDefaultViewText()
                 updateWidgets()
@@ -912,7 +929,11 @@ class SettingsActivity : SimpleActivity() {
             )
             items.add(RadioItem(0, getString(R.string.other_time)))
 
-            RadioGroupDialog(this@SettingsActivity, items, currentDefaultTime) {
+            RadioGroupDialog(
+                activity = this@SettingsActivity,
+                items = items,
+                checkedItemId = currentDefaultTime
+            ) {
                 if (it as Int == DEFAULT_START_TIME_NEXT_FULL_HOUR || it == DEFAULT_START_TIME_CURRENT_TIME) {
                     config.defaultStartTime = it
                     updateDefaultStartTimeText()
@@ -998,13 +1019,13 @@ class SettingsActivity : SimpleActivity() {
         settingsDefaultCalendar.text = getString(R.string.last_used_one)
         settingsDefaultCalendarHolder.setOnClickListener {
             SelectCalendarDialog(
-                this@SettingsActivity,
-                config.defaultCalendarId,
-                true,
-                false,
-                true,
-                true,
-                false
+                activity = this@SettingsActivity,
+                currCalendar = config.defaultCalendarId,
+                showCalDAVCalendars = true,
+                showNewCalendarOption = false,
+                addLastUsedOneAsFirstOption = true,
+                showOnlyWritable = true,
+                showManageCalendars = false
             ) {
                 config.defaultCalendarId = it.id!!
                 updateDefaultCalendarText()
@@ -1256,7 +1277,7 @@ class SettingsActivity : SimpleActivity() {
         }
 
         runOnUiThread {
-            val msg = if (configValues.size > 0) {
+            val msg = if (configValues.isNotEmpty()) {
                 org.fossify.commons.R.string.settings_imported_successfully
             } else {
                 org.fossify.commons.R.string.no_entries_for_importing
@@ -1291,9 +1312,10 @@ class SettingsActivity : SimpleActivity() {
                     }
                 } else {
                     PermissionRequiredDialog(
-                        this,
-                        org.fossify.commons.R.string.allow_notifications_reminders,
-                        { openNotificationSettings() })
+                        activity = this,
+                        textId = org.fossify.commons.R.string.allow_notifications_reminders,
+                        positiveActionCallback = { openNotificationSettings() }
+                    )
                 }
             }
         } else {
@@ -1314,7 +1336,11 @@ class SettingsActivity : SimpleActivity() {
 
     private fun tryExportEvents() {
         if (isQPlus()) {
-            ExportEventsDialog(this, config.lastExportPath, true) { file, calendars ->
+            ExportEventsDialog(
+                activity = this,
+                path = config.lastExportPath,
+                hidePath = true
+            ) { file, calendars ->
                 calendarsToExport = calendars
                 hideKeyboard()
 
@@ -1338,7 +1364,11 @@ class SettingsActivity : SimpleActivity() {
         } else {
             handlePermission(PERMISSION_WRITE_STORAGE) { granted ->
                 if (granted) {
-                    ExportEventsDialog(this, config.lastExportPath, false) { file, calendars ->
+                    ExportEventsDialog(
+                        activity = this,
+                        path = config.lastExportPath,
+                        hidePath = false
+                    ) { file, calendars ->
                         getFileOutputStream(file.toFileDirItem(this), true) {
                             exportEventsTo(calendars, it)
                         }
@@ -1351,10 +1381,10 @@ class SettingsActivity : SimpleActivity() {
     private fun exportEventsTo(calendars: List<Long>, outputStream: OutputStream?) {
         ensureBackgroundThread {
             val events = eventsHelper.getEventsToExport(
-                calendars,
-                config.exportEvents,
-                config.exportTasks,
-                config.exportPastEntries
+                calendars = calendars,
+                exportEvents = config.exportEvents,
+                exportTasks = config.exportTasks,
+                exportPastEntries = config.exportPastEntries
             )
             if (events.isEmpty()) {
                 toast(org.fossify.commons.R.string.no_entries_for_exporting)

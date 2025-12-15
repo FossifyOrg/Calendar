@@ -45,9 +45,9 @@ abstract class EventsDatabase : RoomDatabase() {
                 synchronized(EventsDatabase::class) {
                     if (db == null) {
                         db = Room.databaseBuilder(
-                            context.applicationContext,
-                            EventsDatabase::class.java,
-                            "events.db"
+                            context = context.applicationContext,
+                            klass = EventsDatabase::class.java,
+                            name = "events.db"
                         )
                             .addCallback(object : Callback() {
                                 override fun onCreate(db: SupportSQLiteDatabase) {

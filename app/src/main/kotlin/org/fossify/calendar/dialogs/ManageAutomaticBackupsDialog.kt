@@ -70,9 +70,9 @@ class ManageAutomaticBackupsDialog(private val activity: SimpleActivity, onSucce
             .setNegativeButton(org.fossify.commons.R.string.cancel, null)
             .apply {
                 activity.setupDialogStuff(
-                    binding.root,
-                    this,
-                    org.fossify.commons.R.string.manage_automatic_backups
+                    view = binding.root,
+                    dialog = this,
+                    titleId = org.fossify.commons.R.string.manage_automatic_backups
                 ) { dialog ->
                     dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
                         val filename = binding.backupEventsFilename.value

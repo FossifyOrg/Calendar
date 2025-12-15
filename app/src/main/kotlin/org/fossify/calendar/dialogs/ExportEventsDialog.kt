@@ -81,9 +81,9 @@ class ExportEventsDialog(
             .setNegativeButton(org.fossify.commons.R.string.cancel, null)
             .apply {
                 activity.setupDialogStuff(
-                    binding.root,
-                    this,
-                    R.string.export_events
+                    view = binding.root,
+                    dialog = this,
+                    titleId = R.string.export_events
                 ) { alertDialog ->
                     alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
                         val filename = binding.exportEventsFilename.value

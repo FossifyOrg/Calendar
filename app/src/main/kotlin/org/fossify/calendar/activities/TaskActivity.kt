@@ -276,6 +276,7 @@ class TaskActivity : SimpleActivity() {
             putLong(CALENDAR_ID, mCalendarId)
 
             putInt(REMINDER_1_MINUTES, mReminder1Minutes)
+            putInt(REMINDER_1_MINUTES, mReminder1Minutes)
             putInt(REMINDER_2_MINUTES, mReminder2Minutes)
             putInt(REMINDER_3_MINUTES, mReminder3Minutes)
 
@@ -549,9 +550,10 @@ class TaskActivity : SimpleActivity() {
                     }
                 } else {
                     PermissionRequiredDialog(
-                        this,
-                        org.fossify.commons.R.string.allow_notifications_reminders,
-                        { openNotificationSettings() })
+                        activity = this,
+                        textId = org.fossify.commons.R.string.allow_notifications_reminders,
+                        positiveActionCallback = { openNotificationSettings() }
+                    )
                 }
             }
         } else {
@@ -629,17 +631,20 @@ class TaskActivity : SimpleActivity() {
             ensureBackgroundThread {
                 when (it) {
                     DELETE_SELECTED_OCCURRENCE -> eventsHelper.deleteRepeatingEventOccurrence(
-                        mTask.id!!,
-                        mTaskOccurrenceTS,
-                        false
+                        parentEventId = mTask.id!!,
+                        occurrenceTS = mTaskOccurrenceTS,
+                        addToCalDAV = false
                     )
 
                     DELETE_FUTURE_OCCURRENCES -> eventsHelper.addEventRepeatLimit(
-                        mTask.id!!,
-                        mTaskOccurrenceTS
+                        eventId = mTask.id!!,
+                        occurrenceTS = mTaskOccurrenceTS
                     )
 
-                    DELETE_ALL_OCCURRENCES -> eventsHelper.deleteEvent(mTask.id!!, false)
+                    DELETE_ALL_OCCURRENCES -> eventsHelper.deleteEvent(
+                        id = mTask.id!!,
+                        deleteFromCalDAV = false
+                    )
                 }
 
                 runOnUiThread {

@@ -92,9 +92,9 @@ class ImportEventsDialog(
             .setNegativeButton(org.fossify.commons.R.string.cancel, null)
             .apply {
                 activity.setupDialogStuff(
-                    binding.root,
-                    this,
-                    R.string.import_events
+                    view = binding.root,
+                    dialog = this,
+                    titleId = R.string.import_events
                 ) { alertDialog ->
                     alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
                         alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(null)

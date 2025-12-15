@@ -31,8 +31,10 @@ class SelectCalendarDialog(
     var showManageCalendars: Boolean,
     val callback: (calendar: CalendarEntity) -> Unit
 ) {
-    private val NEW_CALENDAR_ID = -2L
-    private val LAST_USED_CALENDAR_ID = -1L
+    companion object {
+        private const val NEW_CALENDAR_ID = -2L
+        private const val LAST_USED_CALENDAR_ID = -1L
+    }
 
     private var dialog: AlertDialog? = null
     private val radioGroup: RadioGroup
@@ -70,10 +72,10 @@ class SelectCalendarDialog(
                 }
                 if (showNewCalendarOption) {
                     val newCalendar = CalendarEntity(
-                        NEW_CALENDAR_ID,
-                        activity.getString(R.string.add_new_type),
-                        Color.TRANSPARENT,
-                        0
+                        id = NEW_CALENDAR_ID,
+                        title = activity.getString(R.string.add_new_type),
+                        color = Color.TRANSPARENT,
+                        caldavCalendarId = 0
                     )
                     addRadioButton(newCalendar)
                 }
@@ -100,8 +102,8 @@ class SelectCalendarDialog(
 
         if (calendar.color != Color.TRANSPARENT) {
             radioBinding.dialogRadioColor.setFillWithStroke(
-                calendar.color,
-                activity.getProperBackgroundColor()
+                fillColor = calendar.color,
+                backgroundColor = activity.getProperBackgroundColor()
             )
         }
 
