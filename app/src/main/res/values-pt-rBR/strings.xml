@@ -23,10 +23,10 @@
     <string name="end_before_start">O evento não pode terminar antes de iniciar</string>
     <string name="event_added">Evento adicionado com sucesso</string>
     <string name="event_updated">Evento atualizado com sucesso</string>
-    <string name="filter_events_by_type">Filtrar eventos por tipo</string>
+    <string name="filter_events_by_type">Filtrar eventos por calendário</string>
     <string name="please_fill_location">Por favor, preencha um local para ser mostrado em um mapa</string>
     <string name="public_event_notification_text">Um evento está próximo</string>
-    <string name="everything_filtered_out">Você filtrou todos os tipos de eventos</string>
+    <string name="everything_filtered_out">Você filtrou todos os calendários</string>
     <string name="task">Tarefa</string>
     <string name="tasks">Tarefas</string>
     <string name="edit_task">Editar tarefa</string>
