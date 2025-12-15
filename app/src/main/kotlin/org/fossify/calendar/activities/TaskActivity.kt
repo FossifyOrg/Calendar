@@ -276,7 +276,6 @@ class TaskActivity : SimpleActivity() {
             putLong(CALENDAR_ID, mCalendarId)
 
             putInt(REMINDER_1_MINUTES, mReminder1Minutes)
-            putInt(REMINDER_1_MINUTES, mReminder1Minutes)
             putInt(REMINDER_2_MINUTES, mReminder2Minutes)
             putInt(REMINDER_3_MINUTES, mReminder3Minutes)
 
