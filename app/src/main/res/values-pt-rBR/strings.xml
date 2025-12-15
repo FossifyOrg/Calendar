@@ -113,11 +113,11 @@
     <string name="import_events_from_ics">Importar eventos de um arquivo .ics</string>
     <string name="import_events_from_ics_pro">Importar eventos de um arquivo .ics (Pro)</string>
     <string name="export_events_to_ics">Exportar eventos para um arquivo .ics</string>
-    <string name="default_event_type">Tipo de evento padrão</string>
+    <string name="default_event_type">Calendário padrão</string>
     <string name="export_past_events_too">Exportar eventos passados também</string>
     <string name="export_tasks">Exportar tarefas</string>
     <string name="export_past_entries">Exportar entradas anteriores também</string>
-    <string name="include_event_types">Incluir tipos de eventos</string>
+    <string name="include_event_types">Incluir calendários</string>
     <string name="filename_without_ics">Nome do arquivo (sem .ics)</string>
     <string name="ignore_event_types">Ignorar os tipos de eventos no arquivo, usar sempre o padrão</string>
     <string name="location">Localização</string>
