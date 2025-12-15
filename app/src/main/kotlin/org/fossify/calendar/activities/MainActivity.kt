@@ -138,6 +138,7 @@ import org.joda.time.DateTime
 import org.joda.time.DateTimeZone
 import java.text.SimpleDateFormat
 import java.util.Locale
+import androidx.core.graphics.drawable.toDrawable
 
 class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
     override var isSearchBarEnabled = true
@@ -278,14 +279,14 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
             updateWidgets()
             updateTextColors(calendarCoordinator)
             fabExtendedOverlay.background =
-                ColorDrawable(getProperBackgroundColor().adjustAlpha(0.8f))
+                getProperBackgroundColor().adjustAlpha(0.8f).toDrawable()
             fabEventLabel.setTextColor(getProperTextColor())
             fabTaskLabel.setTextColor(getProperTextColor())
 
             fabTaskIcon.drawable.applyColorFilter(mStoredPrimaryColor.getContrastColor())
             fabTaskIcon.background.applyColorFilter(mStoredPrimaryColor)
 
-            searchHolder.background = ColorDrawable(getProperBackgroundColor())
+            searchHolder.background = getProperBackgroundColor().toDrawable()
             checkSwipeRefreshAvailability()
             checkShortcuts()
 
@@ -549,9 +550,9 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
     private fun checkIsViewIntent() {
         if (intent?.action == Intent.ACTION_VIEW && intent.data != null) {
             val uri = intent.data
-            if (uri?.authority?.equals("com.android.calendar") == true || uri?.authority?.substringAfter(
-                    "@"
-                ) == "com.android.calendar"
+            if (
+                uri?.authority?.equals("com.android.calendar") == true
+                || uri?.authority?.substringAfter("@") == "com.android.calendar"
             ) {
                 if (uri.path!!.startsWith("/events")) {
                     ensureBackgroundThread {
@@ -568,10 +569,9 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
                             toast(R.string.caldav_event_not_found, Toast.LENGTH_LONG)
                         }
                     }
-                } else if (uri.path!!.startsWith("/time") || intent?.extras?.getBoolean(
-                        "DETAIL_VIEW",
-                        false
-                    ) == true
+                } else if (
+                    uri.path!!.startsWith("/time")
+                    || intent?.extras?.getBoolean("DETAIL_VIEW", false) == true
                 ) {
                     // clicking date on a third party widget: content://com.android.calendar/time/1507309245683
                     // or content://0@com.android.calendar/time/1584958526435
@@ -604,7 +604,7 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
             RadioItem(EVENTS_LIST_VIEW, getString(R.string.simple_event_list))
         )
 
-        RadioGroupDialog(this, items, config.storedView) {
+        RadioGroupDialog(activity = this, items = items, checkedItemId = config.storedView) {
             resetActionBarTitle()
             closeSearch()
             updateView(it as Int)
@@ -630,7 +630,7 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
     }
 
     private fun showFilterDialog() {
-        SelectCalendarsDialog(this, config.displayCalendars) {
+        SelectCalendarsDialog(activity = this, selectedCalendars = config.displayCalendars) {
             if (config.displayCalendars != it) {
                 config.displayCalendars = it
 
@@ -682,7 +682,10 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
     private fun addHolidays() {
         getHolidayRadioItems { items ->
             RadioGroupDialog(this, items) { any ->
-                SelectHolidayTypesDialog(this, any as HolidayInfo) { pathsToImport ->
+                SelectHolidayTypesDialog(
+                    activity = this,
+                    holidayInfo = any as HolidayInfo
+                ) { pathsToImport ->
                     SetRemindersDialog(this, OTHER_EVENT) { reminders ->
                         toast(org.fossify.commons.R.string.importing)
                         ensureBackgroundThread {
@@ -736,11 +739,16 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
                         val privateContacts =
                             MyContactsContentProvider.getSimpleContacts(this, privateCursor)
                         addPrivateEvents(
-                            true,
-                            privateContacts,
-                            reminders
+                            birthdays = true,
+                            contacts = privateContacts,
+                            reminders = reminders
                         ) { eventsFound, eventsAdded ->
-                            addContactEvents(true, reminders, eventsFound, eventsAdded) {
+                            addContactEvents(
+                                birthdays = true,
+                                reminders = reminders,
+                                initEventsFound = eventsFound,
+                                initEventsAdded = eventsAdded
+                            ) {
                                 when {
                                     it > 0 -> {
                                         toast(R.string.birthdays_added)
@@ -772,11 +780,16 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
                         val privateContacts =
                             MyContactsContentProvider.getSimpleContacts(this, privateCursor)
                         addPrivateEvents(
-                            false,
-                            privateContacts,
-                            reminders
+                            birthdays = false,
+                            contacts = privateContacts,
+                            reminders = reminders
                         ) { eventsFound, eventsAdded ->
-                            addContactEvents(false, reminders, eventsFound, eventsAdded) {
+                            addContactEvents(
+                                birthdays = false,
+                                reminders = reminders,
+                                initEventsFound = eventsFound,
+                                initEventsAdded = eventsAdded
+                            ) {
                                 when {
                                     it > 0 -> {
                                         toast(R.string.anniversaries_added)
@@ -798,9 +811,9 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
     }
 
     private fun addBirthdaysAnniversariesAtStart() {
-        if ((!config.addBirthdaysAutomatically && !config.addAnniversariesAutomatically) || !hasPermission(
-                PERMISSION_READ_CONTACTS
-            )
+        if (
+            (!config.addBirthdaysAutomatically && !config.addAnniversariesAutomatically)
+            || !hasPermission(PERMISSION_READ_CONTACTS)
         ) {
             return
         }
@@ -811,11 +824,16 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
             val privateContacts = MyContactsContentProvider.getSimpleContacts(this, privateCursor)
             if (config.addBirthdaysAutomatically) {
                 addPrivateEvents(
-                    true,
-                    privateContacts,
-                    config.birthdayReminders
+                    birthdays = true,
+                    contacts = privateContacts,
+                    reminders = config.birthdayReminders
                 ) { eventsFound, eventsAdded ->
-                    addContactEvents(true, config.birthdayReminders, eventsFound, eventsAdded) {
+                    addContactEvents(
+                        birthdays = true,
+                        reminders = config.birthdayReminders,
+                        initEventsFound = eventsFound,
+                        initEventsAdded = eventsAdded
+                    ) {
                         if (it > 0) {
                             toast(R.string.birthdays_added)
                             updateViewPager()
@@ -827,11 +845,16 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
 
             if (config.addAnniversariesAutomatically) {
                 addPrivateEvents(
-                    false,
-                    privateContacts,
-                    config.anniversaryReminders
+                    birthdays = false,
+                    contacts = privateContacts,
+                    reminders = config.anniversaryReminders
                 ) { eventsFound, eventsAdded ->
-                    addContactEvents(false, config.anniversaryReminders, eventsFound, eventsAdded) {
+                    addContactEvents(
+                        birthdays = false,
+                        reminders = config.anniversaryReminders,
+                        initEventsFound = eventsFound,
+                        initEventsAdded = eventsAdded
+                    ) {
                         if (it > 0) {
                             toast(R.string.anniversaries_added)
                             updateViewPager()
@@ -888,7 +911,13 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
             if (birthdays) eventsHelper.getLocalBirthdaysCalendarId() else eventsHelper.getAnniversariesCalendarId()
         val source = if (birthdays) SOURCE_CONTACT_BIRTHDAY else SOURCE_CONTACT_ANNIVERSARY
 
-        queryCursor(uri, projection, selection, selectionArgs, showErrors = true) { cursor ->
+        queryCursor(
+            uri = uri,
+            projection = projection,
+            selection = selection,
+            selectionArgs = selectionArgs,
+            showErrors = true
+        ) { cursor ->
             val contactId = cursor.getIntValue(CommonDataKinds.Event.CONTACT_ID).toString()
             val name = cursor.getStringValue(Contacts.DISPLAY_NAME)
             val startDate = cursor.getStringValue(CommonDataKinds.Event.START_DATE)
@@ -907,10 +936,10 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
                     val lastUpdated =
                         cursor.getLongValue(CommonDataKinds.Event.CONTACT_LAST_UPDATED_TIMESTAMP)
                     val event = Event(
-                        null,
-                        timestamp,
-                        timestamp,
-                        name,
+                        id = null,
+                        startTS = timestamp,
+                        endTS = timestamp,
+                        title = name,
                         reminder1Minutes = reminders[0],
                         reminder2Minutes = reminders[1],
                         reminder3Minutes = reminders[2],
@@ -995,7 +1024,7 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
                         "yyyy-MM-dd"
                     }
 
-                    var flags = if (missingYear) {
+                    val flags = if (missingYear) {
                         FLAG_ALL_DAY or FLAG_MISSING_YEAR
                     } else {
                         FLAG_ALL_DAY
@@ -1007,10 +1036,10 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
                     val timestamp = date.time / 1000L
                     val lastUpdated = System.currentTimeMillis()
                     val event = Event(
-                        null,
-                        timestamp,
-                        timestamp,
-                        contact.name,
+                        id = null,
+                        startTS = timestamp,
+                        endTS = timestamp,
+                        title = contact.name,
                         reminder1Minutes = reminders[0],
                         reminder2Minutes = reminders[1],
                         reminder3Minutes = reminders[2],
@@ -1289,20 +1318,20 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
 
         val faqItems = arrayListOf(
             FAQItem(
-                "${getString(R.string.faq_2_title)} ${getString(R.string.faq_2_title_extra)}",
-                R.string.faq_2_text
+                title = "${getString(R.string.faq_2_title)} ${getString(R.string.faq_2_title_extra)}",
+                text = R.string.faq_2_text
             ),
             FAQItem(R.string.faq_5_title, R.string.faq_5_text),
             FAQItem(R.string.faq_3_title, R.string.faq_3_text),
             FAQItem(R.string.faq_6_title, R.string.faq_6_text),
             FAQItem(R.string.faq_1_title, R.string.faq_1_text),
             FAQItem(
-                org.fossify.commons.R.string.faq_1_title_commons,
-                org.fossify.commons.R.string.faq_1_text_commons
+                title = org.fossify.commons.R.string.faq_1_title_commons,
+                text = org.fossify.commons.R.string.faq_1_text_commons
             ),
             FAQItem(
-                org.fossify.commons.R.string.faq_4_title_commons,
-                org.fossify.commons.R.string.faq_4_text_commons
+                title = org.fossify.commons.R.string.faq_4_title_commons,
+                text = org.fossify.commons.R.string.faq_4_text_commons
             ),
             FAQItem(R.string.faq_4_title, R.string.faq_4_text)
         )
@@ -1310,30 +1339,30 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
         if (!resources.getBoolean(org.fossify.commons.R.bool.hide_google_relations)) {
             faqItems.add(
                 FAQItem(
-                    org.fossify.commons.R.string.faq_2_title_commons,
-                    org.fossify.commons.R.string.faq_2_text_commons
+                    title = org.fossify.commons.R.string.faq_2_title_commons,
+                    text = org.fossify.commons.R.string.faq_2_text_commons
                 )
             )
             faqItems.add(
                 FAQItem(
-                    org.fossify.commons.R.string.faq_6_title_commons,
-                    org.fossify.commons.R.string.faq_6_text_commons
+                    title = org.fossify.commons.R.string.faq_6_title_commons,
+                    text = org.fossify.commons.R.string.faq_6_text_commons
                 )
             )
             faqItems.add(
                 FAQItem(
-                    org.fossify.commons.R.string.faq_7_title_commons,
-                    org.fossify.commons.R.string.faq_7_text_commons
+                    title = org.fossify.commons.R.string.faq_7_title_commons,
+                    text = org.fossify.commons.R.string.faq_7_text_commons
                 )
             )
         }
 
         startAboutActivity(
-            R.string.app_name,
-            licenses,
-            org.fossify.calendar.BuildConfig.VERSION_NAME,
-            faqItems,
-            true
+            appNameId = R.string.app_name,
+            licenseMask = licenses,
+            versionName = org.fossify.calendar.BuildConfig.VERSION_NAME,
+            faqItems = faqItems,
+            showFAQBeforeMail = true
         )
     }
 
@@ -1362,8 +1391,8 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
             }
 
             eventsHelper.getEvents(
-                minFetchedSearchTS,
-                maxFetchedSearchTS,
+                fromTS = minFetchedSearchTS,
+                toTS = maxFetchedSearchTS,
                 searchQuery = text
             ) { events ->
                 if (text == mLatestSearchQuery) {
@@ -1375,8 +1404,8 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
                         maxFetchedSearchTS = MAX_SEARCH_YEAR
 
                         eventsHelper.getEvents(
-                            minFetchedSearchTS,
-                            maxFetchedSearchTS,
+                            fromTS = minFetchedSearchTS,
+                            toTS = maxFetchedSearchTS,
                             searchQuery = text
                         ) { events ->
                             events.forEach { event ->
@@ -1403,13 +1432,9 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
         val currentSearchQuery = binding.mainMenu.getCurrentQuery()
         val filtered = try {
             events.filter {
-                it.title.contains(currentSearchQuery, true) || it.location.contains(
-                    currentSearchQuery,
-                    true
-                ) || it.description.contains(
-                    currentSearchQuery,
-                    true
-                )
+                it.title.contains(currentSearchQuery, true)
+                        || it.location.contains(currentSearchQuery, true)
+                        || it.description.contains(currentSearchQuery, true)
             }
         } catch (e: ConcurrentModificationException) {
             return
@@ -1423,7 +1448,13 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
             val currAdapter = binding.searchResultsList.adapter
             if (currAdapter == null) {
                 val eventsAdapter =
-                    EventListAdapter(this, listItems, true, this, binding.searchResultsList) {
+                    EventListAdapter(
+                        activity = this,
+                        listItems = listItems,
+                        allowLongClick = true,
+                        listener = this,
+                        recyclerView = binding.searchResultsList
+                    ) {
                         hideKeyboard()
                         if (it is ListEvent) {
                             Intent(applicationContext, getActivityToOpen(it.isTask)).apply {
@@ -1482,8 +1513,8 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
         val oldMinFetchedTS = minFetchedSearchTS - 1
         minFetchedSearchTS -= FETCH_INTERVAL
         eventsHelper.getEvents(
-            minFetchedSearchTS,
-            oldMinFetchedTS,
+            fromTS = minFetchedSearchTS,
+            toTS = oldMinFetchedTS,
             searchQuery = mLatestSearchQuery
         ) { events ->
             events.forEach { event ->
@@ -1507,8 +1538,8 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
         val oldMaxFetchedTS = maxFetchedSearchTS + 1
         maxFetchedSearchTS += FETCH_INTERVAL
         eventsHelper.getEvents(
-            oldMaxFetchedTS,
-            maxFetchedSearchTS,
+            fromTS = oldMaxFetchedTS,
+            toTS = maxFetchedSearchTS,
             searchQuery = mLatestSearchQuery
         ) { events ->
             events.forEach { event ->
