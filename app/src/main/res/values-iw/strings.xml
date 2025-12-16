@@ -22,7 +22,7 @@
     <string name="end_before_start">האירוע לא יכול להסתייים לפני שהתחיל</string>
     <string name="event_added">אירוע נוסף בהצלחה</string>
     <string name="event_updated">אירוע עודכן בהצלחה</string>
-    <string name="filter_events_by_type">סנן אירועים לפי סוג</string>
+    <string name="filter_events_by_type">סנן אירועים לפי לוח שנה</string>
     <string name="please_fill_location">אנא הזן מיקום להצגה במפה</string>
     <string name="public_event_notification_text">יש אירוע בקרוב</string>
     <string name="task">משימה</string>
@@ -213,7 +213,7 @@
     <string name="show_events_happening">הצג אירועים שקורים:</string>
     <string name="within_the_next_one_year">Within the next 1 year‬</string>
     <string name="no_upcoming_events">אין אירועים קרובים.</string>
-    <string name="everything_filtered_out">סיננת את כל סוגי האירועים</string>
+    <string name="everything_filtered_out">סיננת את כל היומנים</string>
     <string name="event_color">צבע האירוע</string>
     <string name="delete_all_events_and_tasks">מחק את כל האירועים והמשימות</string>
     <string name="default_calendar_color">צבע ברירת מחדל של לוח השנה</string>
