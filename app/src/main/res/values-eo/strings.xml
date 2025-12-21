@@ -70,7 +70,7 @@
     <string name="widget_todays_date">Hodiaŭa kalendaro</string>
     <string name="event_added">Evento sukcese aldonita</string>
     <string name="event_updated">Evento sukcese ĝisdatigita</string>
-    <string name="filter_events_by_type">Filtri eventojn laŭ tipo</string>
+    <string name="filter_events_by_type">Filtri eventojn laŭ kalendaro</string>
     <string name="please_fill_location">Bonvolu enigi lokon por montri sur mapo</string>
     <string name="default_calendar_color">Defaŭlta kalendara koloro</string>
     <string name="task">Tasko</string>
@@ -88,7 +88,7 @@
     <string name="repeat_forever">Ripeti ĉiame</string>
     <string name="times">fojojn</string>
     <string name="widget_list">Listo de eventoj de la kalendaro</string>
-    <string name="everything_filtered_out">Vi filtris ĉiujn eventotipojn</string>
+    <string name="everything_filtered_out">Vi filtris ĉiujn kalendarojn</string>
     <string name="tasks">Taskoj</string>
     <string name="edit_task">Redakti taskon</string>
     <string name="new_task">Nova tasko</string>
@@ -139,14 +139,14 @@
     <string name="maybe_going">Eble ĉeestos</string>
     <string name="invited">Invitita</string>
     <string name="import_events_from_ics">Importi eventojn el .ics-dosiero</string>
-    <string name="default_event_type">Defaŭlta eventotipo</string>
+    <string name="default_event_type">Defaŭlta kalendaro</string>
     <string name="export_past_events_too">Ankaŭ eksporti pasintajn eventojn</string>
-    <string name="include_event_types">Inkluzivi eventotipojn</string>
-    <string name="ignore_event_types">Ignori eventotipojn en la dosiero kaj ĉiam uzi la defaŭltan</string>
+    <string name="include_event_types">Inkluzivi kalendarojn</string>
+    <string name="ignore_event_types">Ignori kalendarojn en la dosiero kaj ĉiam uzi la defaŭltan</string>
     <string name="export_tasks">Eksporti taskojn</string>
     <string name="start_week_with_current_day">Komenci semajnon kun la aktuala tago</string>
-    <string name="cannot_delete_default_type">Ne eblas forigi la defaŭltan eventotipon</string>
-    <string name="select_event_type">Elekti eventotipon</string>
+    <string name="cannot_delete_default_type">Ne eblas forigi la lokan kalendaron</string>
+    <string name="select_event_type">Elekti kalendaron</string>
     <string name="unsync_caldav_calendar">Por forigi CalDAV-an kalendaron, endas malsinkronigi ĝin</string>
     <string name="add_holidays">Aldoni festotagojn</string>
     <string name="importing_some_holidays_failed">Importo de kelkaj eventoj malsukcesis</string>
@@ -161,19 +161,19 @@
     <string name="display_description_or_location">Montri priskribon aŭ lokon</string>
     <string name="all_day">Tuta tago</string>
     <string name="week">Semajno</string>
-    <string name="event_types">Eventotipoj</string>
-    <string name="add_new_type">Aldoni novan tipon</string>
-    <string name="edit_type">Redakti tipon</string>
-    <string name="type_already_exists">Jam ekzistas tipo kun tiu titolo</string>
-    <string name="regular_event">Kutima evento</string>
-    <string name="move_events_into_default">Movi afektitajn eventojn al la defaŭlta eventotipo</string>
+    <string name="event_types">Kalendaroj</string>
+    <string name="add_new_type">Aldoni novan kalendaron</string>
+    <string name="edit_type">Redakti kalendaron</string>
+    <string name="type_already_exists">Jam ekzistas kalendaro kun tiu titolo</string>
+    <string name="regular_event">Loka kalendaro</string>
+    <string name="move_events_into_default">Movi afektitajn eventojn al la defaŭlta kalendaro</string>
     <string name="remove_affected_events">Forigi permanente afektitajn eventojn</string>
     <string name="public_holidays">Publikaj festotagoj</string>
     <string name="other_holidays">Aliaj festotagoj kaj ceremonioj</string>
     <string name="select_holidays_to_import">Elekti festotagojn por importi</string>
-    <string name="holidays_imported_successfully">Sukcese importis festotagojn al la eventotipo \"Festotagoj\"</string>
+    <string name="holidays_imported_successfully">Sukcese importis festotagojn al la kalendaro \"Festotagoj\"</string>
     <string name="importing_holidays_failed">Importo de festotagoj malsukcesis</string>
-    <string name="manage_event_types">Administri eventotipojn</string>
+    <string name="manage_event_types">Administri kalendarojn</string>
     <string name="end_day_at">Fini tagon je</string>
     <string name="vibrate">Vibri dum memorigila sciigo</string>
     <string name="reminder_sound">Sono de memorigilo</string>
@@ -198,7 +198,7 @@
     </plurals>
     <string name="faq_2_title">Ĉu mi povas sinkronigi miajn eventojn per Google Calendar aŭ alia servo kiu subtenas CalDAV?</string>
     <string name="faq_3_title">Mi vidas la videblajn memorigilojn, sed aŭdas neniun sonon. Kion mi povas fari?</string>
-    <string name="faq_6_title">Kiel mi povas modifi aŭ forigi ekzistantan eventotipon?</string>
+    <string name="faq_6_title">Kiel mi povas modifi aŭ forigi ekzistantan kalendaron?</string>
     <string name="accessibility_next_month">Iri al la sekva monato</string>
     <string name="faq_2_title_extra">Eble eĉ kunhavigi kalendarojn kun aliuloj?</string>
     <string name="faq_1_title">Kiel mi povas forigi la festotagojn importitajn per la butono de \"Aldoni festotagojn\"?</string>
@@ -208,7 +208,7 @@
     <string name="default_duration">Defaŭlta daŭro</string>
     <string name="last_used_one">Laste uzita</string>
     <string name="delete_all_events_and_tasks">Forigi ĉiujn eventojn kaj taskojn</string>
-    <string name="delete_all_events_confirmation">Ĉu vi certas, ke vi volas forigi ĉiujn eventojn kaj taskojn? Viaj eventotipoj kaj aliaj agordoj ne estos afektitaj.</string>
+    <string name="delete_all_events_confirmation">Ĉu vi certas, ke vi volas forigi ĉiujn eventojn kaj taskojn? Viaj kalendaroj kaj aliaj agordoj ne estos afektitaj.</string>
     <string name="show_a_grid">Montri kradon</string>
     <string name="loop_reminders">Ripeti memorigilojn ĝis ili estas malŝaltitaj</string>
     <string name="dim_past_events">Malheligi pasintajn eventojn</string>
@@ -226,7 +226,7 @@
     <string name="other_time">Alia momento</string>
     <string name="highlight_weekends">Marki semajnfinojn en kelkaj vidoj</string>
     <string name="allow_changing_time_zones">Permesi ŝanĝi la horzonon de eventoj</string>
-    <string name="manage_quick_filter_event_types">Administri eventotipojn de rapida filtrado</string>
+    <string name="manage_quick_filter_event_types">Administri kalendarojn de rapida filtrado</string>
     <string name="allow_creating_tasks">Permesi krei taskojn</string>
     <string name="refresh_caldav_calendars">Aktualigi CalDAV-ajn kalendarojn</string>
     <string name="refreshing">Aktualiganta…</string>
@@ -247,8 +247,8 @@
         <item quantity="other">Ene de la sekvaj %d tagoj</item>
     </plurals>
     <string name="accessibility_previous_month">Iri al la antaŭa monato</string>
-    <string name="faq_1_text">Festotagoj kreitaj tiel estas metitaj en novan eventotipon nomitan \"Festotagoj\". Vi povas iri al Agordoj -&gt; Administri eventotipojn, longe premi la eventotipon, kaj forigi ĝin per elekti la rubujon.</string>
-    <string name="faq_6_text">Fareblas ambaŭ en aplikaĵaj agordoj -&gt; Administri eventotipojn. Nur alklaku la deziratan eventotipon por ŝanĝi la etikedon kaj koloron, aŭ longe premu ĝin kaj uzu la rubujon en la supra menuo por forigi ĝin.</string>
+    <string name="faq_1_text">Festotagoj kreitaj tiel estas metitaj en novan kalendaron nomitan \"Festotagoj\". Vi povas iri al Agordoj -&gt; Administri kalendarojn, longe premi la kalendaron kaj forigi ĝin per elekti la rubujon.</string>
+    <string name="faq_6_text">Fareblas ambaŭ en Aplikaĵaj agordoj -&gt; Administri kalendaron. Nur alklaku la deziratan kalendaron por ŝanĝi la etikedon kaj koloron, aŭ longe premu ĝin kaj uzu la rubujon en la supra menuo por forigi ĝin.</string>
     <string name="accessibility_previous_day">Iri al la antaŭa tago</string>
     <string name="accessibility_next_day">Iri al la sekva tago</string>
     <string name="faq_2_text">Jes, simple aktivigu \"Sinkronigado de CalDAV\" en la aplikaĵaj agordoj kaj elektu la kalendarojn kiujn vi volas sinkronigi. Tamen, vi bezonos eksteran aplikaĵon kiu traktos la sinkronigadon inter la aparato kaj la serviloj. Se vi volas sinkronigi kalendaron de Google, la oficiala aplikaĵo Google Calendar sufiĉos. Por aliaj, necesos ekstera sinkroniga adaptilo kiel DAVx5.</string>
