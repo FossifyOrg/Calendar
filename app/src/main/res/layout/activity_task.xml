@@ -330,7 +330,7 @@
                 android:layout_alignBottom="@+id/task_type_holder"
                 android:layout_marginStart="@dimen/normal_margin"
                 android:padding="@dimen/medium_margin"
-                android:src="@drawable/ic_category_outline_vector" />
+                android:src="@drawable/ic_calendar_vector" />
 
             <RelativeLayout
                 android:id="@+id/task_type_holder"
@@ -350,7 +350,8 @@
                     android:layout_marginEnd="@dimen/medium_margin"
                     android:paddingTop="@dimen/normal_margin"
                     android:paddingBottom="@dimen/normal_margin"
-                    android:textSize="@dimen/day_text_size" />
+                    android:textSize="@dimen/day_text_size"
+                    tools:text="@string/regular_event" />
 
             </RelativeLayout>
 

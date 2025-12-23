@@ -1,6 +1,5 @@
 package org.fossify.calendar.activities
 
-import android.app.Activity
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.Intent
@@ -38,7 +37,6 @@ import org.fossify.calendar.dialogs.ReminderWarningDialog
 import org.fossify.calendar.dialogs.RepeatLimitTypePickerDialog
 import org.fossify.calendar.dialogs.RepeatRuleWeeklyDialog
 import org.fossify.calendar.dialogs.SelectCalendarDialog
-import org.fossify.calendar.dialogs.SelectEventCalendarDialog
 import org.fossify.calendar.dialogs.SelectEventColorDialog
 import org.fossify.calendar.extensions.calDAVHelper
 import org.fossify.calendar.extensions.calendarsDB
@@ -108,7 +106,6 @@ import org.fossify.calendar.helpers.STORED_LOCALLY_ONLY
 import org.fossify.calendar.helpers.TIME_ZONE
 import org.fossify.calendar.helpers.generateImportId
 import org.fossify.calendar.models.Attendee
-import org.fossify.calendar.models.CalDAVCalendar
 import org.fossify.calendar.models.CalendarEntity
 import org.fossify.calendar.models.Event
 import org.fossify.calendar.models.MyTimeZone
@@ -384,8 +381,7 @@ class EventActivity : SimpleActivity() {
         checkRepeatTexts(mRepeatInterval)
         checkRepeatRule()
         updateTexts()
-        updateLocalCalendar()
-        updateCalDAVCalendar()
+        updateCalendar()
         checkAttendees()
         updateActionBarTitle()
     }
@@ -461,9 +457,8 @@ class EventActivity : SimpleActivity() {
         }
 
         if (savedInstanceState == null) {
+            updateCalendar()
             updateTexts()
-            updateLocalCalendar()
-            updateCalDAVCalendar()
         }
 
         eventShowOnMap.setOnClickListener { showOnMap() }
@@ -545,7 +540,7 @@ class EventActivity : SimpleActivity() {
             }
         }
 
-        calendarHolder.setOnClickListener { showCalendarDialog() }
+        eventCalendarHolder.setOnClickListener { showCalendarDialog() }
         eventAllDay.apply {
             isChecked = mEvent.getIsAllDay()
             jumpDrawablesToCurrentState()
@@ -748,16 +743,22 @@ class EventActivity : SimpleActivity() {
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE)
         binding.eventTitle.requestFocus()
         binding.eventToolbar.title = getString(R.string.new_event)
-        if (config.defaultCalendarId != -1L) {
-            config.lastUsedCaldavCalendarId = mStoredCalendars
-                .firstOrNull { it.id == config.defaultCalendarId }?.caldavCalendarId
-                ?: 0
-        }
 
-        val isLastCaldavCalendarOK = config.caldavSync && config.getSyncedCalendarIdsAsList()
-            .contains(config.lastUsedCaldavCalendarId)
-        mEventCalendarId =
-            if (isLastCaldavCalendarOK) config.lastUsedCaldavCalendarId else STORED_LOCALLY_ONLY
+        val selectedCalendar = mStoredCalendars.firstOrNull { it.id == mCalendarId }
+        val selectedCaldavId = selectedCalendar?.caldavCalendarId ?: 0
+        val isSelectedCaldavOk =
+            selectedCaldavId != 0 && config.caldavSync && config.getSyncedCalendarIdsAsList()
+                .contains(selectedCaldavId)
+
+        if (isSelectedCaldavOk) {
+            mEventCalendarId = selectedCaldavId
+            config.lastUsedCaldavCalendarId = selectedCaldavId
+        } else {
+            mEventCalendarId = STORED_LOCALLY_ONLY
+            if (selectedCalendar == null || selectedCalendar.caldavCalendarId != 0) {
+                mCalendarId = config.lastUsedLocalCalendarId
+            }
+        }
 
         if (intent.action == Intent.ACTION_EDIT || intent.action == Intent.ACTION_INSERT) {
             val startTS = intent.getLongExtra("beginTime", System.currentTimeMillis()) / 1000L
@@ -786,11 +787,7 @@ class EventActivity : SimpleActivity() {
             val addMinutes = if (intent.getBooleanExtra(NEW_EVENT_SET_HOUR_DURATION, false)) {
                 // if an event is created at 23:00 on the weekly view, make it end
                 // on 23:59 by default to avoid spanning across multiple days
-                if (mEventStartDateTime.hourOfDay == 23) {
-                    59
-                } else {
-                    60
-                }
+                if (mEventStartDateTime.hourOfDay == 23) 59 else 60
             } else {
                 config.defaultDuration
             }
@@ -1140,14 +1137,29 @@ class EventActivity : SimpleActivity() {
         SelectCalendarDialog(
             activity = this,
             currCalendar = mCalendarId,
-            showCalDAVCalendars = false,
-            showNewCalendarOption = true,
+            showCalDAVCalendars = config.caldavSync,
+            showNewCalendarOption = false,
             addLastUsedOneAsFirstOption = false,
             showOnlyWritable = true,
             showManageCalendars = true
-        ) {
-            mCalendarId = it.id!!
-            updateLocalCalendar()
+        ) { calendar ->
+            mWasCalendarChanged = true
+            mCalendarId = calendar.id!!
+
+            if (calendar.caldavCalendarId == 0) {
+                mEventCalendarId = STORED_LOCALLY_ONLY
+                config.lastUsedLocalCalendarId = mCalendarId
+            } else {
+                mEventCalendarId = calendar.caldavCalendarId
+                config.lastUsedCaldavCalendarId = calendar.caldavCalendarId
+            }
+
+            updateCalendarInfo(calendar)
+            updateReminderTypeImages()
+            updateCalDAVVisibility()
+            updateAvailabilityText()
+            updateStatusText()
+            updateAccessLevelText()
         }
     }
 
@@ -1344,9 +1356,7 @@ class EventActivity : SimpleActivity() {
         binding.eventAvailability.text = if (mAvailability == Attendees.AVAILABILITY_FREE) {
             getString(R.string.status_free)
         } else {
-            getString(
-                R.string.status_busy
-            )
+            getString(R.string.status_busy)
         }
     }
 
@@ -1378,145 +1388,51 @@ class EventActivity : SimpleActivity() {
         binding.eventRepetition.text = getRepetitionText(mRepeatInterval)
     }
 
-    private fun updateLocalCalendar() {
+    private fun updateCalendar() {
         ensureBackgroundThread {
-            val calendar = calendarsDB.getCalendarWithId(mCalendarId)
-            if (calendar != null) {
-                runOnUiThread {
-                    binding.calendar.text = calendar.title
-                    updateEventColorInfo(calendar.color)
-                }
+            val calendar =
+                calendarsDB.getCalendarWithId(mCalendarId) ?: return@ensureBackgroundThread
+            runOnUiThread {
+                updateCalendarInfo(calendar)
+                updateReminderTypeImages()
+                updateCalDAVVisibility()
             }
         }
     }
 
-    private fun updateCalDAVCalendar() {
-        if (config.caldavSync) {
-            binding.eventCaldavCalendarImage.beVisible()
-            binding.eventCaldavCalendarHolder.beVisible()
-            binding.eventCaldavCalendarDivider.beVisible()
+    private fun updateCalendarInfo(calendar: CalendarEntity) = binding.apply {
+        val isCaldav = calendar.caldavCalendarId != 0
+        mEventCalendarId = if (isCaldav) calendar.caldavCalendarId else STORED_LOCALLY_ONLY
 
-            val calendars = calDAVHelper.getCalDAVCalendars("", true).filter {
-                it.canWrite() && config.getSyncedCalendarIdsAsList().contains(it.id)
-            }
-            updateCurrentCalendarInfo(
-                if (mEventCalendarId == STORED_LOCALLY_ONLY) {
-                    null
-                } else {
-                    getCalendarWithId(
-                        calendars,
-                        getCalendarId()
-                    )
-                }
-            )
-
-            binding.eventCaldavCalendarHolder.setOnClickListener {
-                hideKeyboard()
-                SelectEventCalendarDialog(this, calendars, mEventCalendarId) {
-                    if (mEventCalendarId != STORED_LOCALLY_ONLY && it == STORED_LOCALLY_ONLY) {
-                        mCalendarId = config.lastUsedLocalCalendarId
-                        updateLocalCalendar()
-                    }
-                    mWasCalendarChanged = true
-                    mEventCalendarId = it
-                    config.lastUsedCaldavCalendarId = it
-                    updateCurrentCalendarInfo(getCalendarWithId(calendars, it))
-                    updateReminderTypeImages()
-                    updateCalDAVVisibility()
-                    updateAvailabilityText()
-                    updateStatusText()
-                    updateAccessLevelText()
-                }
-            }
+        eventCalendarTitle.text = if (isCaldav) {
+            calendar.caldavDisplayName.ifEmpty { calendar.title }
         } else {
-            updateCurrentCalendarInfo(null)
-        }
-    }
-
-    private fun getCalendarId() =
-        if (mEvent.source == SOURCE_SIMPLE_CALENDAR) {
-            config.lastUsedCaldavCalendarId
-        } else {
-            mEvent.getCalDAVCalendarId()
+            calendar.title
         }
 
-    private fun getCalendarWithId(calendars: List<CalDAVCalendar>, calendarId: Int) =
-        calendars.firstOrNull { it.id == calendarId }
-
-    private fun updateCurrentCalendarInfo(currentCalendar: CalDAVCalendar?) = binding.apply {
-        calendarImage.beVisibleIf(currentCalendar == null)
-        calendarHolder.beVisibleIf(currentCalendar == null)
-        eventCaldavCalendarDivider.beVisibleIf(currentCalendar == null)
-        eventCaldavCalendarEmail.beGoneIf(currentCalendar == null)
-
-        if (currentCalendar == null) {
-            mEventCalendarId = STORED_LOCALLY_ONLY
-            val mediumMargin =
-                resources.getDimension(org.fossify.commons.R.dimen.medium_margin).toInt()
-            eventCaldavCalendarName.apply {
-                text = getString(R.string.store_locally_only)
-                setPadding(paddingLeft, paddingTop, paddingRight, mediumMargin)
-            }
-
-            eventCaldavCalendarHolder.apply {
-                setPadding(paddingLeft, mediumMargin, paddingRight, mediumMargin)
-            }
-
-            ensureBackgroundThread {
-                val calendar = calendarsDB.getCalendarWithId(mCalendarId)
-                runOnUiThread {
-                    eventColorImage.beVisibleIf(calendar != null)
-                    eventColorHolder.beVisibleIf(calendar != null)
-                    eventColorDivider.beVisibleIf(calendar != null)
-                    if (calendar != null) {
-                        updateEventColorInfo(calendar.color)
-                    }
-                }
-            }
+        eventCalendarSubtitle.beVisibleIf(!isCaldav || calendar.caldavEmail.isNotEmpty())
+        if (isCaldav) {
+            eventCalendarSubtitle.text = calendar.caldavEmail
         } else {
-            eventCaldavCalendarEmail.text = currentCalendar.accountName
+            eventCalendarSubtitle.text = getString(R.string.offline_never_synced)
+        }
 
-            ensureBackgroundThread {
-                val localCalendar = eventsHelper.getCalendarWithCalDAVCalendarId(currentCalendar.id)
-                val calendarColor = localCalendar?.color ?: currentCalendar.color
-                val canCustomizeColors = if (localCalendar != null) {
-                    getEventColors(localCalendar).isNotEmpty()
-                } else {
-                    false
-                }
+        val canCustomizeColors = if (isCaldav) {
+            getEventColors(calendar).isNotEmpty()
+        } else {
+            true
+        }
 
-                runOnUiThread {
-                    eventCaldavCalendarName.apply {
-                        text = currentCalendar.displayName
-                        setPadding(
-                            paddingLeft,
-                            paddingTop,
-                            paddingRight,
-                            resources.getDimension(org.fossify.commons.R.dimen.tiny_margin).toInt()
-                        )
-                    }
-
-                    eventCaldavCalendarHolder.apply {
-                        setPadding(paddingLeft, 0, paddingRight, 0)
-                    }
-
-                    eventColorImage.beVisibleIf(canCustomizeColors)
-                    eventColorHolder.beVisibleIf(canCustomizeColors)
-                    eventColorDivider.beVisibleIf(canCustomizeColors)
-                    if (canCustomizeColors) {
-                        updateEventColorInfo(calendarColor)
-                    }
-                }
-            }
+        eventColorImage.beVisibleIf(canCustomizeColors)
+        eventColorHolder.beVisibleIf(canCustomizeColors)
+        eventColorDivider.beVisibleIf(canCustomizeColors)
+        if (canCustomizeColors) {
+            updateEventColorInfo(defaultColor = calendar.color)
         }
     }
 
     private fun updateEventColorInfo(defaultColor: Int) {
-        val eventColor = if (mEventColor == 0) {
-            defaultColor
-        } else {
-            mEventColor
-        }
+        val eventColor = if (mEventColor == 0) defaultColor else mEventColor
         binding.eventColor.setFillWithStroke(eventColor, getProperBackgroundColor())
     }
 
@@ -1684,48 +1600,37 @@ class EventActivity : SimpleActivity() {
             generateImportId()
         }
 
-        val newCalendarId =
-            if (
-                !config.caldavSync
-                || config.lastUsedCaldavCalendarId == 0
-                || mEventCalendarId == STORED_LOCALLY_ONLY
-            ) {
-                mCalendarId
-            } else {
-                calDAVHelper.getCalDAVCalendars("", true).firstOrNull { it.id == mEventCalendarId }
-                    ?.apply {
-                        if (!canWrite()) {
-                            runOnUiThread {
-                                toast(R.string.insufficient_permissions)
-                            }
-                            return
-                        }
-                    }
+        val selectedCalendar = calendarsDB.getCalendarWithId(mCalendarId) ?: run {
+            runOnUiThread { toast(org.fossify.commons.R.string.unknown_error_occurred) }
+            return
+        }
 
-                eventsHelper.getCalendarWithCalDAVCalendarId(mEventCalendarId)?.id
-                    ?: config.lastUsedLocalCalendarId
+        val selectedCaldavId = selectedCalendar.caldavCalendarId
+        if (selectedCaldavId != 0) {
+            val caldavCalendar =
+                calDAVHelper.getCalDAVCalendars("", true).firstOrNull { it.id == selectedCaldavId }
+            if (caldavCalendar == null || !caldavCalendar.canWrite()) {
+                runOnUiThread { toast(R.string.insufficient_permissions) }
+                return
             }
+            config.lastUsedCaldavCalendarId = selectedCaldavId
+        } else {
+            config.lastUsedLocalCalendarId = mCalendarId
+        }
 
-        val newSource = if (!config.caldavSync || mEventCalendarId == STORED_LOCALLY_ONLY) {
-            config.lastUsedLocalCalendarId = newCalendarId
+        val newCalendarId = mCalendarId
+        val newSource = if (selectedCaldavId == 0) {
             SOURCE_SIMPLE_CALENDAR
         } else {
-            "$CALDAV-$mEventCalendarId"
+            "$CALDAV-$selectedCaldavId"
         }
+        mEventCalendarId = if (selectedCaldavId == 0) STORED_LOCALLY_ONLY else selectedCaldavId
 
         val reminders = getReminders()
         if (!binding.eventAllDay.isChecked) {
-            if ((reminders.getOrNull(2)?.minutes ?: 0) < -1) {
-                reminders.removeAt(2)
-            }
-
-            if ((reminders.getOrNull(1)?.minutes ?: 0) < -1) {
-                reminders.removeAt(1)
-            }
-
-            if ((reminders.getOrNull(0)?.minutes ?: 0) < -1) {
-                reminders.removeAt(0)
-            }
+            if ((reminders.getOrNull(2)?.minutes ?: 0) < -1) reminders.removeAt(2)
+            if ((reminders.getOrNull(1)?.minutes ?: 0) < -1) reminders.removeAt(1)
+            if ((reminders.getOrNull(0)?.minutes ?: 0) < -1) reminders.removeAt(0)
         }
 
         val reminder1 = reminders.getOrNull(0) ?: Reminder(REMINDER_OFF, REMINDER_NOTIFICATION)
@@ -2041,31 +1946,22 @@ class EventActivity : SimpleActivity() {
     }
 
     private val startDateSetListener =
-        DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
+        DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
             dateSet(year, monthOfYear, dayOfMonth, true)
         }
 
     private val startTimeSetListener =
-        TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute ->
+        TimePickerDialog.OnTimeSetListener { _, hourOfDay, minute ->
             timeSet(hourOfDay, minute, true)
         }
 
     private val endDateSetListener =
-        DatePickerDialog.OnDateSetListener { view, year, monthOfYear, dayOfMonth ->
-            dateSet(
-                year,
-                monthOfYear,
-                dayOfMonth,
-                false
-            )
+        DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
+            dateSet(year, monthOfYear, dayOfMonth, false)
         }
 
-    private val endTimeSetListener = TimePickerDialog.OnTimeSetListener { view, hourOfDay, minute ->
-        timeSet(
-            hourOfDay,
-            minute,
-            false
-        )
+    private val endTimeSetListener = TimePickerDialog.OnTimeSetListener { _, hourOfDay, minute ->
+        timeSet(hourOfDay, minute, false)
     }
 
     private fun dateSet(year: Int, month: Int, day: Int, isStart: Boolean) {
@@ -2162,12 +2058,11 @@ class EventActivity : SimpleActivity() {
         }
 
         mAttendees.sortWith(
-            comparator = compareBy<Attendee>
-            { it.isMe }.thenBy
-            { it.status == Attendees.ATTENDEE_STATUS_ACCEPTED }.thenBy
-            { it.status == Attendees.ATTENDEE_STATUS_DECLINED }.thenBy
-            { it.status == Attendees.ATTENDEE_STATUS_TENTATIVE }.thenBy
-            { it.status }
+            comparator = compareBy<Attendee> { it.isMe }
+                .thenBy { it.status == Attendees.ATTENDEE_STATUS_ACCEPTED }
+                .thenBy { it.status == Attendees.ATTENDEE_STATUS_DECLINED }
+                .thenBy { it.status == Attendees.ATTENDEE_STATUS_TENTATIVE }
+                .thenBy { it.status }
         )
         mAttendees.reverse()
 
@@ -2175,9 +2070,7 @@ class EventActivity : SimpleActivity() {
             mAttendees.forEach {
                 val attendee = it
                 val deviceContact = mAvailableContacts.firstOrNull {
-                    it.email.isNotEmpty()
-                            && it.email == attendee.email
-                            && it.photoUri.isNotEmpty()
+                    it.email.isNotEmpty() && it.email == attendee.email && it.photoUri.isNotEmpty()
                 }
                 if (deviceContact != null) {
                     attendee.photoUri = deviceContact.photoUri
@@ -2237,7 +2130,7 @@ class EventActivity : SimpleActivity() {
         val adapter = AutoCompleteTextViewAdapter(this, mAvailableContacts)
         autoCompleteView.setAdapter(adapter)
         autoCompleteView.imeOptions = EditorInfo.IME_ACTION_NEXT
-        autoCompleteView.setOnItemClickListener { parent, view, position, id ->
+        autoCompleteView.setOnItemClickListener { _, _, position, _ ->
             val currAttendees = (autoCompleteView.adapter as AutoCompleteTextViewAdapter).resultList
             val selectedAttendee = currAttendees[position]
             addSelectedAttendee(selectedAttendee, autoCompleteView, attendeeHolder)
@@ -2298,9 +2191,7 @@ class EventActivity : SimpleActivity() {
                 updateAttendeeMe(this, attendee)
             }
 
-            eventContactMeStatus.apply {
-                beVisibleIf(attendee.isMe)
-            }
+            eventContactMeStatus.beVisibleIf(attendee.isMe)
 
             if (attendee.isMe) {
                 eventContactAttendee.setOnClickListener {
@@ -2445,16 +2336,17 @@ class EventActivity : SimpleActivity() {
             }
             val fullName = TextUtils.join(" ", names).trim()
             if (fullName.isNotEmpty() || photoUri.isNotEmpty()) {
-                val contact = Attendee(
-                    contactId = id,
-                    name = fullName,
-                    email = "",
-                    status = Attendees.ATTENDEE_STATUS_NONE,
-                    photoUri = photoUri,
-                    isMe = false,
-                    relationship = Attendees.RELATIONSHIP_NONE
+                contacts.add(
+                    Attendee(
+                        contactId = id,
+                        name = fullName,
+                        email = "",
+                        status = Attendees.ATTENDEE_STATUS_NONE,
+                        photoUri = photoUri,
+                        isMe = false,
+                        relationship = Attendees.RELATIONSHIP_NONE
+                    )
                 )
-                contacts.add(contact)
             }
         }
         return contacts
@@ -2471,16 +2363,17 @@ class EventActivity : SimpleActivity() {
         queryCursor(uri, projection) { cursor ->
             val id = cursor.getIntValue(Data.CONTACT_ID)
             val email = cursor.getStringValue(CommonDataKinds.Email.DATA) ?: return@queryCursor
-            val contact = Attendee(
-                contactId = id,
-                name = "",
-                email = email,
-                status = Attendees.ATTENDEE_STATUS_NONE,
-                photoUri = "",
-                isMe = false,
-                relationship = Attendees.RELATIONSHIP_NONE
+            contacts.add(
+                Attendee(
+                    contactId = id,
+                    name = "",
+                    email = email,
+                    status = Attendees.ATTENDEE_STATUS_NONE,
+                    photoUri = "",
+                    isMe = false,
+                    relationship = Attendees.RELATIONSHIP_NONE
+                )
             )
-            contacts.add(contact)
         }
 
         return contacts
@@ -2494,8 +2387,7 @@ class EventActivity : SimpleActivity() {
             eventTimeZoneImage,
             eventRepetitionImage,
             eventReminderImage,
-            calendarImage,
-            eventCaldavCalendarImage,
+            eventCalendarImage,
             eventReminder1Type,
             eventReminder2Type,
             eventReminder3Type,
