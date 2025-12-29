@@ -275,4 +275,5 @@
     <string name="access_level_private">Prywatne</string>
     <string name="access_level_confidential">Poufne</string>
     <string name="allow_alarms_reminders">Musisz zezwolić aplikacji na planowanie alarmów, aby przypomnienia działały prawidłowo.</string>
+    <string name="offline_never_synced">Offline (niesynchronizowany)</string>
 </resources>
