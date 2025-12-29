@@ -269,4 +269,5 @@
     <string name="access_level_confidential">Salajane</string>
     <string name="access_level_public">Avalik</string>
     <string name="allow_alarms_reminders">Et meeldetuletused toimiks korralikult, pead lubama rakendusel ajastada äratusi.</string>
+    <string name="offline_never_synced">Pole võrgus (pole iialgi sünkroonitud)</string>
 </resources>
