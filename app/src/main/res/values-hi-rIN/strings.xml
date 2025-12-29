@@ -265,4 +265,9 @@
     <string name="status_confirmed">निश्चित</string>
     <string name="status_canceled">रद्द</string>
     <string name="show_widget_header">शीर्षणी दिखायें</string>
+    <string name="offline_never_synced">ऑफ़लाइन (कभी सिंक नहीं होता)</string>
+    <string name="access_level_public">सार्वजनिक</string>
+    <string name="access_level_private">निजी</string>
+    <string name="access_level_confidential">गोपनीय</string>
+    <string name="allow_alarms_reminders">रिमाइंडर को ठीक से काम करने के लिए आपको ऐप को अलर्ट शेड्यूल करने की अनुमति देनी होगी।</string>
 </resources>
