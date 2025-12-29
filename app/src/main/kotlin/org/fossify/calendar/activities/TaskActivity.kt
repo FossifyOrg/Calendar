@@ -368,7 +368,7 @@ class TaskActivity : SimpleActivity() {
 
             taskDate.setOnClickListener { setupDate() }
             taskTime.setOnClickListener { setupTime() }
-            taskTypeHolder.setOnClickListener { showCalendarDialog() }
+            calendarHolder.setOnClickListener { showCalendarDialog() }
             taskRepetition.setOnClickListener { showRepeatIntervalDialog() }
             taskRepetitionRuleHolder.setOnClickListener { showRepetitionRuleDialog() }
             taskRepetitionLimitHolder.setOnClickListener { showRepetitionTypePicker() }
@@ -913,7 +913,8 @@ class TaskActivity : SimpleActivity() {
             val calendar = calendarsDB.getCalendarWithId(mCalendarId)
             if (calendar != null) {
                 runOnUiThread {
-                    binding.taskType.text = calendar.title
+                    binding.calendarTitle.text = calendar.title
+                    binding.calendarSubtitle.text = getString(R.string.offline_never_synced)
                     updateTaskColorInfo(calendar.color)
                 }
             }
@@ -965,7 +966,7 @@ class TaskActivity : SimpleActivity() {
             updateTextColors(taskNestedScrollview)
             val textColor = getProperTextColor()
             arrayOf(
-                taskTimeImage, taskReminderImage, taskTypeImage, taskRepetitionImage, taskColorImage
+                taskTimeImage, taskReminderImage, calendarImage, taskRepetitionImage, taskColorImage
             ).forEach {
                 it.applyColorFilter(textColor)
             }
