@@ -24,7 +24,7 @@
             android:layout_toStartOf="@+id/calendar_color"
             android:paddingStart="@dimen/medium_margin"
             android:paddingEnd="@dimen/medium_margin"
-            tools:text="Event type" />
+            tools:text="Calendar" />
 
         <ImageView
             android:id="@+id/calendar_color"
