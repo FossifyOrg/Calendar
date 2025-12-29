@@ -266,4 +266,5 @@
     <string name="access_level_confidential">机密</string>
     <string name="access_level_public">公开</string>
     <string name="allow_alarms_reminders">您必须允许应用设置闹钟，以便提醒功能正常工作。</string>
+    <string name="offline_never_synced">离线（从不同步）</string>
 </resources>
