@@ -275,4 +275,5 @@
     <string name="access_level_confidential">Конфіденційно</string>
     <string name="access_level_public">Громадськість</string>
     <string name="allow_alarms_reminders">Щоб нагадування працювали належним чином, потрібно дозволити додатку планувати будильники.</string>
+    <string name="offline_never_synced">Офлайн (ніколи не синхронізувався)</string>
 </resources>
