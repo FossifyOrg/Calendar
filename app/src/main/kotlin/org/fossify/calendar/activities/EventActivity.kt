@@ -231,10 +231,46 @@ class EventActivity : SimpleActivity() {
         val eventId = intent.getLongExtra(EVENT_ID, 0L)
         ensureBackgroundThread {
             val locations = eventsDB.getAllLocations()
+            val eventTitleMap = eventsDB.getAllEvents()
+                .associateBy { it.title } as HashMap<String, Event>
+            binding.eventTitle.setOnItemClickListener { parent, view, position, id ->
+                val prev = eventTitleMap[parent.getItemAtPosition(position)]
+                binding.eventLocation.setText(prev!!.location)
+                binding.eventDescription.setText(prev.description)
+
+                binding.eventAllDay.isChecked = prev.getIsAllDay()
+                mEventEndDateTime = mEventStartDateTime.plus(1000L * (prev.endTS - prev.startTS))
+
+                mReminder1Minutes = prev.reminder1Minutes
+                mReminder2Minutes = prev.reminder2Minutes
+                mReminder3Minutes = prev.reminder3Minutes
+
+                mReminder1Type = prev.reminder1Type
+                mReminder2Type = prev.reminder2Type
+                mReminder3Type = prev.reminder3Type
+
+                mAccessLevel = prev.accessLevel
+                mAvailability = prev.availability
+                mStatus = prev.status
+                mEventColor = prev.color
+
+                mAttendees = prev.attendees as ArrayList<Attendee>
+
+                mCalendarId = prev.calendarId
+
+                checkRepeatTexts(mRepeatInterval)
+                checkRepeatRule()
+                updateTexts()
+                updateCalendar()
+                checkAttendees()
+                updateActionBarTitle()
+            }
 
             runOnUiThread {
-                val adapter = ArrayAdapter(this, R.layout.item_dropdown, locations)
-                binding.eventLocation.setAdapter(adapter)
+                val locationAdapter = ArrayAdapter(this, R.layout.item_dropdown, locations)
+                binding.eventLocation.setAdapter(locationAdapter)
+                val titleAdapter = ArrayAdapter(this, R.layout.item_dropdown, eventTitleMap.keys.toList())
+                binding.eventTitle.setAdapter(titleAdapter)
             }
 
             val event = eventsDB.getEventWithId(eventId)
