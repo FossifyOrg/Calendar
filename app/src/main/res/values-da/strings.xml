@@ -269,4 +269,5 @@
     <string name="access_level_confidential">Fortroligt</string>
     <string name="access_level_private">Privat</string>
     <string name="allow_alarms_reminders">Appen skal have tilladelse til at planlægge alarmer, ellers vil påmindelserne ikke fungere korrekt.</string>
+    <string name="offline_never_synced">Offline (aldrig synkroniseret)</string>
 </resources>
