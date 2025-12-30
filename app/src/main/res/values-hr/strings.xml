@@ -23,10 +23,10 @@
     <string name="end_before_start">Događaj ne može završiti prije nego što počne</string>
     <string name="event_added">Događaj je uspješno dodan</string>
     <string name="event_updated">Događaj je uspješno ažuriran</string>
-    <string name="filter_events_by_type">Filtriraj događaje po vrsti</string>
+    <string name="filter_events_by_type">Filtriraj događaje po kalendarima</string>
     <string name="please_fill_location">Upiši lokaciju za prikazivanje na karti</string>
     <string name="public_event_notification_text">Jedan događaj nadolazi</string>
-    <string name="everything_filtered_out">Izdvojene su sve vrste događaja</string>
+    <string name="everything_filtered_out">Izdvojio/la si sve kalendare</string>
     <string name="task">Zadatak</string>
     <string name="tasks">Zadaci</string>
     <string name="edit_task">Uredi zadatak</string>
@@ -113,37 +113,37 @@
     <string name="import_events_from_ics">Uvezi događaje iz .ics datoteke</string>
     <string name="import_events_from_ics_pro">Uvezi događaje iz .ics datoteke (Pro)</string>
     <string name="export_events_to_ics">Izvezi događaja u .ics datoteku</string>
-    <string name="default_event_type">Standardna vrsta događaja</string>
+    <string name="default_event_type">Standardni kalendar</string>
     <string name="export_past_events_too">Također izvezi prošle događaje</string>
     <string name="export_tasks">Izvezi zadatke</string>
     <string name="export_past_entries">Također izvezi prijašnje unose</string>
-    <string name="include_event_types">Uključi vrste događaja</string>
+    <string name="include_event_types">Uključi kalendare</string>
     <string name="filename_without_ics">Ime datoteke (bez .ics)</string>
-    <string name="ignore_event_types">Zanemari vrste događaja u datoteci, uvijek koristi standardnu</string>
+    <string name="ignore_event_types">Zanemari kalendare u datoteci, uvijek koristi standardni</string>
     <string name="location">Lokacija</string>
     <string name="description">Opis</string>
     <string name="all_day">Cijeli dan</string>
     <string name="week">Tjedan</string>
     <string name="start_week_with_current_day">Započni tjedan s aktualnim danom</string>
-    <string name="event_types">Vrste događaja</string>
-    <string name="add_new_type">Dodaj novu vrstu</string>
-    <string name="edit_type">Uredi vrstu</string>
-    <string name="type_already_exists">Vrsta s ovim naslovom već postoji</string>
+    <string name="event_types">Kalendari</string>
+    <string name="add_new_type">Dodaj novi kalendar</string>
+    <string name="edit_type">Uredi kalendar</string>
+    <string name="type_already_exists">Kalendar s ovim imenom već postoji</string>
     <string name="color">Boja</string>
-    <string name="regular_event">Redoviti događaj</string>
-    <string name="cannot_delete_default_type">Standardna vrsta događaja se ne može izbrisati</string>
-    <string name="select_event_type">Odaberi vrstu događaja</string>
-    <string name="move_events_into_default">Premjesti zahvaćene događaje u zadanu vrstu događaja</string>
+    <string name="regular_event">Lokalni kalendar</string>
+    <string name="cannot_delete_default_type">Ugrađeni kalendar se ne može izbrisati</string>
+    <string name="select_event_type">Odaberi kalendar</string>
+    <string name="move_events_into_default">Premjesti zahvaćene događaje u standardni kalendar</string>
     <string name="remove_affected_events">Trajno ukloni zahvaćene događaje</string>
     <string name="unsync_caldav_calendar">Za uklanjanje CalDAV kalendara, moraš ga desinkronizirati</string>
     <string name="holidays">Praznici</string>
     <string name="add_holidays">Dodaj praznike</string>
     <string name="national_holidays">Nacionalni praznici</string>
     <string name="religious_holidays">Vjerski praznici</string>
-    <string name="holidays_imported_successfully">Praznici su uspješno uvezeni u tip događaja \"Praznici\"</string>
+    <string name="holidays_imported_successfully">Praznici su uspješno uvezeni u kalendar „Praznici”</string>
     <string name="importing_some_holidays_failed">Uvoz nekih događaja nije uspio</string>
     <string name="importing_holidays_failed">Uvoz praznika nije uspio</string>
-    <string name="manage_event_types">Upravljanje vrstama događaja</string>
+    <string name="manage_event_types">Upravljaj kalendarima</string>
     <string name="start_day_at">Započni dan u</string>
     <string name="end_day_at">Završi dan u</string>
     <string name="midnight_spanning">Prikaži događaje koji se protežu kroz ponoć na gornjoj traci</string>
@@ -161,7 +161,7 @@
     <string name="display_description_or_location">Prikaži opis ili lokaciju</string>
     <string name="delete_all_events">Izbriši sve događaje</string>
     <string name="delete_all_events_and_tasks">Izbriši sve događaje i zadatke</string>
-    <string name="delete_all_events_confirmation">Stvarno želiš izbrisati sve događaje i zadatke? To će ostaviti tvoje vrste događaja i druge postavke netaknutima.</string>
+    <string name="delete_all_events_confirmation">Stvarno želiš izbrisati sve događaje i zadatke? To će ostaviti tvoje kalendare i druge postavke netaknutima.</string>
     <string name="show_a_grid">Prikaži mrežu</string>
     <string name="loop_reminders">Ponavljaj podsjetnike sve dok se ne odbace</string>
     <string name="dim_past_events">Zatamni prošle događaje</string>
@@ -187,7 +187,7 @@
     <string name="highlight_weekends">Istakni vikende pri nekim prikazima</string>
     <string name="highlight_weekends_color">Boja istaknutih vikenda</string>
     <string name="allow_changing_time_zones">Dozvoli mijenanje vremenske zone događaja</string>
-    <string name="manage_quick_filter_event_types">Upravljaj brzom filtru vrsta događaja</string>
+    <string name="manage_quick_filter_event_types">Upravljaj brzom filtru kalendara</string>
     <string name="allow_creating_tasks">Dozvoli stvaranje zadataka</string>
     <string name="select_caldav_calendars">Odaberi kalendare za sinkronizaciju</string>
     <string name="manage_synced_calendars">Upravljanje sinkroniziranim kalendarima</string>
@@ -240,7 +240,7 @@
         <item quantity="other">U idućih %d mjeseci</item>
     </plurals>
     <string name="faq_1_title">Kako mogu ukloniti praznike uvezene putem gumba „Dodaj praznik”\?</string>
-    <string name="faq_1_text">Praznik koji je stvoren na taj način umetnut je u novu vrstu događaja pod nazivom „Praznici”. Idi u Postavke -&gt; Upravljanje vrstama događaja, dugo pritisni zadanu vrstu događaja i izbriši ga odabirom koša za smeće.</string>
+    <string name="faq_1_text">Praznik koji je stvoren na taj način umetnut je u novi kalendar „Praznici”. Idi u Postavke -&gt; Upravljaj kalendarima, dugo pritisni zadani kalendar i izbriši ga odabirom koša za smeće.</string>
     <string name="faq_2_title">Mogu li sinkronizirati događaje putem Google Kalendara ili druge usluge koje podržavaju CalDAV\?</string>
     <string name="faq_2_title_extra">Možda čak i dijeliti kalendare s ljudima\?</string>
     <string name="faq_2_text">Da, jednostavno uključi opciju „CalDAV sinkronizacija” u postavkama aplikacije i odaberi kalendare koje želiš sinkronizirati. Međutim, trebat ćeš stranu aplikaciju koja će posredovati između uređaja i poslužitelja. U slučaju da želiš sinkronizirati Google kalendar, njihova službena aplikacija Kalendar će obaviti posao. Za ostale kalendare ćeš trebati strani adapter za sinkronizaciju, na primjer DAVx5.</string>
@@ -250,8 +250,8 @@
     <string name="faq_4_text">Da, podržava ih. Prema standardnim postavkama svi se događaji stvaraju u tvojoj aktualnoj vremenskoj zoni. Ako želiš promijeniti vremensku zonu događaja, najprije moraš aktivirati birač vremenske zone u postavkama aplikacije, a zatim ga promijeni u ekranu detalja događaja. Standardno je deaktiviran, jer ga većina ljudi neće trebati.</string>
     <string name="faq_5_title">Aplikacija ne prikazuje obavijesti. Zašto?</string>
     <string name="faq_5_text">Provjeri bateriju uređaja i postavke obavijesti ako ništa ne blokira podsjetnike ili ne zaustavlja aplikaciju u pozadini. Također pogledaj &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;. SStranica sadrži korisne savjete.</string>
-    <string name="faq_6_title">Kako mogu promijeniti ili izbrisati postojeću vrstu događaja?</string>
-    <string name="faq_6_text">Oboje možeš učiniti u postavkama aplikacije – Upravljaj vrstama događaja. Pritisni željenu vrstu za mijenjanje oznake i boje ili odaberi željenu vrstu dugim pritiskom i koristi koš za smeće u gornjem izborniku za brisanje.</string>
+    <string name="faq_6_title">Kako mogu promijeniti ili izbrisati postojeći kalendar?</string>
+    <string name="faq_6_text">Oboje možeš učiniti u postavkama aplikacije – Upravljaj kalendarima. Pritisni željeni kalendar za mijenjanje oznake i boje ili odaberi kalendar dugim pritiskom i koristi koš za smeće u gornjem izborniku za brisanje.</string>
     <string name="alarm_stream">Alarm</string>
     <string name="caldav">CalDAV</string>
     <string name="accessibility_previous_month">Idi na prethodni mjesec</string>
@@ -272,4 +272,5 @@
     <string name="access_level_confidential">Povjerljivo</string>
     <string name="show_widget_header">Prikaži zaglavlje</string>
     <string name="allow_alarms_reminders">Morate dopustiti aplikaciji da zakazuje alarme da bi podsjetnici ispravno radili.</string>
+    <string name="offline_never_synced">Offline (nikada sinkroniziran)</string>
 </resources>
