@@ -272,4 +272,5 @@
     <string name="access_level_private">Privāts</string>
     <string name="access_level_confidential">Slepens</string>
     <string name="allow_alarms_reminders">Jāatļauj lietotnei ieplānot brīdinājumus, lai atgādinājumi pienācīgi darbotos.</string>
+    <string name="offline_never_synced">Bezsaistē (nekad nesinhronizē)</string>
 </resources>
