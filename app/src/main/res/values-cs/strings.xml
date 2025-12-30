@@ -272,4 +272,5 @@
     <string name="access_level_private">Soukromé</string>
     <string name="access_level_confidential">Tajné</string>
     <string name="allow_alarms_reminders">Pro správnou funkčnost připomínek musíte aplikaci povolit plánování budíků.</string>
+    <string name="offline_never_synced">Offline (nesynchronizováno)</string>
 </resources>
