@@ -43,7 +43,8 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
     private var dayHeight = 0f
     private var primaryColor = 0
     private var textColor = 0
-    private var weekendsTextColor = 0
+    private var saturdaysTextColor = 0
+    private var sundaysTextColor = 0
     private var weekDaysLetterHeight = 0
     private var eventTitleHeight = 0
     private var currDayOfWeek = 0
@@ -53,7 +54,8 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
     private var showWeekNumbers = false
     private var dimPastEvents = true
     private var dimCompletedTasks = true
-    private var highlightWeekends = false
+    private var highlightSaturdays = false
+    private var highlightSundays = false
     private var isPrintVersion = false
     private var isMonthDayView = false
     private var allEvents = ArrayList<MonthViewEvent>()
@@ -69,11 +71,13 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
     init {
         primaryColor = context.getProperPrimaryColor()
         textColor = context.getProperTextColor()
-        weekendsTextColor = config.highlightWeekendsColor
+        saturdaysTextColor = config.highlightSaturdaysColor
+        sundaysTextColor = config.highlightSundaysColor
         showWeekNumbers = config.showWeekNumbers
         dimPastEvents = config.dimPastEvents
         dimCompletedTasks = config.dimCompletedTasks
-        highlightWeekends = config.highlightWeekends
+        highlightSaturdays = config.highlightSaturdays
+        highlightSundays = config.highlightSundays
 
         smallPadding = resources.displayMetrics.density.toInt()
         val normalTextSize = resources.getDimensionPixelSize(org.fossify.commons.R.dimen.normal_text_size)
@@ -299,8 +303,10 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
             var weekDayLetterPaint = textPaint
             if (i == currDayOfWeek && !isPrintVersion) {
                 weekDayLetterPaint = getColoredPaint(primaryColor)
-            } else if (highlightWeekends && context.isWeekendIndex(i)) {
-                weekDayLetterPaint = getColoredPaint(weekendsTextColor)
+            } else if (highlightSaturdays && context.isSaturdayIndex(i)) {
+                weekDayLetterPaint = getColoredPaint(saturdaysTextColor)
+            } else if (highlightSundays && context.isSundayIndex(i)) {
+                weekDayLetterPaint = getColoredPaint(sundaysTextColor)
             }
             canvas.drawText(dayLetters[i], xPos, weekDaysLetterHeight * 0.7f, weekDayLetterPaint)
         }
@@ -389,7 +395,8 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
     private fun getTextPaint(startDay: DayMonthly): Paint {
         var paintColor = when {
             !isPrintVersion && startDay.isToday -> primaryColor.getContrastColor()
-            highlightWeekends && startDay.isWeekend -> weekendsTextColor
+            highlightSaturdays && startDay.isSaturday -> saturdaysTextColor
+            highlightSundays && startDay.isSunday -> sundaysTextColor
             else -> textColor
         }
 

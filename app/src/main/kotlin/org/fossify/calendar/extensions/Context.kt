@@ -68,7 +68,8 @@ import org.fossify.calendar.helpers.getActivityToOpen
 import org.fossify.calendar.helpers.getNextAutoBackupTime
 import org.fossify.calendar.helpers.getNowSeconds
 import org.fossify.calendar.helpers.getPreviousAutoBackupTime
-import org.fossify.calendar.helpers.isWeekend
+import org.fossify.calendar.helpers.isSaturday
+import org.fossify.calendar.helpers.isSunday
 import org.fossify.calendar.interfaces.CalendarsDao
 import org.fossify.calendar.interfaces.EventsDao
 import org.fossify.calendar.interfaces.TasksDao
@@ -1057,7 +1058,7 @@ fun Context.getProperDayIndexInWeek(date: DateTime): Int {
     return dayIndex
 }
 
-fun Context.isWeekendIndex(dayIndex: Int): Boolean {
+fun Context.isSaturdayIndex(dayIndex: Int): Boolean {
     val firstDayOfWeek = config.firstDayOfWeek
     val shiftedIndex = (dayIndex + firstDayOfWeek) % 7
     val dayOfWeek = if (shiftedIndex == 0) {
@@ -1066,7 +1067,19 @@ fun Context.isWeekendIndex(dayIndex: Int): Boolean {
         shiftedIndex
     }
 
-    return isWeekend(dayOfWeek)
+    return isSaturday(dayOfWeek)
+}
+
+fun Context.isSundayIndex(dayIndex: Int): Boolean {
+    val firstDayOfWeek = config.firstDayOfWeek
+    val shiftedIndex = (dayIndex + firstDayOfWeek) % 7
+    val dayOfWeek = if (shiftedIndex == 0) {
+        DateTimeConstants.SUNDAY
+    } else {
+        shiftedIndex
+    }
+
+    return isSunday(dayOfWeek)
 }
 
 fun Context.isTaskCompleted(event: Event): Boolean {

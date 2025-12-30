@@ -159,9 +159,11 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
     private var mStoredUse24HourFormat = false
     private var mStoredDimPastEvents = true
     private var mStoredDimCompletedTasks = true
-    private var mStoredHighlightWeekends = false
+    private var mStoredHighlightSaturdays = false
+    private var mStoredHighlightSundays = false
     private var mStoredStartWeekWithCurrentDay = false
-    private var mStoredHighlightWeekendsColor = 0
+    private var mStoredHighlightSaturdaysColor = 0
+    private var mStoredHighlightSundaysColor = 0
 
     // search results have endless scrolling, so reaching the top/bottom fetches further results
     private var minFetchedSearchTS = 0L
@@ -252,7 +254,7 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
         super.onResume()
         if (mStoredTextColor != getProperTextColor() || mStoredBackgroundColor != getProperBackgroundColor() || mStoredPrimaryColor != getProperPrimaryColor()
             || mStoredDayCode != Formatter.getTodayCode() || mStoredDimPastEvents != config.dimPastEvents || mStoredDimCompletedTasks != config.dimCompletedTasks
-            || mStoredHighlightWeekends != config.highlightWeekends || mStoredHighlightWeekendsColor != config.highlightWeekendsColor
+            || mStoredHighlightSaturdays != config.highlightSaturdays || mStoredHighlightSundays != config.highlightSundays || mStoredHighlightSaturdaysColor != config.highlightSaturdaysColor || mStoredHighlightSundaysColor != config.highlightSundaysColor
         ) {
             updateViewPager()
         }
@@ -407,8 +409,10 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
             mStoredUse24HourFormat = use24HourFormat
             mStoredDimPastEvents = dimPastEvents
             mStoredDimCompletedTasks = dimCompletedTasks
-            mStoredHighlightWeekends = highlightWeekends
-            mStoredHighlightWeekendsColor = highlightWeekendsColor
+            mStoredHighlightSaturdays = highlightSaturdays
+            mStoredHighlightSaturdaysColor = highlightSaturdaysColor
+            mStoredHighlightSundays = highlightSundays
+            mStoredHighlightSundaysColor = highlightSundaysColor
             mStoredMidnightSpan = showMidnightSpanningEventsAtTop
             mStoredStartWeekWithCurrentDay = startWeekWithCurrentDay
         }

@@ -56,7 +56,8 @@ import org.fossify.calendar.helpers.TYPE_TASK
 import org.fossify.calendar.helpers.WEEK_START_TIMESTAMP
 import org.fossify.calendar.helpers.WeeklyCalendarImpl
 import org.fossify.calendar.helpers.getActivityToOpen
-import org.fossify.calendar.helpers.isWeekend
+import org.fossify.calendar.helpers.isSaturday
+import org.fossify.calendar.helpers.isSunday
 import org.fossify.calendar.interfaces.WeekFragmentListener
 import org.fossify.calendar.interfaces.WeeklyCalendar
 import org.fossify.calendar.models.Event
@@ -118,7 +119,8 @@ class WeekFragment : Fragment(), WeeklyCalendar {
     private var wasExtraHeightAdded = false
     private var dimPastEvents = true
     private var dimCompletedTasks = true
-    private var highlightWeekends = false
+    private var highlightSaturdays = false
+    private var highlightSundays = false
     private var wasScaled = false
     private var isPrintVersion = false
     private var selectedGrid: View? = null
@@ -148,7 +150,8 @@ class WeekFragment : Fragment(), WeeklyCalendar {
         weekDateTime = Formatter.getDateTimeFromTS(weekTimestamp)
         dimPastEvents = config.dimPastEvents
         dimCompletedTasks = config.dimCompletedTasks
-        highlightWeekends = config.highlightWeekends
+        highlightSaturdays = config.highlightSaturdays
+        highlightSundays = config.highlightSundays
         primaryColor = requireContext().getProperPrimaryColor()
         allDayRows.add(HashSet())
     }
@@ -291,7 +294,8 @@ class WeekFragment : Fragment(), WeeklyCalendar {
 
             val textColor = when {
                 !isPrintVersion && todayCode == dayCode -> primaryColor
-                highlightWeekends && isWeekend(curDay.dayOfWeek) -> config.highlightWeekendsColor
+                highlightSaturdays && isSaturday(curDay.dayOfWeek) -> config.highlightSaturdaysColor
+                highlightSundays && isSunday(curDay.dayOfWeek) -> config.highlightSundaysColor
                 isPrintVersion -> resources.getColor(org.fossify.commons.R.color.theme_light_text_color)
                 else -> requireContext().getProperTextColor()
             }

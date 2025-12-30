@@ -225,8 +225,10 @@
     <string name="default_duration">Default duration</string>
     <string name="last_used_one">Last used one</string>
     <string name="other_time">Other time</string>
-    <string name="highlight_weekends">Highlight weekends on some views</string>
-    <string name="highlight_weekends_color">Color of highlighted weekends</string>
+    <string name="highlight_saturdays">Highlight Saturdays on some views</string>
+    <string name="highlight_saturdays_color">Color of highlighted Saturdays</string>
+    <string name="highlight_sundays">Highlight Sundays on some views</string>
+    <string name="highlight_sundays_color">Color of highlighted Sundays</string>
     <string name="allow_changing_time_zones">Allow changing event time zones</string>
     <string name="manage_quick_filter_event_types">Manage quick filter calendars</string>
     <string name="allow_creating_tasks">Allow creating tasks</string>

@@ -284,15 +284,25 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getInt(WEEKLY_VIEW_DAYS, 7)
         set(weeklyViewDays) = prefs.edit().putInt(WEEKLY_VIEW_DAYS, weeklyViewDays).apply()
 
-    var highlightWeekends: Boolean
-        get() = prefs.getBoolean(HIGHLIGHT_WEEKENDS, false)
-        set(highlightWeekends) = prefs.edit().putBoolean(HIGHLIGHT_WEEKENDS, highlightWeekends)
+    var highlightSaturdays: Boolean
+        get() = prefs.getBoolean(HIGHLIGHT_SATURDAYS, false)
+        set(highlightSaturdays) = prefs.edit().putBoolean(HIGHLIGHT_SATURDAYS, highlightSaturdays)
             .apply()
 
-    var highlightWeekendsColor: Int
-        get() = prefs.getInt(HIGHLIGHT_WEEKENDS_COLOR, context.resources.getColor(R.color.red_text))
-        set(highlightWeekendsColor) = prefs.edit()
-            .putInt(HIGHLIGHT_WEEKENDS_COLOR, highlightWeekendsColor).apply()
+    var highlightSaturdaysColor: Int
+        get() = prefs.getInt(HIGHLIGHT_SATURDAYS_COLOR, context.resources.getColor(R.color.red_text))
+        set(highlightSaturdaysColor) = prefs.edit()
+            .putInt(HIGHLIGHT_SATURDAYS_COLOR, highlightSaturdaysColor).apply()
+
+    var highlightSundays: Boolean
+        get() = prefs.getBoolean(HIGHLIGHT_SUNDAYS, false)
+        set(highlightSundays) = prefs.edit().putBoolean(HIGHLIGHT_SUNDAYS, highlightSundays)
+            .apply()
+
+    var highlightSundaysColor: Int
+        get() = prefs.getInt(HIGHLIGHT_SUNDAYS_COLOR, context.resources.getColor(R.color.red_text))
+        set(highlightSundaysColor) = prefs.edit()
+            .putInt(HIGHLIGHT_SUNDAYS_COLOR, highlightSundaysColor).apply()
 
     var lastUsedEventSpan: Int
         get() = prefs.getInt(LAST_USED_EVENT_SPAN, YEAR_SECONDS)

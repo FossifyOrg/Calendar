@@ -3,7 +3,8 @@ package org.fossify.calendar.helpers
 import android.content.Context
 import org.fossify.calendar.extensions.eventsHelper
 import org.fossify.calendar.extensions.getProperDayIndexInWeek
-import org.fossify.calendar.extensions.isWeekendIndex
+import org.fossify.calendar.extensions.isSaturdayIndex
+import org.fossify.calendar.extensions.isSundayIndex
 import org.fossify.calendar.extensions.seconds
 import org.fossify.calendar.interfaces.MonthlyCalendar
 import org.fossify.calendar.models.DayMonthly
@@ -70,7 +71,7 @@ class MonthlyCalendarImpl(val callback: MonthlyCalendar, val context: Context) {
 
             val newDay = curDay.withDayOfMonth(value)
             val dayCode = Formatter.getDayCodeFromDateTime(newDay)
-            val day = DayMonthly(value, isThisMonth, isToday, dayCode, newDay.weekOfWeekyear, ArrayList(), i, context.isWeekendIndex(i))
+            val day = DayMonthly(value, isThisMonth, isToday, dayCode, newDay.weekOfWeekyear, ArrayList(), i, context.isSaturdayIndex(i), context.isSundayIndex(i))
             days.add(day)
             value++
         }

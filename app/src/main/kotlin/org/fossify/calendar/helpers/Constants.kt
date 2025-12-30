@@ -135,8 +135,10 @@ const val EXPORT_TASKS = "export_tasks"
 const val EXPORT_PAST_EVENTS = "export_past_events"
 const val WEEKLY_VIEW_ITEM_HEIGHT_MULTIPLIER = "weekly_view_item_height_multiplier"
 const val WEEKLY_VIEW_DAYS = "weekly_view_days"
-const val HIGHLIGHT_WEEKENDS = "highlight_weekends"
-const val HIGHLIGHT_WEEKENDS_COLOR = "highlight_weekends_color"
+const val HIGHLIGHT_SATURDAYS = "highlight_saturdays"
+const val HIGHLIGHT_SUNDAYS = "highlight_sundays"
+const val HIGHLIGHT_SATURDAYS_COLOR = "highlight_saturdays_color"
+const val HIGHLIGHT_SUNDAYS_COLOR = "highlight_sundays_color"
 const val LAST_USED_EVENT_SPAN = "last_used_event_span"
 const val ALLOW_CREATING_TASKS = "allow_creating_tasks"
 const val WAS_FILTERED_OUT_WARNING_SHOWN = "was_filtered_out_warning_shown"
@@ -295,9 +297,14 @@ const val ACTION_MARK_COMPLETED = "ACTION_MARK_COMPLETED"
 
 fun getNowSeconds() = System.currentTimeMillis() / 1000L
 
-fun isWeekend(dayOfWeek: Int): Boolean {
-    val weekendDays = listOf(DateTimeConstants.SATURDAY, DateTimeConstants.SUNDAY)
-    return dayOfWeek in weekendDays
+fun isSaturday(dayOfWeek: Int): Boolean {
+    val saturDays = listOf(DateTimeConstants.SATURDAY)
+    return dayOfWeek in saturDays
+}
+
+fun isSunday(dayOfWeek: Int): Boolean {
+    val sunDays = listOf(DateTimeConstants.SUNDAY)
+    return dayOfWeek in sunDays
 }
 
 fun getActivityToOpen(isTask: Boolean) = if (isTask) {

@@ -43,8 +43,10 @@ import org.fossify.calendar.helpers.DISPLAY_DESCRIPTION
 import org.fossify.calendar.helpers.DISPLAY_PAST_EVENTS
 import org.fossify.calendar.helpers.EVENTS_LIST_VIEW
 import org.fossify.calendar.helpers.Formatter
-import org.fossify.calendar.helpers.HIGHLIGHT_WEEKENDS
-import org.fossify.calendar.helpers.HIGHLIGHT_WEEKENDS_COLOR
+import org.fossify.calendar.helpers.HIGHLIGHT_SATURDAYS
+import org.fossify.calendar.helpers.HIGHLIGHT_SATURDAYS_COLOR
+import org.fossify.calendar.helpers.HIGHLIGHT_SUNDAYS
+import org.fossify.calendar.helpers.HIGHLIGHT_SUNDAYS_COLOR
 import org.fossify.calendar.helpers.IcsExporter
 import org.fossify.calendar.helpers.LAST_EVENT_REMINDER_MINUTES
 import org.fossify.calendar.helpers.LAST_EVENT_REMINDER_MINUTES_2
@@ -187,8 +189,10 @@ class SettingsActivity : SimpleActivity() {
         setupHourFormat()
         setupAllowCreatingTasks()
         setupStartWeekOn()
-        setupHighlightWeekends()
-        setupHighlightWeekendsColor()
+        setupHighlightSaturdays()
+        setupHighlightSaturdaysColor()
+        setupHighlightSundays()
+        setupHighlightSundaysColor()
         setupDeleteAllEvents()
         setupDisplayDescription()
         setupReplaceDescription()
@@ -508,29 +512,60 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
-    private fun setupHighlightWeekends() = binding.apply {
-        settingsHighlightWeekends.isChecked = config.highlightWeekends
-        settingsHighlightWeekendsColorHolder.beVisibleIf(config.highlightWeekends)
-        settingsHighlightWeekendsHolder.setOnClickListener {
-            settingsHighlightWeekends.toggle()
-            config.highlightWeekends = settingsHighlightWeekends.isChecked
-            settingsHighlightWeekendsColorHolder.beVisibleIf(config.highlightWeekends)
+    private fun setupHighlightSaturdays() = binding.apply {
+        settingsHighlightSaturdays.isChecked = config.highlightSaturdays
+        settingsHighlightSaturdaysColorHolder.beVisibleIf(config.highlightSaturdays)
+        settingsHighlightSaturdaysHolder.setOnClickListener {
+            settingsHighlightSaturdays.toggle()
+            config.highlightSaturdays = settingsHighlightSaturdays.isChecked
+            settingsHighlightSaturdaysColorHolder.beVisibleIf(config.highlightSaturdays)
         }
     }
 
-    private fun setupHighlightWeekendsColor() = binding.apply {
-        settingsHighlightWeekendsColor.setFillWithStroke(
-            config.highlightWeekendsColor,
+    private fun setupHighlightSaturdaysColor() = binding.apply {
+        settingsHighlightSaturdaysColor.setFillWithStroke(
+            config.highlightSaturdaysColor,
             getProperBackgroundColor()
         )
-        settingsHighlightWeekendsColorHolder.setOnClickListener {
+        settingsHighlightSaturdaysColorHolder.setOnClickListener {
             ColorPickerDialog(
                 activity = this@SettingsActivity,
-                color = config.highlightWeekendsColor
+                color = config.highlightSaturdaysColor
             ) { wasPositivePressed, color ->
                 if (wasPositivePressed) {
-                    config.highlightWeekendsColor = color
-                    settingsHighlightWeekendsColor.setFillWithStroke(
+                    config.highlightSaturdaysColor = color
+                    settingsHighlightSaturdaysColor.setFillWithStroke(
+                        color,
+                        getProperBackgroundColor()
+                    )
+                }
+            }
+        }
+    }
+
+    private fun setupHighlightSundays() = binding.apply {
+        settingsHighlightSundays.isChecked = config.highlightSundays
+        settingsHighlightSundaysColorHolder.beVisibleIf(config.highlightSundays)
+        settingsHighlightSundaysHolder.setOnClickListener {
+            settingsHighlightSundays.toggle()
+            config.highlightSundays = settingsHighlightSundays.isChecked
+            settingsHighlightSundaysColorHolder.beVisibleIf(config.highlightSundays)
+        }
+    }
+
+    private fun setupHighlightSundaysColor() = binding.apply {
+        settingsHighlightSundaysColor.setFillWithStroke(
+            config.highlightSundaysColor,
+            getProperBackgroundColor()
+        )
+        settingsHighlightSundaysColorHolder.setOnClickListener {
+            ColorPickerDialog(
+                activity = this@SettingsActivity,
+                color = config.highlightSundaysColor
+            ) { wasPositivePressed, color ->
+                if (wasPositivePressed) {
+                    config.highlightSundaysColor = color
+                    settingsHighlightSundaysColor.setFillWithStroke(
                         color,
                         getProperBackgroundColor()
                     )
@@ -1154,8 +1189,10 @@ class SettingsActivity : SimpleActivity() {
                 put(SNOOZE_TIME, config.snoozeTime)
                 put(USE_24_HOUR_FORMAT, config.use24HourFormat)
                 put(FIRST_DAY_OF_WEEK, config.firstDayOfWeek)
-                put(HIGHLIGHT_WEEKENDS, config.highlightWeekends)
-                put(HIGHLIGHT_WEEKENDS_COLOR, config.highlightWeekendsColor)
+                put(HIGHLIGHT_SATURDAYS, config.highlightSaturdays)
+                put(HIGHLIGHT_SATURDAYS_COLOR, config.highlightSaturdaysColor)
+                put(HIGHLIGHT_SUNDAYS, config.highlightSundays)
+                put(HIGHLIGHT_SUNDAYS_COLOR, config.highlightSundaysColor)
                 put(ALLOW_CREATING_TASKS, config.allowCreatingTasks)
             }
 
@@ -1270,8 +1307,10 @@ class SettingsActivity : SimpleActivity() {
                 USE_24_HOUR_FORMAT -> config.use24HourFormat = value.toBoolean()
                 SUNDAY_FIRST -> config.firstDayOfWeek = DateTimeConstants.SUNDAY
                 FIRST_DAY_OF_WEEK -> config.firstDayOfWeek = value.toInt()
-                HIGHLIGHT_WEEKENDS -> config.highlightWeekends = value.toBoolean()
-                HIGHLIGHT_WEEKENDS_COLOR -> config.highlightWeekendsColor = value.toInt()
+                HIGHLIGHT_SATURDAYS -> config.highlightSaturdays = value.toBoolean()
+                HIGHLIGHT_SATURDAYS_COLOR -> config.highlightSaturdaysColor = value.toInt()
+                HIGHLIGHT_SUNDAYS -> config.highlightSundays = value.toBoolean()
+                HIGHLIGHT_SUNDAYS_COLOR -> config.highlightSundaysColor = value.toInt()
                 ALLOW_CREATING_TASKS -> config.allowCreatingTasks = value.toBoolean()
             }
         }

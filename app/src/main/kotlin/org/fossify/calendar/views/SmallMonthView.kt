@@ -8,7 +8,8 @@ import android.util.AttributeSet
 import android.view.View
 import org.fossify.calendar.R
 import org.fossify.calendar.extensions.config
-import org.fossify.calendar.extensions.isWeekendIndex
+import org.fossify.calendar.extensions.isSaturdayIndex
+import org.fossify.calendar.extensions.isSundayIndex
 import org.fossify.calendar.models.DayYearly
 import org.fossify.commons.extensions.adjustAlpha
 import org.fossify.commons.extensions.getProperPrimaryColor
@@ -21,10 +22,12 @@ class SmallMonthView(context: Context, attrs: AttributeSet, defStyle: Int) : Vie
     private var todayCirclePaint: Paint
     private var dayWidth = 0f
     private var textColor = 0
-    private var weekendsTextColor = 0
+    private var saturdaysTextColor = 0
+    private var sundaysTextColor = 0
     private var days = 31
     private var isLandscape = false
-    private var highlightWeekends = false
+    private var highlightSaturdays = false
+    private var highlightSundays = false
     private var isPrintVersion = false
     private var mEvents: ArrayList<DayYearly>? = null
 
@@ -58,8 +61,10 @@ class SmallMonthView(context: Context, attrs: AttributeSet, defStyle: Int) : Vie
 
         val baseColor = context.getProperTextColor()
         textColor = baseColor.adjustAlpha(MEDIUM_ALPHA)
-        weekendsTextColor = context.config.highlightWeekendsColor.adjustAlpha(MEDIUM_ALPHA)
-        highlightWeekends = context.config.highlightWeekends
+        saturdaysTextColor = context.config.highlightSaturdaysColor.adjustAlpha(MEDIUM_ALPHA)
+        sundaysTextColor = context.config.highlightSundaysColor.adjustAlpha(MEDIUM_ALPHA)
+        highlightSaturdays = context.config.highlightSaturdays
+        highlightSundays = context.config.highlightSundays
 
         paint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
             color = textColor
@@ -90,7 +95,7 @@ class SmallMonthView(context: Context, attrs: AttributeSet, defStyle: Int) : Vie
         for (y in 1..6) {
             for (x in 1..7) {
                 if (curId in 1..days) {
-                    val textPaint = getPaint(curId, x, highlightWeekends)
+                    val textPaint = getPaint(curId, x, highlightSaturdays, highlightSundays)
                     val centerX = x * dayWidth - dayWidth / 2
                     val centerY = y * dayWidth - dayWidth / 2
                     val baselineY = centerY - (fm.ascent + fm.descent) / 2
@@ -105,15 +110,19 @@ class SmallMonthView(context: Context, attrs: AttributeSet, defStyle: Int) : Vie
         }
     }
 
-    private fun getPaint(curId: Int, weekDay: Int, highlightWeekends: Boolean): Paint {
+    private fun getPaint(curId: Int, weekDay: Int, highlightSaturdays: Boolean, highlightSundays: Boolean): Paint {
         val colors = mEvents?.get(curId)?.eventColors ?: HashSet()
         if (colors.isNotEmpty()) {
             val curPaint = Paint(paint)
             curPaint.color = colors.first()
             return curPaint
-        } else if (highlightWeekends && context.isWeekendIndex(weekDay - 1)) {
+        } else if (highlightSaturdays && context.isSaturdayIndex(weekDay - 1)) {
             val curPaint = Paint(paint)
-            curPaint.color = weekendsTextColor
+            curPaint.color = saturdaysTextColor
+            return curPaint
+        } else if (highlightSundays && context.isSundayIndex(weekDay - 1)) {
+            val curPaint = Paint(paint)
+            curPaint.color = sundaysTextColor
             return curPaint
         }
 

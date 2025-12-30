@@ -120,8 +120,10 @@ class MyWidgetMonthlyProvider : AppWidgetProvider() {
         for (i in 0 until len) {
             val day = days[i]
 
-            val dayTextColor = if (context.config.highlightWeekends && day.isWeekend) {
-                context.config.highlightWeekendsColor
+            val dayTextColor = if (context.config.highlightSaturdays && day.isSaturday) {
+                context.config.highlightSaturdaysColor
+            } else if (context.config.highlightSundays && day.isSunday) {
+                context.config.highlightSundaysColor
             } else {
                 textColor
             }
@@ -240,8 +242,10 @@ class MyWidgetMonthlyProvider : AppWidgetProvider() {
 
         for (i in 0..6) {
             val id = resources.getIdentifier("label_$i", "id", packageName)
-            val dayTextColor = if (context.config.highlightWeekends && context.isWeekendIndex(i)) {
-                context.config.highlightWeekendsColor
+            val dayTextColor = if (context.config.highlightSaturdays && context.isSaturdayIndex(i)) {
+                context.config.highlightSaturdaysColor
+            } else if (context.config.highlightSundays && context.isSundayIndex(i)) {
+                context.config.highlightSundaysColor
             } else {
                 textColor
             }

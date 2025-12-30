@@ -16,7 +16,8 @@ import org.fossify.calendar.databinding.TopNavigationBinding
 import org.fossify.calendar.databinding.WidgetConfigMonthlyBinding
 import org.fossify.calendar.extensions.addDayEvents
 import org.fossify.calendar.extensions.config
-import org.fossify.calendar.extensions.isWeekendIndex
+import org.fossify.calendar.extensions.isSaturdayIndex
+import org.fossify.calendar.extensions.isSundayIndex
 import org.fossify.calendar.helpers.MonthlyCalendarImpl
 import org.fossify.calendar.helpers.MyWidgetMonthlyProvider
 import org.fossify.calendar.interfaces.MonthlyCalendar
@@ -174,8 +175,10 @@ class WidgetMonthlyConfigureActivity : SimpleActivity(), MonthlyCalendar {
 
             for (i in 0 until daysLength) {
                 val day = mDays!![i]
-                val dayTextColor = if (config.highlightWeekends && day.isWeekend) {
-                    config.highlightWeekendsColor
+                val dayTextColor = if (config.highlightSaturdays && day.isSaturday) {
+                    config.highlightSaturdaysColor
+                } else if (config.highlightSundays && day.isSunday) {
+                    config.highlightSundaysColor
                 } else {
                     mTextColor
                 }
@@ -222,11 +225,14 @@ class WidgetMonthlyConfigureActivity : SimpleActivity(), MonthlyCalendar {
     }
 
     private fun updateLabels() {
-        val weekendsTextColor = config.highlightWeekendsColor
+        val saturdaysTextColor = config.highlightSaturdaysColor
+        val sundaysTextColor = config.highlightSundaysColor
         binding.configCalendar.firstRow.apply {
             arrayOf(label0, label1, label2, label3, label4, label5, label6).forEachIndexed { index, textView ->
-                val textColor = if (config.highlightWeekends && isWeekendIndex(index)) {
-                    weekendsTextColor
+                val textColor = if (config.highlightSaturdays && isSaturdayIndex(index)) {
+                    saturdaysTextColor
+                } else if (config.highlightSundays && isSundayIndex(index)) {
+                    sundaysTextColor
                 } else {
                     mTextColor
                 }

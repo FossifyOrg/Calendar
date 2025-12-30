@@ -8,5 +8,6 @@ data class DayMonthly(
     val weekOfYear: Int,
     var dayEvents: ArrayList<Event>,
     var indexOnMonthView: Int,
-    var isWeekend: Boolean
+    var isSaturday: Boolean,
+    var isSunday: Boolean
 )
