@@ -181,7 +181,7 @@
     <string name="default_start_time">Standard starttid</string>
     <string name="next_full_hour">Nästa heltimme</string>
     <string name="current_time">Aktuell tid</string>
-    <string name="default_duration">Standard varaktighet</string>
+    <string name="default_duration">Standardlängd</string>
     <string name="last_used_one">Senast använda</string>
     <string name="other_time">Annan tid</string>
     <string name="highlight_weekends">Markera helger i vissa vyer</string>
@@ -269,4 +269,5 @@
     <string name="access_level_public">Offentlig</string>
     <string name="access_level_private">Privat</string>
     <string name="allow_alarms_reminders">Du måste tillåta att appen schemalägger alarm för att påminnelser ska fungera korrekt.</string>
+    <string name="offline_never_synced">Offline (synkroniseras aldrig)</string>
 </resources>
