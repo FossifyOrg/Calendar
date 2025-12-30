@@ -275,4 +275,5 @@
     <string name="access_level_private">Приватное</string>
     <string name="access_level_confidential">Конфиденциальное</string>
     <string name="allow_alarms_reminders">Необходимо разрешить приложению устанавливать будильники, чтобы напоминания работали должным образом.</string>
+    <string name="offline_never_synced">Автономный (не синхронизируется)</string>
 </resources>
