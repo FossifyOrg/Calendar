@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Location suggestions in event editor using recently used locations ([#393])
+
 ### Changed
 - Unified the local and synchronized calendar pickers in event editor ([#629])
 
@@ -182,6 +185,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#217]: https://github.com/FossifyOrg/Calendar/issues/217
 [#262]: https://github.com/FossifyOrg/Calendar/issues/262
 [#337]: https://github.com/FossifyOrg/Calendar/issues/337
+[#393]: https://github.com/FossifyOrg/Calendar/issues/393
 [#394]: https://github.com/FossifyOrg/Calendar/issues/394
 [#484]: https://github.com/FossifyOrg/Calendar/issues/484
 [#486]: https://github.com/FossifyOrg/Calendar/issues/486
