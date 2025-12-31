@@ -272,4 +272,5 @@
     <string name="access_level_public">Público</string>
     <string name="access_level_confidential">Confidencial</string>
     <string name="allow_alarms_reminders">Debes permitir que la app programe alarmas para que los recordatorios funcionen correctamente.</string>
+    <string name="offline_never_synced">Fuera de línea (no sincronizado)</string>
 </resources>
