@@ -50,7 +50,7 @@
                 android:textCursorDrawable="@null"
                 android:textSize="@dimen/day_text_size" />
 
-            <org.fossify.commons.views.MyEditText
+            <org.fossify.commons.views.MyAutoCompleteTextView
                 android:id="@+id/event_location"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

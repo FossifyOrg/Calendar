@@ -18,6 +18,7 @@ import android.text.method.LinkMovementMethod
 import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.EditorInfo
+import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.RelativeLayout
 import androidx.core.graphics.drawable.toDrawable
@@ -229,8 +230,13 @@ class EventActivity : SimpleActivity() {
 
         val eventId = intent.getLongExtra(EVENT_ID, 0L)
         ensureBackgroundThread {
-            mStoredCalendars =
-                calendarsDB.getCalendars().toMutableList() as ArrayList<CalendarEntity>
+            val locations = eventsDB.getAllLocations()
+
+            runOnUiThread {
+                val adapter = ArrayAdapter(this, R.layout.item_dropdown, locations)
+                binding.eventLocation.setAdapter(adapter)
+            }
+
             val event = eventsDB.getEventWithId(eventId)
             if (eventId != 0L && event == null) {
                 hideKeyboard()
@@ -238,6 +244,8 @@ class EventActivity : SimpleActivity() {
                 return@ensureBackgroundThread
             }
 
+            mStoredCalendars =
+                calendarsDB.getCalendars().toMutableList() as ArrayList<CalendarEntity>
             val localCalendar =
                 mStoredCalendars.firstOrNull { it.id == config.lastUsedLocalCalendarId }
             runOnUiThread {
