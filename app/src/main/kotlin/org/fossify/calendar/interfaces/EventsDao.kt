@@ -19,7 +19,7 @@ interface EventsDao {
     @Query("SELECT * FROM events WHERE type = $TYPE_TASK")
     fun getAllTasks(): List<Event>
 
-    @Query("SELECT DISTINCT location FROM events")
+    @Query("SELECT DISTINCT location FROM events ORDER BY location COLLATE NOCASE")
     fun getAllLocations(): List<String>
 
     @Query("SELECT * FROM events WHERE event_type IN (:calendarIds) AND type = $TYPE_EVENT")
