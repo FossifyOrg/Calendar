@@ -269,4 +269,5 @@
     <string name="access_level_confidential">Confidencial</string>
     <string name="show_widget_header">Amosar encabezamento</string>
     <string name="allow_alarms_reminders">Debe permitir que a app programe alarmas para que os recordatorios funcionen axeitadamente.</string>
+    <string name="offline_never_synced">Fóra de liña (non sincronizado)</string>
 </resources>
