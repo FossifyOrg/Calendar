@@ -1,0 +1,9 @@
+Added:
+
+• Location suggestions in event editor using recently used locations 
+
+Changed:
+
+• Unified the local and synchronized calendar pickers in event editor 
+• Updated translations
+
