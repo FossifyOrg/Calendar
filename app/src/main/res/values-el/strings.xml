@@ -23,7 +23,7 @@
     <string name="end_before_start">Η εκδήλωση δεν μπορεί να τερματιστεί νωρίτερα από την έναρξή της</string>
     <string name="event_added">Η εκδήλωση προστέθηκε με επιτυχία</string>
     <string name="event_updated">Η εκδήλωση ενημερώθηκε με επιτυχία</string>
-    <string name="filter_events_by_type">Φιλτράρισμα ανά τύπο</string>
+    <string name="filter_events_by_type">Φιλτράρισμα συμβάντων ανά ημερολόγιο</string>
     <string name="please_fill_location">Συμπληρώστε μια τοποθεσία που θα εμφανίζεται στο χάρτη</string>
     <string name="public_event_notification_text">Μια εκδήλωση είναι επερχόμενη</string>
     <string name="everything_filtered_out">Έχετε φιλτράρει όλα τα είδη συμβάντων</string>
