@@ -278,4 +278,5 @@
     <string name="access_level_private">Príobháideach</string>
     <string name="access_level_confidential">Rúnda</string>
     <string name="allow_alarms_reminders">Ní mór duit ligean don aip aláraim a sceidealú le go n-oibreoidh meabhrúcháin i gceart.</string>
+    <string name="offline_never_synced">As líne (ní shioncronaíodh riamh)</string>
 </resources>
