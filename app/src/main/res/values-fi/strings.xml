@@ -23,10 +23,10 @@
     <string name="end_before_start">Tapahtuma ei voi päättyä ennen kuin se alkaa</string>
     <string name="event_added">Tapahtuma lisättiin onnistuneesti</string>
     <string name="event_updated">Tapahtuma päivitettiin onnistuneesti</string>
-    <string name="filter_events_by_type">Suodata tapahtumat tyypeittäin</string>
+    <string name="filter_events_by_type">Suodata tapahtumia kalentereittain</string>
     <string name="please_fill_location">Täytä sijainti, joka näytetään kartalla</string>
     <string name="public_event_notification_text">Tapahtuma tulossa</string>
-    <string name="everything_filtered_out">Olet suodattanut pois kaikki tapahtumatyypit</string>
+    <string name="everything_filtered_out">Olet suodattanut pois kaikki kalenterit</string>
     <string name="task">Tehtävä</string>
     <string name="tasks">Tehtävät</string>
     <string name="edit_task">Muokkaa tehtävää</string>
@@ -113,37 +113,37 @@
     <string name="import_events_from_ics">Tuo tapahtumat .ics-tiedostosta</string>
     <string name="import_events_from_ics_pro">Tuo tapahtumat .ics-tiedostosta (Pro)</string>
     <string name="export_events_to_ics">Vie tapahtumat .ics-tiedostoon</string>
-    <string name="default_event_type">Oletus tapahtuma tyyppi</string>
+    <string name="default_event_type">Oletuskalenteri</string>
     <string name="export_past_events_too">Vie myös menneet tapahtumat</string>
     <string name="export_tasks">Vie tehtävät</string>
     <string name="export_past_entries">Vie myös menneet tapahtumat</string>
-    <string name="include_event_types">Sisällytä tapahtumatyypit</string>
+    <string name="include_event_types">Sisällytä kalenterit</string>
     <string name="filename_without_ics">Tiedostonimi (ilman .ics)</string>
-    <string name="ignore_event_types">Ohita tiedostoon tallennetut tapahtumatyypit, käytä aina oletusta</string>
+    <string name="ignore_event_types">Ohita tiedostoon tallennetut kalenterit, käytä aina oletusta</string>
     <string name="location">Sijainti</string>
     <string name="description">Kuvaus</string>
     <string name="all_day">Koko päivä</string>
     <string name="week">Viikko</string>
     <string name="start_week_with_current_day">Aloita viikko kuluvasta päivästä</string>
-    <string name="event_types">Tapahtuma tyypit</string>
-    <string name="add_new_type">Lisää uusi tyyppi</string>
-    <string name="edit_type">Muokkaa tyyppiä</string>
-    <string name="type_already_exists">Tyyppi tällä otsikolla on jo olemassa</string>
+    <string name="event_types">Kalenterit</string>
+    <string name="add_new_type">Luo uusi kalenteri</string>
+    <string name="edit_type">Muokkaa kalenteria</string>
+    <string name="type_already_exists">Tällä otsikolla on jo olemassa kalenteri</string>
     <string name="color">Väri</string>
-    <string name="regular_event">Säännöllinen tapahtuma</string>
-    <string name="cannot_delete_default_type">Oletustapahtumatyyppiä ei voi poistaa</string>
-    <string name="select_event_type">Valitse tapahtumatyyppi</string>
-    <string name="move_events_into_default">Siirrä tapahtumat, joihin tapahtuma liittyy, oletustapahtumatyyppiin</string>
+    <string name="regular_event">Paikallinen kalenteri</string>
+    <string name="cannot_delete_default_type">Sisäänrakennettua kalenteria ei voi poistaa</string>
+    <string name="select_event_type">Valitse kalenteri</string>
+    <string name="move_events_into_default">Siirrä asiaan liittyvät tapahtumat oletuskalenteriin</string>
     <string name="remove_affected_events">Poista pysyvästi vaikutusalaan kuuluvat tapahtumat</string>
     <string name="unsync_caldav_calendar">Jotta voit poistaa CalDAV kalenterin, sen synkronointi täytyy poistaa käytöstä</string>
     <string name="holidays">Lomat</string>
     <string name="add_holidays">Lisää juhlapäivät</string>
     <string name="national_holidays">Kansalliset juhlapäivät</string>
     <string name="religious_holidays">Uskonnoliset juhlapäivät</string>
-    <string name="holidays_imported_successfully">Juhlapäivät on onnistuneesti tuotu \"Juhlapäivät\" tapahtumatyyppeihin</string>
+    <string name="holidays_imported_successfully">Juhlapäivät ovat tuotu onnistuneesti \"Juhlapäivät\" kalenteriin</string>
     <string name="importing_some_holidays_failed">Joidenkin tapahtumien tuominen epäonnistui</string>
     <string name="importing_holidays_failed">Juhlapäivien tuominen epäonnistui</string>
-    <string name="manage_event_types">Hallitse tapahtumatyyppejä</string>
+    <string name="manage_event_types">Hallitse kalentereita</string>
     <string name="start_day_at">Päivä alkaa klo</string>
     <string name="end_day_at">Päivä loppuu klo</string>
     <string name="midnight_spanning">Näytä keskiyön yli jatkuvat tapahtumat ylärivillä</string>
@@ -161,7 +161,7 @@
     <string name="display_description_or_location">Näytä kuvaus tai sijainti</string>
     <string name="delete_all_events">Poista kaikki tapahtumat</string>
     <string name="delete_all_events_and_tasks">Poista tapahtumat ja tehtävät</string>
-    <string name="delete_all_events_confirmation">Haluatko varmasti poistaa kaikki tapahtumat ja tehtävät? Tämä jättää tapahtumatyypisi ja muut asetukset ennalleen.</string>
+    <string name="delete_all_events_confirmation">Haluatko varmasti poistaa kaikki tapahtumat ja tehtävät? Tämä jättää kalenterisi ja muut asetuksesi ennalleen.</string>
     <string name="show_a_grid">Näytä ruudukko</string>
     <string name="loop_reminders">Toista muistutuksia, kunnes ne hylätään</string>
     <string name="dim_past_events">Himmennä menneet tapahtumat</string>
@@ -188,7 +188,7 @@
     <string name="highlight_weekends">Korosta viikonloppuja joistakin näkymistä</string>
     <string name="highlight_weekends_color">Korostettujen viikonloppujen väri</string>
     <string name="allow_changing_time_zones">Salli tapahtumien aikavyöhykkeiden muuttaminen</string>
-    <string name="manage_quick_filter_event_types">Hallitse pikasuodatuksen tapahtumatyyppejä</string>
+    <string name="manage_quick_filter_event_types">Hallitse pikasuodatuksen kalentereita</string>
     <string name="allow_creating_tasks">Salli tehtävien luonti</string>
     <string name="select_caldav_calendars">Valitse synkronoitavat kalenterit</string>
     <string name="manage_synced_calendars">Hallitse synkronoituja kalentereita</string>
@@ -238,7 +238,7 @@
         <item quantity="other">Tulevien %d kuukauden aikana</item>
     </plurals>
     <string name="faq_1_title">Kuinka voin poistaa \"Lisää juhlapäivät\"-painikkeella tuotuja juhlapäiviä\?</string>
-    <string name="faq_1_text">Näin luodut juhlapäivät lisätään uuteen tapahtumatyyppiin nimeltä \"Juhlapäivät\". Siirry kohtaan Asetukset -&gt; Hallitse tapahtumatyyppejä, paina pitkään annettua tapahtuman tyyppiä ja poista se valitsemalla roskakorin kuvaa.</string>
+    <string name="faq_1_text">Tällä tavoin luodut juhlapäivät lisätään uuteen kalenteriin nimeltä \"Juhlapäivät\". Voit poistaa kalenterin kohdassa Asetuket -&gt; Hallitse kalentereita, painamalla sitä pitkään ja valitsemalla sitten roskakorin.</string>
     <string name="faq_2_title">Voinko synkronoida tapahtumani Google-kalenterin tai muun CalDAVia tukevan palvelun kautta\?</string>
     <string name="faq_2_title_extra">Haluatko mahdollisesti jakaa kalentereita muille\?</string>
     <string name="faq_2_text">Kyllä, vaihda vain CalDAV synkronointi sovelluksen asetuksissa ja valitse synkronoitavat kalenterit. Tarvitset kuitenkin jonkin kolmannen osapuolen sovelluksen, joka hoitaa laitteen ja palvelinten välisen synkronoinnin. Jos haluat synkronoida Google-kalenterin, heidän virallinen Kalenteri-sovelluksensa tekee työn. Muita kalentereita varten tarvitset kolmannen osapuolen synkronointisovittimen, esimerkiksi DAVx5.</string>
@@ -248,8 +248,8 @@
     <string name="faq_4_text">Kyllä. Oletuksena kaikki tapahtumat luodaan nykyiselle aikavyöhykkeellesi. Jos haluat muuttaa tapahtuman aikavyöhykettä, sinun on ensin otettava käyttöön aikavyöhykkeen valitsin sovelluksen asetuksissa ja muutettava se sitten Tapahtuman tiedot-näytössä. Se on oletusarvoisesti pois käytöstä, koska useimmat ihmiset eivät tarvitse sitä.</string>
     <string name="faq_5_title">Miksi sovellus ei näytä ilmoituksia\?</string>
     <string name="faq_5_text">Tarkista laitteesi akku- ja ilmoitusasetukset siltä varalta että jokin asetus estää ilmoitukset tai sulkee sovelluksen taustalla. Katso myös vinkit sivustolta &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;.</string>
-    <string name="faq_6_title">Kuinka voin muokata tai poistaa tapahtumatyypin?</string>
-    <string name="faq_6_text">Voit muokata tai poistaa tapahtumatyyppejä sovelluksen asetuksissa kohdasta Hallitse taphtumatyyppejä. Klikkaa haluamaasi tyyppiä vaihtaaksesi otsikkoa tai väriä. Tapahtumatyypin voit poistaa painamalla sitä listssa pitkään ja klikkamaalla yläpalkkiin ilmestyvää roskakorikuvaketta.</string>
+    <string name="faq_6_title">Kuinka voin muokata olemassaolevaa kalenteria tai poistaa sen?</string>
+    <string name="faq_6_text">Voit muokata tai poistaa kalentereita sovelluksen asetuksissa kohdasta Hallitse kalentereita. Klikkaa haluamaasi tyyppiä vaihtaaksesi otsikkoa tai väriä. Voit poistaa kalenterin painamalla sitä pitkään ja klikkamaalla sitten yläpalkkiin ilmestyvää roskakorikuvaketta.</string>
     <string name="caldav">CalDAV</string>
     <string name="default_calendar_color">Kalenterin oletusväri</string>
     <string name="event_color">Tapahtuman väri</string>
@@ -269,4 +269,5 @@
     <string name="access_level_private">Yksityinen</string>
     <string name="access_level_confidential">Luottamuksellinen</string>
     <string name="allow_alarms_reminders">Sinun on annettava sovelluksen asettaa ajastettuja hälytyksiä, jotta muistutukset voivat toimia kunnolla.</string>
+    <string name="offline_never_synced">Offline (ei synkronoida koskaan)</string>
 </resources>
