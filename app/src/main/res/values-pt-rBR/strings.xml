@@ -272,4 +272,5 @@
     <string name="access_level_private">Privado</string>
     <string name="access_level_confidential">Confidencial</string>
     <string name="allow_alarms_reminders">Você deve permitir que o aplicativo agende alarmes para que os lembretes funcionem corretamente.</string>
+    <string name="offline_never_synced">Desligado (nunca sincronizado)</string>
 </resources>
