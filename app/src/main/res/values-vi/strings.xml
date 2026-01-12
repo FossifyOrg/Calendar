@@ -10,8 +10,8 @@
     <string name="birthdays_added">Thêm các ngày sinh nhật thành công</string>
     <string name="add_birthdays_automatically">Tự động thêm các ngày sinh nhật mới</string>
     <string name="anniversaries">Ngày kỷ niệm</string>
-    <string name="add_anniversaries">Thêm các ngày kỷ niệm của danh bạ</string>
-    <string name="add_birthdays">Thêm các ngày sinh nhật của danh bạ</string>
+    <string name="add_anniversaries">Thêm ngày kỷ niệm của liên hệ</string>
+    <string name="add_birthdays">Thêm sinh nhật của liên hệ</string>
     <string name="no_new_anniversaries">Không có ngày kỷ niệm nào mới được tìm thấy</string>
     <string name="anniversaries_added">Thêm các ngày kỷ niệm thành công</string>
     <string name="add_anniversaries_automatically">Tự động thêm các ngày kỷ niệm</string>
