@@ -1,2 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_launcher_name">ساڵنامە</string>
+    <string name="change_view">گۆڕینی بینین</string>
+    <string name="daily_view">پیشاندانی ڕۆژانە</string>
+    <string name="weekly_view">پیشاندانی حەفتانە</string>
+    <string name="monthly_view">پیشاندانی مانگانە</string>
+    <string name="yearly_view">پیشاندانی ساڵانە</string>
+</resources>
