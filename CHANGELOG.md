@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
+- Added support for custom fonts
 - Location suggestions in event editor using recently used locations ([#393])
 
 ### Changed

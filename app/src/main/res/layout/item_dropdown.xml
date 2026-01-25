@@ -14,7 +14,7 @@
      limitations under the License.
 -->
 <!-- Copied from simple_list_item_1.xml, textColor is needed in light mode-->
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+<org.fossify.commons.views.MyTextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@android:id/text1"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"

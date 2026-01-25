@@ -16,6 +16,7 @@ import org.fossify.calendar.models.DayMonthly
 import org.fossify.calendar.models.Event
 import org.fossify.calendar.models.MonthViewEvent
 import org.fossify.commons.extensions.*
+import org.fossify.commons.helpers.FontHelper
 import org.fossify.commons.helpers.HIGHER_ALPHA
 import org.fossify.commons.helpers.LOWER_ALPHA
 import org.fossify.commons.helpers.MEDIUM_ALPHA
@@ -83,6 +84,7 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
             color = textColor
             textSize = normalTextSize.toFloat()
             textAlign = Paint.Align.CENTER
+            typeface = FontHelper.getTypeface(context)
         }
 
         eventDotPaint = Paint(Paint.ANTI_ALIAS_FLAG)
@@ -91,6 +93,7 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
             alpha = 175
             textSize = normalTextSize.toFloat()
             textAlign = Paint.Align.CENTER
+            typeface = FontHelper.getTypeface(context)
         }
 
         gridPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
@@ -109,6 +112,7 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
             color = textColor
             textSize = smallerTextSize.toFloat()
             textAlign = Paint.Align.LEFT
+            typeface = FontHelper.getTypeface(context)
         }
 
         initWeekDayLetters()
