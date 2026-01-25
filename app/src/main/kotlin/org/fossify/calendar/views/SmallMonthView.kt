@@ -13,6 +13,7 @@ import org.fossify.calendar.models.DayYearly
 import org.fossify.commons.extensions.adjustAlpha
 import org.fossify.commons.extensions.getProperPrimaryColor
 import org.fossify.commons.extensions.getProperTextColor
+import org.fossify.commons.helpers.FontHelper
 import org.fossify.commons.helpers.MEDIUM_ALPHA
 
 // used for displaying months at Yearly view
@@ -65,6 +66,7 @@ class SmallMonthView(context: Context, attrs: AttributeSet, defStyle: Int) : Vie
             color = textColor
             textSize = resources.getDimensionPixelSize(R.dimen.year_view_day_text_size).toFloat()
             textAlign = Paint.Align.CENTER
+            typeface = FontHelper.getTypeface(context)
         }
 
         todayCirclePaint = Paint(paint)

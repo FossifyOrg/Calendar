@@ -60,7 +60,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Event title" />
 
-        <android.widget.TextView
+        <org.fossify.commons.views.MyTextView
             android:id="@+id/event_item_time"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -76,7 +76,7 @@
             app:layout_constraintTop_toBottomOf="@+id/event_item_title"
             tools:text="13:00" />
 
-        <android.widget.TextView
+        <org.fossify.commons.views.MyTextView
             android:id="@+id/event_item_description"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
