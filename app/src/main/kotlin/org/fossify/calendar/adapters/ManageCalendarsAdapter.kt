@@ -5,7 +5,7 @@ import android.view.Gravity
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
-import android.widget.PopupMenu
+import androidx.appcompat.widget.PopupMenu
 import org.fossify.calendar.R
 import org.fossify.calendar.activities.SimpleActivity
 import org.fossify.calendar.databinding.ItemCalendarBinding
