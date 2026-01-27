@@ -27,6 +27,38 @@ jobs:
         working-directory: ./.github/workflows/holiday-generator
         run: "npm install && npm start"
 
+      - name: Install keep-a-changelog parser
+        run: npm install keep-a-changelog@2.6.2
+
+      - name: Update changelog
+        uses: actions/github-script@ed597411d8f924073f98dfc5c65a23a2325f34cd
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+            const { parser } = require('keep-a-changelog');
+            const changelogPath = path.join(process.env.GITHUB_WORKSPACE, 'CHANGELOG.md');
+
+            const changelogContent = fs.readFileSync(changelogPath, 'utf8');
+            const parsed = parser(changelogContent);
+
+            const unreleased = parsed.findRelease();
+            if (!unreleased) {
+              throw new Error('No [Unreleased] section found in CHANGELOG.md');
+            }
+
+            const changedEntries = unreleased.changes.get('changed') || [];
+            if (!changedEntries.some(entry => entry.toString().includes('Updated holiday data'))) {
+              unreleased.changed('Updated holiday data');
+              fs.writeFileSync(changelogPath, parsed.toString(), 'utf8');
+              console.log('Added "Updated holiday data" to [Unreleased] section');
+            } else {
+              console.log('"Updated holiday data" already present in [Unreleased] section');
+            }
+
+      - name: Normalize changelog
+        run: npx keep-a-changelog --file="CHANGELOG.md" --no-v-prefix
+
       - id: app-token
         uses: actions/create-github-app-token@29824e69f54612133e76f7eaac726eef6c875baf
         with:
@@ -40,6 +72,7 @@ jobs:
           sign-commits: true
           add-paths: |
             app/src/main/assets/holidays/**
+            CHANGELOG.md
           branch: fossifybot/holidays
           commit-message: "chore: update holidays"
           title: "chore: update holidays"
