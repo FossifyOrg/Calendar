@@ -7,4 +7,9 @@
     <string name="monthly_view">Vista mensual</string>
     <string name="monthly_daily_view">Vista mensual y diaria</string>
     <string name="yearly_view">Vista anual</string>
+    <string name="simple_event_list">Lista de eventos simple</string>
+    <string name="no_upcoming_events">No hay eventos próximos.</string>
+    <string name="go_to_today">Ir a hoy</string>
+    <string name="go_to_date">Ir a la fecha</string>
+    <string name="widget_monthly">Calendario mensual</string>
 </resources>
