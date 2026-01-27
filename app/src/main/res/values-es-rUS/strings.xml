@@ -2,4 +2,9 @@
 <resources>
     <string name="app_launcher_name">Calendario</string>
     <string name="change_view">­Cambiar vista</string>
+    <string name="daily_view">Vista diaria</string>
+    <string name="weekly_view">Vista semanal</string>
+    <string name="monthly_view">Vista mensual</string>
+    <string name="monthly_daily_view">Vista mensual y diaria</string>
+    <string name="yearly_view">Vista anual</string>
 </resources>
