@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Unified the local and synchronized calendar pickers in event editor ([#629])
+- Updated holiday data ([#1003])
 
 ## [1.9.0] - 2025-12-16
 ### Changed
@@ -210,6 +211,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#870]: https://github.com/FossifyOrg/Calendar/issues/870
 [#889]: https://github.com/FossifyOrg/Calendar/issues/889
 [#917]: https://github.com/FossifyOrg/Calendar/issues/917
+[#1003]: https://github.com/FossifyOrg/Calendar/issues/1003
 
 [Unreleased]: https://github.com/FossifyOrg/Calendar/compare/1.9.0...HEAD
 [1.9.0]: https://github.com/FossifyOrg/Calendar/compare/1.8.1...1.9.0
