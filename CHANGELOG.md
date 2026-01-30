@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [1.10.0] - 2026-01-30
 ### Added
 - Added support for custom fonts
 - Location suggestions in event editor using recently used locations ([#393])
@@ -12,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Unified the local and synchronized calendar pickers in event editor ([#629])
 - Updated holiday data ([#1003])
+- Updated translations
 
 ## [1.9.0] - 2025-12-16
 ### Changed
@@ -213,7 +216,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#917]: https://github.com/FossifyOrg/Calendar/issues/917
 [#1003]: https://github.com/FossifyOrg/Calendar/issues/1003
 
-[Unreleased]: https://github.com/FossifyOrg/Calendar/compare/1.9.0...HEAD
+[Unreleased]: https://github.com/FossifyOrg/Calendar/compare/1.10.0...HEAD
+[1.10.0]: https://github.com/FossifyOrg/Calendar/compare/1.9.0...1.10.0
 [1.9.0]: https://github.com/FossifyOrg/Calendar/compare/1.8.1...1.9.0
 [1.8.1]: https://github.com/FossifyOrg/Calendar/compare/1.8.0...1.8.1
 [1.8.0]: https://github.com/FossifyOrg/Calendar/compare/1.7.0...1.8.0
