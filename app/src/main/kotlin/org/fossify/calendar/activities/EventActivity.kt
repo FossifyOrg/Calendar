@@ -418,8 +418,8 @@ class EventActivity : SimpleActivity() {
         mCalendarId = if (config.defaultCalendarId == -1L) {
             val lastCaldavId = config.lastUsedCaldavCalendarId
             val canUseLastCaldav = config.caldavSync
-                    && lastCaldavId != 0
-                    && config.getSyncedCalendarIdsAsList().contains(lastCaldavId)
+                && lastCaldavId != STORED_LOCALLY_ONLY
+                && config.getSyncedCalendarIdsAsList().contains(lastCaldavId)
             if (canUseLastCaldav) {
                 mStoredCalendars.firstOrNull { it.caldavCalendarId == lastCaldavId }?.id
                     ?: config.lastUsedLocalCalendarId
@@ -427,7 +427,8 @@ class EventActivity : SimpleActivity() {
                 config.lastUsedLocalCalendarId
             }
         } else {
-            config.defaultCalendarId
+            mStoredCalendars.firstOrNull { it.id == config.defaultCalendarId }?.id
+                ?: config.lastUsedLocalCalendarId
         }
 
         if (event != null) {
@@ -769,7 +770,6 @@ class EventActivity : SimpleActivity() {
 
         if (isSelectedCaldavOk) {
             mEventCalendarId = selectedCaldavId
-            config.lastUsedCaldavCalendarId = selectedCaldavId
         } else {
             mEventCalendarId = STORED_LOCALLY_ONLY
             if (selectedCalendar == null || selectedCalendar.caldavCalendarId != 0) {
@@ -1166,6 +1166,7 @@ class EventActivity : SimpleActivity() {
             if (calendar.caldavCalendarId == 0) {
                 mEventCalendarId = STORED_LOCALLY_ONLY
                 config.lastUsedLocalCalendarId = mCalendarId
+                config.lastUsedCaldavCalendarId = STORED_LOCALLY_ONLY
             } else {
                 mEventCalendarId = calendar.caldavCalendarId
                 config.lastUsedCaldavCalendarId = calendar.caldavCalendarId
@@ -1633,6 +1634,7 @@ class EventActivity : SimpleActivity() {
             config.lastUsedCaldavCalendarId = selectedCaldavId
         } else {
             config.lastUsedLocalCalendarId = mCalendarId
+            config.lastUsedCaldavCalendarId = STORED_LOCALLY_ONLY
         }
 
         val newCalendarId = mCalendarId

@@ -167,7 +167,7 @@ class TaskActivity : SimpleActivity() {
                 storedCalendars.firstOrNull { it.id == config.lastUsedLocalCalendarId }
             runOnUiThread {
                 if (!isDestroyed && !isFinishing) {
-                    gotTask(savedInstanceState, localCalendar, task)
+                    gotTask(savedInstanceState, storedCalendars, localCalendar, task)
                 }
             }
         }
@@ -324,13 +324,26 @@ class TaskActivity : SimpleActivity() {
         updateActionBarTitle()
     }
 
-    private fun gotTask(savedInstanceState: Bundle?, localCalendar: CalendarEntity?, task: Event?) {
-        if (localCalendar == null) {
+    private fun gotTask(
+        savedInstanceState: Bundle?,
+        storedCalendars: ArrayList<CalendarEntity>,
+        localCalendar: CalendarEntity?,
+        task: Event?
+    ) {
+        if (localCalendar == null || localCalendar.caldavCalendarId != 0) {
             config.lastUsedLocalCalendarId = LOCAL_CALENDAR_ID
         }
 
-        mCalendarId =
-            if (config.defaultCalendarId == -1L) config.lastUsedLocalCalendarId else config.defaultCalendarId
+        mCalendarId = if (config.defaultCalendarId == -1L) {
+            config.lastUsedLocalCalendarId
+        } else {
+            val defaultCalendar = storedCalendars.firstOrNull { it.id == config.defaultCalendarId }
+            if (defaultCalendar?.caldavCalendarId == 0) {
+                config.defaultCalendarId
+            } else {
+                config.lastUsedLocalCalendarId
+            }
+        }
 
         if (task != null) {
             mTask = task
