@@ -11,7 +11,7 @@ multidex = "2.0.1"
 print = "1.1.0"
 constraintlayout = "2.2.1"
 swiperefreshlayout = "1.2.0"
-work = "2.11.0"
+work = "2.11.1"
 #Room
 room = "2.8.4"
 #Fossify
