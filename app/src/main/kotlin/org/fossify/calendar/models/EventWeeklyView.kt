@@ -1,10 +1,9 @@
 package org.fossify.calendar.models
 
-import android.util.Range
-
 data class EventWeeklyView(
-    val range: Range<Int>,
+    val event: Event,
+    val startMinute: Int,
+    val endMinute: Int,
     var slot: Int = 0,
-    var slotMax: Int = 0,
-    var collisions: ArrayList<Long> = ArrayList()
+    var slotMax: Int = 1,
 )
