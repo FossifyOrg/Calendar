@@ -416,7 +416,16 @@ class EventActivity : SimpleActivity() {
         }
 
         mCalendarId = if (config.defaultCalendarId == -1L) {
-            config.lastUsedLocalCalendarId
+            val lastCaldavId = config.lastUsedCaldavCalendarId
+            val canUseLastCaldav = config.caldavSync
+                    && lastCaldavId != 0
+                    && config.getSyncedCalendarIdsAsList().contains(lastCaldavId)
+            if (canUseLastCaldav) {
+                mStoredCalendars.firstOrNull { it.caldavCalendarId == lastCaldavId }?.id
+                    ?: config.lastUsedLocalCalendarId
+            } else {
+                config.lastUsedLocalCalendarId
+            }
         } else {
             config.defaultCalendarId
         }
