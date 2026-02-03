@@ -1,0 +1,9 @@
+Changed:
+
+• Updated holiday data
+• Updated translations
+
+Fixed:
+
+• Fixed last used default calendar preference for new events 
+
