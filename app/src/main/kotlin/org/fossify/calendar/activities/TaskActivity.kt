@@ -334,7 +334,54 @@ class TaskActivity : SimpleActivity() {
             config.lastUsedLocalCalendarId = LOCAL_CALENDAR_ID
         }
 
-        mCalendarId = if (config.defaultCalendarId == -1L) {
+        mCalendarId = resolveTaskCalendarId(storedCalendars)
+
+        if (task != null) {
+            setupExistingTask(task, savedInstanceState)
+        } else {
+            setupNewTask(savedInstanceState)
+        }
+
+        setupTaskClickListeners()
+        refreshMenuItems()
+        setupMarkCompleteButton()
+
+        if (savedInstanceState == null) {
+            updateCalendar()
+            updateTexts()
+        }
+    }
+
+    private fun setupExistingTask(task: Event, savedInstanceState: Bundle?) {
+        mTask = task
+        mTaskOccurrenceTS = intent.getLongExtra(EVENT_OCCURRENCE_TS, 0L)
+        mTaskCompleted = intent.getBooleanExtra(IS_TASK_COMPLETED, false)
+        if (savedInstanceState == null) {
+            setupEditTask()
+        }
+
+        if (intent.getBooleanExtra(IS_DUPLICATE_INTENT, false)) {
+            mTask.id = null
+            binding.taskToolbar.title = getString(R.string.new_task)
+        }
+    }
+
+    private fun setupNewTask(savedInstanceState: Bundle?) {
+        mTask = Event(null)
+        config.apply {
+            mReminder1Minutes =
+                if (usePreviousEventReminders && lastEventReminderMinutes1 >= -1) lastEventReminderMinutes1 else defaultReminder1
+            mReminder2Minutes =
+                if (usePreviousEventReminders && lastEventReminderMinutes2 >= -1) lastEventReminderMinutes2 else defaultReminder2
+            mReminder3Minutes =
+                if (usePreviousEventReminders && lastEventReminderMinutes3 >= -1) lastEventReminderMinutes3 else defaultReminder3
+        }
+
+        if (savedInstanceState == null) setupNewTask()
+    }
+
+    private fun resolveTaskCalendarId(storedCalendars: ArrayList<CalendarEntity>): Long {
+        return if (config.defaultCalendarId == -1L) {
             config.lastUsedLocalCalendarId
         } else {
             val defaultCalendar = storedCalendars.firstOrNull { it.id == config.defaultCalendarId }
@@ -344,73 +391,37 @@ class TaskActivity : SimpleActivity() {
                 config.lastUsedLocalCalendarId
             }
         }
+    }
 
-        if (task != null) {
-            mTask = task
-            mTaskOccurrenceTS = intent.getLongExtra(EVENT_OCCURRENCE_TS, 0L)
-            mTaskCompleted = intent.getBooleanExtra(IS_TASK_COMPLETED, false)
-            if (savedInstanceState == null) {
-                setupEditTask()
-            }
-
-            if (intent.getBooleanExtra(IS_DUPLICATE_INTENT, false)) {
-                mTask.id = null
-                binding.taskToolbar.title = getString(R.string.new_task)
-            }
-        } else {
-            mTask = Event(null)
-            config.apply {
-                mReminder1Minutes =
-                    if (usePreviousEventReminders && lastEventReminderMinutes1 >= -1) lastEventReminderMinutes1 else defaultReminder1
-                mReminder2Minutes =
-                    if (usePreviousEventReminders && lastEventReminderMinutes2 >= -1) lastEventReminderMinutes2 else defaultReminder2
-                mReminder3Minutes =
-                    if (usePreviousEventReminders && lastEventReminderMinutes3 >= -1) lastEventReminderMinutes3 else defaultReminder3
-            }
-
-            if (savedInstanceState == null) {
-                setupNewTask()
-            }
+    private fun setupTaskClickListeners() = binding.apply {
+        taskAllDay.setOnCheckedChangeListener { _, isChecked -> toggleAllDay(isChecked) }
+        taskAllDayHolder.setOnClickListener {
+            taskAllDay.toggle()
         }
 
-        binding.apply {
-            taskAllDay.setOnCheckedChangeListener { _, isChecked -> toggleAllDay(isChecked) }
-            taskAllDayHolder.setOnClickListener {
-                taskAllDay.toggle()
-            }
+        taskDate.setOnClickListener { setupDate() }
+        taskTime.setOnClickListener { setupTime() }
+        calendarHolder.setOnClickListener { showCalendarDialog() }
+        taskRepetition.setOnClickListener { showRepeatIntervalDialog() }
+        taskRepetitionRuleHolder.setOnClickListener { showRepetitionRuleDialog() }
+        taskRepetitionLimitHolder.setOnClickListener { showRepetitionTypePicker() }
 
-            taskDate.setOnClickListener { setupDate() }
-            taskTime.setOnClickListener { setupTime() }
-            calendarHolder.setOnClickListener { showCalendarDialog() }
-            taskRepetition.setOnClickListener { showRepeatIntervalDialog() }
-            taskRepetitionRuleHolder.setOnClickListener { showRepetitionRuleDialog() }
-            taskRepetitionLimitHolder.setOnClickListener { showRepetitionTypePicker() }
-
-            taskReminder1.setOnClickListener {
-                handleNotificationAvailability {
-                    if (config.wasAlarmWarningShown) {
+        taskReminder1.setOnClickListener {
+            handleNotificationAvailability {
+                if (config.wasAlarmWarningShown) {
+                    showReminder1Dialog()
+                } else {
+                    ReminderWarningDialog(this@TaskActivity) {
+                        config.wasAlarmWarningShown = true
                         showReminder1Dialog()
-                    } else {
-                        ReminderWarningDialog(this@TaskActivity) {
-                            config.wasAlarmWarningShown = true
-                            showReminder1Dialog()
-                        }
                     }
                 }
             }
-
-            taskReminder2.setOnClickListener { showReminder2Dialog() }
-            taskReminder3.setOnClickListener { showReminder3Dialog() }
-            taskColorHolder.setOnClickListener { showTaskColorDialog() }
         }
 
-        refreshMenuItems()
-        setupMarkCompleteButton()
-
-        if (savedInstanceState == null) {
-            updateCalendar()
-            updateTexts()
-        }
+        taskReminder2.setOnClickListener { showReminder2Dialog() }
+        taskReminder3.setOnClickListener { showReminder3Dialog() }
+        taskColorHolder.setOnClickListener { showTaskColorDialog() }
     }
 
     private fun setupEditTask() {
