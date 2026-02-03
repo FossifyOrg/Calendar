@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Updated holiday data
 
+### Fixed
+- Fixed last used default calendar preference for new events ([#1019])
+
 ## [1.10.0] - 2026-01-30
 ### Added
 - Added support for custom fonts
@@ -217,6 +220,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#889]: https://github.com/FossifyOrg/Calendar/issues/889
 [#917]: https://github.com/FossifyOrg/Calendar/issues/917
 [#1003]: https://github.com/FossifyOrg/Calendar/issues/1003
+[#1019]: https://github.com/FossifyOrg/Calendar/issues/1019
 
 [Unreleased]: https://github.com/FossifyOrg/Calendar/compare/1.10.0...HEAD
 [1.10.0]: https://github.com/FossifyOrg/Calendar/compare/1.9.0...1.10.0
