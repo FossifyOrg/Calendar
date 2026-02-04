@@ -95,6 +95,17 @@
         </activity>
 
         <activity
+            android:name=".activities.WidgetWeeklyConfigureActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/MyWidgetConfigTheme">
+
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".activities.WidgetMonthlyConfigureActivity"
             android:exported="true"
             android:screenOrientation="portrait"
@@ -219,6 +230,20 @@
             android:excludeFromRecents="true"
             android:exported="false"
             android:theme="@style/Theme.Transparent" />
+
+        <receiver
+            android:name=".helpers.MyWidgetWeeklyProvider"
+            android:exported="true"
+            android:icon="@drawable/img_widget_weekly_preview"
+            android:label="@string/widget_weekly">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_weekly_info" />
+        </receiver>
 
         <receiver
             android:name=".helpers.MyWidgetMonthlyProvider"

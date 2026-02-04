@@ -57,6 +57,7 @@ import org.fossify.calendar.helpers.MONTH
 import org.fossify.calendar.helpers.MyWidgetDateProvider
 import org.fossify.calendar.helpers.MyWidgetListProvider
 import org.fossify.calendar.helpers.MyWidgetMonthlyProvider
+import org.fossify.calendar.helpers.MyWidgetWeeklyProvider
 import org.fossify.calendar.helpers.NEW_EVENT_START_TS
 import org.fossify.calendar.helpers.REMINDER_NOTIFICATION
 import org.fossify.calendar.helpers.REMINDER_OFF
@@ -153,8 +154,23 @@ fun Context.updateWidgets() {
         }
     }
 
+    updateWeeklyWidget()
     updateListWidget()
     updateDateWidget()
+}
+
+private fun Context.updateWeeklyWidget() {
+    val widgetIDs = AppWidgetManager.getInstance(applicationContext)
+        ?.getAppWidgetIds(ComponentName(applicationContext, MyWidgetWeeklyProvider::class.java))
+        ?: return
+
+    if (widgetIDs.isNotEmpty()) {
+        Intent(applicationContext, MyWidgetWeeklyProvider::class.java).apply {
+            action = AppWidgetManager.ACTION_APPWIDGET_UPDATE
+            putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, widgetIDs)
+            sendBroadcast(this)
+        }
+    }
 }
 
 fun Context.updateListWidget() {

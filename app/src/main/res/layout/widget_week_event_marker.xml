@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/week_event_holder"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/week_event_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/one_dp"
+        android:contentDescription="@null"
+        android:src="@drawable/day_monthly_event_background_widget" />
+
+    <ImageView
+        android:id="@+id/week_event_task_image"
+        android:layout_width="@dimen/activity_margin"
+        android:layout_height="@dimen/activity_margin"
+        android:layout_alignTop="@+id/week_event_label"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/task"
+        android:paddingStart="@dimen/one_dp"
+        android:paddingTop="@dimen/one_dp"
+        android:paddingBottom="@dimen/one_dp"
+        android:scaleType="fitStart"
+        android:src="@drawable/ic_task_vector"/>
+
+    <TextView
+        android:id="@+id/week_event_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/week_event_task_image"
+        android:ellipsize="none"
+        android:gravity="start"
+        android:hyphenationFrequency="none"
+        android:maxLines="3"
+        android:paddingStart="@dimen/tiny_margin"
+        android:paddingEnd="@dimen/tiny_margin"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/small_text_size"
+        tools:text="My event" />
+
+</RelativeLayout>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/config_coordinator"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/config_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="@dimen/activity_margin">
+
+        <include
+            android:id="@+id/config_calendar"
+            layout="@layout/fragment_week_widget"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/config_bg_color"
+            android:layout_marginBottom="@dimen/activity_margin" />
+
+        <ImageView
+            android:id="@+id/config_bg_color"
+            android:layout_width="@dimen/widget_colorpicker_size"
+            android:layout_height="@dimen/widget_colorpicker_size"
+            android:layout_above="@+id/config_text_color"
+            android:layout_margin="@dimen/tiny_margin" />
+
+        <RelativeLayout
+            android:id="@+id/config_bg_seekbar_holder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignTop="@+id/config_bg_color"
+            android:layout_alignBottom="@+id/config_bg_color"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:layout_toEndOf="@+id/config_bg_color"
+            android:background="@drawable/widget_config_seekbar_background">
+
+            <org.fossify.commons.views.MySeekBar
+                android:id="@+id/config_bg_seekbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:paddingStart="@dimen/activity_margin"
+                android:paddingEnd="@dimen/activity_margin" />
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/config_text_color"
+            android:layout_width="@dimen/widget_colorpicker_size"
+            android:layout_height="@dimen/widget_colorpicker_size"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/tiny_margin" />
+
+        <Button
+            android:id="@+id/config_save"
+            style="@style/MyWidgetConfigSaveStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:text="@string/ok" />
+
+    </RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
