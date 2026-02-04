@@ -1,4 +1,8 @@
+Changed:
+
+• Updated holiday data
+• Updated translations
+
 Fixed:
 
-• Fixed crash in event editor when CalDAV sync is disabled 
-
+• Fixed last used default calendar preference for new events
