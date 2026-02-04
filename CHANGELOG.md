@@ -7,9 +7,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ## [1.10.2] - 2026-02-04
-### Changed
-- Updated translations
-
 ### Fixed
 - Fixed crash in event editor when CalDAV sync is disabled ([#1024])
 
