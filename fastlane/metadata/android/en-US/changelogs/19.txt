@@ -1,0 +1,8 @@
+Changed:
+
+• Updated translations
+
+Fixed:
+
+• Fixed crash in event editor when CalDAV sync is disabled 
+
