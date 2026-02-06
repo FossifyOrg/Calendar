@@ -2,6 +2,7 @@ package org.fossify.calendar.adapters
 
 import android.os.Bundle
 import android.util.SparseArray
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
@@ -24,8 +25,20 @@ class MyDayPagerAdapter(fm: FragmentManager, private val mCodes: List<String>, p
         fragment.arguments = bundle
         fragment.mListener = mListener
 
-        mFragments.put(position, fragment)
         return fragment
+    }
+
+    override fun instantiateItem(container: ViewGroup, position: Int): Any {
+        val item = super.instantiateItem(container, position)
+        if (item is DayFragment) {
+            mFragments.put(position, item)
+        }
+        return item
+    }
+
+    override fun destroyItem(container: ViewGroup, position: Int, `object`: Any) {
+        mFragments.remove(position)
+        super.destroyItem(container, position, `object`)
     }
 
     fun updateCalendars(pos: Int) {
