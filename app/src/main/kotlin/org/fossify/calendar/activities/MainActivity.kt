@@ -229,7 +229,7 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
 
         checkIsViewIntent()
 
-        if (!checkIsOpenIntent()) {
+        if (!checkIsOpenIntent() && savedInstanceState == null) {
             updateViewPager()
         }
 
