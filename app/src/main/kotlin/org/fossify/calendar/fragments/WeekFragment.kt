@@ -539,7 +539,7 @@ class WeekFragment : Fragment(), WeeklyCalendar {
         return fullContentHeight * visibleRatio
     }
 
-    override fun updateWeeklyCalendar(context: Context, days: ArrayList<DayWeekly>) {
+    override fun updateWeeklyCalendar(context: Context, days: ArrayList<DayWeekly>, earliestStartHour: Int, latestEndHour: Int) {
         val newHash = days.hashCode()
         if (newHash == lastHash || mWasDestroyed) {
             return

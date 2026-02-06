@@ -25,28 +25,6 @@ class MyWidgetWeeklyProvider : AppWidgetProvider() {
 
     private var dayColumns = ArrayList<RemoteViews>()
     private var mDays = ArrayList<DayWeekly>()
-        set(value) {
-            field = value
-            // don't show hours in which no events occur, so existing events aren't as squished
-            earliestEventStartHour = 24
-            latestEventEndHour = 0
-            for (day in value) {
-                val startHour = day.dayEvents.minOfOrNull { it.startMinute / 60 }
-                earliestEventStartHour = earliestEventStartHour.coerceAtMost(startHour ?: earliestEventStartHour)
-                val endHour = day.dayEvents.maxOfOrNull { it.endMinute / 60 + if (it.endMinute % 60 > 0) 1 else 0 }
-                latestEventEndHour = latestEventEndHour.coerceAtLeast(endHour ?: latestEventEndHour)
-            }
-            if (earliestEventStartHour > latestEventEndHour) {
-                // looks like there are no events during this week, show default range
-                earliestEventStartHour = 6
-                latestEventEndHour = 18
-            } else if (latestEventEndHour - earliestEventStartHour < 6 ) {
-                // make sure that more than one hour is shown
-                val hoursToAdd = 6 - latestEventEndHour + earliestEventStartHour
-                earliestEventStartHour = (earliestEventStartHour - hoursToAdd / 2).coerceAtLeast(0)
-                latestEventEndHour = (latestEventEndHour + hoursToAdd - (hoursToAdd / 2)).coerceAtMost(24)
-            }
-        }
     private var earliestEventStartHour = 0
     private var latestEventEndHour = 24
 
@@ -207,8 +185,7 @@ class MyWidgetWeeklyProvider : AppWidgetProvider() {
         views.addView(R.id.time_column, RemoteViews(packageName, R.layout.vertical_1))
     }
 
-    private fun updateDays(context: Context, views: RemoteViews, days: ArrayList<DayWeekly>) {
-        mDays = days
+    private fun updateDays(context: Context, views: RemoteViews) {
         views.removeAllViews(R.id.week_all_day_holder)
 
         val config = context.config
@@ -219,7 +196,7 @@ class MyWidgetWeeklyProvider : AppWidgetProvider() {
         setupDayColumns(context, views)
 
         // add events to the view
-        for ((dayOfWeek, day) in days.withIndex()) {
+        for ((dayOfWeek, day) in mDays.withIndex()) {
             for (event in day.topBarEvents) {
                 addAllDayEvent(context, packageName, dayOfWeek, event, allDayEventRows, allDayEventNextStart)
             }
@@ -362,9 +339,12 @@ class MyWidgetWeeklyProvider : AppWidgetProvider() {
     }
 
     private val weeklyCalendar = object : WeeklyCalendar {
-        override fun updateWeeklyCalendar(context: Context, days: ArrayList<DayWeekly>) {
+        override fun updateWeeklyCalendar(context: Context, days: ArrayList<DayWeekly>, earliestStartHour: Int, latestEndHour: Int) {
             val textColor = context.config.widgetTextColor
             val resources = context.resources
+            mDays = days
+            earliestEventStartHour = earliestStartHour
+            latestEventEndHour = latestEndHour
 
             val appWidgetManager = AppWidgetManager.getInstance(context) ?: return
             appWidgetManager.getAppWidgetIds(getComponentName(context)).forEach {
@@ -373,7 +353,7 @@ class MyWidgetWeeklyProvider : AppWidgetProvider() {
                 views.applyColorFilter(R.id.widget_week_background, context.config.widgetBgColor)
 
                 updateDayLabels(context, views, resources, textColor)
-                updateDays(context, views, days)
+                updateDays(context, views)
 
                 try {
                     appWidgetManager.updateAppWidget(it, views)
@@ -387,12 +367,12 @@ class MyWidgetWeeklyProvider : AppWidgetProvider() {
         val config = context.config
         val smallerFontSize = context.getWidgetFontSize()
         val packageName = context.packageName
-        var curDay = context.getFirstDayOfWeekDt(DateTime())
         val dayLetters = resources.getStringArray(org.fossify.commons.R.array.week_days_short)
             .toMutableList() as ArrayList<String>
 
         views.removeAllViews(R.id.week_letters_holder)
-        (0 until config.weeklyViewDays).forEach { _ ->
+        for (i in 0 until config.weeklyViewDays) {
+            val curDay = mDays[i].start
             val dayLetter = dayLetters[curDay.dayOfWeek - 1]
 
             val newRemoteView = RemoteViews(packageName, R.layout.widget_week_day_letter).apply {
@@ -408,7 +388,6 @@ class MyWidgetWeeklyProvider : AppWidgetProvider() {
                 newRemoteView.setOnClickPendingIntent(R.id.week_day_label, pendingIntent)
             }
             views.addView(R.id.week_letters_holder, newRemoteView)
-            curDay = curDay.plusDays(1)
         }
     }
 

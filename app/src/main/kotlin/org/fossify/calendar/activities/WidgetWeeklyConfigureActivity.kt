@@ -1,24 +1,25 @@
 package org.fossify.calendar.activities
 
-import android.annotation.SuppressLint
 import android.appwidget.AppWidgetManager
 import android.content.Context
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.os.Bundle
-import android.view.Gravity
-import android.view.View
-import android.view.ViewGroup
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.view.children
-import org.fossify.calendar.databinding.DayMonthlyNumberViewBinding
-import org.fossify.calendar.databinding.TopNavigationBinding
+import org.fossify.calendar.databinding.Horizontal1Binding
+import org.fossify.calendar.databinding.HorizontalLineBinding
+import org.fossify.calendar.databinding.Vertical1Binding
+import org.fossify.calendar.databinding.VerticalLineBinding
 import org.fossify.calendar.databinding.WidgetConfigWeeklyBinding
-import org.fossify.calendar.extensions.addDayEvents
+import org.fossify.calendar.databinding.WidgetWeekColumnBinding
+import org.fossify.calendar.databinding.WidgetWeekDayLetterBinding
+import org.fossify.calendar.databinding.WidgetWeekHourBinding
 import org.fossify.calendar.extensions.config
-import org.fossify.calendar.extensions.isWeekendIndex
+import org.fossify.calendar.extensions.getFirstDayOfWeekDt
+import org.fossify.calendar.extensions.getWidgetFontSize
+import org.fossify.calendar.helpers.Formatter
 import org.fossify.calendar.helpers.MyWidgetWeeklyProvider
 import org.fossify.calendar.helpers.WeeklyCalendarImpl
 import org.fossify.calendar.helpers.isWeekend
@@ -28,11 +29,12 @@ import org.fossify.commons.R
 import org.fossify.commons.dialogs.ColorPickerDialog
 import org.fossify.commons.extensions.*
 import org.fossify.commons.helpers.IS_CUSTOMIZING_COLORS
-import org.fossify.commons.helpers.LOWER_ALPHA
 import org.joda.time.DateTime
 
 class WidgetWeeklyConfigureActivity : SimpleActivity(), WeeklyCalendar {
-    private var mDays: List<DayWeekly>? = null
+    private var mDays: List<DayWeekly> = ArrayList()
+    private var earliestEventStartHour = 0
+    private var latestEventEndHour = 24
 
     private var mBgAlpha = 0f
     private var mWidgetId = 0
@@ -64,6 +66,8 @@ class WidgetWeeklyConfigureActivity : SimpleActivity(), WeeklyCalendar {
             configTextColor.setOnClickListener { pickTextColor() }
             configBgSeekbar.setColors(mTextColor, primaryColor, primaryColor)
         }
+        setupDayLabels()
+        setupDayColumns()
     }
 
     private fun initVariables() {
@@ -109,6 +113,63 @@ class WidgetWeeklyConfigureActivity : SimpleActivity(), WeeklyCalendar {
         }
     }
 
+    private fun setupDayLabels() {
+        val dayLetters = resources.getStringArray(org.fossify.commons.R.array.week_days_short)
+            .toMutableList() as ArrayList<String>
+        binding.configCalendar.weekLettersHolder.apply {
+            removeAllViews()
+            val smallerFontSize = context.getWidgetFontSize()
+            var curDay = context.getFirstDayOfWeekDt(DateTime())
+            (0 until config.weeklyViewDays).forEach { _ ->
+                val dayLetter = dayLetters[curDay.dayOfWeek - 1]
+
+                val newView = WidgetWeekDayLetterBinding.inflate(
+                    layoutInflater,
+                    binding.configCalendar.weekLettersHolder,
+                    false
+                ).root
+                newView.text = dayLetter
+                newView.setTextColor(mTextColor)
+                newView.textSize = smallerFontSize
+                addView(newView)
+                curDay = curDay.plusDays(1)
+            }
+        }
+    }
+
+    private fun setupDayColumns() {
+        val textColor = config.widgetTextColor
+        binding.configCalendar.weekEventsDayLines.removeAllViews()
+        // columns that will contain events
+        binding.configCalendar.weekEventsColumnsHolder.apply {
+            removeAllViews()
+            (0 until context.config.weeklyViewDays).forEach {
+                addView(WidgetWeekColumnBinding.inflate(layoutInflater, binding.configCalendar.weekEventsColumnsHolder, false).root)
+            }
+        }
+        // column on the left showing the time
+        binding.configCalendar.timeColumn.apply {
+            removeAllViews()
+            addView(Vertical1Binding.inflate(layoutInflater, binding.configCalendar.timeColumn, false).root)
+            for (i in earliestEventStartHour + 1 until latestEventEndHour) {
+                val time = DateTime().withHourOfDay(i)
+                addView(WidgetWeekHourBinding.inflate(layoutInflater, binding.configCalendar.timeColumn, false).root.apply {
+                    text = time.toString(Formatter.getHourPattern(context))
+                    setTextColor(textColor)
+                })
+            }
+            addView(Vertical1Binding.inflate(layoutInflater, binding.configCalendar.timeColumn, false).root)
+        }
+        binding.configCalendar.weekEventsHourLines.apply {
+            removeAllViews()
+            addView(Vertical1Binding.inflate(layoutInflater, binding.configCalendar.weekEventsHourLines, false).root)
+            for (i in earliestEventStartHour + 1 until latestEventEndHour) {
+                addView(HorizontalLineBinding.inflate(layoutInflater, binding.configCalendar.weekEventsHourLines, false).root)
+                addView(Vertical1Binding.inflate(layoutInflater, binding.configCalendar.weekEventsHourLines, false).root)
+            }
+        }
+    }
+
     private fun pickBackgroundColor() {
         ColorPickerDialog(this, mBgColorWithoutTransparency) { wasPositivePressed, color ->
             if (wasPositivePressed) {
@@ -138,7 +199,7 @@ class WidgetWeeklyConfigureActivity : SimpleActivity(), WeeklyCalendar {
     private fun updateTextColor() {
         binding.configTextColor.setFillWithStroke(mTextColor, mTextColor)
         binding.configSave.setTextColor(getProperPrimaryColor().getContrastColor())
-        /*val weekendsTextColor = config.highlightWeekendsColor
+        val weekendsTextColor = config.highlightWeekendsColor
         for ((i, view) in binding.configCalendar.weekLettersHolder.children.withIndex()) {
             if (view is TextView) {
                 val textColor = if (config.highlightWeekends && isWeekend(mDays!![i].start.dayOfWeek)) {
@@ -153,7 +214,7 @@ class WidgetWeeklyConfigureActivity : SimpleActivity(), WeeklyCalendar {
             if (view is TextView) {
                 view.setTextColor(mTextColor)
             }
-        }*/
+        }
     }
 
     private fun updateBackgroundColor() {
@@ -164,12 +225,22 @@ class WidgetWeeklyConfigureActivity : SimpleActivity(), WeeklyCalendar {
     }
 
     private fun updateDays() {
-        // TODO
+        for (day in mDays) {
+            // TODO: show events
+            binding.configCalendar.weekEventsDayLines.apply {
+                addView(VerticalLineBinding.inflate(layoutInflater, binding.configCalendar.weekEventsDayLines, false).root)
+                addView(Horizontal1Binding.inflate(layoutInflater, binding.configCalendar.weekEventsDayLines, false).root)
+            }
+        }
     }
 
-    override fun updateWeeklyCalendar(context: Context, days: ArrayList<DayWeekly>) {
+    override fun updateWeeklyCalendar(context: Context, days: ArrayList<DayWeekly>, earliestStartHour: Int, latestEndHour: Int) {
         runOnUiThread {
             mDays = days
+            earliestEventStartHour = 0
+            latestEventEndHour = 24
+            setupDayLabels()
+            setupDayColumns()
             updateDays()
         }
     }

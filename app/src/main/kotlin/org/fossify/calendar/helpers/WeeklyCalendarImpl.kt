@@ -122,7 +122,26 @@ class WeeklyCalendarImpl(val callback: WeeklyCalendar, val context: Context, val
             }
         }
 
-        callback.updateWeeklyCalendar(context, days)
+        // allows hiding hours in which nothing happens
+        var earliestEventStartHour = 24
+        var latestEventEndHour = 0
+        for (day in days) {
+            val startHour = day.dayEvents.minOfOrNull { it.startMinute / 60 }
+            earliestEventStartHour = earliestEventStartHour.coerceAtMost(startHour ?: earliestEventStartHour)
+            val endHour = day.dayEvents.maxOfOrNull { it.endMinute / 60 + if (it.endMinute % 60 > 0) 1 else 0 }
+            latestEventEndHour = latestEventEndHour.coerceAtLeast(endHour ?: latestEventEndHour)
+        }
+        if (earliestEventStartHour > latestEventEndHour) {
+            // looks like there are no events during this week, show default range
+            earliestEventStartHour = 6
+            latestEventEndHour = 18
+        } else if (latestEventEndHour - earliestEventStartHour < 6 ) {
+            // make sure that more than one hour is shown
+            val hoursToAdd = 6 - latestEventEndHour + earliestEventStartHour
+            earliestEventStartHour = (earliestEventStartHour - hoursToAdd / 2).coerceAtLeast(0)
+            latestEventEndHour = (latestEventEndHour + hoursToAdd - (hoursToAdd / 2)).coerceAtMost(24)
+        }
+        callback.updateWeeklyCalendar(context, days, earliestEventStartHour, latestEventEndHour)
     }
 
     private class SweepAndPrunePoint (
