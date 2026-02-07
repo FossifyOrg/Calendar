@@ -148,7 +148,6 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
     private var mLatestSearchQuery = ""
     private var shouldGoToTodayBeVisible = false
     private var goToTodayButton: MenuItem? = null
-    private var currentFragments = ArrayList<MyFragmentHolder>()
 
     private var mStoredTextColor = 0
     private var mStoredBackgroundColor = 0
@@ -321,7 +320,7 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
         }
 
         shouldGoToTodayBeVisible =
-            currentFragments.lastOrNull()?.shouldGoToTodayBeVisible() ?: false
+            getCurrentFragment()?.shouldGoToTodayBeVisible() ?: false
         binding.mainMenu.requireToolbar().menu.apply {
             goToTodayButton = findItem(R.id.go_to_today)
             findItem(R.id.print).isVisible = config.storedView != MONTHLY_DAILY_VIEW
@@ -381,7 +380,7 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
                     true
                 }
 
-                currentFragments.size > 1 -> {
+                supportFragmentManager.backStackEntryCount > 0 -> {
                     removeTopFragment()
                     true
                 }
@@ -614,15 +613,15 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
     }
 
     private fun goToToday() {
-        currentFragments.last().goToToday()
+        getCurrentFragment()?.goToToday()
     }
 
     fun showGoToDateDialog() {
-        currentFragments.last().showGoToDateDialog()
+        getCurrentFragment()?.showGoToDateDialog()
     }
 
     private fun printView() {
-        currentFragments.last().printView()
+        getCurrentFragment()?.printView()
     }
 
     private fun resetActionBarTitle() {
@@ -1095,7 +1094,7 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
     }
 
     private fun getDateCodeToDisplay(newView: Int): String? {
-        val fragment = currentFragments.last()
+        val fragment = getCurrentFragment() ?: return null
         val currentView = fragment.viewType
         if (newView == EVENTS_LIST_VIEW || currentView == EVENTS_LIST_VIEW) {
             return null
@@ -1125,16 +1124,6 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
 
     private fun updateViewPager(dayCode: String? = null) {
         val fragment = getFragmentsHolder()
-        currentFragments.forEach {
-            try {
-                supportFragmentManager.beginTransaction().remove(it).commitNow()
-            } catch (ignored: Exception) {
-                return
-            }
-        }
-
-        currentFragments.clear()
-        currentFragments.add(fragment)
         val bundle = Bundle()
         val fixedDayCode = fixDayCode(dayCode)
 
@@ -1154,7 +1143,7 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
         }
 
         fragment.arguments = bundle
-        supportFragmentManager.beginTransaction().add(R.id.fragments_holder, fragment).commitNow()
+        supportFragmentManager.beginTransaction().replace(R.id.fragments_holder, fragment).commitNow()
         binding.mainMenu.toggleForceArrowBackIcon(false)
     }
 
@@ -1201,7 +1190,7 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
 
     private fun openNewEvent() {
         hideKeyboard()
-        val lastFragment = currentFragments.last()
+        val lastFragment = getCurrentFragment() ?: return
         val allowChangingDay =
             lastFragment !is DayFragmentsHolder && lastFragment !is MonthDayFragmentsHolder
         launchNewEventIntent(lastFragment.getNewEventDayCode(), allowChangingDay)
@@ -1209,57 +1198,66 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
 
     private fun openNewTask() {
         hideKeyboard()
-        val lastFragment = currentFragments.last()
+        val lastFragment = getCurrentFragment() ?: return
         val allowChangingDay =
             lastFragment !is DayFragmentsHolder && lastFragment !is MonthDayFragmentsHolder
         launchNewTaskIntent(lastFragment.getNewEventDayCode(), allowChangingDay)
     }
 
     fun openMonthFromYearly(dateTime: DateTime) {
-        if (currentFragments.last() is MonthFragmentsHolder) {
+        if (getCurrentFragment() is MonthFragmentsHolder) {
             return
         }
 
         val fragment = MonthFragmentsHolder()
-        currentFragments.add(fragment)
         val bundle = Bundle()
         bundle.putString(DAY_CODE, Formatter.getDayCodeFromDateTime(dateTime))
         fragment.arguments = bundle
-        supportFragmentManager.beginTransaction().add(R.id.fragments_holder, fragment).commitNow()
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fragments_holder, fragment)
+            .addToBackStack(null)
+            .commit()
+        supportFragmentManager.executePendingTransactions()
         resetActionBarTitle()
         binding.calendarFab.beVisible()
         showBackNavigationArrow()
     }
 
     fun openDayFromMonthly(dateTime: DateTime) {
-        if (currentFragments.last() is DayFragmentsHolder) {
+        if (getCurrentFragment() is DayFragmentsHolder) {
             return
         }
 
         val fragment = DayFragmentsHolder()
-        currentFragments.add(fragment)
         val bundle = Bundle()
         bundle.putString(DAY_CODE, Formatter.getDayCodeFromDateTime(dateTime))
         fragment.arguments = bundle
         try {
-            supportFragmentManager.beginTransaction().add(R.id.fragments_holder, fragment)
-                .commitNow()
+            supportFragmentManager.beginTransaction().replace(R.id.fragments_holder, fragment)
+                .addToBackStack(null)
+                .commit()
+            supportFragmentManager.executePendingTransactions()
             showBackNavigationArrow()
         } catch (e: Exception) {
         }
     }
 
     fun openDayFromWeekly(dateTime: DateTime) {
-        if (currentFragments.last() is DayFragmentsHolder) {
+        if (getCurrentFragment() is DayFragmentsHolder) {
             return
         }
 
         val fragment = DayFragmentsHolder()
-        currentFragments.add(fragment)
         val bundle = Bundle()
         bundle.putString(DAY_CODE, Formatter.getDayCodeFromDateTime(dateTime))
         fragment.arguments = bundle
-        supportFragmentManager.beginTransaction().add(R.id.fragments_holder, fragment).commitNow()
+        supportFragmentManager
+            .beginTransaction()
+            .replace(R.id.fragments_holder, fragment)
+            .addToBackStack(null)
+            .commit()
+        supportFragmentManager.executePendingTransactions()
         resetActionBarTitle()
         binding.calendarFab.beVisible()
         showBackNavigationArrow()
@@ -1274,19 +1272,25 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
         else -> WeekFragmentsHolder()
     }
 
+    private fun getCurrentFragment(): MyFragmentHolder? {
+        return supportFragmentManager.findFragmentById(R.id.fragments_holder) as MyFragmentHolder?
+    }
+
     private fun removeTopFragment() {
-        supportFragmentManager.beginTransaction().remove(currentFragments.last()).commit()
-        currentFragments.removeAt(currentFragments.size - 1)
-        toggleGoToTodayVisibility(currentFragments.last().shouldGoToTodayBeVisible())
-        currentFragments.last().apply {
+        supportFragmentManager.popBackStack()
+        supportFragmentManager.executePendingTransactions()
+
+        val currentFragment = getCurrentFragment()
+        toggleGoToTodayVisibility(currentFragment!!.shouldGoToTodayBeVisible())
+        currentFragment.apply {
             refreshEvents()
         }
 
         binding.calendarFab.beGoneIf(
-            currentFragments.size == 1 &&
+            supportFragmentManager.backStackEntryCount == 0 &&
                     (config.storedView == YEARLY_VIEW || config.storedView == WEEKLY_VIEW)
         )
-        if (currentFragments.size > 1) {
+        if (supportFragmentManager.backStackEntryCount > 0) {
             showBackNavigationArrow()
         } else {
             binding.mainMenu.toggleForceArrowBackIcon(false)
@@ -1303,7 +1307,7 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
     private fun refreshViewPager() {
         runOnUiThread {
             if (!isDestroyed) {
-                currentFragments.last().refreshEvents()
+                getCurrentFragment()!!.refreshEvents()
             }
         }
     }
