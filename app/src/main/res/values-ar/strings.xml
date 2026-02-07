@@ -23,10 +23,10 @@
     <string name="end_before_start">لا يمكن أن ينتهي الحدث قبل بدايته</string>
     <string name="event_added">تمت إضافة الحدث</string>
     <string name="event_updated">تم تعديل الحدث</string>
-    <string name="filter_events_by_type">تصفية الأحداث حسب النوع</string>
+    <string name="filter_events_by_type">تصفية الأحداث حسب التقويم</string>
     <string name="please_fill_location">أدخل الإحداثية كي يتم عرضها على الخريطة</string>
     <string name="public_event_notification_text">اقتراب موعد حدث</string>
-    <string name="everything_filtered_out">لقد قمت بتصفية جميع أنواع الأحداث</string>
+    <string name="everything_filtered_out">لقد قمت بتصفية جميع التقاويم</string>
     <string name="task">مهمة</string>
     <string name="tasks">المهام</string>
     <string name="edit_task">تحرير المهمة</string>
