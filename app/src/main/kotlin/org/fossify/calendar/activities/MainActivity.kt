@@ -232,6 +232,10 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
             updateViewPager()
         }
 
+        if (supportFragmentManager.backStackEntryCount > 0) {
+            showBackNavigationArrow()
+        }
+
         checkAppOnSDCard()
 
         if (savedInstanceState == null) {
