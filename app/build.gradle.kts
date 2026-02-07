@@ -23,6 +23,11 @@ fun hasSigningVars(): Boolean {
             && providers.environmentVariable("SIGNING_STORE_PASSWORD").orNull != null
 }
 
+base {
+    val versionCode = project.property("VERSION_CODE").toString().toInt()
+    archivesName = "calendar-$versionCode"
+}
+
 android {
     compileSdk = project.libs.versions.app.build.compileSDKVersion.get().toInt()
 
@@ -34,7 +39,6 @@ android {
         versionName = project.property("VERSION_NAME").toString()
         multiDexEnabled = true
         vectorDrawables.useSupportLibrary = true
-        setProperty("archivesBaseName", "calendar-$versionCode")
         ksp {
             arg("room.schemaLocation", "$projectDir/schemas")
         }
