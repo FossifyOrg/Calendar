@@ -127,7 +127,7 @@ class Config(context: Context) : BaseConfig(context) {
     var lastUsedCaldavCalendarId: Int
         get() = prefs.getInt(
             LAST_USED_CALDAV_CALENDAR,
-            getSyncedCalendarIdsAsList().first()
+            getSyncedCalendarIdsAsList().firstOrNull() ?: STORED_LOCALLY_ONLY
         )
         set(calendarId) = prefs.edit().putInt(LAST_USED_CALDAV_CALENDAR, calendarId).apply()
 

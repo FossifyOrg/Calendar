@@ -5,11 +5,28 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [1.10.2] - 2026-02-04
+### Fixed
+- Fixed crash in event editor when CalDAV sync is disabled ([#1024])
+
+## [1.10.1] - 2026-02-03
+### Changed
+- Updated holiday data
+- Updated translations
+
+### Fixed
+- Fixed last used default calendar preference for new events ([#1019])
+
+## [1.10.0] - 2026-01-30
 ### Added
+- Added support for custom fonts
 - Location suggestions in event editor using recently used locations ([#393])
 
 ### Changed
 - Unified the local and synchronized calendar pickers in event editor ([#629])
+- Updated holiday data ([#1003])
+- Updated translations
 
 ## [1.9.0] - 2025-12-16
 ### Changed
@@ -209,8 +226,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#870]: https://github.com/FossifyOrg/Calendar/issues/870
 [#889]: https://github.com/FossifyOrg/Calendar/issues/889
 [#917]: https://github.com/FossifyOrg/Calendar/issues/917
+[#1003]: https://github.com/FossifyOrg/Calendar/issues/1003
+[#1019]: https://github.com/FossifyOrg/Calendar/issues/1019
+[#1024]: https://github.com/FossifyOrg/Calendar/issues/1024
 
-[Unreleased]: https://github.com/FossifyOrg/Calendar/compare/1.9.0...HEAD
+[Unreleased]: https://github.com/FossifyOrg/Calendar/compare/1.10.2...HEAD
+[1.10.2]: https://github.com/FossifyOrg/Calendar/compare/1.10.1...1.10.2
+[1.10.1]: https://github.com/FossifyOrg/Calendar/compare/1.10.0...1.10.1
+[1.10.0]: https://github.com/FossifyOrg/Calendar/compare/1.9.0...1.10.0
 [1.9.0]: https://github.com/FossifyOrg/Calendar/compare/1.8.1...1.9.0
 [1.8.1]: https://github.com/FossifyOrg/Calendar/compare/1.8.0...1.8.1
 [1.8.0]: https://github.com/FossifyOrg/Calendar/compare/1.7.0...1.8.0

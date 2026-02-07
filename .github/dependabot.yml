@@ -11,7 +11,7 @@ registries:
 
   jitpack:
     type: maven-repository
-    url: "https://jitpack.io"
+    url: "https://www.jitpack.io"
 
 updates:
   - package-ecosystem: "bundler"
@@ -35,6 +35,8 @@ updates:
       prefix: "chore"
       prefix-development: "chore"
       include: "scope"
+    ignore:
+      - dependency-name: "org.fossify:commons"
 
   - package-ecosystem: "github-actions"
     directory: "/"
