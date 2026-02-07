@@ -138,7 +138,6 @@ class WidgetWeeklyConfigureActivity : SimpleActivity(), WeeklyCalendar {
     }
 
     private fun setupDayColumns() {
-        val textColor = config.widgetTextColor
         binding.configCalendar.weekEventsDayLines.removeAllViews()
         // columns that will contain events
         binding.configCalendar.weekEventsColumnsHolder.apply {
@@ -155,7 +154,7 @@ class WidgetWeeklyConfigureActivity : SimpleActivity(), WeeklyCalendar {
                 val time = DateTime().withHourOfDay(i)
                 addView(WidgetWeekHourBinding.inflate(layoutInflater, binding.configCalendar.timeColumn, false).root.apply {
                     text = time.toString(Formatter.getHourPattern(context))
-                    setTextColor(textColor)
+                    setTextColor(mTextColor)
                 })
             }
             addView(Vertical1Binding.inflate(layoutInflater, binding.configCalendar.timeColumn, false).root)
