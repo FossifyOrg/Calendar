@@ -37,6 +37,9 @@ class MonthFragmentsHolder : MyFragmentHolder(), NavigationListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         currentDayCode = arguments?.getString(DAY_CODE) ?: ""
+        if (savedInstanceState != null) {
+            currentDayCode = savedInstanceState.getString(::currentDayCode.name) ?: currentDayCode
+        }
         todayDayCode = Formatter.getTodayCode()
     }
 
@@ -47,6 +50,11 @@ class MonthFragmentsHolder : MyFragmentHolder(), NavigationListener {
         viewPager.id = (System.currentTimeMillis() % 100000).toInt()
         setupFragment()
         return binding.root
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putString(::currentDayCode.name, currentDayCode)
+        super.onSaveInstanceState(outState)
     }
 
     private fun setupFragment() {
