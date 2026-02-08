@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/week_holder"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/medium_margin">
+
+    <ImageView
+        android:id="@+id/widget_week_background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:src="@drawable/widget_round_background" />
+
+    <RelativeLayout
+        android:id="@+id/week_top_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/stroke_bottom"
+        android:layout_toEndOf="@+id/time_column"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:id="@+id/week_letters_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/stroke_bottom"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/small_margin" />
+
+        <LinearLayout
+            android:id="@+id/week_all_day_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/week_letters_holder"
+            android:orientation="vertical" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/time_column"
+        android:layout_width="30dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@+id/week_top_holder"/>
+
+    <RelativeLayout
+        android:id="@+id/week_events_holder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/time_column"
+        android:layout_below="@+id/week_top_holder">
+
+        <LinearLayout
+            android:id="@+id/week_events_hour_lines"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:orientation="vertical" />
+
+        <LinearLayout
+            android:id="@+id/week_events_day_lines"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:orientation="horizontal" />
+
+        <LinearLayout
+            android:id="@+id/week_events_columns_holder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:orientation="horizontal" />
+
+    </RelativeLayout>
+</RelativeLayout>
