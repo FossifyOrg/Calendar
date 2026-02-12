@@ -139,6 +139,7 @@ import org.joda.time.DateTimeZone
 import java.text.SimpleDateFormat
 import java.util.Locale
 import androidx.core.graphics.drawable.toDrawable
+import androidx.fragment.app.FragmentManager
 
 class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
     override var isSearchBarEnabled = true
@@ -1147,6 +1148,7 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
         }
 
         fragment.arguments = bundle
+        supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
         supportFragmentManager.beginTransaction().replace(R.id.fragments_holder, fragment).commitNow()
         binding.mainMenu.toggleForceArrowBackIcon(false)
     }
