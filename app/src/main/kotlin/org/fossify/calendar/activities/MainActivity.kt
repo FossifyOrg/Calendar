@@ -1285,8 +1285,8 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
         supportFragmentManager.executePendingTransactions()
 
         val currentFragment = getCurrentFragment()
-        toggleGoToTodayVisibility(currentFragment!!.shouldGoToTodayBeVisible())
-        currentFragment.apply {
+        toggleGoToTodayVisibility(currentFragment?.shouldGoToTodayBeVisible() == true)
+        currentFragment?.apply {
             refreshEvents()
         }
 
