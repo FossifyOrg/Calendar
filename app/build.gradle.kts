@@ -149,6 +149,7 @@ dependencies {
     implementation(libs.androidx.print)
     implementation(libs.bundles.room)
     implementation(libs.androidx.work.runtime.ktx)
+    testImplementation(libs.junit)
     ksp(libs.androidx.room.compiler)
     detektPlugins(libs.compose.detekt)
 }

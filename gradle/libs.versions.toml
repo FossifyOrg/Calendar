@@ -14,6 +14,8 @@ swiperefreshlayout = "1.2.0"
 work = "2.11.1"
 #Room
 room = "2.8.4"
+#junit
+junit = "4.13.2"
 #Fossify
 commons = "6.1.5"
 #Gradle
@@ -37,6 +39,8 @@ androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
 #Compose
 compose-detekt = { module = "io.nlopez.compose.rules:detekt", version.ref = "detektCompose" }
+#junit
+junit = { group = "junit", name = "junit", version.ref = "junit" }
 #Fossify
 fossify-commons = { module = "org.fossify:commons", version.ref = "commons" }
 [bundles]
