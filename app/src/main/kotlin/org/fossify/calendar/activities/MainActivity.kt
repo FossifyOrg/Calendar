@@ -1311,7 +1311,7 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
     private fun refreshViewPager() {
         runOnUiThread {
             if (!isDestroyed) {
-                getCurrentFragment()!!.refreshEvents()
+                getCurrentFragment()?.refreshEvents()
             }
         }
     }
