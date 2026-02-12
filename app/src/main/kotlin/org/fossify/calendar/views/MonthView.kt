@@ -7,6 +7,7 @@ import android.text.TextUtils
 import android.util.AttributeSet
 import android.util.SparseIntArray
 import android.view.View
+import androidx.core.graphics.ColorUtils
 import org.fossify.calendar.R
 import org.fossify.calendar.extensions.*
 import org.fossify.calendar.helpers.COLUMN_COUNT
@@ -17,7 +18,6 @@ import org.fossify.calendar.models.Event
 import org.fossify.calendar.models.MonthViewEvent
 import org.fossify.commons.extensions.*
 import org.fossify.commons.helpers.FontHelper
-import org.fossify.commons.helpers.HIGHER_ALPHA
 import org.fossify.commons.helpers.LOWER_ALPHA
 import org.fossify.commons.helpers.MEDIUM_ALPHA
 import org.joda.time.DateTime
@@ -31,6 +31,9 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
         private const val BG_CORNER_RADIUS = 8f
         private const val EVENT_DOT_COLUMN_COUNT = 3
         private const val EVENT_DOT_ROW_COUNT = 1
+
+        private const val ALPHA_OPAQUE = 255
+        private const val PAST_EVENT_SCRIM_ALPHA = 0.40f
     }
 
     private var textPaint: Paint
@@ -64,6 +67,10 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
     private var days = ArrayList<DayMonthly>()
     private var dayVerticalOffsets = SparseIntArray()
     private var selectedDayCoords = Point(-1, -1)
+
+    private val dimmingPaint = Paint().apply {
+        color = ColorUtils.setAlphaComponent(Color.WHITE, (PAST_EVENT_SCRIM_ALPHA * ALPHA_OPAQUE).toInt())
+    }
 
     constructor(context: Context, attrs: AttributeSet) : this(context, attrs, 0)
 
@@ -380,6 +387,19 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
 
         drawEventTitle(event, canvas, xPos + taskIconWidth, yPos + verticalOffset, bgRight - bgLeft - smallPadding - taskIconWidth, specificEventTitlePaint)
 
+        val applyDimming = when {
+            event.isTask -> dimCompletedTasks && event.isTaskCompleted
+            else -> dimPastEvents && event.isPastEvent && !isPrintVersion
+        }
+        if (applyDimming) {
+            canvas.drawRoundRect(
+                bgRectF,
+                BG_CORNER_RADIUS,
+                BG_CORNER_RADIUS,
+                dimmingPaint
+            )
+        }
+
         for (i in 0 until min(event.daysCnt, 7 - event.startDayIndex % 7)) {
             dayVerticalOffsets.put(event.startDayIndex + i, verticalOffset + eventTitleHeight + smallPadding * 2)
         }
@@ -411,35 +431,14 @@ class MonthView(context: Context, attrs: AttributeSet, defStyle: Int) : View(con
     }
 
     private fun getEventBackgroundColor(event: MonthViewEvent): Paint {
-        var paintColor = event.color
-
-        val adjustAlpha = when {
-            event.isTask -> dimCompletedTasks && event.isTaskCompleted
-            else -> dimPastEvents && event.isPastEvent && !isPrintVersion
-        }
-
-        if (adjustAlpha) {
-            paintColor = paintColor.adjustAlpha(MEDIUM_ALPHA)
-        }
-
-        return getColoredPaint(paintColor)
+        return getColoredPaint(event.color)
     }
 
     private fun getEventTitlePaint(event: MonthViewEvent): Paint {
-        var paintColor = event.color.getContrastColor()
-        val adjustAlpha = when {
-            event.isTask -> dimCompletedTasks && event.isTaskCompleted
-            else -> dimPastEvents && event.isPastEvent && !isPrintVersion
+        return Paint(eventTitlePaint).apply {
+            color = event.color.getContrastColor(Color.BLACK, Color.WHITE)
+            isStrikeThruText = event.shouldStrikeThrough()
         }
-
-        if (adjustAlpha) {
-            paintColor = paintColor.adjustAlpha(HIGHER_ALPHA)
-        }
-
-        val curPaint = Paint(eventTitlePaint)
-        curPaint.color = paintColor
-        curPaint.isStrikeThruText = event.shouldStrikeThrough()
-        return curPaint
     }
 
     private fun getCirclePaint(day: DayMonthly): Paint {
