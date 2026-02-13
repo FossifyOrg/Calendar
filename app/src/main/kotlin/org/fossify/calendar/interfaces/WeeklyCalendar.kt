@@ -1,7 +1,8 @@
 package org.fossify.calendar.interfaces
 
-import org.fossify.calendar.models.Event
+import android.content.Context
+import org.fossify.calendar.models.DayWeekly
 
 interface WeeklyCalendar {
-    fun updateWeeklyCalendar(events: ArrayList<Event>)
+    fun updateWeeklyCalendar(context: Context, days: ArrayList<DayWeekly>, earliestStartHour: Int, latestEndHour: Int)
 }

@@ -13,6 +13,7 @@
     <string name="go_to_date">Go to date</string>
 
     <!-- Widget titles -->
+    <string name="widget_weekly">Calendar weekly</string>
     <string name="widget_monthly">Calendar monthly</string>
     <string name="widget_list">Calendar event list</string>
     <string name="widget_todays_date">Calendar today\'s date</string>
