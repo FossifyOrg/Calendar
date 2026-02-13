@@ -1149,6 +1149,7 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
 
         fragment.arguments = bundle
         supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+        supportFragmentManager.executePendingTransactions()
         supportFragmentManager.beginTransaction().replace(R.id.fragments_holder, fragment).commitNow()
         binding.mainMenu.toggleForceArrowBackIcon(false)
     }
