@@ -78,7 +78,7 @@ open class SimpleActivity : BaseSimpleActivity() {
     }
 
     override fun onStop() {
-        contentResolver.unregisterContentObserver(calDAVSyncObserver)
+        unregisterObserver()
         super.onStop()
     }
 
