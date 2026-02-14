@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Fixed
 - Fixed crash when changing orientation ([#644])
+- Preserve current day when changing orientation ([#1042])
 
 ## [1.10.2] - 2026-02-04
 ### Fixed

@@ -37,6 +37,9 @@ class YearFragmentsHolder : MyFragmentHolder(), NavigationListener {
         super.onCreate(savedInstanceState)
         val dateTimeString = arguments?.getString(YEAR_TO_OPEN)
         currentYear = (if (dateTimeString != null) DateTime.parse(dateTimeString) else DateTime()).toString(Formatter.YEAR_PATTERN).toInt()
+        if (savedInstanceState != null) {
+            currentYear = savedInstanceState.getInt(::currentYear.name)
+        }
         todayYear = DateTime().toString(Formatter.YEAR_PATTERN).toInt()
     }
 
@@ -47,6 +50,11 @@ class YearFragmentsHolder : MyFragmentHolder(), NavigationListener {
         viewPager.id = (System.currentTimeMillis() % 100000).toInt()
         setupFragment()
         return binding.root
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putInt(::currentYear.name, currentYear)
+        super.onSaveInstanceState(outState)
     }
 
     private fun setupFragment() {
