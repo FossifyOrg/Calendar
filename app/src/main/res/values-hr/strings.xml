@@ -249,7 +249,7 @@
     <string name="faq_4_title">Podržava li aplikacija vremenske zone\?</string>
     <string name="faq_4_text">Da, podržava ih. Prema standardnim postavkama svi se događaji stvaraju u tvojoj aktualnoj vremenskoj zoni. Ako želiš promijeniti vremensku zonu događaja, najprije moraš aktivirati birač vremenske zone u postavkama aplikacije, a zatim ga promijeni u ekranu detalja događaja. Standardno je deaktiviran, jer ga većina ljudi neće trebati.</string>
     <string name="faq_5_title">Aplikacija ne prikazuje obavijesti. Zašto?</string>
-    <string name="faq_5_text">Provjeri bateriju uređaja i postavke obavijesti ako ništa ne blokira podsjetnike ili ne zaustavlja aplikaciju u pozadini. Također pogledaj &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;. SStranica sadrži korisne savjete.</string>
+    <string name="faq_5_text">Provjeri bateriju uređaja i postavke obavijesti ako ništa ne blokira podsjetnike ili ne prekida aplikaciju u pozadini. Također pogledaj &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;. Stranica sadrži korisne savjete.</string>
     <string name="faq_6_title">Kako mogu promijeniti ili izbrisati postojeći kalendar?</string>
     <string name="faq_6_text">Oboje možeš učiniti u postavkama aplikacije – Upravljaj kalendarima. Pritisni željeni kalendar za mijenjanje oznake i boje ili odaberi kalendar dugim pritiskom i koristi koš za smeće u gornjem izborniku za brisanje.</string>
     <string name="alarm_stream">Alarm</string>
