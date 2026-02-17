@@ -539,7 +539,12 @@ class WeekFragment : Fragment(), WeeklyCalendar {
         return fullContentHeight * visibleRatio
     }
 
-    override fun updateWeeklyCalendar(context: Context, days: ArrayList<DayWeekly>, earliestStartHour: Int, latestEndHour: Int) {
+    override fun updateWeeklyCalendar(
+        context: Context,
+        days: ArrayList<DayWeekly>,
+        earliestStartHour: Int,
+        latestEndHour: Int,
+    ) {
         val newHash = days.hashCode()
         if (newHash == lastHash || mWasDestroyed) {
             return
@@ -626,7 +631,8 @@ class WeekFragment : Fragment(), WeeklyCalendar {
                         checkViewStrikeThrough(event.shouldStrikeThrough())
                         contentDescription = text
 
-                        minHeight = minimalHeight.coerceAtLeast(((ews.endMinute - ews.startMinute) * minuteHeight).toInt() - 1)
+                        val durationMinutes = ews.endMinute - ews.startMinute
+                        minHeight = minimalHeight.coerceAtLeast((durationMinutes * minuteHeight).toInt() - 1)
                     }
 
                     (root.layoutParams as RelativeLayout.LayoutParams).apply {
