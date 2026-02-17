@@ -242,6 +242,9 @@
     <ID>MagicNumber:WidgetMonthlyConfigureActivity.kt$WidgetMonthlyConfigureActivity$255f</ID>
     <ID>MagicNumber:WidgetMonthlyConfigureActivity.kt$WidgetMonthlyConfigureActivity$3</ID>
     <ID>MagicNumber:WidgetMonthlyConfigureActivity.kt$WidgetMonthlyConfigureActivity$7</ID>
+    <ID>MagicNumber:WidgetWeeklyConfigureActivity.kt$WidgetWeeklyConfigureActivity$100</ID>
+    <ID>MagicNumber:WidgetWeeklyConfigureActivity.kt$WidgetWeeklyConfigureActivity$100f</ID>
+    <ID>MagicNumber:WidgetWeeklyConfigureActivity.kt$WidgetWeeklyConfigureActivity$255f</ID>
     <ID>MagicNumber:YearFragment.kt$YearFragment$12</ID>
     <ID>MagicNumber:YearFragmentsHolder.kt$YearFragmentsHolder$100000</ID>
     <ID>MagicNumber:YearFragmentsHolder.kt$YearFragmentsHolder$61</ID>
@@ -447,6 +450,7 @@
     <ID>TooManyFunctions:WeekFragmentsHolder.kt$WeekFragmentsHolder : MyFragmentHolderWeekFragmentListener</ID>
     <ID>TooManyFunctions:WidgetListConfigureActivity.kt$WidgetListConfigureActivity : SimpleActivity</ID>
     <ID>TooManyFunctions:WidgetMonthlyConfigureActivity.kt$WidgetMonthlyConfigureActivity : SimpleActivityMonthlyCalendar</ID>
+    <ID>TooManyFunctions:WidgetWeeklyConfigureActivity.kt$WidgetWeeklyConfigureActivity : SimpleActivityWeeklyCalendar</ID>
     <ID>TooManyFunctions:YearFragmentsHolder.kt$YearFragmentsHolder : MyFragmentHolderNavigationListener</ID>
     <ID>UnusedPrivateProperty:YearlyCalendarImpl.kt$YearlyCalendarImpl$i</ID>
     <ID>VariableNaming:CalendarPickerActivity.kt$CalendarPickerActivity$private val TYPE_EVENT = 0</ID>
@@ -513,5 +517,6 @@
     <ID>WildcardImport:WidgetListConfigureActivity.kt$import org.fossify.commons.extensions.*</ID>
     <ID>WildcardImport:WidgetListConfigureActivity.kt$import org.fossify.commons.helpers.*</ID>
     <ID>WildcardImport:WidgetMonthlyConfigureActivity.kt$import org.fossify.commons.extensions.*</ID>
+    <ID>WildcardImport:WidgetWeeklyConfigureActivity.kt$import org.fossify.commons.extensions.*</ID>
   </CurrentIssues>
 </SmellBaseline>

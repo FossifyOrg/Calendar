@@ -34,7 +34,7 @@ import org.joda.time.DateTime
 class WidgetWeeklyConfigureActivity : SimpleActivity(), WeeklyCalendar {
     private var mDays: List<DayWeekly> = ArrayList()
     private var earliestEventStartHour = 0
-    private var latestEventEndHour = 24
+    private var latestEventEndHour = WeeklyCalendarImpl.HOURS_PER_DAY
 
     private var mBgAlpha = 0f
     private var mWidgetId = 0
@@ -120,7 +120,7 @@ class WidgetWeeklyConfigureActivity : SimpleActivity(), WeeklyCalendar {
             removeAllViews()
             val smallerFontSize = context.getWidgetFontSize()
             var curDay = context.getFirstDayOfWeekDt(DateTime())
-            (0 until config.weeklyViewDays).forEach { _ ->
+            for (i in 0 until config.weeklyViewDays) {
                 val dayLetter = dayLetters[curDay.dayOfWeek - 1]
 
                 val newView = WidgetWeekDayLetterBinding.inflate(
@@ -142,17 +142,20 @@ class WidgetWeeklyConfigureActivity : SimpleActivity(), WeeklyCalendar {
         // columns that will contain events
         binding.configCalendar.weekEventsColumnsHolder.apply {
             removeAllViews()
-            (0 until context.config.weeklyViewDays).forEach {
-                addView(WidgetWeekColumnBinding.inflate(layoutInflater, binding.configCalendar.weekEventsColumnsHolder, false).root)
+            for (i in 0 until context.config.weeklyViewDays) {
+                addView(WidgetWeekColumnBinding.inflate(layoutInflater,
+                    binding.configCalendar.weekEventsColumnsHolder, false).root)
             }
         }
         // column on the left showing the time
         binding.configCalendar.timeColumn.apply {
             removeAllViews()
-            addView(Vertical1Binding.inflate(layoutInflater, binding.configCalendar.timeColumn, false).root)
+            addView(Vertical1Binding.inflate(layoutInflater,
+                binding.configCalendar.timeColumn, false).root)
             for (i in earliestEventStartHour + 1 until latestEventEndHour) {
                 val time = DateTime().withHourOfDay(i)
-                addView(WidgetWeekHourBinding.inflate(layoutInflater, binding.configCalendar.timeColumn, false).root.apply {
+                addView(WidgetWeekHourBinding.inflate(layoutInflater,
+                    binding.configCalendar.timeColumn, false).root.apply {
                     text = time.toString(Formatter.getHourPattern(context))
                     setTextColor(mTextColor)
                 })
@@ -163,8 +166,10 @@ class WidgetWeeklyConfigureActivity : SimpleActivity(), WeeklyCalendar {
             removeAllViews()
             addView(Vertical1Binding.inflate(layoutInflater, binding.configCalendar.weekEventsHourLines, false).root)
             for (i in earliestEventStartHour + 1 until latestEventEndHour) {
-                addView(HorizontalLineBinding.inflate(layoutInflater, binding.configCalendar.weekEventsHourLines, false).root)
-                addView(Vertical1Binding.inflate(layoutInflater, binding.configCalendar.weekEventsHourLines, false).root)
+                addView(HorizontalLineBinding.inflate(layoutInflater,
+                    binding.configCalendar.weekEventsHourLines, false).root)
+                addView(Vertical1Binding.inflate(layoutInflater,
+                    binding.configCalendar.weekEventsHourLines, false).root)
             }
         }
     }
@@ -224,20 +229,26 @@ class WidgetWeeklyConfigureActivity : SimpleActivity(), WeeklyCalendar {
     }
 
     private fun updateDays() {
-        for (day in mDays) {
-            // TODO: show events
+        mDays.forEach {
             binding.configCalendar.weekEventsDayLines.apply {
-                addView(VerticalLineBinding.inflate(layoutInflater, binding.configCalendar.weekEventsDayLines, false).root)
-                addView(Horizontal1Binding.inflate(layoutInflater, binding.configCalendar.weekEventsDayLines, false).root)
+                addView(VerticalLineBinding.inflate(layoutInflater,
+                    binding.configCalendar.weekEventsDayLines, false).root)
+                addView(Horizontal1Binding.inflate(layoutInflater,
+                    binding.configCalendar.weekEventsDayLines, false).root)
             }
         }
     }
 
-    override fun updateWeeklyCalendar(context: Context, days: ArrayList<DayWeekly>, earliestStartHour: Int, latestEndHour: Int) {
+    override fun updateWeeklyCalendar(
+        context: Context,
+        days: ArrayList<DayWeekly>,
+        earliestStartHour: Int,
+        latestEndHour: Int,
+    ) {
         runOnUiThread {
             mDays = days
-            earliestEventStartHour = 0
-            latestEventEndHour = 24
+            earliestEventStartHour = earliestStartHour
+            latestEventEndHour = latestEndHour
             setupDayLabels()
             setupDayColumns()
             updateDays()
