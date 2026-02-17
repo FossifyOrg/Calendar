@@ -26,7 +26,7 @@ class MyWidgetWeeklyProvider : AppWidgetProvider() {
     private var dayColumns = ArrayList<RemoteViews>()
     private var mDays = ArrayList<DayWeekly>()
     private var earliestEventStartHour = 0
-    private var latestEventEndHour = 24
+    private var latestEventEndHour = WeeklyCalendarImpl.HOURS_PER_DAY
 
     companion object {
         private val vertical_spaces = arrayOf(
@@ -166,7 +166,7 @@ class MyWidgetWeeklyProvider : AppWidgetProvider() {
         views.removeAllViews(R.id.week_events_day_lines)
         val packageName = context.packageName
         // columns that will contain events
-        (0 until context.config.weeklyViewDays).forEach {
+        for (i in 0 until context.config.weeklyViewDays) {
             val column = RemoteViews(packageName, R.layout.widget_week_column)
             dayColumns.add(column)
         }
@@ -201,7 +201,7 @@ class MyWidgetWeeklyProvider : AppWidgetProvider() {
                 addAllDayEvent(context, packageName, dayOfWeek, event, allDayEventRows, allDayEventNextStart)
             }
             val dayColumn = dayColumns[dayOfWeek]
-            var subColumnStartMinute = earliestEventStartHour * 60
+            var subColumnStartMinute = earliestEventStartHour * WeeklyCalendarImpl.MINUTES_PER_HOUR
             val subColumns = ArrayList<RemoteViews>()
             val subColumnLastMinutes = ArrayList<Int>()
             subColumns.add(dayColumn)
@@ -209,7 +209,8 @@ class MyWidgetWeeklyProvider : AppWidgetProvider() {
             for (ews in day.dayEvents) {
                 if (ews.slotMax != subColumns.size) {
                     // the number of subColumns has to be changed
-                    fillEmptyEventColumns(packageName, dayColumn, ews.startMinute, subColumns, subColumnStartMinute, subColumnLastMinutes)
+                    fillEmptyEventColumns(packageName, dayColumn, ews.startMinute,
+                        subColumns, subColumnStartMinute, subColumnLastMinutes)
                     subColumns.clear()
                     subColumnLastMinutes.clear()
                     subColumnStartMinute = ews.startMinute
@@ -219,12 +220,12 @@ class MyWidgetWeeklyProvider : AppWidgetProvider() {
                         subColumns.add(dayColumn)
                     } else {
                         // subColumns will be shown side-by-side for events with overlapping timing
-                        (0 until ews.slotMax).forEach { _ ->
+                        for (i in 0 until ews.slotMax) {
                             val column = RemoteViews(packageName, R.layout.widget_week_column)
                             subColumns.add(column)
                         }
                     }
-                    (0 until ews.slotMax).forEach { _ ->
+                    for (i in 0 until ews.slotMax) {
                         subColumnLastMinutes.add(ews.startMinute)
                     }
                 }
@@ -236,7 +237,8 @@ class MyWidgetWeeklyProvider : AppWidgetProvider() {
                 container.addView(R.id.space_vertical, eventView)
                 subColumns[ews.slot].addView(R.id.week_column, container)
             }
-            fillEmptyEventColumns(packageName, dayColumn, latestEventEndHour * 60, subColumns, subColumnStartMinute, subColumnLastMinutes)
+            fillEmptyEventColumns(packageName, dayColumn, latestEventEndHour * WeeklyCalendarImpl.MINUTES_PER_HOUR,
+                subColumns,subColumnStartMinute, subColumnLastMinutes)
             // add vertical grid line
             views.addView(R.id.week_events_day_lines, RemoteViews(packageName, R.layout.vertical_line))
             views.addView(R.id.week_events_day_lines, RemoteViews(packageName, R.layout.horizontal_1))
@@ -245,7 +247,8 @@ class MyWidgetWeeklyProvider : AppWidgetProvider() {
         // add rows containing all-day events to the view
         for ((i, row) in allDayEventRows.withIndex()) {
             if (allDayEventNextStart[i] < config.weeklyViewDays) {
-                val space = RemoteViews(packageName, horizontal_spaces[config.weeklyViewDays - allDayEventNextStart[i] - 1])
+                val space = RemoteViews(packageName,
+                    horizontal_spaces[config.weeklyViewDays - allDayEventNextStart[i] - 1])
                 allDayEventRows[i].addView(R.id.week_all_day_row, space)
             }
             views.addView(R.id.week_all_day_holder, row)
@@ -339,7 +342,12 @@ class MyWidgetWeeklyProvider : AppWidgetProvider() {
     }
 
     private val weeklyCalendar = object : WeeklyCalendar {
-        override fun updateWeeklyCalendar(context: Context, days: ArrayList<DayWeekly>, earliestStartHour: Int, latestEndHour: Int) {
+        override fun updateWeeklyCalendar(
+            context: Context,
+            days: ArrayList<DayWeekly>,
+            earliestStartHour: Int,
+            latestEndHour: Int,
+        ) {
             val textColor = context.config.widgetTextColor
             val resources = context.resources
             mDays = days
@@ -384,7 +392,8 @@ class MyWidgetWeeklyProvider : AppWidgetProvider() {
             (context.getLaunchIntent() ?: Intent(context, SplashActivity::class.java)).apply {
                 putExtra(DAY_CODE, dayCode)
                 putExtra(VIEW_TO_OPEN, DAILY_VIEW)
-                val pendingIntent = PendingIntent.getActivity(context, Integer.parseInt(dayCode), this, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+                val pendingIntent = PendingIntent.getActivity(context, Integer.parseInt(dayCode),
+                    this, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
                 newRemoteView.setOnClickPendingIntent(R.id.week_day_label, pendingIntent)
             }
             views.addView(R.id.week_letters_holder, newRemoteView)

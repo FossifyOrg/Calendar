@@ -173,6 +173,7 @@
     <ID>MagicNumber:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider$7</ID>
     <ID>MagicNumber:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider.&lt;no name provided&gt;$3f</ID>
     <ID>MagicNumber:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider.&lt;no name provided&gt;$6</ID>
+    <ID>MagicNumber:MyWidgetWeeklyProvider.kt$MyWidgetWeeklyProvider$3</ID>
     <ID>MagicNumber:NotificationReceiver.kt$NotificationReceiver$3000</ID>
     <ID>MagicNumber:Parser.kt$Parser$14</ID>
     <ID>MagicNumber:Parser.kt$Parser$24</ID>
@@ -399,6 +400,7 @@
     <ID>NestedBlockDepth:MainActivity.kt$MainActivity$private fun checkIsViewIntent()</ID>
     <ID>NestedBlockDepth:MonthView.kt$MonthView$override fun onDraw(canvas: Canvas)</ID>
     <ID>NestedBlockDepth:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider$private fun updateDays(context: Context, views: RemoteViews, days: List&lt;DayMonthly&gt;)</ID>
+    <ID>NestedBlockDepth:MyWidgetWeeklyProvider.kt$MyWidgetWeeklyProvider$private fun updateDays(context: Context, views: RemoteViews)</ID>
     <ID>NestedBlockDepth:Parser.kt$Parser$fun parseRepeatInterval(fullString: String, startTS: Long): EventRepetition</ID>
     <ID>NestedBlockDepth:SettingsActivity.kt$SettingsActivity$private fun parseFile(inputStream: InputStream?)</ID>
     <ID>NestedBlockDepth:SmallMonthView.kt$SmallMonthView$override fun onDraw(canvas: Canvas)</ID>
@@ -507,6 +509,8 @@
     <ID>WildcardImport:MyWidgetListProvider.kt$import org.fossify.commons.extensions.*</ID>
     <ID>WildcardImport:MyWidgetMonthlyProvider.kt$import org.fossify.calendar.extensions.*</ID>
     <ID>WildcardImport:MyWidgetMonthlyProvider.kt$import org.fossify.commons.extensions.*</ID>
+    <ID>WildcardImport:MyWidgetWeeklyProvider.kt$import org.fossify.calendar.extensions.*</ID>
+    <ID>WildcardImport:MyWidgetWeeklyProvider.kt$import org.fossify.commons.extensions.*</ID>
     <ID>WildcardImport:Parser.kt$import org.fossify.commons.helpers.*</ID>
     <ID>WildcardImport:ReminderWarningDialog.kt$import org.fossify.commons.extensions.*</ID>
     <ID>WildcardImport:RepeatLimitTypePickerDialog.kt$import org.fossify.commons.extensions.*</ID>
