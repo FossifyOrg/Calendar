@@ -17,6 +17,7 @@ import org.fossify.commons.helpers.ensureBackgroundThread
 import org.joda.time.DateTimeZone
 import java.io.BufferedOutputStream
 import java.io.OutputStream
+import kotlin.math.abs
 
 class IcsExporter(private val context: Context) {
     enum class ExportResult {
@@ -71,26 +72,23 @@ class IcsExporter(private val context: Context) {
     }
 
     private fun fillReminders(event: Event, outputStream: OutputStream, reminderLabel: String) {
-        event.getReminders().forEach {
-            val reminder = it
-            outputStream.apply {
-                writeContentLine(BEGIN_ALARM)
-                writeTextProperty(DESCRIPTION, reminderLabel)
-                if (reminder.type == REMINDER_NOTIFICATION) {
-                    writeContentLine("$ACTION$DISPLAY")
-                } else {
-                    writeContentLine("$ACTION$EMAIL")
-                    val attendee =
-                        calendars.firstOrNull { it.id == event.getCalDAVCalendarId() }?.accountName
-                    if (attendee != null) {
-                        writeContentLine("$ATTENDEE$MAILTO$attendee")
-                    }
+        event.getReminders().forEach { reminder ->
+            outputStream.writeContentLine(BEGIN_ALARM)
+            outputStream.writeTextProperty(DESCRIPTION, reminderLabel)
+            if (reminder.type == REMINDER_NOTIFICATION) {
+                outputStream.writeContentLine("$ACTION$DISPLAY")
+            } else {
+                outputStream.writeContentLine("$ACTION$EMAIL")
+                val attendee =
+                    calendars.firstOrNull { it.id == event.getCalDAVCalendarId() }?.accountName
+                if (attendee != null) {
+                    outputStream.writeContentLine("$ATTENDEE$MAILTO$attendee")
                 }
-
-                val sign = if (reminder.minutes < -1) "" else "-"
-                writeContentLine("$TRIGGER:$sign${Parser().getDurationCode(Math.abs(reminder.minutes.toLong()))}")
-                writeContentLine(END_ALARM)
             }
+
+            val sign = if (reminder.minutes < -1) "" else "-"
+            outputStream.writeContentLine("$TRIGGER:$sign${Parser().getDurationCode(abs(reminder.minutes.toLong()))}")
+            outputStream.writeContentLine(END_ALARM)
         }
     }
 
