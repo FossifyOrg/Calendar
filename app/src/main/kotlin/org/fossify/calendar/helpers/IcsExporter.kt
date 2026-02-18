@@ -98,58 +98,56 @@ class IcsExporter(private val context: Context) {
         }
     }
 
-    private fun writeEvent(outputStream: OutputStream, event: Event) {
+    private fun writeEvent(out: OutputStream, event: Event) {
         val calendarColors = context.eventsHelper.getCalendarColors()
-        with(outputStream) {
-            writeContentLine(BEGIN_EVENT)
-            event.title.let { if (it.isNotEmpty()) writeTextProperty(SUMMARY, it) }
-            event.importId.let { if (it.isNotEmpty()) writeContentLine("$UID$it") }
-            writeContentLine("$CATEGORY_COLOR${context.calendarsDB.getCalendarWithId(event.calendarId)?.color}")
-            if (event.color != 0 && event.color != calendarColors[event.calendarId]) {
-                val color = CssColors.findClosestCssColor(event.color)
-                if (color != null) {
-                    writeContentLine("$COLOR${color}")
-                }
-                writeContentLine("$FOSSIFY_COLOR${event.color}")
+        out.writeContentLine(BEGIN_EVENT)
+        if (event.title.isNotEmpty()) out.writeTextProperty(SUMMARY, event.title)
+        if (event.importId.isNotEmpty()) out.writeContentLine("$UID${event.importId}")
+        out.writeContentLine("$CATEGORY_COLOR${context.calendarsDB.getCalendarWithId(event.calendarId)?.color}")
+        if (event.color != 0 && event.color != calendarColors[event.calendarId]) {
+            val color = CssColors.findClosestCssColor(event.color)
+            if (color != null) {
+                out.writeContentLine("$COLOR${color}")
             }
-            writeTextProperty("CATEGORIES", context.calendarsDB.getCalendarWithId(event.calendarId)?.title ?: "")
-            writeContentLine("$LAST_MODIFIED:${Formatter.getExportedTime(event.lastUpdated)}")
-            writeContentLine("$TRANSP${if (event.availability == Events.AVAILABILITY_FREE) TRANSPARENT else OPAQUE}")
-            event.location.let { if (it.isNotEmpty()) writeTextProperty(LOCATION, it) }
-
-            if (event.getIsAllDay()) {
-                val tz = try {
-                    DateTimeZone.forID(event.timeZone)
-                } catch (ignored: IllegalArgumentException) {
-                    DateTimeZone.getDefault()
-                }
-                writeContentLine("$DTSTART;$VALUE=$DATE:${Formatter.getDayCodeFromTS(event.startTS, tz)}")
-                writeContentLine(
-                    "$DTEND;$VALUE=$DATE:${
-                        Formatter.getDayCodeFromTS(
-                            event.endTS + TWELVE_HOURS,
-                            tz
-                        )
-                    }"
-                )
-            } else {
-                writeContentLine("$DTSTART:${Formatter.getExportedTime(event.startTS * 1000L)}")
-                writeContentLine("$DTEND:${Formatter.getExportedTime(event.endTS * 1000L)}")
-            }
-            writeContentLine("$MISSING_YEAR${if (event.hasMissingYear()) 1 else 0}")
-
-            writeContentLine("$DTSTAMP$exportTime")
-            writeContentLine("$CLASS:${getAccessLevelStringFromEventAccessLevel(event.accessLevel)}")
-            writeContentLine("$STATUS${getStatusStringFromEventStatus(event.status)}")
-            Parser().getRepeatCode(event).let { if (it.isNotEmpty()) writeContentLine("$RRULE$it") }
-
-            writeTextProperty(DESCRIPTION, event.description)
-            fillReminders(event, outputStream, reminderLabel)
-            fillIgnoredOccurrences(event, outputStream)
-
-            eventsExported++
-            writeContentLine(END_EVENT)
+            out.writeContentLine("$FOSSIFY_COLOR${event.color}")
         }
+        out.writeTextProperty("CATEGORIES", context.calendarsDB.getCalendarWithId(event.calendarId)?.title ?: "")
+        out.writeContentLine("$LAST_MODIFIED:${Formatter.getExportedTime(event.lastUpdated)}")
+        out.writeContentLine("$TRANSP${if (event.availability == Events.AVAILABILITY_FREE) TRANSPARENT else OPAQUE}")
+        if (event.location.isNotEmpty()) out.writeTextProperty(LOCATION, event.location)
+
+        if (event.getIsAllDay()) {
+            val tz = try {
+                DateTimeZone.forID(event.timeZone)
+            } catch (ignored: IllegalArgumentException) {
+                DateTimeZone.getDefault()
+            }
+            out.writeContentLine("$DTSTART;$VALUE=$DATE:${Formatter.getDayCodeFromTS(event.startTS, tz)}")
+            out.writeContentLine(
+                "$DTEND;$VALUE=$DATE:${
+                    Formatter.getDayCodeFromTS(
+                        event.endTS + TWELVE_HOURS,
+                        tz
+                    )
+                }"
+            )
+        } else {
+            out.writeContentLine("$DTSTART:${Formatter.getExportedTime(event.startTS * 1000L)}")
+            out.writeContentLine("$DTEND:${Formatter.getExportedTime(event.endTS * 1000L)}")
+        }
+        out.writeContentLine("$MISSING_YEAR${if (event.hasMissingYear()) 1 else 0}")
+
+        out.writeContentLine("$DTSTAMP$exportTime")
+        out.writeContentLine("$CLASS:${getAccessLevelStringFromEventAccessLevel(event.accessLevel)}")
+        out.writeContentLine("$STATUS${getStatusStringFromEventStatus(event.status)}")
+        Parser().getRepeatCode(event).let { if (it.isNotEmpty()) out.writeContentLine("$RRULE$it") }
+
+        out.writeTextProperty(DESCRIPTION, event.description)
+        fillReminders(event, out, reminderLabel)
+        fillIgnoredOccurrences(event, out)
+
+        eventsExported++
+        out.writeContentLine(END_EVENT)
     }
 
     private fun writeTask(outputStream: OutputStream, task: Event) {
