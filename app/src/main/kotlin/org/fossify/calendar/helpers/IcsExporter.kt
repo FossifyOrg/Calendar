@@ -71,30 +71,30 @@ class IcsExporter(private val context: Context) {
         }
     }
 
-    private fun fillReminders(event: Event, outputStream: OutputStream, reminderLabel: String) {
+    private fun fillReminders(event: Event, out: OutputStream, reminderLabel: String) {
         event.getReminders().forEach { reminder ->
-            outputStream.writeContentLine(BEGIN_ALARM)
-            outputStream.writeTextProperty(DESCRIPTION, reminderLabel)
+            out.writeContentLine(BEGIN_ALARM)
+            out.writeTextProperty(DESCRIPTION, reminderLabel)
             if (reminder.type == REMINDER_NOTIFICATION) {
-                outputStream.writeContentLine("$ACTION$DISPLAY")
+                out.writeContentLine("$ACTION$DISPLAY")
             } else {
-                outputStream.writeContentLine("$ACTION$EMAIL")
+                out.writeContentLine("$ACTION$EMAIL")
                 val attendee =
                     calendars.firstOrNull { it.id == event.getCalDAVCalendarId() }?.accountName
                 if (attendee != null) {
-                    outputStream.writeContentLine("$ATTENDEE$MAILTO$attendee")
+                    out.writeContentLine("$ATTENDEE$MAILTO$attendee")
                 }
             }
 
             val sign = if (reminder.minutes < -1) "" else "-"
-            outputStream.writeContentLine("$TRIGGER:$sign${Parser().getDurationCode(abs(reminder.minutes.toLong()))}")
-            outputStream.writeContentLine(END_ALARM)
+            out.writeContentLine("$TRIGGER:$sign${Parser().getDurationCode(abs(reminder.minutes.toLong()))}")
+            out.writeContentLine(END_ALARM)
         }
     }
 
-    private fun fillIgnoredOccurrences(event: Event, outputStream: OutputStream) {
+    private fun fillIgnoredOccurrences(event: Event, out: OutputStream) {
         event.repetitionExceptions.forEach {
-            outputStream.writeContentLine("$EXDATE:$it")
+            out.writeContentLine("$EXDATE:$it")
         }
     }
 
