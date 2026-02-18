@@ -12,14 +12,17 @@ import org.fossify.calendar.helpers.IcsExporter.ExportResult.EXPORT_PARTIAL
 import org.fossify.calendar.models.CalDAVCalendar
 import org.fossify.calendar.models.Event
 import org.fossify.commons.extensions.toast
-import org.fossify.commons.extensions.writeLn
 import org.fossify.commons.helpers.ensureBackgroundThread
 import org.joda.time.DateTimeZone
-import java.io.BufferedWriter
+import java.io.BufferedOutputStream
 import java.io.OutputStream
-import java.io.OutputStreamWriter
+import java.nio.charset.Charset
 
 class IcsExporter(private val context: Context) {
+    companion object {
+        val DEFAULT_CHARSET: Charset = Charsets.UTF_8
+    }
+
     enum class ExportResult {
         EXPORT_FAIL, EXPORT_OK, EXPORT_PARTIAL
     }
@@ -48,19 +51,7 @@ class IcsExporter(private val context: Context) {
                 context.toast(org.fossify.commons.R.string.exporting)
             }
 
-            object : BufferedWriter(OutputStreamWriter(outputStream, Charsets.UTF_8)) {
-                val lineSeparator = "\r\n"
-
-                /**
-                 * Writes a line separator. The line separator string is defined by RFC 5545 in 3.1. Content Lines:
-                 * Content Lines are delimited by a line break, which is a CRLF sequence (CR character followed by LF character).
-                 *
-                 * @see <a href="https://icalendar.org/iCalendar-RFC-5545/3-1-content-lines.html">RFC 5545 - 3.1. Content Lines</a>
-                 */
-                override fun newLine() {
-                    write(lineSeparator)
-                }
-            }.use { out ->
+            BufferedOutputStream(outputStream).use { out ->
                 out.writeContentLine(BEGIN_CALENDAR)
                 out.writeContentLine(CALENDAR_PRODID)
                 out.writeContentLine(CALENDAR_VERSION)
@@ -84,10 +75,10 @@ class IcsExporter(private val context: Context) {
         }
     }
 
-    private fun fillReminders(event: Event, out: BufferedWriter, reminderLabel: String) {
+    private fun fillReminders(event: Event, outputStream: OutputStream, reminderLabel: String) {
         event.getReminders().forEach {
             val reminder = it
-            out.apply {
+            outputStream.apply {
                 writeContentLine(BEGIN_ALARM)
                 writeTextProperty(DESCRIPTION, reminderLabel)
                 if (reminder.type == REMINDER_NOTIFICATION) {
@@ -108,9 +99,9 @@ class IcsExporter(private val context: Context) {
         }
     }
 
-    private fun fillIgnoredOccurrences(event: Event, out: BufferedWriter) {
+    private fun fillIgnoredOccurrences(event: Event, outputStream: OutputStream) {
         event.repetitionExceptions.forEach {
-            out.writeContentLine("$EXDATE:$it")
+            outputStream.writeContentLine("$EXDATE:$it")
         }
     }
 
@@ -143,9 +134,9 @@ class IcsExporter(private val context: Context) {
         }
     }
 
-    private fun writeEvent(writer: BufferedWriter, event: Event) {
+    private fun writeEvent(outputStream: OutputStream, event: Event) {
         val calendarColors = context.eventsHelper.getCalendarColors()
-        with(writer) {
+        with(outputStream) {
             writeContentLine(BEGIN_EVENT)
             event.title.let { if (it.isNotEmpty()) writeTextProperty(SUMMARY, it) }
             event.importId.let { if (it.isNotEmpty()) writeContentLine("$UID$it") }
@@ -189,17 +180,17 @@ class IcsExporter(private val context: Context) {
             Parser().getRepeatCode(event).let { if (it.isNotEmpty()) writeContentLine("$RRULE$it") }
 
             writeTextProperty(DESCRIPTION, event.description)
-            fillReminders(event, writer, reminderLabel)
-            fillIgnoredOccurrences(event, writer)
+            fillReminders(event, outputStream, reminderLabel)
+            fillIgnoredOccurrences(event, outputStream)
 
             eventsExported++
             writeContentLine(END_EVENT)
         }
     }
 
-    private fun writeTask(writer: BufferedWriter, task: Event) {
+    private fun writeTask(outputStream: OutputStream, task: Event) {
         val calendarColors = context.eventsHelper.getCalendarColors()
-        with(writer) {
+        with(outputStream) {
             writeContentLine(BEGIN_TASK)
             task.title.let { if (it.isNotEmpty()) writeTextProperty(SUMMARY, it) }
             task.importId.let { if (it.isNotEmpty()) writeContentLine("$UID$it") }
@@ -228,21 +219,22 @@ class IcsExporter(private val context: Context) {
             Parser().getRepeatCode(task).let { if (it.isNotEmpty()) writeContentLine("$RRULE$it") }
 
             writeTextProperty(DESCRIPTION, task.description)
-            fillReminders(task, writer, reminderLabel)
-            fillIgnoredOccurrences(task, writer)
+            fillReminders(task, outputStream, reminderLabel)
+            fillIgnoredOccurrences(task, outputStream)
 
             eventsExported++
             writeContentLine(END_TASK)
         }
     }
 
-    private fun BufferedWriter.writeContentLine(line: String) {
+    private fun OutputStream.writeContentLine(line: String) {
         for (segment in foldContentLine(line)) {
-            this.writeLn(segment)
+            this.write(segment.toByteArray(DEFAULT_CHARSET))
+            this.write("\r\n".toByteArray(DEFAULT_CHARSET))
         }
     }
 
-    private fun BufferedWriter.writeTextProperty(name: String, value: String) {
+    private fun OutputStream.writeTextProperty(name: String, value: String) {
         val normalizedValue = value
             .replace("\r\n", "\n")
             .replace("\r", "\n")
