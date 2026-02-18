@@ -9,7 +9,7 @@ import org.fossify.calendar.extensions.eventsHelper
 import org.fossify.calendar.helpers.IcsExporter.ExportResult.EXPORT_FAIL
 import org.fossify.calendar.helpers.IcsExporter.ExportResult.EXPORT_OK
 import org.fossify.calendar.helpers.IcsExporter.ExportResult.EXPORT_PARTIAL
-import org.fossify.calendar.icalendar.ContentLineFolder
+import org.fossify.calendar.icalendar.ContentLineWriter
 import org.fossify.calendar.models.CalDAVCalendar
 import org.fossify.calendar.models.Event
 import org.fossify.commons.extensions.toast
@@ -17,13 +17,8 @@ import org.fossify.commons.helpers.ensureBackgroundThread
 import org.joda.time.DateTimeZone
 import java.io.BufferedOutputStream
 import java.io.OutputStream
-import java.nio.charset.Charset
 
 class IcsExporter(private val context: Context) {
-    companion object {
-        val DEFAULT_CHARSET: Charset = Charsets.UTF_8
-    }
-
     enum class ExportResult {
         EXPORT_FAIL, EXPORT_OK, EXPORT_PARTIAL
     }
@@ -198,14 +193,9 @@ class IcsExporter(private val context: Context) {
         }
     }
 
-    private val contentLineFolder = ContentLineFolder()
+    private val contentLineWriter = ContentLineWriter()
 
-    private fun OutputStream.writeContentLine(line: String) {
-        for (segment in contentLineFolder.fold(line)) {
-            this.write(segment.toByteArray(DEFAULT_CHARSET))
-            this.write("\r\n".toByteArray(DEFAULT_CHARSET))
-        }
-    }
+    private fun OutputStream.writeContentLine(line: String) = contentLineWriter.write(this, line)
 
     private fun OutputStream.writeTextProperty(name: String, value: String) {
         val normalizedValue = value
