@@ -150,43 +150,41 @@ class IcsExporter(private val context: Context) {
         out.writeContentLine(END_EVENT)
     }
 
-    private fun writeTask(outputStream: OutputStream, task: Event) {
+    private fun writeTask(out: OutputStream, task: Event) {
         val calendarColors = context.eventsHelper.getCalendarColors()
-        with(outputStream) {
-            writeContentLine(BEGIN_TASK)
-            task.title.let { if (it.isNotEmpty()) writeTextProperty(SUMMARY, it) }
-            task.importId.let { if (it.isNotEmpty()) writeContentLine("$UID$it") }
-            writeContentLine("$CATEGORY_COLOR${context.calendarsDB.getCalendarWithId(task.calendarId)?.color}")
-            if (task.color != 0 && task.color != calendarColors[task.calendarId]) {
-                val color = CssColors.findClosestCssColor(task.color)
-                if (color != null) {
-                    writeContentLine("$COLOR${color}")
-                }
-                writeContentLine("$FOSSIFY_COLOR${task.color}")
+        out.writeContentLine(BEGIN_TASK)
+        if (task.title.isNotEmpty()) out.writeTextProperty(SUMMARY, task.title)
+        if (task.importId.isNotEmpty()) out.writeContentLine("$UID${task.importId}")
+        out.writeContentLine("$CATEGORY_COLOR${context.calendarsDB.getCalendarWithId(task.calendarId)?.color}")
+        if (task.color != 0 && task.color != calendarColors[task.calendarId]) {
+            val color = CssColors.findClosestCssColor(task.color)
+            if (color != null) {
+                out.writeContentLine("$COLOR${color}")
             }
-            writeTextProperty("CATEGORIES", context.calendarsDB.getCalendarWithId(task.calendarId)?.title ?: "")
-            writeContentLine("$LAST_MODIFIED:${Formatter.getExportedTime(task.lastUpdated)}")
-            task.location.let { if (it.isNotEmpty()) writeTextProperty(LOCATION, it) }
-
-            if (task.getIsAllDay()) {
-                writeContentLine("$DTSTART;$VALUE=$DATE:${Formatter.getDayCodeFromTS(task.startTS)}")
-            } else {
-                writeContentLine("$DTSTART:${Formatter.getExportedTime(task.startTS * 1000L)}")
-            }
-
-            writeContentLine("$DTSTAMP$exportTime")
-            if (task.isTaskCompleted()) {
-                writeContentLine("$STATUS$COMPLETED")
-            }
-            Parser().getRepeatCode(task).let { if (it.isNotEmpty()) writeContentLine("$RRULE$it") }
-
-            writeTextProperty(DESCRIPTION, task.description)
-            fillReminders(task, outputStream, reminderLabel)
-            fillIgnoredOccurrences(task, outputStream)
-
-            eventsExported++
-            writeContentLine(END_TASK)
+            out.writeContentLine("$FOSSIFY_COLOR${task.color}")
         }
+        out.writeTextProperty("CATEGORIES", context.calendarsDB.getCalendarWithId(task.calendarId)?.title ?: "")
+        out.writeContentLine("$LAST_MODIFIED:${Formatter.getExportedTime(task.lastUpdated)}")
+        if (task.location.isNotEmpty()) out.writeTextProperty(LOCATION, task.location)
+
+        if (task.getIsAllDay()) {
+            out.writeContentLine("$DTSTART;$VALUE=$DATE:${Formatter.getDayCodeFromTS(task.startTS)}")
+        } else {
+            out.writeContentLine("$DTSTART:${Formatter.getExportedTime(task.startTS * 1000L)}")
+        }
+
+        out.writeContentLine("$DTSTAMP$exportTime")
+        if (task.isTaskCompleted()) {
+            out.writeContentLine("$STATUS$COMPLETED")
+        }
+        Parser().getRepeatCode(task).let { if (it.isNotEmpty()) out.writeContentLine("$RRULE$it") }
+
+        out.writeTextProperty(DESCRIPTION, task.description)
+        fillReminders(task, out, reminderLabel)
+        fillIgnoredOccurrences(task, out)
+
+        eventsExported++
+        out.writeContentLine(END_TASK)
     }
 
     private val contentLineWriter = ContentLineWriter()
