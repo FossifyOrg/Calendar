@@ -61,9 +61,9 @@ class IcsExporter(private val context: Context) {
                     write(lineSeparator)
                 }
             }.use { out ->
-                out.writeLn(BEGIN_CALENDAR)
-                out.writeLn(CALENDAR_PRODID)
-                out.writeLn(CALENDAR_VERSION)
+                out.writeContentLine(BEGIN_CALENDAR)
+                out.writeContentLine(CALENDAR_PRODID)
+                out.writeContentLine(CALENDAR_VERSION)
                 for (event in events) {
                     if (event.isTask()) {
                         writeTask(out, event)
@@ -71,7 +71,7 @@ class IcsExporter(private val context: Context) {
                         writeEvent(out, event)
                     }
                 }
-                out.writeLn(END_CALENDAR)
+                out.writeContentLine(END_CALENDAR)
             }
 
             callback(
@@ -88,52 +88,54 @@ class IcsExporter(private val context: Context) {
         event.getReminders().forEach {
             val reminder = it
             out.apply {
-                writeLn(BEGIN_ALARM)
-                writeLn("$DESCRIPTION_EXPORT$reminderLabel")
+                writeContentLine(BEGIN_ALARM)
+                writeContentLine("$DESCRIPTION_EXPORT$reminderLabel")
                 if (reminder.type == REMINDER_NOTIFICATION) {
-                    writeLn("$ACTION$DISPLAY")
+                    writeContentLine("$ACTION$DISPLAY")
                 } else {
-                    writeLn("$ACTION$EMAIL")
+                    writeContentLine("$ACTION$EMAIL")
                     val attendee =
                         calendars.firstOrNull { it.id == event.getCalDAVCalendarId() }?.accountName
                     if (attendee != null) {
-                        writeLn("$ATTENDEE$MAILTO$attendee")
+                        writeContentLine("$ATTENDEE$MAILTO$attendee")
                     }
                 }
 
                 val sign = if (reminder.minutes < -1) "" else "-"
-                writeLn("$TRIGGER:$sign${Parser().getDurationCode(Math.abs(reminder.minutes.toLong()))}")
-                writeLn(END_ALARM)
+                writeContentLine("$TRIGGER:$sign${Parser().getDurationCode(Math.abs(reminder.minutes.toLong()))}")
+                writeContentLine(END_ALARM)
             }
         }
     }
 
     private fun fillIgnoredOccurrences(event: Event, out: BufferedWriter) {
         event.repetitionExceptions.forEach {
-            out.writeLn("$EXDATE:$it")
+            out.writeContentLine("$EXDATE:$it")
         }
     }
 
-    private fun fillDescription(description: String, out: BufferedWriter) {
+    private fun foldContentLine(line: String): Sequence<String> = sequence {
         var index = 0
         var isFirstLine = true
 
-        while (index < description.length) {
+        while (index < line.length) {
             var end = index + MAX_LINE_LENGTH
-            if (end > description.length) {
-                end = description.length
+            // Take the prepended space into account.
+            if (!isFirstLine) end--
+            if (end > line.length) {
+                end = line.length
             } else {
                 // Avoid splitting surrogate pairs
-                if (Character.isHighSurrogate(description[end - 1])) {
+                if (Character.isHighSurrogate(line[end - 1])) {
                     end--
                 }
             }
 
-            val substring = description.substring(index, end)
+            val substring = line.substring(index, end)
             if (isFirstLine) {
-                out.writeLn("$DESCRIPTION_EXPORT$substring")
+                yield(substring)
             } else {
-                out.writeLn(" $substring")
+                yield(" $substring")
             }
 
             isFirstLine = false
@@ -144,21 +146,21 @@ class IcsExporter(private val context: Context) {
     private fun writeEvent(writer: BufferedWriter, event: Event) {
         val calendarColors = context.eventsHelper.getCalendarColors()
         with(writer) {
-            writeLn(BEGIN_EVENT)
-            event.title.replace("\n", "\\n").let { if (it.isNotEmpty()) writeLn("$SUMMARY:$it") }
-            event.importId.let { if (it.isNotEmpty()) writeLn("$UID$it") }
-            writeLn("$CATEGORY_COLOR${context.calendarsDB.getCalendarWithId(event.calendarId)?.color}")
+            writeContentLine(BEGIN_EVENT)
+            event.title.let { if (it.isNotEmpty()) writeTextProperty(SUMMARY, it) }
+            event.importId.let { if (it.isNotEmpty()) writeContentLine("$UID$it") }
+            writeContentLine("$CATEGORY_COLOR${context.calendarsDB.getCalendarWithId(event.calendarId)?.color}")
             if (event.color != 0 && event.color != calendarColors[event.calendarId]) {
                 val color = CssColors.findClosestCssColor(event.color)
                 if (color != null) {
-                    writeLn("$COLOR${color}")
+                    writeContentLine("$COLOR${color}")
                 }
-                writeLn("$FOSSIFY_COLOR${event.color}")
+                writeContentLine("$FOSSIFY_COLOR${event.color}")
             }
-            writeLn("$CATEGORIES${context.calendarsDB.getCalendarWithId(event.calendarId)?.title}")
-            writeLn("$LAST_MODIFIED:${Formatter.getExportedTime(event.lastUpdated)}")
-            writeLn("$TRANSP${if (event.availability == Events.AVAILABILITY_FREE) TRANSPARENT else OPAQUE}")
-            event.location.let { if (it.isNotEmpty()) writeLn("$LOCATION:$it") }
+            writeContentLine("$CATEGORIES${context.calendarsDB.getCalendarWithId(event.calendarId)?.title}")
+            writeContentLine("$LAST_MODIFIED:${Formatter.getExportedTime(event.lastUpdated)}")
+            writeContentLine("$TRANSP${if (event.availability == Events.AVAILABILITY_FREE) TRANSPARENT else OPAQUE}")
+            event.location.let { if (it.isNotEmpty()) writeContentLine("$LOCATION:$it") }
 
             if (event.getIsAllDay()) {
                 val tz = try {
@@ -166,8 +168,8 @@ class IcsExporter(private val context: Context) {
                 } catch (ignored: IllegalArgumentException) {
                     DateTimeZone.getDefault()
                 }
-                writeLn("$DTSTART;$VALUE=$DATE:${Formatter.getDayCodeFromTS(event.startTS, tz)}")
-                writeLn(
+                writeContentLine("$DTSTART;$VALUE=$DATE:${Formatter.getDayCodeFromTS(event.startTS, tz)}")
+                writeContentLine(
                     "$DTEND;$VALUE=$DATE:${
                         Formatter.getDayCodeFromTS(
                             event.endTS + TWELVE_HOURS,
@@ -176,61 +178,81 @@ class IcsExporter(private val context: Context) {
                     }"
                 )
             } else {
-                writeLn("$DTSTART:${Formatter.getExportedTime(event.startTS * 1000L)}")
-                writeLn("$DTEND:${Formatter.getExportedTime(event.endTS * 1000L)}")
+                writeContentLine("$DTSTART:${Formatter.getExportedTime(event.startTS * 1000L)}")
+                writeContentLine("$DTEND:${Formatter.getExportedTime(event.endTS * 1000L)}")
             }
-            writeLn("$MISSING_YEAR${if (event.hasMissingYear()) 1 else 0}")
+            writeContentLine("$MISSING_YEAR${if (event.hasMissingYear()) 1 else 0}")
 
-            writeLn("$DTSTAMP$exportTime")
-            writeLn("$CLASS:${getAccessLevelStringFromEventAccessLevel(event.accessLevel)}")
-            writeLn("$STATUS${getStatusStringFromEventStatus(event.status)}")
-            Parser().getRepeatCode(event).let { if (it.isNotEmpty()) writeLn("$RRULE$it") }
+            writeContentLine("$DTSTAMP$exportTime")
+            writeContentLine("$CLASS:${getAccessLevelStringFromEventAccessLevel(event.accessLevel)}")
+            writeContentLine("$STATUS${getStatusStringFromEventStatus(event.status)}")
+            Parser().getRepeatCode(event).let { if (it.isNotEmpty()) writeContentLine("$RRULE$it") }
 
-            fillDescription(event.description.replace("\n", "\\n"), writer)
+            writeTextProperty(DESCRIPTION, event.description)
             fillReminders(event, writer, reminderLabel)
             fillIgnoredOccurrences(event, writer)
 
             eventsExported++
-            writeLn(END_EVENT)
+            writeContentLine(END_EVENT)
         }
     }
 
     private fun writeTask(writer: BufferedWriter, task: Event) {
         val calendarColors = context.eventsHelper.getCalendarColors()
         with(writer) {
-            writeLn(BEGIN_TASK)
-            task.title.replace("\n", "\\n").let { if (it.isNotEmpty()) writeLn("$SUMMARY:$it") }
-            task.importId.let { if (it.isNotEmpty()) writeLn("$UID$it") }
-            writeLn("$CATEGORY_COLOR${context.calendarsDB.getCalendarWithId(task.calendarId)?.color}")
+            writeContentLine(BEGIN_TASK)
+            task.title.let { if (it.isNotEmpty()) writeTextProperty(SUMMARY, it) }
+            task.importId.let { if (it.isNotEmpty()) writeContentLine("$UID$it") }
+            writeContentLine("$CATEGORY_COLOR${context.calendarsDB.getCalendarWithId(task.calendarId)?.color}")
             if (task.color != 0 && task.color != calendarColors[task.calendarId]) {
                 val color = CssColors.findClosestCssColor(task.color)
                 if (color != null) {
-                    writeLn("$COLOR${color}")
+                    writeContentLine("$COLOR${color}")
                 }
-                writeLn("$FOSSIFY_COLOR${task.color}")
+                writeContentLine("$FOSSIFY_COLOR${task.color}")
             }
-            writeLn("$CATEGORIES${context.calendarsDB.getCalendarWithId(task.calendarId)?.title}")
-            writeLn("$LAST_MODIFIED:${Formatter.getExportedTime(task.lastUpdated)}")
-            task.location.let { if (it.isNotEmpty()) writeLn("$LOCATION:$it") }
+            writeContentLine("$CATEGORIES${context.calendarsDB.getCalendarWithId(task.calendarId)?.title}")
+            writeContentLine("$LAST_MODIFIED:${Formatter.getExportedTime(task.lastUpdated)}")
+            task.location.let { if (it.isNotEmpty()) writeContentLine("$LOCATION:$it") }
 
             if (task.getIsAllDay()) {
-                writeLn("$DTSTART;$VALUE=$DATE:${Formatter.getDayCodeFromTS(task.startTS)}")
+                writeContentLine("$DTSTART;$VALUE=$DATE:${Formatter.getDayCodeFromTS(task.startTS)}")
             } else {
-                writeLn("$DTSTART:${Formatter.getExportedTime(task.startTS * 1000L)}")
+                writeContentLine("$DTSTART:${Formatter.getExportedTime(task.startTS * 1000L)}")
             }
 
-            writeLn("$DTSTAMP$exportTime")
+            writeContentLine("$DTSTAMP$exportTime")
             if (task.isTaskCompleted()) {
-                writeLn("$STATUS$COMPLETED")
+                writeContentLine("$STATUS$COMPLETED")
             }
-            Parser().getRepeatCode(task).let { if (it.isNotEmpty()) writeLn("$RRULE$it") }
+            Parser().getRepeatCode(task).let { if (it.isNotEmpty()) writeContentLine("$RRULE$it") }
 
-            fillDescription(task.description.replace("\n", "\\n"), writer)
+            writeTextProperty(DESCRIPTION, task.description)
             fillReminders(task, writer, reminderLabel)
             fillIgnoredOccurrences(task, writer)
 
             eventsExported++
-            writeLn(END_TASK)
+            writeContentLine(END_TASK)
         }
+    }
+
+    private fun BufferedWriter.writeContentLine(line: String) {
+        for (segment in foldContentLine(line)) {
+            this.writeLn(segment)
+        }
+    }
+
+    private fun BufferedWriter.writeTextProperty(name: String, value: String) {
+        val normalizedValue = value
+            .replace("\r\n", "\n")
+            .replace("\r", "\n")
+
+        val escapedValue = normalizedValue
+            .replace("\\", "\\\\")
+            .replace("\n", "\\n")
+            .replace(";", "\\;")
+            .replace(",", "\\,")
+
+        writeContentLine("$name:$escapedValue")
     }
 }
