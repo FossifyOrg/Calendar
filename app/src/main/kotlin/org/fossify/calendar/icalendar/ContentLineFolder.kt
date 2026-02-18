@@ -1,8 +1,8 @@
 package org.fossify.calendar.icalendar
 
-internal class ContentLineFolder {
+internal class ContentLineFolder(private val maxLength: Int = DEFAULT_MAX_LENGTH) {
     companion object {
-        private const val MAX_LINE_LENGTH = 75
+        private const val DEFAULT_MAX_LENGTH = 75
     }
 
     fun fold(line: String): Sequence<String> = sequence {
@@ -10,7 +10,7 @@ internal class ContentLineFolder {
         var isFirstLine = true
 
         while (index < line.length) {
-            var end = index + MAX_LINE_LENGTH
+            var end = index + maxLength
             // Take the prepended space into account.
             if (!isFirstLine) end--
             if (end > line.length) {
