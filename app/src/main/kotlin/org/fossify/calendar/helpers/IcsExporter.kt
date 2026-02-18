@@ -9,6 +9,7 @@ import org.fossify.calendar.extensions.eventsHelper
 import org.fossify.calendar.helpers.IcsExporter.ExportResult.EXPORT_FAIL
 import org.fossify.calendar.helpers.IcsExporter.ExportResult.EXPORT_OK
 import org.fossify.calendar.helpers.IcsExporter.ExportResult.EXPORT_PARTIAL
+import org.fossify.calendar.icalendar.ContentLineFolder
 import org.fossify.calendar.models.CalDAVCalendar
 import org.fossify.calendar.models.Event
 import org.fossify.commons.extensions.toast
@@ -27,7 +28,6 @@ class IcsExporter(private val context: Context) {
         EXPORT_FAIL, EXPORT_OK, EXPORT_PARTIAL
     }
 
-    private val MAX_LINE_LENGTH = 75
     private var eventsExported = 0
     private var eventsFailed = 0
     private var calendars = ArrayList<CalDAVCalendar>()
@@ -102,35 +102,6 @@ class IcsExporter(private val context: Context) {
     private fun fillIgnoredOccurrences(event: Event, outputStream: OutputStream) {
         event.repetitionExceptions.forEach {
             outputStream.writeContentLine("$EXDATE:$it")
-        }
-    }
-
-    private fun foldContentLine(line: String): Sequence<String> = sequence {
-        var index = 0
-        var isFirstLine = true
-
-        while (index < line.length) {
-            var end = index + MAX_LINE_LENGTH
-            // Take the prepended space into account.
-            if (!isFirstLine) end--
-            if (end > line.length) {
-                end = line.length
-            } else {
-                // Avoid splitting surrogate pairs
-                if (Character.isHighSurrogate(line[end - 1])) {
-                    end--
-                }
-            }
-
-            val substring = line.substring(index, end)
-            if (isFirstLine) {
-                yield(substring)
-            } else {
-                yield(" $substring")
-            }
-
-            isFirstLine = false
-            index = end
         }
     }
 
@@ -227,8 +198,10 @@ class IcsExporter(private val context: Context) {
         }
     }
 
+    private val contentLineFolder = ContentLineFolder()
+
     private fun OutputStream.writeContentLine(line: String) {
-        for (segment in foldContentLine(line)) {
+        for (segment in contentLineFolder.fold(line)) {
             this.write(segment.toByteArray(DEFAULT_CHARSET))
             this.write("\r\n".toByteArray(DEFAULT_CHARSET))
         }
