@@ -89,7 +89,7 @@ class IcsExporter(private val context: Context) {
             val reminder = it
             out.apply {
                 writeContentLine(BEGIN_ALARM)
-                writeContentLine("$DESCRIPTION_EXPORT$reminderLabel")
+                writeTextProperty(DESCRIPTION, reminderLabel)
                 if (reminder.type == REMINDER_NOTIFICATION) {
                     writeContentLine("$ACTION$DISPLAY")
                 } else {
@@ -157,10 +157,10 @@ class IcsExporter(private val context: Context) {
                 }
                 writeContentLine("$FOSSIFY_COLOR${event.color}")
             }
-            writeContentLine("$CATEGORIES${context.calendarsDB.getCalendarWithId(event.calendarId)?.title}")
+            writeTextProperty("CATEGORIES", context.calendarsDB.getCalendarWithId(event.calendarId)?.title ?: "")
             writeContentLine("$LAST_MODIFIED:${Formatter.getExportedTime(event.lastUpdated)}")
             writeContentLine("$TRANSP${if (event.availability == Events.AVAILABILITY_FREE) TRANSPARENT else OPAQUE}")
-            event.location.let { if (it.isNotEmpty()) writeContentLine("$LOCATION:$it") }
+            event.location.let { if (it.isNotEmpty()) writeTextProperty(LOCATION, it) }
 
             if (event.getIsAllDay()) {
                 val tz = try {
@@ -211,9 +211,9 @@ class IcsExporter(private val context: Context) {
                 }
                 writeContentLine("$FOSSIFY_COLOR${task.color}")
             }
-            writeContentLine("$CATEGORIES${context.calendarsDB.getCalendarWithId(task.calendarId)?.title}")
+            writeTextProperty("CATEGORIES", context.calendarsDB.getCalendarWithId(task.calendarId)?.title ?: "")
             writeContentLine("$LAST_MODIFIED:${Formatter.getExportedTime(task.lastUpdated)}")
-            task.location.let { if (it.isNotEmpty()) writeContentLine("$LOCATION:$it") }
+            task.location.let { if (it.isNotEmpty()) writeTextProperty(LOCATION, it) }
 
             if (task.getIsAllDay()) {
                 writeContentLine("$DTSTART;$VALUE=$DATE:${Formatter.getDayCodeFromTS(task.startTS)}")
