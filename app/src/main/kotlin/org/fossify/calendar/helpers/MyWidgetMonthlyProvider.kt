@@ -116,7 +116,6 @@ class MyWidgetMonthlyProvider : AppWidgetProvider() {
             }
         }
 
-
         val eventDayIndices = mutableMapOf<Pair<Long, Long>, MutableList<Int>>()
         val eventByKey = mutableMapOf<Pair<Long, Long>, Event>()
         for (i in days.indices) {
@@ -138,21 +137,7 @@ class MyWidgetMonthlyProvider : AppWidgetProvider() {
             )
         )
 
-        val daySlotIndex = IntArray(days.size) { 0 }
-        val daySlotLists = Array(days.size) { mutableListOf<Event?>() }
-        for (key in sortedKeys) {
-            val dayIndices = eventDayIndices[key]!!
-            val event = eventByKey[key]!!
-            val slot = dayIndices.maxOf { daySlotIndex[it] }
-            for (dayIdx in dayIndices) {
-                while (daySlotIndex[dayIdx] < slot) {
-                    daySlotLists[dayIdx].add(null) // invisible spacer
-                    daySlotIndex[dayIdx]++
-                }
-                daySlotLists[dayIdx].add(event)
-                daySlotIndex[dayIdx]++
-            }
-        }
+        val daySlotLists = buildDaySlotLists(days.size, sortedKeys, eventDayIndices, eventByKey)
 
         val titleShownForKey = mutableSetOf<Pair<Long, Long>>()
         for (i in days.indices) {
@@ -171,13 +156,7 @@ class MyWidgetMonthlyProvider : AppWidgetProvider() {
 
             for (slotEvent in daySlotLists[i]) {
                 if (slotEvent == null) {
-                    val spacer = RemoteViews(packageName, R.layout.day_monthly_event_view_widget).apply {
-                        setText(R.id.day_monthly_event_id, " ")
-                        setViewVisibility(R.id.day_monthly_event_background, View.INVISIBLE)
-                        setViewVisibility(R.id.day_monthly_task_image, View.GONE)
-                        setInt(R.id.day_monthly_event_id, "setPaintFlags", Paint.ANTI_ALIAS_FLAG)
-                    }
-                    views.addView(id, spacer)
+                    views.addView(id, createSpacerView(packageName))
                 } else {
                     val key = Pair(slotEvent.id ?: 0L, slotEvent.startTS)
                     val showTitle = titleShownForKey.add(key) || i % 7 == 0
@@ -218,6 +197,39 @@ class MyWidgetMonthlyProvider : AppWidgetProvider() {
                     views.addView(id, newRemoteView)
                 }
             }
+        }
+    }
+
+    private fun buildDaySlotLists(
+        daysSize: Int,
+        sortedKeys: List<Pair<Long, Long>>,
+        eventDayIndices: Map<Pair<Long, Long>, List<Int>>,
+        eventByKey: Map<Pair<Long, Long>, Event>
+    ): Array<MutableList<Event?>> {
+        val daySlotIndex = IntArray(daysSize) { 0 }
+        val daySlotLists = Array(daysSize) { mutableListOf<Event?>() }
+        for (key in sortedKeys) {
+            val dayIndices = eventDayIndices[key]!!
+            val event = eventByKey[key]!!
+            val slot = dayIndices.maxOf { daySlotIndex[it] }
+            for (dayIdx in dayIndices) {
+                while (daySlotIndex[dayIdx] < slot) {
+                    daySlotLists[dayIdx].add(null) // invisible spacer
+                    daySlotIndex[dayIdx]++
+                }
+                daySlotLists[dayIdx].add(event)
+                daySlotIndex[dayIdx]++
+            }
+        }
+        return daySlotLists
+    }
+
+    private fun createSpacerView(packageName: String): RemoteViews {
+        return RemoteViews(packageName, R.layout.day_monthly_event_view_widget).apply {
+            setText(R.id.day_monthly_event_id, " ")
+            setViewVisibility(R.id.day_monthly_event_background, View.INVISIBLE)
+            setViewVisibility(R.id.day_monthly_task_image, View.GONE)
+            setInt(R.id.day_monthly_event_id, "setPaintFlags", Paint.ANTI_ALIAS_FLAG)
         }
     }
 
