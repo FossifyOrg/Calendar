@@ -16,7 +16,6 @@
     <ID>ComplexCondition:SettingsActivity.kt$SettingsActivity$requestCode == PICK_SETTINGS_IMPORT_SOURCE_INTENT &amp;&amp; resultCode == RESULT_OK &amp;&amp; resultData != null &amp;&amp; resultData.data != null</ID>
     <ID>ComplexCondition:TaskActivity.kt$TaskActivity$config.wasAlarmWarningShown || (mReminder1Minutes == REMINDER_OFF &amp;&amp; mReminder2Minutes == REMINDER_OFF &amp;&amp; mReminder3Minutes == REMINDER_OFF)</ID>
     <ID>ComplexCondition:TaskActivity.kt$TaskActivity$day == MONDAY_BIT || day == TUESDAY_BIT || day == WEDNESDAY_BIT || day == THURSDAY_BIT || day == FRIDAY_BIT || day == SATURDAY_BIT || day == SUNDAY_BIT</ID>
-    <ID>ComplexCondition:WeekFragment.kt$WeekFragment$doesEventFit &amp;&amp; (!isRepeatingOverlappingEvent || isAllDayEvent || isRowValidForEvent)</ID>
     <ID>ConstructorParameterNaming:Task.kt$Task$@ColumnInfo(name = "task_id") var task_id: Long</ID>
     <ID>CyclomaticComplexMethod:CalDAVHelper.kt$CalDAVHelper$@SuppressLint("MissingPermission") private fun fetchCalDAVCalendarEvents( calendar: CalDAVCalendar, localCalendarId: Long, showToasts: Boolean, )</ID>
     <ID>CyclomaticComplexMethod:Context.kt$@SuppressLint("NewApi") fun Context.getNotification( pendingIntent: PendingIntent, event: Event, content: String, publicVersion: Boolean = false ): Notification?</ID>
@@ -45,8 +44,8 @@
     <ID>CyclomaticComplexMethod:TaskActivity.kt$TaskActivity$private fun getOrderString(repeatRule: Int): String</ID>
     <ID>CyclomaticComplexMethod:TaskActivity.kt$TaskActivity$private fun gotTask(savedInstanceState: Bundle?, localCalendar: CalendarEntity?, task: Event?)</ID>
     <ID>CyclomaticComplexMethod:TaskActivity.kt$TaskActivity$private fun saveTask()</ID>
-    <ID>CyclomaticComplexMethod:WeekFragment.kt$WeekFragment$@SuppressLint("NewApi") private fun addAllDayEvent(event: Event)</ID>
-    <ID>CyclomaticComplexMethod:WeekFragment.kt$WeekFragment$private fun addEvents(events: ArrayList&lt;Event&gt;)</ID>
+    <ID>CyclomaticComplexMethod:WeekFragment.kt$WeekFragment$@SuppressLint("NewApi") private fun addAllDayEvent(dayOfWeek: Int, event: Event)</ID>
+    <ID>CyclomaticComplexMethod:WeekFragment.kt$WeekFragment$private fun addDays(days: ArrayList&lt;DayWeekly&gt;)</ID>
     <ID>EmptyCatchBlock:EventsHelper.kt$EventsHelper${ }</ID>
     <ID>EmptyCatchBlock:MainActivity.kt$MainActivity${ }</ID>
     <ID>EmptyFunctionBlock:DayEventsAdapter.kt$DayEventsAdapter${}</ID>
@@ -79,7 +78,7 @@
     <ID>LongMethod:EventActivity.kt$EventActivity$private fun saveEvent()</ID>
     <ID>LongMethod:IcsImporter.kt$IcsImporter$fun importEvents( path: String, defaultCalendarId: Long, calDAVCalendarId: Int, overrideFileCalendars: Boolean, eventReminders: ArrayList&lt;Int&gt;? = null, loadFromAssets: Boolean = false, ): ImportResult</ID>
     <ID>LongMethod:MyTimeZones.kt$fun getAllTimeZones()</ID>
-    <ID>LongMethod:WeekFragment.kt$WeekFragment$private fun addEvents(events: ArrayList&lt;Event&gt;)</ID>
+    <ID>LongMethod:WeekFragment.kt$WeekFragment$private fun addDays(days: ArrayList&lt;DayWeekly&gt;)</ID>
     <ID>LongParameterList:SelectCalendarDialog.kt$SelectCalendarDialog$( val activity: Activity, val currCalendar: Long, val showCalDAVCalendars: Boolean, val showNewCalendarOption: Boolean, val addLastUsedOneAsFirstOption: Boolean, val showOnlyWritable: Boolean, var showManageCalendars: Boolean, val callback: (calendar: CalendarEntity) -&gt; Unit )</ID>
     <ID>LoopWithTooManyJumpStatements:IcsImporter.kt$IcsImporter$while</ID>
     <ID>LoopWithTooManyJumpStatements:ManageCalendarsAdapter.kt$ManageCalendarsAdapter$for</ID>
@@ -173,6 +172,7 @@
     <ID>MagicNumber:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider$7</ID>
     <ID>MagicNumber:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider.&lt;no name provided&gt;$3f</ID>
     <ID>MagicNumber:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider.&lt;no name provided&gt;$6</ID>
+    <ID>MagicNumber:MyWidgetWeeklyProvider.kt$MyWidgetWeeklyProvider$3</ID>
     <ID>MagicNumber:NotificationReceiver.kt$NotificationReceiver$3000</ID>
     <ID>MagicNumber:Parser.kt$Parser$14</ID>
     <ID>MagicNumber:Parser.kt$Parser$24</ID>
@@ -242,6 +242,9 @@
     <ID>MagicNumber:WidgetMonthlyConfigureActivity.kt$WidgetMonthlyConfigureActivity$255f</ID>
     <ID>MagicNumber:WidgetMonthlyConfigureActivity.kt$WidgetMonthlyConfigureActivity$3</ID>
     <ID>MagicNumber:WidgetMonthlyConfigureActivity.kt$WidgetMonthlyConfigureActivity$7</ID>
+    <ID>MagicNumber:WidgetWeeklyConfigureActivity.kt$WidgetWeeklyConfigureActivity$100</ID>
+    <ID>MagicNumber:WidgetWeeklyConfigureActivity.kt$WidgetWeeklyConfigureActivity$100f</ID>
+    <ID>MagicNumber:WidgetWeeklyConfigureActivity.kt$WidgetWeeklyConfigureActivity$255f</ID>
     <ID>MagicNumber:YearFragment.kt$YearFragment$12</ID>
     <ID>MagicNumber:YearFragmentsHolder.kt$YearFragmentsHolder$100000</ID>
     <ID>MagicNumber:YearFragmentsHolder.kt$YearFragmentsHolder$61</ID>
@@ -363,11 +366,7 @@
     <ID>MaxLineLength:TaskActivity.kt$TaskActivity$if (usePreviousEventReminders &amp;&amp; lastEventReminderMinutes1 &gt;= -1) lastEventReminderMinutes1 else defaultReminder1</ID>
     <ID>MaxLineLength:TaskActivity.kt$TaskActivity$if (usePreviousEventReminders &amp;&amp; lastEventReminderMinutes2 &gt;= -1) lastEventReminderMinutes2 else defaultReminder2</ID>
     <ID>MaxLineLength:TaskActivity.kt$TaskActivity$if (usePreviousEventReminders &amp;&amp; lastEventReminderMinutes3 &gt;= -1) lastEventReminderMinutes3 else defaultReminder3</ID>
-    <ID>MaxLineLength:WeekFragment.kt$WeekFragment$((currentEventWeeklyView.range.upper - currentEventWeeklyView.range.lower) * minuteHeight).toInt() - 1</ID>
-    <ID>MaxLineLength:WeekFragment.kt$WeekFragment$// fix a visual glitch with all-day events or events lasting multiple days starting at midnight on monday, being shown the previous week too</ID>
     <ID>MaxLineLength:WeekFragment.kt$WeekFragment$// we need to refresh all fragments because they can contain future occurrences</ID>
-    <ID>MaxLineLength:WeekFragment.kt$WeekFragment$dayColumns.indexOfFirst { it.tag.toInt() == dayCodeStart || it.tag.toInt() in (dayCodeStart + 1)..dayCodeEnd }</ID>
-    <ID>MaxLineLength:WeekFragment.kt$WeekFragment$eventWeeklyView.range.upper &gt; eventWeeklyViewToCheck.range.lower</ID>
     <ID>MaxLineLength:WeekFragmentsHolder.kt$WeekFragmentsHolder$binding.weekViewDaysCount.text = requireContext().resources.getQuantityString(org.fossify.commons.R.plurals.days, cnt, cnt)</ID>
     <ID>MaxLineLength:WidgetDateConfigureActivity.kt$WidgetDateConfigureActivity$if</ID>
     <ID>MaxLineLength:WidgetListConfigureActivity.kt$WidgetListConfigureActivity$EventListAdapter(this@WidgetListConfigureActivity, getListItems(), false, null, configWidgetPreview.configEventsList) {}</ID>
@@ -396,11 +395,11 @@
     <ID>NestedBlockDepth:MainActivity.kt$MainActivity$private fun checkIsViewIntent()</ID>
     <ID>NestedBlockDepth:MonthView.kt$MonthView$override fun onDraw(canvas: Canvas)</ID>
     <ID>NestedBlockDepth:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider$private fun updateDays(context: Context, views: RemoteViews, days: List&lt;DayMonthly&gt;)</ID>
+    <ID>NestedBlockDepth:MyWidgetWeeklyProvider.kt$MyWidgetWeeklyProvider$private fun updateDays(context: Context, views: RemoteViews)</ID>
     <ID>NestedBlockDepth:Parser.kt$Parser$fun parseRepeatInterval(fullString: String, startTS: Long): EventRepetition</ID>
     <ID>NestedBlockDepth:SettingsActivity.kt$SettingsActivity$private fun parseFile(inputStream: InputStream?)</ID>
     <ID>NestedBlockDepth:SmallMonthView.kt$SmallMonthView$override fun onDraw(canvas: Canvas)</ID>
-    <ID>NestedBlockDepth:WeekFragment.kt$WeekFragment$@SuppressLint("NewApi") private fun addAllDayEvent(event: Event)</ID>
-    <ID>NestedBlockDepth:WeekFragment.kt$WeekFragment$private fun addEvents(events: ArrayList&lt;Event&gt;)</ID>
+    <ID>NestedBlockDepth:WeekFragment.kt$WeekFragment$private fun addDays(days: ArrayList&lt;DayWeekly&gt;)</ID>
     <ID>ReturnCount:HsvColorComparator.kt$HsvColorComparator$override fun compare(lhs: Int?, rhs: Int?): Int</ID>
     <ID>SwallowedException:CalDAVHelper.kt$CalDAVHelper$e: Exception</ID>
     <ID>SwallowedException:Converters.kt$Converters$e: Exception</ID>
@@ -447,6 +446,7 @@
     <ID>TooManyFunctions:WeekFragmentsHolder.kt$WeekFragmentsHolder : MyFragmentHolderWeekFragmentListener</ID>
     <ID>TooManyFunctions:WidgetListConfigureActivity.kt$WidgetListConfigureActivity : SimpleActivity</ID>
     <ID>TooManyFunctions:WidgetMonthlyConfigureActivity.kt$WidgetMonthlyConfigureActivity : SimpleActivityMonthlyCalendar</ID>
+    <ID>TooManyFunctions:WidgetWeeklyConfigureActivity.kt$WidgetWeeklyConfigureActivity : SimpleActivityWeeklyCalendar</ID>
     <ID>TooManyFunctions:YearFragmentsHolder.kt$YearFragmentsHolder : MyFragmentHolderNavigationListener</ID>
     <ID>UnusedPrivateProperty:YearlyCalendarImpl.kt$YearlyCalendarImpl$i</ID>
     <ID>VariableNaming:CalendarPickerActivity.kt$CalendarPickerActivity$private val TYPE_EVENT = 0</ID>
@@ -503,6 +503,8 @@
     <ID>WildcardImport:MyWidgetListProvider.kt$import org.fossify.commons.extensions.*</ID>
     <ID>WildcardImport:MyWidgetMonthlyProvider.kt$import org.fossify.calendar.extensions.*</ID>
     <ID>WildcardImport:MyWidgetMonthlyProvider.kt$import org.fossify.commons.extensions.*</ID>
+    <ID>WildcardImport:MyWidgetWeeklyProvider.kt$import org.fossify.calendar.extensions.*</ID>
+    <ID>WildcardImport:MyWidgetWeeklyProvider.kt$import org.fossify.commons.extensions.*</ID>
     <ID>WildcardImport:Parser.kt$import org.fossify.commons.helpers.*</ID>
     <ID>WildcardImport:ReminderWarningDialog.kt$import org.fossify.commons.extensions.*</ID>
     <ID>WildcardImport:RepeatLimitTypePickerDialog.kt$import org.fossify.commons.extensions.*</ID>
@@ -513,5 +515,6 @@
     <ID>WildcardImport:WidgetListConfigureActivity.kt$import org.fossify.commons.extensions.*</ID>
     <ID>WildcardImport:WidgetListConfigureActivity.kt$import org.fossify.commons.helpers.*</ID>
     <ID>WildcardImport:WidgetMonthlyConfigureActivity.kt$import org.fossify.commons.extensions.*</ID>
+    <ID>WildcardImport:WidgetWeeklyConfigureActivity.kt$import org.fossify.commons.extensions.*</ID>
   </CurrentIssues>
 </SmellBaseline>
