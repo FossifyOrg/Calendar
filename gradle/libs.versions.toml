@@ -14,6 +14,13 @@ swiperefreshlayout = "1.2.0"
 work = "2.11.1"
 #Room
 room = "2.8.4"
+#junit
+junit = "4.13.2"
+androidx-test-core = "1.7.0"
+androidx-test-runner = "1.7.0"
+androidx-test-rules = "1.7.0"
+androidx-test-ext-junit = "1.3.0"
+androidx-test-ext-truth = "1.7.0"
 #Fossify
 commons = "6.1.5"
 #Gradle
@@ -37,6 +44,13 @@ androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
 #Compose
 compose-detekt = { module = "io.nlopez.compose.rules:detekt", version.ref = "detektCompose" }
+#junit
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-test-core = { group = "androidx.test", name = "core", version.ref = "androidx-test-core" }
+androidx-test-runner = { group = "androidx.test", name = "runner", version.ref = "androidx-test-runner" }
+androidx-test-rules = { group = "androidx.test", name = "rules", version.ref = "androidx-test-rules" }
+androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
+androidx-test-ext-truth = { group = "androidx.test.ext", name = "truth", version.ref = "androidx-test-ext-truth" }
 #Fossify
 fossify-commons = { module = "org.fossify:commons", version.ref = "commons" }
 [bundles]
