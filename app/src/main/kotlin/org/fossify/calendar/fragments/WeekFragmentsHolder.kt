@@ -44,6 +44,9 @@ class WeekFragmentsHolder : MyFragmentHolder(), WeekFragmentListener {
         super.onCreate(savedInstanceState)
         val dateTimeString = arguments?.getString(WEEK_START_DATE_TIME) ?: return
         currentWeekTS = (DateTime.parse(dateTimeString) ?: DateTime()).seconds()
+        if (savedInstanceState != null) {
+            currentWeekTS = savedInstanceState.getLong(::currentWeekTS.name)
+        }
         updateThisWeekTS()
     }
 
@@ -70,6 +73,11 @@ class WeekFragmentsHolder : MyFragmentHolder(), WeekFragmentListener {
             binding.weekViewSeekbar.beVisibleIf(allow)
         }
         setupSeekbar()
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putLong(::currentWeekTS.name, currentWeekTS)
+        super.onSaveInstanceState(outState)
     }
 
     private fun setupFragment() {
