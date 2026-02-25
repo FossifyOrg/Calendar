@@ -36,7 +36,6 @@ android {
         targetSdk = project.libs.versions.app.build.targetSDK.get().toInt()
         versionCode = project.property("VERSION_CODE").toString().toInt()
         versionName = project.property("VERSION_NAME").toString()
-        multiDexEnabled = true
         vectorDrawables.useSupportLibrary = true
         ksp {
             arg("room.schemaLocation", "$projectDir/schemas")
@@ -143,7 +142,6 @@ detekt {
 
 dependencies {
     implementation(libs.fossify.commons)
-    implementation(libs.androidx.multidex)
     implementation(libs.androidx.constraintlayout)
     implementation(libs.androidx.swiperefreshlayout)
     implementation(libs.androidx.print)

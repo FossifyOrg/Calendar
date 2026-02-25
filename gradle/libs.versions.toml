@@ -7,7 +7,6 @@ ksp = "2.3.5"
 detekt = "1.23.8"
 detektCompose = "0.4.28"
 #Androidx
-multidex = "2.0.1"
 print = "1.1.0"
 constraintlayout = "2.2.1"
 swiperefreshlayout = "1.2.0"
@@ -27,7 +26,6 @@ app-build-kotlinJVMTarget = "17"
 [libraries]
 #Android X
 androidx-constraintlayout = { module = "androidx.constraintlayout:constraintlayout", version.ref = "constraintlayout" }
-androidx-multidex = { module = "androidx.multidex:multidex", version.ref = "multidex" }
 androidx-print = { module = "androidx.print:print", version.ref = "print" }
 androidx-swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "swiperefreshlayout" }
 androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "work" }
