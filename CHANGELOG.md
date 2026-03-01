@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Countdown to event start instead of to the reminder ([#1073]) 
+
 ## [1.10.3] - 2026-02-14
 ### Changed
 - Updated translations
@@ -237,6 +240,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#1003]: https://github.com/FossifyOrg/Calendar/issues/1003
 [#1019]: https://github.com/FossifyOrg/Calendar/issues/1019
 [#1024]: https://github.com/FossifyOrg/Calendar/issues/1024
+[#1073]: https://github.com/FossifyOrg/Calendar/issues/1073
 
 [Unreleased]: https://github.com/FossifyOrg/Calendar/compare/1.10.3...HEAD
 [1.10.3]: https://github.com/FossifyOrg/Calendar/compare/1.10.2...1.10.3
