@@ -40,6 +40,10 @@
     <queries>
         <package android:name="org.fossify.calendar.debug" />
         <package android:name="org.fossify.calendar" />
+
+        <intent>
+            <action android:name="android.content.SyncAdapter" />
+        </intent>
     </queries>
 
     <uses-feature
