@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/week_all_day_row"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/activity_margin"
+    android:orientation="horizontal"
+    />
