@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Fixed
-- Fixed CalDAV sync not working on Android 11+ ([#656])
+- Fixed CalDAV sync not consistently working on Android 11+ ([#656])
 
 ## [1.10.3] - 2026-02-14
 ### Changed
