@@ -33,6 +33,12 @@
         android:maxSdkVersion="32" />
 
     <queries>
+        <intent>
+            <action android:name="android.content.SyncAdapter" />
+        </intent>
+    </queries>
+
+    <queries>
         <package android:name="org.fossify.contacts.debug" />
         <package android:name="org.fossify.contacts" />
     </queries>
@@ -40,10 +46,6 @@
     <queries>
         <package android:name="org.fossify.calendar.debug" />
         <package android:name="org.fossify.calendar" />
-
-        <intent>
-            <action android:name="android.content.SyncAdapter" />
-        </intent>
     </queries>
 
     <uses-feature
