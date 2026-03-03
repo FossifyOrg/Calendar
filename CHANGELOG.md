@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Updated holiday data
 
+### Fixed
+- Removed padding around monthly calendar widget ([#63])
+
 ## [1.11.0] - 2026-09-23
 ### Added
 - Holidays for New Zealand ([#1157])
