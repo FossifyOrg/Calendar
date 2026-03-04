@@ -323,11 +323,7 @@ class WeekFragment : Fragment(), WeeklyCalendar {
                 val gestureDetector = getViewGestureDetector(layout, index)
 
                 layout.setOnTouchListener { _, motionEvent ->
-                    val isScaling = handleScaleTouch(motionEvent)
-                    if (!isScaling) {
-                        gestureDetector.onTouchEvent(motionEvent)
-                    }
-                    true
+                    handleDayColumnTouch(gestureDetector, motionEvent)
                 }
 
                 layout.setOnDragListener { _, dragEvent ->
@@ -437,6 +433,16 @@ class WeekFragment : Fragment(), WeeklyCalendar {
             }
     }
 
+    private fun handleDayColumnTouch(
+        gestureDetector: GestureDetector,
+        motionEvent: MotionEvent
+    ): Boolean {
+        if (!handleScaleTouch(motionEvent)) {
+            gestureDetector.onTouchEvent(motionEvent)
+        }
+        return true
+    }
+
     private fun revertDraggedEvent() {
         activity?.runOnUiThread {
             currentlyDraggedView?.beVisible()
@@ -507,6 +513,13 @@ class WeekFragment : Fragment(), WeeklyCalendar {
         }
 
         return scaleDetector.isInProgress || wasScaled || motionEvent.pointerCount > 1
+    }
+
+    @SuppressLint("ClickableViewAccessibility")
+    private fun attachEventScaleTouchListener(view: View) {
+        view.setOnTouchListener { _, motionEvent ->
+            handleScaleTouch(motionEvent)
+        }
     }
 
     private fun getViewScaleDetector(): ScaleGestureDetector {
@@ -814,9 +827,7 @@ class WeekFragment : Fragment(), WeeklyCalendar {
                             }
                         }
 
-                        root.setOnTouchListener { _, motionEvent ->
-                            handleScaleTouch(motionEvent)
-                        }
+                        attachEventScaleTouchListener(root)
 
                         root.setOnLongClickListener { view ->
                             currentlyDraggedView = view
