@@ -112,6 +112,7 @@ class WeekFragment : Fragment(), WeeklyCalendar {
     private var screenHeight = 0
     private var rowHeightsAtScale = 0f
     private var prevScaleFactor = 0f
+    private var gestureScaleFactor = 0f
     private var mWasDestroyed = false
     private var isFragmentVisible = false
     private var wasFragmentInit = false
@@ -137,6 +138,7 @@ class WeekFragment : Fragment(), WeeklyCalendar {
     private lateinit var scrollView: MyScrollView
     private lateinit var res: Resources
     private lateinit var config: Config
+    private lateinit var scaleDetector: ScaleGestureDetector
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -165,16 +167,9 @@ class WeekFragment : Fragment(), WeeklyCalendar {
             weekHorizontalGridHolder.layoutParams.height = fullHeight
             weekEventsColumnsHolder.layoutParams.height = fullHeight
 
-            val scaleDetector = getViewScaleDetector()
+            scaleDetector = getViewScaleDetector()
             scrollView.setOnTouchListener { _, motionEvent ->
-                scaleDetector.onTouchEvent(motionEvent)
-                if (motionEvent.action == MotionEvent.ACTION_UP && wasScaled) {
-                    scrollView.isScrollable = true
-                    wasScaled = false
-                    true
-                } else {
-                    false
-                }
+                handleScaleTouch(motionEvent)
             }
         }
 
@@ -328,7 +323,10 @@ class WeekFragment : Fragment(), WeeklyCalendar {
                 val gestureDetector = getViewGestureDetector(layout, index)
 
                 layout.setOnTouchListener { _, motionEvent ->
-                    gestureDetector.onTouchEvent(motionEvent)
+                    val isScaling = handleScaleTouch(motionEvent)
+                    if (!isScaling) {
+                        gestureDetector.onTouchEvent(motionEvent)
+                    }
                     true
                 }
 
@@ -499,6 +497,18 @@ class WeekFragment : Fragment(), WeeklyCalendar {
         }
     }
 
+    private fun handleScaleTouch(motionEvent: MotionEvent): Boolean {
+        scaleDetector.onTouchEvent(motionEvent)
+        val action = motionEvent.actionMasked
+        if ((action == MotionEvent.ACTION_UP || action == MotionEvent.ACTION_CANCEL) && wasScaled) {
+            scrollView.isScrollable = true
+            wasScaled = false
+            return true
+        }
+
+        return scaleDetector.isInProgress || wasScaled || motionEvent.pointerCount > 1
+    }
+
     private fun getViewScaleDetector(): ScaleGestureDetector {
         return ScaleGestureDetector(
             requireContext(),
@@ -508,11 +518,13 @@ class WeekFragment : Fragment(), WeeklyCalendar {
                     prevScaleSpanY = detector.currentSpanY
 
                     val wantedFactor =
-                        config.weeklyViewItemHeightMultiplier - (SCALE_RANGE * percent)
+                        gestureScaleFactor - (SCALE_RANGE * percent)
                     var newFactor = max(min(wantedFactor, MAX_SCALE_FACTOR), MIN_SCALE_FACTOR)
                     if (scrollView.height > defaultRowHeight * newFactor * 24) {
                         newFactor = scrollView.height / 24f / defaultRowHeight
                     }
+
+                    gestureScaleFactor = newFactor
 
                     if (Math.abs(newFactor - prevScaleFactor) > MIN_SCALE_DIFFERENCE) {
                         prevScaleFactor = newFactor
@@ -534,9 +546,16 @@ class WeekFragment : Fragment(), WeeklyCalendar {
                     scrollView.isScrollable = false
                     prevScaleSpanY = detector.currentSpanY
                     prevScaleFactor = config.weeklyViewItemHeightMultiplier
+                    gestureScaleFactor = prevScaleFactor
                     wasScaled = true
                     screenHeight = context!!.realScreenSize.y
                     return super.onScaleBegin(detector)
+                }
+
+                override fun onScaleEnd(detector: ScaleGestureDetector) {
+                    scrollView.isScrollable = true
+                    wasScaled = false
+                    super.onScaleEnd(detector)
                 }
             })
     }
@@ -793,6 +812,10 @@ class WeekFragment : Fragment(), WeeklyCalendar {
                                 putExtra(IS_TASK_COMPLETED, event.isTaskCompleted())
                                 startActivity(this)
                             }
+                        }
+
+                        root.setOnTouchListener { _, motionEvent ->
+                            handleScaleTouch(motionEvent)
                         }
 
                         root.setOnLongClickListener { view ->
