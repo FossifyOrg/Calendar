@@ -5,6 +5,7 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import android.util.AttributeSet
 import android.view.View
+import androidx.core.content.ContextCompat
 import org.fossify.calendar.extensions.config
 import org.fossify.calendar.extensions.getWeeklyViewItemHeight
 
@@ -16,7 +17,7 @@ class WeeklyViewGrid(context: Context, attrs: AttributeSet, defStyle: Int) : Vie
     constructor(context: Context, attrs: AttributeSet) : this(context, attrs, 0)
 
     init {
-        paint.color = context.resources.getColor(org.fossify.commons.R.color.divider_grey)
+        paint.color = ContextCompat.getColor(context, org.fossify.commons.R.color.divider_grey)
     }
 
     override fun onDraw(canvas: Canvas) {
