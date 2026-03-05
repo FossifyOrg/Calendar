@@ -23,10 +23,10 @@
     <string name="end_before_start">Udalosť nemôže skončiť skôr ako by začala</string>
     <string name="event_added">Udalosť bola úspešne pridaná</string>
     <string name="event_updated">Udalosť bola úspešne upravená</string>
-    <string name="filter_events_by_type">Filtrovať udalosti podľa typu</string>
+    <string name="filter_events_by_type">Filtrovať udalosti podľa typu kalendára</string>
     <string name="please_fill_location">Prosím zadajte polohu, ktorá má byť zobrazená na mape</string>
     <string name="public_event_notification_text">Blíži sa udalosť</string>
-    <string name="everything_filtered_out">Máte odfiltrované všetky typy udalostí</string>
+    <string name="everything_filtered_out">Máte odfiltrované všetky typy udalostí v kalendári</string>
     <string name="event_color">Farba udalosti</string>
     <string name="default_calendar_color">Predvolená farba kalendára</string>
     <string name="task">Úloha</string>
@@ -115,11 +115,11 @@
     <string name="import_events_from_ics">Importovať udalosti z .ics súboru</string>
     <string name="import_events_from_ics_pro">Importovať udalosti z .ics súboru (Pro)</string>
     <string name="export_events_to_ics">Exportovať udalosti do .ics súboru</string>
-    <string name="default_event_type">Predvolený typ udalosti</string>
+    <string name="default_event_type">Predvolený typ udalosti v kalendári</string>
     <string name="export_past_events_too">Exportovať aj minulé udalosti</string>
     <string name="export_tasks">Exportovať úlohy</string>
     <string name="export_past_entries">Exportovať aj minulé položky</string>
-    <string name="include_event_types">Zahrnúť typy udalostí</string>
+    <string name="include_event_types">Zahrnúť typy udalostí v kalendári</string>
     <string name="filename_without_ics">Názov súboru (bez .ics)</string>
     <string name="ignore_event_types">Ignorovať typy udalostí v súbore, stále použiť predvolený</string>
     <string name="location">Miesto</string>
@@ -127,15 +127,15 @@
     <string name="all_day">Celodenná</string>
     <string name="week">Týždeň</string>
     <string name="start_week_with_current_day">Začať týždeň s aktuálnym dňom</string>
-    <string name="event_types">Typy udalostí</string>
-    <string name="add_new_type">Pridať nový typ</string>
-    <string name="edit_type">Upraviť typ</string>
-    <string name="type_already_exists">Typ s daným názvom už existuje</string>
+    <string name="event_types">Kalendárne typy udalostí</string>
+    <string name="add_new_type">Pridať nový kalendárny typ</string>
+    <string name="edit_type">Upraviť kalendárny typ</string>
+    <string name="type_already_exists">Kalendárny typ s daným názvom už existuje</string>
     <string name="color">Farba</string>
-    <string name="regular_event">Bežná udalosť</string>
-    <string name="cannot_delete_default_type">Predvolený typ nie je možné vymazať</string>
+    <string name="regular_event">Bežná udalosť lokálny kalendár</string>
+    <string name="cannot_delete_default_type">Predvolený typ udalosti v zabudovanom kalendári nie je možné vymazať</string>
     <string name="select_event_type">Zvoľte typ udalosti</string>
-    <string name="move_events_into_default">Presunúť dotknuté udalosti do predvoleného typu udalostí</string>
+    <string name="move_events_into_default">Presunúť dotknuté udalosti do predvoleného listu typov udalostí</string>
     <string name="remove_affected_events">Natrvalo odstrániť dotknuté udalosti</string>
     <string name="unsync_caldav_calendar">Na odstránenie CalDAV kalendára musíte vypnúť jeho synchronizáciu</string>
     <string name="holidays">Sviatky</string>
@@ -222,8 +222,8 @@
     <string name="sample_title_3">Knižnica</string>
     <string name="sample_title_4">Obed s Katkou</string>
     <string name="sample_description_4">V supermarkete</string>
-    <string name="sample_title_5">Káva</string>
-    <string name="show_events_happening">Zobraziť udalosti z:</string>
+    <string name="sample_title_5">Čas na kávu</string>
+    <string name="show_events_happening">Zobraziť udalosti :</string>
     <string name="within_the_next_one_year">Najbližšieho 1 roka</string>
     <string name="today_only">Iba dnešné</string>
     <string name="within_the_next">Najbližšich…</string>
@@ -253,7 +253,7 @@
     <string name="faq_4_text">Áno, podporuje. Štandardne sú všetky udalosti vytvárané vo vašom súčasnom časovom pásme. Ak chcete zmeniť časové pásmo niektorej udalosti, najprv musíte povoliť menenie časových pásem v nastaveniach apky, následne ho zmeniť na obrazovke s detailmi udalosti. Menenie je štandardne vypnuté, keďže ho väčšina ľudí potrebovať nebude.</string>
     <string name="faq_5_title">Apka nezobrazuje upozornenia, čím to je\?</string>
     <string name="faq_5_text">Pozrite sa do nastavení batérie a upozornení vášho zariadenia, či nič neblokuje upozornenia, alebo nevypína na pozadí apku. Mohli by ste sa pozrieť aj na &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;, je tam veľa užitočných tipov.</string>
-    <string name="faq_6_title">Ako môžem upraviť alebo odstrániť existujúci typ udalosti?</string>
+    <string name="faq_6_title">Ako môžem upraviť alebo odstrániť existujúci kalendár?</string>
     <string name="faq_6_text">Oboje viete spraviť v nastaveniach apky - Spravovať typy udalostí. Kliknutím viete upraviť názov a farbu, odstrániť ich viete dlhým podržaním a použitím odpadkového koša na hornom menu.</string>
     <string name="public_holidays">Verejné sviatky</string>
     <string name="regional_holidays">Miestne sviatky</string>
@@ -271,4 +271,6 @@
     <string name="accessibility_next_month">Ísť na nasledujúci mesiac</string>
     <string name="accessibility_previous_day">Ísť na predchádzajúci deň</string>
     <string name="accessibility_next_day">Ísť na nasledujúci deň</string>
+    <string name="offline_never_synced">Offline (nikdy synchronizované</string>
+    <string name="allow_alarms_reminders">Aby pripomienky fungovali správne, aplikácii musíte dať povolenie pre naplánovanie budíkov.</string>
 </resources>
