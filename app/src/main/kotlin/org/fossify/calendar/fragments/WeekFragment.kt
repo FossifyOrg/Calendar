@@ -849,7 +849,7 @@ class WeekFragment : Fragment(), WeeklyCalendar {
             val weeklyViewDays = config.weeklyViewDays
             currentTimeView = WeekNowMarkerBinding.inflate(layoutInflater).root.apply {
                 applyColorFilter(primaryColor)
-                binding.weekEventsHolder.addView(this, 0)
+                binding.weekEventsHolder.addView(this)
                 val extraWidth =
                     res.getDimension(org.fossify.commons.R.dimen.activity_margin).toInt()
                 val markerHeight = res.getDimension(R.dimen.weekly_view_now_height).toInt()
