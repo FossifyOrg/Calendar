@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Fixed
+- Current time indicator is drawn behind events/tasks in Week view (#1115)
 
 ## [1.10.3] - 2026-02-14
 ### Changed
