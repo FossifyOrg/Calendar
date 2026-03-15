@@ -1,7 +1,6 @@
 package org.fossify.calendar.views
 
 import android.content.Context
-import android.content.res.Configuration
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.util.AttributeSet
@@ -24,7 +23,6 @@ class SmallMonthView(context: Context, attrs: AttributeSet, defStyle: Int) : Vie
     private var textColor = 0
     private var weekendsTextColor = 0
     private var days = 31
-    private var isLandscape = false
     private var highlightWeekends = false
     private var isPrintVersion = false
     private var mEvents: ArrayList<DayYearly>? = null
@@ -71,18 +69,13 @@ class SmallMonthView(context: Context, attrs: AttributeSet, defStyle: Int) : Vie
 
         todayCirclePaint = Paint(paint)
         todayCirclePaint.color = context.getProperPrimaryColor().adjustAlpha(MEDIUM_ALPHA)
-        isLandscape = resources.configuration.orientation == Configuration.ORIENTATION_LANDSCAPE
     }
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
 
         if (dayWidth == 0f) {
-            dayWidth = if (isLandscape) {
-                width / 9f
-            } else {
-                width / 7f
-            }
+            dayWidth = width / 7f
         }
 
         val fm = paint.fontMetrics
@@ -105,6 +98,17 @@ class SmallMonthView(context: Context, attrs: AttributeSet, defStyle: Int) : Vie
                 curId++
             }
         }
+    }
+
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        val desiredDaySize = resources.getDimensionPixelSize(R.dimen.year_view_day_text_size) * 2
+        val desiredWidth = desiredDaySize * 7
+        val desiredHeight = desiredDaySize * 6
+
+        val resolvedWidth = resolveSize(desiredWidth, widthMeasureSpec)
+        val resolvedHeight = resolveSize(desiredHeight, heightMeasureSpec)
+
+        setMeasuredDimension(resolvedWidth, resolvedHeight)
     }
 
     private fun getPaint(curId: Int, weekDay: Int, highlightWeekends: Boolean): Paint {
