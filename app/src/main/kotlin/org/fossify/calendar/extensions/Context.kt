@@ -233,26 +233,25 @@ fun Context.scheduleNextEventReminder(event: Event, showToasts: Boolean) {
 }
 
 fun Context.scheduleEventIn(notifyAtMillis: Long, event: Event, showToasts: Boolean) {
-    val now = System.currentTimeMillis()
-    if (notifyAtMillis < now) {
+    val now = System.currentTimeMillis() / 1000
+    if (event.getEventStartTS() < now) {
         if (showToasts) {
             toast(org.fossify.commons.R.string.saving)
         }
         return
     }
 
-    val newNotifyAtMillis = notifyAtMillis + 1000
     if (showToasts) {
-        val secondsTillNotification = (newNotifyAtMillis - now) / 1000
+        val secondsTillEvent = event.getEventStartTS() - now
         val msg = String.format(
             getString(org.fossify.commons.R.string.time_remaining),
-            formatSecondsToTimeString(secondsTillNotification.toInt())
+            formatSecondsToTimeString(secondsTillEvent.toInt())
         )
         toast(msg)
     }
 
     val pendingIntent = getNotificationIntent(event)
-    setExactAlarm(newNotifyAtMillis, pendingIntent)
+    setExactAlarm(notifyAtMillis + 1000, pendingIntent)
 }
 
 // hide the actual notification from the top bar
