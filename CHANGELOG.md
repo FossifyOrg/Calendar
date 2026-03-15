@@ -5,11 +5,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-### Fixed
-- Fixed event text readability on colored backgrounds ([#1065])
 
+## [1.10.4] - 2026-03-15
 ### Changed
 - Updated holiday data
+- Updated translations
+
+### Fixed
+- Fixed event text readability on colored backgrounds ([#1065])
 
 ## [1.10.3] - 2026-02-14
 ### Changed
@@ -244,7 +247,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#1024]: https://github.com/FossifyOrg/Calendar/issues/1024
 [#1065]: https://github.com/FossifyOrg/Calendar/issues/1065
 
-[Unreleased]: https://github.com/FossifyOrg/Calendar/compare/1.10.3...HEAD
+[Unreleased]: https://github.com/FossifyOrg/Calendar/compare/1.10.4...HEAD
+[1.10.4]: https://github.com/FossifyOrg/Calendar/compare/1.10.3...1.10.4
 [1.10.3]: https://github.com/FossifyOrg/Calendar/compare/1.10.2...1.10.3
 [1.10.2]: https://github.com/FossifyOrg/Calendar/compare/1.10.1...1.10.2
 [1.10.1]: https://github.com/FossifyOrg/Calendar/compare/1.10.0...1.10.1
