@@ -244,9 +244,9 @@
     <string name="accessibility_next_month">Gå til næste måned</string>
     <string name="accessibility_previous_day">Gå til forrige dag</string>
     <string name="accessibility_next_day">Gå til næste dag</string>
-    <string name="faq_1_title">Hvordan kan jeg fjerne helligdage importeret via \"Tilføj helligdage\"?</string>
-    <string name="faq_1_text">Helligdage oprettet på den måde indsættes som en ny kalender kaldet \"Helligdage\". Gå til Indstillinger &gt; Administrér kalendere, hold nede på kalenderen og slet den via papirkurven.</string>
-    <string name="faq_2_title">Kan jeg synkronisere mine begivenheder med Googles kalender eller en anden kalender der understøtter CalDAV\?</string>
+    <string name="faq_1_title">Hvordan fjerner jeg helligdage importeret via knappen \"Tilføj helligdage\"?</string>
+    <string name="faq_1_text">Helligdage oprettet på den måde indsættes i en ny kalender kaldet \"Helligdage\". Gå til Indstillinger -&gt; Administrer kalendere, hold den pågældende kalender nede, og slet den ved at vælge papirkurven.</string>
+    <string name="faq_2_title">Kan jeg synkronisere mine begivenheder via Google Kalender eller en anden tjeneste med CalDAV-understøttelse?</string>
     <string name="faq_2_title_extra">Måske endda dele kalendere med andre?</string>
     <string name="faq_2_text">Ja, du skal blot slå \"CalDAV-synkronisering\" til og fra i appens indstillinger, og vælge de kalendere, du vil synkronisere. Du skal dog bruge en tredjepartsapp, der håndterer synkroniseringen mellem enheden og serverne. Hvis du vil synkronisere en Google-kalender, vil deres officielle Kalender-app klare opgaven. Til andre kalendere skal du bruge en tredjeparts synkroniseringsadapter, f.eks. DAVx5.</string>
     <string name="faq_3_title">Jeg kan se mine påmindelser, men der er ingen lyd på. Hvad kan jeg gøre ved det\?</string>
@@ -268,6 +268,6 @@
     <string name="access_level_public">Offentligt</string>
     <string name="access_level_confidential">Fortroligt</string>
     <string name="access_level_private">Privat</string>
-    <string name="allow_alarms_reminders">Appen skal have tilladelse til at planlægge alarmer, ellers vil påmindelserne ikke fungere korrekt.</string>
+    <string name="allow_alarms_reminders">Du skal give appen tilladelse til at planlægge alarmer, for at påmindelser fungerer korrekt.</string>
     <string name="offline_never_synced">Offline (aldrig synkroniseret)</string>
 </resources>
