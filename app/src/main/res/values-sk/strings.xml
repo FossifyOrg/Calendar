@@ -271,6 +271,6 @@
     <string name="accessibility_next_month">Ísť na nasledujúci mesiac</string>
     <string name="accessibility_previous_day">Ísť na predchádzajúci deň</string>
     <string name="accessibility_next_day">Ísť na nasledujúci deň</string>
-    <string name="offline_never_synced">Offline (nikdy synchronizované</string>
+    <string name="offline_never_synced">Offline (nikdy synchronizované)</string>
     <string name="allow_alarms_reminders">Aby pripomienky fungovali správne, aplikácii musíte dať povolenie pre naplánovanie budíkov.</string>
 </resources>
