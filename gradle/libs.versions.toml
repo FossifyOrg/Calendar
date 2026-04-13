@@ -16,7 +16,7 @@ room = "2.8.4"
 #Fossify
 commons = "6.1.6"
 #Gradle
-gradlePlugins-agp = "9.1.0"
+gradlePlugins-agp = "9.1.1"
 #build
 app-build-compileSDKVersion = "36"
 app-build-targetSDK = "36"
