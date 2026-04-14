@@ -15,7 +15,7 @@
     <string name="widget_list">لائحة أحداث التقويم</string>
     <string name="widget_todays_date">تقويم تاريخ اليوم</string>
     <string name="event">حدث</string>
-    <string name="edit_event">تعديل حدث</string>
+    <string name="edit_event">حرّر الحدث</string>
     <string name="new_event">حدث جديد</string>
     <string name="create_new_event">إضافة حدث جديد</string>
     <string name="duplicate_event">تكرار حدث</string>
@@ -29,7 +29,7 @@
     <string name="everything_filtered_out">لقد قمت بتصفية جميع التقاويم</string>
     <string name="task">مهمة</string>
     <string name="tasks">المهام</string>
-    <string name="edit_task">تحرير المهمة</string>
+    <string name="edit_task">حرّر المهمة</string>
     <string name="new_task">مهمة جديدة</string>
     <string name="create_new_task">إنشاء مهمة جديدة</string>
     <string name="duplicate_task">تكرار المهمة</string>
@@ -127,7 +127,7 @@
     <string name="start_week_with_current_day">بدء الأسبوع مع اليوم الحالي</string>
     <string name="event_types">التقاويم</string>
     <string name="add_new_type">أضف تقويم جديد</string>
-    <string name="edit_type">عدِّل التقويم</string>
+    <string name="edit_type">حرّر التقويم</string>
     <string name="type_already_exists">يوجد بالفعل تقويم بهذا العنوان</string>
     <string name="color">اللون</string>
     <string name="regular_event">التقويم المحلي</string>
@@ -196,7 +196,7 @@
     <string name="refresh_caldav_calendars">تحديث تقويمات CalDAV</string>
     <string name="refreshing">جاري التحديث…</string>
     <string name="refreshing_complete">اكتمال التحديث</string>
-    <string name="editing_calendar_failed">فشل في تعديل التقويم</string>
+    <string name="editing_calendar_failed">فشل في تحرير التقويم</string>
     <string name="syncing">جاري المزامنة…</string>
     <string name="synchronization_completed">اكتمال المزامنة</string>
     <string name="select_a_different_caldav_color">اختر لون مختلف (يمكن تطبيقه محليا فقط)</string>
