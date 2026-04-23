@@ -6,9 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 ### Added
+- Per-widget calendar filtering for event list widget
+- Settings icon on event list widget header for re-configuration
 - Holidays for New Zealand ([#1157])
 
 ### Changed
+- Database schema migration 11→12: added nullable calendars column to widget table
+- Refactored widget config and header layouts for calendar picker integration
 - Updated holiday data
 
 ### Fixed

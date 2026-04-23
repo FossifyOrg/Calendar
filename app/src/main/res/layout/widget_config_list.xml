@@ -59,13 +59,41 @@
 
         </RelativeLayout>
 
+        <RelativeLayout
+            android:id="@+id/calendar_picker_holder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/period_picker_holder"
+            android:paddingBottom="@dimen/activity_margin">
+
+            <org.fossify.commons.views.MyTextView
+                android:id="@+id/calendar_picker_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/normal_margin"
+                android:paddingStart="@dimen/activity_margin"
+                android:paddingEnd="@dimen/activity_margin"
+                android:text="@string/widget_calendars" />
+
+            <org.fossify.commons.views.MyTextView
+                android:id="@+id/calendar_picker_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/calendar_picker_label"
+                android:layout_marginStart="@dimen/activity_margin"
+                android:background="@drawable/button_background"
+                android:padding="@dimen/normal_margin"
+                android:text="@string/widget_calendars_all" />
+
+        </RelativeLayout>
+
         <include
             android:id="@+id/config_widget_preview"
             layout="@layout/widget_config_event_list"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_above="@+id/config_bg_color"
-            android:layout_below="@+id/period_picker_holder"
+            android:layout_below="@+id/calendar_picker_holder"
             android:layout_marginBottom="@dimen/activity_margin"
             android:background="@drawable/widget_round_background"
             android:clipToPadding="false"

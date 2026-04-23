@@ -11,6 +11,7 @@ import org.fossify.calendar.R
 import org.fossify.calendar.adapters.EventListAdapter
 import org.fossify.calendar.databinding.WidgetConfigListBinding
 import org.fossify.calendar.dialogs.CustomPeriodPickerDialog
+import org.fossify.calendar.dialogs.SelectCalendarsDialog
 import org.fossify.calendar.extensions.config
 import org.fossify.calendar.extensions.seconds
 import org.fossify.calendar.extensions.widgetsDB
@@ -37,6 +38,9 @@ class WidgetListConfigureActivity : SimpleActivity() {
     private var mBgColor = 0
     private var mTextColor = 0
     private var mSelectedPeriodOption = 0
+    private var mSelectedCalendars = HashSet<String>()
+    private var mIsReconfiguring = false
+    private var mWidgetLoaded = false
 
     private val binding by viewBinding(WidgetConfigListBinding::inflate)
 
@@ -72,6 +76,9 @@ class WidgetListConfigureActivity : SimpleActivity() {
 
             val primaryColor = getProperPrimaryColor()
             configBgSeekbar.setColors(mTextColor, primaryColor, primaryColor)
+
+            configSave.isEnabled = false
+            calendarPickerValue.setOnClickListener { showCalendarSelector() }
         }
 
         updateSelectedPeriod(config.lastUsedEventSpan)
@@ -85,6 +92,29 @@ class WidgetListConfigureActivity : SimpleActivity() {
         }
 
         updateTextColors(binding.periodPickerHolder)
+
+        ensureBackgroundThread {
+            val existingWidget = widgetsDB.getWidgetWithWidgetId(mWidgetId)
+            if (existingWidget != null) {
+                mIsReconfiguring = true
+                mSelectedPeriodOption = existingWidget.period
+                binding.showWidgetHeader.isChecked = existingWidget.header
+                if (existingWidget.isCalendarsConfigured()) {
+                    mSelectedCalendars = existingWidget.getCalendarIdsAsList()
+                        .map { it.toString() }.toHashSet()
+                }
+                runOnUiThread {
+                    updateSelectedPeriod(existingWidget.period)
+                    binding.showWidgetHeader.isChecked = existingWidget.header
+                    binding.configWidgetPreview.widgetHeaderInclude.widgetHeader.beVisibleIf(existingWidget.header)
+                    updateCalendarPickerLabel()
+                }
+            }
+            mWidgetLoaded = true
+            runOnUiThread {
+                binding.configSave.isEnabled = true
+            }
+        }
     }
 
     private fun initVariables() {
@@ -111,7 +141,14 @@ class WidgetListConfigureActivity : SimpleActivity() {
     }
 
     private fun saveConfig() {
-        val widget = Widget(null, mWidgetId, mSelectedPeriodOption, binding.showWidgetHeader.isChecked)
+        if (!mWidgetLoaded) return
+
+        val calendarsStr = if (mSelectedCalendars.isEmpty()) {
+            null
+        } else {
+            mSelectedCalendars.joinToString(",")
+        }
+        val widget = Widget(null, mWidgetId, mSelectedPeriodOption, binding.showWidgetHeader.isChecked, calendarsStr)
         ensureBackgroundThread {
             widgetsDB.insertOrUpdate(widget)
         }
@@ -236,6 +273,31 @@ class WidgetListConfigureActivity : SimpleActivity() {
         binding.configWidgetPreview.widgetConfigEventListBackground.applyColorFilter(mBgColor)
         binding.configBgColor.setFillWithStroke(mBgColor, mBgColor)
         binding.configSave.backgroundTintList = ColorStateList.valueOf(getProperPrimaryColor())
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onBackPressed() {
+        if (mIsReconfiguring) {
+            finish()
+        } else {
+            @Suppress("DEPRECATION")
+            super.onBackPressed()
+        }
+    }
+
+    private fun showCalendarSelector() {
+        SelectCalendarsDialog(this, mSelectedCalendars) { selectedCalendars ->
+            mSelectedCalendars = selectedCalendars
+            updateCalendarPickerLabel()
+        }
+    }
+
+    private fun updateCalendarPickerLabel() {
+        if (mSelectedCalendars.isEmpty()) {
+            binding.calendarPickerValue.setText(R.string.widget_calendars_all)
+        } else {
+            binding.calendarPickerValue.text = getString(R.string.widget_calendars_summary)
+        }
     }
 
     private fun getListItems(): ArrayList<ListItem> {

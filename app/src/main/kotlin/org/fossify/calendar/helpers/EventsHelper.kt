@@ -446,10 +446,11 @@ class EventsHelper(val context: Context) {
         eventId: Long = -1L,
         applyTypeFilter: Boolean = true,
         searchQuery: String = "",
+        overrideCalendarIds: List<Long>? = null,
         callback: (events: ArrayList<Event>) -> Unit
     ) {
         ensureBackgroundThread {
-            getEventsSync(fromTS, toTS, eventId, applyTypeFilter, searchQuery, callback)
+            getEventsSync(fromTS, toTS, eventId, applyTypeFilter, searchQuery, overrideCalendarIds, callback)
         }
     }
 
@@ -459,13 +460,39 @@ class EventsHelper(val context: Context) {
         eventId: Long = -1L,
         applyTypeFilter: Boolean,
         searchQuery: String = "",
+        overrideCalendarIds: List<Long>? = null,
         callback: (events: ArrayList<Event>) -> Unit
     ) {
         val birthDayEventId = getLocalBirthdaysCalendarId(createIfNotExists = false)
         val anniversaryEventId = getAnniversariesCalendarId(createIfNotExists = false)
 
         var events = ArrayList<Event>()
-        if (applyTypeFilter) {
+        if (overrideCalendarIds != null) {
+            if (overrideCalendarIds.isEmpty()) {
+                callback(ArrayList())
+                return
+            }
+            try {
+                events.addAll(
+                    eventsDB.getOneTimeEventsFromToWithCalendarIds(
+                        toTS,
+                        fromTS,
+                        overrideCalendarIds
+                    ).toMutableList() as ArrayList<Event>
+                )
+            } catch (e: Exception) {
+            }
+            events.addAll(
+                getRepeatableEventsFor(
+                    fromTS,
+                    toTS,
+                    eventId,
+                    applyTypeFilter = false,
+                    searchQuery,
+                    overrideCalendarIds
+                )
+            )
+        } else if (applyTypeFilter) {
             val displayCalendars = context.config.displayCalendars
             if (displayCalendars.isEmpty()) {
                 callback(ArrayList())
@@ -509,7 +536,9 @@ class EventsHelper(val context: Context) {
             )
         }
 
-        events.addAll(getRepeatableEventsFor(fromTS, toTS, eventId, applyTypeFilter, searchQuery))
+        if (overrideCalendarIds == null) {
+            events.addAll(getRepeatableEventsFor(fromTS, toTS, eventId, applyTypeFilter, searchQuery))
+        }
 
         events = events
             .asSequence()
@@ -599,9 +628,15 @@ class EventsHelper(val context: Context) {
         toTS: Long,
         eventId: Long = -1L,
         applyTypeFilter: Boolean = false,
-        searchQuery: String = ""
+        searchQuery: String = "",
+        overrideCalendarIds: List<Long>? = null
     ): List<Event> {
-        val events = if (applyTypeFilter) {
+        val events = if (overrideCalendarIds != null) {
+            eventsDB.getRepeatableEventsOrTasksWithCalendarIds(
+                toTS,
+                overrideCalendarIds
+            ).toMutableList() as ArrayList<Event>
+        } else if (applyTypeFilter) {
             val displayCalendars = context.config.displayCalendars
             if (displayCalendars.isEmpty()) {
                 return ArrayList()
