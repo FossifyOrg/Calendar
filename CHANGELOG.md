@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Database schema migration 11→12: added nullable calendars column to widget table
 - Refactored widget config and header layouts for calendar picker integration
 - Updated holiday data
+- Updated holiday data
 
 ### Fixed
 - Fixed event text readability on colored backgrounds ([#1065])
@@ -250,7 +251,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#1019]: https://github.com/FossifyOrg/Calendar/issues/1019
 [#1024]: https://github.com/FossifyOrg/Calendar/issues/1024
 [#1065]: https://github.com/FossifyOrg/Calendar/issues/1065
+<<<<<<< HEAD
 [#1157]: https://github.com/FossifyOrg/Calendar/issues/1157
+=======
+>>>>>>> 1c136aede (chore: add Room schema 12.json)
 
 [Unreleased]: https://github.com/FossifyOrg/Calendar/compare/1.10.3...HEAD
 [1.10.3]: https://github.com/FossifyOrg/Calendar/compare/1.10.2...1.10.3
