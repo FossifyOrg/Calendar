@@ -259,6 +259,13 @@
     "other": "holidays/LI/other.ics"
   },
   {
+    "code": "LK",
+    "country": "ශ්‍රී ලංකාව",
+    "public": "holidays/LK/public.ics",
+    "regional": null,
+    "other": null
+  },
+  {
     "code": "LT",
     "country": "Lietuva",
     "public": "holidays/LT/public.ics",
