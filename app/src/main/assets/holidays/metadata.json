@@ -343,6 +343,13 @@
     "other": "holidays/NO/other.ics"
   },
   {
+    "code": "NZ",
+    "country": "New Zealand",
+    "public": "holidays/NZ/public.ics",
+    "regional": "holidays/NZ/regional.ics",
+    "other": "holidays/NZ/other.ics"
+  },
+  {
     "code": "PH",
     "country": "Philippines",
     "public": "holidays/PH/public.ics",
