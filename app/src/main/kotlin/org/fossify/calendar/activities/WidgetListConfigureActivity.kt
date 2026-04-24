@@ -13,6 +13,7 @@ import org.fossify.calendar.databinding.WidgetConfigListBinding
 import org.fossify.calendar.dialogs.CustomPeriodPickerDialog
 import org.fossify.calendar.dialogs.SelectCalendarsDialog
 import org.fossify.calendar.extensions.config
+import org.fossify.calendar.extensions.eventsHelper
 import org.fossify.calendar.extensions.seconds
 import org.fossify.calendar.extensions.widgetsDB
 import org.fossify.calendar.helpers.EVENT_PERIOD_CUSTOM
@@ -47,7 +48,7 @@ class WidgetListConfigureActivity : SimpleActivity() {
     public override fun onCreate(savedInstanceState: Bundle?) {
         useDynamicTheme = false
         super.onCreate(savedInstanceState)
-        setResult(Activity.RESULT_CANCELED)
+        setResult(RESULT_CANCELED)
         setContentView(binding.root)
         setupEdgeToEdge(padTopSystem = listOf(binding.configListHolder), padBottomSystem = listOf(binding.root))
         initVariables()
@@ -286,9 +287,19 @@ class WidgetListConfigureActivity : SimpleActivity() {
     }
 
     private fun showCalendarSelector() {
-        SelectCalendarsDialog(this, mSelectedCalendars) { selectedCalendars ->
-            mSelectedCalendars = selectedCalendars
-            updateCalendarPickerLabel()
+        if (mSelectedCalendars.isEmpty()) {
+            eventsHelper.getCalendars(this, false) { calendars ->
+                val allIds = calendars.map { it.id.toString() }.toHashSet()
+                SelectCalendarsDialog(this, allIds) { selectedCalendars ->
+                    mSelectedCalendars = selectedCalendars
+                    updateCalendarPickerLabel()
+                }
+            }
+        } else {
+            SelectCalendarsDialog(this, mSelectedCalendars) { selectedCalendars ->
+                mSelectedCalendars = selectedCalendars
+                updateCalendarPickerLabel()
+            }
         }
     }
 
