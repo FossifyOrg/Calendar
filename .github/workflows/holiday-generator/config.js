@@ -48,10 +48,10 @@ export const COUNTRIES = [
     "MX", // Mexico
     "MA", // Morocco
     "NL", // Netherlands
+    "NZ", // New Zealand
     "NI", // Nicaragua
     "NG", // Nigeria
     "NO", // Norway
-    "NZ", // New Zealand
     "PH", // Philippines
     "PL", // Poland
     "PT", // Portugal
