@@ -70,7 +70,10 @@ class MyWidgetListProvider : AppWidgetProvider() {
                 views.setImageViewBitmap(R.id.widget_event_go_to_today, context.resources.getColoredBitmap(R.drawable.ic_today_vector, textColor))
                 setupIntent(context, views, GO_TO_TODAY, R.id.widget_event_go_to_today)
 
-                views.setImageViewBitmap(R.id.widget_event_configure, context.resources.getColoredBitmap(R.drawable.ic_settings_vector, textColor))
+                val configBitmap = context.resources.getColoredBitmap(
+                    R.drawable.ic_settings_vector, textColor
+                )
+                views.setImageViewBitmap(R.id.widget_event_configure, configBitmap)
                 val configIntent = Intent(context, WidgetListConfigureActivity::class.java).apply {
                     putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, it)
                     addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)

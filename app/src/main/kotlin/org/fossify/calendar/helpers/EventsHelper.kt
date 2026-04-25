@@ -454,6 +454,74 @@ class EventsHelper(val context: Context) {
         }
     }
 
+    private fun getEventsForCalendars(
+        fromTS: Long,
+        toTS: Long,
+        eventId: Long,
+        searchQuery: String,
+        calendarIds: List<Long>
+    ): ArrayList<Event> {
+        if (calendarIds.isEmpty()) return ArrayList()
+        val events = ArrayList<Event>()
+        try {
+            events.addAll(
+                eventsDB.getOneTimeEventsFromToWithCalendarIds(
+                    toTS, fromTS, calendarIds
+                ).toMutableList() as ArrayList<Event>
+            )
+        } catch (e: Exception) {
+        }
+        events.addAll(
+            getRepeatableEventsFor(
+                fromTS, toTS, eventId, applyTypeFilter = false, searchQuery, calendarIds
+            )
+        )
+        return events
+    }
+
+    private fun getDisplayFilteredEvents(
+        fromTS: Long,
+        toTS: Long,
+        searchQuery: String
+    ): ArrayList<Event> {
+        val displayCalendars = context.config.displayCalendars
+        if (displayCalendars.isEmpty()) return ArrayList()
+        val events = ArrayList<Event>()
+        try {
+            val typesList = context.config.getDisplayCalendarsAsList()
+            events.addAll(
+                if (searchQuery.isEmpty()) {
+                    eventsDB.getOneTimeEventsFromToWithCalendarIds(
+                        toTS, fromTS, typesList
+                    ).toMutableList() as ArrayList<Event>
+                } else {
+                    eventsDB.getOneTimeEventsFromToWithTypesForSearch(
+                        toTS, fromTS, typesList, "%$searchQuery%"
+                    ).toMutableList() as ArrayList<Event>
+                }
+            )
+        } catch (e: Exception) {
+        }
+        return events
+    }
+
+    private fun getUnfilteredEvents(
+        fromTS: Long, toTS: Long, eventId: Long
+    ): ArrayList<Event> {
+        val events = ArrayList<Event>()
+        events.addAll(eventsDB.getTasksFromTo(fromTS, toTS, ArrayList()))
+        events.addAll(
+            if (eventId == -1L) {
+                eventsDB.getOneTimeEventsOrTasksFromTo(toTS, fromTS)
+                    .toMutableList() as ArrayList<Event>
+            } else {
+                eventsDB.getOneTimeEventFromToWithId(eventId, toTS, fromTS)
+                    .toMutableList() as ArrayList<Event>
+            }
+        )
+        return events
+    }
+
     fun getEventsSync(
         fromTS: Long,
         toTS: Long,
@@ -468,72 +536,19 @@ class EventsHelper(val context: Context) {
 
         var events = ArrayList<Event>()
         if (overrideCalendarIds != null) {
-            if (overrideCalendarIds.isEmpty()) {
-                callback(ArrayList())
+            events = getEventsForCalendars(fromTS, toTS, eventId, searchQuery, overrideCalendarIds)
+            if (events.isEmpty()) {
+                callback(events)
                 return
             }
-            try {
-                events.addAll(
-                    eventsDB.getOneTimeEventsFromToWithCalendarIds(
-                        toTS,
-                        fromTS,
-                        overrideCalendarIds
-                    ).toMutableList() as ArrayList<Event>
-                )
-            } catch (e: Exception) {
-            }
-            events.addAll(
-                getRepeatableEventsFor(
-                    fromTS,
-                    toTS,
-                    eventId,
-                    applyTypeFilter = false,
-                    searchQuery,
-                    overrideCalendarIds
-                )
-            )
         } else if (applyTypeFilter) {
-            val displayCalendars = context.config.displayCalendars
-            if (displayCalendars.isEmpty()) {
-                callback(ArrayList())
+            events = getDisplayFilteredEvents(fromTS, toTS, searchQuery)
+            if (events.isEmpty()) {
+                callback(events)
                 return
-            } else {
-                try {
-                    val typesList = context.config.getDisplayCalendarsAsList()
-
-                    if (searchQuery.isEmpty()) {
-                        events.addAll(
-                            eventsDB.getOneTimeEventsFromToWithCalendarIds(
-                                toTS,
-                                fromTS,
-                                typesList
-                            ).toMutableList() as ArrayList<Event>
-                        )
-                    } else {
-                        events.addAll(
-                            eventsDB.getOneTimeEventsFromToWithTypesForSearch(
-                                toTS,
-                                fromTS,
-                                typesList,
-                                "%$searchQuery%"
-                            ).toMutableList() as ArrayList<Event>
-                        )
-                    }
-                } catch (e: Exception) {
-                }
             }
         } else {
-            events.addAll(eventsDB.getTasksFromTo(fromTS, toTS, ArrayList()))
-
-            events.addAll(
-                if (eventId == -1L) {
-                    eventsDB.getOneTimeEventsOrTasksFromTo(toTS, fromTS)
-                        .toMutableList() as ArrayList<Event>
-                } else {
-                    eventsDB.getOneTimeEventFromToWithId(eventId, toTS, fromTS)
-                        .toMutableList() as ArrayList<Event>
-                }
-            )
+            events = getUnfilteredEvents(fromTS, toTS, eventId)
         }
 
         if (overrideCalendarIds == null) {
@@ -547,34 +562,41 @@ class EventsHelper(val context: Context) {
             .toMutableList() as ArrayList<Event>
 
         val calendarColors = getCalendarColors()
-
         events.forEach {
-            if (it.isTask()) {
-                updateIsTaskCompleted(it)
-            }
-
-            it.updateIsPastEvent()
-            val originalEvent = eventsDB.getEventWithId(it.id!!)
-            if (originalEvent != null &&
-                (birthDayEventId != -1L && it.calendarId == birthDayEventId) or
-                (anniversaryEventId != -1L && it.calendarId == anniversaryEventId)
-            ) {
-                val eventStartDate = Formatter.getDateFromTS(it.startTS)
-                val originalEventStartDate = Formatter.getDateFromTS(originalEvent.startTS)
-                if (it.hasMissingYear().not()) {
-                    val years = (eventStartDate.year - originalEventStartDate.year).coerceAtLeast(0)
-                    if (years > 0) {
-                        it.title = "${it.title} ($years)"
-                    }
-                }
-            }
-
-            if (it.color == 0) {
-                it.color = calendarColors.get(it.calendarId) ?: context.getProperPrimaryColor()
-            }
+            decorateEvent(it, birthDayEventId, anniversaryEventId, calendarColors)
         }
 
         callback(events)
+    }
+
+    private fun decorateEvent(
+        event: Event,
+        birthDayEventId: Long,
+        anniversaryEventId: Long,
+        calendarColors: Map<Long, Int>
+    ) {
+        if (event.isTask()) {
+            updateIsTaskCompleted(event)
+        }
+
+        event.updateIsPastEvent()
+        val originalEvent = eventsDB.getEventWithId(event.id!!)
+        val isBirthday = birthDayEventId != -1L && event.calendarId == birthDayEventId
+        val isAnniversary = anniversaryEventId != -1L && event.calendarId == anniversaryEventId
+        if (originalEvent != null && (isBirthday || isAnniversary)) {
+            val eventStartDate = Formatter.getDateFromTS(event.startTS)
+            val originalEventStartDate = Formatter.getDateFromTS(originalEvent.startTS)
+            if (event.hasMissingYear().not()) {
+                val years = (eventStartDate.year - originalEventStartDate.year).coerceAtLeast(0)
+                if (years > 0) {
+                    event.title = "${event.title} ($years)"
+                }
+            }
+        }
+
+        if (event.color == 0) {
+            event.color = calendarColors.get(event.calendarId) ?: context.getProperPrimaryColor()
+        }
     }
 
     fun createPredefinedCalendar(
