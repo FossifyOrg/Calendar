@@ -178,9 +178,14 @@ class EventListWidgetAdapter(val context: Context, val intent: Intent) : RemoteV
     override fun onDataSetChanged() {
         initConfigValues()
         val period = intent.getIntExtra(EVENT_LIST_PERIOD, 0)
-        val calendarsExtra = intent.getStringExtra(EVENT_LIST_CALENDARS) ?: ""
-        val overrideCalendarIds: List<Long>? = if (calendarsExtra.isNotEmpty()) {
-            calendarsExtra.split(",").mapNotNull { it.trim().toLongOrNull() }
+        // null extra = never configured (global filter); empty string = explicit-zero (show nothing)
+        val calendarsExtra = intent.getStringExtra(EVENT_LIST_CALENDARS)
+        val overrideCalendarIds: List<Long>? = if (calendarsExtra != null) {
+            if (calendarsExtra.isNotEmpty()) {
+                calendarsExtra.split(",").mapNotNull { it.trim().toLongOrNull() }
+            } else {
+                emptyList()
+            }
         } else {
             null
         }

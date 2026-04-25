@@ -294,9 +294,13 @@
         <item quantity="other">Within the next %d months</item>
     </plurals>
     <string name="show_widget_header">Show header</string>
-    <string name="widget_calendars">Calendars</string>
-    <string name="widget_calendars_summary">Select which calendars to show in this widget</string>
-    <string name="widget_calendars_all">All calendars</string>
+
+    <plurals name="widget_calendars_selected_count">
+        <item quantity="one">%d calendar selected</item>
+        <item quantity="other">%d calendars selected</item>
+    </plurals>
+    <string name="widget_calendars_selected_all">All calendars selected</string>
+    <string name="widget_calendars_selection_header">Select calendars to display</string>
 
     <!-- Accessibility label -->
     <string name="accessibility_previous_month">Go to previous month</string>

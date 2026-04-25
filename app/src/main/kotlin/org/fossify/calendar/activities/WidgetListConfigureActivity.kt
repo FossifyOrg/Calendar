@@ -1,12 +1,11 @@
 package org.fossify.calendar.activities
 
-import android.app.Activity
 import android.appwidget.AppWidgetManager
 import android.content.Intent
 import android.content.res.ColorStateList
 import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import androidx.core.graphics.drawable.toDrawable
 import org.fossify.calendar.R
 import org.fossify.calendar.adapters.EventListAdapter
 import org.fossify.calendar.databinding.WidgetConfigListBinding
@@ -42,6 +41,7 @@ class WidgetListConfigureActivity : SimpleActivity() {
     private var mSelectedCalendars = HashSet<String>()
     private var mIsReconfiguring = false
     private var mWidgetLoaded = false
+    private var mCalendarsExplicitlyChosen = false
 
     private val binding by viewBinding(WidgetConfigListBinding::inflate)
 
@@ -66,7 +66,9 @@ class WidgetListConfigureActivity : SimpleActivity() {
                 configWidgetPreview.configEventsList.adapter = this
             }
 
-            periodPickerHolder.background = ColorDrawable(getProperBackgroundColor())
+            val currentBgColor = getProperBackgroundColor().toDrawable()
+
+            periodPickerHolder.background = currentBgColor
             periodPickerValue.setOnClickListener { showPeriodSelector() }
 
             configSave.setOnClickListener { saveConfig() }
@@ -79,7 +81,7 @@ class WidgetListConfigureActivity : SimpleActivity() {
             configBgSeekbar.setColors(mTextColor, primaryColor, primaryColor)
 
             configSave.isEnabled = false
-            calendarPickerValue.setOnClickListener { showCalendarSelector() }
+            calendarPickerHolder.setOnClickListener { showCalendarSelector() }
         }
 
         updateSelectedPeriod(config.lastUsedEventSpan)
@@ -103,12 +105,13 @@ class WidgetListConfigureActivity : SimpleActivity() {
                 if (existingWidget.isCalendarsConfigured()) {
                     mSelectedCalendars = existingWidget.getCalendarIdsAsList()
                         .map { it.toString() }.toHashSet()
+                    mCalendarsExplicitlyChosen = true
                 }
                 runOnUiThread {
                     updateSelectedPeriod(existingWidget.period)
                     binding.showWidgetHeader.isChecked = existingWidget.header
                     binding.configWidgetPreview.widgetHeaderInclude.widgetHeader.beVisibleIf(existingWidget.header)
-                    updateCalendarPickerLabel()
+                    updateCalendarSelectionDisplay(mSelectedCalendars)
                 }
             }
             mWidgetLoaded = true
@@ -144,10 +147,10 @@ class WidgetListConfigureActivity : SimpleActivity() {
     private fun saveConfig() {
         if (!mWidgetLoaded) return
 
-        val calendarsStr = if (mSelectedCalendars.isEmpty()) {
-            null
-        } else {
+        val calendarsStr = if (mCalendarsExplicitlyChosen) {
             mSelectedCalendars.joinToString(",")
+        } else {
+            null
         }
         val widget = Widget(null, mWidgetId, mSelectedPeriodOption, binding.showWidgetHeader.isChecked, calendarsStr)
         ensureBackgroundThread {
@@ -162,7 +165,7 @@ class WidgetListConfigureActivity : SimpleActivity() {
 
         Intent().apply {
             putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, mWidgetId)
-            setResult(Activity.RESULT_OK, this)
+            setResult(RESULT_OK, this)
         }
         finish()
     }
@@ -291,24 +294,32 @@ class WidgetListConfigureActivity : SimpleActivity() {
             eventsHelper.getCalendars(this, false) { calendars ->
                 val allIds = calendars.map { it.id.toString() }.toHashSet()
                 SelectCalendarsDialog(this, allIds) { selectedCalendars ->
+                    mCalendarsExplicitlyChosen = true
                     mSelectedCalendars = selectedCalendars
-                    updateCalendarPickerLabel()
+                    updateCalendarSelectionDisplay(selectedCalendars)
                 }
             }
         } else {
             SelectCalendarsDialog(this, mSelectedCalendars) { selectedCalendars ->
+                mCalendarsExplicitlyChosen = true
                 mSelectedCalendars = selectedCalendars
-                updateCalendarPickerLabel()
+                updateCalendarSelectionDisplay(selectedCalendars)
             }
         }
     }
 
-    private fun updateCalendarPickerLabel() {
-        if (mSelectedCalendars.isEmpty()) {
-            binding.calendarPickerValue.setText(R.string.widget_calendars_all)
-        } else {
-            binding.calendarPickerValue.text = getString(R.string.widget_calendars_summary)
+    private fun updateCalendarSelectionDisplay(selectedCalendars: Collection<String>) {
+        val label = when {
+            selectedCalendars.isEmpty() && !mCalendarsExplicitlyChosen ->
+                getString(R.string.widget_calendars_selected_all)
+            else ->
+                resources.getQuantityString(
+                    R.plurals.widget_calendars_selected_count,
+                    selectedCalendars.size,
+                    selectedCalendars.size
+                )
         }
+        binding.calendarPickerHolder.text = label
     }
 
     private fun getListItems(): ArrayList<ListItem> {
@@ -379,7 +390,6 @@ class WidgetListConfigureActivity : SimpleActivity() {
                 color = getProperPrimaryColor(),
             )
         )
-
         return listItems
     }
 }
