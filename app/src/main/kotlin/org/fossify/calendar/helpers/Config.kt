@@ -332,4 +332,8 @@ class Config(context: Context) : BaseConfig(context) {
         get() = prefs.getBoolean(LAST_USED_SHOW_LIST_WIDGET_HEADER, true)
         set(lastUsedShowListWidgetHeader) = prefs.edit()
             .putBoolean(LAST_USED_SHOW_LIST_WIDGET_HEADER, lastUsedShowListWidgetHeader).apply()
+
+    var widgetShowGrid: Boolean
+        get() = prefs.getBoolean(WIDGET_SHOW_GRID, false)
+        set(widgetShowGrid) = prefs.edit().putBoolean(WIDGET_SHOW_GRID, widgetShowGrid).apply()
 }
