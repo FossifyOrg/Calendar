@@ -573,7 +573,7 @@ class EventsHelper(val context: Context) {
         event: Event,
         birthDayEventId: Long,
         anniversaryEventId: Long,
-        calendarColors: Map<Long, Int>
+        calendarColors: LongSparseArray<Int>
     ) {
         if (event.isTask()) {
             updateIsTaskCompleted(event)
