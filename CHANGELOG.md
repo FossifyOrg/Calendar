@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Fixed
 - Fixed event text readability on colored backgrounds ([#1065])
+- Added grid into monthly calendar widget
 
 ### Changed
 - Updated holiday data
