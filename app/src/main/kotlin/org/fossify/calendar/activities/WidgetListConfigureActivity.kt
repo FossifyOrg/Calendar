@@ -279,14 +279,13 @@ class WidgetListConfigureActivity : SimpleActivity() {
         binding.configSave.backgroundTintList = ColorStateList.valueOf(getProperPrimaryColor())
     }
 
-    @Deprecated("Deprecated in Java")
-    override fun onBackPressed() {
+    override fun onBackPressedCompat(): Boolean {
         if (mIsReconfiguring) {
             finish()
         } else {
-            @Suppress("DEPRECATION")
-            super.onBackPressed()
+            performDefaultBack()
         }
+        return true
     }
 
     private fun showCalendarSelector() {
