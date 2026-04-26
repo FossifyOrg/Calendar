@@ -7,10 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Fixed
 - Fixed event text readability on colored backgrounds ([#1065])
+
+### Added
+- Holidays for New Zealand ([#1157])
 - Added grid into monthly calendar widget
 
 ### Changed
 - Updated holiday data
+
+### Fixed
+- Fixed event text readability on colored backgrounds ([#1065])
 
 ## [1.10.3] - 2026-02-14
 ### Changed
@@ -244,6 +250,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#1019]: https://github.com/FossifyOrg/Calendar/issues/1019
 [#1024]: https://github.com/FossifyOrg/Calendar/issues/1024
 [#1065]: https://github.com/FossifyOrg/Calendar/issues/1065
+[#1157]: https://github.com/FossifyOrg/Calendar/issues/1157
 
 [Unreleased]: https://github.com/FossifyOrg/Calendar/compare/1.10.3...HEAD
 [1.10.3]: https://github.com/FossifyOrg/Calendar/compare/1.10.2...1.10.3
