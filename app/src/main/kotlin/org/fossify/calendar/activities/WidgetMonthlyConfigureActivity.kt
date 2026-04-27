@@ -44,7 +44,7 @@ class WidgetMonthlyConfigureActivity : SimpleActivity(), MonthlyCalendar {
     public override fun onCreate(savedInstanceState: Bundle?) {
         useDynamicTheme = false
         super.onCreate(savedInstanceState)
-        setResult(Activity.RESULT_CANCELED)
+        setResult(RESULT_CANCELED)
         setContentView(binding.root)
         setupEdgeToEdge(padTopSystem = listOf(binding.configHolder), padBottomSystem = listOf(binding.root))
         initVariables()
@@ -99,7 +99,7 @@ class WidgetMonthlyConfigureActivity : SimpleActivity(), MonthlyCalendar {
 
         Intent().apply {
             putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, mWidgetId)
-            setResult(Activity.RESULT_OK, this)
+            setResult(RESULT_OK, this)
         }
         finish()
     }
@@ -140,7 +140,15 @@ class WidgetMonthlyConfigureActivity : SimpleActivity(), MonthlyCalendar {
     private fun updateGridShow() {
         if (mShowGrid) {
             binding.configCalendar.apply {
-                val tableView = arrayOf(tableHolder, monthLineHolder1, monthLineHolder2, monthLineHolder3, monthLineHolder4, monthLineHolder5, monthLineHolder6)
+                val tableView = arrayOf(
+                    tableHolder,
+                    monthLineHolder1,
+                    monthLineHolder2,
+                    monthLineHolder3,
+                    monthLineHolder4,
+                    monthLineHolder5,
+                    monthLineHolder6
+                )
                 for (i in tableView) {
                     i.showDividers = LinearLayout.SHOW_DIVIDER_MIDDLE
                 }
@@ -148,7 +156,15 @@ class WidgetMonthlyConfigureActivity : SimpleActivity(), MonthlyCalendar {
             return
         }
         binding.configCalendar.apply {
-            val tableView = arrayOf(tableHolder, monthLineHolder1, monthLineHolder2, monthLineHolder3, monthLineHolder4, monthLineHolder5, monthLineHolder6)
+            val tableView = arrayOf(
+                tableHolder,
+                monthLineHolder1,
+                monthLineHolder2,
+                monthLineHolder3,
+                monthLineHolder4,
+                monthLineHolder5,
+                monthLineHolder6
+            )
             for (i in tableView) {
                 i.showDividers = LinearLayout.SHOW_DIVIDER_NONE
             }
@@ -230,7 +246,8 @@ class WidgetMonthlyConfigureActivity : SimpleActivity(), MonthlyCalendar {
         }
 
         DayMonthlyNumberViewBinding.inflate(layoutInflater).apply {
-            root.layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+            root.layoutParams =
+                LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
             linearLayout.addView(root)
 
             dayMonthlyNumberBackground.beVisibleIf(day.isToday)
@@ -247,7 +264,13 @@ class WidgetMonthlyConfigureActivity : SimpleActivity(), MonthlyCalendar {
         }
     }
 
-    override fun updateMonthlyCalendar(context: Context, month: String, days: ArrayList<DayMonthly>, checkedEvents: Boolean, currTargetDate: DateTime) {
+    override fun updateMonthlyCalendar(
+        context: Context,
+        month: String,
+        days: ArrayList<DayMonthly>,
+        checkedEvents: Boolean,
+        currTargetDate: DateTime
+    ) {
         runOnUiThread {
             mDays = days
             topNavigationBinding.topValue.text = month
