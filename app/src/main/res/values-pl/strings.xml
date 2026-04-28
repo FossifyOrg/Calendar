@@ -276,4 +276,15 @@
     <string name="access_level_confidential">Poufne</string>
     <string name="allow_alarms_reminders">Musisz zezwolić aplikacji na planowanie alarmów, aby przypomnienia działały prawidłowo.</string>
     <string name="offline_never_synced">Offline (niesynchronizowany)</string>
+    <plurals name="widget_calendars_selected_count">
+        <item quantity="one">%d wybrany kalendarz</item>
+        <item quantity="few">%d wybrane kalendarze</item>
+        <item quantity="many">%d wybranych kalendarzy</item>
+        <item quantity="other">%d wybranych kalendarzy</item>
+    </plurals>
+    <string name="widget_calendars_selected_all">Wybrano wszystkie kalendarze</string>
+    <string name="widget_calendars_selection_header">Wybierz kalendarze do wyświetlania</string>
+    <string name="widget_event_list_header_config_description">Skonfiguruj listę wydarzeń</string>
+    <string name="widget_event_list_header_new_event_description">Utwórz nowe wydarzenie</string>
+    <string name="widget_event_list_header_show_today_description">Pokazuj dzisiejsze wydarzenia</string>
 </resources>
