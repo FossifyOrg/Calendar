@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated holiday data
 
 ### Fixed
+- Fixed CalDAV sync not consistently working on Android 11+ ([#656])
 - Fixed event text readability on colored backgrounds ([#1065])
 - Fixed invisible current time indicator in weekly view ([#99])
 - Fixed stuck zoom level in weekly view on some devices ([#621])
