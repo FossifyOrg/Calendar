@@ -8,11 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - Holidays for New Zealand ([#1157])
-- Added grid into monthly calendar widget
+- Grid support for monthly calendar widget ([#406])
 
 ### Changed
 - Updated holiday data
-- Updated translations
 
 ### Fixed
 - Fixed event text readability on colored backgrounds ([#1065])
@@ -285,6 +284,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#337]: https://github.com/FossifyOrg/Calendar/issues/337
 [#393]: https://github.com/FossifyOrg/Calendar/issues/393
 [#394]: https://github.com/FossifyOrg/Calendar/issues/394
+[#406]: https://github.com/FossifyOrg/Calendar/issues/406
 [#484]: https://github.com/FossifyOrg/Calendar/issues/484
 [#486]: https://github.com/FossifyOrg/Calendar/issues/486
 [#550]: https://github.com/FossifyOrg/Calendar/issues/550
@@ -315,8 +315,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#1065]: https://github.com/FossifyOrg/Calendar/issues/1065
 [#1157]: https://github.com/FossifyOrg/Calendar/issues/1157
 
-[Unreleased]: https://github.com/FossifyOrg/Calendar/compare/1.11.0...HEAD
-[1.11.0]: https://github.com/FossifyOrg/Calendar/compare/1.10.3...1.11.0
+[Unreleased]: https://github.com/FossifyOrg/Calendar/compare/1.10.3...HEAD
 [1.10.3]: https://github.com/FossifyOrg/Calendar/compare/1.10.2...1.10.3
 [1.10.2]: https://github.com/FossifyOrg/Calendar/compare/1.10.1...1.10.2
 [1.10.1]: https://github.com/FossifyOrg/Calendar/compare/1.10.0...1.10.1
