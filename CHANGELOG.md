@@ -6,10 +6,6 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
-### Fixed
-- Current time indicator is drawn behind events/tasks in Week view (#1115)
-
-## [1.11.0] - 2026-04-26
 ### Added
 - Holidays for New Zealand ([#1157])
 - Added grid into monthly calendar widget
@@ -20,10 +16,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - Fixed event text readability on colored backgrounds ([#1065])
-
-### Fixed
-
-- Zoom level in weekly view locks (#621)
+- Fixed invisible current time indicator in weekly view ([#99])
+- Fixed stuck zoom level in weekly view on some devices ([#621])
 
 ## [1.10.3] - 2026-02-14
 
@@ -280,6 +274,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#34]: https://github.com/FossifyOrg/Calendar/issues/34
 [#45]: https://github.com/FossifyOrg/Calendar/issues/45
 [#49]: https://github.com/FossifyOrg/Calendar/issues/49
+[#99]: https://github.com/FossifyOrg/Calendar/issues/99
 [#103]: https://github.com/FossifyOrg/Calendar/issues/103
 [#135]: https://github.com/FossifyOrg/Calendar/issues/135
 [#138]: https://github.com/FossifyOrg/Calendar/issues/138
@@ -299,6 +294,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#590]: https://github.com/FossifyOrg/Calendar/issues/590
 [#603]: https://github.com/FossifyOrg/Calendar/issues/603
 [#613]: https://github.com/FossifyOrg/Calendar/issues/613
+[#621]: https://github.com/FossifyOrg/Calendar/issues/621
 [#629]: https://github.com/FossifyOrg/Calendar/issues/629
 [#641]: https://github.com/FossifyOrg/Calendar/issues/641
 [#644]: https://github.com/FossifyOrg/Calendar/issues/644
