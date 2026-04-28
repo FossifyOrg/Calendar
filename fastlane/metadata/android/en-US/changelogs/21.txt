@@ -1,0 +1,13 @@
+Added:
+
+• Holidays for New Zealand 
+
+Changed:
+
+• Updated holiday data
+• Updated translations
+
+Fixed:
+
+• Fixed event text readability on colored backgrounds 
+

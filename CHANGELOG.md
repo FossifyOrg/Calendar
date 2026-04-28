@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [1.11.0] - 2026-04-26
 ### Added
 - Per-widget calendar filtering for event list widget
 - Settings icon on event list widget header for re-configuration
@@ -15,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Database schema migration 11→12: added nullable calendars column to widget table
 - Refactored widget config and header layouts for calendar picker integration
 - Updated holiday data
+- Updated translations
 
 ### Fixed
 - Fixed event text readability on colored backgrounds ([#1065])
@@ -256,7 +259,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 =======
 >>>>>>> 1c136aede (chore: add Room schema 12.json)
 
-[Unreleased]: https://github.com/FossifyOrg/Calendar/compare/1.10.3...HEAD
+[Unreleased]: https://github.com/FossifyOrg/Calendar/compare/1.11.0...HEAD
+[1.11.0]: https://github.com/FossifyOrg/Calendar/compare/1.10.3...1.11.0
 [1.10.3]: https://github.com/FossifyOrg/Calendar/compare/1.10.2...1.10.3
 [1.10.2]: https://github.com/FossifyOrg/Calendar/compare/1.10.1...1.10.2
 [1.10.1]: https://github.com/FossifyOrg/Calendar/compare/1.10.0...1.10.1
