@@ -99,7 +99,6 @@ class MyWidgetMonthlyProvider : AppWidgetProvider() {
         val dimCompletedTasks = context.config.dimCompletedTasks
         val smallerFontSize = context.getWidgetFontSize() - 3f
         val res = context.resources
-        val len = days.size
         val packageName = context.packageName
         views.apply {
             setTextColor(R.id.week_num, textColor)
@@ -117,15 +116,37 @@ class MyWidgetMonthlyProvider : AppWidgetProvider() {
             }
         }
 
-        for (i in 0 until len) {
-            val day = days[i]
+        val eventDayIndices = mutableMapOf<Pair<Long, Long>, MutableList<Int>>()
+        val eventByKey = mutableMapOf<Pair<Long, Long>, Event>()
+        for (i in days.indices) {
+            for (event in days[i].dayEvents) {
+                val key = Pair(event.id ?: 0L, event.startTS)
+                eventDayIndices.getOrPut(key) { mutableListOf() }.add(i)
+                if (key !in eventByKey) eventByKey[key] = event
+            }
+        }
 
+        val sortedKeys = eventDayIndices.keys.sortedWith(
+            compareBy(
+                { -(eventDayIndices[it]!!.size) },
+                { (eventByKey[it]!!.flags and FLAG_ALL_DAY) == 0 },
+                { eventByKey[it]!!.startTS },
+                { eventByKey[it]!!.endTS },
+                { eventDayIndices[it]!!.firstOrNull() ?: 0 },
+                { eventByKey[it]!!.title }
+            )
+        )
+
+        val daySlotLists = buildDaySlotLists(days.size, sortedKeys, eventDayIndices, eventByKey)
+
+        val titleShownForKey = mutableSetOf<Pair<Long, Long>>()
+        for (i in days.indices) {
+            val day = days[i]
             val dayTextColor = if (context.config.highlightWeekends && day.isWeekend) {
                 context.config.highlightWeekendsColor
             } else {
                 textColor
             }
-
             val weakTextColor = dayTextColor.adjustAlpha(MEDIUM_ALPHA)
             val currTextColor = if (day.isThisMonth) dayTextColor else weakTextColor
             val id = res.getIdentifier("day_$i", "id", packageName)
@@ -133,34 +154,82 @@ class MyWidgetMonthlyProvider : AppWidgetProvider() {
             addDayNumber(context, views, day, currTextColor, id)
             setupDayOpenIntent(context, views, id, day.code)
 
-            day.dayEvents = day.dayEvents.asSequence().sortedWith(compareBy({ it.flags and FLAG_ALL_DAY == 0 }, { it.startTS }, { it.title }))
-                .toMutableList() as ArrayList<Event>
-
-            day.dayEvents.forEach {
-                val backgroundColor = it.color
-                var eventTextColor = backgroundColor.getContrastColor()
-                val shouldDim = (it.isTask() && it.isTaskCompleted() && dimCompletedTasks)
-                    || (dimPastEvents && it.isPastEvent && !it.isTask())
-                if (shouldDim) {
-                    eventTextColor = eventTextColor.adjustAlpha(MEDIUM_ALPHA)
-                }
-
-                val newRemoteView = RemoteViews(packageName, R.layout.day_monthly_event_view_widget).apply {
-                    setText(R.id.day_monthly_event_id, it.title.replace(" ", "\u00A0"))
-                    setTextColor(R.id.day_monthly_event_id, eventTextColor)
-                    setTextSize(R.id.day_monthly_event_id, smallerFontSize - 3f)
-                    setVisibleIf(R.id.day_monthly_task_image, it.isTask())
-                    applyColorFilter(R.id.day_monthly_task_image, eventTextColor)
-                    setInt(R.id.day_monthly_event_background, "setColorFilter", it.color)
-
-                    if (it.shouldStrikeThrough()) {
-                        setInt(R.id.day_monthly_event_id, "setPaintFlags", Paint.ANTI_ALIAS_FLAG or Paint.STRIKE_THRU_TEXT_FLAG)
-                    } else {
-                        setInt(R.id.day_monthly_event_id, "setPaintFlags", Paint.ANTI_ALIAS_FLAG)
+            for (slotEvent in daySlotLists[i]) {
+                if (slotEvent == null) {
+                    views.addView(id, createSpacerView(packageName))
+                } else {
+                    val key = Pair(slotEvent.id ?: 0L, slotEvent.startTS)
+                    val showTitle = titleShownForKey.add(key) || i % 7 == 0
+                    var eventTextColor = slotEvent.color.getContrastColor()
+                    val shouldDim = (slotEvent.isTask() && slotEvent.isTaskCompleted() && dimCompletedTasks)
+                        || (dimPastEvents && slotEvent.isPastEvent && !slotEvent.isTask())
+                    if (shouldDim) {
+                        eventTextColor = eventTextColor.adjustAlpha(MEDIUM_ALPHA)
                     }
+                    val dayIndices = eventDayIndices[key]!!
+                    val prevInRun = i > 0 && i % 7 != 0 && dayIndices.contains(i - 1)
+                    val nextInRun = i < days.size - 1 && (i + 1) % 7 != 0 && dayIndices.contains(i + 1)
+                    val eventLayout = when {
+                        prevInRun && nextInRun -> R.layout.day_monthly_event_view_widget_event_middle
+                        prevInRun             -> R.layout.day_monthly_event_view_widget_event_end
+                        nextInRun             -> R.layout.day_monthly_event_view_widget_event_start
+                        else                  -> R.layout.day_monthly_event_view_widget
+                    }
+                    val newRemoteView = RemoteViews(packageName, eventLayout).apply {
+                        setTextColor(R.id.day_monthly_event_id, eventTextColor)
+                        setTextSize(R.id.day_monthly_event_id, smallerFontSize - 3f)
+                        setInt(R.id.day_monthly_event_background, "setColorFilter", slotEvent.color)
+                        if (showTitle) {
+                            setText(R.id.day_monthly_event_id, slotEvent.title.replace(" ", "\u00A0"))
+                            setVisibleIf(R.id.day_monthly_task_image, slotEvent.isTask())
+                            applyColorFilter(R.id.day_monthly_task_image, eventTextColor)
+                            if (slotEvent.shouldStrikeThrough()) {
+                                setInt(R.id.day_monthly_event_id, "setPaintFlags", Paint.ANTI_ALIAS_FLAG or Paint.STRIKE_THRU_TEXT_FLAG)
+                            } else {
+                                setInt(R.id.day_monthly_event_id, "setPaintFlags", Paint.ANTI_ALIAS_FLAG)
+                            }
+                        } else {
+                            setText(R.id.day_monthly_event_id, "")
+                            setVisibleIf(R.id.day_monthly_task_image, false)
+                            setInt(R.id.day_monthly_event_id, "setPaintFlags", Paint.ANTI_ALIAS_FLAG)
+                        }
+                    }
+                    views.addView(id, newRemoteView)
                 }
-                views.addView(id, newRemoteView)
             }
+        }
+    }
+
+    private fun buildDaySlotLists(
+        daysSize: Int,
+        sortedKeys: List<Pair<Long, Long>>,
+        eventDayIndices: Map<Pair<Long, Long>, List<Int>>,
+        eventByKey: Map<Pair<Long, Long>, Event>
+    ): Array<MutableList<Event?>> {
+        val daySlotIndex = IntArray(daysSize) { 0 }
+        val daySlotLists = Array(daysSize) { mutableListOf<Event?>() }
+        for (key in sortedKeys) {
+            val dayIndices = eventDayIndices[key]!!
+            val event = eventByKey[key]!!
+            val slot = dayIndices.maxOf { daySlotIndex[it] }
+            for (dayIdx in dayIndices) {
+                while (daySlotIndex[dayIdx] < slot) {
+                    daySlotLists[dayIdx].add(null) // invisible spacer
+                    daySlotIndex[dayIdx]++
+                }
+                daySlotLists[dayIdx].add(event)
+                daySlotIndex[dayIdx]++
+            }
+        }
+        return daySlotLists
+    }
+
+    private fun createSpacerView(packageName: String): RemoteViews {
+        return RemoteViews(packageName, R.layout.day_monthly_event_view_widget).apply {
+            setText(R.id.day_monthly_event_id, " ")
+            setViewVisibility(R.id.day_monthly_event_background, View.INVISIBLE)
+            setViewVisibility(R.id.day_monthly_task_image, View.GONE)
+            setInt(R.id.day_monthly_event_id, "setPaintFlags", Paint.ANTI_ALIAS_FLAG)
         }
     }
 
