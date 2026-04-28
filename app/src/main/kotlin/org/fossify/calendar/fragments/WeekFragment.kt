@@ -567,7 +567,6 @@ class WeekFragment : Fragment(), WeeklyCalendar {
 
                 override fun onScaleEnd(detector: ScaleGestureDetector) {
                     scrollView.isScrollable = true
-                    wasScaled = false
                     super.onScaleEnd(detector)
                 }
             })
