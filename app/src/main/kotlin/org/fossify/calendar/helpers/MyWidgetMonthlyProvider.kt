@@ -185,11 +185,14 @@ class MyWidgetMonthlyProvider : AppWidgetProvider() {
         override fun updateMonthlyCalendar(context: Context, month: String, days: ArrayList<DayMonthly>, checkedEvents: Boolean, currTargetDate: DateTime) {
             val largerFontSize = context.getWidgetFontSize() + 3f
             val textColor = context.config.widgetTextColor
+            val showGrid = context.config.widgetShowGrid
             val resources = context.resources
 
             val appWidgetManager = AppWidgetManager.getInstance(context) ?: return
             appWidgetManager.getAppWidgetIds(getComponentName(context)).forEach {
-                val views = RemoteViews(context.packageName, R.layout.fragment_month_widget)
+                val layoutId = if (showGrid) R.layout.fragment_month_widget_grid else R.layout.fragment_month_widget
+
+                val views = RemoteViews(context.packageName, layoutId)
                 views.setText(R.id.top_value, month)
 
                 views.applyColorFilter(R.id.widget_month_background, context.config.widgetBgColor)
@@ -214,7 +217,6 @@ class MyWidgetMonthlyProvider : AppWidgetProvider() {
 
                 updateDayLabels(context, views, resources, textColor)
                 updateDays(context, views, days)
-
                 setupIntent(context, views, PREV, R.id.top_left_arrow)
                 setupIntent(context, views, NEXT, R.id.top_right_arrow)
                 setupIntent(context, views, GO_TO_TODAY, R.id.top_go_to_today)
