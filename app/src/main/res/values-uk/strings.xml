@@ -276,4 +276,15 @@
     <string name="access_level_public">Громадськість</string>
     <string name="allow_alarms_reminders">Щоб нагадування працювали належним чином, потрібно дозволити додатку планувати будильники.</string>
     <string name="offline_never_synced">Офлайн (ніколи не синхронізувався)</string>
+    <plurals name="widget_calendars_selected_count">
+        <item quantity="one">Вибрано %d календар</item>
+        <item quantity="few">Вибрано %d календарі</item>
+        <item quantity="many">Вибрано %d календарів</item>
+        <item quantity="other">Вибрано %d календарів</item>
+    </plurals>
+    <string name="widget_calendars_selected_all">Вибрано всі календарі</string>
+    <string name="widget_calendars_selection_header">Виберіть календарі для показу</string>
+    <string name="widget_event_list_header_config_description">Налаштування списку подій</string>
+    <string name="widget_event_list_header_new_event_description">Створення нової події</string>
+    <string name="widget_event_list_header_show_today_description">Показ сьогоднішніх подій</string>
 </resources>
