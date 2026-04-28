@@ -275,4 +275,5 @@
     <string name="accessibility_next_day">Перайсці да наступнага дня</string>
     <string name="allow_alarms_reminders">Вы павінны дазволіць праграме ствараць будзільнікі і напаміны для карэктнай працы.</string>
     <string name="faq_2_title_extra">Мабыць нават дзяліцца календаром з іншымі людзьмі?</string>
+    <string name="offline_never_synced">Аўтаномны (не сінхранізуецца)</string>
 </resources>

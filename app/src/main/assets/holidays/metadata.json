@@ -259,6 +259,13 @@
     "other": "holidays/LI/other.ics"
   },
   {
+    "code": "LK",
+    "country": "ශ්‍රී ලංකාව",
+    "public": "holidays/LK/public.ics",
+    "regional": null,
+    "other": null
+  },
+  {
     "code": "LT",
     "country": "Lietuva",
     "public": "holidays/LT/public.ics",
@@ -334,6 +341,13 @@
     "public": "holidays/NO/public.ics",
     "regional": null,
     "other": "holidays/NO/other.ics"
+  },
+  {
+    "code": "NZ",
+    "country": "New Zealand",
+    "public": "holidays/NZ/public.ics",
+    "regional": "holidays/NZ/regional.ics",
+    "other": "holidays/NZ/other.ics"
   },
   {
     "code": "PH",
