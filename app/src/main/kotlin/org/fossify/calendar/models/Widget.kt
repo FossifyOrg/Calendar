@@ -10,17 +10,5 @@ data class Widget(
     @PrimaryKey(autoGenerate = true) var id: Long?,
     @ColumnInfo(name = "widget_id") var widgetId: Int,
     @ColumnInfo(name = "period") var period: Int,
-    @ColumnInfo(name = "header") var header: Boolean,
-    @ColumnInfo(name = "calendars") var calendars: String? = null
-) {
-    fun isCalendarsConfigured(): Boolean = calendars != null
-
-    fun getCalendarIdsAsList(): List<Long> {
-        val cal = calendars ?: return emptyList()
-        return if (cal.isNotEmpty()) {
-            cal.split(",").mapNotNull { it.trim().toLongOrNull() }
-        } else {
-            emptyList()
-        }
-    }
-}
+    @ColumnInfo(name = "header") var header: Boolean
+)
