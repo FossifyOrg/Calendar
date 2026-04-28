@@ -1,36 +1,29 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/config_coordinator"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
         android:id="@+id/config_list_holder"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_margin="@dimen/activity_margin">
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/period_picker_holder"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingStart="@dimen/activity_margin"
-            android:paddingEnd="@dimen/activity_margin"
-            android:paddingBottom="@dimen/activity_margin"
-            app:layout_constraintTop_toTopOf="parent">
+            android:paddingBottom="@dimen/activity_margin">
 
-            <FrameLayout
+            <RelativeLayout
                 android:id="@+id/show_widget_header_holder"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackground"
-                android:paddingTop="@dimen/activity_margin"
-                android:paddingBottom="@dimen/activity_margin">
+                android:padding="@dimen/activity_margin">
 
                 <org.fossify.commons.views.MyMaterialSwitch
                     android:id="@+id/show_widget_header"
@@ -39,105 +32,88 @@
                     android:background="@null"
                     android:clickable="false"
                     android:text="@string/show_widget_header"
-                    app:switchPadding="@dimen/medium_margin"/>
-            </FrameLayout>
+                    app:switchPadding="@dimen/medium_margin" />
+
+            </RelativeLayout>
 
             <org.fossify.commons.views.MyTextView
                 android:id="@+id/period_picker_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/show_widget_header_holder"
                 android:layout_marginTop="@dimen/medium_margin"
                 android:layout_marginBottom="@dimen/normal_margin"
-                android:text="@string/show_events_happening"/>
+                android:paddingStart="@dimen/activity_margin"
+                android:paddingEnd="@dimen/activity_margin"
+                android:text="@string/show_events_happening" />
 
-            <org.fossify.commons.views.MyButton
+            <org.fossify.commons.views.MyTextView
                 android:id="@+id/period_picker_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/period_picker_label"
+                android:layout_marginStart="@dimen/activity_margin"
                 android:background="@drawable/button_background"
                 android:padding="@dimen/normal_margin"
-                android:text="@string/within_the_next_one_year"
-                android:textAllCaps="false"/>
+                android:text="@string/within_the_next_one_year" />
 
-            <org.fossify.commons.views.MyTextView
-                android:id="@+id/label_calendar_selection_heading"
-                android:layout_marginTop="@dimen/normal_margin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/widget_calendars_selection_header"/>
-
-            <org.fossify.commons.views.MyButton
-                android:id="@+id/calendar_picker_holder"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/button_min_size"
-                android:layout_marginTop="@dimen/normal_margin"
-                android:background="@drawable/button_background"
-                android:padding="@dimen/normal_margin"
-                android:text="@string/widget_calendars_selected_all"
-                android:textAllCaps="false"
-                android:drawableStart="@drawable/ic_calendar_add_vector"
-                android:drawablePadding="@dimen/small_margin"
-                tools:text="@string/widget_calendars_selected_all"/>
-        </LinearLayout>
+        </RelativeLayout>
 
         <include
             android:id="@+id/config_widget_preview"
             layout="@layout/widget_config_event_list"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/config_bg_color"
+            android:layout_below="@+id/period_picker_holder"
             android:layout_marginBottom="@dimen/activity_margin"
             android:background="@drawable/widget_round_background"
             android:clipToPadding="false"
             android:divider="@null"
-            app:layout_constraintTop_toBottomOf="@id/period_picker_holder"
-            app:layout_constraintBottom_toTopOf="@id/config_bg_color"
-        />
+            android:paddingTop="@dimen/medium_margin" />
 
         <ImageView
             android:id="@+id/config_bg_color"
             android:layout_width="@dimen/widget_colorpicker_size"
             android:layout_height="@dimen/widget_colorpicker_size"
-            android:layout_marginBottom="@dimen/tiny_margin"
-            app:layout_constraintStart_toStartOf="@id/config_text_color"
-            app:layout_constraintBottom_toTopOf="@id/config_text_color"
-        />
+            android:layout_above="@+id/config_text_color"
+            android:layout_margin="@dimen/tiny_margin" />
 
-        <FrameLayout
+        <RelativeLayout
             android:id="@+id/config_bg_seekbar_holder"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/widget_colorpicker_size"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignTop="@+id/config_bg_color"
+            android:layout_alignBottom="@+id/config_bg_color"
             android:layout_marginStart="@dimen/medium_margin"
-            android:background="@drawable/widget_config_seekbar_background"
-            app:layout_constraintStart_toEndOf="@id/config_bg_color"
-            app:layout_constraintTop_toTopOf="@id/config_bg_color"
-            app:layout_constraintEnd_toEndOf="parent">
+            android:layout_toEndOf="@+id/config_bg_color"
+            android:background="@drawable/widget_config_seekbar_background">
 
             <org.fossify.commons.views.MySeekBar
                 android:id="@+id/config_bg_seekbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
+                android:layout_centerVertical="true"
                 android:paddingStart="@dimen/activity_margin"
-                android:paddingEnd="@dimen/activity_margin"/>
+                android:paddingEnd="@dimen/activity_margin" />
 
-        </FrameLayout>
+        </RelativeLayout>
 
         <ImageView
             android:id="@+id/config_text_color"
             android:layout_width="@dimen/widget_colorpicker_size"
             android:layout_height="@dimen/widget_colorpicker_size"
-            android:layout_margin="@dimen/tiny_margin"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/tiny_margin" />
 
         <Button
             android:id="@+id/config_save"
             style="@style/MyWidgetConfigSaveStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/ok"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:text="@string/ok" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

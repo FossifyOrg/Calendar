@@ -295,16 +295,6 @@
     </plurals>
     <string name="show_widget_header">Show header</string>
 
-    <plurals name="widget_calendars_selected_count">
-        <item quantity="one">%d calendar selected</item>
-        <item quantity="other">%d calendars selected</item>
-    </plurals>
-    <string name="widget_calendars_selected_all">All calendars selected</string>
-    <string name="widget_calendars_selection_header">Select calendars to display</string>
-    <string name="widget_event_list_header_config_description">Configure event list</string>
-    <string name="widget_event_list_header_new_event_description">Create new event</string>
-    <string name="widget_event_list_header_show_today_description">Show today\'s events</string>
-    
     <!-- Accessibility label -->
     <string name="accessibility_previous_month">Go to previous month</string>
     <string name="accessibility_next_month">Go to next month</string>

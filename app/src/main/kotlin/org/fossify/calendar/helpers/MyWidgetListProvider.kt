@@ -11,7 +11,6 @@ import android.view.View
 import android.widget.RemoteViews
 import org.fossify.calendar.R
 import org.fossify.calendar.activities.SplashActivity
-import org.fossify.calendar.activities.WidgetListConfigureActivity
 import org.fossify.calendar.extensions.config
 import org.fossify.calendar.extensions.getWidgetFontSize
 import org.fossify.calendar.extensions.launchNewEventOrTaskActivity
@@ -19,7 +18,6 @@ import org.fossify.calendar.extensions.widgetsDB
 import org.fossify.calendar.services.WidgetService
 import org.fossify.calendar.services.WidgetServiceEmpty
 import org.fossify.commons.extensions.*
-import org.fossify.commons.helpers.IS_CUSTOMIZING_COLORS
 import org.fossify.commons.helpers.ensureBackgroundThread
 import org.joda.time.DateTime
 
@@ -70,25 +68,8 @@ class MyWidgetListProvider : AppWidgetProvider() {
                 views.setImageViewBitmap(R.id.widget_event_go_to_today, context.resources.getColoredBitmap(R.drawable.ic_today_vector, textColor))
                 setupIntent(context, views, GO_TO_TODAY, R.id.widget_event_go_to_today)
 
-                val configBitmap = context.resources.getColoredBitmap(
-                    R.drawable.ic_settings_vector, textColor
-                )
-                views.setImageViewBitmap(R.id.widget_event_configure, configBitmap)
-                val configIntent = Intent(context, WidgetListConfigureActivity::class.java).apply {
-                    putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, it)
-                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
-                }
-                val configPendingIntent = PendingIntent.getActivity(
-                    context,
-                    it,
-                    configIntent,
-                    PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
-                )
-                views.setOnClickPendingIntent(R.id.widget_event_configure, configPendingIntent)
-
                 Intent(context, WidgetService::class.java).apply {
                     putExtra(EVENT_LIST_PERIOD, widget?.period)
-                    widget?.calendars?.let { putExtra(EVENT_LIST_CALENDARS, it) }
                     data = Uri.parse(this.toUri(Intent.URI_INTENT_SCHEME))
                     views.setRemoteAdapter(R.id.widget_event_list, this)
                 }
@@ -158,7 +139,6 @@ class MyWidgetListProvider : AppWidgetProvider() {
                     setViewVisibility(R.id.widget_event_list_today, headerVisibility)
                     setViewVisibility(R.id.widget_event_go_to_today, headerVisibility)
                     setViewVisibility(R.id.widget_event_new_event, headerVisibility)
-                    setViewVisibility(R.id.widget_event_configure, headerVisibility)
                 }
                 Intent(context, WidgetServiceEmpty::class.java).apply {
                     data = Uri.parse(this.toUri(Intent.URI_INTENT_SCHEME))

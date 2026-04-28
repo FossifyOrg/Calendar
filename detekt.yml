@@ -34,7 +34,7 @@ style:
     active: true
     ignoreAnnotated: ["Composable"]
     ignoreEnums: true
-    ignoreNumbers: ["-1", "0", "1", "2", "11", "12", "42", "1000"]
+    ignoreNumbers: ["-1", "0", "1", "2", "42", "1000"]
   MaxLineLength:
     active: true
     maxLineLength: 120
