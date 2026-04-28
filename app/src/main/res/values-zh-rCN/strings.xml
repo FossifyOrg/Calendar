@@ -267,12 +267,4 @@
     <string name="access_level_public">公开</string>
     <string name="allow_alarms_reminders">您必须允许应用设置闹钟，以便提醒功能正常工作。</string>
     <string name="offline_never_synced">离线（从不同步）</string>
-    <plurals name="widget_calendars_selected_count">
-        <item quantity="other">选中了 %d 个日历</item>
-    </plurals>
-    <string name="widget_calendars_selected_all">全选了日历</string>
-    <string name="widget_calendars_selection_header">选择要显示的日历</string>
-    <string name="widget_event_list_header_config_description">配置活动列表</string>
-    <string name="widget_event_list_header_new_event_description">创建新活动</string>
-    <string name="widget_event_list_header_show_today_description">显示今日活动</string>
 </resources>
