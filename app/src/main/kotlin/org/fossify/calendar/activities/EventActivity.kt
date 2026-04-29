@@ -844,22 +844,37 @@ class EventActivity : SimpleActivity() {
     }
 
     private fun showReminder1Dialog() {
-        showPickSecondsDialogHelper(mReminder1Minutes, showDuringDayOption = mIsAllDayEvent) {
-            mReminder1Minutes = if (it == -1 || it == 0) it else it / 60
+        showPickSecondsDialogHelper(
+            curMinutes = mReminder1Minutes,
+            showDuringDayOption = mIsAllDayEvent,
+            showAbsoluteDateTimeOption = true,
+            eventStartTS = mEvent.startTS
+        ) { seconds ->
+            mReminder1Minutes = if (seconds == -1 || seconds == 0) seconds else seconds / 60
             checkReminderTexts()
         }
     }
 
     private fun showReminder2Dialog() {
-        showPickSecondsDialogHelper(mReminder2Minutes, showDuringDayOption = mIsAllDayEvent) {
-            mReminder2Minutes = if (it == -1 || it == 0) it else it / 60
+        showPickSecondsDialogHelper(
+            curMinutes = mReminder2Minutes,
+            showDuringDayOption = mIsAllDayEvent,
+            showAbsoluteDateTimeOption = true,
+            eventStartTS = mEvent.startTS
+        ) { seconds ->
+            mReminder2Minutes = if (seconds == -1 || seconds == 0) seconds else seconds / 60
             checkReminderTexts()
         }
     }
 
     private fun showReminder3Dialog() {
-        showPickSecondsDialogHelper(mReminder3Minutes, showDuringDayOption = mIsAllDayEvent) {
-            mReminder3Minutes = if (it == -1 || it == 0) it else it / 60
+        showPickSecondsDialogHelper(
+            curMinutes = mReminder3Minutes,
+            showDuringDayOption = mIsAllDayEvent,
+            showAbsoluteDateTimeOption = true,
+            eventStartTS = mEvent.startTS
+        ) { seconds ->
+            mReminder3Minutes = if (seconds == -1 || seconds == 0) seconds else seconds / 60
             checkReminderTexts()
         }
     }
