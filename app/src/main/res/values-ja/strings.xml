@@ -23,11 +23,11 @@
     <string name="end_before_start">予定の終了は開始よりも前にできません</string>
     <string name="event_added">予定を正常に追加しました</string>
     <string name="event_updated">予定を正常に更新しました</string>
-    <string name="filter_events_by_type">種類による予定のフィルタリング</string>
+    <string name="filter_events_by_type">カレンダーによる予定のフィルタリング</string>
     <string name="please_fill_location">地図上に表示する場所を入力してください</string>
     <string name="public_event_notification_text">近日中の予定</string>
     v
-    <string name="everything_filtered_out">すべての予定の種類を除外しました</string>
+    <string name="everything_filtered_out">すべてのカレンダーを除外しました</string>
     <string name="task">タスク</string>
     <string name="tasks">タスク</string>
     <string name="edit_task">タスクの編集</string>
@@ -75,7 +75,7 @@
     <string name="third_m">第3</string>
     <string name="fourth_m">第4</string>
     <string name="fifth_m">第5</string>
-    <string name="last_m">最後</string>
+    <string name="last_m">最終</string>
     <string name="repeat_every_f">繰り返し 毎</string>
     <string name="every_f">毎</string>
     <string name="first_f">第1</string>
@@ -83,7 +83,7 @@
     <string name="third_f">第3</string>
     <string name="fourth_f">第4</string>
     <string name="fifth_f">第5</string>
-    <string name="last_f">最後</string>
+    <string name="last_f">最終</string>
     <string name="birthdays">誕生日</string>
     <string name="add_birthdays">連絡先の誕生日を追加</string>
     <string name="no_birthdays">誕生日は見つかりませんでした</string>
@@ -109,37 +109,37 @@
     <string name="import_events_from_ics">.ics ファイルから予定をインポート</string>
     <string name="import_events_from_ics_pro">.ics ファイルから予定をインポート (Pro)</string>
     <string name="export_events_to_ics">.ics ファイルに予定をエクスポート</string>
-    <string name="default_event_type">既定の予定の種類</string>
+    <string name="default_event_type">既定のカレンダー</string>
     <string name="export_past_events_too">過去の予定もエクスポート</string>
     <string name="export_tasks">タスクをエクスポート</string>
     <string name="export_past_entries">過去の項目もエクスポート</string>
-    <string name="include_event_types">予定の種類を含める</string>
+    <string name="include_event_types">カレンダーを含める</string>
     <string name="filename_without_ics">ファイル名 (.ics を除く)</string>
-    <string name="ignore_event_types">ファイル内の予定の種類を無視し、常に既定の種類を使用</string>
+    <string name="ignore_event_types">ファイル内のカレンダーを無視し、常に既定のカレンダーを使用</string>
     <string name="location">場所</string>
     <string name="description">説明</string>
     <string name="all_day">終日</string>
     <string name="week">週</string>
     <string name="start_week_with_current_day">現在の日付で週を開始</string>
-    <string name="event_types">予定の種類</string>
-    <string name="add_new_type">新しい種類を追加</string>
-    <string name="edit_type">種類を編集</string>
-    <string name="type_already_exists">このタイトルの種類は既に存在します</string>
+    <string name="event_types">カレンダー</string>
+    <string name="add_new_type">新しいカレンダーを追加</string>
+    <string name="edit_type">カレンダーを編集</string>
+    <string name="type_already_exists">既にこのタイトルのカレンダーが存在します</string>
     <string name="color">色</string>
-    <string name="regular_event">通常の予定</string>
-    <string name="cannot_delete_default_type">既定の予定の種類は削除できません</string>
-    <string name="select_event_type">予定の種類を選択</string>
-    <string name="move_events_into_default">影響を受ける予定を既定の予定の種類に移動</string>
+    <string name="regular_event">ローカルのカレンダー</string>
+    <string name="cannot_delete_default_type">標準カレンダーは削除できません</string>
+    <string name="select_event_type">カレンダーを選択</string>
+    <string name="move_events_into_default">影響を受ける予定を既定のカレンダーに移動</string>
     <string name="remove_affected_events">影響を受ける予定を完全に削除</string>
     <string name="unsync_caldav_calendar">CalDAVカレンダーを削除するには、同期を解除する必要があります</string>
     <string name="holidays">祝日</string>
     <string name="add_holidays">祝日を追加</string>
     <string name="national_holidays">国民の祝日</string>
     <string name="religious_holidays">宗教的休日</string>
-    <string name="holidays_imported_successfully">「祝日」の予定の種類にインポートされました</string>
+    <string name="holidays_imported_successfully">「祝日」カレンダーにインポートされました</string>
     <string name="importing_some_holidays_failed">一部の予定をインポートできませんでした</string>
     <string name="importing_holidays_failed">祝日をインポートできませんでした</string>
-    <string name="manage_event_types">予定の種類を管理</string>
+    <string name="manage_event_types">カレンダーの管理</string>
     <string name="start_day_at">日の始まり</string>
     <string name="end_day_at">日の終わり</string>
     <string name="midnight_spanning">深夜0時をまたぐ予定を上部バーに表示</string>
@@ -156,7 +156,7 @@
     <string name="replace_description_with_location">予定の説明を場所に置き換える</string>
     <string name="display_description_or_location">説明や場所を表示</string>
     <string name="delete_all_events">すべての予定を削除</string>
-    <string name="delete_all_events_confirmation">予定をすべて削除してもよろしいですか？ 予定の種類やその他の設定はそのまま残ります。</string>
+    <string name="delete_all_events_confirmation">予定をすべて削除してもよろしいですか？ カレンダーやその他の設定はそのまま残ります。</string>
     <string name="show_a_grid">グリッドを表示</string>
     <string name="loop_reminders">リマインダーを閉じるまで繰り返す</string>
     <string name="dim_past_events">過去の予定を薄い色で表示</string>
@@ -183,7 +183,7 @@
     <string name="highlight_weekends">一部の表示で週末を強調</string>
     <string name="highlight_weekends_color">週末の強調色</string>
     <string name="allow_changing_time_zones">予定のタイムゾーンの変更を許可</string>
-    <string name="manage_quick_filter_event_types">予定の種類をクイックフィルターで管理</string>
+    <string name="manage_quick_filter_event_types">カレンダーをクイックフィルターで管理</string>
     <string name="allow_creating_tasks">タスクの作成を許可</string>
     <string name="select_caldav_calendars">同期するカレンダーを選択</string>
     <string name="manage_synced_calendars">同期したカレンダーの管理</string>
@@ -230,7 +230,7 @@
         <item quantity="other">今後%dか月分</item>
     </plurals>
     <string name="faq_1_title">「祝日を追加」ボタンでインポートした祝日を削除するにはどうすればいいですか？</string>
-    <string name="faq_1_text">この方法で作成された祝日は、「祝日」という新しい予定の種類に追加されます。設定の「予定の種類を管理」を開き、対象の予定の種類を長押しして、ごみ箱を選択すると削除できます。</string>
+    <string name="faq_1_text">この方法で作成された祝日は、「祝日」という新しいカレンダーに追加されます。設定の「カレンダーの管理」を開き、対象の予定の種類を長押しして、ごみ箱を選択すると削除できます。</string>
     <string name="faq_2_title">Googleカレンダーまたは他のサービスのCalDAVを介して予定を同期できますか？</string>
     <string name="faq_2_title_extra">カレンダーを他の人と共有することもできますか？</string>
     <string name="faq_2_text">はい、アプリの設定で「CalDAV 同期」を有効にして、同期したいカレンダーを選択してください。ただし、同期には、端末とサーバー間の同期を処理するサードパーティー製のアプリが必要になります。Googleカレンダーの場合は、Googleのカレンダーアプリで同期できますが、他のカレンダーの場合は、DAVx5などのサードパーティー製の同期用ソフトウェアが必要です。</string>
@@ -240,8 +240,8 @@
     <string name="faq_4_text">はい、対応しています。既定では、すべての予定は現在のタイムゾーンで作成されます。予定のタイムゾーンを変更したい場合、アプリの設定で「予定のタイムゾーンの変更を許可する」を有効にしてから、予定の詳細画面でタイムゾーンを変更してください。この機能を使用するユーザーは多くないので、これは既定では無効になっています。</string>
     <string name="faq_5_title">アプリが通知を表示しませんが、それはなぜですか？</string>
     <string name="faq_5_text">端末のバッテリーと通知の設定で、リマインダーを妨げたり、バックグラウンドでアプリを終了したりするものがないか確認してください。&lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt; の情報も参考にしてみてください。役に立つヒントがいくつかあります。</string>
-    <string name="faq_6_title">既存の予定の種類を修正したり削除したりするにはどうすればいいですか？</string>
-    <string name="faq_6_text">アプリの設定の「予定の種類の管理」を開いてください。予定の名前や色を変更する場合は、変更したい予定をタップしてください。削除する場合は、予定を長押しして選択し、上部のメニューにあるごみ箱から削除してください。</string>
+    <string name="faq_6_title">既存のカレンダーを修正したり削除したりするにはどうすればいいですか？</string>
+    <string name="faq_6_text">アプリの設定の「カレンダーの管理」を開いてください。予定の名前や色を変更する場合は、変更したい予定をタップしてください。削除する場合は、予定を長押しして選択し、上部のメニューにあるごみ箱から削除してください。</string>
     <string name="caldav">CalDAV</string>
     <string name="accessibility_next_day">明日に進む</string>
     <string name="event_color">予定の色</string>
@@ -255,4 +255,14 @@
     <string name="delete_all_events_and_tasks">全ての予定とタスクを削除</string>
     <string name="accessibility_next_month">来月に進む</string>
     <string name="accessibility_previous_day">昨日に戻る</string>
+    <string name="offline_never_synced">オフライン (未同期)</string>
+    <string name="public_holidays">祝日</string>
+    <string name="other_holidays">その他の祝祭日</string>
+    <string name="select_holidays_to_import">インポートする祝日</string>
+    <string name="access_level_confidential">限定公開</string>
+    <string name="access_level_private">非公開</string>
+    <string name="access_level_public">公開</string>
+    <string name="status_tentative">未定</string>
+    <string name="status_confirmed">確定</string>
+    <string name="status_canceled">キャンセル</string>
 </resources>
