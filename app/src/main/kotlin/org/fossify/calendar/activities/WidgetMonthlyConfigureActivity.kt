@@ -36,13 +36,15 @@ class WidgetMonthlyConfigureActivity : SimpleActivity(), MonthlyCalendar {
     private var mBgColor = 0
     private var mTextColor = 0
 
+    private var mShowGrid = false
+
     private val binding by viewBinding(WidgetConfigMonthlyBinding::inflate)
     private val topNavigationBinding by lazy { TopNavigationBinding.bind(binding.root) }
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         useDynamicTheme = false
         super.onCreate(savedInstanceState)
-        setResult(Activity.RESULT_CANCELED)
+        setResult(RESULT_CANCELED)
         setContentView(binding.root)
         setupEdgeToEdge(padTopSystem = listOf(binding.configHolder), padBottomSystem = listOf(binding.root))
         initVariables()
@@ -59,13 +61,16 @@ class WidgetMonthlyConfigureActivity : SimpleActivity(), MonthlyCalendar {
             configSave.setOnClickListener { saveConfig() }
             configBgColor.setOnClickListener { pickBackgroundColor() }
             configTextColor.setOnClickListener { pickTextColor() }
+            configGrid.setOnClickListener { pickGridShow() }
             configBgSeekbar.setColors(mTextColor, primaryColor, primaryColor)
+            configGrid.isChecked = mShowGrid
         }
     }
 
     private fun initVariables() {
         mBgColor = config.widgetBgColor
         mBgAlpha = Color.alpha(mBgColor) / 255f
+        mShowGrid = config.widgetShowGrid
 
         mBgColorWithoutTransparency = Color.rgb(Color.red(mBgColor), Color.green(mBgColor), Color.blue(mBgColor))
         binding.configBgSeekbar.apply {
@@ -84,7 +89,7 @@ class WidgetMonthlyConfigureActivity : SimpleActivity(), MonthlyCalendar {
         }
 
         updateTextColor()
-
+        updateGridShow()
         MonthlyCalendarImpl(this, this).updateMonthlyCalendar(DateTime().withDayOfMonth(1))
     }
 
@@ -94,7 +99,7 @@ class WidgetMonthlyConfigureActivity : SimpleActivity(), MonthlyCalendar {
 
         Intent().apply {
             putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, mWidgetId)
-            setResult(Activity.RESULT_OK, this)
+            setResult(RESULT_OK, this)
         }
         finish()
     }
@@ -103,6 +108,7 @@ class WidgetMonthlyConfigureActivity : SimpleActivity(), MonthlyCalendar {
         config.apply {
             widgetBgColor = mBgColor
             widgetTextColor = mTextColor
+            widgetShowGrid = mShowGrid
         }
     }
 
@@ -111,6 +117,7 @@ class WidgetMonthlyConfigureActivity : SimpleActivity(), MonthlyCalendar {
             if (wasPositivePressed) {
                 mBgColorWithoutTransparency = color
                 updateBackgroundColor()
+                updateGridShow()
             }
         }
     }
@@ -121,6 +128,45 @@ class WidgetMonthlyConfigureActivity : SimpleActivity(), MonthlyCalendar {
                 mTextColor = color
                 updateTextColor()
                 updateDays()
+            }
+        }
+    }
+
+    private fun pickGridShow() {
+        mShowGrid = !mShowGrid
+        updateGridShow()
+    }
+
+    private fun updateGridShow() {
+        if (mShowGrid) {
+            binding.configCalendar.apply {
+                val tableView = arrayOf(
+                    tableHolder,
+                    monthLineHolder1,
+                    monthLineHolder2,
+                    monthLineHolder3,
+                    monthLineHolder4,
+                    monthLineHolder5,
+                    monthLineHolder6
+                )
+                for (i in tableView) {
+                    i.showDividers = LinearLayout.SHOW_DIVIDER_MIDDLE
+                }
+            }
+            return
+        }
+        binding.configCalendar.apply {
+            val tableView = arrayOf(
+                tableHolder,
+                monthLineHolder1,
+                monthLineHolder2,
+                monthLineHolder3,
+                monthLineHolder4,
+                monthLineHolder5,
+                monthLineHolder6
+            )
+            for (i in tableView) {
+                i.showDividers = LinearLayout.SHOW_DIVIDER_NONE
             }
         }
     }
@@ -145,6 +191,10 @@ class WidgetMonthlyConfigureActivity : SimpleActivity(), MonthlyCalendar {
         mBgColor = mBgColorWithoutTransparency.adjustAlpha(mBgAlpha)
         binding.configCalendar.root.background.applyColorFilter(mBgColor)
         binding.configBgColor.setFillWithStroke(mBgColor, mBgColor)
+        binding.configGrid.trackTintList = ColorStateList(
+            arrayOf(intArrayOf(android.R.attr.state_checked), intArrayOf()),
+            intArrayOf(getProperPrimaryColor(), Color.GRAY)
+        )
         binding.configSave.backgroundTintList = ColorStateList.valueOf(getProperPrimaryColor())
     }
 
@@ -196,7 +246,8 @@ class WidgetMonthlyConfigureActivity : SimpleActivity(), MonthlyCalendar {
         }
 
         DayMonthlyNumberViewBinding.inflate(layoutInflater).apply {
-            root.layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+            root.layoutParams =
+                LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
             linearLayout.addView(root)
 
             dayMonthlyNumberBackground.beVisibleIf(day.isToday)
@@ -213,7 +264,13 @@ class WidgetMonthlyConfigureActivity : SimpleActivity(), MonthlyCalendar {
         }
     }
 
-    override fun updateMonthlyCalendar(context: Context, month: String, days: ArrayList<DayMonthly>, checkedEvents: Boolean, currTargetDate: DateTime) {
+    override fun updateMonthlyCalendar(
+        context: Context,
+        month: String,
+        days: ArrayList<DayMonthly>,
+        checkedEvents: Boolean,
+        currTargetDate: DateTime
+    ) {
         runOnUiThread {
             mDays = days
             topNavigationBinding.topValue.text = month

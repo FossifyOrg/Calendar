@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_launcher_name">Naptár</string>
-    <string name="change_view">Nézet megváltoztatása</string>
+    <string name="change_view">Nézet váltás</string>
     <string name="daily_view">Napi nézet</string>
     <string name="weekly_view">Heti nézet</string>
     <string name="monthly_view">Havi nézet</string>

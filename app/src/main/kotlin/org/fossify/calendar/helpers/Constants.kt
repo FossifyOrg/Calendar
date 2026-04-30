@@ -150,6 +150,7 @@ const val AUTO_BACKUP_TASKS = "auto_backup_tasks"
 const val AUTO_BACKUP_PAST_ENTRIES = "auto_backup_past_entries"
 const val LAST_AUTO_BACKUP_TIME = "last_auto_backup_time"
 const val LAST_USED_SHOW_LIST_WIDGET_HEADER = "last_used_show_widget_header"
+const val WIDGET_SHOW_GRID = "widget_show_grid"
 
 // repeat_rule for monthly and yearly repetition
 const val REPEAT_SAME_DAY =

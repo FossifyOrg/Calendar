@@ -10,6 +10,6 @@
   "license": "GPL-3.0-only",
   "dependencies": {
     "date-holidays": "^3",
-    "ics": "^3.11.0"
+    "ics": "^3.12.0"
   }
 }
