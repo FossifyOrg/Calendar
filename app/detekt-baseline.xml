@@ -335,7 +335,6 @@
     <ID>MaxLineLength:MyWidgetDateProvider.kt$MyWidgetDateProvider$val pendingIntent = PendingIntent.getActivity(context, OPEN_APP_INTENT_ID, this, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)</ID>
     <ID>MaxLineLength:MyWidgetListProvider.kt$MyWidgetListProvider$PendingIntent.getActivity(context, 0, startActivityIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_MUTABLE)</ID>
     <ID>MaxLineLength:MyWidgetListProvider.kt$MyWidgetListProvider$views.setImageViewBitmap(R.id.widget_event_go_to_today, context.resources.getColoredBitmap(R.drawable.ic_today_vector, textColor))</ID>
-    <ID>MaxLineLength:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider$day.dayEvents</ID>
     <ID>MaxLineLength:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider$setInt(R.id.day_monthly_event_id, "setPaintFlags", Paint.ANTI_ALIAS_FLAG or Paint.STRIKE_THRU_TEXT_FLAG)</ID>
     <ID>MaxLineLength:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider$setText(id, "${days[i * 7 + 3].weekOfYear}:")</ID>
     <ID>MaxLineLength:MyWidgetMonthlyProvider.kt$MyWidgetMonthlyProvider$val pendingIntent = PendingIntent.getActivity(context, Integer.parseInt(dayCode), this, PendingIntent.FLAG_IMMUTABLE)</ID>
@@ -375,8 +374,6 @@
     <ID>MaxLineLength:WidgetListConfigureActivity.kt$WidgetListConfigureActivity$seconds % MONTH_SECONDS == 0 -&gt; resources.getQuantityString(R.plurals.within_the_next_months, seconds / MONTH_SECONDS, seconds / MONTH_SECONDS)</ID>
     <ID>MaxLineLength:WidgetListConfigureActivity.kt$WidgetListConfigureActivity$seconds % WEEK_SECONDS == 0 -&gt; resources.getQuantityString(R.plurals.within_the_next_weeks, seconds / WEEK_SECONDS, seconds / WEEK_SECONDS)</ID>
     <ID>MaxLineLength:WidgetMonthlyConfigureActivity.kt$WidgetMonthlyConfigureActivity$if</ID>
-    <ID>MaxLineLength:WidgetMonthlyConfigureActivity.kt$WidgetMonthlyConfigureActivity$override</ID>
-    <ID>MaxLineLength:WidgetMonthlyConfigureActivity.kt$WidgetMonthlyConfigureActivity$root.layoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)</ID>
     <ID>MaxLineLength:YearFragment.kt$YearFragment$binding.month1Holder</ID>
     <ID>MaxLineLength:YearFragment.kt$YearFragment$binding.month7Holder</ID>
     <ID>MaxLineLength:YearFragmentsHolder.kt$YearFragmentsHolder$currentYear = (if (dateTimeString != null) DateTime.parse(dateTimeString) else DateTime()).toString(Formatter.YEAR_PATTERN).toInt()</ID>
