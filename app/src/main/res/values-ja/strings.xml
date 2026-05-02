@@ -135,7 +135,7 @@
     <string name="holidays">祝日</string>
     <string name="add_holidays">祝日を追加</string>
     <string name="national_holidays">国民の祝日</string>
-    <string name="religious_holidays">宗教的休日</string>
+    <string name="religious_holidays">宗教上の祝日</string>
     <string name="holidays_imported_successfully">「祝日」カレンダーにインポートされました</string>
     <string name="importing_some_holidays_failed">一部の予定をインポートできませんでした</string>
     <string name="importing_holidays_failed">祝日をインポートできませんでした</string>
@@ -230,7 +230,7 @@
         <item quantity="other">今後%dか月分</item>
     </plurals>
     <string name="faq_1_title">「祝日を追加」ボタンでインポートした祝日を削除するにはどうすればいいですか？</string>
-    <string name="faq_1_text">この方法で作成された祝日は、「祝日」という新しいカレンダーに追加されます。設定の「カレンダーの管理」を開き、対象の予定の種類を長押しして、ごみ箱を選択すると削除できます。</string>
+    <string name="faq_1_text">この方法で作成された祝日は、「祝日」という新しいカレンダーに追加されます。設定の「カレンダーの管理」を開き、対象のカレンダーを長押しして、ごみ箱を選択すると削除できます。</string>
     <string name="faq_2_title">Googleカレンダーまたは他のサービスのCalDAVを介して予定を同期できますか？</string>
     <string name="faq_2_title_extra">カレンダーを他の人と共有することもできますか？</string>
     <string name="faq_2_text">はい、アプリの設定で「CalDAV 同期」を有効にして、同期したいカレンダーを選択してください。ただし、同期には、端末とサーバー間の同期を処理するサードパーティー製のアプリが必要になります。Googleカレンダーの場合は、Googleのカレンダーアプリで同期できますが、他のカレンダーの場合は、DAVx5などのサードパーティー製の同期用ソフトウェアが必要です。</string>
@@ -265,4 +265,5 @@
     <string name="status_tentative">未定</string>
     <string name="status_confirmed">確定</string>
     <string name="status_canceled">キャンセル</string>
+    <string name="regional_holidays">地域限定の祝日</string>
 </resources>
