@@ -178,6 +178,17 @@ class EventListWidgetAdapter(val context: Context, val intent: Intent) : RemoteV
     override fun onDataSetChanged() {
         initConfigValues()
         val period = intent.getIntExtra(EVENT_LIST_PERIOD, 0)
+        // null extra = never configured (global filter); empty string = explicit-zero (show nothing)
+        val calendarsExtra = intent.getStringExtra(EVENT_LIST_CALENDARS)
+        val overrideCalendarIds: List<Long>? = if (calendarsExtra != null) {
+            if (calendarsExtra.isNotEmpty()) {
+                calendarsExtra.split(",").mapNotNull { it.trim().toLongOrNull() }
+            } else {
+                emptyList()
+            }
+        } else {
+            null
+        }
         val currentDate = DateTime()
         val fromTS = currentDate.seconds() - context.config.displayPastEvents * 60
         val toTS = when (period) {
@@ -185,7 +196,7 @@ class EventListWidgetAdapter(val context: Context, val intent: Intent) : RemoteV
             EVENT_PERIOD_TODAY -> currentDate.withTime(23, 59, 59, 999).seconds()
             else -> currentDate.plusSeconds(period).seconds()
         }
-        context.eventsHelper.getEventsSync(fromTS, toTS, applyTypeFilter = true) {
+        context.eventsHelper.getEventsSync(fromTS, toTS, applyTypeFilter = true, callback = {
             val listItems = ArrayList<ListItem>(it.size)
             val replaceDescription = context.config.replaceDescription
             val sorted = it.sortedWith(compareBy<Event> { event ->
@@ -244,7 +255,7 @@ class EventListWidgetAdapter(val context: Context, val intent: Intent) : RemoteV
             }
 
             this@EventListWidgetAdapter.events = listItems
-        }
+        }, overrideCalendarIds = overrideCalendarIds)
     }
 
     override fun hasStableIds() = true
