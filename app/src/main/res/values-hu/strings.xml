@@ -9,8 +9,8 @@
     <string name="yearly_view">Éves nézet</string>
     <string name="simple_event_list">Egyszerű eseménylista</string>
     <string name="no_upcoming_events">Nincsenek közelgő események.</string>
-    <string name="go_to_today">Ugrás a mához</string>
-    <string name="go_to_date">Ugrás a dátumhoz</string>
+    <string name="go_to_today">Ugrás a mai naphoz</string>
+    <string name="go_to_date">Ugrás dátumhoz</string>
     <string name="widget_monthly">Havi naptár</string>
     <string name="widget_list">Eseménynaptár</string>
     <string name="widget_todays_date">Naptár mai napja</string>
