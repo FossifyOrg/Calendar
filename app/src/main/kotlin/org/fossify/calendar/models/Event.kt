@@ -2,6 +2,7 @@ package org.fossify.calendar.models
 
 import android.provider.CalendarContract
 import android.provider.CalendarContract.Attendees
+import android.util.Log
 import androidx.collection.LongSparseArray
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -74,16 +75,7 @@ data class Event(
     }
 
     fun addIntervalTime(original: Event) {
-        val zone = if (timeZone.isNotEmpty()) {
-            try {
-                DateTimeZone.forID(timeZone)
-            } catch (e: IllegalArgumentException) {
-                DateTimeZone.getDefault()
-            }
-        } else {
-            DateTimeZone.getDefault()
-        }
-        val oldStart = Formatter.getDateTimeFromTS(startTS, zone)
+        val oldStart = Formatter.getDateTimeFromTS(startTS, resolveTimeZone())
         val newStart = when (repeatInterval) {
             DAY -> oldStart.plusDays(1)
             else -> {
@@ -116,6 +108,20 @@ data class Event(
         val newEndTS = newStartTS + (endTS - startTS)
         startTS = newStartTS
         endTS = newEndTS
+    }
+
+    // Returns the event's time zone, or the device default if unset or unrecognized.
+    private fun resolveTimeZone(): DateTimeZone {
+        return if (timeZone.isNotEmpty()) {
+            try {
+                DateTimeZone.forID(timeZone)
+            } catch (e: IllegalArgumentException) {
+                Log.w("Event", "Unrecognized timezone '$timeZone', using default", e)
+                DateTimeZone.getDefault()
+            }
+        } else {
+            DateTimeZone.getDefault()
+        }
     }
 
     // if an event should happen on 29th Feb. with Same Day yearly repetition, show it only on leap years
