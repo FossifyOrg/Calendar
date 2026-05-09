@@ -71,6 +71,8 @@ data class Event(
 
     companion object {
         private const val serialVersionUID = -32456795132345616L
+        private const val LEAP_DAY = 29
+        private const val FIRST_DAY = 1
     }
 
     fun addIntervalTime(original: Event) {
@@ -118,13 +120,13 @@ data class Event(
         val originalMonth = originalDateTime.monthOfYear
         var newDateTime = currStart.plusYears(repeatInterval / YEAR)
 
-        if (originalMonth == 2 && originalDay == 29) {
+        if (originalMonth == DateTimeConstants.FEBRUARY && originalDay == LEAP_DAY) {
             if (newDateTime.year().isLeap) {
                 //show on 29th Feb. (leap year)
-                newDateTime = newDateTime.withMonthOfYear(2).withDayOfMonth(29)
+                newDateTime = newDateTime.withMonthOfYear(DateTimeConstants.FEBRUARY).withDayOfMonth(LEAP_DAY)
             } else {
                 // show on March 1st (non-leap year)
-                newDateTime = newDateTime.withMonthOfYear(3).withDayOfMonth(1)
+                newDateTime = newDateTime.withMonthOfYear(DateTimeConstants.MARCH).withDayOfMonth(FIRST_DAY)
             }
         } else if (newDateTime.dayOfMonth != currStart.dayOfMonth) {
             // Date may slide within the same month
