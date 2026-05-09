@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed event text readability on colored backgrounds ([#1065])
 - Fixed invisible current time indicator in weekly view ([#99])
 - Fixed stuck zoom level in weekly view on some devices ([#621])
+- Fixed show all calendar type ([#1092])
 
 ## [1.10.3] - 2026-02-14
 ### Changed
