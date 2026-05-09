@@ -74,7 +74,16 @@ data class Event(
     }
 
     fun addIntervalTime(original: Event) {
-        val oldStart = Formatter.getDateTimeFromTS(startTS)
+        val zone = if (timeZone.isNotEmpty()) {
+            try {
+                DateTimeZone.forID(timeZone)
+            } catch (e: IllegalArgumentException) {
+                DateTimeZone.getDefault()
+            }
+        } else {
+            DateTimeZone.getDefault()
+        }
+        val oldStart = Formatter.getDateTimeFromTS(startTS, zone)
         val newStart = when (repeatInterval) {
             DAY -> oldStart.plusDays(1)
             else -> {
