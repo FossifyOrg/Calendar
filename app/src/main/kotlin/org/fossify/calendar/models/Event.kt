@@ -71,6 +71,8 @@ data class Event(
 
     companion object {
         private const val serialVersionUID = -32456795132345616L
+        private const val LEAP_DAY = 29
+        private const val FIRST_DAY = 1
     }
 
     fun addIntervalTime(original: Event) {
@@ -82,7 +84,8 @@ data class Event(
                     repeatInterval % YEAR == 0 -> when (repeatRule) {
                         REPEAT_ORDER_WEEKDAY -> addXthDayInterval(oldStart, original, false)
                         REPEAT_ORDER_WEEKDAY_USE_LAST -> addXthDayInterval(oldStart, original, true)
-                        else -> addYearsWithSameDay(oldStart)
+                        else -> addYearsWithSameDay(oldStart, original)
+
                     }
 
                     repeatInterval % MONTH == 0 -> when (repeatRule) {
@@ -110,15 +113,27 @@ data class Event(
     }
 
     // if an event should happen on 29th Feb. with Same Day yearly repetition, show it only on leap years
-    private fun addYearsWithSameDay(currStart: DateTime): DateTime {
+    // show on March 1st in non-leap years
+    private fun addYearsWithSameDay(currStart: DateTime, original: Event): DateTime {
+        val originalDateTime = Formatter.getDateTimeFromTS(original.startTS)
+        val originalDay = originalDateTime.dayOfMonth
+        val originalMonth = originalDateTime.monthOfYear
         var newDateTime = currStart.plusYears(repeatInterval / YEAR)
 
-        // Date may slide within the same month
-        if (newDateTime.dayOfMonth != currStart.dayOfMonth) {
-            while (newDateTime.dayOfMonth().maximumValue < currStart.dayOfMonth) {
+        if (originalMonth == DateTimeConstants.FEBRUARY && originalDay == LEAP_DAY) {
+            if (newDateTime.year().isLeap) {
+                //show on 29th Feb. (leap year)
+                newDateTime = newDateTime.withMonthOfYear(DateTimeConstants.FEBRUARY).withDayOfMonth(LEAP_DAY)
+            } else {
+                // show on March 1st (non-leap year)
+                newDateTime = newDateTime.withMonthOfYear(DateTimeConstants.MARCH).withDayOfMonth(FIRST_DAY)
+            }
+        } else if (newDateTime.dayOfMonth != currStart.dayOfMonth) {
+            // Date may slide within the same month
+            while (newDateTime.dayOfMonth().maximumValue < originalDay) {
                 newDateTime = newDateTime.plusYears(repeatInterval / YEAR)
             }
-            newDateTime = newDateTime.withDayOfMonth(currStart.dayOfMonth)
+            newDateTime = newDateTime.withDayOfMonth(originalDay)
         }
         return newDateTime
     }
