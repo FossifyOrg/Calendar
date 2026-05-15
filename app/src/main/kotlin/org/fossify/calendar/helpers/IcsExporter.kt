@@ -9,22 +9,21 @@ import org.fossify.calendar.extensions.eventsHelper
 import org.fossify.calendar.helpers.IcsExporter.ExportResult.EXPORT_FAIL
 import org.fossify.calendar.helpers.IcsExporter.ExportResult.EXPORT_OK
 import org.fossify.calendar.helpers.IcsExporter.ExportResult.EXPORT_PARTIAL
+import org.fossify.calendar.icalendar.ContentLineWriter
 import org.fossify.calendar.models.CalDAVCalendar
 import org.fossify.calendar.models.Event
 import org.fossify.commons.extensions.toast
-import org.fossify.commons.extensions.writeLn
 import org.fossify.commons.helpers.ensureBackgroundThread
 import org.joda.time.DateTimeZone
-import java.io.BufferedWriter
+import java.io.BufferedOutputStream
 import java.io.OutputStream
-import java.io.OutputStreamWriter
+import kotlin.math.abs
 
 class IcsExporter(private val context: Context) {
     enum class ExportResult {
         EXPORT_FAIL, EXPORT_OK, EXPORT_PARTIAL
     }
 
-    private val MAX_LINE_LENGTH = 75
     private var eventsExported = 0
     private var eventsFailed = 0
     private var calendars = ArrayList<CalDAVCalendar>()
@@ -48,22 +47,10 @@ class IcsExporter(private val context: Context) {
                 context.toast(org.fossify.commons.R.string.exporting)
             }
 
-            object : BufferedWriter(OutputStreamWriter(outputStream, Charsets.UTF_8)) {
-                val lineSeparator = "\r\n"
-
-                /**
-                 * Writes a line separator. The line separator string is defined by RFC 5545 in 3.1. Content Lines:
-                 * Content Lines are delimited by a line break, which is a CRLF sequence (CR character followed by LF character).
-                 *
-                 * @see <a href="https://icalendar.org/iCalendar-RFC-5545/3-1-content-lines.html">RFC 5545 - 3.1. Content Lines</a>
-                 */
-                override fun newLine() {
-                    write(lineSeparator)
-                }
-            }.use { out ->
-                out.writeLn(BEGIN_CALENDAR)
-                out.writeLn(CALENDAR_PRODID)
-                out.writeLn(CALENDAR_VERSION)
+            BufferedOutputStream(outputStream).use { out ->
+                out.writeContentLine(BEGIN_CALENDAR)
+                out.writeContentLine(CALENDAR_PRODID)
+                out.writeContentLine(CALENDAR_VERSION)
                 for (event in events) {
                     if (event.isTask()) {
                         writeTask(out, event)
@@ -71,7 +58,7 @@ class IcsExporter(private val context: Context) {
                         writeEvent(out, event)
                     }
                 }
-                out.writeLn(END_CALENDAR)
+                out.writeContentLine(END_CALENDAR)
             }
 
             callback(
@@ -84,153 +71,137 @@ class IcsExporter(private val context: Context) {
         }
     }
 
-    private fun fillReminders(event: Event, out: BufferedWriter, reminderLabel: String) {
-        event.getReminders().forEach {
-            val reminder = it
-            out.apply {
-                writeLn(BEGIN_ALARM)
-                writeLn("$DESCRIPTION_EXPORT$reminderLabel")
-                if (reminder.type == REMINDER_NOTIFICATION) {
-                    writeLn("$ACTION$DISPLAY")
-                } else {
-                    writeLn("$ACTION$EMAIL")
-                    val attendee =
-                        calendars.firstOrNull { it.id == event.getCalDAVCalendarId() }?.accountName
-                    if (attendee != null) {
-                        writeLn("$ATTENDEE$MAILTO$attendee")
-                    }
+    private fun fillReminders(event: Event, out: OutputStream, reminderLabel: String) {
+        event.getReminders().forEach { reminder ->
+            out.writeContentLine(BEGIN_ALARM)
+            out.writeTextProperty(DESCRIPTION, reminderLabel)
+            if (reminder.type == REMINDER_NOTIFICATION) {
+                out.writeContentLine("$ACTION$DISPLAY")
+            } else {
+                out.writeContentLine("$ACTION$EMAIL")
+                val attendee =
+                    calendars.firstOrNull { it.id == event.getCalDAVCalendarId() }?.accountName
+                if (attendee != null) {
+                    out.writeContentLine("$ATTENDEE$MAILTO$attendee")
                 }
-
-                val sign = if (reminder.minutes < -1) "" else "-"
-                writeLn("$TRIGGER:$sign${Parser().getDurationCode(Math.abs(reminder.minutes.toLong()))}")
-                writeLn(END_ALARM)
             }
+
+            val sign = if (reminder.minutes < -1) "" else "-"
+            out.writeContentLine("$TRIGGER:$sign${Parser().getDurationCode(abs(reminder.minutes.toLong()))}")
+            out.writeContentLine(END_ALARM)
         }
     }
 
-    private fun fillIgnoredOccurrences(event: Event, out: BufferedWriter) {
+    private fun fillIgnoredOccurrences(event: Event, out: OutputStream) {
         event.repetitionExceptions.forEach {
-            out.writeLn("$EXDATE:$it")
+            out.writeContentLine("$EXDATE:$it")
         }
     }
 
-    private fun fillDescription(description: String, out: BufferedWriter) {
-        var index = 0
-        var isFirstLine = true
-
-        while (index < description.length) {
-            var end = index + MAX_LINE_LENGTH
-            if (end > description.length) {
-                end = description.length
-            } else {
-                // Avoid splitting surrogate pairs
-                if (Character.isHighSurrogate(description[end - 1])) {
-                    end--
-                }
-            }
-
-            val substring = description.substring(index, end)
-            if (isFirstLine) {
-                out.writeLn("$DESCRIPTION_EXPORT$substring")
-            } else {
-                out.writeLn(" $substring")
-            }
-
-            isFirstLine = false
-            index = end
-        }
-    }
-
-    private fun writeEvent(writer: BufferedWriter, event: Event) {
+    private fun writeEvent(out: OutputStream, event: Event) {
         val calendarColors = context.eventsHelper.getCalendarColors()
-        with(writer) {
-            writeLn(BEGIN_EVENT)
-            event.title.replace("\n", "\\n").let { if (it.isNotEmpty()) writeLn("$SUMMARY:$it") }
-            event.importId.let { if (it.isNotEmpty()) writeLn("$UID$it") }
-            writeLn("$CATEGORY_COLOR${context.calendarsDB.getCalendarWithId(event.calendarId)?.color}")
-            if (event.color != 0 && event.color != calendarColors[event.calendarId]) {
-                val color = CssColors.findClosestCssColor(event.color)
-                if (color != null) {
-                    writeLn("$COLOR${color}")
-                }
-                writeLn("$FOSSIFY_COLOR${event.color}")
+        out.writeContentLine(BEGIN_EVENT)
+        if (event.title.isNotEmpty()) out.writeTextProperty(SUMMARY, event.title)
+        if (event.importId.isNotEmpty()) out.writeContentLine("$UID${event.importId}")
+        out.writeContentLine("$CATEGORY_COLOR${context.calendarsDB.getCalendarWithId(event.calendarId)?.color}")
+        if (event.color != 0 && event.color != calendarColors[event.calendarId]) {
+            val color = CssColors.findClosestCssColor(event.color)
+            if (color != null) {
+                out.writeContentLine("$COLOR${color}")
             }
-            writeLn("$CATEGORIES${context.calendarsDB.getCalendarWithId(event.calendarId)?.title}")
-            writeLn("$LAST_MODIFIED:${Formatter.getExportedTime(event.lastUpdated)}")
-            writeLn("$TRANSP${if (event.availability == Events.AVAILABILITY_FREE) TRANSPARENT else OPAQUE}")
-            event.location.let { if (it.isNotEmpty()) writeLn("$LOCATION:$it") }
-
-            if (event.getIsAllDay()) {
-                val tz = try {
-                    DateTimeZone.forID(event.timeZone)
-                } catch (ignored: IllegalArgumentException) {
-                    DateTimeZone.getDefault()
-                }
-                writeLn("$DTSTART;$VALUE=$DATE:${Formatter.getDayCodeFromTS(event.startTS, tz)}")
-                writeLn(
-                    "$DTEND;$VALUE=$DATE:${
-                        Formatter.getDayCodeFromTS(
-                            event.endTS + TWELVE_HOURS,
-                            tz
-                        )
-                    }"
-                )
-            } else {
-                writeLn("$DTSTART:${Formatter.getExportedTime(event.startTS * 1000L)}")
-                writeLn("$DTEND:${Formatter.getExportedTime(event.endTS * 1000L)}")
-            }
-            writeLn("$MISSING_YEAR${if (event.hasMissingYear()) 1 else 0}")
-
-            writeLn("$DTSTAMP$exportTime")
-            writeLn("$CLASS:${getAccessLevelStringFromEventAccessLevel(event.accessLevel)}")
-            writeLn("$STATUS${getStatusStringFromEventStatus(event.status)}")
-            Parser().getRepeatCode(event).let { if (it.isNotEmpty()) writeLn("$RRULE$it") }
-
-            fillDescription(event.description.replace("\n", "\\n"), writer)
-            fillReminders(event, writer, reminderLabel)
-            fillIgnoredOccurrences(event, writer)
-
-            eventsExported++
-            writeLn(END_EVENT)
+            out.writeContentLine("$FOSSIFY_COLOR${event.color}")
         }
+        out.writeTextProperty("CATEGORIES", context.calendarsDB.getCalendarWithId(event.calendarId)?.title ?: "")
+        out.writeContentLine("$LAST_MODIFIED:${Formatter.getExportedTime(event.lastUpdated)}")
+        out.writeContentLine("$TRANSP${if (event.availability == Events.AVAILABILITY_FREE) TRANSPARENT else OPAQUE}")
+        if (event.location.isNotEmpty()) out.writeTextProperty(LOCATION, event.location)
+
+        if (event.getIsAllDay()) {
+            val tz = try {
+                DateTimeZone.forID(event.timeZone)
+            } catch (ignored: IllegalArgumentException) {
+                DateTimeZone.getDefault()
+            }
+            out.writeContentLine("$DTSTART;$VALUE=$DATE:${Formatter.getDayCodeFromTS(event.startTS, tz)}")
+            out.writeContentLine(
+                "$DTEND;$VALUE=$DATE:${
+                    Formatter.getDayCodeFromTS(
+                        event.endTS + TWELVE_HOURS,
+                        tz
+                    )
+                }"
+            )
+        } else {
+            out.writeContentLine("$DTSTART:${Formatter.getExportedTime(event.startTS * 1000L)}")
+            out.writeContentLine("$DTEND:${Formatter.getExportedTime(event.endTS * 1000L)}")
+        }
+        out.writeContentLine("$MISSING_YEAR${if (event.hasMissingYear()) 1 else 0}")
+
+        out.writeContentLine("$DTSTAMP$exportTime")
+        out.writeContentLine("$CLASS:${getAccessLevelStringFromEventAccessLevel(event.accessLevel)}")
+        out.writeContentLine("$STATUS${getStatusStringFromEventStatus(event.status)}")
+        Parser().getRepeatCode(event).let { if (it.isNotEmpty()) out.writeContentLine("$RRULE$it") }
+
+        out.writeTextProperty(DESCRIPTION, event.description)
+        fillReminders(event, out, reminderLabel)
+        fillIgnoredOccurrences(event, out)
+
+        eventsExported++
+        out.writeContentLine(END_EVENT)
     }
 
-    private fun writeTask(writer: BufferedWriter, task: Event) {
+    private fun writeTask(out: OutputStream, task: Event) {
         val calendarColors = context.eventsHelper.getCalendarColors()
-        with(writer) {
-            writeLn(BEGIN_TASK)
-            task.title.replace("\n", "\\n").let { if (it.isNotEmpty()) writeLn("$SUMMARY:$it") }
-            task.importId.let { if (it.isNotEmpty()) writeLn("$UID$it") }
-            writeLn("$CATEGORY_COLOR${context.calendarsDB.getCalendarWithId(task.calendarId)?.color}")
-            if (task.color != 0 && task.color != calendarColors[task.calendarId]) {
-                val color = CssColors.findClosestCssColor(task.color)
-                if (color != null) {
-                    writeLn("$COLOR${color}")
-                }
-                writeLn("$FOSSIFY_COLOR${task.color}")
+        out.writeContentLine(BEGIN_TASK)
+        if (task.title.isNotEmpty()) out.writeTextProperty(SUMMARY, task.title)
+        if (task.importId.isNotEmpty()) out.writeContentLine("$UID${task.importId}")
+        out.writeContentLine("$CATEGORY_COLOR${context.calendarsDB.getCalendarWithId(task.calendarId)?.color}")
+        if (task.color != 0 && task.color != calendarColors[task.calendarId]) {
+            val color = CssColors.findClosestCssColor(task.color)
+            if (color != null) {
+                out.writeContentLine("$COLOR${color}")
             }
-            writeLn("$CATEGORIES${context.calendarsDB.getCalendarWithId(task.calendarId)?.title}")
-            writeLn("$LAST_MODIFIED:${Formatter.getExportedTime(task.lastUpdated)}")
-            task.location.let { if (it.isNotEmpty()) writeLn("$LOCATION:$it") }
-
-            if (task.getIsAllDay()) {
-                writeLn("$DTSTART;$VALUE=$DATE:${Formatter.getDayCodeFromTS(task.startTS)}")
-            } else {
-                writeLn("$DTSTART:${Formatter.getExportedTime(task.startTS * 1000L)}")
-            }
-
-            writeLn("$DTSTAMP$exportTime")
-            if (task.isTaskCompleted()) {
-                writeLn("$STATUS$COMPLETED")
-            }
-            Parser().getRepeatCode(task).let { if (it.isNotEmpty()) writeLn("$RRULE$it") }
-
-            fillDescription(task.description.replace("\n", "\\n"), writer)
-            fillReminders(task, writer, reminderLabel)
-            fillIgnoredOccurrences(task, writer)
-
-            eventsExported++
-            writeLn(END_TASK)
+            out.writeContentLine("$FOSSIFY_COLOR${task.color}")
         }
+        out.writeTextProperty("CATEGORIES", context.calendarsDB.getCalendarWithId(task.calendarId)?.title ?: "")
+        out.writeContentLine("$LAST_MODIFIED:${Formatter.getExportedTime(task.lastUpdated)}")
+        if (task.location.isNotEmpty()) out.writeTextProperty(LOCATION, task.location)
+
+        if (task.getIsAllDay()) {
+            out.writeContentLine("$DTSTART;$VALUE=$DATE:${Formatter.getDayCodeFromTS(task.startTS)}")
+        } else {
+            out.writeContentLine("$DTSTART:${Formatter.getExportedTime(task.startTS * 1000L)}")
+        }
+
+        out.writeContentLine("$DTSTAMP$exportTime")
+        if (task.isTaskCompleted()) {
+            out.writeContentLine("$STATUS$COMPLETED")
+        }
+        Parser().getRepeatCode(task).let { if (it.isNotEmpty()) out.writeContentLine("$RRULE$it") }
+
+        out.writeTextProperty(DESCRIPTION, task.description)
+        fillReminders(task, out, reminderLabel)
+        fillIgnoredOccurrences(task, out)
+
+        eventsExported++
+        out.writeContentLine(END_TASK)
+    }
+
+    private val contentLineWriter = ContentLineWriter()
+
+    private fun OutputStream.writeContentLine(line: String) = contentLineWriter.write(this, line)
+
+    private fun OutputStream.writeTextProperty(name: String, value: String) {
+        val normalizedValue = value
+            .replace("\r\n", "\n")
+            .replace("\r", "\n")
+
+        val escapedValue = normalizedValue
+            .replace("\\", "\\\\")
+            .replace("\n", "\\n")
+            .replace(";", "\\;")
+            .replace(",", "\\,")
+
+        writeContentLine("$name:$escapedValue")
     }
 }
