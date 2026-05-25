@@ -119,20 +119,20 @@
     <string name="export_past_entries">Exportar eventos passados</string>
     <string name="include_event_types">Incluir calendários</string>
     <string name="filename_without_ics">Nome do ficheiro (sem .ics)</string>
-    <string name="ignore_event_types">Ignorar tipos de evento do ficheiro e utilizar sempre o evento padrão</string>
+    <string name="ignore_event_types">Ignorar calendários no ficheiro e utilizar sempre o evento padrão</string>
     <string name="location">Localização</string>
     <string name="description">Descrição</string>
     <string name="all_day">Todo o dia</string>
     <string name="week">Semana</string>
     <string name="start_week_with_current_day">Iniciar semana com o dia atual</string>
-    <string name="event_types">Tipos de eventos</string>
-    <string name="add_new_type">Adicionar um tipo</string>
-    <string name="edit_type">Editar tipo</string>
-    <string name="type_already_exists">Já existe um tipo com este nome</string>
+    <string name="event_types">Calendários</string>
+    <string name="add_new_type">Adicionar um novo calendário</string>
+    <string name="edit_type">Editar calendário</string>
+    <string name="type_already_exists">Já existe um calendário com este título</string>
     <string name="color">Cor</string>
-    <string name="regular_event">Evento regular</string>
-    <string name="cannot_delete_default_type">O tipo de evento padrão não pode ser apagado</string>
-    <string name="select_event_type">Selecione um tipo de evento</string>
+    <string name="regular_event">Calendário local</string>
+    <string name="cannot_delete_default_type">O calendário embutido não pode ser apagado</string>
+    <string name="select_event_type">Selecione um calendário</string>
     <string name="move_events_into_default">Mover eventos afetados para o calendário predefinido</string>
     <string name="remove_affected_events">Remover permanentemente os eventos afetados</string>
     <string name="unsync_caldav_calendar">Para remover um calendário CalDAV, tem que cancelar a sincronização</string>
@@ -249,9 +249,9 @@
     <string name="faq_3_text">A afixação do lembrete e o áudio são fortemente influenciados pelas definições do sistema. Se não consegue ouvir o som, verifique as definições da aplicação, selecione a opção \"Fluxo de áudio usado pelos lembretes\" e modifique-a. Se não funcionar, verifique nas definições de áudio do sistema se este tipo multimédia está no modo Silêncio.</string>
     <string name="faq_4_title">A aplicação suporta diferentes fusos horários\?</string>
     <string name="faq_4_text">Sim. Por definição, todos os eventos são criados com o seu fuso horário. Se quiser alterar o fuso horário de um evento, terá de ativar a escolha de fuso horário nas definições da aplicação e alterá-lo nos Detalhes do evento. Por omissão, esta opção está desativada pois não é necessária para a maioria das pessoas.</string>
-    <string name="faq_5_title">A aplicação não mostra notificações. Porque será\?</string>
+    <string name="faq_5_title">Porquê a app não mostra notificações?</string>
     <string name="faq_5_text">Analise as definições de bateria e de notificações do dispositivo. Pode ser que exista algo a bloquear os lembretes ou a terminar a aplicação em segundo plano. Consulte &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt; para ver algumas dicas.</string>
-    <string name="faq_6_title">É possível modificar ou eliminar um tipo de evento existente?</string>
+    <string name="faq_6_title">Como posso modificar ou apagar um calendário existente?</string>
     <string name="faq_6_text">Pode fazer ambas em Definições - Gerir tipos de eventos. Basta tocar no desejado para alterar o texto ou a cor e pode também eliminar qualquer um com um toque longo no tipo de evento e utilizando a reciclagem no menu superior.</string>
     <string name="accessibility_previous_month">Ir para o mês anterior</string>
     <string name="event_color">Cor do evento</string>
@@ -272,4 +272,5 @@
     <string name="access_level_private">Privado</string>
     <string name="access_level_confidential">Confidencial</string>
     <string name="allow_alarms_reminders">Deve permitir que a aplicação agende alarmes para que os lembretes funcionem corretamente.</string>
+    <string name="offline_never_synced">Offline (nunca sincronizado)</string>
 </resources>
