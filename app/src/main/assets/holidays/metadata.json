@@ -252,6 +252,13 @@
     "other": "holidays/KR/other.ics"
   },
   {
+    "code": "KZ",
+    "country": "Қазақстан",
+    "public": "holidays/KZ/public.ics",
+    "regional": null,
+    "other": null
+  },
+  {
     "code": "LI",
     "country": "Liechtenstein",
     "public": "holidays/LI/public.ics",
