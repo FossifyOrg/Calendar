@@ -200,7 +200,7 @@
     <string name="select_a_different_caldav_color">Kies een andere kleur (mogelijk alleen voor lokale agenda)</string>
     <string name="insufficient_permissions">Kan geen wijzigingen aanbrengen in deze agenda</string>
     <string name="caldav_event_not_found">Afspraak niet gevonden. Schakel via Instellingen de CalDAV-synchronisatie in voor deze agenda.</string>
-    <string name="no_synchronized_calendars">Er zijn geen gesynchroniseerde agenda\'s gevonden.</string>
+    <string name="no_synchronized_calendars">Er zijn geen gesynchroniseerde agenda\'s gevonden</string>
     <string name="status_free">Vrij</string>
     <string name="status_busy">Bezet</string>
     <string name="fetching_event_failed">Ophalen van afspraak %s mislukt</string>
@@ -269,4 +269,5 @@
     <string name="access_level_confidential">Vertrouwelijk</string>
     <string name="access_level_public">Openbaar</string>
     <string name="allow_alarms_reminders">Om herinneringen goed te laten werken, heeft de app het recht nodig om alarmen in te stellen.</string>
+    <string name="offline_never_synced">Offline (nooit gesynchroniseerd)</string>
 </resources>
