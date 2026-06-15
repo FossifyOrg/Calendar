@@ -450,6 +450,7 @@
     <ID>VariableNaming:CalendarPickerActivity.kt$CalendarPickerActivity$private val TYPE_TASK = 1</ID>
     <ID>VariableNaming:DayFragmentsHolder.kt$DayFragmentsHolder$private val PREFILLED_DAYS = 251</ID>
     <ID>VariableNaming:EventActivity.kt$EventActivity$private val LAT_LON_PATTERN = "^[-+]?([1-8]?\\d(\\.\\d+)?|90(\\.0+)?)([,;])\\s*[-+]?(180(\\.0+)?|((1[0-7]\\d)|([1-9]?\\d))(\\.\\d+)?)\$"</ID>
+    <ID>VariableNaming:EventActivity.kt$EventActivity$private val SELECT_END_TIME_ZONE_INTENT = 2</ID>
     <ID>VariableNaming:EventActivity.kt$EventActivity$private val SELECT_TIME_ZONE_INTENT = 1</ID>
     <ID>VariableNaming:EventListWidgetAdapter.kt$EventListWidgetAdapter$private val ITEM_EVENT = 0</ID>
     <ID>VariableNaming:EventListWidgetAdapter.kt$EventListWidgetAdapter$private val ITEM_SECTION_DAY = 1</ID>
