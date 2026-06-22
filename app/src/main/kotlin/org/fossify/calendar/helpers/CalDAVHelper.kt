@@ -206,6 +206,7 @@ class CalDAVHelper(val context: Context) {
             Events.ORIGINAL_INSTANCE_TIME,
             Events.EVENT_LOCATION,
             Events.EVENT_TIMEZONE,
+            Events.EVENT_END_TIMEZONE,
             Events.CALENDAR_TIME_ZONE,
             Events.DELETED,
             Events.AVAILABILITY,
