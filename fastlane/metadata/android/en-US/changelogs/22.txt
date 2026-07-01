@@ -1,0 +1,16 @@
+Added:
+
+• Holidays for New Zealand 
+• Grid support for monthly calendar widget 
+
+Changed:
+
+• Updated holiday data
+• Updated translations
+
+Fixed:
+
+• Fixed event text readability on colored backgrounds 
+• Fixed invisible current time indicator in weekly view 
+• Fixed stuck zoom level in weekly view on some devices 
+
