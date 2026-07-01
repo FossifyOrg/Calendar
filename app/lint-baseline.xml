@@ -267,7 +267,7 @@
 
     <issue
         id="NewerVersionAvailable"
-        message="A newer version of io.nlopez.compose.rules:detekt than 0.4.28 is available: 0.5.9"
+        message="A newer version of io.nlopez.compose.rules:detekt than 0.4.28 is available: 0.6.2"
         errorLine1="detektCompose = &quot;0.4.28&quot;"
         errorLine2="                ~~~~~~~~">
         <location
