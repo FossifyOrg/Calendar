@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed event text readability on colored backgrounds ([#1065])
 - Fixed invisible current time indicator in weekly view ([#99])
 - Fixed stuck zoom level in weekly view on some devices ([#621])
+- Fixed importing recurring events that repeat only on weekdays (RRULE FREQ=DAILY with BYDAY, e.g. from Thunderbird), which were previously shown on every day including weekends ([#232])
 
 ## [1.10.3] - 2026-02-14
 ### Changed
@@ -219,6 +220,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#148]: https://github.com/FossifyOrg/Calendar/issues/148
 [#196]: https://github.com/FossifyOrg/Calendar/issues/196
 [#217]: https://github.com/FossifyOrg/Calendar/issues/217
+[#232]: https://github.com/FossifyOrg/Calendar/issues/232
 [#262]: https://github.com/FossifyOrg/Calendar/issues/262
 [#337]: https://github.com/FossifyOrg/Calendar/issues/337
 [#393]: https://github.com/FossifyOrg/Calendar/issues/393
