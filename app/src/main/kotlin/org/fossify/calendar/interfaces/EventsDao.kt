@@ -55,14 +55,14 @@ interface EventsDao {
     @Query("SELECT * FROM events WHERE id = :id AND start_ts <= :toTS AND end_ts >= :fromTS AND repeat_interval = 0")
     fun getOneTimeEventFromToWithId(id: Long, toTS: Long, fromTS: Long): List<Event>
 
-    @Query("SELECT * FROM events WHERE start_ts <= :toTS AND end_ts >= :fromTS AND start_ts != 0 AND repeat_interval = 0 AND event_type IN (:calendarIds)")
+    @Query("SELECT * FROM events WHERE start_ts <= :toTS AND end_ts >= :fromTS AND repeat_interval = 0 AND event_type IN (:calendarIds)")
     fun getOneTimeEventsFromToWithCalendarIds(
         toTS: Long,
         fromTS: Long,
         calendarIds: List<Long>
     ): List<Event>
 
-    @Query("SELECT * FROM events WHERE start_ts <= :toTS AND end_ts >= :fromTS AND start_ts != 0 AND repeat_interval = 0 AND event_type IN (:calendarIds) AND (title LIKE :searchQuery OR location LIKE :searchQuery OR description LIKE :searchQuery)")
+    @Query("SELECT * FROM events WHERE start_ts <= :toTS AND end_ts >= :fromTS AND repeat_interval = 0 AND event_type IN (:calendarIds) AND (title LIKE :searchQuery OR location LIKE :searchQuery OR description LIKE :searchQuery)")
     fun getOneTimeEventsFromToWithTypesForSearch(
         toTS: Long,
         fromTS: Long,
@@ -76,10 +76,10 @@ interface EventsDao {
     @Query("SELECT * FROM events WHERE id = :id AND start_ts <= :toTS AND repeat_interval != 0")
     fun getRepeatableEventsOrTasksWithId(id: Long, toTS: Long): List<Event>
 
-    @Query("SELECT * FROM events WHERE start_ts <= :toTS AND start_ts != 0 AND repeat_interval != 0 AND event_type IN (:calendarIds)")
+    @Query("SELECT * FROM events WHERE start_ts <= :toTS AND repeat_interval != 0 AND event_type IN (:calendarIds)")
     fun getRepeatableEventsOrTasksWithCalendarIds(toTS: Long, calendarIds: List<Long>): List<Event>
 
-    @Query("SELECT * FROM events WHERE start_ts <= :toTS AND start_ts != 0 AND repeat_interval != 0 AND event_type IN (:calendarIds) AND (title LIKE :searchQuery OR location LIKE :searchQuery OR description LIKE :searchQuery)")
+    @Query("SELECT * FROM events WHERE start_ts <= :toTS AND repeat_interval != 0 AND event_type IN (:calendarIds) AND (title LIKE :searchQuery OR location LIKE :searchQuery OR description LIKE :searchQuery)")
     fun getRepeatableEventsOrTasksWithTypesForSearch(
         toTS: Long,
         calendarIds: List<Long>,
@@ -104,8 +104,7 @@ interface EventsDao {
     @Query("SELECT * FROM events WHERE id IN (:ids)")
     fun getEventsOrTasksWithIds(ids: List<Long>): List<Event>
 
-    //val selection = "$COL_REMINDER_MINUTES != -1 AND ($COL_START_TS > ? OR $COL_REPEAT_INTERVAL != 0) AND $COL_START_TS != 0"
-    @Query("SELECT * FROM events WHERE reminder_1_minutes != -1 AND (start_ts > :currentTS OR repeat_interval != 0) AND start_ts != 0")
+    @Query("SELECT * FROM events WHERE reminder_1_minutes != -1 AND (start_ts > :currentTS OR repeat_interval != 0)")
     fun getEventsOrTasksAtReboot(currentTS: Long): List<Event>
 
     @Query("SELECT id FROM events")
