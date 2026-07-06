@@ -112,19 +112,23 @@ class QuickFilterCalendarAdapter(
                 quickFilterCalendar.setOnLongClickListener {
                     if (lastLongClickedType != calendar) {
                         lastActiveKeys.clear()
+                        allCalendars.forEach {
+                            lastActiveKeys.add(it.id!!)
+                        }
                     }
                     val activeKeysCopy = HashSet(activeKeys)
                     allCalendars.forEach {
-                        viewClicked(select = lastActiveKeys.contains(it.id!!), calendar = it)
+                        val isSelected = when {
+                            it.id == calendar.id -> true
+                            activeKeysCopy.size > 1 -> false
+                            else -> lastActiveKeys.contains(it.id!!)
+                        }
+                        viewClicked(
+                            select = isSelected,
+                            calendar = it
+                        )
                     }
 
-                    val shouldSelectCurrent = if (lastLongClickedType != calendar) {
-                        true
-                    } else {
-                        lastActiveKeys.contains(calendar.id!!)
-                    }
-
-                    viewClicked(shouldSelectCurrent, calendar)
                     notifyItemRangeChanged(0, itemCount)
                     callback()
                     lastLongClickedType = calendar
