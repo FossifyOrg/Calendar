@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Fixed event text readability on colored backgrounds ([#1065])
 - Fixed invisible current time indicator in weekly view ([#99])
 - Fixed stuck zoom level in weekly view on some devices ([#621])
+- Long title, location fields now wrap in task/event editors ([#1177])
 
 ## [1.10.3] - 2026-02-14
 ### Changed
@@ -253,6 +254,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#1024]: https://github.com/FossifyOrg/Calendar/issues/1024
 [#1065]: https://github.com/FossifyOrg/Calendar/issues/1065
 [#1157]: https://github.com/FossifyOrg/Calendar/issues/1157
+[#1177]: https://github.com/FossifyOrg/Calendar/issues/1177
 
 [Unreleased]: https://github.com/FossifyOrg/Calendar/compare/1.10.3...HEAD
 [1.10.3]: https://github.com/FossifyOrg/Calendar/compare/1.10.2...1.10.3

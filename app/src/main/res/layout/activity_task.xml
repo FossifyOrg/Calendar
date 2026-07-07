@@ -45,7 +45,6 @@
                 android:hint="@string/title"
                 android:inputType="textCapSentences"
                 android:maxLength="180"
-                android:maxLines="1"
                 android:minEms="20"
                 android:textCursorDrawable="@null"
                 android:textSize="@dimen/day_text_size" />
