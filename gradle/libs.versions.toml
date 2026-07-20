@@ -23,7 +23,7 @@ androidx-test-ext-truth = "1.7.0"
 #Fossify
 commons = "6.1.6"
 #Gradle
-gradlePlugins-agp = "9.2.1"
+gradlePlugins-agp = "9.3.0"
 #build
 app-build-compileSDKVersion = "36"
 app-build-targetSDK = "36"
