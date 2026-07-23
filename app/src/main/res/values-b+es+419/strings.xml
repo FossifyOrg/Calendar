@@ -151,8 +151,8 @@
     <string name="importing_some_holidays_failed">La importación de algunos eventos fallo</string>
     <string name="importing_holidays_failed">La importación de días festivos ha fallado</string>
     <string name="manage_event_types">Administrar calendarios</string>
-    <string name="start_day_at">Empezar día a la</string>
-    <string name="end_day_at">Terminar día a la</string>
+    <string name="start_day_at">Empezar el día a las</string>
+    <string name="end_day_at">Terminar el día a las</string>
     <string name="midnight_spanning">Mostrar eventos que abarcan la medianoche en la barra superior</string>
     <string name="allow_customizing_day_count">Permitir personalización de cantidad de días</string>
     <string name="week_numbers">Mostrar números de semanas</string>
