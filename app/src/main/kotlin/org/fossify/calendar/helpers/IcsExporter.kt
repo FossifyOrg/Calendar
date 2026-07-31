@@ -110,7 +110,7 @@ class IcsExporter(private val context: Context) {
 
     private fun fillIgnoredOccurrences(event: Event, out: BufferedWriter) {
         event.repetitionExceptions.forEach {
-            out.writeLn("$EXDATE:$it")
+            out.writeLn("$EXDATE;$VALUE=$DATE:$it")
         }
     }
 
