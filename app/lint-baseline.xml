@@ -222,6 +222,28 @@
     </issue>
 
     <issue
+        id="AndroidGradlePluginVersion"
+        message="A newer version of Gradle than 9.6.1 is available: 9.7.1"
+        errorLine1="distributionUrl=https\://services.gradle.org/distributions/gradle-9.6.1-bin.zip"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="$HOME/work/Calendar/Calendar/gradle/wrapper/gradle-wrapper.properties"
+            line="3"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="AndroidGradlePluginVersion"
+        message="A newer version of com.android.application than 9.3.1 is available: 9.3.2"
+        errorLine1="gradlePlugins-agp = &quot;9.3.1&quot;"
+        errorLine2="                    ~~~~~~~">
+        <location
+            file="$HOME/work/Calendar/Calendar/gradle/libs.versions.toml"
+            line="26"
+            column="21"/>
+    </issue>
+
+    <issue
         id="GradleDependency"
         message="A newer version of androidx.constraintlayout:constraintlayout than 2.2.1 is available: 2.2.2"
         errorLine1="constraintlayout = &quot;2.2.1&quot;"
@@ -278,7 +300,7 @@
 
     <issue
         id="NewerVersionAvailable"
-        message="A newer version of io.nlopez.compose.rules:detekt than 0.4.28 is available: 0.6.3"
+        message="A newer version of io.nlopez.compose.rules:detekt than 0.4.28 is available: 0.6.4"
         errorLine1="detektCompose = &quot;0.4.28&quot;"
         errorLine2="                ~~~~~~~~">
         <location
