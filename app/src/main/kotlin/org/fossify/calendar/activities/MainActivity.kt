@@ -656,6 +656,7 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
         ensureBackgroundThread {
             calDAVHelper.refreshCalendars(showToasts = false, scheduleNextSync = true) {
                 refreshViewPager()
+                setupQuickFilter()
             }
         }
     }
@@ -675,6 +676,11 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
 
     private fun calDAVChanged() {
         refreshViewPager()
+        // The quick filter bar keeps its own snapshot of the calendars, so a
+        // colour or name that changed on the server was shown in the views
+        // but not in the bar until the bar was rebuilt. Same in
+        // updateCalDAVEvents(), the refresh that runs on its own.
+        setupQuickFilter()
         if (showCalDAVRefreshToast) {
             toast(R.string.refreshing_complete)
         }
