@@ -16,7 +16,6 @@ import android.view.MotionEvent
 import android.view.ScaleGestureDetector
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.RelativeLayout
 import androidx.collection.LongSparseArray
 import androidx.fragment.app.Fragment
@@ -61,6 +60,7 @@ import org.fossify.calendar.interfaces.WeekFragmentListener
 import org.fossify.calendar.interfaces.WeeklyCalendar
 import org.fossify.calendar.models.Event
 import org.fossify.calendar.models.EventWeeklyView
+import org.fossify.calendar.views.CurrentTimeIndicatorView
 import org.fossify.calendar.views.MyScrollView
 import org.fossify.commons.dialogs.RadioGroupDialog
 import org.fossify.commons.extensions.adjustAlpha
@@ -72,6 +72,7 @@ import org.fossify.commons.extensions.getContrastColor
 import org.fossify.commons.extensions.getProperPrimaryColor
 import org.fossify.commons.extensions.getProperTextColor
 import org.fossify.commons.extensions.hideKeyboard
+import org.fossify.commons.extensions.isRTLLayout
 import org.fossify.commons.extensions.onGlobalLayout
 import org.fossify.commons.extensions.realScreenSize
 import org.fossify.commons.extensions.removeBit
@@ -123,7 +124,7 @@ class WeekFragment : Fragment(), WeeklyCalendar {
     private var wasScaled = false
     private var isPrintVersion = false
     private var selectedGrid: View? = null
-    private var currentTimeView: ImageView? = null
+    private var currentTimeView: CurrentTimeIndicatorView? = null
     private var fadeOutHandler = Handler()
     private var allDayHolders = ArrayList<RelativeLayout>()
     private var allDayRows = ArrayList<HashSet<Int>>()
@@ -863,43 +864,45 @@ class WeekFragment : Fragment(), WeeklyCalendar {
     }
 
     private fun addCurrentTimeIndicator() {
-        if (todayColumnIndex != -1) {
-            val calendar = Calendar.getInstance()
-            val minutes = calendar.get(Calendar.HOUR_OF_DAY) * 60 + calendar.get(Calendar.MINUTE)
-            if (todayColumnIndex >= dayColumns.size) {
-                currentTimeView?.alpha = 0f
-                return
+        if (todayColumnIndex == -1) {
+            return
+        }
+
+        val calendar = Calendar.getInstance()
+        val minutes = calendar.get(Calendar.HOUR_OF_DAY) * 60 + calendar.get(Calendar.MINUTE)
+        if (todayColumnIndex >= dayColumns.size) {
+            currentTimeView?.alpha = 0f
+            return
+        }
+
+        if (currentTimeView != null) {
+            binding.weekEventsHolder.removeView(currentTimeView)
+        }
+
+        if (isPrintVersion) {
+            return
+        }
+
+        currentTimeView = WeekNowMarkerBinding.inflate(layoutInflater).root.apply {
+            binding.weekEventsHolder.addView(this)
+            val todayColumn = dayColumns[todayColumnIndex]
+            val dotSize = res.getDimension(R.dimen.weekly_view_now_dot_size)
+            val dotRadius = dotSize / 2f
+            val isRtl = requireContext().isRTLLayout
+            val leftOverflow = if (isRtl) dotRadius else dotSize
+            val rightOverflow = if (isRtl) dotSize else dotRadius
+            val markerLeft = (todayColumn.left - leftOverflow).coerceAtLeast(0f)
+            val markerRight = (todayColumn.right + rightOverflow).coerceAtMost(binding.weekEventsHolder.width.toFloat())
+            val markerHeight = res.getDimensionPixelSize(R.dimen.weekly_view_now_height)
+            val minuteHeight = rowHeight / 60
+            (layoutParams as RelativeLayout.LayoutParams).apply {
+                addRule(RelativeLayout.ALIGN_PARENT_LEFT)
+                width = (markerRight - markerLeft).roundToInt()
+                height = markerHeight
             }
 
-            if (currentTimeView != null) {
-                binding.weekEventsHolder.removeView(currentTimeView)
-            }
-
-            if (isPrintVersion) {
-                return
-            }
-
-            val weeklyViewDays = config.weeklyViewDays
-            currentTimeView = WeekNowMarkerBinding.inflate(layoutInflater).root.apply {
-                applyColorFilter(primaryColor)
-                binding.weekEventsHolder.addView(this)
-                val extraWidth =
-                    res.getDimension(org.fossify.commons.R.dimen.activity_margin).toInt()
-                val markerHeight = res.getDimension(R.dimen.weekly_view_now_height).toInt()
-                val minuteHeight = rowHeight / 60
-                (layoutParams as RelativeLayout.LayoutParams).apply {
-                    width = (binding.root.width / weeklyViewDays) + extraWidth
-                    height = markerHeight
-                }
-
-                x = if (weeklyViewDays == 1) {
-                    0f
-                } else {
-                    (binding.root.width / weeklyViewDays * todayColumnIndex).toFloat() - extraWidth / 2f
-                }
-
-                y = minutes * minuteHeight - markerHeight / 2
-            }
+            x = markerLeft
+            y = minutes * minuteHeight - markerHeight / 2
         }
     }
 
