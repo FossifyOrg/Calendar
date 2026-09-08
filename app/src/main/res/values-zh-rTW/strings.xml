@@ -26,7 +26,7 @@
     <string name="filter_events_by_type">依日歷篩選活動</string>
     <string name="please_fill_location">請填入要在地圖上顯示的地點</string>
     <string name="public_event_notification_text">有活動即將到來</string>
-    <string name="everything_filtered_out">您已篩選掉所有活動類型</string>
+    <string name="everything_filtered_out">您已篩選掉所有日曆</string>
     <string name="event_color">活動顏色</string>
     <string name="default_calendar_color">預設行事曆顏色</string>
     <string name="task">任務</string>
