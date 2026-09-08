@@ -228,6 +228,9 @@
     <string name="highlight_weekends">Highlight weekends on some views</string>
     <string name="highlight_weekends_color">Color of highlighted weekends</string>
     <string name="allow_changing_time_zones">Allow changing event time zones</string>
+    <string name="start_time_zone">Start time zone</string>
+    <string name="end_time_zone">End time zone</string>
+    <string name="in_local_time">In %1$s: %2$s – %3$s</string>
     <string name="manage_quick_filter_event_types">Manage quick filter calendars</string>
     <string name="allow_creating_tasks">Allow creating tasks</string>
 

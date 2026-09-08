@@ -57,6 +57,7 @@ data class Event(
     @ColumnInfo(name = "attendees") var attendees: List<Attendee> = emptyList(),
     @ColumnInfo(name = "import_id") var importId: String = "",
     @ColumnInfo(name = "time_zone") var timeZone: String = "",
+    @ColumnInfo(name = "end_time_zone") var endTimeZone: String = "",
     @ColumnInfo(name = "flags") var flags: Int = 0,
     @ColumnInfo(name = "event_type") var calendarId: Long = LOCAL_CALENDAR_ID,
     @ColumnInfo(name = "parent_id") var parentId: Long = 0,
@@ -254,11 +255,22 @@ data class Event(
         }
 
     fun getTimeZoneString(): String {
-        return if (timeZone.isNotEmpty() && getAllTimeZones().map { it.zoneName }
-                .contains(timeZone)) {
+        return if (timeZone.isNotEmpty() && DateTimeZone.getAvailableIDs().contains(timeZone)) {
             timeZone
         } else {
             DateTimeZone.getDefault().id
+        }
+    }
+
+    // the end zone falls back to the start zone when unset or unknown, so an empty
+    // end_time_zone means "same as start" and existing events are unaffected. Validity is
+    // checked against the same set of ids that ICS/CalDAV import accepts (getAvailableIDs),
+    // so a legitimately-imported zone alias is not silently dropped.
+    fun getEndTimeZoneString(): String {
+        return if (endTimeZone.isNotEmpty() && DateTimeZone.getAvailableIDs().contains(endTimeZone)) {
+            endTimeZone
+        } else {
+            getTimeZoneString()
         }
     }
 

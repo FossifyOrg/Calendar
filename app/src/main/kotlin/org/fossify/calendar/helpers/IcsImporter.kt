@@ -34,6 +34,8 @@ class IcsImporter(val activity: SimpleActivity) {
     private var curLocation = ""
     private var curDescription = ""
     private var curImportId = ""
+    private var curTimeZone = ""
+    private var curEndTimeZone = ""
     private var curRecurrenceDayCode = ""
     private var curRrule = ""
     private var curFlags = 0
@@ -117,6 +119,7 @@ class IcsImporter(val activity: SimpleActivity) {
                     } else if (line.startsWith(DTSTART)) {
                         if (isParsingEvent || isParsingTask) {
                             curStart = getTimestamp(line.substring(DTSTART.length))
+                            parseTimeZoneId(line.substring(DTSTART.length))?.let { curTimeZone = it }
 
                             if (curRrule != "") {
                                 parseRepeatRule()
@@ -129,6 +132,7 @@ class IcsImporter(val activity: SimpleActivity) {
                         }
                     } else if (line.startsWith(DTEND)) {
                         curEnd = getTimestamp(line.substring(DTEND.length))
+                        parseTimeZoneId(line.substring(DTEND.length))?.let { curEndTimeZone = it }
                     } else if (line.startsWith(DURATION)) {
                         val durationString = line.substring(DURATION.length)
                         curDuration = Parser().parseDurationSeconds(durationString)
@@ -334,7 +338,8 @@ class IcsImporter(val activity: SimpleActivity) {
                             curRepeatExceptions,
                             emptyList(),
                             curImportId,
-                            DateTimeZone.getDefault().id,
+                            curTimeZone.ifEmpty { DateTimeZone.getDefault().id },
+                            curEndTimeZone,
                             curFlags,
                             curCalendarId,
                             0,
@@ -535,6 +540,8 @@ class IcsImporter(val activity: SimpleActivity) {
         curLocation = ""
         curDescription = ""
         curImportId = ""
+        curTimeZone = ""
+        curEndTimeZone = ""
         curRecurrenceDayCode = ""
         curRrule = ""
         curFlags = 0
@@ -556,4 +563,16 @@ class IcsImporter(val activity: SimpleActivity) {
         curType = TYPE_EVENT
         curColor = 0
     }
+}
+
+// extracts a known timezone id from an ICS property's parameters, e.g.
+// ";TZID=America/New_York:20260830T070000" -> "America/New_York"; null if absent or unknown.
+// RFC 5545 also permits the value to be quoted (;TZID="America/New_York":...), so surrounding
+// double quotes are stripped before validation.
+fun parseTimeZoneId(fullString: String): String? {
+    if (!fullString.startsWith(';') || !fullString.contains(':')) {
+        return null
+    }
+    val timeZoneId = fullString.substringAfter("%s=".format(TZID)).substringBefore(':').trim('"')
+    return if (DateTimeZone.getAvailableIDs().contains(timeZoneId)) timeZoneId else null
 }
