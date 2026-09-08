@@ -8,7 +8,7 @@ detekt = "1.23.8"
 detektCompose = "0.4.28"
 #Androidx
 print = "1.1.0"
-constraintlayout = "2.2.1"
+constraintlayout = "2.2.2"
 swiperefreshlayout = "1.2.0"
 work = "2.11.2"
 #Room
