@@ -37,6 +37,7 @@ android {
         versionCode = project.property("VERSION_CODE").toString().toInt()
         versionName = project.property("VERSION_NAME").toString()
         vectorDrawables.useSupportLibrary = true
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         ksp {
             arg("room.schemaLocation", "$projectDir/schemas")
         }

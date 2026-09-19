@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Updated current time indicator in weekly view
 
 ### Fixed
+- Fixed multi-day event alignment in the monthly calendar widget ([#15])
 - Fixed CalDAV sync not consistently working on Android 11+ ([#656])
 - Fixed event text readability on colored backgrounds ([#1065])
 - Fixed invisible current time indicator in weekly view ([#99])
@@ -212,6 +213,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Initial release
 
+[#15]: https://github.com/FossifyOrg/Calendar/issues/15
 [#34]: https://github.com/FossifyOrg/Calendar/issues/34
 [#45]: https://github.com/FossifyOrg/Calendar/issues/45
 [#49]: https://github.com/FossifyOrg/Calendar/issues/49
