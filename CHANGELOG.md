@@ -7,19 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Added
 - Holidays for New Zealand ([#1157])
-- Grid support for monthly calendar widget ([#406])
 
 ### Changed
 - Updated holiday data
 - Updated current time indicator in weekly view
+- Monthly calendar widgets now respect grid preference ([#406])
 
 ### Fixed
-- Fixed multi-day event alignment in the monthly calendar widget ([#15])
-- Fixed CalDAV sync not consistently working on Android 11+ ([#656])
+- Fixed CalDAV sync on Android 11+ ([#656])
 - Fixed event text readability on colored backgrounds ([#1065])
 - Fixed invisible current time indicator in weekly view ([#99])
-- Fixed stuck zoom level in weekly view on some devices ([#621])
-- Long title, location fields now wrap in task/event editors ([#1177])
+- Fixed stuck zoom level in weekly view ([#621])
+- Fixed multi-day widget event rendering in monthly widget ([#15])
 
 ## [1.10.3] - 2026-02-14
 ### Changed
