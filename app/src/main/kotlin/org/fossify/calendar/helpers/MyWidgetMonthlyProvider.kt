@@ -9,7 +9,9 @@ import android.content.Intent
 import android.content.res.Resources
 import android.graphics.Paint
 import android.view.View
+import android.view.ViewGroup
 import android.widget.RemoteViews
+import android.widget.TextView
 import org.fossify.calendar.R
 import org.fossify.calendar.activities.SplashActivity
 import org.fossify.calendar.extensions.*
@@ -138,10 +140,15 @@ class MyWidgetMonthlyProvider : AppWidgetProvider() {
         )
 
         val daySlotLists = buildDaySlotLists(days.size, sortedKeys, eventDayIndices, eventByKey)
+        val eventFontSize = smallerFontSize - 3f
+        val weekRowHeights = days.chunked(COLUMN_COUNT).map { week ->
+            val events = week.flatMap { it.dayEvents }.distinctBy { it.id to it.startTS }
+            getEventRowHeight(context, eventFontSize, events)
+        }
 
-        val titleShownForKey = mutableSetOf<Pair<Long, Long>>()
         for (i in days.indices) {
             val day = days[i]
+            val eventRowHeight = weekRowHeights[i / COLUMN_COUNT]
             val dayTextColor = if (context.config.highlightWeekends && day.isWeekend) {
                 context.config.highlightWeekendsColor
             } else {
@@ -156,10 +163,9 @@ class MyWidgetMonthlyProvider : AppWidgetProvider() {
 
             for (slotEvent in daySlotLists[i]) {
                 if (slotEvent == null) {
-                    views.addView(id, createSpacerView(packageName))
+                    views.addView(id, createSpacerView(packageName, eventFontSize, eventRowHeight))
                 } else {
                     val key = Pair(slotEvent.id ?: 0L, slotEvent.startTS)
-                    val showTitle = titleShownForKey.add(key) || i % 7 == 0
                     var eventTextColor = slotEvent.color.getContrastColor()
                     val shouldDim = (slotEvent.isTask() && slotEvent.isTaskCompleted() && dimCompletedTasks)
                         || (dimPastEvents && slotEvent.isPastEvent && !slotEvent.isTask())
@@ -169,6 +175,7 @@ class MyWidgetMonthlyProvider : AppWidgetProvider() {
                     val dayIndices = eventDayIndices[key]!!
                     val prevInRun = i > 0 && i % 7 != 0 && dayIndices.contains(i - 1)
                     val nextInRun = i < days.size - 1 && (i + 1) % 7 != 0 && dayIndices.contains(i + 1)
+                    val showTitle = !prevInRun
                     val eventLayout = when {
                         prevInRun && nextInRun -> R.layout.day_monthly_event_view_widget_event_middle
                         prevInRun             -> R.layout.day_monthly_event_view_widget_event_end
@@ -177,20 +184,16 @@ class MyWidgetMonthlyProvider : AppWidgetProvider() {
                     }
                     val newRemoteView = RemoteViews(packageName, eventLayout).apply {
                         setTextColor(R.id.day_monthly_event_id, eventTextColor)
-                        setTextSize(R.id.day_monthly_event_id, smallerFontSize - 3f)
+                        setTextSize(R.id.day_monthly_event_id, eventFontSize)
+                        setInt(R.id.day_monthly_event_id, "setMinHeight", eventRowHeight)
                         setInt(R.id.day_monthly_event_background, "setColorFilter", slotEvent.color)
-                        if (showTitle) {
-                            setText(R.id.day_monthly_event_id, slotEvent.title.replace(" ", "\u00A0"))
-                            setVisibleIf(R.id.day_monthly_task_image, slotEvent.isTask())
-                            applyColorFilter(R.id.day_monthly_task_image, eventTextColor)
-                            if (slotEvent.shouldStrikeThrough()) {
-                                setInt(R.id.day_monthly_event_id, "setPaintFlags", Paint.ANTI_ALIAS_FLAG or Paint.STRIKE_THRU_TEXT_FLAG)
-                            } else {
-                                setInt(R.id.day_monthly_event_id, "setPaintFlags", Paint.ANTI_ALIAS_FLAG)
-                            }
+                        val title = if (showTitle) slotEvent.title.replace(" ", "\u00A0") else ""
+                        setText(R.id.day_monthly_event_id, title)
+                        setVisibleIf(R.id.day_monthly_task_image, showTitle && slotEvent.isTask())
+                        applyColorFilter(R.id.day_monthly_task_image, eventTextColor)
+                        if (slotEvent.shouldStrikeThrough()) {
+                            setInt(R.id.day_monthly_event_id, "setPaintFlags", Paint.ANTI_ALIAS_FLAG or Paint.STRIKE_THRU_TEXT_FLAG)
                         } else {
-                            setText(R.id.day_monthly_event_id, "")
-                            setVisibleIf(R.id.day_monthly_task_image, false)
                             setInt(R.id.day_monthly_event_id, "setPaintFlags", Paint.ANTI_ALIAS_FLAG)
                         }
                     }
@@ -206,27 +209,51 @@ class MyWidgetMonthlyProvider : AppWidgetProvider() {
         eventDayIndices: Map<Pair<Long, Long>, List<Int>>,
         eventByKey: Map<Pair<Long, Long>, Event>
     ): Array<MutableList<Event?>> {
-        val daySlotIndex = IntArray(daysSize) { 0 }
         val daySlotLists = Array(daysSize) { mutableListOf<Event?>() }
         for (key in sortedKeys) {
-            val dayIndices = eventDayIndices[key]!!
-            val event = eventByKey[key]!!
-            val slot = dayIndices.maxOf { daySlotIndex[it] }
-            for (dayIdx in dayIndices) {
-                while (daySlotIndex[dayIdx] < slot) {
-                    daySlotLists[dayIdx].add(null) // invisible spacer
-                    daySlotIndex[dayIdx]++
-                }
-                daySlotLists[dayIdx].add(event)
-                daySlotIndex[dayIdx]++
+            val event = eventByKey.getValue(key)
+            for (weekDays in eventDayIndices.getValue(key).groupBy { it / COLUMN_COUNT }.values) {
+                placeWeekEvent(event, weekDays, daySlotLists)
             }
         }
         return daySlotLists
     }
 
-    private fun createSpacerView(packageName: String): RemoteViews {
+    private fun placeWeekEvent(event: Event, weekDays: List<Int>, daySlotLists: Array<MutableList<Event?>>) {
+        var slot = 0
+        while (weekDays.any { daySlotLists[it].getOrNull(slot) != null }) {
+            slot++
+        }
+        for (dayIdx in weekDays) {
+            val slots = daySlotLists[dayIdx]
+            while (slots.size <= slot) {
+                slots.add(null)
+            }
+            slots[slot] = event
+        }
+    }
+
+    private fun getEventRowHeight(context: Context, fontSize: Float, events: Collection<Event>): Int {
+        val textView = TextView(context).apply {
+            layoutParams = ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT
+            )
+            textSize = fontSize
+            maxLines = 1
+        }
+        val measureSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED)
+        return events.maxOfOrNull { event ->
+            textView.text = event.title
+            textView.measure(measureSpec, measureSpec)
+            textView.measuredHeight
+        } ?: 0
+    }
+
+    private fun createSpacerView(packageName: String, fontSize: Float, rowHeight: Int): RemoteViews {
         return RemoteViews(packageName, R.layout.day_monthly_event_view_widget).apply {
             setText(R.id.day_monthly_event_id, " ")
+            setTextSize(R.id.day_monthly_event_id, fontSize)
+            setInt(R.id.day_monthly_event_id, "setMinHeight", rowHeight)
             setViewVisibility(R.id.day_monthly_event_background, View.INVISIBLE)
             setViewVisibility(R.id.day_monthly_task_image, View.GONE)
             setInt(R.id.day_monthly_event_id, "setPaintFlags", Paint.ANTI_ALIAS_FLAG)
