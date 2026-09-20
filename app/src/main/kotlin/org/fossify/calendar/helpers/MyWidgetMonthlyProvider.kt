@@ -281,7 +281,7 @@ class MyWidgetMonthlyProvider : AppWidgetProvider() {
         override fun updateMonthlyCalendar(context: Context, month: String, days: ArrayList<DayMonthly>, checkedEvents: Boolean, currTargetDate: DateTime) {
             val largerFontSize = context.getWidgetFontSize() + 3f
             val textColor = context.config.widgetTextColor
-            val showGrid = context.config.widgetShowGrid
+            val showGrid = context.config.showGrid
             val resources = context.resources
 
             val appWidgetManager = AppWidgetManager.getInstance(context) ?: return
