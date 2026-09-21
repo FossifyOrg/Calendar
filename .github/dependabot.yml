@@ -48,7 +48,7 @@ updates:
       include: "scope"
 
   - package-ecosystem: "npm"
-    directory: "/.github/workflows/holiday-generator"
+    directory: "/scripts/holiday-generator"
     schedule:
       interval: "weekly"
     commit-message:

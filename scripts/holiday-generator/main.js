@@ -223,7 +223,7 @@ async function saveMetadata(allCountries) {
     const metadata = [];
     const outputDir = join(ASSETS_DIR, HOLIDAYS_DIR);
     const countryCodes = [...COUNTRIES, ...Object.keys(UNSUPPORTED_COUNTRIES)];
-    for (const [code, country] of [...Object.entries(allCountries), ...Object.entries(UNSUPPORTED_COUNTRIES)]) {
+    for (const [code, country] of Object.entries({ ...allCountries, ...UNSUPPORTED_COUNTRIES })) {
         if (!countryCodes.includes(code)) continue;
 
         const publicPath = `${HOLIDAYS_DIR}/${code}/public.ics`;

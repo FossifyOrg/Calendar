@@ -8,8 +8,8 @@ on:
   push:
     branches: [main]
     paths:
-      - ".github/workflows/holiday-generator/package-lock.json"
-      - ".github/workflows/holiday-generator/config.js"
+      - "scripts/holiday-generator/package-lock.json"
+      - "scripts/holiday-generator/config.js"
 
 jobs:
   generate:
@@ -24,7 +24,7 @@ jobs:
       - name: Run script
         env:
           LOG_ENABLED: true
-        working-directory: ./.github/workflows/holiday-generator
+        working-directory: ./scripts/holiday-generator
         run: "npm install && npm start"
 
       - name: Install keep-a-changelog parser
