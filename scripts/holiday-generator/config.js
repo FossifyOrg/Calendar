@@ -3,7 +3,7 @@ import { join } from "node:path";
 
 export const SHOULD_LOG = process.env.LOG_ENABLED === "true";
 
-export const ASSETS_DIR = join(cwd(), "../../../app/src/main/assets");
+export const ASSETS_DIR = join(cwd(), "../../app/src/main/assets");
 export const HOLIDAYS_DIR = "holidays";
 
 // country codes from https://github.com/commenthol/date-holidays?tab=readme-ov-file#supported-countries-states-regions

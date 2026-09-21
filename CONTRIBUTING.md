@@ -10,7 +10,7 @@ In case you just want to for example improve a translation, you can find the way
 ### Contributing holidays
 
 - For most countries, holidays are generated automatically using the [date-holidays](https://github.com/commenthol/date-holidays) library. You can find the list of countries supported by date-holidays [here](https://github.com/commenthol/date-holidays?tab=readme-ov-file#supported-countries-states-regions).
-- The app includes **a different set of countries** compared to date-holidays. For an exhaustive list of countries **_included_ in the app**, check out [holiday generator configuration](https://github.com/FossifyOrg/Calendar/blob/master/.github/workflows/holiday-generator/config.js) file.
+- The app includes **a different set of countries** compared to date-holidays. For an exhaustive list of countries **_included_ in the app**, check out [holiday generator configuration](https://github.com/FossifyOrg/Calendar/blob/main/scripts/holiday-generator/config.js) file.
 - Contributions are welcome for countries that are not yet supported by date-holidays but _are_ included in the app.
 
 #### Adding holidays
@@ -25,6 +25,6 @@ Adding holidays manually is slightly complicated than necessary due to periodic 
   - (optional) `regional.ics` for regional/state-specific holidays (holidays observed in some state/region but not country-wide).
   - (optional) `other.ics` for observances and other non-official holidays.
 - Update [metadata.json](https://github.com/FossifyOrg/Calendar/blob/master/app/src/main/assets/holidays/metadata.json) as per your country code and the corresponding ICS files you have created.
-- Add your country to the list _unsupported_ countries in the [holiday generator configuration](https://github.com/FossifyOrg/Calendar/blob/master/.github/workflows/holiday-generator/config.js#L73) file. This step ensures your holiday files aren't removed by the generator's future updates.
+- Add your country to the list _unsupported_ countries in the [holiday generator configuration](https://github.com/FossifyOrg/Calendar/blob/main/scripts/holiday-generator/config.js) file. This step ensures your holiday files aren't removed by the generator's future updates.
 - Test your changes locally to ensure everything is working as expected.
 - Finally, commit your changes and open a pull request.
