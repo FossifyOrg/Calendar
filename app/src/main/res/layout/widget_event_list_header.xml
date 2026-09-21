@@ -27,6 +27,7 @@
 
     <ImageView
         android:id="@+id/widget_event_go_to_today"
+        android:contentDescription="@string/go_to_today"
         style="@style/ArrowStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,6 +40,7 @@
 
     <ImageView
         android:id="@+id/widget_event_new_event"
+        android:contentDescription="@string/new_event"
         style="@style/ArrowStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
