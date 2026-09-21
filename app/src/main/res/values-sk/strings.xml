@@ -26,7 +26,7 @@
     <string name="filter_events_by_type">Filtrovať udalosti podľa typu kalendára</string>
     <string name="please_fill_location">Prosím zadajte polohu, ktorá má byť zobrazená na mape</string>
     <string name="public_event_notification_text">Blíži sa udalosť</string>
-    <string name="everything_filtered_out">Máte odfiltrované všetky typy udalostí v kalendári</string>
+    <string name="everything_filtered_out">Máte odfiltrované všetky kalendáre</string>
     <string name="event_color">Farba udalosti</string>
     <string name="default_calendar_color">Predvolená farba kalendára</string>
     <string name="task">Úloha</string>
@@ -115,7 +115,7 @@
     <string name="import_events_from_ics">Importovať udalosti z .ics súboru</string>
     <string name="import_events_from_ics_pro">Importovať udalosti z .ics súboru (Pro)</string>
     <string name="export_events_to_ics">Exportovať udalosti do .ics súboru</string>
-    <string name="default_event_type">Predvolený typ udalosti v kalendári</string>
+    <string name="default_event_type">Predvolený kalendár</string>
     <string name="export_past_events_too">Exportovať aj minulé udalosti</string>
     <string name="export_tasks">Exportovať úlohy</string>
     <string name="export_past_entries">Exportovať aj minulé položky</string>
@@ -243,18 +243,18 @@
         <item quantity="other">Najbližších %d mesiacov</item>
     </plurals>
     <string name="faq_1_title">Ako môžem odstrániť sviatky pridané pomocou tlačidla \"Pridať sviatky\"\?</string>
-    <string name="faq_1_text">Sviatky vytvorené daným spôsobom sú pridané do typu udalosti \"Sviatky\". Môžete teda ísť do Nastavenia -&gt; Spravovať typy udalostí, podržať daný typ a vymazať ho pomocou smetného koša.</string>
+    <string name="faq_1_text">Sviatky vytvorené daným spôsobom sú pridané do nového kalendára \"Sviatky\". Môžete ho odstrániť cez: Nastavenia -&gt; Spravovať kalendáre, podržať daný kalendár a vymazať ho tlačítkom koša.</string>
     <string name="faq_2_title">Viem si zosynchronizovať udalosti pomocou Google Kalendára, alebo inej služby podporujúcej CalDAV\?</string>
     <string name="faq_2_title_extra">Možno aj zdieľať kalendáre s inými ľuďmi\?</string>
-    <string name="faq_2_text">Áno, stačí aktivovať funkciu \"CalDAV synchronizácia\" v nastaveniach a zvoliť si správne kalendáre. Pre synchronizáciu medzi zariadením a serverom ale budete potrebovať synchronizačný adaptér od tretej strany. Ak chcete synchronizovať Google kalendár, ich oficiálna aplikácia Kalendár to spraví. Pre iné kalendáre budete potrebovať inú synchronizačnú aplikáciu, napr. DAVx5.</string>
+    <string name="faq_2_text">Áno, stačí aktivovať funkciu \"CalDAV synchronizácia\" v nastaveniach a zvoliť si správne kalendáre. Pre synchronizáciu medzi zariadením a serverom ale budete potrebovať synchronizačný adaptér od tretej strany. Ak chcete synchronizovať Google kalendár, ich oficiálna aplikácia Kalendár bude stačiť. Pre iné kalendáre budete potrebovať inú synchronizačnú aplikáciu, napr. DAVx5.</string>
     <string name="faq_3_title">Vidím vizuálnu pripomienku, ale nepočujem žiadny zvuk. Čo s tým viem spraviť\?</string>
     <string name="faq_3_text">Nie len zobrazovanie pripomienok, ale aj prehrávanie zvuku je ovplyvnené systémom. Ak nepočujete zvuk, skúste ísť do nastavení apky, použiť možnosť \"Zvukový kanál používaný pripomienkami\" a zmeniť zvolenú hodnotu. Ak to ešte stále nebude fungovať, skúste sa pozrieť do zvukových nastavení vášho systému, či daný kanál nie je stlmený.</string>
     <string name="faq_4_title">Podporuje apka časové pásma\?</string>
-    <string name="faq_4_text">Áno, podporuje. Štandardne sú všetky udalosti vytvárané vo vašom súčasnom časovom pásme. Ak chcete zmeniť časové pásmo niektorej udalosti, najprv musíte povoliť menenie časových pásem v nastaveniach apky, následne ho zmeniť na obrazovke s detailmi udalosti. Menenie je štandardne vypnuté, keďže ho väčšina ľudí potrebovať nebude.</string>
-    <string name="faq_5_title">Apka nezobrazuje upozornenia, čím to je\?</string>
+    <string name="faq_4_text">Áno, podporuje. Štandardne sú všetky udalosti vytvárané vo vašom súčasnom časovom pásme. Ak chcete zmeniť časové pásmo niektorej udalosti, najprv musíte povoliť menenie časových pásiem v nastaveniach aplikácie, následne ho zmeniť na obrazovke s detailmi udalosti. Menenie je štandardne vypnuté, keďže ho väčšina ľudí potrebovať nebude.</string>
+    <string name="faq_5_title">Aplikácia nezobrazuje upozornenia, čím to je?</string>
     <string name="faq_5_text">Pozrite sa do nastavení batérie a upozornení vášho zariadenia, či nič neblokuje upozornenia, alebo nevypína na pozadí apku. Mohli by ste sa pozrieť aj na &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;, je tam veľa užitočných tipov.</string>
     <string name="faq_6_title">Ako môžem upraviť alebo odstrániť existujúci kalendár?</string>
-    <string name="faq_6_text">Oboje viete spraviť v nastaveniach apky - Spravovať typy udalostí. Kliknutím viete upraviť názov a farbu, odstrániť ich viete dlhým podržaním a použitím odpadkového koša na hornom menu.</string>
+    <string name="faq_6_text">Oboje viete spraviť v nastaveniach aplikácie - Spravovať kalendáre. Kliknutím viete upraviť názov a farbu, odstrániť ich viete dlhým podržaním a použitím odpadkového koša na hornom menu.</string>
     <string name="public_holidays">Verejné sviatky</string>
     <string name="regional_holidays">Miestne sviatky</string>
     <string name="other_holidays">Ostatné sviatky a udalosti</string>
