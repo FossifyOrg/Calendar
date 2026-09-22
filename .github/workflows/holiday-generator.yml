@@ -8,8 +8,7 @@ on:
   push:
     branches: [main]
     paths:
-      - "scripts/holiday-generator/package-lock.json"
-      - "scripts/holiday-generator/config.js"
+      - "scripts/holiday-generator/**"
 
 jobs:
   generate:

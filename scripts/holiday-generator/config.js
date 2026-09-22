@@ -39,6 +39,7 @@ export const COUNTRIES = [
     "IL", // Israel
     "IT", // Italy
     "JP", // Japan
+    "KZ", // Kazakhstan
     "LV", // Latvia
     "LI", // Liechtenstein
     "LT", // Lithuania
@@ -52,6 +53,7 @@ export const COUNTRIES = [
     "NI", // Nicaragua
     "NG", // Nigeria
     "NO", // Norway
+    "PK", // Pakistan
     "PH", // Philippines
     "PL", // Poland
     "PT", // Portugal
@@ -78,9 +80,7 @@ export const COUNTRIES = [
 
 export const UNSUPPORTED_COUNTRIES = {
     "IN": "India", // TODO: https://github.com/commenthol/date-holidays/issues/137
-    "KZ": "Kazakhstan", // TODO: (no GH issue)
-    "PK": "Pakistan", // TODO: https://github.com/commenthol/date-holidays/pull/138
-    "LK": "Sri Lanka", // TODO: (no GH issue)
+    "LK": "Sri Lanka", // TODO: https://github.com/commenthol/date-holidays/issues/528
 };
 
 export const START_YEAR = new Date().getFullYear(); // start with current year
