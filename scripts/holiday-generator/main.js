@@ -1,5 +1,5 @@
 import { createHash } from "node:crypto";
-import { writeFile } from "node:fs/promises";
+import { rm, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { promisify } from "node:util";
 import { mkdirSync, existsSync } from "node:fs";
@@ -85,6 +85,7 @@ function getStateEvents(countryCode, nationalEvents) {
 
         for (let i = START_YEAR; i <= END_YEAR; i++) {
             generator.getHolidays(i).forEach(holiday => {
+                if (!TYPE_PUBLIC.includes(holiday.type)) return;
                 const key = generateUid(holiday.name, holiday.date);
                 if (!nationalEvents[key]) {
                     if (!stateEvents[key]) {
@@ -112,51 +113,48 @@ function getDateArray(date) {
 /**
  * Checks if holiday is a fixed-date holiday.
  * Regex based on https://github.com/commenthol/date-holidays/blob/master/docs/specification.md#fixed-date
- * @param {string} rule
+ * @param {object} holiday
  * @returns
  */
-function isFixedDate(rule) {
-    return /^\d\d-\d\d( and .*)?$/.test(rule);
+function isFixedDate(holiday) {
+    return /^\d\d-\d\d( and .*)?$/.test(holiday.rule)
+        && !holiday.substitute
+        && holiday.date.slice(5, 10) === holiday.rule.slice(0, 5);
 }
 
 /**
  * Generate ical file from given set of events
- * @param {ReturnType<getEvents>} events
- * @param {string} countryCode
+ * @param {object[]} events
  * @returns {Promise<string>}
  */
-async function generateIcal(events, countryCode) {
+async function generateIcal(events) {
     const eventsMap = new Map();
     events.forEach((x) => {
-        if (isFixedDate(x.rule)) {
-            const uid = generateUid(x.name, "");
-            if (!eventsMap.has(uid)) {
-                const yearDiff = x.end.getUTCFullYear() - x.start.getUTCFullYear();
-                x.start.setUTCFullYear(FIXED_DATE_START_YEAR);
-                x.end.setUTCFullYear(FIXED_DATE_START_YEAR + yearDiff);
-                eventsMap.set(uid, {
-                    title: x.name,
-                    uid,
-                    start: getDateArray(x.start),
-                    end: getDateArray(x.end),
-                    recurrenceRule: "FREQ=YEARLY",
-                    productId: "Fossify Calendar Holiday Generator",
-                    status: "CONFIRMED",
-                    description: x.states && x.states.length > 0 ? x.states.join(", ") : "",
-                });
-            }
-        } else {
-            const uid = generateUid(x.name, x.date);
-            eventsMap.set(uid, {
-                title: x.name,
-                uid,
-                start: getDateArray(x.start),
-                end: getDateArray(x.end),
-                productId: "Fossify Calendar Holiday Generator",
-                status: "CONFIRMED",
-                description: x.states && x.states.length > 0 ? x.states.join(", ") : "",
-            });
+        const recurring = isFixedDate(x);
+        const start = new Date(`${x.date.slice(0, 10)}T00:00:00Z`);
+        if (recurring) start.setUTCFullYear(FIXED_DATE_START_YEAR);
+        const startDate = getDateArray(start);
+        let uid = generateUid(x.name, recurring ? "" : x.date);
+        const existing = eventsMap.get(uid);
+        if (recurring && existing && (existing.start[1] !== startDate[1] || existing.start[2] !== startDate[2])) {
+            uid = generateUid(x.name, x.date.slice(5, 10));
         }
+        if (eventsMap.has(uid)) return;
+
+        const durationDays = Math.ceil((x.end - x.start) / 86400000);
+        const end = new Date(start);
+        end.setUTCDate(end.getUTCDate() + durationDays);
+
+        eventsMap.set(uid, {
+            title: x.name,
+            uid,
+            start: startDate,
+            end: getDateArray(end),
+            recurrenceRule: recurring ? "FREQ=YEARLY" : undefined,
+            productId: "Fossify Calendar Holiday Generator",
+            status: "CONFIRMED",
+            description: x.states && x.states.length > 0 ? x.states.join(", ") : "",
+        });
     });
     const ical = await createEvents([...eventsMap.values()]);
     return ical;
@@ -189,27 +187,18 @@ async function saveHolidays(countries) {
         const nationalEvents = getNationalEvents(code);
         const stateEvents = getStateEvents(code, nationalEvents);
 
-        const publicEvents = Object.values(nationalEvents).filter(x => TYPE_PUBLIC.includes(x.type));
-        const regionalEvents = Object.values(stateEvents).filter(x => TYPE_PUBLIC.includes(x.type));
-        const otherEvents = Object.values(nationalEvents).filter(x => TYPE_OTHER.includes(x.type))
-
+        const eventsByType = {
+            public: Object.values(nationalEvents).filter(x => TYPE_PUBLIC.includes(x.type)),
+            regional: Object.values(stateEvents),
+            other: Object.values(nationalEvents).filter(x => TYPE_OTHER.includes(x.type)),
+        };
         const outputDir = join(ASSETS_DIR, HOLIDAYS_DIR, code);
-        if (publicEvents.length > 0) {
-            await saveFile(
-                await generateIcal(publicEvents, code), outputDir, "public.ics",
-            );
-        }
-
-        if (regionalEvents.length > 0) {
-            await saveFile(
-                await generateIcal(regionalEvents, code), outputDir, "regional.ics",
-            );
-        }
-
-        if (otherEvents.length > 0) {
-            await saveFile(
-                await generateIcal(otherEvents, code), outputDir, "other.ics",
-            );
+        for (const [type, events] of Object.entries(eventsByType)) {
+            if (events.length > 0) {
+                await saveFile(await generateIcal(events), outputDir, `${type}.ics`);
+            } else {
+                await rm(join(outputDir, `${type}.ics`), { force: true });
+            }
         }
     }
 }
