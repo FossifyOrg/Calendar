@@ -1,5 +1,5 @@
 {
-  "version": "3e602a4e85801362bbf8e293eccfe63d7c5736ae574efeb1a41c27ce01bdcc56",
+  "version": "118db7daa2ef920abb3fcc5f4df07abd5fb39a69c18f883208bd934d401079da",
   "countries": [
     {
       "code": "AR",
@@ -12,7 +12,7 @@
       "code": "AT",
       "country": "Österreich",
       "public": "holidays/AT/public.ics",
-      "regional": "holidays/AT/regional.ics",
+      "regional": null,
       "other": "holidays/AT/other.ics"
     },
     {
@@ -251,7 +251,7 @@
       "country": "대한민국",
       "public": "holidays/KR/public.ics",
       "regional": null,
-      "other": "holidays/KR/other.ics"
+      "other": null
     },
     {
       "code": "KZ",
@@ -404,7 +404,7 @@
       "code": "RU",
       "country": "Россия",
       "public": "holidays/RU/public.ics",
-      "regional": null,
+      "regional": "holidays/RU/regional.ics",
       "other": null
     },
     {
