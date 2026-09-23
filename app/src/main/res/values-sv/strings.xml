@@ -35,8 +35,8 @@
     <string name="new_task">Ny uppgift</string>
     <string name="create_new_task">Skapa en ny uppgift</string>
     <string name="duplicate_task">Duplicera uppgift</string>
-    <string name="mark_completed">Markera avklarad</string>
-    <string name="mark_incomplete">Markera ofullständig</string>
+    <string name="mark_completed">Markera som slutförd</string>
+    <string name="mark_incomplete">Markera som ej slutförd</string>
     <string name="task_color">Uppgiftens färg</string>
     <string name="repetition">Upprepning</string>
     <string name="no_repetition">Ingen upprepning</string>
@@ -266,4 +266,6 @@
     <string name="access_level_private">Privat</string>
     <string name="allow_alarms_reminders">Du måste tillåta att appen schemalägger alarm för att påminnelser ska fungera korrekt.</string>
     <string name="offline_never_synced">Offline (synkroniseras aldrig)</string>
+    <string name="manage_holidays">Hantera helgdagar</string>
+    <string name="holidays_updated">Helgdagarna har uppdaterats</string>
 </resources>
