@@ -136,11 +136,8 @@
     <string name="remove_affected_events">Elimina permanentment els esdeveniments afectats</string>
     <string name="unsync_caldav_calendar">Per a eliminar un calendari CalDAV, cal dessincronitzar-lo</string>
     <string name="holidays">Festius</string>
-    <string name="add_holidays">Afegeix festius</string>
     <string name="national_holidays">Festius nacionals</string>
     <string name="religious_holidays">Festius religiosos</string>
-    <string name="holidays_imported_successfully">Els festius s\'han importat correctament al calendari de «Festius»</string>
-    <string name="importing_some_holidays_failed">Ha fallat la importació d\'alguns esdeveniments</string>
     <string name="importing_holidays_failed">Ha fallat la importació dels festius</string>
     <string name="manage_event_types">Gestioneu els calendaris</string>
     <string name="start_day_at">Comença el dia a les</string>
@@ -265,7 +262,6 @@
     <string name="status_confirmed">Confirmat</string>
     <string name="regional_holidays">Festius regionals</string>
     <string name="other_holidays">Altres festius i celebracions</string>
-    <string name="select_holidays_to_import">Seleccioneu els festius a importar</string>
     <string name="public_holidays">Festius oficials</string>
     <string name="show_widget_header">Mostra la capçalera</string>
     <string name="access_level_public">Públic</string>

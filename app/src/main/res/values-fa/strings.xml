@@ -140,15 +140,11 @@
     <string name="remove_affected_events">حذف دائمی رویدادهای تحت‌تأثیر</string>
     <string name="unsync_caldav_calendar">برای حذف یک تقویم CalDAV باید آن را از همگام‌سازی خارج کنید</string>
     <string name="holidays">تعطیلات</string>
-    <string name="add_holidays">افزودن تعطیلات</string>
     <string name="national_holidays">تعطیلات ملی</string>
     <string name="public_holidays">تعطیلات رسمی</string>
     <string name="regional_holidays">تعطیلات منطقه‌ای</string>
     <string name="other_holidays">سایر تعطیلات و مناسبت‌ها</string>
     <string name="religious_holidays">تعطیلات مذهبی</string>
-    <string name="select_holidays_to_import">انتخاب تعطیلات برای وارد کردن</string>
-    <string name="holidays_imported_successfully">تعطیلات با موفقیت به تقویم «تعطیلات» وارد شدند</string>
-    <string name="importing_some_holidays_failed">واردات برخی رویدادها ناموفق بود</string>
     <string name="importing_holidays_failed">وارد کردن تعطیلات ناموفق بود</string>
     <string name="manage_event_types">مدیریت تقویم‌ها</string>
     <string name="start_day_at">شروع روز در</string>

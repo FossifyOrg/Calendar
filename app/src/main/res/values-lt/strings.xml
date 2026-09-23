@@ -136,11 +136,8 @@
     <string name="remove_affected_events">Visam laikui ištrinti paveiktus įvykius</string>
     <string name="unsync_caldav_calendar">Norėdami ištrinti CalDAV kalendorių, turite nustoti jį sinchronizuoti</string>
     <string name="holidays">Šventinės dienos</string>
-    <string name="add_holidays">Pridėti šventines dienas</string>
     <string name="national_holidays">Valstybinės šventinės dienos</string>
     <string name="religious_holidays">Religinės šventinės dienos</string>
-    <string name="holidays_imported_successfully">Šventinės dienos buvo sėkmingai importuotos į „Šventinių dienų“ įvykio tipą</string>
-    <string name="importing_some_holidays_failed">Nepavyko importuoti kai kurių įvykių</string>
     <string name="importing_holidays_failed">Nepavyko importuoti šventinių dienų</string>
     <string name="manage_event_types">Tvarkyti įvykių tipus</string>
     <string name="start_day_at">Pradėti dieną nuo</string>

@@ -137,11 +137,8 @@
     <string name="remove_affected_events">Remover permanentemente eventos afetados</string>
     <string name="unsync_caldav_calendar">Para remover um calendário do CalDAV você deve desativar a sincronização</string>
     <string name="holidays">Feriados</string>
-    <string name="add_holidays">Adicionar feriados</string>
     <string name="national_holidays">Feriados nacionais</string>
     <string name="religious_holidays">Feriados religiosos</string>
-    <string name="holidays_imported_successfully">Os feriados foram importados com sucesso para o calendário \"Feriados\"</string>
-    <string name="importing_some_holidays_failed">A importação de alguns eventos falhou</string>
     <string name="importing_holidays_failed">A importação de feriados falhou</string>
     <string name="manage_event_types">Gerenciar calendários</string>
     <string name="start_day_at">Iniciar vista semanal em</string>
@@ -265,7 +262,6 @@
     <string name="status_canceled">Cancelado</string>
     <string name="public_holidays">Feriados públicos</string>
     <string name="other_holidays">Outros feriados e observâncias</string>
-    <string name="select_holidays_to_import">Selecione feriados para importar</string>
     <string name="regional_holidays">Feriados regionais</string>
     <string name="show_widget_header">Mostrar cabeçalho</string>
     <string name="access_level_public">Público</string>

@@ -131,11 +131,8 @@
     <string name="remove_affected_events">Sletta påverka hendingar for alltid</string>
     <string name="unsync_caldav_calendar">Du må slutta å synkronisera CalDav-kalendrar for å ta dei bort</string>
     <string name="holidays">Heilagdagar</string>
-    <string name="add_holidays">Legg til heilagdagar</string>
     <string name="national_holidays">Nasjonale heilagdagar</string>
     <string name="religious_holidays">Religiøse heilagdagar</string>
-    <string name="holidays_imported_successfully">Førte inn heilagdagane i kalenderen \"Heilagdagar\"</string>
-    <string name="importing_some_holidays_failed">Hentinga av somme hendingar slog feil</string>
     <string name="importing_holidays_failed">Kunne ikkje henta heilagdagar</string>
     <string name="manage_event_types">Røkta kalendrar</string>
     <string name="start_day_at">Byrja dagen kl</string>
@@ -250,7 +247,6 @@
     <string name="public_holidays">Ålmenne heilagdagar</string>
     <string name="regional_holidays">Stadbundne heilagdagar</string>
     <string name="other_holidays">Andre heilagdagar og høgtider</string>
-    <string name="select_holidays_to_import">Vel dei heilagdagane du vil henta inn</string>
     <string name="system_stream">System</string>
     <string name="manage_quick_filter_event_types">Røkta kalendrar med snøggsiling</string>
     <string name="caldav">CalDAV</string>

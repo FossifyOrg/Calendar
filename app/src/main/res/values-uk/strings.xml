@@ -139,11 +139,8 @@
     <string name="remove_affected_events">Назавжди видалити пов\'язані події</string>
     <string name="unsync_caldav_calendar">Щоб видалити календар CalDAV, необхідно відключити синхронізацію з ним</string>
     <string name="holidays">Свята</string>
-    <string name="add_holidays">Додати свято</string>
     <string name="national_holidays">Національні свята</string>
     <string name="religious_holidays">Релігійні свята</string>
-    <string name="holidays_imported_successfully">Свята успішно імпортовано до календаря «Свята»</string>
-    <string name="importing_some_holidays_failed">Деякі події не вдалось імпортувати</string>
     <string name="importing_holidays_failed">Свята не вдалось імпортувати</string>
     <string name="manage_event_types">Керування календарями</string>
     <string name="start_day_at">Огляд тижня починати</string>
@@ -267,7 +264,6 @@
     <string name="status_confirmed">Підтверджено</string>
     <string name="status_canceled">Скасовано</string>
     <string name="public_holidays">Державні свята</string>
-    <string name="select_holidays_to_import">Виберіть свята для імпортування</string>
     <string name="other_holidays">Інші свята та пам\'ятні дати</string>
     <string name="regional_holidays">Регіональні свята</string>
     <string name="show_widget_header">Показувати заголовок</string>

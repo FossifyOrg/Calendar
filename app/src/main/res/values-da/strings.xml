@@ -139,11 +139,8 @@
     <string name="remove_affected_events">Fjern berørte begivenheder permanent</string>
     <string name="unsync_caldav_calendar">For at fjerne en CalDAV-kalender skal du \'afsynkronisere\' den</string>
     <string name="holidays">Helligdage</string>
-    <string name="add_holidays">Tilføj helligdage</string>
     <string name="national_holidays">Nationale helligdage</string>
     <string name="religious_holidays">Religiøse helligdage</string>
-    <string name="holidays_imported_successfully">Helligdage er blevet importeret til kalenderen \"Helligdage\"</string>
-    <string name="importing_some_holidays_failed">Import af nogle begivenheder mislykkedes</string>
     <string name="importing_holidays_failed">Import af helligdage mislykkedes</string>
     <string name="manage_event_types">Administrér kalendere</string>
     <string name="start_day_at">Start dagen kl</string>
@@ -261,7 +258,6 @@
     <string name="public_holidays">Helligdage</string>
     <string name="regional_holidays">Regionale helligdage</string>
     <string name="other_holidays">Andre helligdage og højtider</string>
-    <string name="select_holidays_to_import">Vælg helligdage at importere</string>
     <string name="status_confirmed">Bekræftet</string>
     <string name="status_canceled">Annulleret</string>
     <string name="status_tentative">Foreløbig</string>

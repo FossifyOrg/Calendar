@@ -136,11 +136,8 @@
     <string name="remove_affected_events">Fjern berørte hendelser permanent</string>
     <string name="unsync_caldav_calendar">For å fjerne en CalDAV-kalender må du desynkronisere den</string>
     <string name="holidays">Off. fridager/merkedager</string>
-    <string name="add_holidays">Legg til off. fridager/merkedager</string>
     <string name="national_holidays">Nasjonale off. fridager/merkedager</string>
     <string name="religious_holidays">Religiøse off. fridager/merkedager</string>
-    <string name="holidays_imported_successfully">Off. fridager/merkedager er importert til kalenderen \"Off. fridager/merkedager\"</string>
-    <string name="importing_some_holidays_failed">Importering av noen hendelser feilet</string>
     <string name="importing_holidays_failed">Importering av off. fridager feilet</string>
     <string name="manage_event_types">Behandle kalendere</string>
     <string name="start_day_at">Start dag kl.</string>
@@ -257,7 +254,6 @@
     <string name="faq_3_title">Jeg ser de visuelle påminnelsene, men hører ingen lyd. Hva kan jeg gjøre?</string>
     <string name="faq_4_title">Støtter appen tidssoner?</string>
     <string name="faq_5_title">Hvorfor viser ikke appen noen varsler?</string>
-    <string name="select_holidays_to_import">Velg off. fridager/merkedager som skal importeres</string>
     <string name="other_holidays">Andre off. fridager og merkedager</string>
     <string name="regional_holidays">Regionale fridager/merkedager</string>
     <string name="public_holidays">Off. fridager</string>

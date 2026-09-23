@@ -131,11 +131,8 @@
     <string name="remove_affected_events">Înlătură definitiv evenimentele afectate</string>
     <string name="unsync_caldav_calendar">Pentru a elimina un calendar CalDAV, trebuie să îl desincronizezi</string>
     <string name="holidays">Sărbătoare</string>
-    <string name="add_holidays">Adaugă sărbători</string>
     <string name="national_holidays">Sărbători naționale</string>
     <string name="religious_holidays">Sărbători religioase</string>
-    <string name="holidays_imported_successfully">Sărbătorile au fost importate cu succes în tipul de eveniment \"Sărbători\"</string>
-    <string name="importing_some_holidays_failed">Importarea unor evenimente a eșuat</string>
     <string name="importing_holidays_failed">Importarea sărbătorilor a eșuat</string>
     <string name="manage_event_types">Gestionează tipurile de evenimente</string>
     <string name="start_day_at">Ziua începe la</string>
@@ -267,7 +264,6 @@
     <string name="public_holidays">Sărbători publice</string>
     <string name="regional_holidays">Sărbători regionale</string>
     <string name="other_holidays">Alte sărbători și tradiții</string>
-    <string name="select_holidays_to_import">Selectează sărbătorile pentru a le importa</string>
     <string name="status_tentative">Tentativă</string>
     <string name="status_confirmed">Confirmat</string>
     <string name="status_canceled">Anulat</string>

@@ -139,11 +139,8 @@
     <string name="remove_affected_events">永久移除受影響的活動</string>
     <string name="unsync_caldav_calendar">要移除 CalDAV 行事曆，您必須取消同步</string>
     <string name="holidays">節日</string>
-    <string name="add_holidays">新增節日</string>
     <string name="national_holidays">國定節日</string>
     <string name="religious_holidays">宗教節日</string>
-    <string name="holidays_imported_successfully">節日已成功匯入至「節日」日曆</string>
-    <string name="importing_some_holidays_failed">部份活動匯入失敗</string>
     <string name="importing_holidays_failed">匯入節日失敗</string>
     <string name="manage_event_types">管理日曆</string>
     <string name="start_day_at">每日開始於</string>
@@ -261,7 +258,6 @@
     <string name="status_confirmed">已確認</string>
     <string name="status_tentative">暫定</string>
     <string name="other_holidays">其他節日與紀念活動</string>
-    <string name="select_holidays_to_import">選取要匯入的節日</string>
     <string name="regional_holidays">區域節日</string>
     <string name="public_holidays">公眾節日</string>
     <string name="show_widget_header">顯示標題</string>

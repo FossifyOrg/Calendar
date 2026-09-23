@@ -38,7 +38,6 @@
     <string name="before">पहले</string>
     <string name="ignore_event_types">फाइल में कैलेंडरों को अनदेखा करें, हमेशा डिफ़ॉल्ट कैलेंडर का उपयोग करें</string>
     <string name="cannot_delete_default_type">यह अंतर्निर्मित कैलेंडर हटाया नहीं जा सकता</string>
-    <string name="holidays_imported_successfully">छुट्टियों को \"छुट्टियाँ\" कैलेंडर में सफलतापूर्वक आयात की गई हैं</string>
     <string name="delete_all_events_confirmation">क्या आप वाकई सभी आयोजन और कार्यों को हटाना चाहते हैं? इससे आपके कैलेंडर और अन्य सेटिंग्स बरकरार रहेंगी।</string>
     <string name="use_last_event_reminders">नए आयोजन के लिए पिछले आयोजन के अनुस्मारक को डिफ़ॉल्ट के रूप में उपयोग करें</string>
     <string name="view_to_open_from_widget">आयोजन सूची विजेट से खोलने के लिए देखें</string>
@@ -133,7 +132,6 @@
     <string name="move_events_into_default">प्रभावित आयोजनों को डिफ़ॉल्ट कैलेंडर में ले जाएँ</string>
     <string name="unsync_caldav_calendar">CalDAV कैलेंडर को हटाने के लिए आपको इसे अनसिंक्रनाइज़ करना होगा</string>
     <string name="holidays">छुट्टियां</string>
-    <string name="importing_some_holidays_failed">कुछ आयोजन आयात करना विफल रहा</string>
     <string name="manage_event_types">कैलेंडर प्रबंधित करें</string>
     <string name="importing_holidays_failed">छुट्टियाँ आयात करना विफल रहा</string>
     <string name="midnight_spanning">शीर्ष बार पर आधी रात तक चलने वाले आयोजन दिखाएँ</string>
@@ -201,7 +199,6 @@
     <string name="event_types">कैलेंडर</string>
     <string name="select_event_type">कैलेंडर चुनें</string>
     <string name="remove_affected_events">प्रभावित आयोजन को स्थायी रूप से हटा दें</string>
-    <string name="add_holidays">छुट्टियाँ जोड़ें</string>
     <string name="event_lists">आयोजन सूचियाँ</string>
     <string name="replace_description_with_location">आयोजन विवरण को स्थान से बदलें</string>
     <string name="delete_all_events">सभी आयोजन हटाएँ</string>
@@ -257,7 +254,6 @@
         <item quantity="one">अगले %d महीने के भीतर</item>
         <item quantity="other">अगले %d महीनों के भीतर</item>
     </plurals>
-    <string name="select_holidays_to_import">आयात करने के लिए छुट्टियाँ चुनें</string>
     <string name="regional_holidays">क्षेत्रीय छुट्टियाँ</string>
     <string name="public_holidays">सार्वजनिक छुट्टियाँ</string>
     <string name="other_holidays">अन्य छुट्टियाँ एवं उत्सव</string>

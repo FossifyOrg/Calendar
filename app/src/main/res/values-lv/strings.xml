@@ -117,11 +117,8 @@
     <string name="remove_affected_events">Neatgriezeniski noņemt ietekmētos notikumus</string>
     <string name="unsync_caldav_calendar">Lai noņemtu CalDAV kalendāru, jāpārtrauc tā sinhronizēšana</string>
     <string name="holidays">Svētku dienas</string>
-    <string name="add_holidays">Pievienot svētku dienas</string>
     <string name="national_holidays">Valsts svētki</string>
     <string name="religious_holidays">Reliģiskie svētki</string>
-    <string name="holidays_imported_successfully">Svētku dienas tika veiksmīgi ievietotas kalendārā “Svētku dienas”</string>
-    <string name="importing_some_holidays_failed">Dažu noteikumu ievietošana neizdevās</string>
     <string name="importing_holidays_failed">Svētku dienu ievietošana neizdevās</string>
     <string name="manage_event_types">Kalendāru pārvaldīšana</string>
     <string name="start_day_at">Sākt dienu</string>
@@ -228,7 +225,6 @@
     <string name="regional_holidays">Apgabala svētku dienas</string>
     <string name="public_holidays">Valsts svētku dienas</string>
     <string name="other_holidays">Citas svētku un atzīmējamas dienas</string>
-    <string name="select_holidays_to_import">Atlasīt svētku dienas, kuras ievietot</string>
     <string name="default_calendar_color">Noklusējuma kalendāra krāsa</string>
     <string name="new_task">Jauns uzdevums</string>
     <string name="create_new_task">Izveidot jaunu uzdevumu</string>
