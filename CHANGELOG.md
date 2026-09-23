@@ -258,7 +258,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#1024]: https://github.com/FossifyOrg/Calendar/issues/1024
 [#1065]: https://github.com/FossifyOrg/Calendar/issues/1065
 [#1157]: https://github.com/FossifyOrg/Calendar/issues/1157
-[#1177]: https://github.com/FossifyOrg/Calendar/issues/1177
 
 [Unreleased]: https://github.com/FossifyOrg/Calendar/compare/1.10.3...HEAD
 [1.10.3]: https://github.com/FossifyOrg/Calendar/compare/1.10.2...1.10.3
