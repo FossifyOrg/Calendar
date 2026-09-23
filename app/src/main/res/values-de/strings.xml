@@ -266,4 +266,7 @@
     <string name="access_level_public">Öffentlich</string>
     <string name="allow_alarms_reminders">Der App die Planung von Alarmen für Erinnerungen erlauben, damit diese ordnungsgemäß funktionieren.</string>
     <string name="offline_never_synced">Offline (nie synchronisiert)</string>
+    <string name="manage_holidays">Feiertage verwalten</string>
+    <string name="holidays_updated">Feiertage aktualisiert</string>
+    <string name="holiday_management_notice">Die App aktualisiert Feiertage nun automatisch. Wähle deine Länder erneut aus, um diese Funktion zu aktivieren. Zuvor importierte Feiertage müssen möglicherweise manuell entfernt werden.</string>
 </resources>
