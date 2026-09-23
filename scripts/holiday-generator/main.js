@@ -1,5 +1,5 @@
 import { createHash } from "node:crypto";
-import { rm, writeFile } from "node:fs/promises";
+import { readFile, rm, writeFile } from "node:fs/promises";
 import { join } from "node:path";
 import { promisify } from "node:util";
 import { mkdirSync, existsSync } from "node:fs";
@@ -233,7 +233,14 @@ async function saveMetadata(allCountries) {
         });
     }
 
-    const metadataContent = JSON.stringify(metadata, null, 2);
+    const hash = createHash("sha256").update(JSON.stringify(metadata));
+    for (const country of metadata) {
+        for (const path of [country.public, country.regional, country.other].filter(Boolean)) {
+            const content = await readFile(join(ASSETS_DIR, path), "utf8");
+            hash.update(path).update(content.replace(/^DTSTAMP:.*\r?\n/gm, ""));
+        }
+    }
+    const metadataContent = JSON.stringify({ version: hash.digest("hex"), countries: metadata }, null, 2);
     await saveFile(metadataContent, outputDir, "metadata.json");
 }
 
@@ -243,7 +250,7 @@ async function saveMetadata(allCountries) {
 async function doWork() {
     const hd = new Holidays();
     const countries = hd.getCountries();
-    await saveHolidays(countries);
+    if (!process.argv.includes("--metadata-only")) await saveHolidays(countries);
     await saveMetadata(countries);
 }
 

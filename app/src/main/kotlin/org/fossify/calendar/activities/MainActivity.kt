@@ -3,7 +3,6 @@ package org.fossify.calendar.activities
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.ShortcutInfo
-import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Icon
 import android.graphics.drawable.LayerDrawable
 import android.os.Bundle
@@ -13,13 +12,15 @@ import android.provider.ContactsContract.Contacts
 import android.provider.ContactsContract.Data
 import android.view.MenuItem
 import android.widget.Toast
+import androidx.core.graphics.drawable.toDrawable
+import androidx.fragment.app.FragmentManager
 import org.fossify.calendar.R
 import org.fossify.calendar.adapters.EventListAdapter
 import org.fossify.calendar.adapters.QuickFilterCalendarAdapter
 import org.fossify.calendar.databases.EventsDatabase
 import org.fossify.calendar.databinding.ActivityMainBinding
+import org.fossify.calendar.dialogs.ManageHolidaysDialog
 import org.fossify.calendar.dialogs.SelectCalendarsDialog
-import org.fossify.calendar.dialogs.SelectHolidayTypesDialog
 import org.fossify.calendar.dialogs.SetRemindersDialog
 import org.fossify.calendar.extensions.addImportIdsToTasks
 import org.fossify.calendar.extensions.calDAVHelper
@@ -52,18 +53,15 @@ import org.fossify.calendar.helpers.FLAG_ALL_DAY
 import org.fossify.calendar.helpers.FLAG_MISSING_YEAR
 import org.fossify.calendar.helpers.Formatter
 import org.fossify.calendar.helpers.Formatter.DAYCODE_PATTERN
-import org.fossify.calendar.helpers.HOLIDAY_EVENT
 import org.fossify.calendar.helpers.HolidayHelper
 import org.fossify.calendar.helpers.INITIAL_EVENTS
 import org.fossify.calendar.helpers.IS_TASK
-import org.fossify.calendar.helpers.IcsImporter
 import org.fossify.calendar.helpers.IcsImporter.ImportResult
 import org.fossify.calendar.helpers.LAST_VIEW
 import org.fossify.calendar.helpers.MAX_SEARCH_YEAR
 import org.fossify.calendar.helpers.MIN_EVENTS_TRESHOLD
 import org.fossify.calendar.helpers.MONTHLY_DAILY_VIEW
 import org.fossify.calendar.helpers.MONTHLY_VIEW
-import org.fossify.calendar.helpers.OTHER_EVENT
 import org.fossify.calendar.helpers.REPEAT_SAME_DAY
 import org.fossify.calendar.helpers.SHORTCUT_NEW_EVENT
 import org.fossify.calendar.helpers.SHORTCUT_NEW_TASK
@@ -80,10 +78,10 @@ import org.fossify.calendar.helpers.YEAR_TO_OPEN
 import org.fossify.calendar.helpers.getActivityToOpen
 import org.fossify.calendar.jobs.CalDAVUpdateListener
 import org.fossify.calendar.models.Event
-import org.fossify.calendar.models.HolidayInfo
 import org.fossify.calendar.models.ListEvent
 import org.fossify.calendar.models.ListItem
 import org.fossify.calendar.models.ListSectionDay
+import org.fossify.commons.dialogs.ConfirmationDialog
 import org.fossify.commons.dialogs.RadioGroupDialog
 import org.fossify.commons.extensions.adjustAlpha
 import org.fossify.commons.extensions.appLaunched
@@ -138,8 +136,6 @@ import org.joda.time.DateTime
 import org.joda.time.DateTimeZone
 import java.text.SimpleDateFormat
 import java.util.Locale
-import androidx.core.graphics.drawable.toDrawable
-import androidx.fragment.app.FragmentManager
 
 class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
     override var isSearchBarEnabled = true
@@ -149,6 +145,7 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
     private var mLatestSearchQuery = ""
     private var shouldGoToTodayBeVisible = false
     private var goToTodayButton: MenuItem? = null
+    private var updatingHolidays = false
 
     private var mStoredTextColor = 0
     private var mStoredBackgroundColor = 0
@@ -181,6 +178,7 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
             padBottomImeAndSystem = listOf(binding.searchHolder, binding.quickCalendarFilter),
         )
 
+        config.initializeHolidayManagementNotice(org.fossify.calendar.BuildConfig.VERSION_CODE)
         checkWhatsNewDialog()
         binding.calendarFab.beVisibleIf(config.storedView != YEARLY_VIEW && config.storedView != WEEKLY_VIEW)
         binding.calendarFab.setOnClickListener {
@@ -244,6 +242,7 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
         }
 
         addBirthdaysAnniversariesAtStart()
+        refreshHolidays()
 
         addImportIdsToTasks {
             refreshViewPager()
@@ -360,7 +359,7 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
                 R.id.print -> printView()
                 R.id.filter -> showFilterDialog()
                 R.id.refresh_caldav_calendars -> refreshCalDAVCalendars(true)
-                R.id.add_holidays -> addHolidays()
+                R.id.manage_holidays -> manageHolidays()
                 R.id.add_birthdays -> tryAddBirthdays()
                 R.id.add_anniversaries -> tryAddAnniversaries()
                 R.id.more_apps_from_us -> launchMoreAppsFromUsIntent()
@@ -683,53 +682,54 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
         }
     }
 
-    private fun addHolidays() {
-        getHolidayRadioItems { items ->
-            RadioGroupDialog(this, items) { any ->
-                SelectHolidayTypesDialog(
-                    activity = this,
-                    holidayInfo = any as HolidayInfo
-                ) { pathsToImport ->
-                    SetRemindersDialog(this, OTHER_EVENT) { reminders ->
-                        toast(org.fossify.commons.R.string.importing)
-                        ensureBackgroundThread {
-                            val result = pathsToImport
-                                .map { importHolidays(it, reminders) }
-                                .minBy { it.value }
-
-                            handleParseResult(result)
-                            if (result != ImportResult.IMPORT_FAIL) {
-                                runOnUiThread {
-                                    updateViewPager()
-                                    setupQuickFilter()
-                                }
-                            }
-                        }
-                    }
+    private fun manageHolidays() {
+        if (updatingHolidays) {
+            toast(org.fossify.commons.R.string.importing)
+            return
+        }
+        if (config.showHolidayManagementNotice) {
+            ConfirmationDialog(
+                activity = this,
+                messageId = R.string.holiday_management_notice,
+                positive = org.fossify.commons.R.string.ok,
+                negative = 0,
+                dialogTitle = getString(R.string.manage_holidays)
+            ) {
+                config.showHolidayManagementNotice = false
+                manageHolidays()
+            }
+            return
+        }
+        ensureBackgroundThread {
+            val countries = HolidayHelper(this).load().countries
+            runOnUiThread {
+                if (!isDestroyed && !isFinishing) {
+                    ManageHolidaysDialog(this, countries) { paths, reminders -> refreshHolidays(paths, reminders) }
                 }
             }
         }
     }
 
-    private fun importHolidays(path: String, reminders: ArrayList<Int>): ImportResult {
-        var calendarId = eventsHelper.getCalendarIdWithClass(HOLIDAY_EVENT)
-        if (calendarId == -1L) {
-            calendarId = eventsHelper.createPredefinedCalendar(
-                title = getString(R.string.holidays),
-                colorResId = R.color.default_holidays_color,
-                type = HOLIDAY_EVENT,
-                caldav = true
-            )
+    private fun refreshHolidays(paths: Set<String>? = null, reminders: ArrayList<Int> = config.holidayReminders) {
+        updatingHolidays = true
+        ensureBackgroundThread {
+            val helper = HolidayHelper(this)
+            val result = if (paths == null) helper.refreshIfNeeded() else helper.updateSelection(paths, reminders)
+            runOnUiThread {
+                updatingHolidays = false
+                if (isDestroyed || isFinishing) return@runOnUiThread
+                if (paths != null) {
+                    toast(
+                        if (result == ImportResult.IMPORT_FAIL) R.string.importing_holidays_failed
+                        else R.string.holidays_updated
+                    )
+                }
+                if (result == ImportResult.IMPORT_OK) {
+                    updateViewPager()
+                    setupQuickFilter()
+                }
+            }
         }
-
-        return IcsImporter(this).importEvents(
-            path = path,
-            defaultCalendarId = calendarId,
-            calDAVCalendarId = 0,
-            overrideFileCalendars = false,
-            eventReminders = reminders,
-            loadFromAssets = true
-        )
     }
 
     private fun tryAddBirthdays() {
@@ -868,17 +868,6 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
                 }
             }
         }
-    }
-
-    private fun handleParseResult(result: ImportResult) {
-        toast(
-            when (result) {
-                ImportResult.IMPORT_NOTHING_NEW -> org.fossify.commons.R.string.no_new_items
-                ImportResult.IMPORT_OK -> R.string.holidays_imported_successfully
-                ImportResult.IMPORT_PARTIAL -> R.string.importing_some_holidays_failed
-                else -> R.string.importing_holidays_failed
-            }, Toast.LENGTH_LONG
-        )
     }
 
     private fun addContactEvents(
@@ -1583,25 +1572,6 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
         binding.calendarFab.beVisible()
         config.storedView = DAILY_VIEW
         updateViewPager(dayCode)
-    }
-
-    private fun getHolidayRadioItems(callback: (ArrayList<RadioItem>) -> Unit) {
-        ensureBackgroundThread {
-            val items = ArrayList<RadioItem>()
-            HolidayHelper(this).load().forEachIndexed { index, holidayInfo ->
-                items.add(
-                    RadioItem(
-                        id = index,
-                        title = holidayInfo.country,
-                        value = holidayInfo
-                    )
-                )
-            }
-
-            runOnUiThread {
-                callback(items)
-            }
-        }
     }
 
     private fun checkWhatsNewDialog() {

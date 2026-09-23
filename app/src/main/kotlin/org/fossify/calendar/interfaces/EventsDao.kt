@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
 import org.fossify.calendar.helpers.LOCAL_CALENDAR_ID
 import org.fossify.calendar.helpers.SOURCE_CONTACT_ANNIVERSARY
 import org.fossify.calendar.helpers.SOURCE_CONTACT_BIRTHDAY
@@ -126,6 +127,9 @@ interface EventsDao {
     @Query("SELECT id FROM events WHERE parent_id IN (:parentIds)")
     fun getEventIdsWithParentIds(parentIds: List<Long>): List<Long>
 
+    @Query("UPDATE events SET parent_id = 0 WHERE parent_id IN (:parentIds)")
+    fun detachEventsWithParentIds(parentIds: List<Long>)
+
     @Query("SELECT id FROM events WHERE source = :source AND import_id != \"\" AND type = $TYPE_EVENT")
     fun getCalDAVCalendarEvents(source: String): List<Long>
 
@@ -150,6 +154,9 @@ interface EventsDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertOrUpdate(event: Event): Long
+
+    @Update
+    fun update(event: Event): Int
 
     @Query("DELETE FROM events WHERE id IN (:ids)")
     fun deleteEvents(ids: List<Long>)

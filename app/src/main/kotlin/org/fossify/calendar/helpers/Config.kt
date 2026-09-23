@@ -108,6 +108,36 @@ class Config(context: Context) : BaseConfig(context) {
         quickFilterCalendars = currQuickFilterCalendars
     }
 
+    val holidayPaths: Set<String>
+        get() = prefs.getStringSet(HOLIDAY_PATHS, emptySet())!!.toSet()
+
+    val holidayReminders: ArrayList<Int>
+        get() = prefs.getString(HOLIDAY_REMINDERS, REMINDER_DEFAULT_VALUE)!!
+            .split(",").map { it.toInt() }.toCollection(ArrayList())
+
+    val holidayDataVersion: String
+        get() = prefs.getString(HOLIDAY_DATA_VERSION, "")!!
+
+    val hasPendingHolidayUpdate: Boolean
+        get() = prefs.contains(HOLIDAY_PATHS) && holidayDataVersion.isEmpty()
+
+    var showHolidayManagementNotice: Boolean
+        get() = prefs.getBoolean(HOLIDAY_MANAGEMENT_NOTICE, false)
+        set(show) = prefs.edit().putBoolean(HOLIDAY_MANAGEMENT_NOTICE, show).apply()
+
+    fun initializeHolidayManagementNotice(versionCode: Int) {
+        if (!prefs.contains(HOLIDAY_MANAGEMENT_NOTICE)) {
+            showHolidayManagementNotice = lastVersion in 1..<versionCode
+        }
+    }
+
+    fun saveHolidaySelection(paths: Set<String>, reminders: List<Int>, version: String): Boolean =
+        prefs.edit()
+            .putStringSet(HOLIDAY_PATHS, paths)
+            .putString(HOLIDAY_REMINDERS, reminders.joinToString(","))
+            .putString(HOLIDAY_DATA_VERSION, version)
+            .commit()
+
     var listWidgetViewToOpen: Int
         get() = prefs.getInt(LIST_WIDGET_VIEW_TO_OPEN, DAILY_VIEW)
         set(viewToOpenFromListWidget) = prefs.edit()
