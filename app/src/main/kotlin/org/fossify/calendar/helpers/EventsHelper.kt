@@ -110,33 +110,37 @@ class EventsHelper(val context: Context) {
     fun getCalendarWithCalDAVCalendarId(calendarId: Int) =
         calendarsDB.getCalendarWithCalDAVCalendarId(calendarId)
 
-    fun deleteCalendars(calendars: ArrayList<CalendarEntity>, deleteEvents: Boolean) {
-        val typesToDelete = calendars
-            .asSequence()
-            .filter { it.caldavCalendarId == 0 && it.id != LOCAL_CALENDAR_ID }
-            .toMutableList()
-        val deleteIds = typesToDelete.map { it.id }.toMutableList()
-        val deletedSet = deleteIds.map { it.toString() }.toHashSet()
-        config.removeDisplayCalendars(deletedSet)
+    fun deleteCalendars(calendars: ArrayList<CalendarEntity>, deleteEvents: Boolean): Unit =
+        synchronized(HolidayHelper.lock) {
+            val typesToDelete = calendars
+                .asSequence()
+                .filter { it.caldavCalendarId == 0 && it.id != LOCAL_CALENDAR_ID }
+                .toMutableList()
+            val deleteIds = typesToDelete.map { it.id }.toMutableList()
+            val deletedSet = deleteIds.map { it.toString() }.toHashSet()
+            config.removeDisplayCalendars(deletedSet)
 
-        if (deleteIds.isEmpty()) {
-            return
-        }
+            if (deleteIds.isEmpty()) {
+                return
+            }
 
-        for (calendarId in deleteIds) {
-            if (deleteEvents) {
-                deleteEventsAndTasksWithCalendarId(calendarId!!)
-            } else {
-                eventsDB.resetEventsAndTasksWithCalendarId(calendarId!!)
+            for (calendarId in deleteIds) {
+                if (deleteEvents) {
+                    deleteEventsAndTasksWithCalendarId(calendarId!!)
+                } else {
+                    eventsDB.resetEventsAndTasksWithCalendarId(calendarId!!)
+                }
+            }
+
+            calendarsDB.deleteCalendars(typesToDelete)
+            if (typesToDelete.any { it.type == HOLIDAY_EVENT }) {
+                config.saveHolidaySelection(emptySet(), config.holidayReminders, "")
+            }
+
+            if (getCalendarsSync().size == 1) {
+                config.quickFilterCalendars = HashSet()
             }
         }
-
-        calendarsDB.deleteCalendars(typesToDelete)
-
-        if (getCalendarsSync().size == 1) {
-            config.quickFilterCalendars = HashSet()
-        }
-    }
 
     fun insertEvent(
         event: Event,
@@ -205,7 +209,14 @@ class EventsHelper(val context: Context) {
         updateWidgets: Boolean = true,
         callback: (() -> Unit)? = null
     ) {
-        eventsDB.insertOrUpdate(event)
+        if (event.importId.startsWith(MANAGED_HOLIDAY_PREFIX)) {
+            if (eventsDB.update(event) == 0) {
+                context.toast(org.fossify.commons.R.string.unknown_error_occurred)
+                return
+            }
+        } else {
+            eventsDB.insertOrUpdate(event)
+        }
         ensureCalendarVisibility(event, enableCalendar)
         if (updateWidgets) context.updateWidgets()
         context.scheduleNextEventReminder(event, showToasts)

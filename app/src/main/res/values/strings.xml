@@ -171,15 +171,14 @@
 
     <!-- Holidays -->
     <string name="holidays">Holidays</string>
-    <string name="add_holidays">Add holidays</string>
+    <string name="manage_holidays">Manage holidays</string>
+    <string name="holidays_updated">Holidays updated</string>
+    <string name="holiday_management_notice">The app now updates holidays automatically. Select your countries again to enable this. Previously imported holidays may need to be removed manually.</string>
     <string name="national_holidays">National holidays</string>
     <string name="public_holidays">Public holidays</string>
     <string name="regional_holidays">Regional holidays</string>
     <string name="other_holidays">Other holidays and observances</string>
     <string name="religious_holidays">Religious holidays</string>
-    <string name="select_holidays_to_import">Select holidays to import</string>
-    <string name="holidays_imported_successfully">Holidays have been successfully imported into the \"Holidays\" calendar</string>
-    <string name="importing_some_holidays_failed">Importing some events failed</string>
     <string name="importing_holidays_failed">Importing holidays failed</string>
 
     <!-- Settings -->

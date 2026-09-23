@@ -23,11 +23,12 @@ import org.fossify.commons.extensions.viewBinding
 class SetRemindersDialog(
     val activity: SimpleActivity,
     val eventType: Int,
+    initialReminders: List<Int> = emptyList(),
     val callback: (reminders: ArrayList<Int>) -> Unit
 ) {
-    private var mReminder1Minutes = REMINDER_OFF
-    private var mReminder2Minutes = REMINDER_OFF
-    private var mReminder3Minutes = REMINDER_OFF
+    private var mReminder1Minutes = initialReminders.getOrElse(0) { REMINDER_OFF }
+    private var mReminder2Minutes = initialReminders.getOrElse(1) { REMINDER_OFF }
+    private var mReminder3Minutes = initialReminders.getOrElse(2) { REMINDER_OFF }
     private var isAutomatic = false
 
     private val binding by activity.viewBinding(DialogSetRemindersBinding::inflate)
@@ -36,8 +37,10 @@ class SetRemindersDialog(
         binding.apply {
             setRemindersImage.applyColorFilter(activity.getProperTextColor())
             setReminders1.text = activity.getFormattedMinutes(mReminder1Minutes)
-            setReminders2.text = activity.getFormattedMinutes(mReminder1Minutes)
-            setReminders3.text = activity.getFormattedMinutes(mReminder1Minutes)
+            setReminders2.text = activity.getFormattedMinutes(mReminder2Minutes)
+            setReminders3.text = activity.getFormattedMinutes(mReminder3Minutes)
+            if (mReminder1Minutes != REMINDER_OFF) setReminders2.beVisible()
+            if (mReminder2Minutes != REMINDER_OFF) setReminders3.beVisible()
 
             setReminders1.setOnClickListener {
                 activity.handleNotificationPermission { granted ->

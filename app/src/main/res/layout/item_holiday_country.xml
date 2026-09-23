@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingStart="@dimen/activity_margin"
+    android:paddingEnd="@dimen/big_margin">
+
+    <org.fossify.commons.views.MyAppCompatCheckbox
+        android:id="@+id/country"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/list_touch_target_min" />
+
+    <LinearLayout
+        android:id="@+id/holiday_types"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="32dp"
+        android:paddingEnd="0dp">
+
+        <org.fossify.commons.views.MyAppCompatCheckbox
+            android:id="@+id/public_holidays"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/list_touch_target_min"
+            android:text="@string/public_holidays" />
+
+        <org.fossify.commons.views.MyAppCompatCheckbox
+            android:id="@+id/regional_holidays"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/list_touch_target_min"
+            android:text="@string/regional_holidays" />
+
+        <org.fossify.commons.views.MyAppCompatCheckbox
+            android:id="@+id/other_holidays"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/list_touch_target_min"
+            android:text="@string/other_holidays" />
+    </LinearLayout>
+</LinearLayout>

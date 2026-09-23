@@ -20,11 +20,11 @@ import java.io.File
 import kotlin.math.min
 
 class IcsImporter(val activity: SimpleActivity) {
-    enum class ImportResult(val value: Int) {
-        IMPORT_FAIL(3),
-        IMPORT_NOTHING_NEW(2),
-        IMPORT_OK(1),
-        IMPORT_PARTIAL(0),
+    enum class ImportResult {
+        IMPORT_FAIL,
+        IMPORT_NOTHING_NEW,
+        IMPORT_OK,
+        IMPORT_PARTIAL,
     }
 
     private var curStart = -1L
@@ -64,6 +64,28 @@ class IcsImporter(val activity: SimpleActivity) {
     private var eventsFailed = 0
     private var eventsAlreadyExist = 0
 
+    private var parsedHolidays: ArrayList<Event>? = null
+
+    fun parseHolidays(
+        path: String,
+        calendarId: Long,
+        reminders: ArrayList<Int>,
+        loadFromAssets: Boolean = true
+    ): List<Event>? {
+        val events = ArrayList<Event>()
+        parsedHolidays = events
+        val result = importEvents(
+            path = path,
+            defaultCalendarId = calendarId,
+            calDAVCalendarId = 0,
+            overrideFileCalendars = true,
+            eventReminders = reminders,
+            loadFromAssets = loadFromAssets
+        )
+        parsedHolidays = null
+        return events.takeIf { result == IMPORT_OK && eventsFailed == 0 }
+    }
+
     fun importEvents(
         path: String,
         defaultCalendarId: Long,
@@ -74,10 +96,11 @@ class IcsImporter(val activity: SimpleActivity) {
     ): ImportResult {
         try {
             val calendars = eventsHelper.getCalendarsSync()
-            val existingEvents = activity.eventsDB.getEventsOrTasksWithImportIds()
-                .toMutableList() as ArrayList<Event>
+            val existingEvents =
+                if (parsedHolidays == null) activity.eventsDB.getEventsOrTasksWithImportIds() else emptyList()
             val eventsToInsert = ArrayList<Event>()
             var line = ""
+            var holidayEventCount = 0
 
             val inputStream = if (loadFromAssets) {
                 activity.assets.open(path)
@@ -95,6 +118,10 @@ class IcsImporter(val activity: SimpleActivity) {
                     if (curLine.startsWith("\t") || curLine.substring(0, 1) == " ") {
                         line += curLine.removePrefix("\t").removePrefix(" ")
                         continue
+                    }
+
+                    if (parsedHolidays != null && curLine.trim() == BEGIN_EVENT) {
+                        holidayEventCount++
                     }
 
                     if (line.trim() == BEGIN_EVENT) {
@@ -357,6 +384,16 @@ class IcsImporter(val activity: SimpleActivity) {
                             }
                         }
 
+                        if (parsedHolidays != null) {
+                            require(event.importId.isNotEmpty() && !event.isTask() && curRecurrenceDayCode.isEmpty())
+                            require(event.startTS <= event.endTS)
+                            parsedHolidays!!.add(event)
+                            eventsImported++
+                            resetValues()
+                            line = curLine
+                            continue
+                        }
+
                         if (event.importId.isEmpty()) {
                             event.importId = event.hashCode().toString()
                             if (existingEvents.map { it.importId }.contains(event.importId)) {
@@ -410,6 +447,12 @@ class IcsImporter(val activity: SimpleActivity) {
                     }
                     line = curLine
                 }
+            }
+
+            if (parsedHolidays != null) {
+                require(line.trim() == END_CALENDAR && !isParsingEvent && !isParsingTask)
+                require(parsedHolidays!!.size == holidayEventCount)
+                return if (eventsFailed == 0 && holidayEventCount > 0) IMPORT_OK else IMPORT_FAIL
             }
 
             val (tasks, events) = eventsToInsert.partition { it.isTask() }
