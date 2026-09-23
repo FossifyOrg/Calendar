@@ -137,11 +137,8 @@
     <string name="remove_affected_events">Secara permanen hapus acara yang terdampak</string>
     <string name="unsync_caldav_calendar">Untuk menghapus kalender CalDAV anda perlu menonaktifkan sinkronisasinya</string>
     <string name="holidays">Hari Libur</string>
-    <string name="add_holidays">Tambahkan hari libur</string>
     <string name="national_holidays">Libur nasional</string>
     <string name="religious_holidays">Libur keagamaan</string>
-    <string name="holidays_imported_successfully">Hari libur berhasil diimpor ke kalender \"Hari Libur\"</string>
-    <string name="importing_some_holidays_failed">Gagal mengimpor beberapa hari libur</string>
     <string name="importing_holidays_failed">Gagal mengimpor hari libur</string>
     <string name="manage_event_types">Kelola kalender</string>
     <string name="start_day_at">Hari dimulai pada jam</string>
@@ -260,7 +257,6 @@
     <string name="public_holidays">Hari libur nasional</string>
     <string name="regional_holidays">Hari libur daerah</string>
     <string name="other_holidays">Hari libur dan perayaan lainnya</string>
-    <string name="select_holidays_to_import">Pilih hari libur untuk diimpor</string>
     <string name="offline_never_synced">Luring (tidak pernah disinkronkan)</string>
     <string name="access_level_public">Publik</string>
     <string name="access_level_private">Pribadi</string>

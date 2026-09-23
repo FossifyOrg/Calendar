@@ -137,11 +137,8 @@
     <string name="remove_affected_events">Trvale odebrat ovlivněné události</string>
     <string name="unsync_caldav_calendar">Chcete-li odebrat kalendář CalDAV, musíte mu vypnout synchronizaci</string>
     <string name="holidays">Svátky</string>
-    <string name="add_holidays">Přidat svátky</string>
     <string name="national_holidays">Státní svátky</string>
     <string name="religious_holidays">Církevní svátky</string>
-    <string name="holidays_imported_successfully">Svátky byly úspěšně naimportovány do kalendáře „Svátky“</string>
-    <string name="importing_some_holidays_failed">Import některých událostí se nezdařil</string>
     <string name="importing_holidays_failed">Import svátků se nezdařil</string>
     <string name="manage_event_types">Spravovat kalendáře</string>
     <string name="start_day_at">Počátek dne</string>
@@ -266,7 +263,6 @@
     <string name="public_holidays">Veřejné svátky</string>
     <string name="regional_holidays">Místní svátky</string>
     <string name="other_holidays">Ostatní svátky a události</string>
-    <string name="select_holidays_to_import">Vyberte svátky, které chcete importovat</string>
     <string name="show_widget_header">Zobrazit záhlaví</string>
     <string name="access_level_public">Veřejné</string>
     <string name="access_level_private">Soukromé</string>

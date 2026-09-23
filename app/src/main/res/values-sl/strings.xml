@@ -132,11 +132,8 @@
     <string name="remove_affected_events">trajno odstranite prizadete dogodke</string>
     <string name="unsync_caldav_calendar">Če želite odstraniti koledar CalDAV, ga morate sinhronizirati</string>
     <string name="holidays">Počitnice</string>
-    <string name="add_holidays">Dodajanje počitnic</string>
     <string name="national_holidays">Državni prazniki</string>
     <string name="religious_holidays">Verski prazniki</string>
-    <string name="holidays_imported_successfully">Prazniki so bili uspešno uvoženi v koledar »Prazniki«</string>
-    <string name="importing_some_holidays_failed">Uvoz nekaterih dogodkov ni uspel</string>
     <string name="importing_holidays_failed">Uvoz počitnic ni uspel</string>
     <string name="manage_event_types">Upravljanje koledarjev</string>
     <string name="start_day_at">Začetek dneva v</string>
@@ -267,7 +264,6 @@
     <string name="public_holidays">Javni prazniki</string>
     <string name="regional_holidays">Lokalni prazniki</string>
     <string name="other_holidays">Drugi prazniki in slovesnosti</string>
-    <string name="select_holidays_to_import">Izberite praznike za uvoz</string>
     <string name="status_tentative">Okvirno</string>
     <string name="status_confirmed">Potrjeno</string>
     <string name="status_canceled">Preklicano</string>

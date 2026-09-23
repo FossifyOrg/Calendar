@@ -136,11 +136,8 @@
     <string name="remove_affected_events">Eliminar permanentemente los eventos seleccionados</string>
     <string name="unsync_caldav_calendar">Desactiva la sincronización para eliminar un calendario CalDAV</string>
     <string name="holidays">Festivos</string>
-    <string name="add_holidays">Añadir festivos</string>
     <string name="national_holidays">Fiestas nacionales</string>
     <string name="religious_holidays">Festivos religiosos</string>
-    <string name="holidays_imported_successfully">Los días festivos se han importado con éxito al calendario «Festivos»</string>
-    <string name="importing_some_holidays_failed">Se ha producido un error al importar eventos</string>
     <string name="importing_holidays_failed">Se ha producido un error al importar los días festivos</string>
     <string name="manage_event_types">Gestionar calendarios</string>
     <string name="start_day_at">Empezar el día a las</string>
@@ -265,7 +262,6 @@
     <string name="status_confirmed">Confirmado</string>
     <string name="public_holidays">Festivos nacionales</string>
     <string name="regional_holidays">Festivos regionales</string>
-    <string name="select_holidays_to_import">Seleccionar festivos a importar</string>
     <string name="other_holidays">Otros festivos y celebraciones</string>
     <string name="show_widget_header">Mostrar encabezado</string>
     <string name="access_level_private">Privado</string>

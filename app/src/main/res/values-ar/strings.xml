@@ -137,11 +137,8 @@
     <string name="remove_affected_events">احذف الأحداث المتأثرة نهائيا</string>
     <string name="unsync_caldav_calendar">لحذف تقويم CalDAV يجب أن توقف مزامنته</string>
     <string name="holidays">العطلات</string>
-    <string name="add_holidays">أضف عطلات</string>
     <string name="national_holidays">العطلات الوطنية</string>
     <string name="religious_holidays">العطل الدينية</string>
-    <string name="holidays_imported_successfully">استوردت العطلات بنجاح إلى تقويم \"العطلات\"</string>
-    <string name="importing_some_holidays_failed">فشل في استيراد بعض الأحداث</string>
     <string name="importing_holidays_failed">فشل في استيراد العطلات</string>
     <string name="manage_event_types">أدر التقاويم</string>
     <string name="start_day_at">ابدأ اليوم عند</string>
@@ -269,7 +266,6 @@
     <string name="public_holidays">العطلات الرسمية</string>
     <string name="regional_holidays">العطل الإقليمية</string>
     <string name="other_holidays">الأعياد والمناسبات الأخرى</string>
-    <string name="select_holidays_to_import">حدد العطلات المراد استيرادها</string>
     <string name="status_tentative">مؤقت</string>
     <string name="status_free">حر</string>
     <string name="status_canceled">ألغي</string>

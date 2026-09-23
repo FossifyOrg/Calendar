@@ -132,11 +132,8 @@
     <string name="remove_affected_events">Трајно отстранување на погодените настани</string>
     <string name="unsync_caldav_calendar">За да го отстраните CalDAV календарот, морате да го несинхронизирате</string>
     <string name="holidays">Празници</string>
-    <string name="add_holidays">Додадете празници</string>
     <string name="national_holidays">Национални празници</string>
     <string name="religious_holidays">Верски празници</string>
-    <string name="holidays_imported_successfully">Празниците се успешно увезени во типот на настанот \"Празници\"</string>
-    <string name="importing_some_holidays_failed">Увозот на некои настани не успеа</string>
     <string name="importing_holidays_failed">Увозот на празници не успеа</string>
     <string name="manage_event_types">Управување со типови на настани</string>
     <string name="start_day_at">Почнете го денот на</string>
@@ -259,7 +256,6 @@
     <string name="regional_holidays">Регионални празници</string>
     <string name="public_holidays">Државни празници</string>
     <string name="other_holidays">Други празници</string>
-    <string name="select_holidays_to_import">Одбери ги празниците за увоз</string>
     <string name="status_tentative">Привремено</string>
     <string name="status_confirmed">Потврдено</string>
     <string name="status_canceled">Одкажано</string>

@@ -133,11 +133,8 @@
     <string name="remove_affected_events">影響を受ける予定を完全に削除</string>
     <string name="unsync_caldav_calendar">CalDAVカレンダーを削除するには、同期を解除する必要があります</string>
     <string name="holidays">祝日</string>
-    <string name="add_holidays">祝日を追加</string>
     <string name="national_holidays">国民の祝日</string>
     <string name="religious_holidays">宗教上の祝日</string>
-    <string name="holidays_imported_successfully">「祝日」カレンダーにインポートされました</string>
-    <string name="importing_some_holidays_failed">一部の予定をインポートできませんでした</string>
     <string name="importing_holidays_failed">祝日をインポートできませんでした</string>
     <string name="manage_event_types">カレンダーの管理</string>
     <string name="start_day_at">日の始まり</string>
@@ -258,7 +255,6 @@
     <string name="offline_never_synced">オフライン (未同期)</string>
     <string name="public_holidays">祝日</string>
     <string name="other_holidays">その他の祝祭日</string>
-    <string name="select_holidays_to_import">インポートする祝日</string>
     <string name="access_level_confidential">限定公開</string>
     <string name="access_level_private">非公開</string>
     <string name="access_level_public">公開</string>

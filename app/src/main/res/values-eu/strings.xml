@@ -137,11 +137,8 @@
     <string name="remove_affected_events">Eragindako gertaerak betiko kendu</string>
     <string name="unsync_caldav_calendar">CalDAV egutegia ezabatzeko desinkronizatu behar duzu</string>
     <string name="holidays">Jaiegunak</string>
-    <string name="add_holidays">Gehitu jaiegunak</string>
     <string name="national_holidays">Tokiko jaiegunak</string>
     <string name="religious_holidays">Jaiegun erlijiosoak</string>
-    <string name="holidays_imported_successfully">Jaiegunak ondo inportatu dira \"Jaiegunak\" egutegian</string>
-    <string name="importing_some_holidays_failed">Gertaera batzuen inportazioak huts egin du</string>
     <string name="importing_holidays_failed">Jaiegunak inportatzeak huts egin du</string>
     <string name="manage_event_types">Kudeatu egutegiak</string>
     <string name="start_day_at">Eguna noiz hasi</string>
@@ -263,7 +260,6 @@
     <string name="public_holidays">Jaiegun nazionalak</string>
     <string name="regional_holidays">Zonaldeko jaiegunak</string>
     <string name="other_holidays">Beste jaiegun eta ospakizunak</string>
-    <string name="select_holidays_to_import">Aukeratu inportatu beharreko jaiegunak</string>
     <string name="access_level_public">Publikoa</string>
     <string name="access_level_private">Pribatua</string>
     <string name="access_level_confidential">Isilpekoa</string>

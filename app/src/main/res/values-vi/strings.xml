@@ -143,6 +143,5 @@
     <string name="day_end_before_start">Ngày không thể kết thúc trước khi nó bắt đầu</string>
     <string name="current_time">Thời điểm hiện tại</string>
     <string name="default_duration">Thời lượng mặc định</string>
-    <string name="add_holidays">Thêm ngày lễ</string>
     <string name="faq_1_title">Làm cách nào tôi có thể xóa ngày nghỉ đã nhập qua nút \"Thêm ngày lễ\"?</string>
 </resources>

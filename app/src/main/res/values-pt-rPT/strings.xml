@@ -119,11 +119,8 @@
     <string name="remove_affected_events">Remover permanentemente os eventos afetados</string>
     <string name="unsync_caldav_calendar">Para remover um calendário CalDAV, tem que cancelar a sincronização</string>
     <string name="holidays">Feriados</string>
-    <string name="add_holidays">Adicionar feriados</string>
     <string name="national_holidays">Feriados nacionais</string>
     <string name="religious_holidays">Feriados religiosos</string>
-    <string name="holidays_imported_successfully">Os feriados foram adicionados com sucesso para o calendário \"Feriados\"</string>
-    <string name="importing_some_holidays_failed">Alguns eventos não foram importados</string>
     <string name="importing_holidays_failed">Falha ao importar os feriados</string>
     <string name="manage_event_types">Gerir calendários</string>
     <string name="start_day_at">Iniciar dia às</string>
@@ -269,7 +266,6 @@
     <string name="public_holidays">Feriados</string>
     <string name="regional_holidays">Feriados Religiosos</string>
     <string name="other_holidays">Outros Feriados e datas relevantes</string>
-    <string name="select_holidays_to_import">Seleccione os feriados para importar</string>
     <string name="show_widget_header">Mostrar cabeçalho</string>
     <string name="allow_alarms_reminders">Deve permitir que a aplicação agende alarmes para que os lembretes funcionem corretamente.</string>
     <string name="offline_never_synced">Offline (nunca sincronizado)</string>

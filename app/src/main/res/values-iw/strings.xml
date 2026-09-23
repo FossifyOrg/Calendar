@@ -130,11 +130,8 @@
     <string name="remove_affected_events">מחק אירועים אלו לצמיתות</string>
     <string name="unsync_caldav_calendar">כדי להסיר יומן CalDAV צריך להוציא אותו מסנכרון</string>
     <string name="holidays">חגים</string>
-    <string name="add_holidays">הוסף חגים</string>
     <string name="national_holidays">חגים לאומיים</string>
     <string name="religious_holidays">חגים דתיים</string>
-    <string name="holidays_imported_successfully">חגים יובאו בהצלחה ללוח השנה \"חגים\"</string>
-    <string name="importing_some_holidays_failed">חלק מהאירועים נכשלו בייבוא</string>
     <string name="importing_holidays_failed">ייבוא החגים נכשל</string>
     <string name="manage_event_types">ניהול לוחות שנה</string>
     <string name="start_day_at">שעת התחלה היום</string>
@@ -218,7 +215,6 @@
     <string name="delete_all_events_and_tasks">מחק את כל האירועים והמשימות</string>
     <string name="default_calendar_color">צבע ברירת מחדל של לוח השנה</string>
     <string name="task_is_repeatable">המשימה היא חזרתית</string>
-    <string name="select_holidays_to_import">בחר חגים לייבוא</string>
     <string name="other_holidays">חגים ומועדים אחרים</string>
     <string name="task_color">צבע המשימה</string>
     <string name="reminders">תזכורות</string>

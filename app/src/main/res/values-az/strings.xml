@@ -101,11 +101,8 @@
     <string name="remove_affected_events">Dəyişdirilmiş hadisələri tamamilə sil</string>
     <string name="unsync_caldav_calendar">CalDAV təqvimini silmək üçün əvvəlcə onu ansinxronizasiya etməlisiniz</string>
     <string name="holidays">Bayramlar</string>
-    <string name="add_holidays">Bayram əlavə et</string>
     <string name="national_holidays">Milli bayramlar</string>
     <string name="religious_holidays">Dini bayramlar</string>
-    <string name="holidays_imported_successfully">Bayramlar uğurla \"Bayramlar\" hadisə tipinə daxil edildi</string>
-    <string name="importing_some_holidays_failed">Bəzi bayramları daxil etmək alınmadı</string>
     <string name="importing_holidays_failed">Bayramları daxil etmək alınmadı</string>
     <string name="manage_event_types">Hadisə tiplərini idarə et</string>
     <string name="start_day_at">Günə başla</string>

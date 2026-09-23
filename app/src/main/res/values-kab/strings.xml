@@ -59,7 +59,6 @@
     <string name="access_level_private">Uslig</string>
     <string name="access_level_confidential">Abaḍni</string>
     <string name="description">Aglam</string>
-    <string name="add_holidays">Rnu ussan n imuras</string>
     <string name="change_view">Beddel taskant</string>
     <string name="daily_view">Taskant n yal ass</string>
     <string name="weekly_view">Taskant n umalas</string>
@@ -122,7 +121,6 @@
     <string name="regional_holidays">Imuras n temnaḍt</string>
     <string name="other_holidays">Imuras-nniḍen d tegnatin-nniḍen</string>
     <string name="religious_holidays">Imuras n ddin</string>
-    <string name="select_holidays_to_import">Fren imuras ara d-ketreḍ</string>
     <string name="loop_reminders">Taneddict tesmektayt alama tettwazgel</string>
     <string name="reminder_stream">Asuddem ameslaw yettusqedcen sɣur ismektiyen</string>
     <string name="ring_stream">Aṭenṭen</string>
@@ -233,8 +231,6 @@
     <string name="default_event_type">Awitay amezwer</string>
     <string name="export_past_events_too">Sifeḍ tidyanin iɛeddan daɣen</string>
     <string name="add_another_attendee">Rnu amttekki nniḍen</string>
-    <string name="holidays_imported_successfully">Imuras ttwaketren-d akken iwata deg uwitay \"imuras\"</string>
-    <string name="importing_some_holidays_failed">Akter n kra n tedyanin ur yeddi ara</string>
     <string name="importing_holidays_failed">Akter n yimuras ur yeddi ara</string>
     <string name="manage_event_types">Sefrek iwitayen</string>
     <string name="caldav_sync">Amtawi CalDAV</string>

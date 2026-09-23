@@ -139,11 +139,8 @@
     <string name="remove_affected_events">Natrvalo odstrániť dotknuté udalosti</string>
     <string name="unsync_caldav_calendar">Na odstránenie CalDAV kalendára musíte vypnúť jeho synchronizáciu</string>
     <string name="holidays">Sviatky</string>
-    <string name="add_holidays">Pridať sviatky</string>
     <string name="national_holidays">Štátne sviatky</string>
     <string name="religious_holidays">Náboženské sviatky</string>
-    <string name="holidays_imported_successfully">Sviatky boli úspešne importované do nového typu udalostí \"Sviatky\"</string>
-    <string name="importing_some_holidays_failed">Importovanie niektorých sviatkov zlyhalo</string>
     <string name="importing_holidays_failed">Importovanie udalostí zlyhalo</string>
     <string name="manage_event_types">Spravovať typy udalostí</string>
     <string name="start_day_at">Začať deň o</string>
@@ -258,7 +255,6 @@
     <string name="public_holidays">Verejné sviatky</string>
     <string name="regional_holidays">Miestne sviatky</string>
     <string name="other_holidays">Ostatné sviatky a udalosti</string>
-    <string name="select_holidays_to_import">Vyberte sviatky, ktoré chcete importovať</string>
     <string name="caldav">CalDAV</string>
     <string name="status_tentative">Predbežné</string>
     <string name="status_confirmed">Potvrdené</string>

@@ -139,11 +139,8 @@
     <string name="remove_affected_events">Αφαιρέστε μόνιμα τις επηρεαζόμενες εκδηλώσεις</string>
     <string name="unsync_caldav_calendar">Για να καταργήσετε ένα ημερολόγιο CalDAV, πρέπει να το αποσυγχρονίσετε</string>
     <string name="holidays">Αργίες</string>
-    <string name="add_holidays">Προσθήκη αργιών</string>
     <string name="national_holidays">Εθνικές αργίες</string>
     <string name="religious_holidays">Θρησκευτικές αργίες</string>
-    <string name="holidays_imported_successfully">Οι αργίες έχουν εισαχθεί επιτυχώς στον τύπο εκδήλωσης \"Αργίες\"</string>
-    <string name="importing_some_holidays_failed">Η εισαγωγή κάποιων εκδηλώσεων απέτυχε</string>
     <string name="importing_holidays_failed">Η εισαγωγή αργιών απέτυχε</string>
     <string name="manage_event_types">Διαχείριση τύπων εκδηλώσεων</string>
     <string name="start_day_at">Ημέρα έναρξης στις</string>

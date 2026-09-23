@@ -139,11 +139,8 @@
     <string name="remove_affected_events">Постоянно премахване на засегнатите събития</string>
     <string name="unsync_caldav_calendar">За премахване на събитие от вид CalDAV трябва да го разсинхронизирате</string>
     <string name="holidays">Празници</string>
-    <string name="add_holidays">Добавяне на празници</string>
     <string name="national_holidays">Национални празници</string>
     <string name="religious_holidays">Религиозни празници</string>
-    <string name="holidays_imported_successfully">Празниците бяха успешно импортирани във вид събитие \"Празници\"</string>
-    <string name="importing_some_holidays_failed">Неуспешно импортиране на някои събития</string>
     <string name="importing_holidays_failed">Неуспешно импортиране на празници</string>
     <string name="manage_event_types">Управление на видовете събития</string>
     <string name="start_day_at">Започване на деня на</string>

@@ -179,13 +179,10 @@
     <string name="select_event_type">Roghnaigh féilire</string>
     <string name="move_events_into_default">Bog imeachtaí lena mbaineann isteach sa fhéilire réamhshocraithe</string>
     <string name="remove_affected_events">Deireadh a chur go buan le himeachtaí a bhfuil tionchar orthu</string>
-    <string name="add_holidays">Cuir laethanta saoire leis</string>
     <string name="unsync_caldav_calendar">Chun féilire CalDAV a bhaint caithfidh tú é a dhísynchronize</string>
     <string name="holidays">Laethanta Saoire</string>
     <string name="national_holidays">Laethanta saoire náisiúnta</string>
     <string name="religious_holidays">Laethanta saoire reiligiúnacha</string>
-    <string name="holidays_imported_successfully">Tá laethanta saoire iompórtáilte go rathúil isteach sa fhéilire \"Laethanta Saoire\"</string>
-    <string name="importing_some_holidays_failed">Theip ar iompórtáil roinnt teagmhas</string>
     <string name="end_day_at">Deireadh an lae ag</string>
     <string name="midnight_spanning">Taispeáin imeachtaí a mhaireann thar mheán oíche ag an mbarra barr</string>
     <string name="allow_customizing_day_count">Ceadaigh comhaireamh lae a shaincheapadh</string>
@@ -272,7 +269,6 @@
     <string name="public_holidays">Laethanta saoire poiblí</string>
     <string name="regional_holidays">Laethanta saoire réigiúnacha</string>
     <string name="other_holidays">Laethanta saoire agus deasghnátha eile</string>
-    <string name="select_holidays_to_import">Roghnaigh laethanta saoire le hiompórtáil</string>
     <string name="show_widget_header">Taispeáin ceanntásc</string>
     <string name="access_level_public">Poiblí</string>
     <string name="access_level_private">Príobháideach</string>

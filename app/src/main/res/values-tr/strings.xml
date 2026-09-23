@@ -139,11 +139,8 @@
     <string name="remove_affected_events">Etkilenen etkinlikleri kalıcı olarak kaldır</string>
     <string name="unsync_caldav_calendar">CalDAV takvimini kaldırmak için, önce eşlemesini kaldırmalısınız</string>
     <string name="holidays">Tatiller</string>
-    <string name="add_holidays">Tatil ekle</string>
     <string name="national_holidays">Ulusal tatiller</string>
     <string name="religious_holidays">Dini tatiller</string>
-    <string name="holidays_imported_successfully">Tatiller, \"Tatiller\" takvimine başarıyla aktarıldı</string>
-    <string name="importing_some_holidays_failed">Bazı etkinlikler içe aktarılamadı</string>
     <string name="importing_holidays_failed">Tatiller içe aktarılamadı</string>
     <string name="manage_event_types">Takvimleri yönet</string>
     <string name="start_day_at">Gün başlangıcı</string>
@@ -260,7 +257,6 @@
     <string name="public_holidays">Resmi tatiller</string>
     <string name="regional_holidays">Dini tatiller</string>
     <string name="other_holidays">Diğer tatiller</string>
-    <string name="select_holidays_to_import">İçe aktarılacak tatilleri seçin</string>
     <string name="status_confirmed">Onaylanmış</string>
     <string name="status_tentative">Kesin değil</string>
     <string name="status_canceled">İptal edilmiş</string>

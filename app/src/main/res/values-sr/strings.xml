@@ -137,11 +137,8 @@
     <string name="remove_affected_events">Трајно уклони погођене догађаје</string>
     <string name="unsync_caldav_calendar">Да бисте уклонили CalDAV календар, морате га десинхронизовати</string>
     <string name="holidays">Празници</string>
-    <string name="add_holidays">Додај празнике</string>
     <string name="national_holidays">Национални празници</string>
     <string name="religious_holidays">Верски празници</string>
-    <string name="holidays_imported_successfully">Празници су успешно увезени у тип догађаја „Празници“</string>
-    <string name="importing_some_holidays_failed">Увоз неких догађаја није успео</string>
     <string name="importing_holidays_failed">Увоз празника није успео</string>
     <string name="manage_event_types">Управљање типовима догађаја</string>
     <string name="start_day_at">Започни дан у</string>

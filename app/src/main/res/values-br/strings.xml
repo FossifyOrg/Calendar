@@ -91,10 +91,8 @@
     <string name="remove_affected_events">Dilemel an darvoudoù tizhet</string>
     <string name="unsync_caldav_calendar">Da zilemel un deiziataer CalDAV eo ret deoc\'h e zic\'houbredañ</string>
     <string name="holidays">Devezhioù gouel</string>
-    <string name="add_holidays">Ouzhpennañ devezhioù gouel</string>
     <string name="national_holidays">Devezhioù gouel broadel</string>
     <string name="religious_holidays">Devezhioù gouel relijiel</string>
-    <string name="importing_some_holidays_failed">C\'hwitadenn en ur enporzhiañ ul lodenn eus an darvoudoù</string>
     <string name="importing_holidays_failed">C\'hwitadenn en ur enporzhiañ ul lodenn eus an devezhioù gouel</string>
     <string name="manage_event_types">Merañ an doareoù darvoudoù</string>
     <string name="start_day_at">Kregiñ an devezh da</string>
