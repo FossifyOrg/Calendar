@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 - Updated holiday data
+- Improved holiday management ([#462])
 - Updated current time indicator in weekly view
 - Monthly calendar widgets now respect grid preference ([#406])
 
@@ -228,6 +229,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#393]: https://github.com/FossifyOrg/Calendar/issues/393
 [#394]: https://github.com/FossifyOrg/Calendar/issues/394
 [#406]: https://github.com/FossifyOrg/Calendar/issues/406
+[#462]: https://github.com/FossifyOrg/Calendar/issues/462
 [#484]: https://github.com/FossifyOrg/Calendar/issues/484
 [#486]: https://github.com/FossifyOrg/Calendar/issues/486
 [#550]: https://github.com/FossifyOrg/Calendar/issues/550
