@@ -272,4 +272,7 @@
     <string name="access_level_confidential">Poufne</string>
     <string name="allow_alarms_reminders">Musisz zezwolić aplikacji na planowanie alarmów, aby przypomnienia działały prawidłowo.</string>
     <string name="offline_never_synced">Offline (niesynchronizowany)</string>
+    <string name="manage_holidays">Zarządzaj świętami</string>
+    <string name="holidays_updated">Święta zostały zaktualizowane</string>
+    <string name="holiday_management_notice">Aplikacja teraz aktualizuje święta automatycznie. Wybierz swoje kraje ponownie, aby to włączyć. Wcześniej zaimportowane święta mogą potrzebować ręcznego usunięcia.</string>
 </resources>
