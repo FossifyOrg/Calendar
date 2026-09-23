@@ -1,0 +1,20 @@
+Added:
+
+• Holidays for New Zealand 
+
+Changed:
+
+• Updated holiday data
+• Improved holiday management 
+• Updated current time indicator in weekly view
+• Monthly calendar widgets now respect grid preference 
+• Updated translations
+
+Fixed:
+
+• Fixed CalDAV sync on Android 11+ 
+• Fixed event text readability on colored backgrounds 
+• Fixed invisible current time indicator in weekly view 
+• Fixed stuck zoom level in weekly view 
+• Fixed multi-day widget event rendering in monthly widget 
+
