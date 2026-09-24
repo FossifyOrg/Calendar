@@ -272,4 +272,7 @@
     <string name="access_level_confidential">Конфиденциальное</string>
     <string name="allow_alarms_reminders">Необходимо разрешить приложению устанавливать будильники, чтобы напоминания работали должным образом.</string>
     <string name="offline_never_synced">Автономный (не синхронизируется)</string>
+    <string name="manage_holidays">Управление праздниками</string>
+    <string name="holidays_updated">Праздники обновлены</string>
+    <string name="holiday_management_notice">Теперь приложение обновляет праздничные дни автоматически. Чтобы включить эту функцию, заново выберите нужные страны. Возможно, ранее импортированные праздники потребуется удалить вручную.</string>
 </resources>
