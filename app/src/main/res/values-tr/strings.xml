@@ -266,4 +266,7 @@
     <string name="access_level_confidential">Gizli</string>
     <string name="allow_alarms_reminders">Hatırlatıcıların düzgün çalışabilmesi için uygulamaya alarm planlama izni vermelisiniz.</string>
     <string name="offline_never_synced">Çevrimdışı (hiç eşitlenmedi)</string>
+    <string name="manage_holidays">Tatilleri yönet</string>
+    <string name="holidays_updated">Tatiller güncellendi</string>
+    <string name="holiday_management_notice">Uygulama artık tatilleri otomatik olarak güncelliyor. Bu özelliği etkinleştirmek için ülkelerinizi yeniden seçin. Daha önce içe aktarılan tatillerin elle kaldırılması gerekebilir.</string>
 </resources>
