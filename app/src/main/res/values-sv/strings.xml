@@ -268,4 +268,5 @@
     <string name="offline_never_synced">Offline (synkroniseras aldrig)</string>
     <string name="manage_holidays">Hantera helgdagar</string>
     <string name="holidays_updated">Helgdagarna har uppdaterats</string>
+    <string name="holiday_management_notice">Appen uppdaterar nu helgdagar automatiskt. Välj dina länder på nytt för att aktivera detta. Tidigare importerade helgdagar kan behöva tas bort manuellt.</string>
 </resources>
