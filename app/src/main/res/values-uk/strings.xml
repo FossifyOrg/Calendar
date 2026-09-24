@@ -272,4 +272,7 @@
     <string name="access_level_public">Громадськість</string>
     <string name="allow_alarms_reminders">Щоб нагадування працювали належним чином, потрібно дозволити додатку планувати будильники.</string>
     <string name="offline_never_synced">Офлайн (ніколи не синхронізувався)</string>
+    <string name="manage_holidays">Керування святами</string>
+    <string name="holidays_updated">Свята оновлено</string>
+    <string name="holiday_management_notice">Тепер застосунок автоматично оновлює святкові дні. Виберіть країни ще раз, щоб увімкнути цю функцію. Раніше імпортовані святкові дні, можливо, доведеться видалити вручну.</string>
 </resources>
