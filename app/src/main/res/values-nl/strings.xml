@@ -266,4 +266,7 @@
     <string name="access_level_public">Openbaar</string>
     <string name="allow_alarms_reminders">Om herinneringen goed te laten werken, heeft de app het recht nodig om alarmen in te stellen.</string>
     <string name="offline_never_synced">Offline (nooit gesynchroniseerd)</string>
+    <string name="manage_holidays">Feestdagen beheren</string>
+    <string name="holidays_updated">Feestdagen bijgewerkt</string>
+    <string name="holiday_management_notice">Feestdagen worden vanaf nu automatisch bijgewerkt. Kies opnieuw de gewenste landen om deze functie in te schakelen. Eerder geïmporteerde feestdagen zullen mogelijk handmatig moeten worden verwijderd.</string>
 </resources>
