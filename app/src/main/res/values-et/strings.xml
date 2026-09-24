@@ -266,4 +266,7 @@
     <string name="access_level_public">Avalik</string>
     <string name="allow_alarms_reminders">Et meeldetuletused toimiks korralikult, pead lubama rakendusel ajastada äratusi.</string>
     <string name="offline_never_synced">Pole võrgus (pole iialgi sünkroonitud)</string>
+    <string name="manage_holidays">Halda pühasid</string>
+    <string name="holidays_updated">Pühad on uuendatud</string>
+    <string name="holiday_management_notice">Rakendus uuendab nüüd pühi automaatselt. Selle valiku sisselülitamiseks vali oma riigid uuesti. Võib-olla pead eemaldama varasemalt imporditud pühad.</string>
 </resources>
