@@ -269,4 +269,7 @@
     <string name="access_level_confidential">Confidencial</string>
     <string name="allow_alarms_reminders">Heu de permetre que l\'aplicació programi alarmes perquè els recordatoris funcionin correctament.</string>
     <string name="offline_never_synced">Fora de línia (no sincronitzat mai)</string>
+    <string name="holiday_management_notice">Ara l\'aplicació actualitza automàticament els festius. Seleccioneu els països de nou per a permetre-ho. És possible que els festius importats prèviament s\'hagin d\'eliminar manualment.</string>
+    <string name="manage_holidays">Gestió dels festius</string>
+    <string name="holidays_updated">S\'han actualitzat els festius</string>
 </resources>
