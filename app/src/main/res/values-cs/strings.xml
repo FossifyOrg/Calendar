@@ -269,4 +269,7 @@
     <string name="access_level_confidential">Tajné</string>
     <string name="allow_alarms_reminders">Pro správnou funkčnost připomínek musíte aplikaci povolit plánování budíků.</string>
     <string name="offline_never_synced">Offline (nesynchronizováno)</string>
+    <string name="manage_holidays">Spravovat svátky</string>
+    <string name="holidays_updated">Svátky aktualizovány</string>
+    <string name="holiday_management_notice">Aplikace nyní automaticky aktualizuje svátky. Pro povolení znovu vyberte své země. Dříve importované svátky možná budou muset být odstraněny ručně.</string>
 </resources>
