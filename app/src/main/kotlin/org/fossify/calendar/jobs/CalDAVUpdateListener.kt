@@ -11,6 +11,7 @@ import android.os.Build
 import android.os.Handler
 import android.provider.CalendarContract
 import org.fossify.calendar.extensions.recheckCalDAVCalendars
+import org.fossify.calendar.extensions.tasksRepository
 
 // based on https://developer.android.com/reference/android/app/job/JobInfo.Builder.html#addTriggerContentUri(android.app.job.JobInfo.TriggerContentUri)
 @TargetApi(Build.VERSION_CODES.N)
@@ -32,6 +33,11 @@ class CalDAVUpdateListener : JobService() {
         val uri = CalendarContract.Calendars.CONTENT_URI
         JobInfo.Builder(CALDAV_EVENT_CONTENT_JOB, componentName).apply {
             addTriggerContentUri(JobInfo.TriggerContentUri(uri, JobInfo.TriggerContentUri.FLAG_NOTIFY_FOR_DESCENDANTS))
+            context.tasksRepository.getTaskChangesUris().forEach {
+                addTriggerContentUri(
+                    JobInfo.TriggerContentUri(it, JobInfo.TriggerContentUri.FLAG_NOTIFY_FOR_DESCENDANTS)
+                )
+            }
             (context.getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler).schedule(build())
         }
     }

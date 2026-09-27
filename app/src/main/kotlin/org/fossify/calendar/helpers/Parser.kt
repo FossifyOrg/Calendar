@@ -13,6 +13,10 @@ import org.joda.time.format.DateTimeFormat
 import kotlin.math.floor
 
 class Parser {
+    companion object {
+        private const val DAY_CODE_LENGTH = 8
+    }
+
     // from RRULE:FREQ=DAILY;COUNT=5 to Daily, 5x...
     fun parseRepeatInterval(fullString: String, startTS: Long): EventRepetition {
         val parts = fullString.split(";").filter { it.isNotEmpty() }
@@ -250,5 +254,24 @@ class Parser {
         }
 
         return "P${days}DT${hours}H${remainder}M0S"
+    }
+
+    // from an EXDATE value like "20190216T230000Z,20190223T230000Z" or "Europe/Madrid;20201208T000000Z" to day codes
+    fun parseExDates(exdate: String): List<String> = exdate.split("\n")
+        .flatMap { it.split(",", ";") }
+        .filter { it.length >= DAY_CODE_LENGTH && it[0].isDigit() }
+        .mapNotNull { parseExDate(it) }
+        .distinct()
+
+    private fun parseExDate(value: String): String? {
+        return if (value.endsWith("Z")) {
+            // convert for example "20190216T230000Z" to "20190217000000" in Slovakia in a weird way
+            val formatter = DateTimeFormat.forPattern("yyyyMMdd'T'HHmmss'Z'")
+            val offset = DateTimeZone.getDefault().getOffset(System.currentTimeMillis())
+            val dt = formatter.parseDateTime(value).plusMillis(offset)
+            Formatter.getDayCodeFromDateTime(dt)
+        } else {
+            value.substring(0, DAY_CODE_LENGTH).takeIf { it.areDigitsOnly() }
+        }
     }
 }

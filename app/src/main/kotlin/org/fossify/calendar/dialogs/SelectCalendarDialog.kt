@@ -29,6 +29,7 @@ class SelectCalendarDialog(
     val addLastUsedOneAsFirstOption: Boolean,
     val showOnlyWritable: Boolean,
     var showManageCalendars: Boolean,
+    val showTaskLists: Boolean = false,
     val callback: (calendar: CalendarEntity) -> Unit
 ) {
     companion object {
@@ -67,7 +68,9 @@ class SelectCalendarDialog(
                     )
                     addRadioButton(lastUsedCalendar)
                 }
-                this.calendars.filter { showCalDAVCalendars || it.caldavCalendarId == 0 }.forEach {
+                this.calendars.filter {
+                    (showCalDAVCalendars || it.caldavCalendarId == 0) && (showTaskLists || !it.isSyncedTaskList())
+                }.forEach {
                     addRadioButton(it)
                 }
                 if (showNewCalendarOption) {

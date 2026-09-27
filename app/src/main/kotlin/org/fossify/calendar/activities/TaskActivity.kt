@@ -381,17 +381,17 @@ class TaskActivity : SimpleActivity() {
     }
 
     private fun resolveTaskCalendarId(storedCalendars: ArrayList<CalendarEntity>): Long {
-        return if (config.defaultCalendarId == -1L) {
-            config.lastUsedLocalCalendarId
-        } else {
-            val defaultCalendar = storedCalendars.firstOrNull { it.id == config.defaultCalendarId }
-            if (defaultCalendar?.caldavCalendarId == 0) {
-                config.defaultCalendarId
-            } else {
-                config.lastUsedLocalCalendarId
-            }
+        val defaultCalendar = storedCalendars.firstOrNull { it.id == config.defaultCalendarId }
+        val lastUsedTaskCalendar = storedCalendars.firstOrNull { it.id == config.lastUsedTaskCalendarId }
+        return when {
+            config.defaultCalendarId != -1L && canHoldTasks(defaultCalendar) -> config.defaultCalendarId
+            config.defaultCalendarId == -1L && canHoldTasks(lastUsedTaskCalendar) -> config.lastUsedTaskCalendarId
+            else -> config.lastUsedLocalCalendarId
         }
     }
+
+    private fun canHoldTasks(calendar: CalendarEntity?) =
+        calendar != null && (calendar.isLocalCalendar() || (calendar.isSyncedTaskList() && config.caldavSync))
 
     private fun setupTaskClickListeners() = binding.apply {
         taskAllDay.setOnCheckedChangeListener { _, isChecked -> toggleAllDay(isChecked) }
@@ -532,7 +532,10 @@ class TaskActivity : SimpleActivity() {
             }
         }
 
-        config.lastUsedLocalCalendarId = mCalendarId
+        config.lastUsedTaskCalendarId = mCalendarId
+        if (calendarsDB.getCalendarWithId(mCalendarId)?.isLocalCalendar() == true) {
+            config.lastUsedLocalCalendarId = mCalendarId
+        }
         mTask.apply {
             startTS = mTaskDateTime.withSecondOfMinute(0).withMillisOfSecond(0).seconds()
             endTS = startTS
@@ -666,7 +669,7 @@ class TaskActivity : SimpleActivity() {
 
                     DELETE_ALL_OCCURRENCES -> eventsHelper.deleteEvent(
                         id = mTask.id!!,
-                        deleteFromCalDAV = false
+                        deleteFromCalDAV = true
                     )
                 }
 
@@ -925,7 +928,8 @@ class TaskActivity : SimpleActivity() {
             showNewCalendarOption = false,
             addLastUsedOneAsFirstOption = false,
             showOnlyWritable = true,
-            showManageCalendars = true
+            showManageCalendars = true,
+            showTaskLists = config.caldavSync
         ) {
             mCalendarId = it.id!!
             updateCalendar()

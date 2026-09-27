@@ -14,6 +14,9 @@ interface TasksDao {
     @Query("SELECT * FROM tasks WHERE task_id = :id AND start_ts = :startTs")
     fun getTaskWithIdAndTs(id: Long, startTs: Long): Task?
 
+    @Query("SELECT * FROM tasks WHERE task_id = :id")
+    fun getTasksWithId(id: Long): List<Task>
+
     @Query("DELETE FROM tasks WHERE task_id = :id AND start_ts = :startTs")
     fun deleteTaskWithIdAndTs(id: Long, startTs: Long)
 

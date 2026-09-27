@@ -64,7 +64,7 @@ class ManageCalendarsActivity : SimpleActivity(), DeleteCalendarsListener {
         calendars: ArrayList<CalendarEntity>,
         deleteEvents: Boolean
     ): Boolean {
-        if (calendars.any { it.caldavCalendarId != 0 }) {
+        if (calendars.any { !it.isLocalCalendar() }) {
             toast(R.string.unsync_caldav_calendar)
             if (calendars.size == 1) {
                 return false

@@ -1,6 +1,7 @@
 package org.fossify.calendar.extensions
 
 import org.fossify.calendar.helpers.Formatter
+import org.fossify.calendar.helpers.SOURCE_TASK_LIST
 import org.fossify.calendar.helpers.TWELVE_HOURS
 import org.fossify.calendar.models.Event
 import org.joda.time.DateTimeZone
@@ -42,3 +43,10 @@ fun Event.maybeAdjustRepeatLimitCount(original: Event, occurrenceTS: Long) {
 }
 
 fun Event.shouldStrikeThrough() = isTaskCompleted() || isAttendeeInviteDeclined() || isEventCanceled()
+
+// the local calendar id of the synced task list this task is linked with, see TasksRepository
+fun Event.getTaskListCalendarId(): Long? =
+    if (isTask() && source.startsWith("$SOURCE_TASK_LIST-")) source.substringAfterLast("-").toLongOrNull() else null
+
+fun Event.getRemoteTaskId(): Long? =
+    if (getTaskListCalendarId() != null) importId.substringAfterLast("-").toLongOrNull() else null

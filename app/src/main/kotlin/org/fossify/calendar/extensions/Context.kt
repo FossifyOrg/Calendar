@@ -86,6 +86,7 @@ import org.fossify.calendar.receivers.DummyAlarmReceiver
 import org.fossify.calendar.receivers.NotificationReceiver
 import org.fossify.calendar.services.MarkCompletedService
 import org.fossify.calendar.services.SnoozeService
+import org.fossify.calendar.sync.tasks.TasksRepository
 import org.fossify.commons.extensions.adjustAlpha
 import org.fossify.commons.extensions.applyColorFilter
 import org.fossify.commons.extensions.beVisibleIf
@@ -140,6 +141,7 @@ val Context.completedTasksDB: TasksDao
     get() = EventsDatabase.getInstance(applicationContext).TasksDao()
 val Context.eventsHelper: EventsHelper get() = EventsHelper(this)
 val Context.calDAVHelper: CalDAVHelper get() = CalDAVHelper(this)
+val Context.tasksRepository: TasksRepository get() = TasksRepository(this)
 
 fun Context.updateWidgets() {
     val widgetIDs = AppWidgetManager.getInstance(applicationContext)
@@ -1093,6 +1095,8 @@ fun Context.updateTaskCompletion(event: Event, completed: Boolean) {
 
     // mark event as "incomplete" in the main events db
     eventsDB.updateTaskCompletion(event.id!!, event.flags.removeBit(FLAG_TASK_COMPLETED))
+
+    tasksRepository.onCompletionChanged(event, completed)
 }
 
 // same as Context.queryCursor but inlined to allow non-local returns

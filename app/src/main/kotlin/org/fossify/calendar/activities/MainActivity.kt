@@ -446,9 +446,8 @@ class MainActivity : SimpleActivity(), RefreshRecyclerViewListener {
         if (isNougatPlus()) {
             val updateListener = CalDAVUpdateListener()
             if (config.caldavSync) {
-                if (!updateListener.isScheduled(applicationContext)) {
-                    updateListener.scheduleJob(applicationContext)
-                }
+                // always reschedule, the observed task lists might have changed
+                updateListener.scheduleJob(applicationContext)
             } else {
                 updateListener.cancelJob(applicationContext)
             }

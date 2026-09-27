@@ -102,6 +102,9 @@ interface EventsDao {
     @Query("SELECT * FROM events WHERE source = :source AND type = $TYPE_EVENT")
     fun getEventsFromCalDAVCalendar(source: String): List<Event>
 
+    @Query("SELECT * FROM events WHERE source = :source AND type = $TYPE_TASK")
+    fun getTasksFromSource(source: String): List<Event>
+
     @Query("SELECT * FROM events WHERE id IN (:ids)")
     fun getEventsOrTasksWithIds(ids: List<Long>): List<Event>
 
@@ -148,6 +151,9 @@ interface EventsDao {
     @Deprecated("Use Context.updateTaskCompletion() instead unless you know what you are doing.")
     @Query("UPDATE events SET flags = :newFlags WHERE id = :id")
     fun updateTaskCompletion(id: Long, newFlags: Int)
+
+    @Query("UPDATE events SET import_id = :importId, source = :source WHERE id = :id AND type = $TYPE_TASK")
+    fun updateTaskImportIdAndSource(importId: String, source: String, id: Long)
 
     @Query("UPDATE events SET import_id = :importId WHERE id = :id AND type = $TYPE_TASK")
     fun updateTaskImportId(importId: String, id: Long)
