@@ -245,6 +245,10 @@
     <string name="insufficient_permissions">You are not allowed to write in the selected calendar</string>
     <string name="caldav_event_not_found">Event not found. Please enable CalDAV sync for the appropriate calendar in the app settings.</string>
     <string name="no_synchronized_calendars">No synchronizable calendars have been found</string>
+    <string name="task_lists">Task lists</string>
+    <string name="task_sync_no_provider">To sync tasks too, install OpenTasks or Tasks.org and enable tasks for your account in DAVx5.</string>
+    <string name="task_sync_no_permission">Allow access to your tasks to sync them too.</string>
+    <string name="task_sync_no_lists">No task lists have been found. Enable tasks for your account in DAVx5 to sync them.</string>
     <string name="status_free">Free</string>
     <string name="status_busy">Busy</string>
     <string name="fetching_event_failed">Fetching event %s failed</string>

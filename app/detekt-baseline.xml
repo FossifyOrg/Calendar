@@ -79,7 +79,7 @@
     <ID>LongMethod:IcsImporter.kt$IcsImporter$fun importEvents( path: String, defaultCalendarId: Long, calDAVCalendarId: Int, overrideFileCalendars: Boolean, eventReminders: ArrayList&lt;Int&gt;? = null, loadFromAssets: Boolean = false, ): ImportResult</ID>
     <ID>LongMethod:MyTimeZones.kt$fun getAllTimeZones()</ID>
     <ID>LongMethod:WeekFragment.kt$WeekFragment$private fun addEvents(events: ArrayList&lt;Event&gt;)</ID>
-    <ID>LongParameterList:SelectCalendarDialog.kt$SelectCalendarDialog$( val activity: Activity, val currCalendar: Long, val showCalDAVCalendars: Boolean, val showNewCalendarOption: Boolean, val addLastUsedOneAsFirstOption: Boolean, val showOnlyWritable: Boolean, var showManageCalendars: Boolean, val callback: (calendar: CalendarEntity) -&gt; Unit )</ID>
+    <ID>LongParameterList:SelectCalendarDialog.kt$SelectCalendarDialog$( val activity: Activity, val currCalendar: Long, val showCalDAVCalendars: Boolean, val showNewCalendarOption: Boolean, val addLastUsedOneAsFirstOption: Boolean, val showOnlyWritable: Boolean, var showManageCalendars: Boolean, val showTaskLists: Boolean = false, val callback: (calendar: CalendarEntity) -&gt; Unit )</ID>
     <ID>LoopWithTooManyJumpStatements:IcsImporter.kt$IcsImporter$while</ID>
     <ID>LoopWithTooManyJumpStatements:ManageCalendarsAdapter.kt$ManageCalendarsAdapter$for</ID>
     <ID>LoopWithTooManyJumpStatements:WeekFragment.kt$WeekFragment$do</ID>
@@ -127,6 +127,7 @@
     <ID>MagicNumber:EventListWidgetAdapter.kt$EventListWidgetAdapter$999</ID>
     <ID>MagicNumber:EventsDatabase.kt$EventsDatabase.Companion.&lt;no name provided&gt;$10</ID>
     <ID>MagicNumber:EventsDatabase.kt$EventsDatabase.Companion.&lt;no name provided&gt;$11</ID>
+    <ID>MagicNumber:EventsDatabase.kt$EventsDatabase.Companion.&lt;no name provided&gt;$12</ID>
     <ID>MagicNumber:EventsDatabase.kt$EventsDatabase.Companion.&lt;no name provided&gt;$3</ID>
     <ID>MagicNumber:EventsDatabase.kt$EventsDatabase.Companion.&lt;no name provided&gt;$4</ID>
     <ID>MagicNumber:EventsDatabase.kt$EventsDatabase.Companion.&lt;no name provided&gt;$5</ID>
@@ -418,6 +419,7 @@
     <ID>TooGenericExceptionCaught:ReminderWarningDialog.kt$ReminderWarningDialog$e: Exception</ID>
     <ID>TooGenericExceptionCaught:SettingsActivity.kt$SettingsActivity$e: Exception</ID>
     <ID>TooManyFunctions:CalDAVHelper.kt$CalDAVHelper</ID>
+    <ID>TooManyFunctions:CalendarsDao.kt$CalendarsDao</ID>
     <ID>TooManyFunctions:Context.kt$org.fossify.calendar.extensions.Context.kt</ID>
     <ID>TooManyFunctions:DayEventsAdapter.kt$DayEventsAdapter : MyRecyclerViewAdapter</ID>
     <ID>TooManyFunctions:DayFragmentsHolder.kt$DayFragmentsHolder : MyFragmentHolderNavigationListener</ID>

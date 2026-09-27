@@ -18,6 +18,7 @@ import org.fossify.calendar.extensions.eventsHelper
 import org.fossify.calendar.extensions.queryCursorInlined
 import org.fossify.calendar.extensions.refreshCalDAVCalendars
 import org.fossify.calendar.extensions.scheduleCalDAVSync
+import org.fossify.calendar.extensions.tasksRepository
 import org.fossify.calendar.extensions.toLocalAllDayEvent
 import org.fossify.calendar.extensions.toUtcAllDayEvent
 import org.fossify.calendar.extensions.updateWidgets
@@ -27,7 +28,6 @@ import org.fossify.calendar.models.CalendarEntity
 import org.fossify.calendar.models.Event
 import org.fossify.calendar.models.Reminder
 import org.fossify.calendar.objects.States.isUpdatingCalDAV
-import org.fossify.commons.extensions.areDigitsOnly
 import org.fossify.commons.extensions.getIntValue
 import org.fossify.commons.extensions.getIntValueOrNull
 import org.fossify.commons.extensions.getLongValue
@@ -39,7 +39,6 @@ import org.fossify.commons.extensions.toast
 import org.fossify.commons.helpers.PERMISSION_READ_CALENDAR
 import org.fossify.commons.helpers.PERMISSION_WRITE_CALENDAR
 import org.joda.time.DateTimeZone
-import org.joda.time.format.DateTimeFormat
 import kotlin.math.max
 
 @SuppressLint("MissingPermission")
@@ -70,6 +69,8 @@ class CalDAVHelper(val context: Context) {
 
                 fetchCalDAVCalendarEvents(calendar, localCalendar.id!!, showToasts)
             }
+
+            context.tasksRepository.syncAll()
 
             if (scheduleNextSync) {
                 context.scheduleCalDAVSync(true)
@@ -347,28 +348,7 @@ class CalDAVHelper(val context: Context) {
             // some calendars add repeatable event exceptions with using the "exdate" field, not by creating a child event that is an exception
             // exdate can be stored as "20190216T230000Z", but also as "Europe/Madrid;20201208T000000Z"
             val exdate = cursor.getStringValue(Events.EXDATE) ?: ""
-            if (exdate.length > 8) {
-                val lines = exdate.split("\n")
-                for (line in lines) {
-                    val dates = line.split(",", ";")
-                    dates.filter { it.isNotEmpty() && it[0].isDigit() }.forEach {
-                        if (it.endsWith("Z")) {
-                            // convert for example "20190216T230000Z" to "20190217000000" in Slovakia in a weird way
-                            val formatter = DateTimeFormat.forPattern("yyyyMMdd'T'HHmmss'Z'")
-                            val offset =
-                                DateTimeZone.getDefault().getOffset(System.currentTimeMillis())
-                            val dt = formatter.parseDateTime(it).plusMillis(offset)
-                            val dayCode = Formatter.getDayCodeFromDateTime(dt)
-                            event.addRepetitionException(dayCode)
-                        } else {
-                            val potentialTS = it.substring(0, 8)
-                            if (potentialTS.areDigitsOnly()) {
-                                event.addRepetitionException(potentialTS)
-                            }
-                        }
-                    }
-                }
-            }
+            Parser().parseExDates(exdate).forEach { event.addRepetitionException(it) }
 
             if (importIdsMap.containsKey(event.importId)) {
                 val existingEvent = importIdsMap[importId]

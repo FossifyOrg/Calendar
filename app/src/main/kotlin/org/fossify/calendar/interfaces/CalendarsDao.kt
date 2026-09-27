@@ -30,6 +30,9 @@ interface CalendarsDao {
     @Query("SELECT * FROM event_types WHERE caldav_calendar_id = :calendarId")
     fun getCalendarWithCalDAVCalendarId(calendarId: Int): CalendarEntity?
 
+    @Query("SELECT * FROM event_types WHERE task_provider != '' AND task_list_id != 0")
+    fun getSyncedTaskLists(): List<CalendarEntity>
+
     @Query("DELETE FROM event_types WHERE caldav_calendar_id IN (:ids)")
     fun deleteCalendarsWithCalendarIds(ids: List<Int>)
 

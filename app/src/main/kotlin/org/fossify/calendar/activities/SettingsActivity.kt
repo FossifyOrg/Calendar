@@ -7,6 +7,7 @@ import android.media.AudioManager
 import android.media.RingtoneManager
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import com.google.android.material.timepicker.MaterialTimePicker
 import com.google.android.material.timepicker.TimeFormat
 import org.fossify.calendar.R
@@ -24,6 +25,7 @@ import org.fossify.calendar.extensions.eventsHelper
 import org.fossify.calendar.extensions.getSyncedCalDAVCalendars
 import org.fossify.calendar.extensions.scheduleNextAutomaticBackup
 import org.fossify.calendar.extensions.showImportEventsDialog
+import org.fossify.calendar.extensions.tasksRepository
 import org.fossify.calendar.extensions.tryImportEventsFromFile
 import org.fossify.calendar.extensions.updateWidgets
 import org.fossify.calendar.helpers.ALLOW_CHANGING_TIME_ZONES
@@ -159,6 +161,12 @@ class SettingsActivity : SimpleActivity() {
 
     private val binding by viewBinding(ActivitySettingsBinding::inflate)
 
+    private val taskPermissionsLauncher =
+        registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) {
+            // task sync is optional, show the calendars even if access to tasks was denied
+            showSyncedCalendarsDialog()
+        }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -286,8 +294,8 @@ class SettingsActivity : SimpleActivity() {
         if (getProperPrimaryColor() != mStoredPrimaryColor) {
             ensureBackgroundThread {
                 val calendars = eventsHelper.getCalendarsSync()
-                if (calendars.filter { it.caldavCalendarId == 0 }.size == 1) {
-                    val calendar = calendars.first { it.caldavCalendarId == 0 }
+                if (calendars.filter { it.isLocalCalendar() }.size == 1) {
+                    val calendar = calendars.first { it.isLocalCalendar() }
                     calendar.color = getProperPrimaryColor()
                     eventsHelper.insertOrUpdateCalendarSync(calendar)
                 }
@@ -411,24 +419,37 @@ class SettingsActivity : SimpleActivity() {
                     calDAVHelper.deleteCalDAVCalendarEvents(it.toLong())
                 }
                 calendarsDB.deleteCalendarsWithCalendarIds(config.getSyncedCalendarIdsAsList())
+                tasksRepository.removeAllTaskLists()
                 updateDefaultCalendarText()
             }
         }
     }
 
-    private fun showCalendarPicker() = binding.apply {
+    // tasks are synced through a task provider (OpenTasks, Tasks.org), ask for access before listing its task lists
+    private fun showCalendarPicker() {
+        val missingPermissions = tasksRepository.getMissingPermissions()
+        if (missingPermissions.isEmpty()) {
+            showSyncedCalendarsDialog()
+        } else {
+            taskPermissionsLauncher.launch(missingPermissions.toTypedArray())
+        }
+    }
+
+    private fun showSyncedCalendarsDialog() = binding.apply {
         val oldCalendarIds = config.getSyncedCalendarIdsAsList()
 
         ManageSyncedCalendarsDialog(this@SettingsActivity) {
             val newCalendarIds = config.getSyncedCalendarIdsAsList()
-            if (newCalendarIds.isEmpty() && !config.caldavSync) {
+            val newTaskLists = config.caldavSyncedTaskLists
+            val isSyncEnabled = newCalendarIds.isNotEmpty() || newTaskLists.isNotEmpty()
+            if (!isSyncEnabled && !config.caldavSync) {
                 return@ManageSyncedCalendarsDialog
             }
 
-            settingsManageSyncedCalendarsHolder.beVisibleIf(newCalendarIds.isNotEmpty())
-            settingsCaldavPullToRefreshHolder.beVisibleIf(newCalendarIds.isNotEmpty())
-            settingsCaldavSync.isChecked = newCalendarIds.isNotEmpty()
-            config.caldavSync = newCalendarIds.isNotEmpty()
+            settingsManageSyncedCalendarsHolder.beVisibleIf(isSyncEnabled)
+            settingsCaldavPullToRefreshHolder.beVisibleIf(isSyncEnabled)
+            settingsCaldavSync.isChecked = isSyncEnabled
+            config.caldavSync = isSyncEnabled
             if (settingsCaldavSync.isChecked) {
                 toast(R.string.syncing)
             }
@@ -454,7 +475,10 @@ class SettingsActivity : SimpleActivity() {
                             eventsHelper.insertOrUpdateCalendar(this@SettingsActivity, calendar)
                         }
                     }
+                }
 
+                tasksRepository.applySelectedTaskLists(newTaskLists)
+                if (isSyncEnabled) {
                     syncCalDAVCalendars {
                         calDAVHelper.refreshCalendars(showToasts = true, scheduleNextSync = true) {
                             if (settingsCaldavSync.isChecked) {

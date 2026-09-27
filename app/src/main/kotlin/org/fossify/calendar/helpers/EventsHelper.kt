@@ -13,11 +13,13 @@ import org.fossify.calendar.extensions.cancelPendingIntent
 import org.fossify.calendar.extensions.completedTasksDB
 import org.fossify.calendar.extensions.config
 import org.fossify.calendar.extensions.eventsDB
+import org.fossify.calendar.extensions.getTaskListCalendarId
 import org.fossify.calendar.extensions.isTsOnProperDay
 import org.fossify.calendar.extensions.isXWeeklyRepetition
 import org.fossify.calendar.extensions.maybeAdjustRepeatLimitCount
 import org.fossify.calendar.extensions.scheduleNextEventReminder
 import org.fossify.calendar.extensions.seconds
+import org.fossify.calendar.extensions.tasksRepository
 import org.fossify.calendar.extensions.updateWidgets
 import org.fossify.calendar.models.CalendarEntity
 import org.fossify.calendar.models.Event
@@ -114,7 +116,7 @@ class EventsHelper(val context: Context) {
         synchronized(HolidayHelper.lock) {
             val typesToDelete = calendars
                 .asSequence()
-                .filter { it.caldavCalendarId == 0 && it.id != LOCAL_CALENDAR_ID }
+                .filter { it.isLocalCalendar() && it.id != LOCAL_CALENDAR_ID }
                 .toMutableList()
             val deleteIds = typesToDelete.map { it.id }.toMutableList()
             val deletedSet = deleteIds.map { it.toString() }.toHashSet()
@@ -178,6 +180,7 @@ class EventsHelper(val context: Context) {
         ensureCalendarVisibility(task, enableCalendar)
         context.updateWidgets()
         context.scheduleNextEventReminder(task, showToasts)
+        context.tasksRepository.onTaskInserted(task)
         callback()
     }
 
@@ -220,7 +223,9 @@ class EventsHelper(val context: Context) {
         ensureCalendarVisibility(event, enableCalendar)
         if (updateWidgets) context.updateWidgets()
         context.scheduleNextEventReminder(event, showToasts)
-        if (updateAtCalDAV && event.source != SOURCE_SIMPLE_CALENDAR && config.caldavSync) {
+        if (event.isTask()) {
+            context.tasksRepository.onTaskUpdated(event)
+        } else if (updateAtCalDAV && event.source != SOURCE_SIMPLE_CALENDAR && config.caldavSync) {
             context.calDAVHelper.updateCalDAVEvent(event)
         }
         callback?.invoke()
@@ -254,6 +259,9 @@ class EventsHelper(val context: Context) {
                 originalEvent.id!!
             )
             context.scheduleNextEventReminder(originalEvent, false)
+            if (originalEvent.isTask()) {
+                context.tasksRepository.onTaskUpdated(originalEvent)
+            }
 
             event.apply {
                 parentId = id!!
@@ -354,6 +362,11 @@ class EventsHelper(val context: Context) {
 
         ids.chunked(CHOPPED_LIST_DEFAULT_SIZE).forEach {
             val eventsWithImportId = eventsDB.getEventsByIdsWithImportIds(it)
+            val syncedTasks = if (deleteFromCalDAV && config.caldavSync) {
+                eventsDB.getEventsOrTasksWithIds(it).filter { task -> task.getTaskListCalendarId() != null }
+            } else {
+                emptyList()
+            }
             eventsDB.deleteEvents(it)
 
             it.forEach {
@@ -365,6 +378,7 @@ class EventsHelper(val context: Context) {
                 eventsWithImportId.forEach {
                     context.calDAVHelper.deleteCalDAVEvent(it)
                 }
+                context.tasksRepository.onTasksDeleted(syncedTasks)
             }
 
             deleteChildEvents(it as MutableList<Long>, deleteFromCalDAV, updateWidgets)
@@ -385,7 +399,8 @@ class EventsHelper(val context: Context) {
 
     private fun deleteEventsAndTasksWithCalendarId(calendarId: Long) {
         val eventIds = eventsDB.getEventAndTasksIdsByCalendar(calendarId).toMutableList()
-        deleteEvents(eventIds, true)
+        val isSyncedTaskList = calendarsDB.getCalendarWithId(calendarId)?.isSyncedTaskList() == true
+        deleteEvents(eventIds, deleteFromCalDAV = !isSyncedTaskList)
     }
 
     fun addEventRepeatLimit(eventId: Long, occurrenceTS: Long) {
@@ -412,6 +427,7 @@ class EventsHelper(val context: Context) {
 
         if (event.isTask()) {
             completedTasksDB.deleteTaskFutureOccurrences(eventId, occurrenceTS)
+            eventsDB.getTaskWithId(eventId)?.let { context.tasksRepository.onTaskUpdated(it) }
         }
     }
 
@@ -447,6 +463,7 @@ class EventsHelper(val context: Context) {
 
             if (parentEvent.isTask()) {
                 completedTasksDB.deleteTaskWithIdAndTs(parentEventId, occurrenceTS)
+                context.tasksRepository.onTaskUpdated(parentEvent)
             }
         }
     }

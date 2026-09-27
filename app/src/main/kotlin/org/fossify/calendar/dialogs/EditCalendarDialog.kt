@@ -109,7 +109,7 @@ class EditCalendarDialog(
         }
 
         calendar!!.title = title
-        if (calendar!!.caldavCalendarId != 0) {
+        if (!calendar!!.isLocalCalendar()) {
             calendar!!.caldavDisplayName = title
         }
 

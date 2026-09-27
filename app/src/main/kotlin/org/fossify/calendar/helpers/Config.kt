@@ -161,6 +161,15 @@ class Config(context: Context) : BaseConfig(context) {
         )
         set(calendarId) = prefs.edit().putInt(LAST_USED_CALDAV_CALENDAR, calendarId).apply()
 
+    // entries look like "<task provider authority>|<remote task list id>"
+    var caldavSyncedTaskLists: Set<String>
+        get() = prefs.getStringSet(CALDAV_SYNCED_TASK_LISTS, emptySet())!!
+        set(taskLists) = prefs.edit().putStringSet(CALDAV_SYNCED_TASK_LISTS, taskLists).apply()
+
+    var lastUsedTaskCalendarId: Long
+        get() = prefs.getLong(LAST_USED_TASK_CALENDAR_ID, -1L)
+        set(calendarId) = prefs.edit().putLong(LAST_USED_TASK_CALENDAR_ID, calendarId).apply()
+
     var lastUsedLocalCalendarId: Long
         get() = prefs.getLong(LAST_USED_LOCAL_CALENDAR_ID, LOCAL_CALENDAR_ID)
         set(lastUsedLocalCalendarId) = prefs.edit()
