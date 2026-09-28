@@ -269,4 +269,7 @@
     <string name="access_level_private">Privato</string>
     <string name="allow_alarms_reminders">Per garantire il corretto funzionamento dei promemoria, è necessario consentire all\'app di impostare le sveglie.</string>
     <string name="offline_never_synced">Offline (mai sincronizzato)</string>
+    <string name="manage_holidays">Gestione festività</string>
+    <string name="holidays_updated">Festività aggiornate</string>
+    <string name="holiday_management_notice">L\'app ora aggiorna automaticamente le festività. Seleziona di nuovo i tuoi paesi per attivare questa funzione. Le festività importate in precedenza potrebbero dover essere rimosse manualmente.</string>
 </resources>
