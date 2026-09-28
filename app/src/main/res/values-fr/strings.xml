@@ -269,4 +269,7 @@
     <string name="access_level_private">Privé</string>
     <string name="allow_alarms_reminders">Vous devez autoriser l\'application à planifier les alarmes pour les fonctionnement correcte des rappels.</string>
     <string name="offline_never_synced">Hors ligne (jamais synchronisé)</string>
+    <string name="holiday_management_notice">L\'application met désormais à jour automatiquement les jours fériés. Sélectionnez à nouveau vos pays pour activer cette fonctionnalité. Il se peut que vous deviez supprimer manuellement les jours fériés importés précédemment.</string>
+    <string name="manage_holidays">Gérer les jours fériés</string>
+    <string name="holidays_updated">Mise à jour des jours fériés</string>
 </resources>
