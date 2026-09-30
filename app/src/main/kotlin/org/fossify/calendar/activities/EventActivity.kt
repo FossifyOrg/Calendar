@@ -1435,6 +1435,8 @@ class EventActivity : SimpleActivity() {
             eventCalendarSubtitle.text = getString(R.string.offline_never_synced)
         }
 
+        eventCalendarColor.setFillWithStroke(calendar.color, getProperBackgroundColor())
+
         val canCustomizeColors = if (isCaldav) {
             getEventColors(calendar).isNotEmpty()
         } else {

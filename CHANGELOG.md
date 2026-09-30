@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- Moved the calendar picker to the top of the event and task editors and added the calendar color ([#151])
 
 ## [1.11.0] - 2026-09-23
 ### Added
@@ -225,6 +227,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#135]: https://github.com/FossifyOrg/Calendar/issues/135
 [#138]: https://github.com/FossifyOrg/Calendar/issues/138
 [#148]: https://github.com/FossifyOrg/Calendar/issues/148
+[#151]: https://github.com/FossifyOrg/Calendar/issues/151
 [#196]: https://github.com/FossifyOrg/Calendar/issues/196
 [#217]: https://github.com/FossifyOrg/Calendar/issues/217
 [#262]: https://github.com/FossifyOrg/Calendar/issues/262

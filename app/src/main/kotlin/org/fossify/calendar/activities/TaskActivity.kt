@@ -939,6 +939,10 @@ class TaskActivity : SimpleActivity() {
                 runOnUiThread {
                     binding.calendarTitle.text = calendar.title
                     binding.calendarSubtitle.text = getString(R.string.offline_never_synced)
+                    binding.calendarColor.setFillWithStroke(
+                        calendar.color,
+                        getProperBackgroundColor()
+                    )
                     updateTaskColorInfo(calendar.color)
                 }
             }
