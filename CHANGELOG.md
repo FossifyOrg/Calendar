@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Events and tasks can be saved without notification permission, and reminders can be removed without granting it ([#220])
+
 ## [1.11.0] - 2026-09-23
 ### Added
 - Holidays for New Zealand ([#1157])
@@ -227,6 +230,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#148]: https://github.com/FossifyOrg/Calendar/issues/148
 [#196]: https://github.com/FossifyOrg/Calendar/issues/196
 [#217]: https://github.com/FossifyOrg/Calendar/issues/217
+[#220]: https://github.com/FossifyOrg/Calendar/issues/220
 [#262]: https://github.com/FossifyOrg/Calendar/issues/262
 [#337]: https://github.com/FossifyOrg/Calendar/issues/337
 [#393]: https://github.com/FossifyOrg/Calendar/issues/393
