@@ -34,7 +34,7 @@ import org.fossify.calendar.databinding.ActivityEventBinding
 import org.fossify.calendar.databinding.ItemAttendeeBinding
 import org.fossify.calendar.dialogs.DeleteEventDialog
 import org.fossify.calendar.dialogs.EditRepeatingEventDialog
-import org.fossify.calendar.dialogs.ReminderWarningDialog
+import org.fossify.calendar.dialogs.ReminderPermissionWarningDialog
 import org.fossify.calendar.dialogs.RepeatLimitTypePickerDialog
 import org.fossify.calendar.dialogs.RepeatRuleWeeklyDialog
 import org.fossify.calendar.dialogs.SelectCalendarDialog
@@ -113,7 +113,6 @@ import org.fossify.calendar.models.MyTimeZone
 import org.fossify.calendar.models.Reminder
 import org.fossify.commons.dialogs.ColorPickerDialog
 import org.fossify.commons.dialogs.ConfirmationAdvancedDialog
-import org.fossify.commons.dialogs.PermissionRequiredDialog
 import org.fossify.commons.dialogs.RadioGroupDialog
 import org.fossify.commons.extensions.addBitIf
 import org.fossify.commons.extensions.applyColorFilter
@@ -139,7 +138,6 @@ import org.fossify.commons.extensions.isVisible
 import org.fossify.commons.extensions.launchActivityIntent
 import org.fossify.commons.extensions.onGlobalLayout
 import org.fossify.commons.extensions.onTextChangeListener
-import org.fossify.commons.extensions.openNotificationSettings
 import org.fossify.commons.extensions.queryCursor
 import org.fossify.commons.extensions.setFillWithStroke
 import org.fossify.commons.extensions.showErrorToast
@@ -290,7 +288,7 @@ class EventActivity : SimpleActivity() {
                 negative = org.fossify.commons.R.string.discard
             ) {
                 if (it) {
-                    saveCurrentEvent()
+                    ensureBackgroundThread { saveEvent() }
                 } else {
                     discard()
                 }
@@ -491,19 +489,7 @@ class EventActivity : SimpleActivity() {
         eventRepetitionRuleHolder.setOnClickListener { showRepetitionRuleDialog() }
         eventRepetitionLimitHolder.setOnClickListener { showRepetitionTypePicker() }
 
-        eventReminder1.setOnClickListener {
-            handleNotificationAvailability {
-                if (config.wasAlarmWarningShown) {
-                    showReminder1Dialog()
-                } else {
-                    ReminderWarningDialog(this@EventActivity) {
-                        config.wasAlarmWarningShown = true
-                        showReminder1Dialog()
-                    }
-                }
-            }
-        }
-
+        eventReminder1.setOnClickListener { showReminder1Dialog() }
         eventReminder2.setOnClickListener { showReminder2Dialog() }
         eventReminder3.setOnClickListener { showReminder3Dialog() }
 
@@ -595,7 +581,7 @@ class EventActivity : SimpleActivity() {
             }
 
             when (menuItem.itemId) {
-                R.id.save -> saveCurrentEvent()
+                R.id.save -> ensureBackgroundThread { saveEvent() }
                 R.id.delete -> deleteEvent()
                 R.id.duplicate -> duplicateEvent()
                 R.id.share -> shareEvent()
@@ -1573,21 +1559,6 @@ class EventActivity : SimpleActivity() {
         }
     }
 
-    private fun saveCurrentEvent() {
-        if (config.wasAlarmWarningShown || (mReminder1Minutes == REMINDER_OFF && mReminder2Minutes == REMINDER_OFF && mReminder3Minutes == REMINDER_OFF)) {
-            ensureBackgroundThread {
-                saveEvent()
-            }
-        } else {
-            ReminderWarningDialog(this) {
-                config.wasAlarmWarningShown = true
-                ensureBackgroundThread {
-                    saveEvent()
-                }
-            }
-        }
-    }
-
     private fun saveEvent() {
         val newTitle = binding.eventTitle.value
         if (newTitle.isEmpty()) {
@@ -1631,10 +1602,6 @@ class EventActivity : SimpleActivity() {
                 runOnUiThread { toast(R.string.insufficient_permissions) }
                 return
             }
-            config.lastUsedCaldavCalendarId = selectedCaldavId
-        } else {
-            config.lastUsedLocalCalendarId = mCalendarId
-            config.lastUsedCaldavCalendarId = STORED_LOCALLY_ONLY
         }
 
         val newCalendarId = mCalendarId
@@ -1663,15 +1630,7 @@ class EventActivity : SimpleActivity() {
         mReminder3Type =
             if (mEventCalendarId == STORED_LOCALLY_ONLY) REMINDER_NOTIFICATION else reminder3.type
 
-        config.apply {
-            if (usePreviousEventReminders) {
-                lastEventReminderMinutes1 = reminder1.minutes
-                lastEventReminderMinutes2 = reminder2.minutes
-                lastEventReminderMinutes3 = reminder3.minutes
-            }
-        }
-
-        mEvent.apply {
+        val eventToStore = mEvent.copy().apply {
             startTS = newStartTS
             endTS = newEndTS
             title = newTitle
@@ -1686,7 +1645,7 @@ class EventActivity : SimpleActivity() {
             importId = newImportId
             timeZone =
                 if (mIsAllDayEvent || timeZone.isEmpty()) DateTimeZone.getDefault().id else timeZone
-            flags = mEvent.flags.addBitIf(binding.eventAllDay.isChecked, FLAG_ALL_DAY)
+            flags = flags.addBitIf(binding.eventAllDay.isChecked, FLAG_ALL_DAY)
             repeatLimit = if (repeatInterval == 0) 0 else mRepeatLimit
             repeatRule = mRepeatRule
             attendees =
@@ -1701,7 +1660,36 @@ class EventActivity : SimpleActivity() {
             color = mEventColor
         }
 
-        // recreate the event if it was moved in a different CalDAV calendar
+        if (eventToStore.getReminders().isNotEmpty()) {
+            handleNotificationPermission { granted ->
+                if (granted && canShowNotifications()) {
+                    ensureBackgroundThread { storeEvent(eventToStore, wasRepeatable, oldSource, newSource) }
+                } else {
+                    ReminderPermissionWarningDialog(this) {
+                        ensureBackgroundThread { storeEvent(eventToStore, wasRepeatable, oldSource, newSource) }
+                    }
+                }
+            }
+        } else {
+            storeEvent(eventToStore, wasRepeatable, oldSource, newSource)
+        }
+    }
+
+    private fun storeEvent(event: Event, wasRepeatable: Boolean, oldSource: String, newSource: String) {
+        mEvent = event
+        config.apply {
+            if (mEventCalendarId == STORED_LOCALLY_ONLY) {
+                lastUsedLocalCalendarId = mCalendarId
+            }
+            lastUsedCaldavCalendarId = mEventCalendarId
+            if (usePreviousEventReminders) {
+                lastEventReminderMinutes1 = mEvent.reminder1Minutes
+                lastEventReminderMinutes2 = mEvent.reminder2Minutes
+                lastEventReminderMinutes3 = mEvent.reminder3Minutes
+            }
+        }
+
+        // Do not delete the old event until the user has confirmed the save.
         if (mEvent.id != null && oldSource != newSource && oldSource != SOURCE_IMPORTED_ICS) {
             if (mRepeatInterval > 0 && wasRepeatable) {
                 eventsHelper.applyOriginalStartEndTimes(mEvent, mOriginalStartTS, mOriginalEndTS)
@@ -1710,26 +1698,6 @@ class EventActivity : SimpleActivity() {
             mEvent.id = null
         }
 
-        if (mEvent.getReminders().isNotEmpty()) {
-            handleNotificationPermission { granted ->
-                if (granted) {
-                    ensureBackgroundThread {
-                        storeEvent(wasRepeatable)
-                    }
-                } else {
-                    PermissionRequiredDialog(
-                        activity = this,
-                        textId = org.fossify.commons.R.string.allow_notifications_reminders,
-                        positiveActionCallback = { openNotificationSettings() }
-                    )
-                }
-            }
-        } else {
-            storeEvent(wasRepeatable)
-        }
-    }
-
-    private fun storeEvent(wasRepeatable: Boolean) {
         if (mEvent.id == null) {
             eventsHelper.insertEvent(mEvent, addToCalDAV = true, showToasts = true) {
                 hideKeyboard()

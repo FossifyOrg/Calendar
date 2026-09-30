@@ -12,7 +12,7 @@ import org.fossify.calendar.R
 import org.fossify.calendar.databinding.ActivityTaskBinding
 import org.fossify.calendar.dialogs.DeleteEventDialog
 import org.fossify.calendar.dialogs.EditRepeatingEventDialog
-import org.fossify.calendar.dialogs.ReminderWarningDialog
+import org.fossify.calendar.dialogs.ReminderPermissionWarningDialog
 import org.fossify.calendar.dialogs.RepeatLimitTypePickerDialog
 import org.fossify.calendar.dialogs.RepeatRuleWeeklyDialog
 import org.fossify.calendar.dialogs.SelectCalendarDialog
@@ -72,7 +72,6 @@ import org.fossify.calendar.models.Event
 import org.fossify.calendar.models.Reminder
 import org.fossify.commons.dialogs.ColorPickerDialog
 import org.fossify.commons.dialogs.ConfirmationAdvancedDialog
-import org.fossify.commons.dialogs.PermissionRequiredDialog
 import org.fossify.commons.dialogs.RadioGroupDialog
 import org.fossify.commons.extensions.addBitIf
 import org.fossify.commons.extensions.applyColorFilter
@@ -89,7 +88,6 @@ import org.fossify.commons.extensions.getTimePickerDialogTheme
 import org.fossify.commons.extensions.hideKeyboard
 import org.fossify.commons.extensions.isDynamicTheme
 import org.fossify.commons.extensions.isGone
-import org.fossify.commons.extensions.openNotificationSettings
 import org.fossify.commons.extensions.removeBit
 import org.fossify.commons.extensions.setFillWithStroke
 import org.fossify.commons.extensions.showPickSecondsDialogHelper
@@ -201,7 +199,7 @@ class TaskActivity : SimpleActivity() {
     private fun setupOptionsMenu() {
         binding.taskToolbar.setOnMenuItemClickListener { menuItem ->
             when (menuItem.itemId) {
-                R.id.save -> saveCurrentTask()
+                R.id.save -> ensureBackgroundThread { saveTask() }
                 R.id.delete -> deleteTask()
                 R.id.duplicate -> duplicateTask()
                 R.id.share -> shareTask()
@@ -254,7 +252,7 @@ class TaskActivity : SimpleActivity() {
                 negative = org.fossify.commons.R.string.discard
             ) {
                 if (it) {
-                    saveCurrentTask()
+                    ensureBackgroundThread { saveTask() }
                 } else {
                     discard()
                 }
@@ -406,19 +404,7 @@ class TaskActivity : SimpleActivity() {
         taskRepetitionRuleHolder.setOnClickListener { showRepetitionRuleDialog() }
         taskRepetitionLimitHolder.setOnClickListener { showRepetitionTypePicker() }
 
-        taskReminder1.setOnClickListener {
-            handleNotificationAvailability {
-                if (config.wasAlarmWarningShown) {
-                    showReminder1Dialog()
-                } else {
-                    ReminderWarningDialog(this@TaskActivity) {
-                        config.wasAlarmWarningShown = true
-                        showReminder1Dialog()
-                    }
-                }
-            }
-        }
-
+        taskReminder1.setOnClickListener { showReminder1Dialog() }
         taskReminder2.setOnClickListener { showReminder2Dialog() }
         taskReminder3.setOnClickListener { showReminder3Dialog() }
         taskColorHolder.setOnClickListener { showTaskColorDialog() }
@@ -473,21 +459,6 @@ class TaskActivity : SimpleActivity() {
         }
     }
 
-    private fun saveCurrentTask() {
-        if (config.wasAlarmWarningShown || (mReminder1Minutes == REMINDER_OFF && mReminder2Minutes == REMINDER_OFF && mReminder3Minutes == REMINDER_OFF)) {
-            ensureBackgroundThread {
-                saveTask()
-            }
-        } else {
-            ReminderWarningDialog(this) {
-                config.wasAlarmWarningShown = true
-                ensureBackgroundThread {
-                    saveTask()
-                }
-            }
-        }
-    }
-
     private fun saveTask() {
         val newTitle = binding.taskTitle.value
         if (newTitle.isEmpty()) {
@@ -524,30 +495,14 @@ class TaskActivity : SimpleActivity() {
         val reminder2 = reminders.getOrNull(1) ?: Reminder(REMINDER_OFF, REMINDER_NOTIFICATION)
         val reminder3 = reminders.getOrNull(2) ?: Reminder(REMINDER_OFF, REMINDER_NOTIFICATION)
 
-        config.apply {
-            if (usePreviousEventReminders) {
-                lastEventReminderMinutes1 = reminder1.minutes
-                lastEventReminderMinutes2 = reminder2.minutes
-                lastEventReminderMinutes3 = reminder3.minutes
-            }
-        }
-
-        config.lastUsedLocalCalendarId = mCalendarId
-        mTask.apply {
+        val taskToStore = mTask.copy().apply {
             startTS = mTaskDateTime.withSecondOfMinute(0).withMillisOfSecond(0).seconds()
             endTS = startTS
             title = newTitle
             description = binding.taskDescription.value
 
-            // migrate completed task to the new completed tasks db
-            if (!wasRepeatable && mTask.isTaskCompleted()) {
-                mTask.flags = mTask.flags.removeBit(FLAG_TASK_COMPLETED)
-                ensureBackgroundThread {
-                    updateTaskCompletion(copy(startTS = mOriginalStartTS), true)
-                }
-            }
             importId = newImportId
-            flags = mTask.flags.addBitIf(binding.taskAllDay.isChecked, FLAG_ALL_DAY)
+            flags = flags.addBitIf(binding.taskAllDay.isChecked, FLAG_ALL_DAY)
             lastUpdated = System.currentTimeMillis()
             calendarId = mCalendarId
             type = TYPE_TASK
@@ -565,26 +520,40 @@ class TaskActivity : SimpleActivity() {
             color = mEventColor
         }
 
-        if (mTask.getReminders().isNotEmpty()) {
+        if (taskToStore.getReminders().isNotEmpty()) {
             handleNotificationPermission { granted ->
-                if (granted) {
-                    ensureBackgroundThread {
-                        storeTask(wasRepeatable)
-                    }
+                if (granted && canShowNotifications()) {
+                    ensureBackgroundThread { storeTask(taskToStore, wasRepeatable) }
                 } else {
-                    PermissionRequiredDialog(
-                        activity = this,
-                        textId = org.fossify.commons.R.string.allow_notifications_reminders,
-                        positiveActionCallback = { openNotificationSettings() }
-                    )
+                    ReminderPermissionWarningDialog(this) {
+                        ensureBackgroundThread { storeTask(taskToStore, wasRepeatable) }
+                    }
                 }
             }
         } else {
-            storeTask(wasRepeatable)
+            storeTask(taskToStore, wasRepeatable)
         }
     }
 
-    private fun storeTask(wasRepeatable: Boolean) {
+    private fun storeTask(task: Event, wasRepeatable: Boolean) {
+        mTask = task
+        config.lastUsedLocalCalendarId = mCalendarId
+        config.apply {
+            if (usePreviousEventReminders) {
+                lastEventReminderMinutes1 = mTask.reminder1Minutes
+                lastEventReminderMinutes2 = mTask.reminder2Minutes
+                lastEventReminderMinutes3 = mTask.reminder3Minutes
+            }
+        }
+
+        // Migrate completed tasks only after the user has confirmed the save.
+        if (!wasRepeatable && mTask.isTaskCompleted()) {
+            mTask.flags = mTask.flags.removeBit(FLAG_TASK_COMPLETED)
+            ensureBackgroundThread {
+                updateTaskCompletion(mTask.copy(startTS = mOriginalStartTS), true)
+            }
+        }
+
         if (mTask.id == null) {
             eventsHelper.insertTask(mTask, true) {
                 hideKeyboard()

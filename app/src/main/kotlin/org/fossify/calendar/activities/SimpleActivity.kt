@@ -13,7 +13,6 @@ import org.fossify.calendar.extensions.refreshCalDAVCalendars
 import org.fossify.commons.activities.BaseSimpleActivity
 import org.fossify.commons.dialogs.ConfirmationDialog
 import org.fossify.commons.dialogs.PermissionRequiredDialog
-import org.fossify.commons.extensions.openNotificationSettings
 import org.fossify.commons.extensions.openRequestExactAlarmSettings
 import org.fossify.commons.helpers.ensureBackgroundThread
 import org.fossify.commons.helpers.isSPlus
@@ -86,29 +85,7 @@ open class SimpleActivity : BaseSimpleActivity() {
         contentResolver.unregisterContentObserver(calDAVSyncObserver)
     }
 
-    protected fun handleNotificationAvailability(callback: () -> Unit) {
-        handleNotificationPermission { granted ->
-            if (granted) {
-                if (NotificationManagerCompat.from(this).areNotificationsEnabled()) {
-                    callback()
-                } else {
-                    ConfirmationDialog(
-                        activity = this,
-                        messageId = org.fossify.commons.R.string.notifications_disabled,
-                        positive = org.fossify.commons.R.string.ok,
-                        negative = 0
-                    ) {
-                        callback()
-                    }
-                }
-            } else {
-                PermissionRequiredDialog(
-                    this,
-                    org.fossify.commons.R.string.allow_notifications_reminders,
-                    { openNotificationSettings() })
-            }
-        }
-    }
+    protected fun canShowNotifications() = NotificationManagerCompat.from(this).areNotificationsEnabled()
 
     fun maybeRequestExactAlarmPermission(callback: () -> Unit = {}) {
         if (isSPlus() && !isTiramisuPlus()) {

@@ -30,6 +30,9 @@
     <string name="filter_events_by_type">Filter events by calendar</string>
     <string name="please_fill_location">Please fill in a location to be shown on a map</string>
     <string name="public_event_notification_text">An event is upcoming</string>
+    <string name="reminder_permission_warning_title">Reminder notifications</string>
+    <string name="save_without_notification_permission_warning">You should allow the app to display notifications for reminders to work properly. You can save anyway, but the reminder will not appear unless notification permission is granted before it is due.</string>
+    <string name="save_anyway">Save anyway</string>
     <string name="everything_filtered_out">You have filtered out all calendars</string>
     <string name="event_color">Event color</string>
     <string name="default_calendar_color">Default calendar color</string>
