@@ -266,4 +266,7 @@
     <string name="access_level_confidential">Konfidenca</string>
     <string name="allow_alarms_reminders">Vi devas permesi, ke la aplikaĵo programu alarmojn por ke sciigoj ĝuste funkciu.</string>
     <string name="offline_never_synced">Eksterreta (sen sinkronigado)</string>
+    <string name="manage_holidays">Administri festotagojn</string>
+    <string name="holidays_updated">Festotagoj ĝisdatigitaj</string>
+    <string name="holiday_management_notice">La aplikaĵo nun ĝisdatigas aŭtomate festotagojn. Elektu denove viajn landojn por tion ĉi aktivigi. Eble necesos forigi permane festotagojn kiuj jam estis enportitaj.</string>
 </resources>
