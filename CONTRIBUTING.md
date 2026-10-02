@@ -11,7 +11,7 @@ In case you just want to for example improve a translation, you can find the way
 
 - For most countries, holidays are generated automatically using the [date-holidays](https://github.com/commenthol/date-holidays) library. You can find the list of countries supported by date-holidays [here](https://github.com/commenthol/date-holidays?tab=readme-ov-file#supported-countries-states-regions).
 - The generator includes all countries supported by date-holidays, plus the manually maintained countries in the [holiday generator configuration](https://github.com/FossifyOrg/Calendar/blob/main/scripts/holiday-generator/config.js). The [generated metadata](https://github.com/FossifyOrg/Calendar/blob/main/app/src/main/assets/holidays/metadata.json) lists the countries with holiday files included in the app.
-- Contributions are welcome for countries that are not yet supported by date-holidays.
+- Please submit holiday additions and fixes directly to [date-holidays](https://github.com/commenthol/date-holidays) whenever possible, so everyone benefits and less manual maintenance is needed here.
 
 #### Adding holidays
 
