@@ -7,7 +7,7 @@ import { mkdirSync, existsSync } from "node:fs";
 import Holidays from "date-holidays";
 import { createEvents as icsCreateEvents } from "ics";
 
-import { COUNTRIES, UNSUPPORTED_COUNTRIES, END_YEAR, FIXED_DATE_START_YEAR, ASSETS_DIR, HOLIDAYS_DIR, SHOULD_LOG, START_YEAR, TYPE_PUBLIC, TYPE_OTHER } from "./config.js";
+import { UNSUPPORTED_COUNTRIES, END_YEAR, FIXED_DATE_START_YEAR, ASSETS_DIR, HOLIDAYS_DIR, SHOULD_LOG, START_YEAR, TYPE_PUBLIC, TYPE_OTHER } from "./config.js";
 
 // converting createEvents from ics from function with callback to async function for easier usage
 const createEvents = promisify(icsCreateEvents);
@@ -181,7 +181,7 @@ async function saveFile(content, folder, file) {
  */
 async function saveHolidays(countries) {
     for (const code of Object.keys(countries)) {
-        if (!COUNTRIES.includes(code)) continue;
+        if (Object.hasOwn(UNSUPPORTED_COUNTRIES, code)) continue;
 
         log(`Generating events for ${code}, ${code}.ics`);
         const nationalEvents = getNationalEvents(code);
@@ -211,10 +211,7 @@ async function saveHolidays(countries) {
 async function saveMetadata(allCountries) {
     const metadata = [];
     const outputDir = join(ASSETS_DIR, HOLIDAYS_DIR);
-    const countryCodes = [...COUNTRIES, ...Object.keys(UNSUPPORTED_COUNTRIES)];
     for (const [code, country] of Object.entries({ ...allCountries, ...UNSUPPORTED_COUNTRIES })) {
-        if (!countryCodes.includes(code)) continue;
-
         const publicPath = `${HOLIDAYS_DIR}/${code}/public.ics`;
         const regionalPath = `${HOLIDAYS_DIR}/${code}/regional.ics`;
         const otherPath = `${HOLIDAYS_DIR}/${code}/other.ics`;
