@@ -269,4 +269,7 @@
     <string name="access_level_confidential">Confidencial</string>
     <string name="allow_alarms_reminders">Debes permitir que la app programe alarmas para que los recordatorios funcionen correctamente.</string>
     <string name="offline_never_synced">Fuera de línea (no sincronizado)</string>
+    <string name="manage_holidays">Gestionar festivos</string>
+    <string name="holidays_updated">Festivos actualizados</string>
+    <string name="holiday_management_notice">La app ahora actualiza los festivos de modo automático. Indique otra vez sus paises para habilitarlo. Puede ser necesario tener que eliminar a mano los festivos antes importados.</string>
 </resources>
