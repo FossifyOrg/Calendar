@@ -1,12 +1,68 @@
 {
-  "version": "118db7daa2ef920abb3fcc5f4df07abd5fb39a69c18f883208bd934d401079da",
+  "version": "f0cd7bf1dcd6c205b0187762c9eca4b73cdb1668eec9489c196a31542cbb858a",
   "countries": [
+    {
+      "code": "AD",
+      "country": "Andorra",
+      "public": "holidays/AD/public.ics",
+      "regional": "holidays/AD/regional.ics",
+      "other": "holidays/AD/other.ics"
+    },
+    {
+      "code": "AE",
+      "country": "دولة الإمارات العربية المتحدة",
+      "public": "holidays/AE/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "AG",
+      "country": "Antigua & Barbuda",
+      "public": "holidays/AG/public.ics",
+      "regional": null,
+      "other": "holidays/AG/other.ics"
+    },
+    {
+      "code": "AI",
+      "country": "Anguilla",
+      "public": "holidays/AI/public.ics",
+      "regional": null,
+      "other": "holidays/AI/other.ics"
+    },
+    {
+      "code": "AL",
+      "country": "Shqipëri",
+      "public": "holidays/AL/public.ics",
+      "regional": null,
+      "other": "holidays/AL/other.ics"
+    },
+    {
+      "code": "AM",
+      "country": "Հայաստան",
+      "public": "holidays/AM/public.ics",
+      "regional": null,
+      "other": "holidays/AM/other.ics"
+    },
+    {
+      "code": "AO",
+      "country": "Angola",
+      "public": "holidays/AO/public.ics",
+      "regional": null,
+      "other": "holidays/AO/other.ics"
+    },
     {
       "code": "AR",
       "country": "Argentina",
       "public": "holidays/AR/public.ics",
       "regional": null,
       "other": "holidays/AR/other.ics"
+    },
+    {
+      "code": "AS",
+      "country": "American Samoa",
+      "public": "holidays/AS/public.ics",
+      "regional": null,
+      "other": "holidays/AS/other.ics"
     },
     {
       "code": "AT",
@@ -23,6 +79,41 @@
       "other": "holidays/AU/other.ics"
     },
     {
+      "code": "AW",
+      "country": "Aruba",
+      "public": "holidays/AW/public.ics",
+      "regional": null,
+      "other": "holidays/AW/other.ics"
+    },
+    {
+      "code": "AX",
+      "country": "Landskapet Åland",
+      "public": "holidays/AX/public.ics",
+      "regional": null,
+      "other": "holidays/AX/other.ics"
+    },
+    {
+      "code": "AZ",
+      "country": "Azərbaycan Respublikası",
+      "public": "holidays/AZ/public.ics",
+      "regional": null,
+      "other": "holidays/AZ/other.ics"
+    },
+    {
+      "code": "BA",
+      "country": "Bosna i Hercegovina",
+      "public": "holidays/BA/public.ics",
+      "regional": "holidays/BA/regional.ics",
+      "other": null
+    },
+    {
+      "code": "BB",
+      "country": "Barbados",
+      "public": "holidays/BB/public.ics",
+      "regional": null,
+      "other": "holidays/BB/other.ics"
+    },
+    {
       "code": "BD",
       "country": "গণপ্রজাতন্ত্রী বাংলাদেশ",
       "public": "holidays/BD/public.ics",
@@ -37,11 +128,60 @@
       "other": "holidays/BE/other.ics"
     },
     {
+      "code": "BF",
+      "country": "Burkina Faso",
+      "public": "holidays/BF/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
       "code": "BG",
       "country": "България",
       "public": "holidays/BG/public.ics",
       "regional": null,
       "other": "holidays/BG/other.ics"
+    },
+    {
+      "code": "BH",
+      "country": "مملكة البحرين",
+      "public": "holidays/BH/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "BI",
+      "country": "République du Burundi",
+      "public": "holidays/BI/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "BJ",
+      "country": "République du Bénin",
+      "public": "holidays/BJ/public.ics",
+      "regional": null,
+      "other": "holidays/BJ/other.ics"
+    },
+    {
+      "code": "BL",
+      "country": "St. Barthélemy",
+      "public": "holidays/BL/public.ics",
+      "regional": null,
+      "other": "holidays/BL/other.ics"
+    },
+    {
+      "code": "BM",
+      "country": "Bermuda",
+      "public": "holidays/BM/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "BN",
+      "country": "Negara Brunei Darussalam",
+      "public": "holidays/BN/public.ics",
+      "regional": null,
+      "other": null
     },
     {
       "code": "BO",
@@ -51,11 +191,46 @@
       "other": "holidays/BO/other.ics"
     },
     {
+      "code": "BQ",
+      "country": "Caribisch Nederland",
+      "public": "holidays/BQ/public.ics",
+      "regional": "holidays/BQ/regional.ics",
+      "other": "holidays/BQ/other.ics"
+    },
+    {
       "code": "BR",
       "country": "Brasil",
       "public": "holidays/BR/public.ics",
       "regional": "holidays/BR/regional.ics",
       "other": "holidays/BR/other.ics"
+    },
+    {
+      "code": "BS",
+      "country": "Bahamas",
+      "public": "holidays/BS/public.ics",
+      "regional": null,
+      "other": "holidays/BS/other.ics"
+    },
+    {
+      "code": "BW",
+      "country": "Botswana",
+      "public": "holidays/BW/public.ics",
+      "regional": null,
+      "other": "holidays/BW/other.ics"
+    },
+    {
+      "code": "BY",
+      "country": "Рэспубліка Беларусь",
+      "public": "holidays/BY/public.ics",
+      "regional": null,
+      "other": "holidays/BY/other.ics"
+    },
+    {
+      "code": "BZ",
+      "country": "Belize",
+      "public": "holidays/BZ/public.ics",
+      "regional": null,
+      "other": "holidays/BZ/other.ics"
     },
     {
       "code": "CA",
@@ -65,11 +240,67 @@
       "other": "holidays/CA/other.ics"
     },
     {
+      "code": "CC",
+      "country": "Cocos (Keeling) Islands",
+      "public": "holidays/CC/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "CD",
+      "country": "République démocratique du Congo",
+      "public": "holidays/CD/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "CF",
+      "country": "République centrafricaine",
+      "public": "holidays/CF/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "CG",
+      "country": "République du Congo",
+      "public": "holidays/CG/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
       "code": "CH",
       "country": "Schweiz",
       "public": "holidays/CH/public.ics",
       "regional": "holidays/CH/regional.ics",
       "other": "holidays/CH/other.ics"
+    },
+    {
+      "code": "CI",
+      "country": "République de Côte d'Ivoire",
+      "public": "holidays/CI/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "CK",
+      "country": "Cook Islands",
+      "public": "holidays/CK/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "CL",
+      "country": "Chile",
+      "public": "holidays/CL/public.ics",
+      "regional": "holidays/CL/regional.ics",
+      "other": null
+    },
+    {
+      "code": "CM",
+      "country": "Cameroun",
+      "public": "holidays/CM/public.ics",
+      "regional": null,
+      "other": null
     },
     {
       "code": "CN",
@@ -93,6 +324,41 @@
       "other": "holidays/CR/other.ics"
     },
     {
+      "code": "CU",
+      "country": "Cuba",
+      "public": "holidays/CU/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "CV",
+      "country": "República de Cabo Verde",
+      "public": "holidays/CV/public.ics",
+      "regional": null,
+      "other": "holidays/CV/other.ics"
+    },
+    {
+      "code": "CW",
+      "country": "Curaçao",
+      "public": "holidays/CW/public.ics",
+      "regional": null,
+      "other": "holidays/CW/other.ics"
+    },
+    {
+      "code": "CX",
+      "country": "Christmas Island",
+      "public": "holidays/CX/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "CY",
+      "country": "Κύπρος",
+      "public": "holidays/CY/public.ics",
+      "regional": null,
+      "other": "holidays/CY/other.ics"
+    },
+    {
       "code": "CZ",
       "country": "Česká republika",
       "public": "holidays/CZ/public.ics",
@@ -107,11 +373,32 @@
       "other": "holidays/DE/other.ics"
     },
     {
+      "code": "DJ",
+      "country": "République de Djibouti",
+      "public": "holidays/DJ/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
       "code": "DK",
       "country": "Danmark",
       "public": "holidays/DK/public.ics",
       "regional": null,
       "other": "holidays/DK/other.ics"
+    },
+    {
+      "code": "DM",
+      "country": "Dominica",
+      "public": "holidays/DM/public.ics",
+      "regional": null,
+      "other": "holidays/DM/other.ics"
+    },
+    {
+      "code": "DO",
+      "country": "República Dominicana",
+      "public": "holidays/DO/public.ics",
+      "regional": null,
+      "other": null
     },
     {
       "code": "DZ",
@@ -121,11 +408,39 @@
       "other": null
     },
     {
+      "code": "EC",
+      "country": "Ecuador",
+      "public": "holidays/EC/public.ics",
+      "regional": null,
+      "other": "holidays/EC/other.ics"
+    },
+    {
       "code": "EE",
       "country": "Eesti",
       "public": "holidays/EE/public.ics",
       "regional": null,
       "other": "holidays/EE/other.ics"
+    },
+    {
+      "code": "EG",
+      "country": "جمهورية مصر العربية",
+      "public": "holidays/EG/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "EH",
+      "country": "الجمهورية العربية الصحراوية الديمقراطية",
+      "public": "holidays/EH/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "ER",
+      "country": "Eritrea",
+      "public": "holidays/ER/public.ics",
+      "regional": null,
+      "other": null
     },
     {
       "code": "ES",
@@ -135,11 +450,32 @@
       "other": "holidays/ES/other.ics"
     },
     {
+      "code": "ET",
+      "country": "ኢትዮጵያ",
+      "public": "holidays/ET/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
       "code": "FI",
       "country": "Suomi",
       "public": "holidays/FI/public.ics",
       "regional": null,
       "other": "holidays/FI/other.ics"
+    },
+    {
+      "code": "FJ",
+      "country": "Matanitu Tugalala o Viti",
+      "public": "holidays/FJ/public.ics",
+      "regional": null,
+      "other": "holidays/FJ/other.ics"
+    },
+    {
+      "code": "FO",
+      "country": "Føroyar",
+      "public": "holidays/FO/public.ics",
+      "regional": null,
+      "other": "holidays/FO/other.ics"
     },
     {
       "code": "FR",
@@ -149,11 +485,95 @@
       "other": "holidays/FR/other.ics"
     },
     {
+      "code": "GA",
+      "country": "Gabon",
+      "public": "holidays/GA/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
       "code": "GB",
       "country": "United Kingdom",
       "public": "holidays/GB/public.ics",
       "regional": "holidays/GB/regional.ics",
       "other": "holidays/GB/other.ics"
+    },
+    {
+      "code": "GD",
+      "country": "Grenada",
+      "public": "holidays/GD/public.ics",
+      "regional": null,
+      "other": "holidays/GD/other.ics"
+    },
+    {
+      "code": "GE",
+      "country": "საქართველო",
+      "public": "holidays/GE/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "GF",
+      "country": "Guyane",
+      "public": "holidays/GF/public.ics",
+      "regional": null,
+      "other": "holidays/GF/other.ics"
+    },
+    {
+      "code": "GG",
+      "country": "Guernsey",
+      "public": "holidays/GG/public.ics",
+      "regional": null,
+      "other": "holidays/GG/other.ics"
+    },
+    {
+      "code": "GH",
+      "country": "Ghana",
+      "public": "holidays/GH/public.ics",
+      "regional": null,
+      "other": "holidays/GH/other.ics"
+    },
+    {
+      "code": "GI",
+      "country": "Gibraltar",
+      "public": "holidays/GI/public.ics",
+      "regional": null,
+      "other": "holidays/GI/other.ics"
+    },
+    {
+      "code": "GL",
+      "country": "Kalaallit Nunaat",
+      "public": "holidays/GL/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "GM",
+      "country": "The Gambia",
+      "public": "holidays/GM/public.ics",
+      "regional": null,
+      "other": "holidays/GM/other.ics"
+    },
+    {
+      "code": "GN",
+      "country": "Guinée",
+      "public": "holidays/GN/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "GP",
+      "country": "Guadeloupe",
+      "public": "holidays/GP/public.ics",
+      "regional": null,
+      "other": "holidays/GP/other.ics"
+    },
+    {
+      "code": "GQ",
+      "country": "República de Guinea Ecuatorial",
+      "public": "holidays/GQ/public.ics",
+      "regional": null,
+      "other": null
     },
     {
       "code": "GR",
@@ -170,11 +590,39 @@
       "other": "holidays/GT/other.ics"
     },
     {
+      "code": "GU",
+      "country": "Guam",
+      "public": "holidays/GU/public.ics",
+      "regional": null,
+      "other": "holidays/GU/other.ics"
+    },
+    {
+      "code": "GW",
+      "country": "Guiné-Bissau",
+      "public": "holidays/GW/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "GY",
+      "country": "Guyana",
+      "public": "holidays/GY/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
       "code": "HK",
       "country": "香港",
       "public": "holidays/HK/public.ics",
       "regional": null,
       "other": null
+    },
+    {
+      "code": "HN",
+      "country": "Honduras",
+      "public": "holidays/HN/public.ics",
+      "regional": null,
+      "other": "holidays/HN/other.ics"
     },
     {
       "code": "HR",
@@ -198,6 +646,13 @@
       "other": "holidays/HU/other.ics"
     },
     {
+      "code": "IC",
+      "country": "Islas Canarias",
+      "public": "holidays/IC/public.ics",
+      "regional": "holidays/IC/regional.ics",
+      "other": "holidays/IC/other.ics"
+    },
+    {
       "code": "ID",
       "country": "Indonesia",
       "public": "holidays/ID/public.ics",
@@ -219,9 +674,23 @@
       "other": "holidays/IL/other.ics"
     },
     {
+      "code": "IM",
+      "country": "Isle of Man",
+      "public": "holidays/IM/public.ics",
+      "regional": null,
+      "other": "holidays/IM/other.ics"
+    },
+    {
       "code": "IN",
       "country": "India",
       "public": "holidays/IN/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "IR",
+      "country": "جمهوری اسلامی ایران",
+      "public": "holidays/IR/public.ics",
       "regional": null,
       "other": null
     },
@@ -240,11 +709,46 @@
       "other": "holidays/IT/other.ics"
     },
     {
+      "code": "JE",
+      "country": "Jersey",
+      "public": "holidays/JE/public.ics",
+      "regional": null,
+      "other": "holidays/JE/other.ics"
+    },
+    {
+      "code": "JM",
+      "country": "Jamaica",
+      "public": "holidays/JM/public.ics",
+      "regional": null,
+      "other": "holidays/JM/other.ics"
+    },
+    {
       "code": "JP",
       "country": "日本",
       "public": "holidays/JP/public.ics",
       "regional": null,
       "other": "holidays/JP/other.ics"
+    },
+    {
+      "code": "KE",
+      "country": "Kenya",
+      "public": "holidays/KE/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "KM",
+      "country": "Union des Comores",
+      "public": "holidays/KM/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "KN",
+      "country": "St. Kitts & Nevis",
+      "public": "holidays/KN/public.ics",
+      "regional": null,
+      "other": "holidays/KN/other.ics"
     },
     {
       "code": "KR",
@@ -254,9 +758,23 @@
       "other": null
     },
     {
+      "code": "KY",
+      "country": "Cayman Islands",
+      "public": "holidays/KY/public.ics",
+      "regional": null,
+      "other": "holidays/KY/other.ics"
+    },
+    {
       "code": "KZ",
       "country": "Қазақстан",
       "public": "holidays/KZ/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "LC",
+      "country": "St. Lucia",
+      "public": "holidays/LC/public.ics",
       "regional": null,
       "other": null
     },
@@ -271,6 +789,20 @@
       "code": "LK",
       "country": "Sri Lanka",
       "public": "holidays/LK/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "LR",
+      "country": "Liberia",
+      "public": "holidays/LR/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "LS",
+      "country": "\\'Muso oa Lesotho",
+      "public": "holidays/LS/public.ics",
       "regional": null,
       "other": null
     },
@@ -296,9 +828,51 @@
       "other": "holidays/LV/other.ics"
     },
     {
+      "code": "LY",
+      "country": "دولة ليبيا",
+      "public": "holidays/LY/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
       "code": "MA",
       "country": "المملكة المغربية",
       "public": "holidays/MA/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "MC",
+      "country": "Monaco",
+      "public": "holidays/MC/public.ics",
+      "regional": null,
+      "other": "holidays/MC/other.ics"
+    },
+    {
+      "code": "MD",
+      "country": "Republica Moldova",
+      "public": "holidays/MD/public.ics",
+      "regional": "holidays/MD/regional.ics",
+      "other": "holidays/MD/other.ics"
+    },
+    {
+      "code": "ME",
+      "country": "Crna Gora",
+      "public": "holidays/ME/public.ics",
+      "regional": null,
+      "other": "holidays/ME/other.ics"
+    },
+    {
+      "code": "MF",
+      "country": "Saint Martin",
+      "public": "holidays/MF/public.ics",
+      "regional": null,
+      "other": "holidays/MF/other.ics"
+    },
+    {
+      "code": "MG",
+      "country": "Repoblikan'i Madagasikara",
+      "public": "holidays/MG/public.ics",
       "regional": null,
       "other": null
     },
@@ -308,6 +882,55 @@
       "public": "holidays/MK/public.ics",
       "regional": null,
       "other": "holidays/MK/other.ics"
+    },
+    {
+      "code": "ML",
+      "country": "République du Mali",
+      "public": "holidays/ML/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "MQ",
+      "country": "Martinique",
+      "public": "holidays/MQ/public.ics",
+      "regional": null,
+      "other": "holidays/MQ/other.ics"
+    },
+    {
+      "code": "MR",
+      "country": "الجمهورية الإسلامية الموريتانية",
+      "public": "holidays/MR/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "MS",
+      "country": "Montserrat",
+      "public": "holidays/MS/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "MT",
+      "country": "Malta",
+      "public": "holidays/MT/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "MU",
+      "country": "Mauritius",
+      "public": "holidays/MU/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "MW",
+      "country": "Malawi",
+      "public": "holidays/MW/public.ics",
+      "regional": null,
+      "other": "holidays/MW/other.ics"
     },
     {
       "code": "MX",
@@ -322,6 +945,41 @@
       "public": "holidays/MY/public.ics",
       "regional": "holidays/MY/regional.ics",
       "other": null
+    },
+    {
+      "code": "MZ",
+      "country": "Moçambique",
+      "public": "holidays/MZ/public.ics",
+      "regional": null,
+      "other": "holidays/MZ/other.ics"
+    },
+    {
+      "code": "NA",
+      "country": "Namibia",
+      "public": "holidays/NA/public.ics",
+      "regional": null,
+      "other": "holidays/NA/other.ics"
+    },
+    {
+      "code": "NC",
+      "country": "Nouvelle-Calédonie",
+      "public": "holidays/NC/public.ics",
+      "regional": null,
+      "other": "holidays/NC/other.ics"
+    },
+    {
+      "code": "NE",
+      "country": "République du Niger",
+      "public": "holidays/NE/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "NF",
+      "country": "Norfolk Island",
+      "public": "holidays/NF/public.ics",
+      "regional": null,
+      "other": "holidays/NF/other.ics"
     },
     {
       "code": "NG",
@@ -359,6 +1017,27 @@
       "other": "holidays/NZ/other.ics"
     },
     {
+      "code": "PA",
+      "country": "Panamá",
+      "public": "holidays/PA/public.ics",
+      "regional": null,
+      "other": "holidays/PA/other.ics"
+    },
+    {
+      "code": "PE",
+      "country": "Perú",
+      "public": "holidays/PE/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "PF",
+      "country": "Polynésie française",
+      "public": "holidays/PF/public.ics",
+      "regional": null,
+      "other": "holidays/PF/other.ics"
+    },
+    {
       "code": "PH",
       "country": "Philippines",
       "public": "holidays/PH/public.ics",
@@ -380,11 +1059,39 @@
       "other": "holidays/PL/other.ics"
     },
     {
+      "code": "PM",
+      "country": "St. Pierre & Miquelon",
+      "public": "holidays/PM/public.ics",
+      "regional": null,
+      "other": "holidays/PM/other.ics"
+    },
+    {
+      "code": "PR",
+      "country": "Puerto Rico",
+      "public": "holidays/PR/public.ics",
+      "regional": null,
+      "other": "holidays/PR/other.ics"
+    },
+    {
       "code": "PT",
       "country": "Portugal",
       "public": "holidays/PT/public.ics",
       "regional": null,
       "other": "holidays/PT/other.ics"
+    },
+    {
+      "code": "PY",
+      "country": "Paraguay",
+      "public": "holidays/PY/public.ics",
+      "regional": null,
+      "other": "holidays/PY/other.ics"
+    },
+    {
+      "code": "RE",
+      "country": "Réunion",
+      "public": "holidays/RE/public.ics",
+      "regional": null,
+      "other": "holidays/RE/other.ics"
     },
     {
       "code": "RO",
@@ -408,6 +1115,34 @@
       "other": null
     },
     {
+      "code": "RW",
+      "country": "Rwanda",
+      "public": "holidays/RW/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "SA",
+      "country": "المملكة العربية السعودية",
+      "public": "holidays/SA/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "SC",
+      "country": "Seychelles",
+      "public": "holidays/SC/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "SD",
+      "country": "جمهورية السودان",
+      "public": "holidays/SD/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
       "code": "SE",
       "country": "Sverige",
       "public": "holidays/SE/public.ics",
@@ -422,11 +1157,25 @@
       "other": null
     },
     {
+      "code": "SH",
+      "country": "St. Helena",
+      "public": "holidays/SH/public.ics",
+      "regional": "holidays/SH/regional.ics",
+      "other": "holidays/SH/other.ics"
+    },
+    {
       "code": "SI",
       "country": "Republika Slovenija",
       "public": "holidays/SI/public.ics",
       "regional": null,
       "other": "holidays/SI/other.ics"
+    },
+    {
+      "code": "SJ",
+      "country": "Svalbard & Jan Mayen",
+      "public": "holidays/SJ/public.ics",
+      "regional": null,
+      "other": "holidays/SJ/other.ics"
     },
     {
       "code": "SK",
@@ -436,9 +1185,114 @@
       "other": "holidays/SK/other.ics"
     },
     {
+      "code": "SL",
+      "country": "Sierra Leone",
+      "public": "holidays/SL/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "SM",
+      "country": "San Marino",
+      "public": "holidays/SM/public.ics",
+      "regional": null,
+      "other": "holidays/SM/other.ics"
+    },
+    {
+      "code": "SN",
+      "country": "République du Sénégal",
+      "public": "holidays/SN/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "SO",
+      "country": "Jamhuuriyadda Federaalka Soomaaliya",
+      "public": "holidays/SO/public.ics",
+      "regional": "holidays/SO/regional.ics",
+      "other": null
+    },
+    {
+      "code": "SR",
+      "country": "Suriname",
+      "public": "holidays/SR/public.ics",
+      "regional": null,
+      "other": "holidays/SR/other.ics"
+    },
+    {
+      "code": "SS",
+      "country": "South Sudan",
+      "public": "holidays/SS/public.ics",
+      "regional": null,
+      "other": "holidays/SS/other.ics"
+    },
+    {
+      "code": "ST",
+      "country": "São Tomé & Príncipe",
+      "public": "holidays/ST/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "SV",
+      "country": "El Salvador",
+      "public": "holidays/SV/public.ics",
+      "regional": "holidays/SV/regional.ics",
+      "other": "holidays/SV/other.ics"
+    },
+    {
+      "code": "SX",
+      "country": "Sint Maarten",
+      "public": "holidays/SX/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "SZ",
+      "country": "Eswatini",
+      "public": "holidays/SZ/public.ics",
+      "regional": null,
+      "other": "holidays/SZ/other.ics"
+    },
+    {
+      "code": "TC",
+      "country": "Turks & Caicos Islands",
+      "public": "holidays/TC/public.ics",
+      "regional": null,
+      "other": "holidays/TC/other.ics"
+    },
+    {
+      "code": "TD",
+      "country": "جمهورية تشاد",
+      "public": "holidays/TD/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "TG",
+      "country": "République togolaise",
+      "public": "holidays/TG/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
       "code": "TH",
       "country": "Thailand",
       "public": "holidays/TH/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "TN",
+      "country": "الجمهورية التونسية",
+      "public": "holidays/TN/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "TO",
+      "country": "Puleʻanga Fakatuʻi ʻo Tonga",
+      "public": "holidays/TO/public.ics",
       "regional": null,
       "other": null
     },
@@ -450,6 +1304,13 @@
       "other": null
     },
     {
+      "code": "TT",
+      "country": "Trinidad & Tobago",
+      "public": "holidays/TT/public.ics",
+      "regional": null,
+      "other": "holidays/TT/other.ics"
+    },
+    {
       "code": "TW",
       "country": "中華民國",
       "public": "holidays/TW/public.ics",
@@ -457,11 +1318,25 @@
       "other": "holidays/TW/other.ics"
     },
     {
+      "code": "TZ",
+      "country": "Tanzania",
+      "public": "holidays/TZ/public.ics",
+      "regional": null,
+      "other": "holidays/TZ/other.ics"
+    },
+    {
       "code": "UA",
       "country": "Україна",
       "public": "holidays/UA/public.ics",
       "regional": null,
       "other": null
+    },
+    {
+      "code": "UG",
+      "country": "Uganda",
+      "public": "holidays/UG/public.ics",
+      "regional": null,
+      "other": "holidays/UG/other.ics"
     },
     {
       "code": "US",
@@ -478,6 +1353,48 @@
       "other": "holidays/UY/other.ics"
     },
     {
+      "code": "UZ",
+      "country": "Oʻzbekiston",
+      "public": "holidays/UZ/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "VA",
+      "country": "Stato della Città del Vaticano",
+      "public": "holidays/VA/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "VC",
+      "country": "St. Vincent & Grenadines",
+      "public": "holidays/VC/public.ics",
+      "regional": null,
+      "other": "holidays/VC/other.ics"
+    },
+    {
+      "code": "VE",
+      "country": "Venezuela",
+      "public": "holidays/VE/public.ics",
+      "regional": "holidays/VE/regional.ics",
+      "other": "holidays/VE/other.ics"
+    },
+    {
+      "code": "VG",
+      "country": "British Virgin Islands",
+      "public": "holidays/VG/public.ics",
+      "regional": null,
+      "other": "holidays/VG/other.ics"
+    },
+    {
+      "code": "VI",
+      "country": "U.S. Virgin Islands",
+      "public": "holidays/VI/public.ics",
+      "regional": null,
+      "other": "holidays/VI/other.ics"
+    },
+    {
       "code": "VN",
       "country": "Cộng hòa Xã hội chủ nghĩa Việt Nam",
       "public": "holidays/VN/public.ics",
@@ -485,11 +1402,53 @@
       "other": "holidays/VN/other.ics"
     },
     {
+      "code": "VU",
+      "country": "République de Vanuatu",
+      "public": "holidays/VU/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "WF",
+      "country": "Wallis-et-Futuna",
+      "public": "holidays/WF/public.ics",
+      "regional": null,
+      "other": "holidays/WF/other.ics"
+    },
+    {
+      "code": "XK",
+      "country": "Republika e Kosovës",
+      "public": "holidays/XK/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "YT",
+      "country": "Mayotte",
+      "public": "holidays/YT/public.ics",
+      "regional": null,
+      "other": "holidays/YT/other.ics"
+    },
+    {
       "code": "ZA",
       "country": "South Africa",
       "public": "holidays/ZA/public.ics",
       "regional": null,
       "other": "holidays/ZA/other.ics"
+    },
+    {
+      "code": "ZM",
+      "country": "Zambia",
+      "public": "holidays/ZM/public.ics",
+      "regional": null,
+      "other": null
+    },
+    {
+      "code": "ZW",
+      "country": "Zimbabwe",
+      "public": "holidays/ZW/public.ics",
+      "regional": null,
+      "other": "holidays/ZW/other.ics"
     }
   ]
 }
