@@ -21,6 +21,7 @@ import android.view.inputmethod.EditorInfo
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.RelativeLayout
+import androidx.appcompat.app.AlertDialog
 import androidx.core.graphics.drawable.toDrawable
 import androidx.core.net.toUri
 import com.google.android.material.timepicker.MaterialTimePicker
@@ -58,6 +59,7 @@ import org.fossify.calendar.extensions.showEventRepeatIntervalDialog
 import org.fossify.calendar.helpers.ATTENDEES
 import org.fossify.calendar.helpers.AVAILABILITY
 import org.fossify.calendar.helpers.CALDAV
+import org.fossify.calendar.helpers.CategoryColorHelper
 import org.fossify.calendar.helpers.CALENDAR_ID
 import org.fossify.calendar.helpers.CLASS
 import org.fossify.calendar.helpers.CURRENT_TIME_ZONE
@@ -166,6 +168,7 @@ import org.fossify.commons.models.RadioItem
 import org.fossify.commons.views.MyAutoCompleteTextView
 import org.joda.time.DateTime
 import org.joda.time.DateTimeZone
+import java.util.Locale
 import java.util.TimeZone
 import java.util.regex.Pattern
 
@@ -571,6 +574,15 @@ class EventActivity : SimpleActivity() {
         eventColorHolder.setOnClickListener {
             showEventColorDialog()
         }
+        eventCategoryColorHolder.setOnClickListener {
+            showCategoryColorDialog()
+        }
+        eventCategorySuggestions.setOnClickListener {
+            showCategorySuggestions()
+        }
+        eventCategories.onTextChangeListener {
+            updateCategoryColorInfo()
+        }
 
         updateTextColors(eventNestedScrollview)
         updateIconColors()
@@ -662,6 +674,7 @@ class EventActivity : SimpleActivity() {
         return binding.eventTitle.text.toString() != mEvent.title ||
                 binding.eventLocation.text.toString() != mEvent.location ||
                 binding.eventDescription.text.toString() != mEvent.description ||
+                getCategories() != mEvent.categories ||
                 binding.eventTimeZone.text != mEvent.getTimeZoneString() ||
                 reminders != mEvent.getReminders() ||
                 mRepeatInterval != mEvent.repeatInterval ||
@@ -692,6 +705,44 @@ class EventActivity : SimpleActivity() {
         }
     }
 
+    private fun getCategories(): List<String> = binding.eventCategories.text.toString()
+        .split(',')
+        .map { it.trim() }
+        .filter { it.isNotEmpty() }
+        .distinct()
+
+    private fun showCategorySuggestions() {
+        ensureBackgroundThread {
+            val knownCategories = eventsDB.getAllEvents()
+                .flatMap { it.categories }
+                .map { it.trim() }
+                .filter { it.isNotEmpty() }
+                .distinctBy { it.lowercase(Locale.ROOT) }
+                .sortedWith(String.CASE_INSENSITIVE_ORDER)
+            runOnUiThread {
+                if (knownCategories.isEmpty()) {
+                    toast(org.fossify.commons.R.string.no_items_found)
+                    return@runOnUiThread
+                }
+                val selected = getCategories().map { it.lowercase(Locale.ROOT) }.toMutableSet()
+                val checked = knownCategories.map { it.lowercase(Locale.ROOT) in selected }.toBooleanArray()
+                AlertDialog.Builder(this)
+                    .setTitle(R.string.select_existing_categories)
+                    .setMultiChoiceItems(knownCategories.toTypedArray(), checked) { _, which, isChecked ->
+                        val category = knownCategories[which].lowercase(Locale.ROOT)
+                        if (isChecked) selected.add(category) else selected.remove(category)
+                    }
+                    .setPositiveButton(android.R.string.ok) { _, _ ->
+                        binding.eventCategories.setText(
+                            knownCategories.filter { it.lowercase(Locale.ROOT) in selected }.joinToString(", ")
+                        )
+                    }
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .show()
+            }
+        }
+    }
+
     private fun updateTexts() {
         updateRepetitionText()
         checkReminderTexts()
@@ -702,6 +753,7 @@ class EventActivity : SimpleActivity() {
         updateAvailabilityText()
         updateStatusText()
         updateAccessLevelText()
+        updateCategoryColorInfo()
     }
 
     private fun setupEditEvent() {
@@ -733,6 +785,7 @@ class EventActivity : SimpleActivity() {
         binding.eventTitle.setText(mEvent.title)
         binding.eventLocation.setText(mEvent.location)
         binding.eventDescription.setText(mEvent.description)
+        binding.eventCategories.setText(mEvent.categories.joinToString(", "))
 
         mReminder1Minutes = mEvent.reminder1Minutes
         mReminder2Minutes = mEvent.reminder2Minutes
@@ -1193,6 +1246,18 @@ class EventActivity : SimpleActivity() {
         }
     }
 
+    private fun showCategoryColorDialog() {
+        val category = getCategories().firstOrNull() ?: return
+        hideKeyboard()
+        val currentColor = CategoryColorHelper.colorFor(this, category) ?: return
+        ColorPickerDialog(this, currentColor) { wasPositivePressed, newColor ->
+            if (wasPositivePressed) {
+                CategoryColorHelper.setColor(this, category, newColor)
+                updateCategoryColorInfo()
+            }
+        }
+    }
+
     private fun showCustomEventColorDialog() {
         val calendar = calendarsDB.getCalendarWithId(mCalendarId)!!
         val currentColor = if (mEventColor == 0) {
@@ -1454,6 +1519,18 @@ class EventActivity : SimpleActivity() {
         binding.eventColor.setFillWithStroke(eventColor, getProperBackgroundColor())
     }
 
+    private fun updateCategoryColorInfo() {
+        val category = getCategories().firstOrNull()
+        val isVisible = category != null
+        binding.eventCategoryColorImage.beVisibleIf(isVisible)
+        binding.eventCategoryColorHolder.beVisibleIf(isVisible)
+        if (category != null) {
+            val color = CategoryColorHelper.colorFor(this, category) ?: return
+            binding.eventCategoryColor.setFillWithStroke(color, getProperBackgroundColor())
+            binding.eventCategoryColorText.text = getString(R.string.category_color) + ": $category"
+        }
+    }
+
     private fun getEventColors(calendar: CalendarEntity): IntArray {
         return calDAVHelper.getAvailableCalDAVCalendarColors(
             calendar = calendar,
@@ -1676,6 +1753,7 @@ class EventActivity : SimpleActivity() {
             endTS = newEndTS
             title = newTitle
             description = binding.eventDescription.value
+            categories = getCategories()
             reminder1Minutes = reminder1.minutes
             reminder2Minutes = reminder2.minutes
             reminder3Minutes = reminder3.minutes

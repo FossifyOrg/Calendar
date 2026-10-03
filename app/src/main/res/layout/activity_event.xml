@@ -93,11 +93,82 @@
                 android:textCursorDrawable="@null"
                 android:textSize="@dimen/day_text_size" />
 
+            <org.fossify.commons.views.MyEditText
+                android:id="@+id/event_categories"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/event_description"
+                android:layout_marginStart="@dimen/activity_margin"
+                android:layout_marginTop="@dimen/activity_margin"
+                android:layout_marginEnd="@dimen/activity_margin"
+                android:hint="@string/categories_hint"
+                android:inputType="textCapWords"
+                android:maxLength="500"
+                android:minEms="20"
+                android:textCursorDrawable="@null"
+                android:textSize="@dimen/day_text_size" />
+
+            <org.fossify.commons.views.MyTextView
+                android:id="@+id/event_category_suggestions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/event_categories"
+                android:layout_marginStart="@dimen/activity_margin"
+                android:layout_marginTop="@dimen/small_margin"
+                android:background="?attr/selectableItemBackground"
+                android:padding="@dimen/small_margin"
+                android:text="@string/select_existing_categories"
+                android:textSize="@dimen/smaller_text_size" />
+
+            <ImageView
+                android:id="@+id/event_category_color_image"
+                android:layout_width="@dimen/smaller_icon_size"
+                android:layout_height="@dimen/smaller_icon_size"
+                android:layout_below="@+id/event_category_suggestions"
+                android:layout_alignTop="@+id/event_category_color_holder"
+                android:layout_alignBottom="@+id/event_category_color_holder"
+                android:layout_marginStart="@dimen/normal_margin"
+                android:padding="@dimen/medium_margin"
+                android:src="@drawable/ic_color_outline_vector" />
+
+            <RelativeLayout
+                android:id="@+id/event_category_color_holder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/event_category_suggestions"
+                android:layout_marginTop="@dimen/small_margin"
+                android:layout_marginBottom="@dimen/small_margin"
+                android:layout_toEndOf="@+id/event_category_color_image"
+                android:background="?attr/selectableItemBackground">
+
+                <org.fossify.commons.views.MyTextView
+                    android:id="@+id/event_category_color_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/small_margin"
+                    android:layout_marginEnd="@dimen/medium_margin"
+                    android:layout_toStartOf="@+id/event_category_color"
+                    android:paddingTop="@dimen/normal_margin"
+                    android:paddingBottom="@dimen/normal_margin"
+                    android:text="@string/category_color"
+                    android:textSize="@dimen/day_text_size" />
+
+                <ImageView
+                    android:id="@+id/event_category_color"
+                    android:layout_width="@dimen/color_sample_size"
+                    android:layout_height="@dimen/color_sample_size"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="@dimen/activity_margin"
+                    android:clickable="false" />
+
+            </RelativeLayout>
+
             <ImageView
                 android:id="@+id/event_description_divider"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/divider_height"
-                android:layout_below="@+id/event_description"
+                android:layout_below="@+id/event_category_color_holder"
                 android:layout_marginTop="@dimen/activity_margin"
                 android:layout_marginBottom="@dimen/normal_margin"
                 android:background="@color/divider_grey"

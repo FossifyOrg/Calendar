@@ -3,6 +3,8 @@ package org.fossify.calendar.helpers
 import android.content.Context
 import android.media.AudioManager
 import android.media.RingtoneManager
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import org.fossify.calendar.R
 import org.fossify.calendar.extensions.config
 import org.fossify.calendar.extensions.scheduleCalDAVSync
@@ -15,6 +17,15 @@ class Config(context: Context) : BaseConfig(context) {
     companion object {
         fun newInstance(context: Context) = Config(context)
     }
+
+    var categoryColors: MutableMap<String, Int>
+        get() = try {
+            val type = object : TypeToken<MutableMap<String, Int>>() {}.type
+            Gson().fromJson(prefs.getString(CATEGORY_COLORS, "{}"), type) ?: mutableMapOf()
+        } catch (_: Exception) {
+            mutableMapOf()
+        }
+        set(colors) = prefs.edit().putString(CATEGORY_COLORS, Gson().toJson(colors)).apply()
 
     var showWeekNumbers: Boolean
         get() = prefs.getBoolean(WEEK_NUMBERS, false)

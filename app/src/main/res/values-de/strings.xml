@@ -28,6 +28,9 @@
     <string name="public_event_notification_text">Ein Termin steht an</string>
     <string name="everything_filtered_out">Du hast alle Kalender herausgefiltert</string>
     <string name="event_color">Terminfarbe</string>
+    <string name="categories_hint">Kategorien (durch Kommas trennen)</string>
+    <string name="category_color">Kategoriefarbe</string>
+    <string name="select_existing_categories">Vorhandene Kategorien auswählen</string>
     <string name="default_calendar_color">Standardkalenderfarbe</string>
     <string name="task">Aufgabe</string>
     <string name="tasks">Aufgaben</string>

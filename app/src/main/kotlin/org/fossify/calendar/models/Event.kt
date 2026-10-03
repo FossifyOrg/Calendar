@@ -67,6 +67,8 @@ data class Event(
     @ColumnInfo(name = "color") var color: Int = 0,
     @ColumnInfo(name = "type") var type: Int = TYPE_EVENT,
     @ColumnInfo(name = "status") var status: Int = CalendarContract.Events.STATUS_CONFIRMED,
+    /** iCalendar CATEGORIES, mirrored to DAVx⁵'s Android extended property. */
+    @ColumnInfo(name = "categories") var categories: List<String> = emptyList(),
 ) : Serializable {
 
     companion object {

@@ -552,7 +552,10 @@ class EventsHelper(val context: Context) {
             }
 
             if (it.color == 0) {
-                it.color = calendarColors.get(it.calendarId) ?: context.getProperPrimaryColor()
+                it.color = it.categories.firstOrNull()
+                    ?.let { category -> CategoryColorHelper.colorFor(context, category) }
+                    ?: calendarColors.get(it.calendarId)
+                    ?: context.getProperPrimaryColor()
             }
         }
 

@@ -86,6 +86,7 @@ const val EVENT_LIST_PERIOD = "event_list_period"
 
 // Shared Preferences
 const val WEEK_NUMBERS = "week_numbers"
+const val CATEGORY_COLORS = "category_colors"
 const val START_WEEKLY_AT = "start_weekly_at"
 const val START_WEEK_WITH_CURRENT_DAY = "start_week_with_current_day"
 const val SHOW_MIDNIGHT_SPANNING_EVENTS_AT_TOP = "show_midnight_spanning_events_at_top"
