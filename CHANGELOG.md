@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - Removed padding around monthly calendar widget ([#63])
+- Fixed clipped text in the event-list widget ([#521])
 
 ## [1.11.0] - 2026-09-23
 ### Added
@@ -244,6 +245,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#462]: https://github.com/FossifyOrg/Calendar/issues/462
 [#484]: https://github.com/FossifyOrg/Calendar/issues/484
 [#486]: https://github.com/FossifyOrg/Calendar/issues/486
+[#521]: https://github.com/FossifyOrg/Calendar/issues/521
 [#550]: https://github.com/FossifyOrg/Calendar/issues/550
 [#551]: https://github.com/FossifyOrg/Calendar/issues/551
 [#567]: https://github.com/FossifyOrg/Calendar/issues/567
