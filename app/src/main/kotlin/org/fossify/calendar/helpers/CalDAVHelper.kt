@@ -206,6 +206,7 @@ class CalDAVHelper(val context: Context) {
             Events.ORIGINAL_INSTANCE_TIME,
             Events.EVENT_LOCATION,
             Events.EVENT_TIMEZONE,
+            Events.EVENT_END_TIMEZONE,
             Events.CALENDAR_TIME_ZONE,
             Events.DELETED,
             Events.AVAILABILITY,
@@ -258,6 +259,7 @@ class CalDAVHelper(val context: Context) {
             val importId = getCalDAVEventImportId(calendarId, id)
             val eventTimeZone = cursor.getStringValue(Events.EVENT_TIMEZONE)
                 ?: cursor.getStringValue(Events.CALENDAR_TIME_ZONE) ?: DateTimeZone.getDefault().id
+            val eventEndTimeZone = cursor.getStringValue(Events.EVENT_END_TIMEZONE) ?: ""
 
             val source = "$CALDAV-$calendarId"
             val repeatRule = Parser().parseRepeatInterval(rrule, startTS)
@@ -281,6 +283,7 @@ class CalDAVHelper(val context: Context) {
                 attendees = attendees,
                 importId = importId,
                 timeZone = eventTimeZone,
+                endTimeZone = eventEndTimeZone,
                 flags = allDay,
                 calendarId = localCalendarId,
                 source = source,
@@ -564,6 +567,7 @@ class CalDAVHelper(val context: Context) {
 
             put(Events.DTSTART, event.startTS * 1000L)
             put(Events.EVENT_TIMEZONE, event.getTimeZoneString())
+            put(Events.EVENT_END_TIMEZONE, event.getEndTimeZoneString())
             if (event.repeatInterval > 0) {
                 put(Events.DURATION, getDurationCode(event))
                 putNull(Events.DTEND)
@@ -639,6 +643,7 @@ class CalDAVHelper(val context: Context) {
             put(Events.DTSTART, startMillis)
             put(Events.DTEND, startMillis + durationMillis)
             put(Events.EVENT_TIMEZONE, parentEvent.getTimeZoneString())
+            put(Events.EVENT_END_TIMEZONE, parentEvent.getEndTimeZoneString())
             put(Events.ORIGINAL_ID, parentEvent.getCalDAVEventId())
             put(Events.ORIGINAL_INSTANCE_TIME, startMillis)
             put(Events.STATUS, Events.STATUS_CANCELED)
