@@ -87,7 +87,6 @@ android {
 
     flavorDimensions.add("variants")
     productFlavors {
-        register("core")
         register("foss")
         register("gplay")
     }
