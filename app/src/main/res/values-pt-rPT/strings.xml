@@ -269,4 +269,7 @@
     <string name="show_widget_header">Mostrar cabeçalho</string>
     <string name="allow_alarms_reminders">Deve permitir que a aplicação agende alarmes para que os lembretes funcionem corretamente.</string>
     <string name="offline_never_synced">Offline (nunca sincronizado)</string>
+    <string name="manage_holidays">Gerir feriados</string>
+    <string name="holidays_updated">Feriados actualizados</string>
+    <string name="holiday_management_notice">A aplicação agora actualiza os feriados automaticamente. Seleccione os seus países novamente para activar. Os feriados importados anteriormente podem ter de ser eliminados manualmente.</string>
 </resources>
