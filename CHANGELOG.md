@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Fixed
+- Fixed the save-event countdown to show time until the event instead of time until the reminder ([#1073])
 
 ## [1.12.0] - 2026-10-10
 ### Added
@@ -276,6 +278,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#1019]: https://github.com/FossifyOrg/Calendar/issues/1019
 [#1024]: https://github.com/FossifyOrg/Calendar/issues/1024
 [#1065]: https://github.com/FossifyOrg/Calendar/issues/1065
+[#1073]: https://github.com/FossifyOrg/Calendar/issues/1073
 [#1157]: https://github.com/FossifyOrg/Calendar/issues/1157
 
 [Unreleased]: https://github.com/FossifyOrg/Calendar/compare/1.12.0...HEAD
