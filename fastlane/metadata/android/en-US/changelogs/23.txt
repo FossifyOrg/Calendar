@@ -1,0 +1,14 @@
+Added:
+
+• Added holidays for more countries
+
+Changed:
+
+• Updated holiday data
+• Updated translations
+
+Fixed:
+
+• Removed padding around monthly calendar widget 
+• Fixed clipped text in the event-list widget 
+
