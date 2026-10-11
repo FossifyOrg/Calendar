@@ -241,7 +241,7 @@
     <string name="faq_1_text">Os feriados criados assim são inseridos no novo calendário chamado \"Feriados \". Em Definições -&gt; Gerir calendários, selecione o tipo de calendário com um toque longo e apague-o selecionando o lixo.</string>
     <string name="faq_2_title">Posso sincronizar os meus eventos via Google Calendar ou por outro serviço que suporte CalDAV\?</string>
     <string name="faq_2_title_extra">E talvez até partilhar calendários\?</string>
-    <string name="faq_2_text">Sim, basta ativar \"Sincronização CalDAV \" nas definições da aplicação e selecionar os calendários a sincronizar. No entanto, será necessária uma outra aplicação para sincronizar o dispositivo com os servidores. Para sincronizar um calendário Google, pode usar a sua aplicação oficial. Para outros calendários, precisará de um adaptador de sincronização de terceiros como, por exemplo, DAVx5.</string>
+    <string name="faq_2_text">Sim, basta ativar \"Sincronização CalDAV \" nas definições da aplicação e selecionar os calendários a sincronizar. No entanto, será necessária uma outra aplicação para sincronizar o dispositivo com os servidores. Para sincronizar um calendário Google, pode usar a aplicação oficial. Para outros calendários, precisará de um adaptador de sincronização de terceiros como, por exemplo, DAVx5.</string>
     <string name="faq_3_title">Vejo os lembretes mas não ouço som. O que posso fazer\?</string>
     <string name="faq_3_text">A afixação do lembrete e o áudio são fortemente influenciados pelas definições do sistema. Se não consegue ouvir o som, verifique as definições da aplicação, selecione a opção \"Fluxo de áudio usado pelos lembretes\" e modifique-a. Se não funcionar, verifique nas definições de áudio do sistema se este tipo multimédia está no modo Silêncio.</string>
     <string name="faq_4_title">A aplicação suporta diferentes fusos horários\?</string>
@@ -269,4 +269,7 @@
     <string name="access_level_confidential">Confidencial</string>
     <string name="allow_alarms_reminders">Deve permitir que a aplicação agende alarmes para que os lembretes funcionem corretamente.</string>
     <string name="offline_never_synced">Offline (nunca sincronizado)</string>
+    <string name="manage_holidays">Gerir feriados</string>
+    <string name="holidays_updated">Feriados atualizados</string>
+    <string name="holiday_management_notice">Agora, a aplicação pode atualizar os feriados automaticamente. Selecione os países para ativar. Pode ser necessário remover manualmente os feriados previamente existentes.</string>
 </resources>
