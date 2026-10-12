@@ -90,12 +90,12 @@
     <string name="no_new_birthdays">Nenhuma data de nascimento nova foi encontrada</string>
     <string name="birthdays_added">Datas de nascimento adicionadas com sucesso</string>
     <string name="add_birthdays_automatically">Adicionar novas datas de nascimento automaticamente</string>
-    <string name="anniversaries">Aniversários</string>
-    <string name="add_anniversaries">Adicionar aniversários dos contatos</string>
-    <string name="no_anniversaries">Nenhum aniversário foi encontrado</string>
-    <string name="no_new_anniversaries">Nenhum novo aniversário foi encontrado</string>
-    <string name="anniversaries_added">Aniversários adicionados com sucesso</string>
-    <string name="add_anniversaries_automatically">Adicionar novos aniversários automaticamente</string>
+    <string name="anniversaries">Datas Importantes</string>
+    <string name="add_anniversaries">Adicionar data importante dos contatos</string>
+    <string name="no_anniversaries">Nenhuma data importante foi encontrada</string>
+    <string name="no_new_anniversaries">Nenhuma nova data importante foi encontrada</string>
+    <string name="anniversaries_added">Datas importantes adicionadas com sucesso</string>
+    <string name="add_anniversaries_automatically">Adicionar novas datas importantes automaticamente</string>
     <string name="reminder">Lembrete</string>
     <string name="before">antes</string>
     <string name="add_another_reminder">Adicionar outro lembrete</string>
@@ -269,4 +269,7 @@
     <string name="access_level_confidential">Confidencial</string>
     <string name="allow_alarms_reminders">Você deve permitir que o aplicativo agende alarmes para que os lembretes funcionem corretamente.</string>
     <string name="offline_never_synced">Desligado (nunca sincronizado)</string>
+    <string name="manage_holidays">Gerenciar Feriados</string>
+    <string name="holidays_updated">Atualizar Feriados</string>
+    <string name="holiday_management_notice">O aplicativo agora atualiza os feriados automaticamente. Selecione novamente os países para ativar esse recurso. Feriados importados anteriormente podem precisar ser removidos manualmente.</string>
 </resources>
