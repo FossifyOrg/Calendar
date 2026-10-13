@@ -50,9 +50,9 @@
     <string name="event_is_repeatable">O evento é recorrente</string>
     <string name="task_is_repeatable">A tarefa é recorrente</string>
     <string name="selection_contains_repetition">A seleção contém eventos recorrentes</string>
-    <string name="delete_one_only">Apagar a ocorrência selecionada</string>
-    <string name="delete_future_occurrences">Apagar esta e todas as ocorrências futuras</string>
-    <string name="delete_all_occurrences">Apagar todas as ocorrências</string>
+    <string name="delete_one_only">Eliminar apenas esta ocorrência</string>
+    <string name="delete_future_occurrences">Eliminar esta e todas as ocorrências futuras</string>
+    <string name="delete_all_occurrences">Eliminar todas as ocorrências</string>
     <string name="update_one_only">Atualizar a ocorrência selecionada</string>
     <string name="update_this_and_future_occurrences">Atualizar esta e todas as ocorrências futuras</string>
     <string name="update_all_occurrences">Atualizar todas as ocorrências</string>
@@ -131,7 +131,7 @@
     <string name="type_already_exists">Já existe um calendário com este título</string>
     <string name="color">Cor</string>
     <string name="regular_event">Calendário local</string>
-    <string name="cannot_delete_default_type">O calendário embutido não pode ser apagado</string>
+    <string name="cannot_delete_default_type">Não pode eliminar o calendário nativo</string>
     <string name="select_event_type">Selecione um calendário</string>
     <string name="move_events_into_default">Mover eventos afetados para o calendário predefinido</string>
     <string name="remove_affected_events">Remover permanentemente os eventos afetados</string>
@@ -156,9 +156,9 @@
     <string name="display_past_events">Mostrar eventos passados</string>
     <string name="replace_description_with_location">Substituir descrição pela localização do evento</string>
     <string name="display_description_or_location">Mostrar descrição ou localização</string>
-    <string name="delete_all_events">Apagar todos os eventos</string>
-    <string name="delete_all_events_and_tasks">Apagar todos os eventos e tarefas</string>
-    <string name="delete_all_events_confirmation">Tem a certeza de que deseja apagar todos os eventos e tarefas? Os seus calendários e outras definições ficam intactas.</string>
+    <string name="delete_all_events">Eliminar todos os eventos</string>
+    <string name="delete_all_events_and_tasks">Eliminar todos os eventos e tarefas</string>
+    <string name="delete_all_events_confirmation">Tem a certeza de que deseja eliminar todos os eventos e tarefas? Os seus calendários e outras definições ficam intactas.</string>
     <string name="show_a_grid">Mostrar grelha</string>
     <string name="loop_reminders">Mostrar lembretes até serem descartados</string>
     <string name="dim_past_events">Desvanecer eventos passados</string>
@@ -238,7 +238,7 @@
         <item quantity="other">Nos próximos %d meses</item>
     </plurals>
     <string name="faq_1_title">Como posso remover os feriados que importei através do botão \"Adicionar feriados\"\?</string>
-    <string name="faq_1_text">Os feriados criados assim são inseridos no novo calendário chamado \"Feriados \". Em Definições -&gt; Gerir calendários, selecione o tipo de calendário com um toque longo e apague-o selecionando o lixo.</string>
+    <string name="faq_1_text">Os feriados criados assim são inseridos no novo calendário chamado \"Feriados \". Em Definições -&gt; Gerir calendários, um toque longo no calendário permite enviá-lo para a reciclagem.</string>
     <string name="faq_2_title">Posso sincronizar os meus eventos via Google Calendar ou por outro serviço que suporte CalDAV\?</string>
     <string name="faq_2_title_extra">E talvez até partilhar calendários\?</string>
     <string name="faq_2_text">Sim, basta ativar \"Sincronização CalDAV \" nas definições da aplicação e selecionar os calendários a sincronizar. No entanto, será necessária uma outra aplicação para sincronizar o dispositivo com os servidores. Para sincronizar um calendário Google, pode usar a aplicação oficial. Para outros calendários, precisará de um adaptador de sincronização de terceiros como, por exemplo, DAVx5.</string>
@@ -248,8 +248,8 @@
     <string name="faq_4_text">Sim. Por definição, todos os eventos são criados com o seu fuso horário. Se quiser alterar o fuso horário de um evento, terá de ativar a escolha de fuso horário nas definições da aplicação e alterá-lo nos Detalhes do evento. Por omissão, esta opção está desativada pois não é necessária para a maioria das pessoas.</string>
     <string name="faq_5_title">Porquê a app não mostra notificações?</string>
     <string name="faq_5_text">Analise as definições de bateria e de notificações do dispositivo. Pode ser que exista algo a bloquear os lembretes ou a terminar a aplicação em segundo plano. Consulte &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt; para ver algumas dicas.</string>
-    <string name="faq_6_title">Como posso modificar ou apagar um calendário existente?</string>
-    <string name="faq_6_text">Pode fazer ambas em Definições - Gerir tipos de eventos. Basta tocar no desejado para alterar o texto ou a cor e pode também eliminar qualquer um com um toque longo no tipo de evento e utilizando a reciclagem no menu superior.</string>
+    <string name="faq_6_title">Como posso modificar ou eliminar um calendário existente?</string>
+    <string name="faq_6_text">Pode fazer ambas em Definições - Gerir calendários. Basta tocar no desejado para alterar o texto ou a cor e pode também eliminar qualquer um com um toque longo no calendário e utilizando a reciclagem no menu superior.</string>
     <string name="accessibility_previous_month">Ir para o mês anterior</string>
     <string name="event_color">Cor do evento</string>
     <string name="accessibility_next_month">Ir para o mês seguinte</string>
