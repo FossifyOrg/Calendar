@@ -270,6 +270,6 @@
     <string name="allow_alarms_reminders">Você deve permitir que o aplicativo agende alarmes para que os lembretes funcionem corretamente.</string>
     <string name="offline_never_synced">Desligado (nunca sincronizado)</string>
     <string name="manage_holidays">Gerenciar Feriados</string>
-    <string name="holidays_updated">Atualizar Feriados</string>
+    <string name="holidays_updated">Feriados Atualizados</string>
     <string name="holiday_management_notice">O aplicativo agora atualiza os feriados automaticamente. Selecione novamente os países para ativar esse recurso. Feriados importados anteriormente podem precisar ser removidos manualmente.</string>
 </resources>
