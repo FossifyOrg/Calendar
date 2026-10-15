@@ -266,4 +266,7 @@
     <string name="access_level_public">公開</string>
     <string name="allow_alarms_reminders">您必須允許應用程式設定鬧鐘才能讓提醒功能正常運作。</string>
     <string name="offline_never_synced">離線（從未同步）</string>
+    <string name="manage_holidays">管理節日</string>
+    <string name="holidays_updated">節日已更新</string>
+    <string name="holiday_management_notice">這個應用程式現在會自動更新節日。請再次選擇你的國家以啟用這個功能。先前匯入的節日可能需要手動移除。</string>
 </resources>
