@@ -243,10 +243,10 @@ fun Context.scheduleEventIn(notifyAtMillis: Long, event: Event, showToasts: Bool
 
     val newNotifyAtMillis = notifyAtMillis + 1000
     if (showToasts) {
-        val secondsTillNotification = (newNotifyAtMillis - now) / 1000
+        val secondsTillEvent = event.getEventStartTS() - getNowSeconds()
         val msg = String.format(
             getString(org.fossify.commons.R.string.time_remaining),
-            formatSecondsToTimeString(secondsTillNotification.toInt())
+            formatSecondsToTimeString(secondsTillEvent.toInt())
         )
         toast(msg)
     }
