@@ -5,6 +5,7 @@ import android.content.ContextWrapper
 import android.content.SharedPreferences
 import android.content.res.Configuration
 import android.graphics.Color
+import android.graphics.Rect
 import android.graphics.drawable.GradientDrawable
 import android.os.Looper
 import android.view.View
@@ -59,7 +60,7 @@ class MyWidgetMonthlyProviderTest {
         val root = render(listOf(event(1, 0, 3, "Conference"), event(2, 3, 5, "Trip"), event(3, 4, 4, "Call")))
         assertEquals(3, day(root, 4).childCount)
         assertEquals("Call", label(root, 4, 0).text.toString())
-        assertEquals("", label(root, 4, 1).text.toString())
+        assertEquals("Trip", label(root, 4, 1).text.toString())
         assertEquals(slot(root, 3, 1).top, slot(root, 4, 1).top)
     }
 
@@ -127,11 +128,31 @@ class MyWidgetMonthlyProviderTest {
     fun titlesRestartAtWeekAndVisibleMonthBoundaries() = instrumentation.runOnMainSync {
         val root = render(listOf(event(1, -2, 2, "Ongoing"), event(2, 5, 9, "Vacation")))
         assertEquals("Ongoing", label(root, 0, 0).text.toString())
-        assertEquals("", label(root, 1, 0).text.toString())
+        assertEquals("Ongoing", label(root, 2, 0).text.toString())
+        assertNull(findLabel(root, 3, 0))
         assertEquals("Vacation", label(root, 5, 0).text.toString())
-        assertEquals("", label(root, 6, 0).text.toString())
+        assertEquals("Vacation", label(root, 6, 0).text.toString())
         assertEquals("Vacation", label(root, 7, 0).text.toString())
-        assertEquals("", label(root, 8, 0).text.toString())
+        assertEquals("Vacation", label(root, 9, 0).text.toString())
+        assertNull(findLabel(root, 10, 0))
+    }
+
+    @Test
+    fun multiDayTitlesUseTheirFullVisibleSpan() = instrumentation.runOnMainSync {
+        val title = "Birthday Celebration"
+        for (grid in listOf(false, true)) {
+            for (rtl in listOf(false, true)) {
+                val multiDayRoot = render(listOf(event(1, 0, 3, title)), grid = grid, rtl = rtl)
+                val singleDayRoot = render(listOf(event(2, 0, 0, title)), grid = grid, rtl = rtl)
+                val multiDayLabel = label(multiDayRoot, 0, 0)
+                val singleDayLabel = label(singleDayRoot, 0, 0)
+
+                assertEquals(title.replace(" ", "\u00A0"), multiDayLabel.text.toString())
+                assertTrue(multiDayLabel.width > day(multiDayRoot, 0).width * 3)
+                assertTrue(singleDayLabel.layout.getEllipsisCount(0) > multiDayLabel.layout.getEllipsisCount(0))
+                assertTrue(singleDayLabel.width < multiDayLabel.width)
+            }
+        }
     }
 
     @Test
@@ -210,8 +231,50 @@ class MyWidgetMonthlyProviderTest {
 
     private fun slot(root: View, dayIndex: Int, slotIndex: Int): View = day(root, dayIndex).getChildAt(slotIndex + 1)
 
-    private fun label(root: View, dayIndex: Int, slotIndex: Int): TextView =
-        slot(root, dayIndex, slotIndex).findViewById(R.id.day_monthly_event_id)
+    private fun label(root: ViewGroup, dayIndex: Int, slotIndex: Int): TextView = checkNotNull(
+        findLabel(root, dayIndex, slotIndex)
+    ) {
+        val rowId = instrumentation.targetContext.resources.getIdentifier(
+            "week_event_titles_${dayIndex / 7}", "id", instrumentation.targetContext.packageName
+        )
+        val row = root.findViewById<ViewGroup>(rowId)
+        val lane = row?.getChildAt(slotIndex)
+        val texts = lane?.let(::findTextViews)?.map { it.text.toString() }
+        val dayView = day(root, dayIndex)
+        val dayBounds = Rect(0, 0, dayView.width, dayView.height)
+        root.offsetDescendantRectToMyCoords(dayView, dayBounds)
+        val titleBounds = lane?.let(::findTextViews)?.map { titleView ->
+            Rect(0, 0, titleView.width, titleView.height).also { root.offsetDescendantRectToMyCoords(titleView, it) }
+        }
+        "No title for day $dayIndex in lane $slotIndex: root=${root.width}x${root.height}, row=${row?.width}x${row?.height}, lane=${lane?.width}x${lane?.height}, dayBounds=$dayBounds, titleBounds=$titleBounds, rowChildren=${row?.childCount}, texts=$texts"
+    }
+
+    private fun findLabel(root: ViewGroup, dayIndex: Int, slotIndex: Int): TextView? {
+        val row = root.findViewById<ViewGroup>(
+            instrumentation.targetContext.resources.getIdentifier(
+                "week_event_titles_${dayIndex / 7}", "id", instrumentation.targetContext.packageName
+            )
+        )
+        val lane = row.getChildAt(slotIndex) ?: return null
+        val dayView = day(root, dayIndex)
+        val dayBounds = Rect(0, 0, dayView.width, dayView.height)
+        root.offsetDescendantRectToMyCoords(dayView, dayBounds)
+        return findTextViews(lane).firstOrNull { titleView ->
+            if (titleView.text.isEmpty()) {
+                false
+            } else {
+                val titleBounds = Rect(0, 0, titleView.width, titleView.height)
+                root.offsetDescendantRectToMyCoords(titleView, titleBounds)
+                dayBounds.left + 1 < titleBounds.right && titleBounds.left + 1 < dayBounds.right
+            }
+        }
+    }
+
+    private fun findTextViews(view: View): List<TextView> = when (view) {
+        is TextView -> listOf(view)
+        is ViewGroup -> (0 until view.childCount).flatMap { index -> findTextViews(view.getChildAt(index)) }
+        else -> emptyList()
+    }
 
     private fun corners(root: View, dayIndex: Int): FloatArray =
         (slot(root, dayIndex, 0).findViewById<ImageView>(R.id.day_monthly_event_background).drawable as GradientDrawable)

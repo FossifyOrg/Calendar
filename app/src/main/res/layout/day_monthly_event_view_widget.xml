@@ -31,10 +31,11 @@
 
     <TextView
         android:id="@+id/day_monthly_event_id"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_toEndOf="@+id/day_monthly_task_image"
-        android:ellipsize="none"
+        android:layout_alignParentEnd="true"
+        android:ellipsize="end"
         android:gravity="start"
         android:hyphenationFrequency="none"
         android:maxLines="1"

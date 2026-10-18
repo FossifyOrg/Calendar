@@ -94,14 +94,19 @@
         android:showDividers="middle"
         android:orientation="vertical">
 
-        <LinearLayout
+        <FrameLayout
             android:id="@+id/month_line_holder_1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:divider="@color/dark_grey"
-            android:showDividers="middle"
-            android:orientation="horizontal">
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:id="@+id/week_days_0"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="@color/dark_grey"
+                android:showDividers="middle"
+                android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/week_num_0"
@@ -167,16 +172,28 @@
                 android:gravity="center_horizontal"
                 android:orientation="vertical" />
 
-        </LinearLayout>
+            </LinearLayout>
 
-        <LinearLayout
+            <LinearLayout
+                android:id="@+id/week_event_titles_0"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" />
+        </FrameLayout>
+
+        <FrameLayout
             android:id="@+id/month_line_holder_2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:divider="@color/dark_grey"
-            android:showDividers="middle|beginning|end"
-            android:orientation="horizontal">
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:id="@+id/week_days_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="@color/dark_grey"
+                android:showDividers="middle|beginning|end"
+                android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/week_num_1"
@@ -242,16 +259,28 @@
                 android:gravity="center_horizontal"
                 android:orientation="vertical" />
 
-        </LinearLayout>
+            </LinearLayout>
 
-        <LinearLayout
+            <LinearLayout
+                android:id="@+id/week_event_titles_1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" />
+        </FrameLayout>
+
+        <FrameLayout
             android:id="@+id/month_line_holder_3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:divider="@color/dark_grey"
-            android:showDividers="middle|beginning|end"
-            android:orientation="horizontal">
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:id="@+id/week_days_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="@color/dark_grey"
+                android:showDividers="middle|beginning|end"
+                android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/week_num_2"
@@ -317,16 +346,28 @@
                 android:gravity="center_horizontal"
                 android:orientation="vertical" />
 
-        </LinearLayout>
+            </LinearLayout>
 
-        <LinearLayout
+            <LinearLayout
+                android:id="@+id/week_event_titles_2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" />
+        </FrameLayout>
+
+        <FrameLayout
             android:id="@+id/month_line_holder_4"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:divider="@color/dark_grey"
-            android:showDividers="middle|beginning|end"
-            android:orientation="horizontal">
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:id="@+id/week_days_3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="@color/dark_grey"
+                android:showDividers="middle|beginning|end"
+                android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/week_num_3"
@@ -392,16 +433,28 @@
                 android:gravity="center_horizontal"
                 android:orientation="vertical" />
 
-        </LinearLayout>
+            </LinearLayout>
 
-        <LinearLayout
+            <LinearLayout
+                android:id="@+id/week_event_titles_3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" />
+        </FrameLayout>
+
+        <FrameLayout
             android:id="@+id/month_line_holder_5"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:divider="@color/dark_grey"
-            android:showDividers="middle|beginning|end"
-            android:orientation="horizontal">
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:id="@+id/week_days_4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="@color/dark_grey"
+                android:showDividers="middle|beginning|end"
+                android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/week_num_4"
@@ -467,16 +520,28 @@
                 android:gravity="center_horizontal"
                 android:orientation="vertical" />
 
-        </LinearLayout>
+            </LinearLayout>
 
-        <LinearLayout
+            <LinearLayout
+                android:id="@+id/week_event_titles_4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" />
+        </FrameLayout>
+
+        <FrameLayout
             android:id="@+id/month_line_holder_6"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:divider="@color/dark_grey"
-            android:showDividers="middle|beginning|end"
-            android:orientation="horizontal">
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:id="@+id/week_days_5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="@color/dark_grey"
+                android:showDividers="middle|beginning|end"
+                android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/week_num_5"
@@ -542,6 +607,13 @@
                 android:gravity="center_horizontal"
                 android:orientation="vertical" />
 
-        </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/week_event_titles_5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical" />
+        </FrameLayout>
     </LinearLayout>
 </RelativeLayout>

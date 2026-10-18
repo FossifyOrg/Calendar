@@ -145,6 +145,8 @@ class MyWidgetMonthlyProvider : AppWidgetProvider() {
             val events = week.flatMap { it.dayEvents }.distinctBy { it.id to it.startTS }
             getEventRowHeight(context, eventFontSize, events)
         }
+        val dayNumberHeight = getDayNumberHeight(context)
+        addWeekEventTitles(context, views, days.size, daySlotLists, weekRowHeights, eventFontSize, dayNumberHeight)
 
         for (i in days.indices) {
             val day = days[i]
@@ -175,7 +177,6 @@ class MyWidgetMonthlyProvider : AppWidgetProvider() {
                     val dayIndices = eventDayIndices[key]!!
                     val prevInRun = i > 0 && i % 7 != 0 && dayIndices.contains(i - 1)
                     val nextInRun = i < days.size - 1 && (i + 1) % 7 != 0 && dayIndices.contains(i + 1)
-                    val showTitle = !prevInRun
                     val eventLayout = when {
                         prevInRun && nextInRun -> R.layout.day_monthly_event_view_widget_event_middle
                         prevInRun             -> R.layout.day_monthly_event_view_widget_event_end
@@ -187,9 +188,8 @@ class MyWidgetMonthlyProvider : AppWidgetProvider() {
                         setTextSize(R.id.day_monthly_event_id, eventFontSize)
                         setInt(R.id.day_monthly_event_id, "setMinHeight", eventRowHeight)
                         setInt(R.id.day_monthly_event_background, "setColorFilter", slotEvent.color)
-                        val title = if (showTitle) slotEvent.title.replace(" ", "\u00A0") else ""
-                        setText(R.id.day_monthly_event_id, title)
-                        setVisibleIf(R.id.day_monthly_task_image, showTitle && slotEvent.isTask())
+                        setText(R.id.day_monthly_event_id, "")
+                        setViewVisibility(R.id.day_monthly_task_image, View.GONE)
                         applyColorFilter(R.id.day_monthly_task_image, eventTextColor)
                         if (slotEvent.shouldStrikeThrough()) {
                             setInt(R.id.day_monthly_event_id, "setPaintFlags", Paint.ANTI_ALIAS_FLAG or Paint.STRIKE_THRU_TEXT_FLAG)
@@ -198,6 +198,76 @@ class MyWidgetMonthlyProvider : AppWidgetProvider() {
                         }
                     }
                     views.addView(id, newRemoteView)
+                }
+            }
+        }
+    }
+
+    private fun addWeekEventTitles(
+        context: Context,
+        views: RemoteViews,
+        daysSize: Int,
+        daySlotLists: Array<MutableList<Event?>>,
+        weekRowHeights: List<Int>,
+        eventFontSize: Float,
+        dayNumberHeight: Int
+    ) {
+        val res = context.resources
+        val packageName = context.packageName
+        val displayWeekNumbers = context.config.showWeekNumbers
+        val dimPastEvents = context.config.dimPastEvents
+        val dimCompletedTasks = context.config.dimCompletedTasks
+
+        for (weekIndex in 0 until daysSize step COLUMN_COUNT) {
+            val weekNumber = weekIndex / COLUMN_COUNT
+            val titleContainerId = res.getIdentifier("week_event_titles_$weekNumber", "id", packageName)
+            views.removeAllViews(titleContainerId)
+            views.setViewPadding(titleContainerId, 0, dayNumberHeight, 0, 0)
+
+            val weekEnd = minOf(weekIndex + COLUMN_COUNT, daysSize)
+            val maxSlots = (weekIndex until weekEnd).maxOfOrNull { daySlotLists[it].size } ?: 0
+            for (slot in 0 until maxSlots) {
+                if ((weekIndex until weekEnd).any { daySlotLists[it].getOrNull(slot) != null }) {
+                    val lane = RemoteViews(packageName, R.layout.widget_month_event_lane)
+                    if (displayWeekNumbers) {
+                        lane.addView(R.id.widget_month_event_lane, createEventSpacer(packageName, 1))
+                    }
+
+                    var dayIndex = weekIndex
+                    var placedDays = 0
+                    while (dayIndex < weekEnd) {
+                        val event = daySlotLists[dayIndex].getOrNull(slot)
+                        if (event == null) {
+                            dayIndex++
+                            continue
+                        }
+
+                        val eventKey = Pair(event.id ?: 0L, event.startTS)
+                        val eventStart = dayIndex
+                        while (dayIndex < weekEnd) {
+                            val nextEvent = daySlotLists[dayIndex].getOrNull(slot)
+                            if (nextEvent == null || Pair(nextEvent.id ?: 0L, nextEvent.startTS) != eventKey) {
+                                break
+                            }
+                            dayIndex++
+                        }
+
+                        val span = dayIndex - eventStart
+                        val gap = eventStart - weekIndex - placedDays
+                        if (gap > 0) {
+                            lane.addView(R.id.widget_month_event_lane, createEventSpacer(packageName, gap))
+                        }
+                        lane.addView(
+                            R.id.widget_month_event_lane,
+                            createEventTitleView(packageName, event, span, eventFontSize, weekRowHeights[weekNumber], dimPastEvents, dimCompletedTasks)
+                        )
+                        placedDays += gap + span
+                    }
+
+                    if (placedDays < COLUMN_COUNT) {
+                        lane.addView(R.id.widget_month_event_lane, createEventSpacer(packageName, COLUMN_COUNT - placedDays))
+                    }
+                    views.addView(titleContainerId, lane)
                 }
             }
         }
@@ -247,6 +317,66 @@ class MyWidgetMonthlyProvider : AppWidgetProvider() {
             textView.measure(measureSpec, measureSpec)
             textView.measuredHeight
         } ?: 0
+    }
+
+    private fun getDayNumberHeight(context: Context): Int {
+        val textView = TextView(context).apply {
+            text = "1"
+            textSize = context.getWidgetFontSize() - 3f
+        }
+        val measureSpec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED)
+        textView.measure(measureSpec, measureSpec)
+        return textView.measuredHeight
+    }
+
+    private fun createEventSpacer(packageName: String, weight: Int): RemoteViews {
+        return RemoteViews(packageName, getEventSpanLayoutId(weight)).apply {
+            setText(R.id.day_monthly_event_id, "")
+            setViewVisibility(R.id.day_monthly_event_background, View.INVISIBLE)
+            setViewVisibility(R.id.day_monthly_task_image, View.GONE)
+        }
+    }
+
+    private fun createEventTitleView(
+        packageName: String,
+        event: Event,
+        span: Int,
+        fontSize: Float,
+        rowHeight: Int,
+        dimPastEvents: Boolean,
+        dimCompletedTasks: Boolean
+    ): RemoteViews {
+        var textColor = event.color.getContrastColor()
+        val shouldDim = (event.isTask() && event.isTaskCompleted() && dimCompletedTasks)
+            || (dimPastEvents && event.isPastEvent && !event.isTask())
+        if (shouldDim) {
+            textColor = textColor.adjustAlpha(MEDIUM_ALPHA)
+        }
+
+        return RemoteViews(packageName, getEventSpanLayoutId(span)).apply {
+            setTextColor(R.id.day_monthly_event_id, textColor)
+            setTextSize(R.id.day_monthly_event_id, fontSize)
+            setInt(R.id.day_monthly_event_id, "setMinHeight", rowHeight)
+            setViewVisibility(R.id.day_monthly_event_background, View.INVISIBLE)
+            setText(R.id.day_monthly_event_id, event.title.replace(" ", "\u00A0"))
+            setVisibleIf(R.id.day_monthly_task_image, event.isTask())
+            applyColorFilter(R.id.day_monthly_task_image, textColor)
+            if (event.shouldStrikeThrough()) {
+                setInt(R.id.day_monthly_event_id, "setPaintFlags", Paint.ANTI_ALIAS_FLAG or Paint.STRIKE_THRU_TEXT_FLAG)
+            } else {
+                setInt(R.id.day_monthly_event_id, "setPaintFlags", Paint.ANTI_ALIAS_FLAG)
+            }
+        }
+    }
+
+    private fun getEventSpanLayoutId(span: Int): Int = when (span) {
+        1 -> R.layout.day_monthly_event_view_widget_span_1
+        2 -> R.layout.day_monthly_event_view_widget_span_2
+        3 -> R.layout.day_monthly_event_view_widget_span_3
+        4 -> R.layout.day_monthly_event_view_widget_span_4
+        5 -> R.layout.day_monthly_event_view_widget_span_5
+        6 -> R.layout.day_monthly_event_view_widget_span_6
+        else -> R.layout.day_monthly_event_view_widget_span_7
     }
 
     private fun createSpacerView(packageName: String, fontSize: Float, rowHeight: Int): RemoteViews {
