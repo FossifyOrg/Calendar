@@ -266,4 +266,7 @@
     <string name="access_level_private">Privat</string>
     <string name="allow_alarms_reminders">Du skal give appen tilladelse til at planlægge alarmer, for at påmindelser fungerer korrekt.</string>
     <string name="offline_never_synced">Offline (aldrig synkroniseret)</string>
+    <string name="manage_holidays">Administrér helligdage</string>
+    <string name="holidays_updated">Helligdage opdateret</string>
+    <string name="holiday_management_notice">Nu opdaterer appen automatisk helligdage. Vælg dine lande igen for at aktivere dette. Tidligere importerede helligdage skal muligvis fjernes manuelt.</string>
 </resources>
