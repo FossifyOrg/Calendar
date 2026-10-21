@@ -43,6 +43,7 @@
     <string name="duplicate_task">Duplicate task</string>
     <string name="mark_completed">Mark completed</string>
     <string name="mark_incomplete">Mark incomplete</string>
+    <string name="rolling_task">Move to today until completed</string>
     <string name="task_color">Task color</string>
 
     <!-- Event Repetition -->
@@ -205,6 +206,7 @@
     <string name="loop_reminders">Loop reminders until dismissed</string>
     <string name="dim_past_events">Dim past events</string>
     <string name="dim_completed_tasks">Dim completed tasks</string>
+    <string name="roll_new_tasks">Move new tasks to today until completed</string>
     <string name="events">Events</string>
     <string name="reminder_stream">Audio stream used by reminders</string>
     <string name="system_stream">System</string>

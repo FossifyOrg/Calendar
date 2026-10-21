@@ -17,6 +17,7 @@ import org.fossify.calendar.dialogs.RepeatLimitTypePickerDialog
 import org.fossify.calendar.dialogs.RepeatRuleWeeklyDialog
 import org.fossify.calendar.dialogs.SelectCalendarDialog
 import org.fossify.calendar.extensions.calendarsDB
+import org.fossify.calendar.extensions.completedTasksDB
 import org.fossify.calendar.extensions.config
 import org.fossify.calendar.extensions.eventsDB
 import org.fossify.calendar.extensions.eventsHelper
@@ -44,9 +45,11 @@ import org.fossify.calendar.helpers.EVENT_ID
 import org.fossify.calendar.helpers.EVENT_OCCURRENCE_TS
 import org.fossify.calendar.helpers.FLAG_ALL_DAY
 import org.fossify.calendar.helpers.FLAG_TASK_COMPLETED
+import org.fossify.calendar.helpers.FLAG_TASK_ROLLING
 import org.fossify.calendar.helpers.Formatter
 import org.fossify.calendar.helpers.IS_DUPLICATE_INTENT
 import org.fossify.calendar.helpers.IS_NEW_EVENT
+import org.fossify.calendar.helpers.IS_ROLLING_TASK
 import org.fossify.calendar.helpers.IS_TASK_COMPLETED
 import org.fossify.calendar.helpers.LOCAL_CALENDAR_ID
 import org.fossify.calendar.helpers.NEW_EVENT_START_TS
@@ -76,6 +79,7 @@ import org.fossify.commons.dialogs.PermissionRequiredDialog
 import org.fossify.commons.dialogs.RadioGroupDialog
 import org.fossify.commons.extensions.addBitIf
 import org.fossify.commons.extensions.applyColorFilter
+import org.fossify.commons.extensions.beGone
 import org.fossify.commons.extensions.beGoneIf
 import org.fossify.commons.extensions.beVisibleIf
 import org.fossify.commons.extensions.checkAppSideloading
@@ -118,6 +122,7 @@ class TaskActivity : SimpleActivity() {
     private lateinit var mTask: Event
 
     private var mIsAllDayTask = false
+    private var mIsRollingTask = false
     private var mReminder1Minutes = REMINDER_OFF
     private var mReminder2Minutes = REMINDER_OFF
     private var mReminder3Minutes = REMINDER_OFF
@@ -286,6 +291,7 @@ class TaskActivity : SimpleActivity() {
             putLong(CALENDAR_ID, mCalendarId)
             putBoolean(IS_NEW_EVENT, mIsNewTask)
             putLong(ORIGINAL_START_TS, mOriginalStartTS)
+            putBoolean(IS_ROLLING_TASK, mIsRollingTask)
             putInt(EVENT_COLOR, mEventColor)
         }
     }
@@ -314,6 +320,7 @@ class TaskActivity : SimpleActivity() {
             mIsNewTask = getBoolean(IS_NEW_EVENT)
             mOriginalStartTS = getLong(ORIGINAL_START_TS)
             mEventColor = getInt(EVENT_COLOR)
+            mIsRollingTask = getBoolean(IS_ROLLING_TASK)
         }
 
         updateCalendar()
@@ -322,6 +329,7 @@ class TaskActivity : SimpleActivity() {
         checkRepeatTexts(mRepeatInterval)
         checkRepeatRule()
         updateActionBarTitle()
+        toggleRolling(mIsRollingTask)
     }
 
     private fun gotTask(
@@ -396,8 +404,13 @@ class TaskActivity : SimpleActivity() {
     private fun setupTaskClickListeners() = binding.apply {
         taskAllDay.setOnCheckedChangeListener { _, isChecked -> toggleAllDay(isChecked) }
         taskAllDayHolder.setOnClickListener {
-            taskAllDay.toggle()
+            if (!mIsRollingTask) {
+                taskAllDay.toggle()
+            }
         }
+
+        taskRolling.setOnCheckedChangeListener { _, isChecked -> toggleRolling(isChecked) }
+        taskRollingHolder.setOnClickListener { taskRolling.toggle() }
 
         taskDate.setOnClickListener { setupDate() }
         taskTime.setOnClickListener { setupTime() }
@@ -426,7 +439,8 @@ class TaskActivity : SimpleActivity() {
 
     private fun setupEditTask() {
         mIsNewTask = false
-        val realStart = if (mTaskOccurrenceTS == 0L) mTask.startTS else mTaskOccurrenceTS
+        // A rolling task is shown on today, but keep its stored date in the editor.
+        val realStart = if (mTaskOccurrenceTS == 0L || mTask.isRollingTask()) mTask.startTS else mTaskOccurrenceTS
         mOriginalStartTS = realStart
         mTaskDateTime = Formatter.getDateTimeFromTS(realStart)
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
@@ -449,6 +463,8 @@ class TaskActivity : SimpleActivity() {
         binding.taskAllDay.isChecked = mTask.getIsAllDay()
         toggleAllDay(mTask.getIsAllDay())
         checkRepeatTexts(mRepeatInterval)
+        binding.taskRolling.isChecked = mTask.isRollingTask()
+        toggleRolling(mTask.isRollingTask())
     }
 
     private fun setupNewTask() {
@@ -470,6 +486,11 @@ class TaskActivity : SimpleActivity() {
             reminder3Minutes = mReminder3Minutes
             reminder3Type = mReminder3Type
             calendarId = mCalendarId
+        }
+
+        if (config.rollNewTasks) {
+            binding.taskRolling.isChecked = true
+            toggleRolling(true)
         }
     }
 
@@ -540,7 +561,9 @@ class TaskActivity : SimpleActivity() {
             description = binding.taskDescription.value
 
             // migrate completed task to the new completed tasks db
-            if (!wasRepeatable && mTask.isTaskCompleted()) {
+            if (mIsRollingTask) {
+                mTask.flags = mTask.flags.removeBit(FLAG_TASK_COMPLETED)
+            } else if (!wasRepeatable && mTask.isTaskCompleted()) {
                 mTask.flags = mTask.flags.removeBit(FLAG_TASK_COMPLETED)
                 ensureBackgroundThread {
                     updateTaskCompletion(copy(startTS = mOriginalStartTS), true)
@@ -548,6 +571,7 @@ class TaskActivity : SimpleActivity() {
             }
             importId = newImportId
             flags = mTask.flags.addBitIf(binding.taskAllDay.isChecked, FLAG_ALL_DAY)
+                .addBitIf(mIsRollingTask, FLAG_TASK_ROLLING)
             lastUpdated = System.currentTimeMillis()
             calendarId = mCalendarId
             type = TYPE_TASK
@@ -606,6 +630,10 @@ class TaskActivity : SimpleActivity() {
                 }
             } else {
                 hideKeyboard()
+                if (mIsRollingTask) {
+                    // A rolling task is always incomplete, so drop old completion records.
+                    completedTasksDB.deleteTaskFutureOccurrences(mTask.id!!, 0L)
+                }
                 eventsHelper.updateEvent(mTask, updateAtCalDAV = false, showToasts = true) {
                     finish()
                 }
@@ -809,6 +837,42 @@ class TaskActivity : SimpleActivity() {
 
         mIsAllDayTask = isChecked
         binding.taskTime.beGoneIf(isChecked)
+    }
+
+    // Rolling tasks are all-day, with no reminders and no repetition.
+    private fun toggleRolling(isChecked: Boolean) {
+        mIsRollingTask = isChecked
+        if (isChecked) {
+            binding.taskAllDay.isChecked = true
+            // The checked listener may not be attached yet, so apply all-day here too.
+            mIsAllDayTask = true
+            binding.taskTime.beGone()
+            mReminder1Minutes = REMINDER_OFF
+            mReminder2Minutes = REMINDER_OFF
+            mReminder3Minutes = REMINDER_OFF
+            setRepeatInterval(0)
+        }
+
+        binding.apply {
+            taskAllDayHolder.alpha = if (isChecked) 0.4f else 1f
+            arrayOf(
+                taskReminderImage,
+                taskReminder1,
+                taskCaldavCalendarDivider,
+                taskRepetitionImage,
+                taskRepetition,
+                taskRepetitionDivider
+            ).forEach { it.beGoneIf(isChecked) }
+
+            if (isChecked) {
+                taskReminder2.beGone()
+                taskReminder3.beGone()
+            }
+        }
+
+        if (!isChecked) {
+            updateReminderTexts()
+        }
     }
 
     private fun setupMarkCompleteButton() {

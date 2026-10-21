@@ -203,6 +203,10 @@ class Config(context: Context) : BaseConfig(context) {
         set(dimCompletedTasks) = prefs.edit().putBoolean(DIM_COMPLETED_TASKS, dimCompletedTasks)
             .apply()
 
+    var rollNewTasks: Boolean
+        get() = prefs.getBoolean(ROLL_NEW_TASKS, false)
+        set(rollNewTasks) = prefs.edit().putBoolean(ROLL_NEW_TASKS, rollNewTasks).apply()
+
     fun getSyncedCalendarIdsAsList() =
         caldavSyncedCalendarIds.split(",").filter { it.trim().isNotEmpty() }
             .map { Integer.parseInt(it) }.toMutableList() as ArrayList<Int>

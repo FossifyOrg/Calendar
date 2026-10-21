@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Added
+- Added rolling tasks that move to today until completed ([#1350])
 
 ## [1.12.1] - 2026-10-22
 ### Changed
@@ -281,6 +283,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#1024]: https://github.com/FossifyOrg/Calendar/issues/1024
 [#1065]: https://github.com/FossifyOrg/Calendar/issues/1065
 [#1157]: https://github.com/FossifyOrg/Calendar/issues/1157
+[#1350]: https://github.com/FossifyOrg/Calendar/issues/1350
 
 [Unreleased]: https://github.com/FossifyOrg/Calendar/compare/1.12.1...HEAD
 [1.12.1]: https://github.com/FossifyOrg/Calendar/compare/1.12.0...1.12.1

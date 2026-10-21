@@ -526,7 +526,10 @@ class EventsHelper(val context: Context) {
             .asSequence()
             .distinct()
             .filterNot { it.repetitionExceptions.contains(Formatter.getDayCodeFromTS(it.startTS)) }
+            .filterNot { it.isRollingTask() }
             .toMutableList() as ArrayList<Event>
+
+        events.addAll(getRollingTasksFor(fromTS, toTS, eventId, applyTypeFilter, searchQuery))
 
         val calendarColors = getCalendarColors()
 
@@ -557,6 +560,31 @@ class EventsHelper(val context: Context) {
         }
 
         callback(events)
+    }
+
+    private fun getRollingTasksFor(
+        fromTS: Long,
+        toTS: Long,
+        eventId: Long,
+        applyTypeFilter: Boolean,
+        searchQuery: String
+    ): List<Event> {
+        val calendarIds = if (applyTypeFilter) context.config.getDisplayCalendarsAsList() else null
+        return eventsDB.getRollingTasks()
+            .asSequence()
+            .filter { eventId == -1L || it.id == eventId }
+            .filter { calendarIds == null || calendarIds.contains(it.calendarId) }
+            .filter {
+                searchQuery.isEmpty() ||
+                    it.title.contains(searchQuery, ignoreCase = true) ||
+                    it.location.contains(searchQuery, ignoreCase = true) ||
+                    it.description.contains(searchQuery, ignoreCase = true)
+            }
+            .mapNotNull {
+                val shownTS = getRollingTaskStartTS(it.startTS)
+                if (shownTS in fromTS..toTS) it.copy(startTS = shownTS, endTS = shownTS) else null
+            }
+            .toList()
     }
 
     fun createPredefinedCalendar(

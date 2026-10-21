@@ -223,6 +223,9 @@ class IcsExporter(private val context: Context) {
             if (task.isTaskCompleted()) {
                 writeLn("$STATUS$COMPLETED")
             }
+            if (task.isRollingTask()) {
+                writeLn("${FOSSIFY_ROLLING}TRUE")
+            }
             Parser().getRepeatCode(task).let { if (it.isNotEmpty()) writeLn("$RRULE$it") }
 
             fillDescription(task.description.replace("\n", "\\n"), writer)

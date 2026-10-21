@@ -218,6 +218,10 @@ class IcsImporter(val activity: SimpleActivity) {
                         if (color.trimStart('-').areDigitsOnly()) {
                             curColor = Integer.parseInt(color)
                         }
+                    } else if (line.startsWith(FOSSIFY_ROLLING)) {
+                        if (isParsingTask && line.substring(FOSSIFY_ROLLING.length).trim() == "TRUE") {
+                            curFlags = curFlags or FLAG_TASK_ROLLING
+                        }
                     } else if (line.startsWith(MISSING_YEAR)) {
                         if (line.substring(MISSING_YEAR.length) == "1") {
                             curFlags = curFlags or FLAG_MISSING_YEAR

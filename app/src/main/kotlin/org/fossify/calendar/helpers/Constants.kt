@@ -117,6 +117,7 @@ const val SHOW_GRID = "show_grid"
 const val LOOP_REMINDERS = "loop_reminders"
 const val DIM_PAST_EVENTS = "dim_past_events"
 const val DIM_COMPLETED_TASKS = "dim_completed_tasks"
+const val ROLL_NEW_TASKS = "roll_new_tasks"
 const val LAST_SOUND_URI = "last_sound_uri"
 const val LAST_REMINDER_CHANNEL_ID = "last_reminder_channel_ID"
 const val REMINDER_AUDIO_STREAM = "reminder_audio_stream"
@@ -169,6 +170,7 @@ const val FLAG_ALL_DAY = 1
 const val FLAG_IS_IN_PAST = 2
 const val FLAG_MISSING_YEAR = 4
 const val FLAG_TASK_COMPLETED = 8
+const val FLAG_TASK_ROLLING = 16
 
 // constants related to ICS file exporting / importing
 const val BEGIN_CALENDAR = "BEGIN:VCALENDAR"
@@ -211,6 +213,7 @@ const val SEQUENCE = "SEQUENCE"
 const val TZID = "TZID"
 const val COLOR = "COLOR:"
 const val FOSSIFY_COLOR = "X-FOSSIFY-EVENT-COLOR:"
+const val FOSSIFY_ROLLING = "X-FOSSIFY-ROLLING:"
 
 // this tag isn't a standard ICS tag, but there's no official way of adding a category color in an ics file
 const val SMT_CATEGORY_COLOR = "X-SMT-CATEGORY-COLOR:"
@@ -284,6 +287,7 @@ const val CLASS = "CLASS"
 const val CALENDAR_ID = "CALENDAR_ID"
 const val EVENT_CALENDAR_ID = "EVENT_CALENDAR_ID"
 const val IS_NEW_EVENT = "IS_NEW_EVENT"
+const val IS_ROLLING_TASK = "IS_ROLLING_TASK"
 const val EVENT_COLOR = "EVENT_COLOR"
 
 // From Status attribute (RFC 5545 3.8.1.11)

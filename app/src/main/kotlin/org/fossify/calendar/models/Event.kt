@@ -14,6 +14,7 @@ import org.fossify.calendar.helpers.FLAG_ALL_DAY
 import org.fossify.calendar.helpers.FLAG_IS_IN_PAST
 import org.fossify.calendar.helpers.FLAG_MISSING_YEAR
 import org.fossify.calendar.helpers.FLAG_TASK_COMPLETED
+import org.fossify.calendar.helpers.FLAG_TASK_ROLLING
 import org.fossify.calendar.helpers.Formatter
 import org.fossify.calendar.helpers.LOCAL_CALENDAR_ID
 import org.fossify.calendar.helpers.MONTH
@@ -183,6 +184,7 @@ data class Event(
     fun hasMissingYear() = flags and FLAG_MISSING_YEAR != 0
     fun isTask() = type == TYPE_TASK
     fun isTaskCompleted() = isTask() && flags and FLAG_TASK_COMPLETED != 0
+    fun isRollingTask() = isTask() && flags and FLAG_TASK_ROLLING != 0
 
     fun getReminders() = listOf(
         Reminder(reminder1Minutes, reminder1Type),

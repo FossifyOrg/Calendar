@@ -50,6 +50,7 @@ import org.fossify.calendar.helpers.EVENT_ID
 import org.fossify.calendar.helpers.EVENT_OCCURRENCE_TS
 import org.fossify.calendar.helpers.EventsHelper
 import org.fossify.calendar.helpers.FLAG_TASK_COMPLETED
+import org.fossify.calendar.helpers.FLAG_TASK_ROLLING
 import org.fossify.calendar.helpers.Formatter
 import org.fossify.calendar.helpers.IS_TASK_COMPLETED
 import org.fossify.calendar.helpers.IcsExporter
@@ -67,6 +68,7 @@ import org.fossify.calendar.helpers.generateImportId
 import org.fossify.calendar.helpers.getActivityToOpen
 import org.fossify.calendar.helpers.getNextAutoBackupTime
 import org.fossify.calendar.helpers.getNowSeconds
+import org.fossify.calendar.helpers.getRollingTaskStartTS
 import org.fossify.calendar.helpers.getPreviousAutoBackupTime
 import org.fossify.calendar.helpers.isWeekend
 import org.fossify.calendar.interfaces.CalendarsDao
@@ -1077,6 +1079,19 @@ fun Context.isTaskCompleted(event: Event): Boolean {
 }
 
 fun Context.updateTaskCompletion(event: Event, completed: Boolean) {
+    val storedTask = event.id?.let { eventsDB.getTaskWithId(it) }
+    if (completed && storedTask?.isRollingTask() == true) {
+        // Fix the task on the completion day and stop rolling.
+        val completedTS = getRollingTaskStartTS(storedTask.startTS)
+        storedTask.startTS = completedTS
+        storedTask.endTS = completedTS
+        storedTask.flags = storedTask.flags.removeBit(FLAG_TASK_ROLLING)
+        eventsDB.insertOrUpdate(storedTask)
+        event.startTS = completedTS
+        event.endTS = completedTS
+        event.flags = event.flags.removeBit(FLAG_TASK_ROLLING)
+    }
+
     if (completed) {
         event.flags = event.flags or FLAG_TASK_COMPLETED
         val task = Task(null, event.id!!, event.startTS, event.flags)

@@ -112,11 +112,35 @@
 
             </RelativeLayout>
 
+            <RelativeLayout
+                android:id="@+id/task_rolling_holder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/task_all_day_holder"
+                android:layout_alignStart="@+id/task_all_day_holder"
+                android:layout_alignParentEnd="true"
+                android:background="?attr/selectableItemBackground"
+                android:paddingStart="@dimen/zero"
+                android:paddingTop="@dimen/medium_margin"
+                android:paddingEnd="@dimen/activity_margin"
+                android:paddingBottom="@dimen/medium_margin">
+
+                <org.fossify.commons.views.MyMaterialSwitch
+                    android:id="@+id/task_rolling"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:clickable="false"
+                    android:text="@string/rolling_task"
+                    android:textSize="@dimen/day_text_size" />
+
+            </RelativeLayout>
+
             <org.fossify.commons.views.MyTextView
                 android:id="@+id/task_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/task_time_image"
+                android:layout_below="@+id/task_rolling_holder"
                 android:layout_alignStart="@+id/task_all_day_holder"
                 android:background="?attr/selectableItemBackground"
                 android:paddingTop="@dimen/activity_margin"
@@ -129,7 +153,7 @@
                 android:id="@+id/task_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/task_time_image"
+                android:layout_below="@+id/task_rolling_holder"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="@dimen/medium_margin"
                 android:background="?attr/selectableItemBackground"

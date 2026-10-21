@@ -5,6 +5,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
+import org.fossify.calendar.helpers.FLAG_TASK_ROLLING
 import org.fossify.calendar.helpers.LOCAL_CALENDAR_ID
 import org.fossify.calendar.helpers.SOURCE_CONTACT_ANNIVERSARY
 import org.fossify.calendar.helpers.SOURCE_CONTACT_BIRTHDAY
@@ -19,6 +20,9 @@ interface EventsDao {
 
     @Query("SELECT * FROM events WHERE type = $TYPE_TASK")
     fun getAllTasks(): List<Event>
+
+    @Query("SELECT * FROM events WHERE type = $TYPE_TASK AND (flags & $FLAG_TASK_ROLLING) != 0")
+    fun getRollingTasks(): List<Event>
 
     @Query("SELECT DISTINCT location FROM events ORDER BY location COLLATE NOCASE")
     fun getAllLocations(): List<String>

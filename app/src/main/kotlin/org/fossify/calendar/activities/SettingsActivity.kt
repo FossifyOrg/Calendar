@@ -38,6 +38,7 @@ import org.fossify.calendar.helpers.DEFAULT_START_TIME
 import org.fossify.calendar.helpers.DEFAULT_START_TIME_CURRENT_TIME
 import org.fossify.calendar.helpers.DEFAULT_START_TIME_NEXT_FULL_HOUR
 import org.fossify.calendar.helpers.DIM_COMPLETED_TASKS
+import org.fossify.calendar.helpers.ROLL_NEW_TASKS
 import org.fossify.calendar.helpers.DIM_PAST_EVENTS
 import org.fossify.calendar.helpers.DISPLAY_DESCRIPTION
 import org.fossify.calendar.helpers.DISPLAY_PAST_EVENTS
@@ -220,6 +221,7 @@ class SettingsActivity : SimpleActivity() {
         setupViewToOpenFromListWidget()
         setupDimEvents()
         setupDimCompletedTasks()
+        setupRollNewTasks()
         setupAllowChangingTimeZones()
         updateTextColors(binding.settingsHolder)
         checkPrimaryColor()
@@ -903,6 +905,14 @@ class SettingsActivity : SimpleActivity() {
         }
     }
 
+    private fun setupRollNewTasks() = binding.apply {
+        settingsRollNewTasks.isChecked = config.rollNewTasks
+        settingsRollNewTasksHolder.setOnClickListener {
+            settingsRollNewTasks.toggle()
+            config.rollNewTasks = settingsRollNewTasks.isChecked
+        }
+    }
+
     private fun setupAllowChangingTimeZones() = binding.apply {
         settingsAllowChangingTimeZones.isChecked = config.allowChangingTimeZones
         settingsAllowChangingTimeZonesHolder.setOnClickListener {
@@ -1143,6 +1153,7 @@ class SettingsActivity : SimpleActivity() {
                 put(LOOP_REMINDERS, config.loopReminders)
                 put(DIM_PAST_EVENTS, config.dimPastEvents)
                 put(DIM_COMPLETED_TASKS, config.dimCompletedTasks)
+                put(ROLL_NEW_TASKS, config.rollNewTasks)
                 put(ALLOW_CHANGING_TIME_ZONES, config.allowChangingTimeZones)
                 put(USE_PREVIOUS_EVENT_REMINDERS, config.usePreviousEventReminders)
                 put(DEFAULT_REMINDER_1, config.defaultReminder1)
@@ -1258,6 +1269,7 @@ class SettingsActivity : SimpleActivity() {
                 LOOP_REMINDERS -> config.loopReminders = value.toBoolean()
                 DIM_PAST_EVENTS -> config.dimPastEvents = value.toBoolean()
                 DIM_COMPLETED_TASKS -> config.dimCompletedTasks = value.toBoolean()
+                ROLL_NEW_TASKS -> config.rollNewTasks = value.toBoolean()
                 ALLOW_CHANGING_TIME_ZONES -> config.allowChangingTimeZones = value.toBoolean()
                 USE_PREVIOUS_EVENT_REMINDERS -> config.usePreviousEventReminders = value.toBoolean()
                 DEFAULT_REMINDER_1 -> config.defaultReminder1 = value.toInt()
