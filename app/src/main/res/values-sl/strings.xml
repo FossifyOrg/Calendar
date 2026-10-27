@@ -272,4 +272,7 @@
     <string name="access_level_confidential">Zaupno</string>
     <string name="show_widget_header">Prikaži glavo</string>
     <string name="allow_alarms_reminders">Za pravilno delovanje opomnikov morate aplikaciji dovoliti načrtovanje alarmov.</string>
+    <string name="manage_holidays">Upravljaj datume praznikov</string>
+    <string name="holidays_updated">Datumi praznikov posodobljeni</string>
+    <string name="holiday_management_notice">Aplikacija zdaj avtomatsko posodobi datume praznikov. Da to omogočite, ponovno izberite svoje države. Prej uvoženi datumi praznikov bodo mogoče morali biti odstranjeni ročno.</string>
 </resources>
