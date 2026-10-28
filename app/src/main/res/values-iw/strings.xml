@@ -271,5 +271,5 @@
     <string name="offline_never_synced">לא מקוון (לעולם לא מסתנכרן)</string>
     <string name="manage_holidays">לנהל חגים</string>
     <string name="holidays_updated">החגים מעודכנים</string>
-    <string name="holiday_management_notice">היישומון מעדכן כעת את החגים באופן אוטומטי. בחרו שוב את מדינותיכם כדי לאפשר זאת. יש להסיר חגים מיובאים בעבר באופן ידני.</string>
+    <string name="holiday_management_notice">היישומון מעדכן כעת את החגים באופן אוטומטי. בחרו שוב את מדינותיכם כדי לאפשר זאת. ייתכן שיהיה צורך להסיר ידנית חגים שיובאו בעבר.</string>
 </resources>
