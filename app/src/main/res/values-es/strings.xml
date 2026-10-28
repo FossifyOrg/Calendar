@@ -145,7 +145,7 @@
     <string name="midnight_spanning">Mostrar los eventos que se prolongan pasada la medianoche en la barra superior</string>
     <string name="allow_customizing_day_count">Permitir personalizar el número de días</string>
     <string name="week_numbers">Mostrar el número de semana</string>
-    <string name="vibrate">Vibrar en recibir notificaciones de recordatorio</string>
+    <string name="vibrate">Vibrar en notificaciones de recordatorio</string>
     <string name="reminder_sound">Sonido de recordatorio</string>
     <string name="no_ringtone_picker">No se ha encontrado ninguna aplicación capaz de establecer el tono de llamada</string>
     <string name="no_ringtone_selected">Ninguno</string>
