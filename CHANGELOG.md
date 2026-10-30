@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.12.2] - 2026-10-30
+### Changed
+- Updated translations
+
 ## [1.12.1] - 2026-10-22
 ### Changed
 - Updated translations
@@ -282,7 +286,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#1065]: https://github.com/FossifyOrg/Calendar/issues/1065
 [#1157]: https://github.com/FossifyOrg/Calendar/issues/1157
 
-[Unreleased]: https://github.com/FossifyOrg/Calendar/compare/1.12.1...HEAD
+[Unreleased]: https://github.com/FossifyOrg/Calendar/compare/1.12.2...HEAD
+[1.12.2]: https://github.com/FossifyOrg/Calendar/compare/1.12.1...1.12.2
 [1.12.1]: https://github.com/FossifyOrg/Calendar/compare/1.12.0...1.12.1
 [1.12.0]: https://github.com/FossifyOrg/Calendar/compare/1.11.0...1.12.0
 [1.11.0]: https://github.com/FossifyOrg/Calendar/compare/1.10.3...1.11.0
