@@ -5,7 +5,9 @@ import android.content.ClipData
 import android.content.ClipDescription
 import android.content.Intent
 import android.content.res.Resources
+import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.os.Handler
 import android.util.Range
@@ -18,6 +20,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
 import androidx.collection.LongSparseArray
+import androidx.core.graphics.ColorUtils
 import androidx.fragment.app.Fragment
 import org.fossify.calendar.R
 import org.fossify.calendar.activities.MainActivity
@@ -54,6 +57,7 @@ import org.fossify.calendar.helpers.TYPE_EVENT
 import org.fossify.calendar.helpers.TYPE_TASK
 import org.fossify.calendar.helpers.WEEK_START_TIMESTAMP
 import org.fossify.calendar.helpers.WeeklyCalendarImpl
+import org.fossify.calendar.helpers.WeeklyEventLayout
 import org.fossify.calendar.helpers.getActivityToOpen
 import org.fossify.calendar.helpers.isWeekend
 import org.fossify.calendar.interfaces.WeekFragmentListener
@@ -69,6 +73,7 @@ import org.fossify.commons.extensions.beGone
 import org.fossify.commons.extensions.beVisible
 import org.fossify.commons.extensions.beVisibleIf
 import org.fossify.commons.extensions.getContrastColor
+import org.fossify.commons.extensions.getProperBackgroundColor
 import org.fossify.commons.extensions.getProperPrimaryColor
 import org.fossify.commons.extensions.getProperTextColor
 import org.fossify.commons.extensions.hideKeyboard
@@ -668,70 +673,20 @@ class WeekFragment : Fragment(), WeeklyCalendar {
             } while (currentDayCode.toInt() <= endDayCode.toInt())
         }
 
+        // make sure the title of the event below stays visible, even with a bigger minimal event height
+        val closeStartThreshold = max(
+            WeeklyEventLayout.CLOSE_START_THRESHOLD_MINUTES,
+            (minimalHeight / minuteHeight).roundToInt()
+        )
         for ((_, eventDayList) in eventTimeRanges) {
-            val eventsCollisionChecked = ArrayList<Long>()
-            for ((eventId, eventWeeklyView) in eventDayList) {
-                if (eventWeeklyView.slot == 0) {
-                    eventWeeklyView.slot = 1
-                    eventWeeklyView.slotMax = 1
-                }
+            WeeklyEventLayout.arrange(eventDayList.values, closeStartThreshold)
+        }
 
-                eventsCollisionChecked.add(eventId)
-                val eventWeeklyViewsToCheck =
-                    eventDayList.filterNot { eventsCollisionChecked.contains(it.key) }
-                for ((toCheckId, eventWeeklyViewToCheck) in eventWeeklyViewsToCheck) {
-                    val areTouching = eventWeeklyView.range.intersects(eventWeeklyViewToCheck.range)
-                    val doHaveCommonMinutes = if (areTouching) {
-                        eventWeeklyView.range.upper > eventWeeklyViewToCheck.range.lower || (eventWeeklyView.range.lower == eventWeeklyView.range.upper &&
-                                eventWeeklyView.range.upper == eventWeeklyViewToCheck.range.lower)
-                    } else {
-                        false
-                    }
-
-                    if (areTouching && doHaveCommonMinutes) {
-                        if (eventWeeklyViewToCheck.slot == 0) {
-                            val collisionEventWeeklyViews = eventDayList
-                                .filter { eventWeeklyView.collisions.contains(it.key) }
-                            var currentSlotMax = max(
-                                eventWeeklyView.slotMax.coerceAtLeast(1),
-                                eventWeeklyView.slot.coerceAtLeast(1)
-                            )
-                            val maxCollisionSlot = collisionEventWeeklyViews
-                                .maxOfOrNull { it.value.slot.coerceAtLeast(1) } ?: 1
-                            currentSlotMax = max(currentSlotMax, maxCollisionSlot)
-                            val nextSlot = currentSlotMax + 1
-                            val slotRange = IntArray(currentSlotMax) { it + 1 }
-                            for ((_, collisionEventWeeklyView) in collisionEventWeeklyViews) {
-                                if (
-                                    collisionEventWeeklyView.range.intersects(eventWeeklyViewToCheck.range)
-                                    && collisionEventWeeklyView.slot in 1..currentSlotMax
-                                ) {
-                                    slotRange[collisionEventWeeklyView.slot - 1] = nextSlot
-                                }
-                            }
-                            if (eventWeeklyView.slot in 1..currentSlotMax) {
-                                slotRange[eventWeeklyView.slot - 1] = nextSlot
-                            }
-
-                            val slot = slotRange.minOrNull() ?: nextSlot
-                            eventWeeklyViewToCheck.slot = slot
-
-                            if (slot == nextSlot) {
-                                eventWeeklyViewToCheck.slotMax = nextSlot
-                                eventWeeklyView.slotMax = nextSlot
-                                for ((_, collisionEventWeeklyView) in collisionEventWeeklyViews) {
-                                    collisionEventWeeklyView.slotMax =
-                                        max(collisionEventWeeklyView.slotMax, nextSlot)
-                                }
-                            } else {
-                                eventWeeklyViewToCheck.slotMax = currentSlotMax
-                            }
-                        }
-                        eventWeeklyView.collisions.add(toCheckId)
-                        eventWeeklyViewToCheck.collisions.add(eventId)
-                    }
-                }
-            }
+        val isRtl = requireContext().isRTLLayout
+        val eventBorderColor = if (isPrintVersion) {
+            Color.WHITE
+        } else {
+            requireContext().getProperBackgroundColor()
         }
 
         dayevents@ for (event in events) {
@@ -765,7 +720,7 @@ class WeekFragment : Fragment(), WeeklyCalendar {
                             event.color
                         }
                         var textColor = backgroundColor.getContrastColor()
-                        val currentEventWeeklyView = eventTimeRanges[currentDayCode]!![event.id]
+                        val currentEventWeeklyView = eventTimeRanges[currentDayCode]!![event.id]!!
 
                         val adjustAlpha = if (event.isTask()) {
                             dimCompletedTasks && event.isTaskCompleted()
@@ -774,13 +729,26 @@ class WeekFragment : Fragment(), WeeklyCalendar {
                         }
 
                         if (adjustAlpha) {
-                            backgroundColor = backgroundColor.adjustAlpha(MEDIUM_ALPHA)
+                            // keep the color opaque, so that overlapping events don't show through
+                            backgroundColor = ColorUtils.compositeColors(
+                                backgroundColor.adjustAlpha(MEDIUM_ALPHA),
+                                eventBorderColor
+                            )
                             textColor = textColor.adjustAlpha(HIGHER_ALPHA)
                         }
 
-                        root.background = ColorDrawable(backgroundColor)
+                        root.background = if (currentEventWeeklyView.indent > 0f) {
+                            GradientDrawable().apply {
+                                setColor(backgroundColor)
+                                setStroke(density, eventBorderColor)
+                            }
+                        } else {
+                            ColorDrawable(backgroundColor)
+                        }
                         dayColumn.addView(root)
-                        root.y = currentEventWeeklyView!!.range.lower * minuteHeight
+                        root.outlineProvider = null
+                        root.translationZ = currentEventWeeklyView.layer.toFloat()
+                        root.y = currentEventWeeklyView.range.lower * minuteHeight
 
                         // compensate grid offset
                         root.y -= (currentEventWeeklyView.range.lower / 60) / 2
@@ -810,12 +778,12 @@ class WeekFragment : Fragment(), WeeklyCalendar {
                         }
 
                         (root.layoutParams as RelativeLayout.LayoutParams).apply {
-                            width = (dayColumn.width - 1) / currentEventWeeklyView.slotMax
-                            root.x = (width * (currentEventWeeklyView.slot - 1)).toFloat()
-                            if (currentEventWeeklyView.slot > 1) {
-                                root.x += density
-                                width -= density
-                            }
+                            addRule(RelativeLayout.ALIGN_PARENT_LEFT)
+                            val columnWidth = dayColumn.width - 1
+                            val left = columnWidth * currentEventWeeklyView.indent
+                            width = (columnWidth - left).toInt()
+                            // in RTL the title is on the right, so nested events are indented from the right side
+                            root.x = if (isRtl) 0f else left
                         }
 
                         root.setOnClickListener {

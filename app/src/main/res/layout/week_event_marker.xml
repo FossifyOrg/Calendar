@@ -29,6 +29,7 @@
         android:includeFontPadding="false"
         android:maxLines="3"
         android:paddingStart="@dimen/tiny_margin"
+        android:textAlignment="viewStart"
         android:textColor="@android:color/white"
         android:textSize="@dimen/small_text_size"
         app:layout_constraintEnd_toEndOf="parent"

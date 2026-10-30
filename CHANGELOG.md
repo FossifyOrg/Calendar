@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Changed
+- Overlapping events in the weekly view are now stacked on top of each other instead of being squeezed side by side
 
 ## [1.12.1] - 2026-10-22
 ### Changed
