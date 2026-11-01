@@ -17,12 +17,12 @@
     <string name="new_event">새 일정</string>
     <string name="create_new_event">새 일정 생성</string>
     <string name="duplicate_event">일정 복사</string>
-    <string name="title_empty">제목을 입력해주세요</string>
-    <string name="end_before_start">종료 날짜 및 시간을 시작 날짜 및 시간 이후로 설정해주세요</string>
+    <string name="title_empty">제목을 입력해 주세요</string>
+    <string name="end_before_start">종료 날짜 및 시간을 시작 날짜 및 시간 이후로 설정해 주세요</string>
     <string name="event_added">일정이 성공적으로 추가되었습니다</string>
     <string name="event_updated">일정을 수정했습니다</string>
     <string name="filter_events_by_type">캘린더별 일정 필터</string>
-    <string name="please_fill_location">지도에 표시할 위치를 입력해주세요</string>
+    <string name="please_fill_location">지도에 표시할 위치를 입력해 주세요</string>
     <string name="public_event_notification_text">다가오는 일정이 있습니다</string>
     <string name="repetition">반복</string>
     <string name="no_repetition">반복 없음</string>
@@ -33,7 +33,7 @@
     <string name="weeks_raw">주</string>
     <string name="months_raw">개월</string>
     <string name="years_raw">년</string>
-    <string name="repeat_till">까지 반복</string>
+    <string name="repeat_till">반복 종료</string>
     <string name="forever">계속</string>
     <string name="event_is_repeatable">반복 일정입니다</string>
     <string name="selection_contains_repetition">선택한 항목에 반복되는 일정이 있습니다</string>
@@ -81,7 +81,7 @@
     <string name="reminder">알림</string>
     <string name="before">전</string>
     <string name="add_another_reminder">다른 알림 추가</string>
-    <string name="event_reminders">일정 알림들</string>
+    <string name="event_reminders">일정 알림</string>
     <string name="add_another_attendee">다른 참석자 추가</string>
     <string name="my_status">내 상태:</string>
     <string name="going">참석</string>
@@ -134,7 +134,7 @@
     <string name="delete_all_events">모든 일정 삭제</string>
     <string name="delete_all_events_confirmation">모든 일정 및 할 일을 삭제하시겠습니까? 캘린더 및 기타 설정은 그대로 유지됩니다.</string>
     <string name="show_a_grid">격자 표시</string>
-    <string name="loop_reminders">끌때까지 알림 반복</string>
+    <string name="loop_reminders">끌 때까지 알림 반복</string>
     <string name="dim_past_events">지난 일정 희미하게 표시</string>
     <string name="events">일정</string>
     <string name="reminder_stream">알림음 출력 방식</string>
@@ -165,9 +165,9 @@
     <string name="editing_calendar_failed">변경 실패</string>
     <string name="syncing">동기화 중…</string>
     <string name="synchronization_completed">동기화 완료</string>
-    <string name="select_a_different_caldav_color">다른 색상을 선택해주세요(로컬에만 적용 가능)</string>
+    <string name="select_a_different_caldav_color">다른 색상을 선택해 주세요(로컬에만 적용 가능)</string>
     <string name="insufficient_permissions">선택한 캘린더에 작성할 수 없습니다</string>
-    <string name="caldav_event_not_found">일정을 찾을 수 없습니다. 앱 설정에서 해당 캘린더에 대해 CalDAV 동기화를 활성화해주세요.</string>
+    <string name="caldav_event_not_found">일정을 찾을 수 없습니다. 앱 설정에서 해당 캘린더에 대해 CalDAV 동기화를 활성화해 주세요.</string>
     <string name="monday_alt">월요일</string>
     <string name="tuesday_alt">화요일</string>
     <string name="wednesday_alt">수요일</string>
@@ -216,17 +216,17 @@
         <item quantity="other">앞으로 %d개월 이내</item>
     </plurals>
     <string name="faq_6_title">캘린더를 바꾸거나 없애려면 어떻게 해야 하나요?</string>
-    <string name="accessibility_next_day">다음 일로 이동</string>
+    <string name="accessibility_next_day">다음 날로 이동</string>
     <string name="within_the_next">기간 직접 설정…</string>
     <string name="widget_todays_date">오늘 달력</string>
     <string name="add_anniversaries_automatically">새로운 기념일 자동 추가</string>
-    <string name="accessibility_previous_month">이전 월로 이동</string>
-    <string name="accessibility_next_month">다음 월로 이동</string>
+    <string name="accessibility_previous_month">이전 달로 이동</string>
+    <string name="accessibility_next_month">다음 달로 이동</string>
     <string name="fifth_m">다섯 번째</string>
     <string name="enter_a_country">국가 또는 시간대 입력</string>
     <string name="export_tasks">할 일 내보내기</string>
     <string name="export_past_entries">과거 항목 포함 내보내기</string>
-    <string name="accessibility_previous_day">이전 일로 이동</string>
+    <string name="accessibility_previous_day">이전 날로 이동</string>
     <string name="no_upcoming_events">예정된 일정이 없습니다.</string>
     <string name="default_calendar_color">기본 캘린더 색상</string>
     <string name="new_task">새 할 일</string>
@@ -249,7 +249,7 @@
     <string name="faq_5_title">앱에 알림이 표시되지 않는데 왜 그런가요?</string>
     <string name="midnight_spanning">자정을 넘기는 일정을 상단 바에 표시하기</string>
     <string name="faq_4_text">네, 그렇습니다. 기본적으로 모든 일정은 현재 시간대에 생성됩니다. 일정의 시간대를 변경하려면 먼저 앱 설정에서 \"일정 시간대 변경 허용\"을 활성화한 다음 일정 세부정보 화면에서 시간대를 변경해야 합니다. 대부분의 사람들은 이 기능이 필요하지 않으므로 기본적으로 비활성화되어 있습니다.</string>
-    <string name="faq_5_text">알림을 차단하거나 백그라운드에서 앱을 종료하는 것이 없는지 디바이스 배터리 및 알림 설정을 확인해 보세요. 추가적으로 &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;에서 유용한 팁을 확인할 수 있습니다.</string>
+    <string name="faq_5_text">알림을 차단하거나 백그라운드에서 앱을 종료하는 것이 없는지 기기 배터리 및 알림 설정을 확인해 보세요. 추가적으로 &lt;a href=https://dontkillmyapp.com&gt;https://dontkillmyapp.com&lt;/a&gt;에서 유용한 팁을 확인할 수 있습니다.</string>
     <string name="faq_6_text">두 기능 모두 앱 설정 - 캘린더 관리에서 확인할 수 있습니다. 원하는 캘린더를 클릭하여 라벨과 색상을 변경하거나, 길게 눌러 선택 후 상단 메뉴의 휴지통을 사용해 삭제할 수 있습니다.</string>
     <string name="offline_never_synced">오프라인(동기화 없음)</string>
     <string name="manage_holidays">공휴일 관리</string>
