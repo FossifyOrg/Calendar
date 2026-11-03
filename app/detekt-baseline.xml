@@ -275,12 +275,9 @@
     <ID>MaxLineLength:EventListAdapter.kt$EventListAdapter$val eventsToDelete = listItems.filter { selectedKeys.contains((it as? ListEvent)?.hashCode()) } as List&lt;ListEvent&gt;</ID>
     <ID>MaxLineLength:EventListWidgetAdapter.kt$EventListWidgetAdapter$if</ID>
     <ID>MaxLineLength:EventListWidgetAdapter.kt$EventListWidgetAdapter$}</ID>
-    <ID>MaxLineLength:EventsDao.kt$EventsDao$//val selection = "$COL_REMINDER_MINUTES != -1 AND ($COL_START_TS &gt; ? OR $COL_REPEAT_INTERVAL != 0) AND $COL_START_TS != 0"</ID>
-    <ID>MaxLineLength:EventsDao.kt$EventsDao$@Query("SELECT * FROM events WHERE reminder_1_minutes != -1 AND (start_ts &gt; :currentTS OR repeat_interval != 0) AND start_ts != 0")</ID>
-    <ID>MaxLineLength:EventsDao.kt$EventsDao$@Query("SELECT * FROM events WHERE start_ts &lt;= :toTS AND end_ts &gt;= :fromTS AND start_ts != 0 AND repeat_interval = 0 AND event_type IN (:calendarIds) AND (title LIKE :searchQuery OR location LIKE :searchQuery OR description LIKE :searchQuery)")</ID>
-    <ID>MaxLineLength:EventsDao.kt$EventsDao$@Query("SELECT * FROM events WHERE start_ts &lt;= :toTS AND end_ts &gt;= :fromTS AND start_ts != 0 AND repeat_interval = 0 AND event_type IN (:calendarIds)")</ID>
-    <ID>MaxLineLength:EventsDao.kt$EventsDao$@Query("SELECT * FROM events WHERE start_ts &lt;= :toTS AND start_ts != 0 AND repeat_interval != 0 AND event_type IN (:calendarIds) AND (title LIKE :searchQuery OR location LIKE :searchQuery OR description LIKE :searchQuery)")</ID>
-    <ID>MaxLineLength:EventsDao.kt$EventsDao$@Query("SELECT * FROM events WHERE start_ts &lt;= :toTS AND start_ts != 0 AND repeat_interval != 0 AND event_type IN (:calendarIds)")</ID>
+    <ID>MaxLineLength:EventsDao.kt$EventsDao$@Query("SELECT * FROM events WHERE start_ts &lt;= :toTS AND end_ts &gt;= :fromTS AND repeat_interval = 0 AND event_type IN (:calendarIds) AND (title LIKE :searchQuery OR location LIKE :searchQuery OR description LIKE :searchQuery)")</ID>
+    <ID>MaxLineLength:EventsDao.kt$EventsDao$@Query("SELECT * FROM events WHERE start_ts &lt;= :toTS AND end_ts &gt;= :fromTS AND repeat_interval = 0 AND event_type IN (:calendarIds)")</ID>
+    <ID>MaxLineLength:EventsDao.kt$EventsDao$@Query("SELECT * FROM events WHERE start_ts &lt;= :toTS AND repeat_interval != 0 AND event_type IN (:calendarIds) AND (title LIKE :searchQuery OR location LIKE :searchQuery OR description LIKE :searchQuery)")</ID>
     <ID>MaxLineLength:EventsDao.kt$EventsDao$@Query("SELECT * FROM events WHERE start_ts &lt;= :toTS AND start_ts &gt;= :fromTS AND event_type IN (:calendarIds) AND type = $TYPE_TASK")</ID>
     <ID>MaxLineLength:EventsDatabase.kt$EventsDatabase.Companion.&lt;no name provided&gt;$execSQL("CREATE TABLE IF NOT EXISTS `tasks` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `task_id` INTEGER NOT NULL, `start_ts` INTEGER NOT NULL, `flags` INTEGER NOT NULL)")</ID>
     <ID>MaxLineLength:EventsDatabase.kt$EventsDatabase.Companion.&lt;no name provided&gt;$execSQL("CREATE TABLE IF NOT EXISTS `widgets` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `widget_id` INTEGER NOT NULL, `period` INTEGER NOT NULL)")</ID>
