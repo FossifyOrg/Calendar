@@ -266,4 +266,7 @@
     <string name="show_widget_header">Erakutsi goiburua</string>
     <string name="offline_never_synced">Lineaz kanpo (sinkronizatu gabe)</string>
     <string name="allow_alarms_reminders">Aplikazioari alarmak programatzeko baimena eman behar diozu abisuak behar bezala funtzionatzeko.</string>
+    <string name="manage_holidays">Kudeatu jaiegunak</string>
+    <string name="holidays_updated">Jaiegunak eguneratu dira</string>
+    <string name="holiday_management_notice">Aplikazioak jaiegunak automatikoki eguneratzen ditu orain. Hautatu berriro zure herrialdeak hau gaitzeko. Baliteke lehenago inportatutako jaiegunak eskuz kendu behar izatea.</string>
 </resources>
