@@ -17,6 +17,7 @@ import org.fossify.calendar.extensions.config
 import org.fossify.calendar.extensions.eventsHelper
 import org.fossify.calendar.extensions.getViewBitmap
 import org.fossify.calendar.extensions.printBitmap
+import org.fossify.calendar.extensions.seconds
 import org.fossify.calendar.helpers.*
 import org.fossify.calendar.interfaces.NavigationListener
 import org.fossify.calendar.models.Event
@@ -103,6 +104,13 @@ class DayFragment : Fragment() {
         val sorted = ArrayList(events.sortedWith(compareBy({ !it.getIsAllDay() }, { it.startTS }, { it.endTS }, { it.title }, {
             if (replaceDescription) it.location else it.description
         })))
+
+        // remove events that do not occur today, but happen to end on midnight
+        sorted.removeIf {
+            val startDateTimeSeconds = Formatter.getDateTimeFromTS(it.startTS).seconds()
+            val endDateTimeSeconds = Formatter.getDateTimeFromTS(it.endTS).seconds()
+            startDateTimeSeconds != endDateTimeSeconds && Formatter.getDateTimeFromTS(endDateTimeSeconds) == Formatter.getDateTimeFromTS(Formatter.getDayStartTS(mDayCode)).withTimeAtStartOfDay()
+        }
 
         activity?.runOnUiThread {
             updateEvents(sorted)
