@@ -74,12 +74,10 @@ class EventsDaoGetOneTimeEventsFromToWithCalendarIdsTest {
     @Test
     @Throws(Exception::class)
     fun bug440_EventAtMidnightOnFirstJan1970() {
-        expectedFailure("https://github.com/FossifyOrg/Calendar/issues/440") {
-            eventsDao.insertOrUpdate(Event(id = 0, startTS = 0, endTS = 3600, calendarId = calendarId))
+        eventsDao.insertOrUpdate(Event(id = 0, startTS = 0, endTS = 3600, calendarId = calendarId))
 
-            val eventsOnFirstJan1970 = eventsDao.getOneTimeEventsFromToWithCalendarIds(86400, 0, listOf(calendarId))
+        val eventsOnFirstJan1970 = eventsDao.getOneTimeEventsFromToWithCalendarIds(86400, 0, listOf(calendarId))
 
-            Assert.assertEquals(1, eventsOnFirstJan1970.count())
-        }
+        Assert.assertEquals(1, eventsOnFirstJan1970.count())
     }
 }
