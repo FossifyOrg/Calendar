@@ -630,8 +630,14 @@ class WeekFragment : Fragment(), WeeklyCalendar {
             val startDateTime = Formatter.getDateTimeFromTS(event.startTS)
             val startDayCode = Formatter.getDayCodeFromDateTime(startDateTime)
             val endDateTime = Formatter.getDateTimeFromTS(event.endTS)
-            val endDayCode = Formatter.getDayCodeFromDateTime(endDateTime)
+            val endDayCode = Formatter.getDayCodeFromTS(getEventLastSecondTS(event))
             val isAllDay = event.getIsAllDay()
+            // an event ending exactly at midnight ends at the end of its last day
+            val endMinuteOfDay = if (endDayCode == Formatter.getDayCodeFromDateTime(endDateTime)) {
+                endDateTime.minuteOfDay
+            } else {
+                1440
+            }
 
             if (isAllDay) {
                 continue
@@ -654,7 +660,7 @@ class WeekFragment : Fragment(), WeeklyCalendar {
                     else -> 0
                 }
                 val duration = when {
-                    currentDayCode == endDayCode && !isAllDay -> (endDateTime.minuteOfDay - startMinutes)
+                    currentDayCode == endDayCode && !isAllDay -> (endMinuteOfDay - startMinutes)
                     else -> 1440
                 }
 
@@ -745,8 +751,7 @@ class WeekFragment : Fragment(), WeeklyCalendar {
         dayevents@ for (event in events) {
             val startDateTime = Formatter.getDateTimeFromTS(event.startTS)
             val startDayCode = Formatter.getDayCodeFromDateTime(startDateTime)
-            val endDateTime = Formatter.getDateTimeFromTS(event.endTS)
-            val endDayCode = Formatter.getDayCodeFromDateTime(endDateTime)
+            val endDayCode = Formatter.getDayCodeFromTS(getEventLastSecondTS(event))
 
             val isOnTopBar = shouldAddEventOnTopBar(event.getIsAllDay(), startDayCode, endDayCode)
             if (isOnTopBar) {
@@ -931,6 +936,11 @@ class WeekFragment : Fragment(), WeeklyCalendar {
         }
     }
 
+    // timed events ending exactly at midnight must not leak into the next day
+    private fun getEventLastSecondTS(event: Event): Long {
+        return if (!event.getIsAllDay() && event.endTS > event.startTS) event.endTS - 1 else event.endTS
+    }
+
     private fun shouldAddEventOnTopBar(
         isAllDay: Boolean,
         startDayCode: String,
@@ -983,7 +993,7 @@ class WeekFragment : Fragment(), WeeklyCalendar {
             }
 
             val startDateTime = Formatter.getDateTimeFromTS(event.startTS)
-            val endDateTime = Formatter.getDateTimeFromTS(event.endTS)
+            val endDateTime = Formatter.getDateTimeFromTS(getEventLastSecondTS(event))
             val eventStartDayStartTime = startDateTime.withTimeAtStartOfDay().seconds()
             val eventEndDayStartTime = endDateTime.withTimeAtStartOfDay().seconds()
 
