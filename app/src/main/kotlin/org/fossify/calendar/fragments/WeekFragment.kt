@@ -919,8 +919,14 @@ class WeekFragment : Fragment(), WeeklyCalendar {
         startDayCode: String,
         endDayCode: String
     ): Boolean {
-        val spansMultipleDays = startDayCode != endDayCode
-        return isAllDay || (spansMultipleDays && config.showMidnightSpanningEventsAtTop)
+        if (isAllDay) return true
+
+        // events crossing a single midnight are only split into two regular events in the grid
+        val daysSpanned = Days.daysBetween(
+            Formatter.getDateTimeFromCode(startDayCode),
+            Formatter.getDateTimeFromCode(endDayCode)
+        ).days
+        return daysSpanned > 1 && config.showMidnightSpanningEventsAtTop
     }
 
     @SuppressLint("NewApi")
