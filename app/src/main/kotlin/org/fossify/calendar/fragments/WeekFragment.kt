@@ -633,13 +633,21 @@ class WeekFragment : Fragment(), WeeklyCalendar {
             val endDayCode = Formatter.getDayCodeFromDateTime(endDateTime)
             val isAllDay = event.getIsAllDay()
 
-            if (shouldAddEventOnTopBar(isAllDay, startDayCode, endDayCode)) {
+            if (isAllDay) {
                 continue
             }
 
+            val isOnTopBar = shouldAddEventOnTopBar(isAllDay, startDayCode, endDayCode)
             var currentDateTime = startDateTime
             var currentDayCode = Formatter.getDayCodeFromDateTime(currentDateTime)
             do {
+                // long events shown in the top bar only use the grid for their partial first and last day
+                if (isOnTopBar && currentDayCode != startDayCode && currentDayCode != endDayCode) {
+                    currentDateTime = currentDateTime.plusDays(1)
+                    currentDayCode = Formatter.getDayCodeFromDateTime(currentDateTime)
+                    continue
+                }
+
                 // all-day events always start at the 0 minutes and end at the end of the day (1440 minutes)
                 val startMinutes = when {
                     currentDayCode == startDayCode && !isAllDay -> (startDateTime.minuteOfDay)
@@ -740,12 +748,21 @@ class WeekFragment : Fragment(), WeeklyCalendar {
             val endDateTime = Formatter.getDateTimeFromTS(event.endTS)
             val endDayCode = Formatter.getDayCodeFromDateTime(endDateTime)
 
-            if (shouldAddEventOnTopBar(event.getIsAllDay(), startDayCode, endDayCode)) {
+            val isOnTopBar = shouldAddEventOnTopBar(event.getIsAllDay(), startDayCode, endDayCode)
+            if (isOnTopBar) {
                 addAllDayEvent(event)
-            } else {
+            }
+
+            if (!event.getIsAllDay()) {
                 var currentDateTime = startDateTime
                 var currentDayCode = Formatter.getDayCodeFromDateTime(currentDateTime)
                 do {
+                    if (isOnTopBar && currentDayCode != startDayCode && currentDayCode != endDayCode) {
+                        currentDateTime = currentDateTime.plusDays(1)
+                        currentDayCode = Formatter.getDayCodeFromDateTime(currentDateTime)
+                        continue
+                    }
+
                     val dayOfWeek = dayColumns.indexOfFirst { it.tag == currentDayCode }
                     if (dayOfWeek == -1 || dayOfWeek >= config.weeklyViewDays) {
                         if (startDayCode != endDayCode) {
