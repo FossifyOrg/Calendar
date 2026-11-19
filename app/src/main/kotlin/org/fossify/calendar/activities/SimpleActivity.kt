@@ -1,6 +1,9 @@
 package org.fossify.calendar.activities
 
+import android.accounts.Account
+import android.accounts.AccountManager
 import android.content.Context
+import android.content.Intent
 import android.database.ContentObserver
 import android.os.Handler
 import android.provider.CalendarContract
@@ -9,6 +12,7 @@ import org.fossify.calendar.BuildConfig
 import org.fossify.calendar.R
 import org.fossify.calendar.extensions.config
 import org.fossify.calendar.extensions.getAlarmManager
+import org.fossify.calendar.extensions.getInaccessibleCalDAVAccounts
 import org.fossify.calendar.extensions.refreshCalDAVCalendars
 import org.fossify.commons.activities.BaseSimpleActivity
 import org.fossify.commons.dialogs.ConfirmationDialog
@@ -23,6 +27,11 @@ open class SimpleActivity : BaseSimpleActivity() {
     val CALDAV_REFRESH_DELAY = 3000L
     val calDAVRefreshHandler = Handler()
     var calDAVRefreshCallback: (() -> Unit)? = null
+    private val accountsAwaitingAccess = ArrayDeque<Account>()
+
+    companion object {
+        private const val REQUEST_CALDAV_ACCOUNT_ACCESS = 5
+    }
 
     override fun getAppIconIDs() = arrayListOf(
         R.mipmap.ic_launcher_red,
@@ -50,13 +59,41 @@ open class SimpleActivity : BaseSimpleActivity() {
 
     override fun getRepositoryName() = "Calendar"
 
-    fun Context.syncCalDAVCalendars(callback: () -> Unit) {
+    fun Context.syncCalDAVCalendars(askForAccountAccess: Boolean = false, callback: () -> Unit) {
         calDAVRefreshCallback = callback
+        ensureBackgroundThread {
+            val inaccessibleAccounts = if (askForAccountAccess) getInaccessibleCalDAVAccounts() else emptyList()
+            runOnUiThread {
+                accountsAwaitingAccess.clear()
+                accountsAwaitingAccess.addAll(inaccessibleAccounts)
+                requestNextAccountAccessOrSync()
+            }
+        }
+    }
+
+    // opens the system account chooser for the next account awaiting access, or requests the sync once none is left
+    private fun requestNextAccountAccessOrSync() {
+        val account = accountsAwaitingAccess.removeFirstOrNull()
+        if (account != null) {
+            val intent = AccountManager.newChooseAccountIntent(
+                account, listOf(account), arrayOf(account.type), null, null, null, null
+            )
+            startActivityForResult(intent, REQUEST_CALDAV_ACCOUNT_ACCESS)
+            return
+        }
+
         ensureBackgroundThread {
             val uri = CalendarContract.Calendars.CONTENT_URI
             contentResolver.unregisterContentObserver(calDAVSyncObserver)
             contentResolver.registerContentObserver(uri, false, calDAVSyncObserver)
             refreshCalDAVCalendars(config.caldavSyncedCalendarIds, true)
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
+        super.onActivityResult(requestCode, resultCode, resultData)
+        if (requestCode == REQUEST_CALDAV_ACCOUNT_ACCESS) {
+            requestNextAccountAccessOrSync()
         }
     }
 

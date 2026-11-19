@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Fixed
+- Fixed manual CalDAV refresh not syncing calendars on Android 13+ ([#270])
 
 ## [1.12.2] - 2026-11-06
 ### Changed
@@ -250,6 +252,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#196]: https://github.com/FossifyOrg/Calendar/issues/196
 [#217]: https://github.com/FossifyOrg/Calendar/issues/217
 [#262]: https://github.com/FossifyOrg/Calendar/issues/262
+[#270]: https://github.com/FossifyOrg/Calendar/issues/270
 [#337]: https://github.com/FossifyOrg/Calendar/issues/337
 [#393]: https://github.com/FossifyOrg/Calendar/issues/393
 [#394]: https://github.com/FossifyOrg/Calendar/issues/394
