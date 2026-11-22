@@ -194,6 +194,17 @@ fun Context.scheduleAllEvents() {
 }
 
 fun Context.scheduleNextEventReminder(event: Event, showToasts: Boolean) {
+    ensureBackgroundThread {
+        scheduleNextEventReminderSync(event, showToasts)
+    }
+}
+
+/**
+ * Schedules the next reminder for [event] on the calling thread. Use this from broadcast receivers
+ * (together with goAsync) so the alarm is guaranteed to be set before the receiver finishes,
+ * otherwise the process may be frozen/killed before the next reminder gets scheduled.
+ */
+fun Context.scheduleNextEventReminderSync(event: Event, showToasts: Boolean) {
     val validReminders = event.getReminders().filter { it.type == REMINDER_NOTIFICATION }
     if (validReminders.isEmpty()) {
         if (showToasts) {
@@ -205,7 +216,7 @@ fun Context.scheduleNextEventReminder(event: Event, showToasts: Boolean) {
     val now = getNowSeconds()
     val reminderSeconds = validReminders.reversed().map { it.minutes * 60 }
     val isTask = event.isTask()
-    eventsHelper.getEvents(now, now + YEAR, event.id!!, false) { events ->
+    eventsHelper.getEventsSync(now, now + YEAR, event.id!!, false) { events ->
         if (events.isNotEmpty()) {
             for (curEvent in events) {
                 if (isTask && curEvent.isTaskCompleted()) {
@@ -220,7 +231,7 @@ fun Context.scheduleNextEventReminder(event: Event, showToasts: Boolean) {
                             curEvent,
                             showToasts
                         )
-                        return@getEvents
+                        return@getEventsSync
                     }
                 }
             }
@@ -438,6 +449,16 @@ fun Context.notifyRunningEvents() {
 }
 
 fun Context.notifyEvent(originalEvent: Event) {
+    ensureBackgroundThread {
+        notifyEventSync(originalEvent)
+    }
+}
+
+/**
+ * Shows the reminder notification for [originalEvent] on the calling thread.
+ * Must not be called from the main thread as it accesses the database.
+ */
+fun Context.notifyEventSync(originalEvent: Event) {
     var event = originalEvent.copy()
     val currentSeconds = getNowSeconds()
 
@@ -485,18 +506,16 @@ fun Context.notifyEvent(originalEvent: Event) {
     )
     val descriptionOrLocation = if (config.replaceDescription) event.location else event.description
     val content = "$displayedStartDate $timeRange $descriptionOrLocation".trim()
-    ensureBackgroundThread {
-        if (event.isTask()) eventsHelper.updateIsTaskCompleted(event)
-        val notification = getNotification(pendingIntent, event, content)
-        val notificationManager =
-            getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-        try {
-            if (notification != null) {
-                notificationManager.notify(event.id!!.toInt(), notification)
-            }
-        } catch (e: Exception) {
-            showErrorToast(e)
+    if (event.isTask()) eventsHelper.updateIsTaskCompleted(event)
+    val notification = getNotification(pendingIntent, event, content)
+    val notificationManager =
+        getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+    try {
+        if (notification != null) {
+            notificationManager.notify(event.id!!.toInt(), notification)
         }
+    } catch (e: Exception) {
+        showErrorToast(e)
     }
 }
 
