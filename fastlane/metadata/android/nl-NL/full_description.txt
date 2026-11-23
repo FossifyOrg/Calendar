@@ -1,0 +1,44 @@
+Heb je genoeg van rommelige agenda's en zorgen over privacy?
+
+Fossify Agenda brengt daar verandering in. Je open-source basis om het leven te organiseren, gebouwd rond privacy en vol krachtige functies om je zaken op orde te houden.
+
+Fossify Agenda is anders omdat:
+
+🚫 ADVERTENTIE-VRIJ EN PRIVÉ: 
+Jouw afspraken blijven van jou. Geen advertenties, geen tracking, geen afgedwongen toestemmingen.
+
+⏰ FLEXIBEL EN CONFIGUREERBAAR: 
+Maak je afspraken compleet met tijd, duur, herinneringen, en slimme regels voor herhalingen.
+
+🔄 VLOT SYNCHRONISEREN: 
+Sunchroniseer moeiteloos met Google Agenda, Outlook, Nextcloud, Exchange, en meer.
+
+🎨 PERSONALISEER JE PLANNER: 
+Kies eigen geluiden, herhalende audio streams, trillen en thema's naar jouw voorkeuren.
+
+🌈 LEVENDIGE WIDGETS: 
+Kleur je dag met mooie agenda widgets en thema's voor je startscherm.
+
+📅 MOEITELOOS JE DAG BEHEREN:
+Plan je dag met gemak, of je nu een drukke professional bent of een gezin organiseert.
+
+🎉 BELANGRIJKE FEESTEN: 
+Mis nooit een verjaardag of jubileum! Importeer vlot feestdagen en speciale datums.
+
+🔍 GEFILTERDE BEELDEN: 
+Vind snel wat je zoekt door afspraken te filteren.
+
+📆 MEERDERE WEERGAVEN: 
+Wissel vlot naar dag-, week-, maand- en jaarweergave.
+
+✨ ELEGANT DESIGN: 
+Geniet van een intuïtieve en gebruikersvriendelijke interface met dynamische thema's.
+
+En, Fossify Agenda is open-source! Sluit je aan bij de energieke gemeenschap op GitHub, lever bijdragen aan het project en maak het mee jouw eigen werk.
+
+Download Fossify Agenda nu en ervaar de kracht van een zelf aangepaste planner.
+
+Ontdek meer apps van Fossify: https://www.fossify.org
+Open broncode: https://www.github.com/FossifyOrg
+Kom bij de community op Reddit: https://www.reddit.com/r/Fossify
+Sluit aan op Telegram: https://t.me/Fossify
