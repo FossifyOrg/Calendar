@@ -35,10 +35,10 @@ class Parser {
                     repeatRule = 1 shl (start.dayOfWeek - 1)
                 } else if (value == MONTHLY || value == YEARLY) {
                     repeatRule = REPEAT_SAME_DAY
-                } else if (value == DAILY && fullString.contains(INTERVAL)) {
+                } else if (value == DAILY && (fullString.contains(INTERVAL) || fullString.contains("BYDAY"))) {
                     val interval = fullString.substringAfter("$INTERVAL=").substringBefore(";")
                     // properly handle events repeating by 14 days or so, just add a repeat rule to specify a day of the week
-                    if (interval.areDigitsOnly() && interval.toInt() % 7 == 0) {
+                    if (fullString.contains(INTERVAL) && interval.areDigitsOnly() && interval.toInt() % 7 == 0) {
                         val dateTime = Formatter.getDateTimeFromTS(startTS)
                         repeatRule = 1 shl (dateTime.dayOfWeek - 1)
                     } else if (fullString.contains("BYDAY")) {
