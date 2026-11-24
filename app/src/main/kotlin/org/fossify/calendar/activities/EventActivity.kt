@@ -42,6 +42,7 @@ import org.fossify.calendar.dialogs.SelectEventColorDialog
 import org.fossify.calendar.extensions.calDAVHelper
 import org.fossify.calendar.extensions.calendarsDB
 import org.fossify.calendar.extensions.cancelNotification
+import org.fossify.calendar.extensions.computeStartEndSeconds
 import org.fossify.calendar.extensions.config
 import org.fossify.calendar.extensions.eventsDB
 import org.fossify.calendar.extensions.eventsHelper
@@ -173,6 +174,7 @@ class EventActivity : SimpleActivity() {
     private val LAT_LON_PATTERN =
         "^[-+]?([1-8]?\\d(\\.\\d+)?|90(\\.0+)?)([,;])\\s*[-+]?(180(\\.0+)?|((1[0-7]\\d)|([1-9]?\\d))(\\.\\d+)?)\$"
     private val SELECT_TIME_ZONE_INTENT = 1
+    private val SELECT_END_TIME_ZONE_INTENT = 2
 
     private var mIsAllDayEvent = false
     private var mReminder1Minutes = REMINDER_OFF
@@ -200,6 +202,7 @@ class EventActivity : SimpleActivity() {
     private var mStatus = Events.STATUS_CONFIRMED
     private var mStoredCalendars = ArrayList<CalendarEntity>()
     private var mOriginalTimeZone = DateTimeZone.getDefault().id
+    private var mOriginalEndTimeZone = ""
     private var mOriginalStartTS = 0L
     private var mOriginalEndTS = 0L
     private var mIsNewEvent = true
@@ -350,9 +353,15 @@ class EventActivity : SimpleActivity() {
 
         savedInstanceState.apply {
             mEvent = getSerializable(EVENT) as Event
+            mEvent.timeZone = getString(TIME_ZONE) ?: TimeZone.getDefault().id
             mEventStartDateTime = Formatter.getDateTimeFromTS(getLong(START_TS))
             mEventEndDateTime = Formatter.getDateTimeFromTS(getLong(END_TS))
-            mEvent.timeZone = getString(TIME_ZONE) ?: TimeZone.getDefault().id
+            if (config.allowChangingTimeZones && !mEvent.getIsAllDay()) {
+                mEventStartDateTime =
+                    mEventStartDateTime.withZone(DateTimeZone.forID(mEvent.getTimeZoneString()))
+                mEventEndDateTime =
+                    mEventEndDateTime.withZone(DateTimeZone.forID(mEvent.getEndTimeZoneString()))
+            }
 
             mReminder1Minutes = getInt(REMINDER_1_MINUTES)
             mReminder2Minutes = getInt(REMINDER_2_MINUTES)
@@ -395,12 +404,16 @@ class EventActivity : SimpleActivity() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, resultData: Intent?) {
-        if (
-            requestCode == SELECT_TIME_ZONE_INTENT
-            && resultCode == RESULT_OK && resultData?.hasExtra(TIME_ZONE) == true
-        ) {
+        val isTimeZoneResult =
+            requestCode == SELECT_TIME_ZONE_INTENT || requestCode == SELECT_END_TIME_ZONE_INTENT
+        if (isTimeZoneResult && resultCode == RESULT_OK && resultData?.hasExtra(TIME_ZONE) == true) {
             val timeZone = resultData.getSerializableExtra(TIME_ZONE) as MyTimeZone
-            mEvent.timeZone = timeZone.zoneName
+            if (requestCode == SELECT_END_TIME_ZONE_INTENT) {
+                mEvent.endTimeZone = timeZone.zoneName
+            } else {
+                // an empty end zone keeps following the start zone (DigiCal-style seeding)
+                mEvent.timeZone = timeZone.zoneName
+            }
             updateTimeZoneText()
         }
         super.onActivityResult(requestCode, resultCode, resultData)
@@ -484,7 +497,8 @@ class EventActivity : SimpleActivity() {
         eventStartTime.setOnClickListener { setupStartTime() }
         eventEndDate.setOnClickListener { setupEndDate() }
         eventEndTime.setOnClickListener { setupEndTime() }
-        eventTimeZone.setOnClickListener { setupTimeZone() }
+        eventStartTimeZone.setOnClickListener { setupTimeZone(isEnd = false) }
+        eventEndTimeZone.setOnClickListener { setupTimeZone(isEnd = true) }
 
         eventAllDay.setOnCheckedChangeListener { _, isChecked -> toggleAllDay(isChecked) }
         eventRepetition.setOnClickListener { showRepeatIntervalDialog() }
@@ -611,22 +625,11 @@ class EventActivity : SimpleActivity() {
             val newEndTS = mEventEndDateTime.withTimeAtStartOfDay().withHourOfDay(12).seconds()
             return Pair(newStartTS, newEndTS)
         } else {
-            val offset = if (
-                !config.allowChangingTimeZones
-                || mEvent.getTimeZoneString().equals(mOriginalTimeZone, true)
-            ) {
-                0
-            } else {
-                val original = mOriginalTimeZone.ifEmpty { DateTimeZone.getDefault().id }
-                val millis = System.currentTimeMillis()
-                val newOffset = DateTimeZone.forID(mEvent.getTimeZoneString()).getOffset(millis)
-                val oldOffset = DateTimeZone.forID(original).getOffset(millis)
-                (newOffset - oldOffset) / 1000L
-            }
-
-            val newStartTS = mEventStartDateTime.seconds() - offset
-            val newEndTS = mEventEndDateTime.seconds() - offset
-            return Pair(newStartTS, newEndTS)
+            // interpret each wall-clock in its own zone; empty end zone follows the start zone
+            return computeStartEndSeconds(
+                mEventStartDateTime, mEvent.getTimeZoneString(),
+                mEventEndDateTime, mEvent.getEndTimeZoneString()
+            )
         }
     }
 
@@ -662,7 +665,6 @@ class EventActivity : SimpleActivity() {
         return binding.eventTitle.text.toString() != mEvent.title ||
                 binding.eventLocation.text.toString() != mEvent.location ||
                 binding.eventDescription.text.toString() != mEvent.description ||
-                binding.eventTimeZone.text != mEvent.getTimeZoneString() ||
                 reminders != mEvent.getReminders() ||
                 mRepeatInterval != mEvent.repeatInterval ||
                 mRepeatRule != mEvent.repeatRule ||
@@ -675,6 +677,9 @@ class EventActivity : SimpleActivity() {
                 mWasCalendarChanged ||
                 mIsAllDayEvent != mEvent.getIsAllDay() ||
                 mEventColor != mEvent.color ||
+                (!mIsNewEvent &&
+                        (mEvent.timeZone != mOriginalTimeZone ||
+                                mEvent.endTimeZone != mOriginalEndTimeZone)) ||
                 hasTimeChanged
     }
 
@@ -714,12 +719,13 @@ class EventActivity : SimpleActivity() {
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN)
         binding.eventToolbar.title = getString(R.string.edit_event)
         mOriginalTimeZone = mEvent.timeZone
+        mOriginalEndTimeZone = mEvent.endTimeZone
         if (config.allowChangingTimeZones) {
             try {
                 mEventStartDateTime = Formatter.getDateTimeFromTS(realStart)
-                    .withZone(DateTimeZone.forID(mOriginalTimeZone))
+                    .withZone(DateTimeZone.forID(mEvent.getTimeZoneString()))
                 mEventEndDateTime = Formatter.getDateTimeFromTS(realStart + duration)
-                    .withZone(DateTimeZone.forID(mOriginalTimeZone))
+                    .withZone(DateTimeZone.forID(mEvent.getEndTimeZoneString()))
             } catch (e: Exception) {
                 showErrorToast(e)
                 mEventStartDateTime = Formatter.getDateTimeFromTS(realStart)
@@ -1509,6 +1515,11 @@ class EventActivity : SimpleActivity() {
         }
 
         mIsAllDayEvent = isAllDay
+        if (isAllDay) {
+            // an all-day event carries a single zone; drop any distinct end zone now so it
+            // does not silently reappear if the user toggles all-day back off
+            mEvent.endTimeZone = ""
+        }
         binding.eventStartTime.beGoneIf(isAllDay)
         binding.eventEndTime.beGoneIf(isAllDay)
         updateTimeZoneText()
@@ -1518,9 +1529,9 @@ class EventActivity : SimpleActivity() {
 
     private fun showOrHideTimeZone() {
         val allowChangingTimeZones = config.allowChangingTimeZones && !mIsAllDayEvent
-        binding.eventTimeZoneDivider.beVisibleIf(allowChangingTimeZones)
-        binding.eventTimeZoneImage.beVisibleIf(allowChangingTimeZones)
-        binding.eventTimeZone.beVisibleIf(allowChangingTimeZones)
+        binding.eventStartTimeZone.beVisibleIf(allowChangingTimeZones)
+        binding.eventEndTimeZone.beVisibleIf(allowChangingTimeZones)
+        updateLocalTimeText()
     }
 
     private fun shareEvent() {
@@ -1686,6 +1697,7 @@ class EventActivity : SimpleActivity() {
             importId = newImportId
             timeZone =
                 if (mIsAllDayEvent || timeZone.isEmpty()) DateTimeZone.getDefault().id else timeZone
+            endTimeZone = if (mIsAllDayEvent) "" else endTimeZone
             flags = mEvent.flags.addBitIf(binding.eventAllDay.isChecked, FLAG_ALL_DAY)
             repeatLimit = if (repeatInterval == 0) 0 else mRepeatLimit
             repeatRule = mRepeatRule
@@ -1831,7 +1843,56 @@ class EventActivity : SimpleActivity() {
     }
 
     private fun updateTimeZoneText() {
-        binding.eventTimeZone.text = mEvent.getTimeZoneString()
+        val startZone = mEvent.getTimeZoneString()
+        val endZone = mEvent.getEndTimeZoneString()
+        binding.eventStartTimeZone.apply {
+            text = formatTimeZoneLabel(startZone, mEventStartDateTime.millis)
+            contentDescription = "${getString(R.string.start_time_zone)}: $text"
+        }
+        binding.eventEndTimeZone.apply {
+            text = formatTimeZoneLabel(endZone, mEventEndDateTime.millis)
+            contentDescription = "${getString(R.string.end_time_zone)}: $text"
+        }
+        updateLocalTimeText(startZone, endZone)
+    }
+
+    // Label a zone with its GMT offset at the given instant, so the start and end labels
+    // each reflect their own moment (which can differ across a DST transition).
+    private fun formatTimeZoneLabel(zoneId: String, atMillis: Long): String {
+        val offset = DateTimeZone.forID(zoneId).getOffset(atMillis) / 1000 / 60
+        val sign = if (offset < 0) "-" else "+"
+        val hours = Math.abs(offset) / 60
+        val minutes = Math.abs(offset) % 60
+        val gmt = if (minutes == 0) "GMT$sign$hours" else "GMT$sign$hours:%02d".format(minutes)
+        return "$zoneId ($gmt)"
+    }
+
+    private fun updateLocalTimeText(
+        startZone: String = mEvent.getTimeZoneString(),
+        endZone: String = mEvent.getEndTimeZoneString(),
+    ) {
+        val deviceZone = DateTimeZone.getDefault()
+        val (startTS, endTS) = computeStartEndSeconds(
+            mEventStartDateTime, startZone, mEventEndDateTime, endZone
+        )
+        // Show the readout only when the event's zones actually resolve to a different UTC
+        // offset than the device zone, so equivalent aliases (e.g. Etc/UTC vs UTC) don't trigger it.
+        val differs =
+            DateTimeZone.forID(startZone).getOffset(startTS * 1000L) !=
+                deviceZone.getOffset(startTS * 1000L) ||
+                DateTimeZone.forID(endZone).getOffset(endTS * 1000L) !=
+                deviceZone.getOffset(endTS * 1000L)
+        binding.eventLocalTime.beVisibleIf(
+            differs && config.allowChangingTimeZones && !mIsAllDayEvent
+        )
+        if (!differs) {
+            return
+        }
+
+        val localStart = Formatter.getTimeFromTS(this, startTS)
+        val localEnd = Formatter.getTimeFromTS(this, endTS)
+        binding.eventLocalTime.text =
+            getString(R.string.in_local_time, deviceZone.id, localStart, localEnd)
     }
 
     private fun checkStartEndValidity() {
@@ -2020,11 +2081,17 @@ class EventActivity : SimpleActivity() {
         }
     }
 
-    private fun setupTimeZone() {
+    private fun setupTimeZone(isEnd: Boolean) {
         hideKeyboard()
         Intent(this, SelectTimeZoneActivity::class.java).apply {
-            putExtra(CURRENT_TIME_ZONE, mEvent.getTimeZoneString())
-            startActivityForResult(this, SELECT_TIME_ZONE_INTENT)
+            putExtra(
+                CURRENT_TIME_ZONE,
+                if (isEnd) mEvent.getEndTimeZoneString() else mEvent.getTimeZoneString()
+            )
+            startActivityForResult(
+                this,
+                if (isEnd) SELECT_END_TIME_ZONE_INTENT else SELECT_TIME_ZONE_INTENT
+            )
         }
     }
 
@@ -2403,7 +2470,6 @@ class EventActivity : SimpleActivity() {
         val textColor = getProperTextColor()
         arrayOf(
             eventTimeImage,
-            eventTimeZoneImage,
             eventRepetitionImage,
             eventReminderImage,
             eventCalendarImage,
@@ -2418,6 +2484,11 @@ class EventActivity : SimpleActivity() {
         ).forEach {
             it.applyColorFilter(textColor)
         }
+
+        // the local-time readout's globe is a compound drawable, not an ImageView, so it is
+        // tinted separately to match the adaptive text color (it would otherwise render in its
+        // baked-in color and be invisible on light themes)
+        eventLocalTime.compoundDrawablesRelative.forEach { it?.applyColorFilter(textColor) }
     }
 
     private fun updateActionBarTitle() {
